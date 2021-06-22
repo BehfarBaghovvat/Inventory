@@ -1,0 +1,226 @@
+﻿#region MyRegion
+		public enum MessageIcon
+		{
+			Information,
+			Question,
+			None,
+			Error,
+			Warning,
+			Danger,
+			Success,
+		}
+
+		public enum MessageButton
+		{
+			YesNoCancel,
+			YesNo,
+			Ok,
+			OkCancel,
+			AbortRetryIgnore,
+			RetryCancel,
+		}
+		#endregion
+
+		#region Static Constructor Message
+		static MessageBox()
+		{
+
+		}
+		#endregion /Static Constructor Message
+
+		#region MyRegion
+		#region Message
+		public static void Message(string message)
+		{
+			System.Windows.Forms.MessageBox.Show(text: message);
+		}
+
+		public static void Message(string message, string caption)
+		{
+			System.Windows.Forms.MessageBox.Show(
+				text: message,
+				caption: caption,
+				buttons: System.Windows.Forms.MessageBoxButtons.OK);
+		}
+		#endregion /Message
+
+		#region InformationMessage
+		public static void InformationMessage(string text)
+		{
+			System.Windows.Forms.MessageBox.Show(
+				text: text,
+				caption: "توضیح",
+				buttons: System.Windows.Forms.MessageBoxButtons.YesNo,
+				icon: System.Windows.Forms.MessageBoxIcon.Information,
+				defaultButton: System.Windows.Forms.MessageBoxDefaultButton.Button2,
+				options: System.Windows.Forms.MessageBoxOptions.RightAlign |
+				System.Windows.Forms.MessageBoxOptions.RtlReading);
+		}
+
+		public static void InformationMessage(string text, string captiopn)
+		{
+			System.Windows.Forms.MessageBox.Show(
+				text: text,
+				caption: captiopn,
+				buttons: System.Windows.Forms.MessageBoxButtons.OK,
+				icon: System.Windows.Forms.MessageBoxIcon.Information,
+				defaultButton: System.Windows.Forms.MessageBoxDefaultButton.Button1,
+				options: System.Windows.Forms.MessageBoxOptions.RightAlign |
+				System.Windows.Forms.MessageBoxOptions.RtlReading);
+		}
+		#endregion /InformationMessage
+
+		#region QuestionMessage
+		public static void QuestionMessage(string text)
+		{
+			System.Windows.Forms.MessageBox.Show(
+				text: text,
+				caption: "پرسش",
+				buttons: System.Windows.Forms.MessageBoxButtons.RetryCancel,
+				icon: System.Windows.Forms.MessageBoxIcon.Question,
+				defaultButton: System.Windows.Forms.MessageBoxDefaultButton.Button2,
+				options: System.Windows.Forms.MessageBoxOptions.RightAlign |
+				System.Windows.Forms.MessageBoxOptions.RtlReading);
+		}
+
+		public static DialogResult QuestionMessage
+			(string text,
+			string captiopn,
+			MessageBoxButtons buttons,
+			MessageBoxIcon icon,
+			MessageBoxDefaultButton defaultButton,
+			MessageBoxOptions options)
+		{
+			System.Windows.Forms.DialogResult dialogResult = System.Windows.Forms.MessageBox.Show(
+				text: text,
+				caption: captiopn,
+				buttons: buttons,
+				defaultButton: defaultButton,
+				icon: icon,
+				options: options);
+
+			return dialogResult;
+		}
+		#endregion /QuestionMessage
+
+		#region ErrorMessage
+		public static void ErrorMessage(string text)
+		{
+			System.Windows.Forms.MessageBox.Show(
+				text: text,
+				caption: "خطا",
+				buttons: System.Windows.Forms.MessageBoxButtons.OK,
+				icon: System.Windows.Forms.MessageBoxIcon.Error,
+				defaultButton: System.Windows.Forms.MessageBoxDefaultButton.Button1,
+				options: System.Windows.Forms.MessageBoxOptions.RightAlign |
+				System.Windows.Forms.MessageBoxOptions.RtlReading);
+		}
+		#endregion ErrorMessage 
+		#endregion
+
+		#region Message
+		/// <summary>
+		/// A custom message box has 4 fields.
+		/// </summary>
+		/// <param name="message"></param>
+		/// <param name="caption"></param>
+		/// <param name="icon"></param>
+		/// <param name="button"></param>
+		/// <returns>dialogResult</returns>
+		public static DialogResult Message(string message, string caption, MessageIcon icon ,MessageButton button)
+		{
+			DialogResult dialogResult = DialogResult.None;
+
+			if (icon == MessageIcon.Information && button == MessageButton.Ok)
+			{
+				using (InformationForm information = new InformationForm())
+				{
+					information.Message = message;
+					information.Caption = caption;
+					dialogResult = information.ShowDialog();
+				}
+			}
+
+			else if (icon == MessageIcon.Success && button == MessageButton.Ok)
+			{
+				using (SuccessForm success = new SuccessForm())
+				{
+					success.Message = message;
+					success.Caption = caption;
+					dialogResult = success.ShowDialog();
+				}
+			}
+
+			else if (icon == MessageIcon.Question && button == MessageButton.YesNo)
+			{
+				using (QuestionForm question = new QuestionForm())
+				{
+					question.Message = message;
+					question.Caption = caption;
+					dialogResult = question.ShowDialog();
+				}
+			}
+
+			else if (icon == MessageIcon.Question && button == MessageButton.YesNo)
+			{
+				using (QuestionForm question = new QuestionForm())
+				{
+					question.Message = message;
+					question.Caption = caption;
+					dialogResult = question.ShowDialog();
+				}
+			}
+
+			else if (icon == MessageIcon.None && button == MessageButton.Ok)
+			{
+				using (NoneForm none = new NoneForm())
+				{
+					none.Message = message;
+					none.Caption = caption;
+					dialogResult = none.ShowDialog();
+				}
+			}
+
+			else if (icon == MessageIcon.Error && button == MessageButton.Ok)
+			{
+				using (ErrorForm error = new ErrorForm())
+				{
+					error.Message = message;
+					error.Caption = caption;
+					dialogResult = error.ShowDialog();
+				}
+			}
+
+			else if (icon == MessageIcon.Error && button == MessageButton.Ok)
+			{
+				using (ErrorForm error = new ErrorForm())
+				{
+					error.Message = message;
+					error.Caption = caption;
+					dialogResult = error.ShowDialog();
+				}
+			}
+
+			else if (icon == MessageIcon.Warning && button == MessageButton.YesNo)
+			{
+				using (WarningForm warning = new WarningForm())
+				{
+					warning.Message = message;
+					warning.Caption = caption;
+					dialogResult = warning.ShowDialog();
+				}
+			}
+
+			else if (icon == MessageIcon.Danger && button == MessageButton.YesNo)
+			{
+				using (DangerousForm dangerous = new DangerousForm())
+				{
+					dangerous.Message = message;
+					dangerous.Caption = caption;
+					dialogResult = dangerous.ShowDialog();
+				}
+			}
+
+			return dialogResult;
+		}
+		#endregion /Message
