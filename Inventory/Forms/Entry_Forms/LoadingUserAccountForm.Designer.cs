@@ -194,17 +194,17 @@ namespace Entry_Forms
 			// 
 			// fadeInTimer
 			// 
-			this.fadeInTimer.Interval = 15;
+			this.fadeInTimer.Interval = 10;
 			this.fadeInTimer.Tick += new System.EventHandler(this.FadeInTimer_Tick);
 			// 
 			// fadeOutTimer
 			// 
-			this.fadeOutTimer.Interval = 15;
+			this.fadeOutTimer.Interval = 10;
 			this.fadeOutTimer.Tick += new System.EventHandler(this.FadeOutTimer_Tick);
 			// 
 			// progressTimer
 			// 
-			this.progressTimer.Interval = 250;
+			this.progressTimer.Interval = 150;
 			this.progressTimer.Tick += new System.EventHandler(this.ProgressTimer_Tick);
 			// 
 			// label1

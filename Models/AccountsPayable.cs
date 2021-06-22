@@ -1,14 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Models
+﻿namespace Models
 {
-	public class FinancialFundOutput
+	public class AccountsPayable
 	{
-		public FinancialFundOutput()
+		public AccountsPayable()
 		{
 
 		}
@@ -31,14 +25,14 @@ namespace Models
 		public string Amount_Payable { get; set; }
 		#endregion /Amount_Payable
 
-		#region Seller_Name
-		//--DisplayName field for Seller_Name
-		[System.ComponentModel.DisplayName(displayName: "نام فروشنده")]
-		//--Lenght Seller_Name
+		#region Description
+		//--DisplayName field for Description
+		[System.ComponentModel.DisplayName(displayName: "توضیحات")]
+		//--Lenght Description
 		[System.ComponentModel.DataAnnotations.StringLength
-			(maximumLength: 60)]
-		public string Seller_Name { get; set; }
-		#endregion /Seller_Name
+			(maximumLength: 1000)]
+		public string Description { get; set; }
+		#endregion /Description
 
 		#region Id
 		//-----DisplayName field for Id
@@ -73,5 +67,14 @@ namespace Models
 			(maximumLength: 60)]
 		public string Remaininig_Amount { get; set; }
 		#endregion /Remaininig_Amount
+
+		#region Seller_Name
+		//--DisplayName field for Seller_Name
+		[System.ComponentModel.DisplayName(displayName: "نام فروشنده")]
+		//--Lenght Seller_Name
+		[System.ComponentModel.DataAnnotations.StringLength
+			(maximumLength: 60)]
+		public string Seller_Name { get; set; }
+		#endregion /Seller_Name
 	}
 }

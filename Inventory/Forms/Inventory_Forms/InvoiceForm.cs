@@ -62,15 +62,15 @@ namespace Inventory_Forms
 			}
 		}
 
-		private Models.FinancialFundInput _financialFundInput;
-		public Models.FinancialFundInput FinancialFundInput
+		private Models.AccountsReceivable _financialFundInput;
+		public Models.AccountsReceivable FinancialFundInput
 		{
 			get
 			{
 				if (_financialFundInput == null)
 				{
 					_financialFundInput =
-						new Models.FinancialFundInput();
+						new Models.AccountsReceivable();
 				}
 				return _financialFundInput;
 			}
@@ -642,7 +642,7 @@ namespace Inventory_Forms
 		/// وضعیت مالی را در هنگام پرداخت ثبت میکند.
 		/// </summary>
 		/// <param name="financialFundInput"></param>
-		private void FinancialFundInputFunction(Models.FinancialFundInput financialFundEntry)
+		private void FinancialFundInputFunction(Models.AccountsReceivable financialFundEntry)
 		{
 			Models.DataBaseContext dataBaseContext = null;
 
@@ -651,12 +651,12 @@ namespace Inventory_Forms
 				dataBaseContext =
 					new Models.DataBaseContext();
 
-				Models.FinancialFundInput financialFundInput =
+				Models.AccountsReceivable financialFundInput =
 					dataBaseContext.FinancialFundInputs
 					.FirstOrDefault();
 
 				financialFundInput =
-					new Models.FinancialFundInput
+					new Models.AccountsReceivable
 					{
 
 					};

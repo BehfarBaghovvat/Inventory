@@ -30,7 +30,6 @@ namespace Inventory_Forms
 		private void InitializeComponent()
 		{
 			this.components = new System.ComponentModel.Container();
-			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BillBuyReportForm));
 			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
 			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
 			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -38,9 +37,7 @@ namespace Inventory_Forms
 			Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties2 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
 			Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties3 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
 			Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties4 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
-			this.topPanel = new Mbb.Windows.Forms.Panel();
-			this.minimizeButton = new Guna.UI2.WinForms.Guna2Button();
-			this.closeButton = new Guna.UI2.WinForms.Guna2Button();
+			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BillBuyReportForm));
 			this.showGunaAnimateWindow = new Guna.UI.WinForms.GunaAnimateWindow(this.components);
 			this.closeFormTimer = new System.Windows.Forms.Timer(this.components);
 			this.receiptDataGridViewElipse = new Guna.UI2.WinForms.Guna2Elipse(this.components);
@@ -63,60 +60,13 @@ namespace Inventory_Forms
 			this.dateOfPrintTextBox = new System.Windows.Forms.Label();
 			this.printButton = new Guna.UI2.WinForms.Guna2GradientButton();
 			this.paymentButton = new Guna.UI2.WinForms.Guna2GradientButton();
-			this.topPanel.SuspendLayout();
+			this.topPanel = new Mbb.Windows.Forms.Panel();
+			this.minimizeButton = new Guna.UI2.WinForms.Guna2Button();
+			this.closeButton = new Guna.UI2.WinForms.Guna2Button();
 			((System.ComponentModel.ISupportInitialize)(this.productListDataGridView)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.logoPictureBox)).BeginInit();
+			this.topPanel.SuspendLayout();
 			this.SuspendLayout();
-			// 
-			// topPanel
-			// 
-			this.topPanel.Controls.Add(this.minimizeButton);
-			this.topPanel.Controls.Add(this.closeButton);
-			this.topPanel.Dock = System.Windows.Forms.DockStyle.Top;
-			this.topPanel.Location = new System.Drawing.Point(0, 0);
-			this.topPanel.Name = "topPanel";
-			this.topPanel.Size = new System.Drawing.Size(910, 30);
-			this.topPanel.TabIndex = 0;
-			// 
-			// minimizeButton
-			// 
-			this.minimizeButton.Animated = true;
-			this.minimizeButton.CheckedState.Parent = this.minimizeButton;
-			this.minimizeButton.CustomImages.Parent = this.minimizeButton;
-			this.minimizeButton.Dock = System.Windows.Forms.DockStyle.Left;
-			this.minimizeButton.FillColor = System.Drawing.Color.Transparent;
-			this.minimizeButton.Font = new System.Drawing.Font("Segoe UI", 9F);
-			this.minimizeButton.ForeColor = System.Drawing.Color.White;
-			this.minimizeButton.HoverState.Parent = this.minimizeButton;
-			this.minimizeButton.Image = ((System.Drawing.Image)(resources.GetObject("minimizeButton.Image")));
-			this.minimizeButton.ImageSize = new System.Drawing.Size(15, 15);
-			this.minimizeButton.Location = new System.Drawing.Point(50, 0);
-			this.minimizeButton.Name = "minimizeButton";
-			this.minimizeButton.ShadowDecoration.Parent = this.minimizeButton;
-			this.minimizeButton.Size = new System.Drawing.Size(50, 30);
-			this.minimizeButton.TabIndex = 1;
-			this.minimizeButton.Click += new System.EventHandler(this.MinimizeButton_Click);
-			// 
-			// closeButton
-			// 
-			this.closeButton.Animated = true;
-			this.closeButton.CheckedState.Parent = this.closeButton;
-			this.closeButton.CustomImages.Parent = this.closeButton;
-			this.closeButton.Dock = System.Windows.Forms.DockStyle.Left;
-			this.closeButton.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-			this.closeButton.Font = new System.Drawing.Font("Segoe UI", 9F);
-			this.closeButton.ForeColor = System.Drawing.Color.White;
-			this.closeButton.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-			this.closeButton.HoverState.Parent = this.closeButton;
-			this.closeButton.Image = ((System.Drawing.Image)(resources.GetObject("closeButton.Image")));
-			this.closeButton.ImageSize = new System.Drawing.Size(10, 10);
-			this.closeButton.Location = new System.Drawing.Point(0, 0);
-			this.closeButton.Name = "closeButton";
-			this.closeButton.PressedColor = System.Drawing.Color.White;
-			this.closeButton.ShadowDecoration.Parent = this.closeButton;
-			this.closeButton.Size = new System.Drawing.Size(50, 30);
-			this.closeButton.TabIndex = 0;
-			this.closeButton.Click += new System.EventHandler(this.CloseButton_Click);
 			// 
 			// showGunaAnimateWindow
 			// 
@@ -459,6 +409,57 @@ namespace Inventory_Forms
 			this.paymentButton.TabIndex = 27;
 			this.paymentButton.Text = "پرداخت  هزینه";
 			this.paymentButton.TextRenderingHint = System.Drawing.Text.TextRenderingHint.AntiAlias;
+			this.paymentButton.Click += new System.EventHandler(this.PaymentButton_Click);
+			// 
+			// topPanel
+			// 
+			this.topPanel.Controls.Add(this.minimizeButton);
+			this.topPanel.Controls.Add(this.closeButton);
+			this.topPanel.Dock = System.Windows.Forms.DockStyle.Top;
+			this.topPanel.Location = new System.Drawing.Point(0, 0);
+			this.topPanel.Name = "topPanel";
+			this.topPanel.Size = new System.Drawing.Size(910, 30);
+			this.topPanel.TabIndex = 0;
+			// 
+			// minimizeButton
+			// 
+			this.minimizeButton.Animated = true;
+			this.minimizeButton.CheckedState.Parent = this.minimizeButton;
+			this.minimizeButton.CustomImages.Parent = this.minimizeButton;
+			this.minimizeButton.Dock = System.Windows.Forms.DockStyle.Left;
+			this.minimizeButton.FillColor = System.Drawing.Color.Transparent;
+			this.minimizeButton.Font = new System.Drawing.Font("Segoe UI", 9F);
+			this.minimizeButton.ForeColor = System.Drawing.Color.White;
+			this.minimizeButton.HoverState.Parent = this.minimizeButton;
+			this.minimizeButton.Image = ((System.Drawing.Image)(resources.GetObject("minimizeButton.Image")));
+			this.minimizeButton.ImageSize = new System.Drawing.Size(15, 15);
+			this.minimizeButton.Location = new System.Drawing.Point(50, 0);
+			this.minimizeButton.Name = "minimizeButton";
+			this.minimizeButton.ShadowDecoration.Parent = this.minimizeButton;
+			this.minimizeButton.Size = new System.Drawing.Size(50, 30);
+			this.minimizeButton.TabIndex = 1;
+			this.minimizeButton.Click += new System.EventHandler(this.MinimizeButton_Click);
+			// 
+			// closeButton
+			// 
+			this.closeButton.Animated = true;
+			this.closeButton.CheckedState.Parent = this.closeButton;
+			this.closeButton.CustomImages.Parent = this.closeButton;
+			this.closeButton.Dock = System.Windows.Forms.DockStyle.Left;
+			this.closeButton.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+			this.closeButton.Font = new System.Drawing.Font("Segoe UI", 9F);
+			this.closeButton.ForeColor = System.Drawing.Color.White;
+			this.closeButton.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+			this.closeButton.HoverState.Parent = this.closeButton;
+			this.closeButton.Image = ((System.Drawing.Image)(resources.GetObject("closeButton.Image")));
+			this.closeButton.ImageSize = new System.Drawing.Size(10, 10);
+			this.closeButton.Location = new System.Drawing.Point(0, 0);
+			this.closeButton.Name = "closeButton";
+			this.closeButton.PressedColor = System.Drawing.Color.White;
+			this.closeButton.ShadowDecoration.Parent = this.closeButton;
+			this.closeButton.Size = new System.Drawing.Size(50, 30);
+			this.closeButton.TabIndex = 0;
+			this.closeButton.Click += new System.EventHandler(this.CloseButton_Click);
 			// 
 			// BillBuyReportForm
 			// 
@@ -483,9 +484,9 @@ namespace Inventory_Forms
 			this.Controls.Add(this.topPanel);
 			this.Name = "BillBuyReportForm";
 			this.Text = "BillBuyForm";
-			this.topPanel.ResumeLayout(false);
 			((System.ComponentModel.ISupportInitialize)(this.productListDataGridView)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.logoPictureBox)).EndInit();
+			this.topPanel.ResumeLayout(false);
 			this.ResumeLayout(false);
 			this.PerformLayout();
 

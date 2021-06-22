@@ -378,8 +378,6 @@ namespace Entry_Forms
 			if (this.Opacity <= 0.0)
 			{
 				fadeOutTimer.Stop();
-
-				this.Hide();
 				Inventory.Program.SingInLoaded();
 				this.Dispose();
 			}

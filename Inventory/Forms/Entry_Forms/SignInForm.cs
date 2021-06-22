@@ -225,7 +225,7 @@ namespace Entry_Forms
 
 			if (this.Opacity <= 0.0)
 			{
-				this.Close();
+				this.Dispose();
 				fadeOutSingInFormTimer.Stop();
 				LoadingUserAccountForm loadingUserAccountForm = new LoadingUserAccountForm();
 				loadingUserAccountForm.Show();
@@ -240,7 +240,7 @@ namespace Entry_Forms
 			if (this.Opacity <= 0.0)
 			{
 				fadeOutSingInFormTimer.Stop();
-				this.Close();
+				this.Dispose();
 				Inventory.Program.SingUpLoaded();
 			}
 		}

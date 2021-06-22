@@ -67,7 +67,7 @@
 		#region HideTimer_Tick
 		private void HideTimer_Tick(object sender, System.EventArgs e)
 		{
-			this.Opacity -= 0.01;
+			this.Opacity -= 0.05;
 
 			if (this.Opacity <= 0.0)
 			{

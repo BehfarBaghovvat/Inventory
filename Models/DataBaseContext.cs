@@ -19,8 +19,8 @@
 		public System.Data.Entity.DbSet<CapitalFund> CapitalFunds { get; set; }
 		public System.Data.Entity.DbSet<Client> Clients { get; set; }
 		public System.Data.Entity.DbSet<EventLog> EventLogs { get; set; }
-		public System.Data.Entity.DbSet<FinancialFundInput> FinancialFundInputs { get; set; }
-		public System.Data.Entity.DbSet<FinancialFundOutput> FinancialFundOutputs { get; set; }
+		public System.Data.Entity.DbSet<AccountsReceivable> FinancialFundInputs { get; set; }
+		public System.Data.Entity.DbSet<AccountsPayable> FinancialFundOutputs { get; set; }
 		public System.Data.Entity.DbSet<InventoryHolding> InventoryHoldings { get; set; }
 		public System.Data.Entity.DbSet<LoginHistory> LoginHistories { get; set; }
 		public System.Data.Entity.DbSet<InventoryOutput> InventoryOutputs { get; set; }

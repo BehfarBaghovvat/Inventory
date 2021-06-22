@@ -170,7 +170,7 @@ namespace Inventory
 		#region ShutDownMainFormTime_Tick
 		private void ShutDownMainFormTime_Tick(object sender, System.EventArgs e)
 		{
-			this.Opacity -= 0.01;
+			this.Opacity -= 0.1;
 
 			if (this.Opacity <= 0.0)
 			{
@@ -199,12 +199,12 @@ namespace Inventory
 		#region LogOutMainFormTimer_Tick
 		private void LogOutMainFormTimer_Tick(object sender, System.EventArgs e)
 		{
-			this.Opacity -= 0.01;
+			this.Opacity -= 0.05;
 
 			if (this.Opacity == 0.0)
 			{
 				shutDownMainFormTime.Stop();
-				this.Close();
+				this.Dispose();
 				Inventory.Program.SingInLoaded();
 			}
 		}
@@ -213,14 +213,20 @@ namespace Inventory
 		#region LogoutButton_Click
 		private void LogoutButton_Click(object sender, System.EventArgs e)
 		{
-			if (Mbb.Windows.Forms.MessageBox.Show(text: "از حساب کاربری خود \n خارج می شوید؟", caption: "خروج از حساب", icon: Mbb.Windows.Forms.MessageBoxIcon.Question, button: Mbb.Windows.Forms.MessageBoxButtons.YesNo) == System.Windows.Forms.DialogResult.Yes)
+			if (string.Compare(Inventory.Program.UserAuthentication.Username,"admin")==0)
 			{
 				logOutMainFormTimer.Start();
-
 			}
 			else
 			{
-				return;
+				if (Mbb.Windows.Forms.MessageBox.Show(text: "از حساب کاربری خود خارج می شوید؟", caption: "خروج از حساب", icon: Mbb.Windows.Forms.MessageBoxIcon.Question, button: Mbb.Windows.Forms.MessageBoxButtons.YesNo) == System.Windows.Forms.DialogResult.Yes)
+				{
+					logOutMainFormTimer.Start();
+				}
+				else
+				{
+					return;
+				}
 			}
 		}
 		#endregion /LogoutButton_Click

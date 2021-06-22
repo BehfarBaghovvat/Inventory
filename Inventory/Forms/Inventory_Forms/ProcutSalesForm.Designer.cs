@@ -151,12 +151,13 @@ namespace Inventory_Forms
 			this.inventoryHoldingDataGridView.RowHeadersVisible = false;
 			this.inventoryHoldingDataGridView.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
 			dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+			dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(212)))), ((int)(((byte)(212)))));
+			dataGridViewCellStyle4.Font = new System.Drawing.Font("IRANSansXFaNum", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+			dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
+			dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
+			dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Black;
 			this.inventoryHoldingDataGridView.RowsDefaultCellStyle = dataGridViewCellStyle4;
 			this.inventoryHoldingDataGridView.RowTemplate.DefaultCellStyle.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-			this.inventoryHoldingDataGridView.RowTemplate.DefaultCellStyle.BackColor = System.Drawing.Color.Empty;
-			this.inventoryHoldingDataGridView.RowTemplate.DefaultCellStyle.ForeColor = System.Drawing.Color.Empty;
-			this.inventoryHoldingDataGridView.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.Empty;
-			this.inventoryHoldingDataGridView.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.Empty;
 			this.inventoryHoldingDataGridView.RowTemplate.DefaultCellStyle.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
 			this.inventoryHoldingDataGridView.RowTemplate.Height = 25;
 			this.inventoryHoldingDataGridView.RowTemplate.ReadOnly = true;

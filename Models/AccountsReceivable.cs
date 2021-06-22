@@ -1,14 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Models
+﻿namespace Models
 {
-	public class FinancialFundInput
+	public class AccountsReceivable
 	{
-		public FinancialFundInput()
+		public AccountsReceivable()
 		{
 
 		}
@@ -38,6 +32,14 @@ namespace Models
 			(maximumLength: 60)]
 		public string Client_Name { get; set; }
 		#endregion /Client_Name
+
+		#region Description
+		[System.ComponentModel.DisplayName(displayName: "توضیحات")]
+		//--Lenght FullName
+		[System.ComponentModel.DataAnnotations.StringLength
+			(maximumLength: 1000)]
+		public string Description { get; set; }
+		#endregion /Description
 
 		#region Id
 		//-----DisplayName field for Id

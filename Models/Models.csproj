@@ -57,8 +57,8 @@
     <Compile Include="DataBaseContextInitializer.cs" />
     <Compile Include="DataBaseContextInitializerBeforTheFirstRelease.cs" />
     <Compile Include="EventLog.cs" />
-    <Compile Include="FinancialFundInput.cs" />
-    <Compile Include="FinancialFundOutput.cs" />
+    <Compile Include="AccountsReceivable.cs" />
+    <Compile Include="AccountsPayable.cs" />
     <Compile Include="InventoryHolding.cs" />
     <Compile Include="LoginHistory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

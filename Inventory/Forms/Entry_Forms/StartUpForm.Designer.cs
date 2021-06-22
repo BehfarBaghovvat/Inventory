@@ -102,11 +102,12 @@ namespace Entry_Forms
 			// 
 			// hideTimer
 			// 
-			this.hideTimer.Interval = 1;
+			this.hideTimer.Interval = 10;
 			this.hideTimer.Tick += new System.EventHandler(this.HideTimer_Tick);
 			// 
 			// loadingTimer
 			// 
+			this.loadingTimer.Interval = 200;
 			this.loadingTimer.Tick += new System.EventHandler(this.LoadingTimer_Tick);
 			// 
 			// counterTimer

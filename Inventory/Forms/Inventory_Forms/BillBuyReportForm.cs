@@ -1,4 +1,4 @@
-﻿using System;
+﻿using System.Linq;
 
 namespace Inventory_Forms
 {
@@ -32,23 +32,19 @@ namespace Inventory_Forms
 		#endregion /Layer
 		public bool BillClear { get; set; }
 		public int Amount { get; set; }
-		public int AmountPayment { get; set; }
-		public string CarrierName { get; set; }
+		public int Amount_Payment { get; set; }
+		public long Capital_Fund { get; set; }
+		public string Carrier_Name { get; set; }
 		public InventoryEntranceForm MyInventoryEntranceForm { get; set; }
-		public int TotalSumPrice { get; set; }
-		public int RemainingAmount { get; set; }
-		public string SenderName { get; set; }
+		public int Total_Sum_Price { get; set; }
+		public int Remaining_Amount { get; set; }
+		public string Sender_Name { get; set; }
 		#endregion /Properties
 
 		public BillBuyReportForm()
 		{
-			SenderName = Inventory.Program.InventoryEntranceForm.senderNameTextBox.Text;
-			CarrierName = Inventory.Program.InventoryEntranceForm.carrierNameTextBox.Text;
-			TotalSumPrice = 0;
 			InitializeComponent();
-			showGunaAnimateWindow.Interval = 200;
-			showGunaAnimateWindow.AnimationType = Guna.UI.WinForms.GunaAnimateWindow.AnimateWindowType.AW_CENTER;
-			showGunaAnimateWindow.Start();
+			Initialize();
 		}
 
 		//----------Beginning of the code!----------
@@ -109,8 +105,8 @@ namespace Inventory_Forms
 
 				(reportReceip.GetComponentByName("dateOfPrintTextBox") as Stimulsoft.Report.Components.StiText).Text = receipDate;
 				(reportReceip.GetComponentByName("transferNameTextBox") as Stimulsoft.Report.Components.StiText).Text = Inventory.Program.UserAuthentication.Full_Name;
-				(reportReceip.GetComponentByName("senderNameTextBox") as Stimulsoft.Report.Components.StiText).Text = SenderName;
-				(reportReceip.GetComponentByName("carrierNameTextBox") as Stimulsoft.Report.Components.StiText).Text = CarrierName;
+				(reportReceip.GetComponentByName("senderNameTextBox") as Stimulsoft.Report.Components.StiText).Text = Sender_Name;
+				(reportReceip.GetComponentByName("carrierNameTextBox") as Stimulsoft.Report.Components.StiText).Text = Carrier_Name;
 				(reportReceip.GetComponentByName("totalSumPriceTextBox") as Stimulsoft.Report.Components.StiText).Text = totalSumPriceTextBox.Text;
 
 				reportReceip.Render();
@@ -123,6 +119,13 @@ namespace Inventory_Forms
 			}
 		}
 		#endregion /PrintButton_Click
+
+		#region PaymentButton_Click
+		private void PaymentButton_Click(object sender, System.EventArgs e)
+		{
+
+		}
+		#endregion /PaymentButton_Click
 
 		#region ProductListDataGridView_RowsAdded
 		private void ProductListDataGridView_RowsAdded(object sender, System.Windows.Forms.DataGridViewRowsAddedEventArgs e)
@@ -154,7 +157,7 @@ namespace Inventory_Forms
 		private void TotalSumPriceTextBox_TextChanged(object sender, System.EventArgs e)
 		{
 			remainingAmountTextBox.Text = totalSumPriceTextBox.Text;
-			TotalSumPrice = int.Parse(totalSumPriceTextBox.Text.Replace("تومان", string.Empty).Replace(",", string.Empty).Trim());
+			Total_Sum_Price = int.Parse(totalSumPriceTextBox.Text.Replace("تومان", string.Empty).Replace(",", string.Empty).Trim());
 		}
 		#endregion /TotalSumPriceTextBox_TextChanged
 
@@ -166,7 +169,7 @@ namespace Inventory_Forms
 
 			if (string.IsNullOrWhiteSpace(amountPaymentTextBox.Text))
 			{
-				AmountPayment = 0;
+				Amount_Payment = 0;
 				amountPaymentTextBox.Select(0, 1);
 
 				amountPaymentTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -191,7 +194,7 @@ namespace Inventory_Forms
 		{
 			if (string.IsNullOrWhiteSpace(amountPaymentTextBox.Text))
 			{
-				AmountPayment = 0;
+				Amount_Payment = 0;
 				amountPaymentTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
 				return;
 			}
@@ -211,14 +214,14 @@ namespace Inventory_Forms
 			{
 				amountPaymentTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
 				amountPaymentTextBox.Clear();
-				AmountPayment = 0;
+				Amount_Payment = 0;
 				return;
 			}
 			else
 			{
 				amountPaymentTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-				AmountPayment = int.Parse(amountPaymentTextBox.Text.Replace("تومان", string.Empty).Replace(",", string.Empty).Trim());
-				amountPaymentTextBox.Text = $"{AmountPayment:#,0} تومان";
+				Amount_Payment = int.Parse(amountPaymentTextBox.Text.Replace("تومان", string.Empty).Replace(",", string.Empty).Trim());
+				amountPaymentTextBox.Text = $"{Amount_Payment:#,0} تومان";
 			}
 		}
 		#endregion /AmountPaymentTextBox_Leave
@@ -235,14 +238,14 @@ namespace Inventory_Forms
 				string.Compare(amountPaymentTextBox.Text, "تو") == 0 ||
 				string.Compare(amountPaymentTextBox.Text, "ت") == 0)
 			{
-				AmountPayment = 0;
+				Amount_Payment = 0;
 				return;
 			}
 			else
 			{
-				AmountPayment = int.Parse(amountPaymentTextBox.Text.Replace("تومان", string.Empty).Replace(",", string.Empty).Trim());
-				RemainingAmount = TotalSumPrice + AmountPayment;
-				remainingAmountTextBox.Text = $"{RemainingAmount:#,0} تومان";
+				Amount_Payment = int.Parse(amountPaymentTextBox.Text.Replace("تومان", string.Empty).Replace(",", string.Empty).Trim());
+				Remaining_Amount = Total_Sum_Price + Amount_Payment;
+				remainingAmountTextBox.Text = $"{Remaining_Amount:#,0} تومان";
 			}
 		}
 		#endregion /AmountPaymentTextBox_TextChange
@@ -268,11 +271,11 @@ namespace Inventory_Forms
 		{
 			MyInventoryEntranceForm.RemoveBill();
 			Amount = 0;
-			AmountPayment = 0;
-			CarrierName = null;
-			TotalSumPrice = 0;
-			RemainingAmount = 0;
-			SenderName = null;
+			Amount_Payment = 0;
+			Carrier_Name = null;
+			Total_Sum_Price = 0;
+			Remaining_Amount = 0;
+			Sender_Name = null;
 
 			totalSumPriceTextBox.Text = "0 تومان";
 			amountPaymentTextBox.Clear();
@@ -303,9 +306,9 @@ namespace Inventory_Forms
 			{
 				foreach (System.Windows.Forms.DataGridViewRow row in productListDataGridView.Rows)
 				{
-					TotalSumPrice +=
+					Total_Sum_Price +=
 						int.Parse(row.Cells[4].Value.ToString().Replace("تومان", string.Empty).Replace(",", string.Empty).Trim());
-					totalSumPriceTextBox.Text = $"{TotalSumPrice:#,0} تومان";
+					totalSumPriceTextBox.Text = $"{Total_Sum_Price:#,0} تومان";
 				}
 			}
 			else
@@ -313,7 +316,104 @@ namespace Inventory_Forms
 				return;
 			}
 		}
+
 		#endregion /CalculatePurchaseAmount
+
+		#region Harvest
+		/// <summary>
+		/// تابع برداشت از صندوق
+		/// </summary>
+		/// <param name="amountPayment"></param>
+		private void Harvest(int amountPayment)
+		{
+			Capital_Fund -= amountPayment;
+
+			Models.DataBaseContext dataBaseContext = null;
+			try
+			{
+				dataBaseContext =
+					new Models.DataBaseContext();
+
+				Models.CapitalFund capitalFund =
+					dataBaseContext.CapitalFunds
+					.FirstOrDefault();
+
+				capitalFund.Capital_Fund =$"{Capital_Fund: #,0} تومان";
+
+				dataBaseContext.SaveChanges();
+				
+			}
+			catch (System.Exception ex)
+			{
+				Infrastructure.Utility.ExceptionShow(ex);
+			}
+			finally
+			{
+				if (dataBaseContext != null)
+				{
+					dataBaseContext.Dispose();
+					dataBaseContext = null;
+				}
+			}
+		}
+		#endregion /Harvest
+
+		#region Initialize
+		private void Initialize()
+		{
+			Sender_Name = MyInventoryEntranceForm.senderNameTextBox.Text;
+			Carrier_Name = MyInventoryEntranceForm.carrierNameTextBox.Text;
+			Total_Sum_Price = 0;
+			showGunaAnimateWindow.Interval = 200;
+			showGunaAnimateWindow.AnimationType = Guna.UI.WinForms.GunaAnimateWindow.AnimateWindowType.AW_CENTER;
+			showGunaAnimateWindow.Start();
+			dateOfPrintTextBox.Text = $"{Infrastructure.Utility.PersianCalendar(System.DateTime.Now)} - {Infrastructure.Utility.ShowTime()}";
+			Capital_Fund = LoadingCapitalFund();
+		}
+		#endregion /Initialize
+
+		#region LoadingCapitalFund
+		private long LoadingCapitalFund()
+		{
+			long capital_Fund;
+			Models.DataBaseContext dataBaseContext = null;
+			try
+			{
+				dataBaseContext =
+					new Models.DataBaseContext();
+
+				Models.CapitalFund capitalFund =
+					dataBaseContext.CapitalFunds
+					.OrderBy(current => current.Id)
+					.FirstOrDefault();
+				if (capitalFund == null)
+				{
+					return 0;
+				}
+				else
+				{
+					capital_Fund = long.Parse(capitalFund.Capital_Fund.Replace("تومان", string.Empty).Replace(",", string.Empty).Trim());
+					return capital_Fund;
+				}
+			}
+			catch (System.Exception ex)
+			{
+				Infrastructure.Utility.ExceptionShow(ex);
+				return 0;
+			}
+			finally
+			{
+				if (dataBaseContext != null)
+				{
+					dataBaseContext.Dispose();
+					dataBaseContext = null;
+				}
+			}
+		}
+		#endregion /LoadingCapitalFund
+
+
+
 
 		#endregion /Function
 
