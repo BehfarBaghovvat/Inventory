@@ -108,6 +108,8 @@ namespace Inventory_Forms
 				(reportReceip.GetComponentByName("senderNameTextBox") as Stimulsoft.Report.Components.StiText).Text = Sender_Name;
 				(reportReceip.GetComponentByName("carrierNameTextBox") as Stimulsoft.Report.Components.StiText).Text = Carrier_Name;
 				(reportReceip.GetComponentByName("totalSumPriceTextBox") as Stimulsoft.Report.Components.StiText).Text = totalSumPriceTextBox.Text;
+				(reportReceip.GetComponentByName("amountPaymentTextBox") as Stimulsoft.Report.Components.StiText).Text = amountPaymentTextBox.Text;
+				(reportReceip.GetComponentByName("remainingAmountTextBox") as Stimulsoft.Report.Components.StiText).Text = remainingAmountTextBox.Text;
 
 				reportReceip.Render();
 				BillBuyPrintForm.receiptStiViewerControl.Report = reportReceip;
@@ -123,7 +125,26 @@ namespace Inventory_Forms
 		#region PaymentButton_Click
 		private void PaymentButton_Click(object sender, System.EventArgs e)
 		{
+			if (Harvest(Amount_Payment) && SetAccountPayable(Amount_Payment,Total_Sum_Price,Remaining_Amount))
+			{
+				Infrastructure.Utility.WindowsNotification(message: "عملیات ثبت و پرداخت انجام گردید.", caption: Infrastructure.PopupNotificationForm.Caption.موفقیت);
 
+				Capital_Fund = LoadingCapitalFund();
+				capitalFundTextBox.Text = $"{Capital_Fund:#,0} تومان";
+
+				//if (true)
+				//{
+				//	Capital_Fund = LoadingCapitalFund();
+				//	Mbb.Windows.Forms.MessageBox.Show(text: $"موجودی صندوق \n {Capital_Fund:#,0} تومان می باشد.",
+				//		caption:"گزارش",
+				//		icon: Mbb.Windows.Forms.MessageBoxIcon.Information,
+				//		button: Mbb.Windows.Forms.MessageBoxButtons.Ok);
+				//}
+			}
+			else
+			{
+				return;
+			}
 		}
 		#endregion /PaymentButton_Click
 
@@ -166,19 +187,17 @@ namespace Inventory_Forms
 		{
 			Infrastructure.Utility.PersianLanguage();
 
-
 			if (string.IsNullOrWhiteSpace(amountPaymentTextBox.Text))
 			{
+				amountPaymentTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+				amountPaymentTextBox.Text = "0 تومان";
 				Amount_Payment = 0;
 				amountPaymentTextBox.Select(0, 1);
-
-				amountPaymentTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
 			}
 			else if (amountPaymentTextBox.Text.Contains("تومان"))
 			{
 				return;
 			}
-
 		}
 		#endregion /AmountPaymentTextBox_Enter
 
@@ -198,21 +217,15 @@ namespace Inventory_Forms
 				amountPaymentTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
 				return;
 			}
-			else if (string.Compare(amountPaymentTextBox.Text, "0 تومان") == 0)
-			{
-
-				amountPaymentTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-				amountPaymentTextBox.Clear();
-				return;
-			}
-			else if (string.Compare(amountPaymentTextBox.Text, " تومان") == 0 ||
+			else if (string.Compare(amountPaymentTextBox.Text, "0 تومان") == 0 ||
+				string.Compare(amountPaymentTextBox.Text, " تومان") == 0 ||
 				string.Compare(amountPaymentTextBox.Text, "تومان") == 0 ||
 				string.Compare(amountPaymentTextBox.Text, "توما") == 0 ||
 				string.Compare(amountPaymentTextBox.Text, "توم") == 0 ||
 				string.Compare(amountPaymentTextBox.Text, "تو") == 0 ||
 				string.Compare(amountPaymentTextBox.Text, "ت") == 0)
 			{
-				amountPaymentTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+				amountPaymentTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
 				amountPaymentTextBox.Clear();
 				Amount_Payment = 0;
 				return;
@@ -239,12 +252,14 @@ namespace Inventory_Forms
 				string.Compare(amountPaymentTextBox.Text, "ت") == 0)
 			{
 				Amount_Payment = 0;
+				Remaining_Amount = Total_Sum_Price - Amount_Payment;
+				remainingAmountTextBox.Text = $"{Remaining_Amount:#,0} تومان";
 				return;
 			}
 			else
 			{
 				Amount_Payment = int.Parse(amountPaymentTextBox.Text.Replace("تومان", string.Empty).Replace(",", string.Empty).Trim());
-				Remaining_Amount = Total_Sum_Price + Amount_Payment;
+				Remaining_Amount = Total_Sum_Price - Amount_Payment;
 				remainingAmountTextBox.Text = $"{Remaining_Amount:#,0} تومان";
 			}
 		}
@@ -324,7 +339,7 @@ namespace Inventory_Forms
 		/// تابع برداشت از صندوق
 		/// </summary>
 		/// <param name="amountPayment"></param>
-		private void Harvest(int amountPayment)
+		private bool Harvest(int amountPayment)
 		{
 			Capital_Fund -= amountPayment;
 
@@ -341,11 +356,13 @@ namespace Inventory_Forms
 				capitalFund.Capital_Fund =$"{Capital_Fund: #,0} تومان";
 
 				dataBaseContext.SaveChanges();
+				return true;
 				
 			}
 			catch (System.Exception ex)
 			{
 				Infrastructure.Utility.ExceptionShow(ex);
+				return false;
 			}
 			finally
 			{
@@ -361,14 +378,13 @@ namespace Inventory_Forms
 		#region Initialize
 		private void Initialize()
 		{
-			Sender_Name = MyInventoryEntranceForm.senderNameTextBox.Text;
-			Carrier_Name = MyInventoryEntranceForm.carrierNameTextBox.Text;
 			Total_Sum_Price = 0;
 			showGunaAnimateWindow.Interval = 200;
 			showGunaAnimateWindow.AnimationType = Guna.UI.WinForms.GunaAnimateWindow.AnimateWindowType.AW_CENTER;
 			showGunaAnimateWindow.Start();
 			dateOfPrintTextBox.Text = $"{Infrastructure.Utility.PersianCalendar(System.DateTime.Now)} - {Infrastructure.Utility.ShowTime()}";
 			Capital_Fund = LoadingCapitalFund();
+			capitalFundTextBox.Text = $"{Capital_Fund:#,0} تومان";
 		}
 		#endregion /Initialize
 
@@ -384,7 +400,6 @@ namespace Inventory_Forms
 
 				Models.CapitalFund capitalFund =
 					dataBaseContext.CapitalFunds
-					.OrderBy(current => current.Id)
 					.FirstOrDefault();
 				if (capitalFund == null)
 				{
@@ -412,7 +427,46 @@ namespace Inventory_Forms
 		}
 		#endregion /LoadingCapitalFund
 
+		#region SetAccountPayable
+		private bool SetAccountPayable(int amountPayment, int totalSumprice, int remainingAmount)
+		{
+			Models.DataBaseContext dataBaseContext = null;
+			try
+			{
+				dataBaseContext =
+					new Models.DataBaseContext();
 
+				Models.AccountsPayable accountsPayable =
+					new Models.AccountsPayable
+					{
+						Amount_Paid = $"{amountPayment:#,0} تومان",
+						Amount_Payable = $"{totalSumprice:#,0} تومان",
+						Description = string.Empty,
+						Remaininig_Amount = $"{remainingAmount:#,0} تومان",
+						Registration_Date = $"{Infrastructure.Utility.PersianCalendar(System.DateTime.Now)}",
+						Registration_Time = $"{Infrastructure.Utility.ShowTime()}",
+						Seller_Name = Sender_Name,
+					};
+				dataBaseContext.AccountsPayables.Add(accountsPayable);
+				dataBaseContext.SaveChanges();
+
+				return true;
+			}
+			catch (System.Exception ex)
+			{
+				Infrastructure.Utility.ExceptionShow(ex);
+				return false;
+			}
+			finally
+			{
+				if (dataBaseContext != null)
+				{
+					dataBaseContext.Dispose();
+					dataBaseContext = null;
+				}
+			}
+		}
+		#endregion /SetAccountPayable
 
 
 		#endregion /Function

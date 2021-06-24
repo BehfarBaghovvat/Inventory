@@ -456,7 +456,14 @@ namespace Inventory_Forms
 		#region CashPaymentTextBox_TextChange
 		private void CashPaymentTextBox_TextChange(object sender, System.EventArgs e)
 		{
-			if (string.IsNullOrWhiteSpace(cashPaymentTextBox.Text) || string.Compare(cashPaymentTextBox.Text, "0 تومان") == 0 || string.Compare(cashPaymentTextBox.Text, " تومان") == 0 || string.Compare(cashPaymentTextBox.Text, "تومان") == 0 || string.Compare(cashPaymentTextBox.Text, "توما") == 0 || string.Compare(cashPaymentTextBox.Text, "توم") == 0 || string.Compare(cashPaymentTextBox.Text, "تو") == 0 || string.Compare(cashPaymentTextBox.Text, "ت") == 0)
+			if (string.IsNullOrWhiteSpace(cashPaymentTextBox.Text) ||
+				string.Compare(cashPaymentTextBox.Text, "0 تومان") == 0 ||
+				string.Compare(cashPaymentTextBox.Text, " تومان") == 0 ||
+				string.Compare(cashPaymentTextBox.Text, "تومان") == 0 ||
+				string.Compare(cashPaymentTextBox.Text, "توما") == 0 ||
+				string.Compare(cashPaymentTextBox.Text, "توم") == 0 ||
+				string.Compare(cashPaymentTextBox.Text, "تو") == 0 ||
+				string.Compare(cashPaymentTextBox.Text, "ت") == 0)
 			{
 				CashPaymentAmount = 0;
 				AmountPayment = CashPaymentAmount + PosePaymentAmount;

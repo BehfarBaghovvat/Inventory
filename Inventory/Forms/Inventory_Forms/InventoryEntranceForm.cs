@@ -427,6 +427,8 @@ namespace Inventory_Forms
 			else
 			{
 				BillBuyReportForm.MyInventoryEntranceForm = this;
+				BillBuyReportForm.Sender_Name = senderNameTextBox.Text;
+				BillBuyReportForm.Carrier_Name = carrierNameTextBox.Text;
 				BillBuyReportForm.SetBillInDataGridView(billList);
 				BillBuyReportForm.CalculatePurchaseAmount();
 				BillBuyReportForm.ShowDialog();
@@ -901,25 +903,7 @@ namespace Inventory_Forms
 				Product_Unit = productReceived.Product_Unit,
 				Total_Price = $"{totalPrice:#,0} تومان",
 			};
-
 			billList.Add(bill);
-
-
-			//int price;
-			//int? sumPrice;
-			//price = int.Parse(productReceived.Product_Purchase_Price.Replace("تومان", string.Empty).Replace(",", string.Empty).Trim());
-			//sumPrice = (price * productReceived.Product_Quantity);
-
-
-			//BillBuyReportForm _billBuyReportForm = new BillBuyReportForm();
-
-			//_billBuyReportForm.productListDataGridView.Rows.Add
-			//(productReceived.Product_Name,
-			//productReceived.Product_Purchase_Price,
-			//productReceived.Product_Quantity,
-			//productReceived.Product_Unit,
-			//$"{sumPrice: #,0} تومان");
-		
 		}
 		#endregion /SetReceiptDataGridView
 
@@ -1007,7 +991,7 @@ namespace Inventory_Forms
 						Product_Purchase_Price = inputProductReceived.Product_Purchase_Price,
 						Product_Quantity = inputProductReceived.Product_Quantity,
 						Product_Unit = inputProductReceived.Product_Unit,
-						Transfer_Name = "ندارد", //Inventory.Program.UserAuthentication.Full_Name,
+						Transfer_Name = Inventory.Program.UserAuthentication.Full_Name,
 						Sender_Name = inputProductReceived.Sender_Name,
 						Carrier_Name = inputProductReceived.Carrier_Name,
 						Number_Edit = 0,

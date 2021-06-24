@@ -642,7 +642,7 @@ namespace Inventory_Forms
 		/// وضعیت مالی را در هنگام پرداخت ثبت میکند.
 		/// </summary>
 		/// <param name="financialFundInput"></param>
-		private void FinancialFundInputFunction(Models.AccountsReceivable financialFundEntry)
+		private void AccountsReceivableFunction(Models.AccountsReceivable _accountsReceivable)
 		{
 			Models.DataBaseContext dataBaseContext = null;
 
@@ -651,11 +651,11 @@ namespace Inventory_Forms
 				dataBaseContext =
 					new Models.DataBaseContext();
 
-				Models.AccountsReceivable financialFundInput =
-					dataBaseContext.FinancialFundInputs
+				Models.AccountsReceivable accountsReceivable =
+					dataBaseContext.AccountsReceivables
 					.FirstOrDefault();
 
-				financialFundInput =
+				accountsReceivable =
 					new Models.AccountsReceivable
 					{
 
