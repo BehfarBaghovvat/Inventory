@@ -71,9 +71,6 @@ namespace Inventory_Forms
 			this.inventoryOutputDataGridView.AllowUserToDeleteRows = false;
 			dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
 			dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
-			dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Empty;
-			dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.Empty;
-			dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Empty;
 			this.inventoryOutputDataGridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
 			this.inventoryOutputDataGridView.AutoGenerateColumns = false;
 			this.inventoryOutputDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
@@ -91,24 +88,24 @@ namespace Inventory_Forms
 			this.inventoryOutputDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
 			this.inventoryOutputDataGridView.ColumnHeadersHeight = 36;
 			this.inventoryOutputDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.idDataGridViewTextBoxColumn,
-            this.clientNameDataGridViewTextBoxColumn,
-            this.sellerNameDataGridViewTextBoxColumn,
-            this.carrierNameDataGridViewTextBoxColumn,
-            this.productNameDataGridViewTextBoxColumn,
-            this.productPriceDataGridViewTextBoxColumn,
-            this.productQuantityDataGridViewTextBoxColumn,
-            this.productUnitDataGridViewTextBoxColumn,
-            this.addOrderDateDataGridViewTextBoxColumn,
-            this.addOrderTimeDataGridViewTextBoxColumn,
-            this.productImageDataGridViewImageColumn});
+			this.idDataGridViewTextBoxColumn,
+			this.clientNameDataGridViewTextBoxColumn,
+			this.sellerNameDataGridViewTextBoxColumn,
+			this.carrierNameDataGridViewTextBoxColumn,
+			this.productNameDataGridViewTextBoxColumn,
+			this.productPriceDataGridViewTextBoxColumn,
+			this.productQuantityDataGridViewTextBoxColumn,
+			this.productUnitDataGridViewTextBoxColumn,
+			this.addOrderDateDataGridViewTextBoxColumn,
+			this.addOrderTimeDataGridViewTextBoxColumn,
+			this.productImageDataGridViewImageColumn});
 			this.inventoryOutputDataGridView.DataSource = this.inventoryOutputBindingSource;
 			dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-			dataGridViewCellStyle3.BackColor = System.Drawing.Color.LightSkyBlue;
-			dataGridViewCellStyle3.Font = new System.Drawing.Font("IRANSansXFaNum", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-			dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
-			dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-			dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.White;
+			dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
+			dataGridViewCellStyle3.Font = new System.Drawing.Font("IRANSans", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+			dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
+			dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
+			dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
 			dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
 			this.inventoryOutputDataGridView.DefaultCellStyle = dataGridViewCellStyle3;
 			this.inventoryOutputDataGridView.EnableHeadersVisualStyles = false;
@@ -295,7 +292,7 @@ namespace Inventory_Forms
 			this.searchGroupBox.CustomBorderColor = System.Drawing.Color.Silver;
 			this.searchGroupBox.CustomBorderThickness = new System.Windows.Forms.Padding(0, 30, 0, 0);
 			this.searchGroupBox.FillColor = System.Drawing.Color.Transparent;
-			this.searchGroupBox.Font = new System.Drawing.Font("IRANSans", 10F);
+			this.searchGroupBox.Font = new System.Drawing.Font("IRANSansX", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
 			this.searchGroupBox.ForeColor = System.Drawing.Color.White;
 			this.searchGroupBox.Location = new System.Drawing.Point(12, 36);
 			this.searchGroupBox.Name = "searchGroupBox";
@@ -402,12 +399,12 @@ namespace Inventory_Forms
 			this.selectSearchComboBox.HoverState.Parent = this.selectSearchComboBox;
 			this.selectSearchComboBox.ItemHeight = 30;
 			this.selectSearchComboBox.Items.AddRange(new object[] {
-            "...انتخاب جستجو",
-            "نام مشتری",
-            "نام فروشنده",
-            "نام حامل کالا",
-            "نام کالا",
-            "تاریخ ثبت"});
+			"...انتخاب جستجو",
+			"نام مشتری",
+			"نام فروشنده",
+			"نام حامل کالا",
+			"نام کالا",
+			"تاریخ ثبت"});
 			this.selectSearchComboBox.ItemsAppearance.BackColor = System.Drawing.Color.White;
 			this.selectSearchComboBox.ItemsAppearance.ForeColor = System.Drawing.Color.Black;
 			this.selectSearchComboBox.ItemsAppearance.Parent = this.selectSearchComboBox;

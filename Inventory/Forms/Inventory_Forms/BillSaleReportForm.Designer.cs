@@ -1,7 +1,7 @@
 ﻿
 namespace Inventory_Forms
 {
-	partial class InvoiceForm
+	partial class BillSaleReportForm
 	{
 		/// <summary>
 		/// Required designer variable.
@@ -34,7 +34,7 @@ namespace Inventory_Forms
 			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
 			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
 			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(InvoiceForm));
+			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BillSaleReportForm));
 			Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties1 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
 			Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties2 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
 			Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties3 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
@@ -48,13 +48,7 @@ namespace Inventory_Forms
 			Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties11 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
 			Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties12 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
 			this.invoiceDataGridViewElipse = new Guna.UI2.WinForms.Guna2Elipse(this.components);
-			this.listWareDataGridView = new System.Windows.Forms.DataGridView();
-			this.productNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.productQuantityDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.productUnitDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.productPriceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.totalPriceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.printInvoiceBindingSource = new System.Windows.Forms.BindingSource(this.components);
+			this.productsListDataGridView = new System.Windows.Forms.DataGridView();
 			this.amountPaymentTextBox = new Mbb.Windows.Forms.Label();
 			this.amountPaymentLabel = new Mbb.Windows.Forms.Label();
 			this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -91,8 +85,12 @@ namespace Inventory_Forms
 			this.posPaymentRadioButton = new Guna.UI2.WinForms.Guna2CustomRadioButton();
 			this.cachPaymentRadioButton = new Guna.UI2.WinForms.Guna2CustomRadioButton();
 			this.cashRegisterButton = new Guna.UI2.WinForms.Guna2GradientButton();
-			((System.ComponentModel.ISupportInitialize)(this.listWareDataGridView)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.printInvoiceBindingSource)).BeginInit();
+			this.Product_Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.Product_Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.Product_Quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.Product_Unit = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.Total_Sum_Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			((System.ComponentModel.ISupportInitialize)(this.productsListDataGridView)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
 			this.topPanel.SuspendLayout();
 			this.paymentTypeGroupBox.SuspendLayout();
@@ -101,46 +99,44 @@ namespace Inventory_Forms
 			// invoiceDataGridViewElipse
 			// 
 			this.invoiceDataGridViewElipse.BorderRadius = 20;
-			this.invoiceDataGridViewElipse.TargetControl = this.listWareDataGridView;
+			this.invoiceDataGridViewElipse.TargetControl = this.productsListDataGridView;
 			// 
-			// listWareDataGridView
+			// productsListDataGridView
 			// 
-			this.listWareDataGridView.AllowDrop = true;
-			this.listWareDataGridView.AllowUserToAddRows = false;
-			this.listWareDataGridView.AllowUserToDeleteRows = false;
-			this.listWareDataGridView.AllowUserToResizeColumns = false;
-			this.listWareDataGridView.AllowUserToResizeRows = false;
+			this.productsListDataGridView.AllowDrop = true;
+			this.productsListDataGridView.AllowUserToAddRows = false;
+			this.productsListDataGridView.AllowUserToDeleteRows = false;
+			this.productsListDataGridView.AllowUserToResizeColumns = false;
+			this.productsListDataGridView.AllowUserToResizeRows = false;
 			dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-			dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
+			dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
 			dataGridViewCellStyle1.Font = new System.Drawing.Font("IRANSansXFaNum", 8F);
 			dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
-			dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(85)))), ((int)(((byte)(85)))));
-			dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.White;
-			this.listWareDataGridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-			this.listWareDataGridView.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+			dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
+			dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Black;
+			this.productsListDataGridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+			this.productsListDataGridView.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-			this.listWareDataGridView.AutoGenerateColumns = false;
-			this.listWareDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-			this.listWareDataGridView.BackgroundColor = System.Drawing.Color.White;
-			this.listWareDataGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
-			this.listWareDataGridView.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
-			this.listWareDataGridView.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.Disable;
-			this.listWareDataGridView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+			this.productsListDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+			this.productsListDataGridView.BackgroundColor = System.Drawing.Color.White;
+			this.productsListDataGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
+			this.productsListDataGridView.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+			this.productsListDataGridView.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.Disable;
+			this.productsListDataGridView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
 			dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
 			dataGridViewCellStyle2.BackColor = System.Drawing.Color.Teal;
-			dataGridViewCellStyle2.Font = new System.Drawing.Font("IRANSans", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+			dataGridViewCellStyle2.Font = new System.Drawing.Font("IRANSans", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
 			dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
 			dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-			this.listWareDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
-			this.listWareDataGridView.ColumnHeadersHeight = 35;
-			this.listWareDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-			this.listWareDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.productNameDataGridViewTextBoxColumn,
-            this.productQuantityDataGridViewTextBoxColumn,
-            this.productUnitDataGridViewTextBoxColumn,
-            this.productPriceDataGridViewTextBoxColumn,
-            this.totalPriceDataGridViewTextBoxColumn});
-			this.listWareDataGridView.DataSource = this.printInvoiceBindingSource;
+			this.productsListDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+			this.productsListDataGridView.ColumnHeadersHeight = 35;
+			this.productsListDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+			this.productsListDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Product_Name,
+            this.Product_Price,
+            this.Product_Quantity,
+            this.Product_Unit,
+            this.Total_Sum_Price});
 			dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
 			dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
 			dataGridViewCellStyle3.Font = new System.Drawing.Font("IRANSans", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
@@ -148,80 +144,40 @@ namespace Inventory_Forms
 			dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(85)))), ((int)(((byte)(85)))));
 			dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
 			dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-			this.listWareDataGridView.DefaultCellStyle = dataGridViewCellStyle3;
-			this.listWareDataGridView.EnableHeadersVisualStyles = false;
-			this.listWareDataGridView.Location = new System.Drawing.Point(10, 161);
-			this.listWareDataGridView.Name = "listWareDataGridView";
-			this.listWareDataGridView.ReadOnly = true;
-			this.listWareDataGridView.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-			this.listWareDataGridView.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-			this.listWareDataGridView.RowHeadersVisible = false;
-			this.listWareDataGridView.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+			this.productsListDataGridView.DefaultCellStyle = dataGridViewCellStyle3;
+			this.productsListDataGridView.EnableHeadersVisualStyles = false;
+			this.productsListDataGridView.Location = new System.Drawing.Point(10, 161);
+			this.productsListDataGridView.Name = "productsListDataGridView";
+			this.productsListDataGridView.ReadOnly = true;
+			this.productsListDataGridView.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+			this.productsListDataGridView.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+			this.productsListDataGridView.RowHeadersVisible = false;
+			this.productsListDataGridView.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
 			dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-			dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
+			dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(170)))), ((int)(((byte)(212)))), ((int)(((byte)(212)))));
 			dataGridViewCellStyle4.Font = new System.Drawing.Font("IRANSansXFaNum", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
 			dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
-			dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(85)))), ((int)(((byte)(85)))));
-			dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.White;
-			this.listWareDataGridView.RowsDefaultCellStyle = dataGridViewCellStyle4;
-			this.listWareDataGridView.RowTemplate.DefaultCellStyle.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-			this.listWareDataGridView.RowTemplate.DefaultCellStyle.BackColor = System.Drawing.Color.White;
-			this.listWareDataGridView.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("IRANSansXFaNum", 8F);
-			this.listWareDataGridView.RowTemplate.DefaultCellStyle.ForeColor = System.Drawing.Color.Black;
-			this.listWareDataGridView.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(85)))), ((int)(((byte)(85)))));
-			this.listWareDataGridView.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.White;
-			this.listWareDataGridView.RowTemplate.Height = 25;
-			this.listWareDataGridView.RowTemplate.ReadOnly = true;
-			this.listWareDataGridView.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-			this.listWareDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-			this.listWareDataGridView.Size = new System.Drawing.Size(890, 140);
-			this.listWareDataGridView.TabIndex = 15;
-			this.listWareDataGridView.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.ListWareDataGridView_RowsAdded);
-			// 
-			// productNameDataGridViewTextBoxColumn
-			// 
-			this.productNameDataGridViewTextBoxColumn.DataPropertyName = "Product_Name";
-			this.productNameDataGridViewTextBoxColumn.HeaderText = "نام کالا";
-			this.productNameDataGridViewTextBoxColumn.Name = "productNameDataGridViewTextBoxColumn";
-			this.productNameDataGridViewTextBoxColumn.ReadOnly = true;
-			// 
-			// productQuantityDataGridViewTextBoxColumn
-			// 
-			this.productQuantityDataGridViewTextBoxColumn.DataPropertyName = "Product_Quantity";
-			this.productQuantityDataGridViewTextBoxColumn.HeaderText = "تعداد کالا";
-			this.productQuantityDataGridViewTextBoxColumn.Name = "productQuantityDataGridViewTextBoxColumn";
-			this.productQuantityDataGridViewTextBoxColumn.ReadOnly = true;
-			// 
-			// productUnitDataGridViewTextBoxColumn
-			// 
-			this.productUnitDataGridViewTextBoxColumn.DataPropertyName = "Product_Unit";
-			this.productUnitDataGridViewTextBoxColumn.HeaderText = "واحد کالا";
-			this.productUnitDataGridViewTextBoxColumn.Name = "productUnitDataGridViewTextBoxColumn";
-			this.productUnitDataGridViewTextBoxColumn.ReadOnly = true;
-			// 
-			// productPriceDataGridViewTextBoxColumn
-			// 
-			this.productPriceDataGridViewTextBoxColumn.DataPropertyName = "Product_Price";
-			this.productPriceDataGridViewTextBoxColumn.HeaderText = "قیمت کالا";
-			this.productPriceDataGridViewTextBoxColumn.Name = "productPriceDataGridViewTextBoxColumn";
-			this.productPriceDataGridViewTextBoxColumn.ReadOnly = true;
-			// 
-			// totalPriceDataGridViewTextBoxColumn
-			// 
-			this.totalPriceDataGridViewTextBoxColumn.DataPropertyName = "Total_Price";
-			this.totalPriceDataGridViewTextBoxColumn.HeaderText = "جمع مبلغ";
-			this.totalPriceDataGridViewTextBoxColumn.Name = "totalPriceDataGridViewTextBoxColumn";
-			this.totalPriceDataGridViewTextBoxColumn.ReadOnly = true;
-			// 
-			// printInvoiceBindingSource
-			// 
-			//this.printInvoiceBindingSource.DataSource = typeof(Inventory_Forms.PrintInvoice);
+			dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
+			dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Black;
+			this.productsListDataGridView.RowsDefaultCellStyle = dataGridViewCellStyle4;
+			this.productsListDataGridView.RowTemplate.DefaultCellStyle.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+			this.productsListDataGridView.RowTemplate.DefaultCellStyle.BackColor = System.Drawing.Color.Empty;
+			this.productsListDataGridView.RowTemplate.DefaultCellStyle.ForeColor = System.Drawing.Color.Empty;
+			this.productsListDataGridView.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.Empty;
+			this.productsListDataGridView.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.White;
+			this.productsListDataGridView.RowTemplate.Height = 25;
+			this.productsListDataGridView.RowTemplate.ReadOnly = true;
+			this.productsListDataGridView.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+			this.productsListDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+			this.productsListDataGridView.Size = new System.Drawing.Size(890, 213);
+			this.productsListDataGridView.TabIndex = 15;
+			this.productsListDataGridView.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.ListWareDataGridView_RowsAdded);
 			// 
 			// amountPaymentTextBox
 			// 
 			this.amountPaymentTextBox.Font = new System.Drawing.Font("IRANSans", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
 			this.amountPaymentTextBox.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-			this.amountPaymentTextBox.Location = new System.Drawing.Point(21, 403);
+			this.amountPaymentTextBox.Location = new System.Drawing.Point(21, 470);
 			this.amountPaymentTextBox.MaximumSize = new System.Drawing.Size(300, 30);
 			this.amountPaymentTextBox.MinimumSize = new System.Drawing.Size(300, 30);
 			this.amountPaymentTextBox.Name = "amountPaymentTextBox";
@@ -237,7 +193,7 @@ namespace Inventory_Forms
 			this.amountPaymentLabel.AutoSize = true;
 			this.amountPaymentLabel.Font = new System.Drawing.Font("IRANSans", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
 			this.amountPaymentLabel.ForeColor = System.Drawing.Color.White;
-			this.amountPaymentLabel.Location = new System.Drawing.Point(336, 407);
+			this.amountPaymentLabel.Location = new System.Drawing.Point(336, 474);
 			this.amountPaymentLabel.Name = "amountPaymentLabel";
 			this.amountPaymentLabel.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
 			this.amountPaymentLabel.Size = new System.Drawing.Size(86, 22);
@@ -272,7 +228,7 @@ namespace Inventory_Forms
 			this.printButton.Image = ((System.Drawing.Image)(resources.GetObject("printButton.Image")));
 			this.printButton.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
 			this.printButton.ImageOffset = new System.Drawing.Point(10, 0);
-			this.printButton.Location = new System.Drawing.Point(694, 313);
+			this.printButton.Location = new System.Drawing.Point(694, 380);
 			this.printButton.Name = "printButton";
 			this.printButton.PressedColor = System.Drawing.Color.White;
 			this.printButton.PressedDepth = 60;
@@ -287,7 +243,7 @@ namespace Inventory_Forms
 			// guna2Panel1
 			// 
 			this.guna2Panel1.FillColor = System.Drawing.Color.White;
-			this.guna2Panel1.Location = new System.Drawing.Point(15, 452);
+			this.guna2Panel1.Location = new System.Drawing.Point(15, 519);
 			this.guna2Panel1.Name = "guna2Panel1";
 			this.guna2Panel1.ShadowDecoration.Parent = this.guna2Panel1;
 			this.guna2Panel1.Size = new System.Drawing.Size(411, 3);
@@ -321,7 +277,7 @@ namespace Inventory_Forms
 			this.taxRateTextBox.IconRight = null;
 			this.taxRateTextBox.IconRightCursor = System.Windows.Forms.Cursors.IBeam;
 			this.taxRateTextBox.Lines = new string[0];
-			this.taxRateTextBox.Location = new System.Drawing.Point(19, 360);
+			this.taxRateTextBox.Location = new System.Drawing.Point(19, 427);
 			this.taxRateTextBox.MaximumSize = new System.Drawing.Size(300, 30);
 			this.taxRateTextBox.MaxLength = 32767;
 			this.taxRateTextBox.MinimumSize = new System.Drawing.Size(300, 30);
@@ -375,7 +331,7 @@ namespace Inventory_Forms
 			// 
 			this.remainingAmountTextBox.Font = new System.Drawing.Font("IRANSans", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
 			this.remainingAmountTextBox.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-			this.remainingAmountTextBox.Location = new System.Drawing.Point(19, 467);
+			this.remainingAmountTextBox.Location = new System.Drawing.Point(19, 534);
 			this.remainingAmountTextBox.MaximumSize = new System.Drawing.Size(300, 30);
 			this.remainingAmountTextBox.MinimumSize = new System.Drawing.Size(300, 30);
 			this.remainingAmountTextBox.Name = "remainingAmountTextBox";
@@ -389,7 +345,7 @@ namespace Inventory_Forms
 			// 
 			this.totalSumPriceTextBox.Font = new System.Drawing.Font("IRANSans", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
 			this.totalSumPriceTextBox.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-			this.totalSumPriceTextBox.Location = new System.Drawing.Point(19, 317);
+			this.totalSumPriceTextBox.Location = new System.Drawing.Point(19, 384);
 			this.totalSumPriceTextBox.Name = "totalSumPriceTextBox";
 			this.totalSumPriceTextBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
 			this.totalSumPriceTextBox.Size = new System.Drawing.Size(300, 30);
@@ -403,7 +359,7 @@ namespace Inventory_Forms
 			this.remainingAmountLabel.AutoSize = true;
 			this.remainingAmountLabel.Font = new System.Drawing.Font("IRANSans", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
 			this.remainingAmountLabel.ForeColor = System.Drawing.Color.White;
-			this.remainingAmountLabel.Location = new System.Drawing.Point(336, 471);
+			this.remainingAmountLabel.Location = new System.Drawing.Point(336, 538);
 			this.remainingAmountLabel.Name = "remainingAmountLabel";
 			this.remainingAmountLabel.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
 			this.remainingAmountLabel.Size = new System.Drawing.Size(103, 22);
@@ -416,7 +372,7 @@ namespace Inventory_Forms
 			this.taxRateLabel.AutoSize = true;
 			this.taxRateLabel.Font = new System.Drawing.Font("IRANSans", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
 			this.taxRateLabel.ForeColor = System.Drawing.Color.White;
-			this.taxRateLabel.Location = new System.Drawing.Point(336, 364);
+			this.taxRateLabel.Location = new System.Drawing.Point(336, 431);
 			this.taxRateLabel.Name = "taxRateLabel";
 			this.taxRateLabel.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
 			this.taxRateLabel.Size = new System.Drawing.Size(84, 22);
@@ -429,7 +385,7 @@ namespace Inventory_Forms
 			this.totalSumPriceLable.AutoSize = true;
 			this.totalSumPriceLable.Font = new System.Drawing.Font("IRANSans", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
 			this.totalSumPriceLable.ForeColor = System.Drawing.Color.White;
-			this.totalSumPriceLable.Location = new System.Drawing.Point(336, 321);
+			this.totalSumPriceLable.Location = new System.Drawing.Point(336, 388);
 			this.totalSumPriceLable.Name = "totalSumPriceLable";
 			this.totalSumPriceLable.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
 			this.totalSumPriceLable.Size = new System.Drawing.Size(99, 22);
@@ -482,7 +438,7 @@ namespace Inventory_Forms
 			this.clientNameLabel.AutoSize = true;
 			this.clientNameLabel.Font = new System.Drawing.Font("IRANSans", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
 			this.clientNameLabel.ForeColor = System.Drawing.Color.White;
-			this.clientNameLabel.Location = new System.Drawing.Point(800, 97);
+			this.clientNameLabel.Location = new System.Drawing.Point(812, 97);
 			this.clientNameLabel.Name = "clientNameLabel";
 			this.clientNameLabel.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
 			this.clientNameLabel.Size = new System.Drawing.Size(74, 22);
@@ -494,7 +450,7 @@ namespace Inventory_Forms
 			this.dateSetInvoiceTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
 			this.dateSetInvoiceTextBox.Font = new System.Drawing.Font("IRANSans", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
 			this.dateSetInvoiceTextBox.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-			this.dateSetInvoiceTextBox.Location = new System.Drawing.Point(622, 36);
+			this.dateSetInvoiceTextBox.Location = new System.Drawing.Point(645, 36);
 			this.dateSetInvoiceTextBox.Name = "dateSetInvoiceTextBox";
 			this.dateSetInvoiceTextBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
 			this.dateSetInvoiceTextBox.Size = new System.Drawing.Size(200, 19);
@@ -521,7 +477,7 @@ namespace Inventory_Forms
 			this.dateSetInvoiceLabel.AutoSize = true;
 			this.dateSetInvoiceLabel.Font = new System.Drawing.Font("IRANSans", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
 			this.dateSetInvoiceLabel.ForeColor = System.Drawing.Color.White;
-			this.dateSetInvoiceLabel.Location = new System.Drawing.Point(828, 37);
+			this.dateSetInvoiceLabel.Location = new System.Drawing.Point(851, 37);
 			this.dateSetInvoiceLabel.Name = "dateSetInvoiceLabel";
 			this.dateSetInvoiceLabel.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
 			this.dateSetInvoiceLabel.Size = new System.Drawing.Size(35, 17);
@@ -534,7 +490,7 @@ namespace Inventory_Forms
 			this.sellerNameLabel.AutoSize = true;
 			this.sellerNameLabel.Font = new System.Drawing.Font("IRANSans", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
 			this.sellerNameLabel.ForeColor = System.Drawing.Color.White;
-			this.sellerNameLabel.Location = new System.Drawing.Point(800, 61);
+			this.sellerNameLabel.Location = new System.Drawing.Point(806, 61);
 			this.sellerNameLabel.Name = "sellerNameLabel";
 			this.sellerNameLabel.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
 			this.sellerNameLabel.Size = new System.Drawing.Size(80, 22);
@@ -608,7 +564,7 @@ namespace Inventory_Forms
 			this.plusMarkLabel.AutoSize = true;
 			this.plusMarkLabel.Font = new System.Drawing.Font("IRANSans", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
 			this.plusMarkLabel.ForeColor = System.Drawing.Color.White;
-			this.plusMarkLabel.Location = new System.Drawing.Point(676, 367);
+			this.plusMarkLabel.Location = new System.Drawing.Point(676, 434);
 			this.plusMarkLabel.Name = "plusMarkLabel";
 			this.plusMarkLabel.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
 			this.plusMarkLabel.Size = new System.Drawing.Size(25, 31);
@@ -644,7 +600,7 @@ namespace Inventory_Forms
 			this.posPaymentTextBox.IconRight = null;
 			this.posPaymentTextBox.IconRightCursor = System.Windows.Forms.Cursors.IBeam;
 			this.posPaymentTextBox.Lines = new string[0];
-			this.posPaymentTextBox.Location = new System.Drawing.Point(500, 365);
+			this.posPaymentTextBox.Location = new System.Drawing.Point(500, 432);
 			this.posPaymentTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.posPaymentTextBox.MaximumSize = new System.Drawing.Size(171, 28);
 			this.posPaymentTextBox.MaxLength = 32767;
@@ -726,7 +682,7 @@ namespace Inventory_Forms
 			this.cashPaymentTextBox.IconRight = null;
 			this.cashPaymentTextBox.IconRightCursor = System.Windows.Forms.Cursors.IBeam;
 			this.cashPaymentTextBox.Lines = new string[0];
-			this.cashPaymentTextBox.Location = new System.Drawing.Point(702, 365);
+			this.cashPaymentTextBox.Location = new System.Drawing.Point(702, 432);
 			this.cashPaymentTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.cashPaymentTextBox.MaximumSize = new System.Drawing.Size(171, 28);
 			this.cashPaymentTextBox.MaxLength = 32767;
@@ -796,7 +752,7 @@ namespace Inventory_Forms
 			this.paymentTypeGroupBox.CustomBorderThickness = new System.Windows.Forms.Padding(0, 25, 0, 0);
 			this.paymentTypeGroupBox.Font = new System.Drawing.Font("IRANSans", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.paymentTypeGroupBox.ForeColor = System.Drawing.Color.White;
-			this.paymentTypeGroupBox.Location = new System.Drawing.Point(500, 412);
+			this.paymentTypeGroupBox.Location = new System.Drawing.Point(500, 479);
 			this.paymentTypeGroupBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.paymentTypeGroupBox.Name = "paymentTypeGroupBox";
 			this.paymentTypeGroupBox.ShadowDecoration.Parent = this.paymentTypeGroupBox;
@@ -969,7 +925,7 @@ namespace Inventory_Forms
 			this.cashRegisterButton.Image = ((System.Drawing.Image)(resources.GetObject("cashRegisterButton.Image")));
 			this.cashRegisterButton.ImageAlign = System.Windows.Forms.HorizontalAlignment.Right;
 			this.cashRegisterButton.ImageOffset = new System.Drawing.Point(10, 0);
-			this.cashRegisterButton.Location = new System.Drawing.Point(508, 313);
+			this.cashRegisterButton.Location = new System.Drawing.Point(508, 380);
 			this.cashRegisterButton.Name = "cashRegisterButton";
 			this.cashRegisterButton.PressedColor = System.Drawing.Color.White;
 			this.cashRegisterButton.PressedDepth = 60;
@@ -981,12 +937,46 @@ namespace Inventory_Forms
 			this.cashRegisterButton.TextRenderingHint = System.Drawing.Text.TextRenderingHint.AntiAlias;
 			this.cashRegisterButton.Click += new System.EventHandler(this.CashRegisterButton_Click);
 			// 
-			// InvoiceForm
+			// Product_Name
+			// 
+			this.Product_Name.FillWeight = 150F;
+			this.Product_Name.HeaderText = "نام کالا";
+			this.Product_Name.Name = "Product_Name";
+			this.Product_Name.ReadOnly = true;
+			// 
+			// Product_Price
+			// 
+			this.Product_Price.HeaderText = "قیمت کالا";
+			this.Product_Price.Name = "Product_Price";
+			this.Product_Price.ReadOnly = true;
+			// 
+			// Product_Quantity
+			// 
+			this.Product_Quantity.FillWeight = 50F;
+			this.Product_Quantity.HeaderText = "تعداد کالا";
+			this.Product_Quantity.Name = "Product_Quantity";
+			this.Product_Quantity.ReadOnly = true;
+			// 
+			// Product_Unit
+			// 
+			this.Product_Unit.FillWeight = 75F;
+			this.Product_Unit.HeaderText = "واحد کالا";
+			this.Product_Unit.Name = "Product_Unit";
+			this.Product_Unit.ReadOnly = true;
+			// 
+			// Total_Sum_Price
+			// 
+			this.Total_Sum_Price.FillWeight = 125F;
+			this.Total_Sum_Price.HeaderText = "جمع کل";
+			this.Total_Sum_Price.Name = "Total_Sum_Price";
+			this.Total_Sum_Price.ReadOnly = true;
+			// 
+			// BillSaleReportForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 17F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-			this.ClientSize = new System.Drawing.Size(910, 508);
+			this.ClientSize = new System.Drawing.Size(910, 575);
 			this.Controls.Add(this.cashRegisterButton);
 			this.Controls.Add(this.plusMarkLabel);
 			this.Controls.Add(this.posPaymentTextBox);
@@ -1011,13 +1001,13 @@ namespace Inventory_Forms
 			this.Controls.Add(this.sellerNameTextBox);
 			this.Controls.Add(this.dateSetInvoiceLabel);
 			this.Controls.Add(this.sellerNameLabel);
-			this.Controls.Add(this.listWareDataGridView);
+			this.Controls.Add(this.productsListDataGridView);
 			this.Controls.Add(this.topPanel);
 			this.Controls.Add(this.invoiceTitleLabel);
-			this.Name = "InvoiceForm";
+			this.Name = "BillSaleReportForm";
 			this.Text = "InvoiceForm";
-			((System.ComponentModel.ISupportInitialize)(this.listWareDataGridView)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.printInvoiceBindingSource)).EndInit();
+			this.Load += new System.EventHandler(this.BillSalePrintForm_Load);
+			((System.ComponentModel.ISupportInitialize)(this.productsListDataGridView)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
 			this.topPanel.ResumeLayout(false);
 			this.paymentTypeGroupBox.ResumeLayout(false);
@@ -1032,7 +1022,7 @@ namespace Inventory_Forms
 		private Mbb.Windows.Forms.Panel topPanel;
 		private Guna.UI2.WinForms.Guna2Button minimizeButton;
 		private Guna.UI2.WinForms.Guna2Button closeButton;
-		private System.Windows.Forms.DataGridView listWareDataGridView;
+		private System.Windows.Forms.DataGridView productsListDataGridView;
 		private Guna.UI2.WinForms.Guna2Elipse invoiceDataGridViewElipse;
 		private Mbb.Windows.Forms.Label sellerNameLabel;
 		private Mbb.Windows.Forms.Label clientNameLabel;
@@ -1056,7 +1046,6 @@ namespace Inventory_Forms
 		private System.Windows.Forms.DataGridViewTextBoxColumn productUnitDataGridViewTextBoxColumn;
 		private System.Windows.Forms.DataGridViewTextBoxColumn productPriceDataGridViewTextBoxColumn;
 		private System.Windows.Forms.DataGridViewTextBoxColumn totalPriceDataGridViewTextBoxColumn;
-		private System.Windows.Forms.BindingSource printInvoiceBindingSource;
 		private System.Windows.Forms.PictureBox pictureBox1;
 		private Mbb.Windows.Forms.Label amountPaymentTextBox;
 		private Mbb.Windows.Forms.Label amountPaymentLabel;
@@ -1073,5 +1062,10 @@ namespace Inventory_Forms
 		private Guna.UI2.WinForms.Guna2CustomRadioButton posPaymentRadioButton;
 		private Guna.UI2.WinForms.Guna2CustomRadioButton cachPaymentRadioButton;
 		private Guna.UI2.WinForms.Guna2GradientButton cashRegisterButton;
+		private System.Windows.Forms.DataGridViewTextBoxColumn Product_Name;
+		private System.Windows.Forms.DataGridViewTextBoxColumn Product_Price;
+		private System.Windows.Forms.DataGridViewTextBoxColumn Product_Quantity;
+		private System.Windows.Forms.DataGridViewTextBoxColumn Product_Unit;
+		private System.Windows.Forms.DataGridViewTextBoxColumn Total_Sum_Price;
 	}
 }

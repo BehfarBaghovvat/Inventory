@@ -4,45 +4,44 @@ using System.Linq;
 
 namespace Inventory_Forms
 {
-	public partial class InvoiceForm : Infrastructure.EmptyForm
+	public partial class BillSaleReportForm : Infrastructure.EmptyForm
 	{
 
 		#region Properties
 
 		#region Layer
 
-		public class BillSaleReport
-		{
-			public string Product_Name { get; set; }
-			public int? Product_Quantity { get; set; }
-			public string Product_Unit { get; set; }
-			public string Product_Price { get; set; }
-			public string Total_Price { get; set; }
-		}
-
-		private BillSaleReportForm _billSaleReportForm = null;
-		public BillSaleReportForm BillSaleReportForm
+		private BillSalePrintForm _billSalePrintForm = null;
+		public BillSalePrintForm BillSalePrintForm
 		{
 			get
 			{
-				if (_billSaleReportForm == null || _billSaleReportForm.IsDisposed == true)
+				if (_billSalePrintForm == null || _billSalePrintForm.IsDisposed == true)
 				{
-					_billSaleReportForm =
-						new BillSaleReportForm();
+					_billSalePrintForm =
+						new BillSalePrintForm();
 				}
-				return _billSaleReportForm;
+				return _billSalePrintForm;
 			}
 		}
 
-		private class Invoice
+		private ProcutSalesForm _myProcutSalesForm = null;
+		public ProcutSalesForm MyProcutSalesForm
 		{
-			public string Product_Name { get; set; }
-			public int? Product_Quantity { get; set; }
-			public string Product_Unit { get; set; }
-			public string Product_Price { get; set; }
-			public string Total_Price { get; set; }
+			get 
+			{
+				if (_myProcutSalesForm == null || _myProcutSalesForm.IsDisposed == true)
+				{
+					_myProcutSalesForm =
+						new ProcutSalesForm();
+				}
+				return _myProcutSalesForm;
+			}
 		}
+
 		#endregion /Layer
+
+		public ProcutSalesForm.BillSaleReportItems BillSaleReportItems { get; set; }
 
 		private Models.CapitalFund _capitalFund;
 		public Models.CapitalFund CapitalFund
@@ -80,7 +79,6 @@ namespace Inventory_Forms
 			}
 		}
 
-
 		public int? AmountPayable { get; set; }
 		public int? AmountPayment { get; set; }
 		public int? CashPaymentAmount { get; set; }
@@ -90,9 +88,11 @@ namespace Inventory_Forms
 		public int? TaxPercent { get; set; }
 		public int? TotalSumPrice { get; set; }
 
+		public ProcutSalesForm.TransactionFactorsItems TransactionFactorsItems { get; set; }
+
 		#endregion /Properties
 
-		public InvoiceForm()
+		public BillSaleReportForm()
 		{
 			InitializeComponent();
 			TaxAmount = 0;
@@ -106,7 +106,7 @@ namespace Inventory_Forms
 		#region CloseButton_Click
 		private void CloseButton_Click(object sender, System.EventArgs e)
 		{
-			if (listWareDataGridView.RowCount >= 1)
+			if (productsListDataGridView.RowCount >= 1)
 			{
 				if (Mbb.Windows.Forms.MessageBox.Show(text: "آیا فاکتور جاری حذف گردد؟", caption: "حذف فاکتور", icon: Mbb.Windows.Forms.MessageBoxIcon.Question, button: Mbb.Windows.Forms.MessageBoxButtons.YesNo) == System.Windows.Forms.DialogResult.Yes)
 				{
@@ -237,11 +237,11 @@ namespace Inventory_Forms
 		{
 			try
 			{
-				System.Collections.Generic.List<Invoice> InvoicesList = new System.Collections.Generic.List<Invoice>();
+				System.Collections.Generic.List<ProcutSalesForm.BillSaleReportItems> billSaleReportItemsList = new System.Collections.Generic.List<ProcutSalesForm.BillSaleReportItems>();
 
-				foreach (System.Windows.Forms.DataGridViewRow rows in listWareDataGridView.Rows)
+				foreach (System.Windows.Forms.DataGridViewRow rows in productsListDataGridView.Rows)
 				{
-					Invoice iserviceItem = new Invoice
+					ProcutSalesForm.BillSaleReportItems billSaleReportItems = new ProcutSalesForm.BillSaleReportItems
 					{
 						Product_Name = rows.Cells[0].Value.ToString(),
 						Product_Quantity = int.Parse(rows.Cells[1].Value.ToString()),
@@ -249,13 +249,13 @@ namespace Inventory_Forms
 						Product_Price = rows.Cells[3].Value.ToString(),
 						Total_Price = rows.Cells[4].Value.ToString(),
 					};
-					InvoicesList.Add(iserviceItem);
+					billSaleReportItemsList.Add(billSaleReportItems);
 				}
 
 				Stimulsoft.Report.StiReport printInvoice = new Stimulsoft.Report.StiReport();
 
 				printInvoice.Load(System.Windows.Forms.Application.StartupPath + "\\Reports\\BillSaleReport.mrt");
-				printInvoice.RegBusinessObject("BillSale", InvoicesList);
+				printInvoice.RegBusinessObject("BillSale", billSaleReportItemsList);
 
 				(printInvoice.GetComponentByName("dateOfPrintTextBox") as Stimulsoft.Report.Components.StiText).Text = dateSetInvoiceTextBox.Text;
 				(printInvoice.GetComponentByName("sellerNameTextBox") as Stimulsoft.Report.Components.StiText).Text = Inventory.Program.UserAuthentication.Full_Name;
@@ -267,8 +267,8 @@ namespace Inventory_Forms
 				(printInvoice.GetComponentByName("remainingAmountTextBox") as Stimulsoft.Report.Components.StiText).Text = remainingAmountTextBox.Text;
 
 				printInvoice.Render(true);
-				BillSaleReportForm.billsaleStiRibbonViewerControl.Report = printInvoice;
-				BillSaleReportForm.ShowDialog();
+				BillSalePrintForm.billsaleStiRibbonViewerControl.Report = printInvoice;
+				BillSalePrintForm.ShowDialog();
 			}
 			catch (System.Exception ex)
 			{
@@ -558,6 +558,8 @@ namespace Inventory_Forms
 
 		#region Function
 
+
+
 		#region AddRowRevice
 		private void AddRowRevice(System.Windows.Forms.DataGridViewRowsAddedEventArgs e)
 		{
@@ -566,11 +568,11 @@ namespace Inventory_Forms
 			int totalSumPrice = 0;
 			if (e.RowIndex != -1)
 			{
-				if (listWareDataGridView.RowCount >= 1)
+				if (productsListDataGridView.RowCount >= 1)
 				{
-					for (int i = 0; i < listWareDataGridView.Rows.Count; i++)
+					for (int i = 0; i < productsListDataGridView.Rows.Count; i++)
 					{
-						value = listWareDataGridView.Rows[i].Cells[4].Value.ToString().Replace("تومان", string.Empty).Trim();
+						value = productsListDataGridView.Rows[i].Cells[4].Value.ToString().Replace("تومان", string.Empty).Trim();
 						newPrice = int.Parse(value.Replace(",", string.Empty).Trim());
 						totalSumPrice += newPrice;
 					}
@@ -596,7 +598,7 @@ namespace Inventory_Forms
 		{
 			for (int i = 0; i < inputListWare.Count; i++)
 			{
-				listWareDataGridView.DataSource = inputListWare;
+				productsListDataGridView.DataSource = inputListWare;
 			}
 			sellerNameTextBox.Text = transactionFactors.Seller_Name;
 			clientNameTextBox.Text = transactionFactors.Client_Name;
@@ -610,7 +612,7 @@ namespace Inventory_Forms
 			sellerNameTextBox.Text = "نام فروشنده";
 			clientNameTextBox.Text = "نام مشتری";
 			carrierNameTextBox.Text = "نام حامل کالا";
-			listWareDataGridView.DataSource = null;
+			productsListDataGridView.DataSource = null;
 			TotalSumPrice = 0;
 			TaxPercent = 0;
 			TaxAmount = 0;
@@ -625,6 +627,13 @@ namespace Inventory_Forms
 			debtorRadioButton.Checked = false;
 		}
 		#endregion ResetAllControl
+
+		#region SetItemsBillSale
+		public void SetItemsBillSale(ProcutSalesForm.BillSaleReportItems billSaleReportItems, ProcutSalesForm.TransactionFactorsItems transactionFactorsItems)
+		{
+
+		}
+		#endregion /SetItemsBillSale
 
 		#region Inbox
 		/// <summary>
@@ -675,10 +684,14 @@ namespace Inventory_Forms
 			}
 		}
 
+
 		#endregion /FinancialOfficeInput
 
 		#endregion /Function
 
-		
+		private void BillSalePrintForm_Load(object sender, EventArgs e)
+		{
+
+		}
 	}
 }

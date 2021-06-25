@@ -1,7 +1,7 @@
 ﻿
 namespace Inventory_Forms
 {
-	partial class BillSaleReportForm
+	partial class BillSalePrintForm
 	{
 		/// <summary>
 		/// Required designer variable.
@@ -31,9 +31,9 @@ namespace Inventory_Forms
 		{
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BillSaleReportForm));
 			this.topPanel = new Mbb.Windows.Forms.Panel();
-			this.billsaleStiRibbonViewerControl = new Stimulsoft.Report.Viewer.StiRibbonViewerControl();
 			this.minimizeButton = new Guna.UI2.WinForms.Guna2Button();
 			this.closeButton = new Guna.UI2.WinForms.Guna2Button();
+			this.billsaleStiRibbonViewerControl = new Stimulsoft.Report.Viewer.StiRibbonViewerControl();
 			this.topPanel.SuspendLayout();
 			this.SuspendLayout();
 			// 
@@ -46,18 +46,6 @@ namespace Inventory_Forms
 			this.topPanel.Name = "topPanel";
 			this.topPanel.Size = new System.Drawing.Size(950, 30);
 			this.topPanel.TabIndex = 3;
-			// 
-			// billsaleStiRibbonViewerControl
-			// 
-			this.billsaleStiRibbonViewerControl.AllowDrop = true;
-			this.billsaleStiRibbonViewerControl.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.billsaleStiRibbonViewerControl.Location = new System.Drawing.Point(0, 30);
-			this.billsaleStiRibbonViewerControl.Name = "billsaleStiRibbonViewerControl";
-			this.billsaleStiRibbonViewerControl.Report = null;
-			this.billsaleStiRibbonViewerControl.RightToLeft = System.Windows.Forms.RightToLeft.No;
-			this.billsaleStiRibbonViewerControl.ShowZoom = true;
-			this.billsaleStiRibbonViewerControl.Size = new System.Drawing.Size(950, 730);
-			this.billsaleStiRibbonViewerControl.TabIndex = 4;
 			// 
 			// minimizeButton
 			// 
@@ -96,6 +84,18 @@ namespace Inventory_Forms
 			this.closeButton.ShadowDecoration.Parent = this.closeButton;
 			this.closeButton.Size = new System.Drawing.Size(50, 30);
 			this.closeButton.TabIndex = 0;
+			// 
+			// billsaleStiRibbonViewerControl
+			// 
+			this.billsaleStiRibbonViewerControl.AllowDrop = true;
+			this.billsaleStiRibbonViewerControl.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.billsaleStiRibbonViewerControl.Location = new System.Drawing.Point(0, 30);
+			this.billsaleStiRibbonViewerControl.Name = "billsaleStiRibbonViewerControl";
+			this.billsaleStiRibbonViewerControl.Report = null;
+			this.billsaleStiRibbonViewerControl.RightToLeft = System.Windows.Forms.RightToLeft.No;
+			this.billsaleStiRibbonViewerControl.ShowZoom = true;
+			this.billsaleStiRibbonViewerControl.Size = new System.Drawing.Size(950, 730);
+			this.billsaleStiRibbonViewerControl.TabIndex = 4;
 			// 
 			// BillSaleReportForm
 			// 

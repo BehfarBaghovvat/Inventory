@@ -1,9 +1,9 @@
 ﻿
 namespace Inventory_Forms
 {
-	public partial class BillSaleReportForm : Infrastructure.EmptyForm
+	public partial class BillSalePrintForm : Infrastructure.EmptyForm
 	{
-		public BillSaleReportForm()
+		public BillSalePrintForm()
 		{
 			InitializeComponent();
 		}

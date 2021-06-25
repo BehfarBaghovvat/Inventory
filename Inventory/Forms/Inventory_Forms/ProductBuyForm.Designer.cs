@@ -69,6 +69,7 @@ namespace Inventory_Forms
 			this.deleteRecordToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.editProductToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.controlsPanel = new Guna.UI2.WinForms.Guna2Panel();
+			this.checkProductNamePictureBox = new System.Windows.Forms.PictureBox();
 			this.billButton = new Guna.UI2.WinForms.Guna2Button();
 			this.deleteImageButton = new Guna.UI2.WinForms.Guna2Button();
 			this.selectImageLinkLabel = new Mbb.Windows.Forms.LinkLabel();
@@ -103,6 +104,7 @@ namespace Inventory_Forms
 			this.DataGridViewElipse = new Guna.UI2.WinForms.Guna2Elipse(this.components);
 			this.contextMenuStrip.SuspendLayout();
 			this.controlsPanel.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.checkProductNamePictureBox)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.productImagePictureBox)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.productRecivedDataGridView)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.productReceivedBindingSource)).BeginInit();
@@ -116,9 +118,9 @@ namespace Inventory_Forms
 			// 
 			this.contextMenuStrip.Font = new System.Drawing.Font("IRANSans", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.contextMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.viewProductImageToolStripMenuItem,
-            this.deleteRecordToolStripMenuItem,
-            this.editProductToolStripMenuItem});
+			this.viewProductImageToolStripMenuItem,
+			this.deleteRecordToolStripMenuItem,
+			this.editProductToolStripMenuItem});
 			this.contextMenuStrip.Name = "contextMenuStrip";
 			this.contextMenuStrip.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
 			this.contextMenuStrip.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -157,6 +159,7 @@ namespace Inventory_Forms
 			this.controlsPanel.BorderColor = System.Drawing.Color.Indigo;
 			this.controlsPanel.BorderRadius = 15;
 			this.controlsPanel.BorderThickness = 5;
+			this.controlsPanel.Controls.Add(this.checkProductNamePictureBox);
 			this.controlsPanel.Controls.Add(this.billButton);
 			this.controlsPanel.Controls.Add(this.deleteImageButton);
 			this.controlsPanel.Controls.Add(this.selectImageLinkLabel);
@@ -180,6 +183,16 @@ namespace Inventory_Forms
 			this.controlsPanel.ShadowDecoration.Parent = this.controlsPanel;
 			this.controlsPanel.Size = new System.Drawing.Size(1150, 650);
 			this.controlsPanel.TabIndex = 0;
+			// 
+			// checkProductNamePictureBox
+			// 
+			this.checkProductNamePictureBox.Image = global::Inventory.Properties.Resources.Tik_False;
+			this.checkProductNamePictureBox.Location = new System.Drawing.Point(746, 48);
+			this.checkProductNamePictureBox.Name = "checkProductNamePictureBox";
+			this.checkProductNamePictureBox.Size = new System.Drawing.Size(20, 20);
+			this.checkProductNamePictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+			this.checkProductNamePictureBox.TabIndex = 19;
+			this.checkProductNamePictureBox.TabStop = false;
 			// 
 			// billButton
 			// 
@@ -356,10 +369,10 @@ namespace Inventory_Forms
 			this.filterSearchComboBox.IntegralHeight = false;
 			this.filterSearchComboBox.ItemHeight = 25;
 			this.filterSearchComboBox.Items.AddRange(new object[] {
-            "...فیلتر جستجو",
-            "نام حامل کالا",
-            "نام ارسال کننده",
-            "نام تحویل گیرنده"});
+			"...فیلتر جستجو",
+			"نام حامل کالا",
+			"نام ارسال کننده",
+			"نام تحویل گیرنده"});
 			this.filterSearchComboBox.ItemsAppearance.ForeColor = System.Drawing.Color.White;
 			this.filterSearchComboBox.ItemsAppearance.Parent = this.filterSearchComboBox;
 			this.filterSearchComboBox.ItemsAppearance.SelectedBackColor = System.Drawing.Color.Teal;
@@ -397,16 +410,16 @@ namespace Inventory_Forms
 			this.productUnitComboBox.IntegralHeight = false;
 			this.productUnitComboBox.ItemHeight = 25;
 			this.productUnitComboBox.Items.AddRange(new object[] {
-            "...واحد کالا",
-            "مثقال",
-            "گرم",
-            "کیلو گرم",
-            "تن",
-            "بسته",
-            "جعبه",
-            "کارتن",
-            "شاخه",
-            "عدد"});
+			"...واحد کالا",
+			"مثقال",
+			"گرم",
+			"کیلو گرم",
+			"تن",
+			"بسته",
+			"جعبه",
+			"کارتن",
+			"شاخه",
+			"عدد"});
 			this.productUnitComboBox.ItemsAppearance.ForeColor = System.Drawing.Color.White;
 			this.productUnitComboBox.ItemsAppearance.Parent = this.productUnitComboBox;
 			this.productUnitComboBox.ItemsAppearance.SelectedBackColor = System.Drawing.Color.Teal;
@@ -619,6 +632,7 @@ namespace Inventory_Forms
 			this.productNameTextBox.TextChange += new System.EventHandler(this.ProductNameTextBox_TextChanged);
 			this.productNameTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ProductNameTextBox_KeyPress);
 			this.productNameTextBox.Enter += new System.EventHandler(this.ProductNameTextBox_Enter);
+			this.productNameTextBox.Leave += new System.EventHandler(this.ProductNameTextBox_Leave);
 			// 
 			// senderNameTextBox
 			// 
@@ -958,20 +972,20 @@ namespace Inventory_Forms
 			this.productRecivedDataGridView.ColumnHeadersHeight = 40;
 			this.productRecivedDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
 			this.productRecivedDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.idDataGridViewTextBoxColumn1,
-            this.productNameDataGridViewTextBoxColumn1,
-            this.transferNameDataGridViewTextBoxColumn1,
-            this.senderNameDataGridViewTextBoxColumn1,
-            this.carrierNameDataGridViewTextBoxColumn1,
-            this.productPurchasePriceDataGridViewTextBoxColumn1,
-            this.productQuantityDataGridViewTextBoxColumn1,
-            this.productUnitDataGridViewTextBoxColumn1,
-            this.productImageDataGridViewImageColumn1,
-            this.registrationDateDataGridViewTextBoxColumn1,
-            this.registrationTimeDataGridViewTextBoxColumn1,
-            this.numberEditDataGridViewTextBoxColumn,
-            this.lastEditedDateDataGridViewTextBoxColumn,
-            this.lastEditedTimeDataGridViewTextBoxColumn});
+			this.idDataGridViewTextBoxColumn1,
+			this.productNameDataGridViewTextBoxColumn1,
+			this.transferNameDataGridViewTextBoxColumn1,
+			this.senderNameDataGridViewTextBoxColumn1,
+			this.carrierNameDataGridViewTextBoxColumn1,
+			this.productPurchasePriceDataGridViewTextBoxColumn1,
+			this.productQuantityDataGridViewTextBoxColumn1,
+			this.productUnitDataGridViewTextBoxColumn1,
+			this.productImageDataGridViewImageColumn1,
+			this.registrationDateDataGridViewTextBoxColumn1,
+			this.registrationTimeDataGridViewTextBoxColumn1,
+			this.numberEditDataGridViewTextBoxColumn,
+			this.lastEditedDateDataGridViewTextBoxColumn,
+			this.lastEditedTimeDataGridViewTextBoxColumn});
 			this.productRecivedDataGridView.ContextMenuStrip = this.contextMenuStrip;
 			this.productRecivedDataGridView.DataSource = this.productReceivedBindingSource;
 			dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
@@ -1132,6 +1146,7 @@ namespace Inventory_Forms
 			this.contextMenuStrip.ResumeLayout(false);
 			this.controlsPanel.ResumeLayout(false);
 			this.controlsPanel.PerformLayout();
+			((System.ComponentModel.ISupportInitialize)(this.checkProductNamePictureBox)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.productImagePictureBox)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.productRecivedDataGridView)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.productReceivedBindingSource)).EndInit();
@@ -1179,5 +1194,6 @@ namespace Inventory_Forms
 		private System.Windows.Forms.DataGridViewTextBoxColumn lastEditedTimeDataGridViewTextBoxColumn;
 		public Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox senderNameTextBox;
 		public Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox carrierNameTextBox;
+		private System.Windows.Forms.PictureBox checkProductNamePictureBox;
 	}
 }

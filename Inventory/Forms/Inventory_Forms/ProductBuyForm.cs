@@ -148,19 +148,44 @@ namespace Inventory_Forms
 		}
 		#endregion /ProductNameTextBox_KeyPress
 
+		#region ProductNameTextBox_Leave
+		private void ProductNameTextBox_Leave(object sender, System.EventArgs e)
+		{
+			if (SearchProduct(productNameTextBox.Text))
+			{
+				return;
+			}
+			else
+			{
+				productNameTextBox.Focus();
+			}
+		}
+		#endregion /ProductNameTextBox_Leave
+
 		#region ProductNameTextBox_TextChanged
 		private void ProductNameTextBox_TextChanged(object sender, System.EventArgs e)
 		{
 			if (string.IsNullOrWhiteSpace(productNameTextBox.Text))
 			{
+				checkProductNamePictureBox.Image = Inventory.Properties.Resources.Tik_True;
 				ProductReceived_New.Product_Name = null;
 				InventoryHolding_New.Product_Name = null;
 				return;
 			}
 			else
 			{
-				ProductReceived_New.Product_Name = productNameTextBox.Text;
-				InventoryHolding_New.Product_Name = productNameTextBox.Text;
+				if (SearchProduct(productNameTextBox.Text))
+				{
+					checkProductNamePictureBox.Image = Inventory.Properties.Resources.Tik_True;
+					ProductReceived_New.Product_Name = productNameTextBox.Text;
+					InventoryHolding_New.Product_Name = productNameTextBox.Text;
+				}
+				else
+				{
+					checkProductNamePictureBox.Image = Inventory.Properties.Resources.Tik_False;
+					ProductReceived_New.Product_Name = null;
+					InventoryHolding_New.Product_Name = null;
+				}
 			}
 		}
 		#endregion /ProductNameTextBox_TextChanged
@@ -1029,8 +1054,12 @@ namespace Inventory_Forms
 				
 					dataBaseContext.SaveChanges();
 
-					LogInformationEditingEvents();
-
+					#region  -----------------------------------------    LogInformationEditingEvents     -----------------------------------------
+					if (string.Compare(Inventory.Program.UserAuthentication.Username, "admin") != 0)
+					{
+						LogInformationEditingEvents();
+					}
+					#endregion / -----------------------------------------     LogInformationEditingEvents     -----------------------------------------
 				}
 				inputProductReceived = null;
 
@@ -1051,6 +1080,45 @@ namespace Inventory_Forms
 			}
 		}
 		#endregion /SaveProductReceived
+
+		#region SearchProduct
+		private bool SearchProduct(string _productName)
+		{
+			Models.DataBaseContext dataBaseContext = null;
+			try
+			{
+				dataBaseContext =
+					new Models.DataBaseContext();
+
+				Models.ProductReceived productReceived =
+					dataBaseContext.ProductReceiveds
+					.Where(current => string.Compare(current.Product_Name, _productName) == 0)
+					.FirstOrDefault();
+
+				if (productReceived == null)
+				{
+					return true;
+				}
+				else
+				{
+					return false;
+				}
+			}
+			catch (System.Exception ex)
+			{
+				Infrastructure.Utility.ExceptionShow(ex);
+				return false;
+			}
+			finally
+			{
+				if (dataBaseContext != null)
+				{
+					dataBaseContext.Dispose();
+					dataBaseContext = null;
+				}
+			}
+		}
+		#endregion /SearchProduct
 
 		#region TransferName
 		private void TransferName()
@@ -1208,6 +1276,7 @@ namespace Inventory_Forms
 
 			}
 		}
+
 		#endregion /ValidationData
 
 		#endregion /Function

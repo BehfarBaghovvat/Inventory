@@ -115,17 +115,17 @@
     <Compile Include="Forms\Inventory_Forms\BillSalePrintForm.Designer.cs">
       <DependentUpon>BillSalePrintForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Inventory_Forms\InventoryOutputForm.cs">
+    <Compile Include="Forms\Inventory_Forms\ProductSalesListForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Inventory_Forms\InventoryOutputForm.Designer.cs">
-      <DependentUpon>InventoryOutputForm.cs</DependentUpon>
+    <Compile Include="Forms\Inventory_Forms\ProductSalesListForm.Designer.cs">
+      <DependentUpon>ProductSalesListForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Inventory_Forms\InvoiceForm.cs">
+    <Compile Include="Forms\Inventory_Forms\BillSaleReportForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Inventory_Forms\InvoiceForm.Designer.cs">
-      <DependentUpon>InvoiceForm.cs</DependentUpon>
+    <Compile Include="Forms\Inventory_Forms\BillSaleReportForm.Designer.cs">
+      <DependentUpon>BillSaleReportForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Inventory_Forms\BillBuyPrintForm.cs">
       <SubType>Form</SubType>
@@ -207,11 +207,11 @@
       <DependentUpon>PopupNotificationForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Infrastructure\Utility.cs" />
-    <Compile Include="Forms\Inventory_Forms\InventoryEntranceForm.cs">
+    <Compile Include="Forms\Inventory_Forms\ProductBuyForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Inventory_Forms\InventoryEntranceForm.Designer.cs">
-      <DependentUpon>InventoryEntranceForm.cs</DependentUpon>
+    <Compile Include="Forms\Inventory_Forms\ProductBuyForm.Designer.cs">
+      <DependentUpon>ProductBuyForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Inventory_Forms\InventoryForm.cs">
       <SubType>Form</SubType>
@@ -219,11 +219,11 @@
     <Compile Include="Forms\Inventory_Forms\InventoryForm.Designer.cs">
       <DependentUpon>InventoryForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Inventory_Forms\ProcutSalesForm.cs">
+    <Compile Include="Forms\Inventory_Forms\ProductSalesForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Inventory_Forms\ProcutSalesForm.Designer.cs">
-      <DependentUpon>ProcutSalesForm.cs</DependentUpon>
+    <Compile Include="Forms\Inventory_Forms\ProductSalesForm.Designer.cs">
+      <DependentUpon>ProductSalesForm.cs</DependentUpon>
     </Compile>
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
@@ -242,14 +242,14 @@
     <EmbeddedResource Include="Forms\Inventory_Forms\InventoryForm.resx">
       <DependentUpon>InventoryForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Inventory_Forms\InventoryOutputForm.resx">
-      <DependentUpon>InventoryOutputForm.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\Inventory_Forms\ProductSalesListForm.resx">
+      <DependentUpon>ProductSalesListForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Inventory_Forms\InvoiceForm.resx">
-      <DependentUpon>InvoiceForm.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\Inventory_Forms\BillSaleReportForm.resx">
+      <DependentUpon>BillSaleReportForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Inventory_Forms\ProcutSalesForm.resx">
-      <DependentUpon>ProcutSalesForm.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\Inventory_Forms\ProductSalesForm.resx">
+      <DependentUpon>ProductSalesForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Inventory_Forms\BillBuyPrintForm.resx">
       <DependentUpon>BillBuyPrintForm.cs</DependentUpon>
@@ -290,8 +290,8 @@
     <EmbeddedResource Include="Forms\Infrastructure\PopupNotificationForm.resx">
       <DependentUpon>PopupNotificationForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Inventory_Forms\InventoryEntranceForm.resx">
-      <DependentUpon>InventoryEntranceForm.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\Inventory_Forms\ProductBuyForm.resx">
+      <DependentUpon>ProductBuyForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>

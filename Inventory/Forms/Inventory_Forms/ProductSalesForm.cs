@@ -8,7 +8,7 @@ namespace Inventory_Forms
 
 		#region Layer
 
-		private class BillSaleReport
+		public class BillSaleReportItems
 		{
 			public string Product_Name { get; set; }
 			public int? Product_Quantity { get; set; }
@@ -17,12 +17,31 @@ namespace Inventory_Forms
 			public string Total_Price { get; set; }
 		}
 
+		private BillSaleReportForm _billSaleReportForm;
+		public BillSaleReportForm BillSaleReportForm
+		{
+			get 
+			{
+				if (_billSaleReportForm == null || _billSaleReportForm.IsDisposed == true)
+				{
+					_billSaleReportForm =
+						new BillSaleReportForm();
+				}
+				return _billSaleReportForm;
+			}
+		}
 
+		public class TransactionFactorsItems
+		{
+			public string Seller_Name { get; set; }
+			public string Client_Name { get; set; }
+			public string Carrier_Name { get; set; }
+		}
 
 		private InventoryOutputForm _inventoryOutputForm;
 		public InventoryOutputForm InventoryOutputForm
 		{
-			get 
+			get
 			{
 				if (_inventoryOutputForm == null || _inventoryOutputForm.IsDisposed == true)
 				{
@@ -35,7 +54,9 @@ namespace Inventory_Forms
 
 		#endregion /Layer
 
-		System.Collections.Generic.List<InvoiceForm.BillSaleReport> billSaleReportsList = new System.Collections.Generic.List<InvoiceForm.BillSaleReport>();
+		System.Collections.Generic.List<BillSaleReportItems> billSaleReportsList = new System.Collections.Generic.List<BillSaleReportItems>();
+
+		TransactionFactors transactionFactors = new TransactionFactors();
 
 		private Models.EventLog _eventLog;
 		public Models.EventLog EventLog
@@ -51,28 +72,10 @@ namespace Inventory_Forms
 			}
 		}
 
-		private TransactionFactors _inputTransactionFactors = null;
-		public TransactionFactors InputTransactionFactors 
-		{
-			get
-			{
-				if (_inputTransactionFactors == null)
-				{
-					_inputTransactionFactors =
-						new TransactionFactors();
-				}
-				return _inputTransactionFactors;
-			}
-			set
-			{
-				_inputTransactionFactors = value;
-			}
-		}
-
 		private Models.InventoryOutput _inventoryOutput;
 		public Models.InventoryOutput InventoryOutput
 		{
-			get 
+			get
 			{
 				if (_inventoryOutput == null)
 				{
@@ -83,16 +86,17 @@ namespace Inventory_Forms
 			}
 			set { _inventoryOutput = value; }
 		}
-		
+
 		public int Price { get; private set; }
 		public int? OldQuantity { get; set; }
+
 		public int? NewQuantity { get; set; }
 		#endregion/Properties
 
 		public ProcutSalesForm()
 		{
 			InitializeComponent();
-			
+
 			//sellerNameTextBox.Text = Inventory.Program.UserAuthentication.Full_Name;
 
 			LoadedProduction();
@@ -313,22 +317,19 @@ namespace Inventory_Forms
 		#region InvoiceButton_Click
 		private void InvoiceButton_Click(object sender, System.EventArgs e)
 		{
-			if (billSaleReportsList.Count == 0 || InputTransactionFactors == null)
+			if (billSaleReportsList.Count == 0 || transactionFactors == null)
 			{
-				Mbb.Windows.Forms.MessageBox.Show(text: "برای دریافت صورت حساب لطفا سفارش جدید دریافت کنید.",caption: "عدم صدور صورت حساب", icon: Mbb.Windows.Forms.MessageBoxIcon.Error,button: Mbb.Windows.Forms.MessageBoxButtons.Ok);
+				Mbb.Windows.Forms.MessageBox.Show(text: "برای دریافت صورت حساب لطفا سفارش جدید دریافت کنید.", caption: "عدم صدور صورت حساب", icon: Mbb.Windows.Forms.MessageBoxIcon.Error, button: Mbb.Windows.Forms.MessageBoxButtons.Ok);
 
 				return;
 			}
 			else
 			{
-				InvoiceForm invoiceForm = new InvoiceForm();
+				
+				BillSaleReportForm.
 
-				InputTransactionFactors.Carrier_Name = InventoryOutput.Carrier_Name;
-				InputTransactionFactors.Client_Name = InventoryOutput.Client_Name;
-				InputTransactionFactors.Seller_Name = InventoryOutput.Seller_Name;
-
-				invoiceForm.ReciveListWare(billSaleReportsList, InputTransactionFactors);
-				invoiceForm.ShowDialog();
+				
+				billSalePrintForm.ShowDialog();
 			}
 		}
 		#endregion /InvoiceButton_Click
@@ -363,7 +364,7 @@ namespace Inventory_Forms
 		#region ResetButton_Click
 		private void ResetButton_Click(object sender, System.EventArgs e)
 		{
-			
+
 
 		}
 		#endregion /ResetButton_Click
@@ -379,7 +380,7 @@ namespace Inventory_Forms
 			{
 				productNameTextBox.Text = inventoryHoldingDataGridView.CurrentRow.Cells[1].Value.ToString();
 				productQuantityTextBox.Text = inventoryHoldingDataGridView.CurrentRow.Cells[2].Value.ToString();
-				OldQuantity =int.Parse(inventoryHoldingDataGridView.CurrentRow.Cells[2].Value.ToString());
+				OldQuantity = int.Parse(inventoryHoldingDataGridView.CurrentRow.Cells[2].Value.ToString());
 				productUnitTextBox.Text = inventoryHoldingDataGridView.CurrentRow.Cells[3].Value.ToString();
 			}
 		}
@@ -482,7 +483,7 @@ namespace Inventory_Forms
 					.Where(current => string.Compare(current.Product_Name, productNameTextBox.Text) == 0)
 					.FirstOrDefault();
 
-				if (inventoryHolding.Product_Quantity <= productQuantity)
+				if (inventoryHolding.Product_Quantity < productQuantity)
 				{
 					return false;
 				}
@@ -543,7 +544,7 @@ namespace Inventory_Forms
 			if (inventoryOutput.Product_Quantity == null || inventoryOutput.Product_Quantity == 0)
 			{
 				errorMessage = "لطفا تعداد کالا را مشخص نمایید.";
-				
+
 			}
 			if (string.IsNullOrEmpty(inventoryOutput.Product_Price))
 			{
@@ -594,7 +595,7 @@ namespace Inventory_Forms
 					carrierNameTextBox.Focus();
 				}
 
-				Mbb.Windows.Forms.MessageBox.Show(text: errorMessage, caption: "", icon: Mbb.Windows.Forms.MessageBoxIcon.Error,button: Mbb.Windows.Forms.MessageBoxButtons.Ok);
+				Mbb.Windows.Forms.MessageBox.Show(text: errorMessage, caption: "", icon: Mbb.Windows.Forms.MessageBoxIcon.Error, button: Mbb.Windows.Forms.MessageBoxButtons.Ok);
 
 				return false;
 			}
@@ -607,10 +608,10 @@ namespace Inventory_Forms
 
 		#region PrintInvoiceWare
 		/// <summary>
-		/// برای چاپ صورت حساب، یک لیست از احناس تهیه نمودیم.
+		/// برای چاپ صورت حساب، یک لیست از اجناس تهیه نمودیم.
 		/// </summary>
 		/// <param name="printInventoryOutput"></param>
-		private	void PrintInvoicWare(Models.InventoryOutput printInventoryOutput)
+		private void PrintInvoicWare(Models.InventoryOutput printInventoryOutput)
 		{
 			#region Calculate
 			int price = int.Parse(printInventoryOutput.Product_Price.Replace("تومان", string.Empty).Trim().Replace(",", string.Empty).Trim());
@@ -618,7 +619,7 @@ namespace Inventory_Forms
 			int? totalPrice = price * quantity;
 			#endregion /Calculate
 
-			InvoiceForm.BillSaleReport billSaleReport = new InvoiceForm.BillSaleReport
+			BillSaleReportItems billSaleReport = new BillSaleReportItems
 			{
 				Product_Name = printInventoryOutput.Product_Name,
 				Product_Quantity = printInventoryOutput.Product_Quantity,
@@ -628,6 +629,10 @@ namespace Inventory_Forms
 			};
 
 			billSaleReportsList.Add(billSaleReport);
+
+			transactionFactors.Seller_Name = 
+
+
 		}
 
 		#endregion PrintInvoiceWare
@@ -748,7 +753,7 @@ namespace Inventory_Forms
 			}
 		}
 		#endregion /ProductReceived
-		
+
 		#endregion /Founction
 	}
 }

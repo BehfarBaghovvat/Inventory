@@ -30,11 +30,26 @@ namespace Inventory_Forms
 			}
 		}
 		#endregion /Layer
-		public bool BillClear { get; set; }
+
 		public int Amount { get; set; }
 		public int Amount_Payment { get; set; }
 		public long Capital_Fund { get; set; }
 		public string Carrier_Name { get; set; }
+
+		private Models.EventLog _eventLog;
+		public Models.EventLog EventLog
+		{
+			get 
+			{
+				if (_eventLog == null)
+				{
+					_eventLog =
+						new Models.EventLog();
+				}
+				return _eventLog;
+			}
+		}
+
 		public InventoryEntranceForm MyInventoryEntranceForm { get; set; }
 		public int Total_Sum_Price { get; set; }
 		public int Remaining_Amount { get; set; }
@@ -132,7 +147,7 @@ namespace Inventory_Forms
 				Capital_Fund = LoadingCapitalFund();
 				capitalFundTextBox.Text = $"{Capital_Fund:#,0} تومان";
 
-				//if (true)
+				//if (true)     بعدا حتما به گزینه ها اضافه گردد.
 				//{
 				//	Capital_Fund = LoadingCapitalFund();
 				//	Mbb.Windows.Forms.MessageBox.Show(text: $"موجودی صندوق \n {Capital_Fund:#,0} تومان می باشد.",
@@ -192,10 +207,11 @@ namespace Inventory_Forms
 				amountPaymentTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
 				amountPaymentTextBox.Text = "0 تومان";
 				Amount_Payment = 0;
-				amountPaymentTextBox.Select(0, 1);
+				amountPaymentTextBox.Select(2, 1);
 			}
 			else if (amountPaymentTextBox.Text.Contains("تومان"))
 			{
+				amountPaymentTextBox.Select(2, amountPaymentTextBox.Text.Length - 2);
 				return;
 			}
 		}
@@ -356,8 +372,20 @@ namespace Inventory_Forms
 				capitalFund.Capital_Fund =$"{Capital_Fund: #,0} تومان";
 
 				dataBaseContext.SaveChanges();
+
+				#region -----------------------------------------     Save Event Log     -----------------------------------------
+				if (string.Compare(Inventory.Program.UserAuthentication.Username, "admin") != 0)
+				{
+					EventLog.Username = Inventory.Program.UserAuthentication.Username;
+					EventLog.Full_Name = Inventory.Program.UserAuthentication.Full_Name;
+					EventLog.Event_Date = $"{Infrastructure.Utility.PersianCalendar(System.DateTime.Now)}";
+					EventLog.Event_Time = $"{Infrastructure.Utility.ShowTime()}";
+					EventLog.Description = $"پرداخت هزینه به مبلغ {amountPayment: #,0} تومان و باقیمانده {Remaining_Amount:#,0} تومان";
+					Infrastructure.Utility.EventLog(EventLog);
+				}
+				#endregion /-----------------------------------------     Save Event Log     -----------------------------------------
+
 				return true;
-				
 			}
 			catch (System.Exception ex)
 			{
@@ -385,6 +413,11 @@ namespace Inventory_Forms
 			dateOfPrintTextBox.Text = $"{Infrastructure.Utility.PersianCalendar(System.DateTime.Now)} - {Infrastructure.Utility.ShowTime()}";
 			Capital_Fund = LoadingCapitalFund();
 			capitalFundTextBox.Text = $"{Capital_Fund:#,0} تومان";
+
+			senderNameTextBox.Text = Sender_Name;
+			transferNameTextBox.Text = Inventory.Program.UserAuthentication.Full_Name;
+			carrierNameTextBox.Text = Carrier_Name;
+
 		}
 		#endregion /Initialize
 
