@@ -718,10 +718,10 @@
         tM8ZE5rjAAAAAElFTkSuQmCC
 </value>
   </data>
-  <metadata name="invoiceButton.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  <metadata name="billButton.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
-  <data name="invoiceButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="billButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAUAAAAFACAYAAADNkKWqAAAABGdBTUEAALGPC/xhBQAAJO1JREFUeF7t
         nX3M5eld1mehFCivVkBAlIZKRHlTTI0vSTUqkhSCmNQiphqjJjSboIUaami7a6OiEYgN2sAfBgk0VRZL

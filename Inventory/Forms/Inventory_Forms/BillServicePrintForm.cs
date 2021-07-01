@@ -15,20 +15,20 @@
 
 			if (Mbb.Windows.Forms.MessageBox.Show(text: "آیا گزارش جاری حذف گردد؟", caption: "حذف گزارش", icon: Mbb.Windows.Forms.MessageBoxIcon.Question, button: Mbb.Windows.Forms.MessageBoxButtons.YesNo) == System.Windows.Forms.DialogResult.Yes)
 			{
-				if (Inventory.MainForm.InventoryEntranceForm != null)
+				if (Inventory.MainForm.ProductBuyForm != null)
 				{
 					//Inventory.MainForm.InventoryEntranceForm.receiptDataGridView.Rows.Clear();
 					//Inventory.MainForm.InventoryEntranceForm.getReceiptButton.Checked = false;
 				}
-				this.Close();
+				this.Dispose();
 			}
 			else
 			{
-				if (Inventory.MainForm.InventoryEntranceForm != null)
+				if (Inventory.MainForm.ProductBuyForm != null)
 				{
 					//Inventory.MainForm.InventoryEntranceForm.getReceiptButton.Checked = false;
 				}
-				this.Close();
+				this.Dispose();
 			}
 		}
 		#endregion /CloseButton_Click

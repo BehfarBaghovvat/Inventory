@@ -29,17 +29,11 @@ namespace Inventory_Forms
 				return _billBuyPrintForm;
 			}
 		}
-		#endregion /Layer
-
-		public int Amount { get; set; }
-		public int Amount_Payment { get; set; }
-		public long Capital_Fund { get; set; }
-		public string Carrier_Name { get; set; }
 
 		private Models.EventLog _eventLog;
 		public Models.EventLog EventLog
 		{
-			get 
+			get
 			{
 				if (_eventLog == null)
 				{
@@ -49,8 +43,14 @@ namespace Inventory_Forms
 				return _eventLog;
 			}
 		}
+		#endregion /Layer
 
-		public InventoryEntranceForm MyInventoryEntranceForm { get; set; }
+		public int Amount { get; set; }
+		public int Amount_Payment { get; set; }
+		public long Capital_Fund { get; set; }
+		public string Carrier_Name { get; set; }
+
+		public ProductBuyForm MyProductBuyForm { get; set; }
 		public int Total_Sum_Price { get; set; }
 		public int Remaining_Amount { get; set; }
 		public string Sender_Name { get; set; }
@@ -140,7 +140,7 @@ namespace Inventory_Forms
 		#region PaymentButton_Click
 		private void PaymentButton_Click(object sender, System.EventArgs e)
 		{
-			if (Harvest(Amount_Payment) && SetAccountPayable(Amount_Payment,Total_Sum_Price,Remaining_Amount))
+			if (Harvest(Amount_Payment) && SetAccountPayable(Amount_Payment, Total_Sum_Price, Remaining_Amount))
 			{
 				Infrastructure.Utility.WindowsNotification(message: "عملیات ثبت و پرداخت انجام گردید.", caption: Infrastructure.PopupNotificationForm.Caption.موفقیت);
 
@@ -204,14 +204,10 @@ namespace Inventory_Forms
 
 			if (string.IsNullOrWhiteSpace(amountPaymentTextBox.Text))
 			{
-				amountPaymentTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-				amountPaymentTextBox.Text = "0 تومان";
 				Amount_Payment = 0;
-				amountPaymentTextBox.Select(2, 1);
 			}
 			else if (amountPaymentTextBox.Text.Contains("تومان"))
 			{
-				amountPaymentTextBox.Select(2, amountPaymentTextBox.Text.Length - 2);
 				return;
 			}
 		}
@@ -227,28 +223,21 @@ namespace Inventory_Forms
 		#region AmountPaymentTextBox_Leave
 		private void AmountPaymentTextBox_Leave(object sender, System.EventArgs e)
 		{
-			if (string.IsNullOrWhiteSpace(amountPaymentTextBox.Text))
+			if (string.IsNullOrWhiteSpace(amountPaymentTextBox.Text) ||
+			   string.Compare(amountPaymentTextBox.Text, "0 تومان") == 0 ||
+			   string.Compare(amountPaymentTextBox.Text, " تومان") == 0 ||
+			   string.Compare(amountPaymentTextBox.Text, "تومان") == 0 ||
+			   string.Compare(amountPaymentTextBox.Text, "توما") == 0 ||
+			   string.Compare(amountPaymentTextBox.Text, "توم") == 0 ||
+			   string.Compare(amountPaymentTextBox.Text, "تو") == 0 ||
+			   string.Compare(amountPaymentTextBox.Text, "ت") == 0)
 			{
-				Amount_Payment = 0;
-				amountPaymentTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-				return;
-			}
-			else if (string.Compare(amountPaymentTextBox.Text, "0 تومان") == 0 ||
-				string.Compare(amountPaymentTextBox.Text, " تومان") == 0 ||
-				string.Compare(amountPaymentTextBox.Text, "تومان") == 0 ||
-				string.Compare(amountPaymentTextBox.Text, "توما") == 0 ||
-				string.Compare(amountPaymentTextBox.Text, "توم") == 0 ||
-				string.Compare(amountPaymentTextBox.Text, "تو") == 0 ||
-				string.Compare(amountPaymentTextBox.Text, "ت") == 0)
-			{
-				amountPaymentTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-				amountPaymentTextBox.Clear();
+				amountPaymentTextBox.Text = "0 تومان";
 				Amount_Payment = 0;
 				return;
 			}
 			else
 			{
-				amountPaymentTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
 				Amount_Payment = int.Parse(amountPaymentTextBox.Text.Replace("تومان", string.Empty).Replace(",", string.Empty).Trim());
 				amountPaymentTextBox.Text = $"{Amount_Payment:#,0} تومان";
 			}
@@ -300,7 +289,7 @@ namespace Inventory_Forms
 		#region AllClear
 		private void AllClear()
 		{
-			MyInventoryEntranceForm.RemoveBill();
+			MyProductBuyForm.RemoveBill();
 			Amount = 0;
 			Amount_Payment = 0;
 			Carrier_Name = null;
@@ -316,7 +305,7 @@ namespace Inventory_Forms
 		#endregion /AllClear
 
 		#region SetBillInDataGridView
-		public void SetBillInDataGridView(System.Collections.Generic.List<InventoryEntranceForm.Bill> billList)
+		public void SetBillInDataGridView(System.Collections.Generic.List<ProductBuyForm.Bill> billList)
 		{
 			foreach (var item in billList)
 			{
@@ -347,7 +336,6 @@ namespace Inventory_Forms
 				return;
 			}
 		}
-
 		#endregion /CalculatePurchaseAmount
 
 		#region Harvest
@@ -369,7 +357,7 @@ namespace Inventory_Forms
 					dataBaseContext.CapitalFunds
 					.FirstOrDefault();
 
-				capitalFund.Capital_Fund =$"{Capital_Fund: #,0} تومان";
+				capitalFund.Capital_Fund = $"{Capital_Fund: #,0} تومان";
 
 				dataBaseContext.SaveChanges();
 
@@ -415,7 +403,7 @@ namespace Inventory_Forms
 			capitalFundTextBox.Text = $"{Capital_Fund:#,0} تومان";
 
 			senderNameTextBox.Text = Sender_Name;
-			transferNameTextBox.Text = Inventory.Program.UserAuthentication.Full_Name;
+			//transferNameTextBox.Text = Inventory.Program.UserAuthentication.Full_Name;
 			carrierNameTextBox.Text = Carrier_Name;
 
 		}
@@ -501,9 +489,6 @@ namespace Inventory_Forms
 		}
 		#endregion /SetAccountPayable
 
-
 		#endregion /Function
-
-
 	}
 }

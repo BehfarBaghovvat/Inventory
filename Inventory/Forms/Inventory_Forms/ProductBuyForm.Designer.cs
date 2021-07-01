@@ -1,7 +1,7 @@
 ﻿
 namespace Inventory_Forms
 {
-	partial class InventoryEntranceForm
+	partial class ProductBuyForm
 	{
 		/// <summary>
 		/// Required designer variable.
@@ -30,7 +30,7 @@ namespace Inventory_Forms
 		private void InitializeComponent()
 		{
 			this.components = new System.ComponentModel.Container();
-			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(InventoryEntranceForm));
+			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ProductBuyForm));
 			Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties1 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
 			Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties2 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
 			Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties3 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
@@ -118,9 +118,9 @@ namespace Inventory_Forms
 			// 
 			this.contextMenuStrip.Font = new System.Drawing.Font("IRANSans", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.contextMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-			this.viewProductImageToolStripMenuItem,
-			this.deleteRecordToolStripMenuItem,
-			this.editProductToolStripMenuItem});
+            this.viewProductImageToolStripMenuItem,
+            this.deleteRecordToolStripMenuItem,
+            this.editProductToolStripMenuItem});
 			this.contextMenuStrip.Name = "contextMenuStrip";
 			this.contextMenuStrip.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
 			this.contextMenuStrip.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -193,6 +193,7 @@ namespace Inventory_Forms
 			this.checkProductNamePictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
 			this.checkProductNamePictureBox.TabIndex = 19;
 			this.checkProductNamePictureBox.TabStop = false;
+			this.checkProductNamePictureBox.Visible = false;
 			// 
 			// billButton
 			// 
@@ -369,10 +370,10 @@ namespace Inventory_Forms
 			this.filterSearchComboBox.IntegralHeight = false;
 			this.filterSearchComboBox.ItemHeight = 25;
 			this.filterSearchComboBox.Items.AddRange(new object[] {
-			"...فیلتر جستجو",
-			"نام حامل کالا",
-			"نام ارسال کننده",
-			"نام تحویل گیرنده"});
+            "...فیلتر جستجو",
+            "نام حامل کالا",
+            "نام ارسال کننده",
+            "نام تحویل گیرنده"});
 			this.filterSearchComboBox.ItemsAppearance.ForeColor = System.Drawing.Color.White;
 			this.filterSearchComboBox.ItemsAppearance.Parent = this.filterSearchComboBox;
 			this.filterSearchComboBox.ItemsAppearance.SelectedBackColor = System.Drawing.Color.Teal;
@@ -410,16 +411,16 @@ namespace Inventory_Forms
 			this.productUnitComboBox.IntegralHeight = false;
 			this.productUnitComboBox.ItemHeight = 25;
 			this.productUnitComboBox.Items.AddRange(new object[] {
-			"...واحد کالا",
-			"مثقال",
-			"گرم",
-			"کیلو گرم",
-			"تن",
-			"بسته",
-			"جعبه",
-			"کارتن",
-			"شاخه",
-			"عدد"});
+            "...واحد کالا",
+            "مثقال",
+            "گرم",
+            "کیلو گرم",
+            "تن",
+            "بسته",
+            "جعبه",
+            "کارتن",
+            "شاخه",
+            "عدد"});
 			this.productUnitComboBox.ItemsAppearance.ForeColor = System.Drawing.Color.White;
 			this.productUnitComboBox.ItemsAppearance.Parent = this.productUnitComboBox;
 			this.productUnitComboBox.ItemsAppearance.SelectedBackColor = System.Drawing.Color.Teal;
@@ -972,20 +973,20 @@ namespace Inventory_Forms
 			this.productRecivedDataGridView.ColumnHeadersHeight = 40;
 			this.productRecivedDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
 			this.productRecivedDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-			this.idDataGridViewTextBoxColumn1,
-			this.productNameDataGridViewTextBoxColumn1,
-			this.transferNameDataGridViewTextBoxColumn1,
-			this.senderNameDataGridViewTextBoxColumn1,
-			this.carrierNameDataGridViewTextBoxColumn1,
-			this.productPurchasePriceDataGridViewTextBoxColumn1,
-			this.productQuantityDataGridViewTextBoxColumn1,
-			this.productUnitDataGridViewTextBoxColumn1,
-			this.productImageDataGridViewImageColumn1,
-			this.registrationDateDataGridViewTextBoxColumn1,
-			this.registrationTimeDataGridViewTextBoxColumn1,
-			this.numberEditDataGridViewTextBoxColumn,
-			this.lastEditedDateDataGridViewTextBoxColumn,
-			this.lastEditedTimeDataGridViewTextBoxColumn});
+            this.idDataGridViewTextBoxColumn1,
+            this.productNameDataGridViewTextBoxColumn1,
+            this.transferNameDataGridViewTextBoxColumn1,
+            this.senderNameDataGridViewTextBoxColumn1,
+            this.carrierNameDataGridViewTextBoxColumn1,
+            this.productPurchasePriceDataGridViewTextBoxColumn1,
+            this.productQuantityDataGridViewTextBoxColumn1,
+            this.productUnitDataGridViewTextBoxColumn1,
+            this.productImageDataGridViewImageColumn1,
+            this.registrationDateDataGridViewTextBoxColumn1,
+            this.registrationTimeDataGridViewTextBoxColumn1,
+            this.numberEditDataGridViewTextBoxColumn,
+            this.lastEditedDateDataGridViewTextBoxColumn,
+            this.lastEditedTimeDataGridViewTextBoxColumn});
 			this.productRecivedDataGridView.ContextMenuStrip = this.contextMenuStrip;
 			this.productRecivedDataGridView.DataSource = this.productReceivedBindingSource;
 			dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
@@ -1133,14 +1134,14 @@ namespace Inventory_Forms
 			this.DataGridViewElipse.BorderRadius = 25;
 			this.DataGridViewElipse.TargetControl = this.productRecivedDataGridView;
 			// 
-			// InventoryEntranceForm
+			// ProductBuyForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 17F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(0)))), ((int)(((byte)(61)))));
 			this.ClientSize = new System.Drawing.Size(1150, 650);
 			this.Controls.Add(this.controlsPanel);
-			this.Name = "InventoryEntranceForm";
+			this.Name = "ProductBuyForm";
 			this.Text = "InventoryEntranceForm";
 			this.Load += new System.EventHandler(this.InventoryEntranceForm_Load);
 			this.contextMenuStrip.ResumeLayout(false);

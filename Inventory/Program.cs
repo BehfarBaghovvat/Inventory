@@ -144,22 +144,6 @@ namespace Inventory
 		}
 		#endregion /SingUpForm
 
-		#region MyRegion
-		private static Inventory_Forms.InventoryEntranceForm _inventoryEntranceForm;
-		public static Inventory_Forms.InventoryEntranceForm InventoryEntranceForm
-		{
-			get 
-			{
-				if (_inventoryEntranceForm == null || _inventoryEntranceForm.IsDisposed == true)
-				{
-					_inventoryEntranceForm =
-						new Inventory_Forms.InventoryEntranceForm();
-				}
-				return _inventoryEntranceForm;
-			}
-		}
-		#endregion
-
 		#region BillBuyReportForm
 		private static Inventory_Forms.BillBuyReportForm _billBuyReportForm;
 
@@ -189,10 +173,11 @@ namespace Inventory
 			Administrator();
 			System.Windows.Forms.Application.Run(new Entry_Forms.StartUpForm());
 
-
 			//System.Windows.Forms.Application.Run(new Inventory_Forms.InvoiceForm());
 			//System.Windows.Forms.Application.Run(new Inventory_Forms.ProcutSalesForm());
-			//System.Windows.Forms.Application.Run(new Inventory_Forms.InventoryEntranceForm());
+			//System.Windows.Forms.Application.Run(new Inventory_Forms.BillBuyReportForm());
+			//System.Windows.Forms.Application.Run(new Inventory_Forms.BillSaleReportForm());
+			//System.Windows.Forms.Application.Run(new Inventory_Forms.ProductBuyForm());
 			//System.Windows.Forms.Application.Run(new Inventory_Forms.ViewProducrImageForm());
 			//System.Windows.Forms.Application.Run(new Inventory_Forms.ServiceForm());
 			//System.Windows.Forms.Application.Run(new Inventory_Forms.ServiceReportForm());

@@ -38,6 +38,8 @@ namespace Inventory_Forms
 			public string Carrier_Name { get; set; }
 		}
 
+		private TransactionFactorsItems _transactionFactorsItems = null;
+
 		private InventoryOutputForm _inventoryOutputForm;
 		public InventoryOutputForm InventoryOutputForm
 		{
@@ -54,9 +56,9 @@ namespace Inventory_Forms
 
 		#endregion /Layer
 
-		System.Collections.Generic.List<BillSaleReportItems> billSaleReportsList = new System.Collections.Generic.List<BillSaleReportItems>();
+		public System.Collections.Generic.List<BillSaleReportItems> billSaleReportsList = new System.Collections.Generic.List<BillSaleReportItems>();
 
-		TransactionFactors transactionFactors = new TransactionFactors();
+		public TransactionFactorsItems transactionFactorsItems;
 
 		private Models.EventLog _eventLog;
 		public Models.EventLog EventLog
@@ -314,25 +316,25 @@ namespace Inventory_Forms
 		}
 		#endregion /ProductSearchTextBox_TextChange
 
-		#region InvoiceButton_Click
-		private void InvoiceButton_Click(object sender, System.EventArgs e)
+		#region BillButton_Click
+		private void BillButton_Click(object sender, System.EventArgs e)
 		{
-			if (billSaleReportsList.Count == 0 || transactionFactors == null)
+			if (billSaleReportsList.Count == 0 || transactionFactorsItems == null)
 			{
-				Mbb.Windows.Forms.MessageBox.Show(text: "برای دریافت صورت حساب لطفا سفارش جدید دریافت کنید.", caption: "عدم صدور صورت حساب", icon: Mbb.Windows.Forms.MessageBoxIcon.Error, button: Mbb.Windows.Forms.MessageBoxButtons.Ok);
+				Mbb.Windows.Forms.MessageBox.Show(text: "برای دریافت صورت حساب لطفا سفارش جدید دریافت کنید.",
+					caption: "عدم صدور صورت حساب", icon: Mbb.Windows.Forms.MessageBoxIcon.Error, button: Mbb.Windows.Forms.MessageBoxButtons.Ok);
 
 				return;
 			}
 			else
 			{
-				
-				BillSaleReportForm.
-
-				
-				billSalePrintForm.ShowDialog();
+				BillSaleReportForm.MyProcutSalesForm = this;
+				BillSaleReportForm.SetItemsBillSale(billSaleReportsList, transactionFactorsItems);
+				BillSaleReportForm.CalculatePurchaseAmount();
+				BillSaleReportForm.ShowDialog();
 			}
 		}
-		#endregion /InvoiceButton_Click
+		#endregion /BillButton_Click
 
 		#region InventoryOutputButton_Click
 		private void InventoryOutputButton_Click(object sender, System.EventArgs e)
@@ -353,6 +355,7 @@ namespace Inventory_Forms
 				InventoryOutput.Add_Order_Time = Infrastructure.Utility.ShowTime();
 
 				AddOrder(InventoryOutput);
+				addOrderButton.Enabled = false;
 			}
 			else
 			{
@@ -364,8 +367,7 @@ namespace Inventory_Forms
 		#region ResetButton_Click
 		private void ResetButton_Click(object sender, System.EventArgs e)
 		{
-
-
+			ResetOrder();
 		}
 		#endregion /ResetButton_Click
 
@@ -378,10 +380,22 @@ namespace Inventory_Forms
 			}
 			else
 			{
+				addOrderButton.Enabled = true;
 				productNameTextBox.Text = inventoryHoldingDataGridView.CurrentRow.Cells[1].Value.ToString();
+				InventoryOutput.Product_Name = inventoryHoldingDataGridView.CurrentRow.Cells[1].Value.ToString();
+
 				productQuantityTextBox.Text = inventoryHoldingDataGridView.CurrentRow.Cells[2].Value.ToString();
+				InventoryOutput.Product_Quantity =int.Parse(inventoryHoldingDataGridView.CurrentRow.Cells[2].Value.ToString());
+				productQuantityTextBox.Focus();
+				productQuantityTextBox.SelectAll();
 				OldQuantity = int.Parse(inventoryHoldingDataGridView.CurrentRow.Cells[2].Value.ToString());
+
 				productUnitTextBox.Text = inventoryHoldingDataGridView.CurrentRow.Cells[3].Value.ToString();
+				InventoryOutput.Product_Unit = inventoryHoldingDataGridView.CurrentRow.Cells[3].Value.ToString();
+
+				productPriceTextBox.Text = inventoryHoldingDataGridView.CurrentRow.Cells[4].Value.ToString();
+				InventoryOutput.Product_Price = inventoryHoldingDataGridView.CurrentRow.Cells[4].Value.ToString();
+
 			}
 		}
 		#endregion /InventoryHoldingDataGridView_CellDoubleClick
@@ -396,7 +410,7 @@ namespace Inventory_Forms
 			Models.DataBaseContext dataBaseContext = null;
 			try
 			{
-				PrintInvoicWare(inputInventoryOutput);
+				GetItemsBillSale(inputInventoryOutput);
 
 				dataBaseContext =
 					new Models.DataBaseContext();
@@ -455,18 +469,6 @@ namespace Inventory_Forms
 			}
 		}
 		#endregion AddOrder
-
-		#region AddNewProduct
-		private void AddNewProduct()
-		{
-			InventoryOutput = null;
-
-			productNameTextBox.Clear();
-			productQuantityTextBox.Clear();
-			productUnitTextBox.Clear();
-			productPriceTextBox.Clear();
-		}
-		#endregion /AddNewProduct
 
 		#region CheckInventory
 		private bool CheckInventory(int? productQuantity)
@@ -606,35 +608,77 @@ namespace Inventory_Forms
 		}
 		#endregion /InputValidtion
 
+		#region ProductReceived
+		private void ProductReceived(int? newQuantity, string productName)
+		{
+			Models.DataBaseContext dataBaseContext = null;
+			try
+			{
+				dataBaseContext =
+					new Models.DataBaseContext();
+
+				Models.ProductReceived productReceived =
+					dataBaseContext.ProductReceiveds
+					.Where(current => string.Compare(current.Product_Name, productName) == 0)
+					.FirstOrDefault();
+
+				if (productReceived != null)
+				{
+					productReceived.Product_Quantity = newQuantity;
+				}
+				dataBaseContext.SaveChanges();
+			}
+			catch (System.Exception ex)
+			{
+				Infrastructure.Utility.ExceptionShow(ex);
+			}
+			finally
+			{
+				if (dataBaseContext != null)
+				{
+					dataBaseContext.Dispose();
+					dataBaseContext = null;
+				}
+			}
+		}
+		#endregion /ProductReceived
+
 		#region PrintInvoiceWare
 		/// <summary>
 		/// برای چاپ صورت حساب، یک لیست از اجناس تهیه نمودیم.
 		/// </summary>
 		/// <param name="printInventoryOutput"></param>
-		private void PrintInvoicWare(Models.InventoryOutput printInventoryOutput)
+		private void GetItemsBillSale(Models.InventoryOutput inventoryOutput)
 		{
 			#region Calculate
-			int price = int.Parse(printInventoryOutput.Product_Price.Replace("تومان", string.Empty).Trim().Replace(",", string.Empty).Trim());
-			int? quantity = printInventoryOutput.Product_Quantity;
+			int price = int.Parse(inventoryOutput.Product_Price.Replace("تومان", string.Empty).Trim().Replace(",", string.Empty).Trim());
+			int? quantity = inventoryOutput.Product_Quantity;
 			int? totalPrice = price * quantity;
 			#endregion /Calculate
 
-			BillSaleReportItems billSaleReport = new BillSaleReportItems
+			BillSaleReportItems billSaleReport = new BillSaleReportItems()
 			{
-				Product_Name = printInventoryOutput.Product_Name,
-				Product_Quantity = printInventoryOutput.Product_Quantity,
-				Product_Unit = printInventoryOutput.Product_Unit,
-				Product_Price = printInventoryOutput.Product_Price,
+				Product_Name = inventoryOutput.Product_Name,
+				Product_Price = inventoryOutput.Product_Price,
+				Product_Quantity = inventoryOutput.Product_Quantity,
+				Product_Unit = inventoryOutput.Product_Unit,
 				Total_Price = $"{totalPrice:#,0} تومان",
 			};
 
 			billSaleReportsList.Add(billSaleReport);
+			billSaleReportsList.TrimExcess();
 
-			transactionFactors.Seller_Name = 
+			if (transactionFactorsItems == null)
+			{
+				transactionFactorsItems =
+					new TransactionFactorsItems();
+			}
 
+			transactionFactorsItems.Carrier_Name = inventoryOutput.Carrier_Name;
+			transactionFactorsItems.Seller_Name = "ندارد"; //Inventory.Program.UserAuthentication.Full_Name;
+			transactionFactorsItems.Client_Name = inventoryOutput.Client_Name;
 
 		}
-
 		#endregion PrintInvoiceWare
 
 		#region ProductSearch
@@ -683,6 +727,21 @@ namespace Inventory_Forms
 		}
 		#endregion /ProductSearch
 
+		#region ResetOrder
+		private void ResetOrder()
+		{
+			InventoryOutput = null;
+
+			billSaleReportsList.Clear();
+			transactionFactorsItems = null;
+
+			productNameTextBox.Clear();
+			productQuantityTextBox.Clear();
+			productUnitTextBox.Clear();
+			productPriceTextBox.Clear();
+		}
+		#endregion /ResetOrder
+
 		#region WarehouseOutput
 		private void WarehouseOutput(int? newQuantity, string productName)
 		{
@@ -718,41 +777,6 @@ namespace Inventory_Forms
 			}
 		}
 		#endregion /WarehouseOutput
-
-		#region ProductReceived
-		private void ProductReceived(int? newQuantity, string productName)
-		{
-			Models.DataBaseContext dataBaseContext = null;
-			try
-			{
-				dataBaseContext =
-					new Models.DataBaseContext();
-
-				Models.ProductReceived productReceived =
-					dataBaseContext.ProductReceiveds
-					.Where(current => string.Compare(current.Product_Name, productName) == 0)
-					.FirstOrDefault();
-
-				if (productReceived != null)
-				{
-					productReceived.Product_Quantity = newQuantity;
-				}
-				dataBaseContext.SaveChanges();
-			}
-			catch (System.Exception ex)
-			{
-				Infrastructure.Utility.ExceptionShow(ex);
-			}
-			finally
-			{
-				if (dataBaseContext != null)
-				{
-					dataBaseContext.Dispose();
-					dataBaseContext = null;
-				}
-			}
-		}
-		#endregion /ProductReceived
 
 		#endregion /Founction
 	}

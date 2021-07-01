@@ -750,7 +750,7 @@ namespace Inventory
 			this.gregorianCalendarLabel.AccessibleRole = System.Windows.Forms.AccessibleRole.TitleBar;
 			this.gregorianCalendarLabel.Font = new System.Drawing.Font("Georgia", 40F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.gregorianCalendarLabel.ForeColor = System.Drawing.Color.CornflowerBlue;
-			this.gregorianCalendarLabel.Location = new System.Drawing.Point(3, 105);
+			this.gregorianCalendarLabel.Location = new System.Drawing.Point(3, 112);
 			this.gregorianCalendarLabel.Name = "gregorianCalendarLabel";
 			this.gregorianCalendarLabel.Size = new System.Drawing.Size(1104, 90);
 			this.gregorianCalendarLabel.TabIndex = 4;
@@ -760,11 +760,11 @@ namespace Inventory
 			// secondsLabel
 			// 
 			this.secondsLabel.AutoSize = true;
-			this.secondsLabel.Font = new System.Drawing.Font("Montserrat", 75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.secondsLabel.Font = new System.Drawing.Font("Bauhaus 93", 72F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.secondsLabel.ForeColor = System.Drawing.Color.White;
-			this.secondsLabel.Location = new System.Drawing.Point(665, 4);
+			this.secondsLabel.Location = new System.Drawing.Point(665, -12);
 			this.secondsLabel.Name = "secondsLabel";
-			this.secondsLabel.Size = new System.Drawing.Size(190, 122);
+			this.secondsLabel.Size = new System.Drawing.Size(155, 108);
 			this.secondsLabel.TabIndex = 3;
 			this.secondsLabel.Text = "00";
 			this.secondsLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -772,11 +772,11 @@ namespace Inventory
 			// pointLabel2
 			// 
 			this.pointLabel2.AutoSize = true;
-			this.pointLabel2.Font = new System.Drawing.Font("Montserrat", 75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.pointLabel2.Font = new System.Drawing.Font("Bauhaus 93", 72F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.pointLabel2.ForeColor = System.Drawing.Color.White;
-			this.pointLabel2.Location = new System.Drawing.Point(618, -12);
+			this.pointLabel2.Location = new System.Drawing.Point(618, -28);
 			this.pointLabel2.Name = "pointLabel2";
-			this.pointLabel2.Size = new System.Drawing.Size(81, 122);
+			this.pointLabel2.Size = new System.Drawing.Size(81, 108);
 			this.pointLabel2.TabIndex = 3;
 			this.pointLabel2.Text = ":";
 			this.pointLabel2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -784,11 +784,11 @@ namespace Inventory
 			// minutesLabel
 			// 
 			this.minutesLabel.AutoSize = true;
-			this.minutesLabel.Font = new System.Drawing.Font("Montserrat", 75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.minutesLabel.Font = new System.Drawing.Font("Bauhaus 93", 72F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.minutesLabel.ForeColor = System.Drawing.Color.White;
-			this.minutesLabel.Location = new System.Drawing.Point(461, 4);
+			this.minutesLabel.Location = new System.Drawing.Point(461, -12);
 			this.minutesLabel.Name = "minutesLabel";
-			this.minutesLabel.Size = new System.Drawing.Size(190, 122);
+			this.minutesLabel.Size = new System.Drawing.Size(155, 108);
 			this.minutesLabel.TabIndex = 2;
 			this.minutesLabel.Text = "00";
 			this.minutesLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -796,11 +796,11 @@ namespace Inventory
 			// pointLabel1
 			// 
 			this.pointLabel1.AutoSize = true;
-			this.pointLabel1.Font = new System.Drawing.Font("Montserrat", 75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.pointLabel1.Font = new System.Drawing.Font("Bauhaus 93", 72F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.pointLabel1.ForeColor = System.Drawing.Color.White;
-			this.pointLabel1.Location = new System.Drawing.Point(413, -12);
+			this.pointLabel1.Location = new System.Drawing.Point(413, -28);
 			this.pointLabel1.Name = "pointLabel1";
-			this.pointLabel1.Size = new System.Drawing.Size(81, 122);
+			this.pointLabel1.Size = new System.Drawing.Size(81, 108);
 			this.pointLabel1.TabIndex = 1;
 			this.pointLabel1.Text = ":";
 			this.pointLabel1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -808,11 +808,11 @@ namespace Inventory
 			// hoursLabel
 			// 
 			this.hoursLabel.AutoSize = true;
-			this.hoursLabel.Font = new System.Drawing.Font("Montserrat", 75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.hoursLabel.Font = new System.Drawing.Font("Bauhaus 93", 72F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.hoursLabel.ForeColor = System.Drawing.Color.White;
-			this.hoursLabel.Location = new System.Drawing.Point(255, 4);
+			this.hoursLabel.Location = new System.Drawing.Point(255, -12);
 			this.hoursLabel.Name = "hoursLabel";
-			this.hoursLabel.Size = new System.Drawing.Size(190, 122);
+			this.hoursLabel.Size = new System.Drawing.Size(155, 108);
 			this.hoursLabel.TabIndex = 0;
 			this.hoursLabel.Text = "00";
 			this.hoursLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;

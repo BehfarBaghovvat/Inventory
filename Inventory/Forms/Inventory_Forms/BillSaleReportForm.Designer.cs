@@ -49,17 +49,23 @@ namespace Inventory_Forms
 			Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties12 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
 			this.invoiceDataGridViewElipse = new Guna.UI2.WinForms.Guna2Elipse(this.components);
 			this.productsListDataGridView = new System.Windows.Forms.DataGridView();
+			this.Product_Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.Product_Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.Product_Quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.Product_Unit = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.Total_Sum_Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.contextMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
+			this.deleteProductToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.amountPaymentTextBox = new Mbb.Windows.Forms.Label();
 			this.amountPaymentLabel = new Mbb.Windows.Forms.Label();
 			this.pictureBox1 = new System.Windows.Forms.PictureBox();
 			this.printButton = new Guna.UI2.WinForms.Guna2GradientButton();
 			this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
-			this.taxRateTextBox = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox();
 			this.remainingAmountTextBox = new Mbb.Windows.Forms.Label();
-			this.totalSumPriceTextBox = new Mbb.Windows.Forms.Label();
+			this.amountPayableTextBox = new Mbb.Windows.Forms.Label();
 			this.remainingAmountLabel = new Mbb.Windows.Forms.Label();
 			this.taxRateLabel = new Mbb.Windows.Forms.Label();
-			this.totalSumPriceLable = new Mbb.Windows.Forms.Label();
+			this.amountPayableLable = new Mbb.Windows.Forms.Label();
 			this.carrierNameTextBox = new Mbb.Windows.Forms.Label();
 			this.carrierNameLabel = new Mbb.Windows.Forms.Label();
 			this.clientNameTextBox = new Mbb.Windows.Forms.Label();
@@ -85,12 +91,11 @@ namespace Inventory_Forms
 			this.posPaymentRadioButton = new Guna.UI2.WinForms.Guna2CustomRadioButton();
 			this.cachPaymentRadioButton = new Guna.UI2.WinForms.Guna2CustomRadioButton();
 			this.cashRegisterButton = new Guna.UI2.WinForms.Guna2GradientButton();
-			this.Product_Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.Product_Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.Product_Quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.Product_Unit = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.Total_Sum_Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.gunaAnimateWindow = new Guna.UI.WinForms.GunaAnimateWindow(this.components);
+			this.closeFormTimer = new System.Windows.Forms.Timer(this.components);
+			this.taxRateTextBox = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox();
 			((System.ComponentModel.ISupportInitialize)(this.productsListDataGridView)).BeginInit();
+			this.contextMenuStrip.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
 			this.topPanel.SuspendLayout();
 			this.paymentTypeGroupBox.SuspendLayout();
@@ -115,8 +120,6 @@ namespace Inventory_Forms
 			dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(170)))), ((int)(((byte)(170)))));
 			dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Black;
 			this.productsListDataGridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-			this.productsListDataGridView.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
 			this.productsListDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
 			this.productsListDataGridView.BackgroundColor = System.Drawing.Color.White;
 			this.productsListDataGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
@@ -125,7 +128,7 @@ namespace Inventory_Forms
 			this.productsListDataGridView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
 			dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
 			dataGridViewCellStyle2.BackColor = System.Drawing.Color.Teal;
-			dataGridViewCellStyle2.Font = new System.Drawing.Font("IRANSans", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+			dataGridViewCellStyle2.Font = new System.Drawing.Font("IRANSansX", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
 			dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
 			dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
 			this.productsListDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
@@ -137,18 +140,19 @@ namespace Inventory_Forms
             this.Product_Quantity,
             this.Product_Unit,
             this.Total_Sum_Price});
+			this.productsListDataGridView.ContextMenuStrip = this.contextMenuStrip;
 			dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
 			dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
-			dataGridViewCellStyle3.Font = new System.Drawing.Font("IRANSans", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+			dataGridViewCellStyle3.Font = new System.Drawing.Font("IRANSansX", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
 			dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
 			dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(85)))), ((int)(((byte)(85)))));
 			dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
 			dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
 			this.productsListDataGridView.DefaultCellStyle = dataGridViewCellStyle3;
+			this.productsListDataGridView.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter;
 			this.productsListDataGridView.EnableHeadersVisualStyles = false;
-			this.productsListDataGridView.Location = new System.Drawing.Point(10, 161);
+			this.productsListDataGridView.Location = new System.Drawing.Point(10, 162);
 			this.productsListDataGridView.Name = "productsListDataGridView";
-			this.productsListDataGridView.ReadOnly = true;
 			this.productsListDataGridView.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
 			this.productsListDataGridView.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
 			this.productsListDataGridView.RowHeadersVisible = false;
@@ -161,28 +165,71 @@ namespace Inventory_Forms
 			dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Black;
 			this.productsListDataGridView.RowsDefaultCellStyle = dataGridViewCellStyle4;
 			this.productsListDataGridView.RowTemplate.DefaultCellStyle.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-			this.productsListDataGridView.RowTemplate.DefaultCellStyle.BackColor = System.Drawing.Color.Empty;
-			this.productsListDataGridView.RowTemplate.DefaultCellStyle.ForeColor = System.Drawing.Color.Empty;
-			this.productsListDataGridView.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.Empty;
 			this.productsListDataGridView.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.White;
 			this.productsListDataGridView.RowTemplate.Height = 25;
 			this.productsListDataGridView.RowTemplate.ReadOnly = true;
 			this.productsListDataGridView.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
 			this.productsListDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-			this.productsListDataGridView.Size = new System.Drawing.Size(890, 213);
+			this.productsListDataGridView.Size = new System.Drawing.Size(910, 185);
 			this.productsListDataGridView.TabIndex = 15;
-			this.productsListDataGridView.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.ListWareDataGridView_RowsAdded);
+			this.productsListDataGridView.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ProductsListDataGridView_CellDoubleClick);
+			this.productsListDataGridView.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.ProductsListDataGridView_CellValueChanged);
+			// 
+			// Product_Name
+			// 
+			this.Product_Name.FillWeight = 150F;
+			this.Product_Name.HeaderText = "نام کالا";
+			this.Product_Name.Name = "Product_Name";
+			// 
+			// Product_Price
+			// 
+			this.Product_Price.HeaderText = "قیمت کالا";
+			this.Product_Price.Name = "Product_Price";
+			// 
+			// Product_Quantity
+			// 
+			this.Product_Quantity.FillWeight = 50F;
+			this.Product_Quantity.HeaderText = "تعداد کالا";
+			this.Product_Quantity.Name = "Product_Quantity";
+			// 
+			// Product_Unit
+			// 
+			this.Product_Unit.FillWeight = 75F;
+			this.Product_Unit.HeaderText = "واحد کالا";
+			this.Product_Unit.Name = "Product_Unit";
+			// 
+			// Total_Sum_Price
+			// 
+			this.Total_Sum_Price.FillWeight = 125F;
+			this.Total_Sum_Price.HeaderText = "جمع کل";
+			this.Total_Sum_Price.Name = "Total_Sum_Price";
+			// 
+			// contextMenuStrip
+			// 
+			this.contextMenuStrip.Font = new System.Drawing.Font("IRANSansX", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+			this.contextMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.deleteProductToolStripMenuItem});
+			this.contextMenuStrip.Name = "contextMenuStrip";
+			this.contextMenuStrip.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+			this.contextMenuStrip.Size = new System.Drawing.Size(156, 26);
+			// 
+			// deleteProductToolStripMenuItem
+			// 
+			this.deleteProductToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("deleteProductToolStripMenuItem.Image")));
+			this.deleteProductToolStripMenuItem.Name = "deleteProductToolStripMenuItem";
+			this.deleteProductToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.D)));
+			this.deleteProductToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
+			this.deleteProductToolStripMenuItem.Text = "حذف کالا";
+			this.deleteProductToolStripMenuItem.Click += new System.EventHandler(this.DeleteProductToolStripMenuItem_Click);
 			// 
 			// amountPaymentTextBox
 			// 
 			this.amountPaymentTextBox.Font = new System.Drawing.Font("IRANSans", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
 			this.amountPaymentTextBox.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-			this.amountPaymentTextBox.Location = new System.Drawing.Point(21, 470);
-			this.amountPaymentTextBox.MaximumSize = new System.Drawing.Size(300, 30);
-			this.amountPaymentTextBox.MinimumSize = new System.Drawing.Size(300, 30);
+			this.amountPaymentTextBox.Location = new System.Drawing.Point(15, 437);
 			this.amountPaymentTextBox.Name = "amountPaymentTextBox";
 			this.amountPaymentTextBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-			this.amountPaymentTextBox.Size = new System.Drawing.Size(300, 30);
+			this.amountPaymentTextBox.Size = new System.Drawing.Size(257, 25);
 			this.amountPaymentTextBox.TabIndex = 20;
 			this.amountPaymentTextBox.Text = "0 تومان";
 			this.amountPaymentTextBox.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -193,7 +240,7 @@ namespace Inventory_Forms
 			this.amountPaymentLabel.AutoSize = true;
 			this.amountPaymentLabel.Font = new System.Drawing.Font("IRANSans", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
 			this.amountPaymentLabel.ForeColor = System.Drawing.Color.White;
-			this.amountPaymentLabel.Location = new System.Drawing.Point(336, 474);
+			this.amountPaymentLabel.Location = new System.Drawing.Point(291, 439);
 			this.amountPaymentLabel.Name = "amountPaymentLabel";
 			this.amountPaymentLabel.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
 			this.amountPaymentLabel.Size = new System.Drawing.Size(86, 22);
@@ -213,153 +260,71 @@ namespace Inventory_Forms
 			// 
 			// printButton
 			// 
-			this.printButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
 			this.printButton.Animated = true;
 			this.printButton.BorderRadius = 5;
 			this.printButton.CheckedState.Parent = this.printButton;
 			this.printButton.CustomImages.Parent = this.printButton;
 			this.printButton.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
 			this.printButton.FillColor2 = System.Drawing.Color.White;
-			this.printButton.Font = new System.Drawing.Font("IRANSans", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.printButton.Font = new System.Drawing.Font("IRANSansX", 9F);
 			this.printButton.ForeColor = System.Drawing.Color.Black;
 			this.printButton.HoverState.FillColor = System.Drawing.Color.White;
 			this.printButton.HoverState.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
 			this.printButton.HoverState.Parent = this.printButton;
 			this.printButton.Image = ((System.Drawing.Image)(resources.GetObject("printButton.Image")));
-			this.printButton.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
-			this.printButton.ImageOffset = new System.Drawing.Point(10, 0);
-			this.printButton.Location = new System.Drawing.Point(694, 380);
+			this.printButton.ImageAlign = System.Windows.Forms.HorizontalAlignment.Right;
+			this.printButton.Location = new System.Drawing.Point(730, 353);
 			this.printButton.Name = "printButton";
 			this.printButton.PressedColor = System.Drawing.Color.White;
 			this.printButton.PressedDepth = 60;
 			this.printButton.ShadowDecoration.Parent = this.printButton;
-			this.printButton.Size = new System.Drawing.Size(180, 32);
+			this.printButton.Size = new System.Drawing.Size(175, 35);
 			this.printButton.TabIndex = 24;
 			this.printButton.Text = "چاپ صورت حساب";
-			this.printButton.TextOffset = new System.Drawing.Point(5, 0);
+			this.printButton.TextOffset = new System.Drawing.Point(0, 1);
 			this.printButton.TextRenderingHint = System.Drawing.Text.TextRenderingHint.AntiAlias;
 			this.printButton.Click += new System.EventHandler(this.PrintButton_Click);
 			// 
 			// guna2Panel1
 			// 
 			this.guna2Panel1.FillColor = System.Drawing.Color.White;
-			this.guna2Panel1.Location = new System.Drawing.Point(15, 519);
+			this.guna2Panel1.Location = new System.Drawing.Point(15, 473);
 			this.guna2Panel1.Name = "guna2Panel1";
 			this.guna2Panel1.ShadowDecoration.Parent = this.guna2Panel1;
-			this.guna2Panel1.Size = new System.Drawing.Size(411, 3);
+			this.guna2Panel1.Size = new System.Drawing.Size(386, 3);
 			this.guna2Panel1.TabIndex = 23;
-			// 
-			// taxRateTextBox
-			// 
-			this.taxRateTextBox.AcceptsReturn = false;
-			this.taxRateTextBox.AcceptsTab = false;
-			this.taxRateTextBox.AnimationSpeed = 200;
-			this.taxRateTextBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
-			this.taxRateTextBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
-			this.taxRateTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-			this.taxRateTextBox.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("taxRateTextBox.BackgroundImage")));
-			this.taxRateTextBox.BorderColorActive = System.Drawing.Color.Empty;
-			this.taxRateTextBox.BorderColorDisabled = System.Drawing.Color.Empty;
-			this.taxRateTextBox.BorderColorHover = System.Drawing.Color.Empty;
-			this.taxRateTextBox.BorderColorIdle = System.Drawing.Color.Empty;
-			this.taxRateTextBox.BorderRadius = 1;
-			this.taxRateTextBox.BorderThickness = 0;
-			this.taxRateTextBox.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
-			this.taxRateTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
-			this.taxRateTextBox.DefaultFont = new System.Drawing.Font("IRANSansFaNum", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.taxRateTextBox.DefaultText = "";
-			this.taxRateTextBox.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-			this.taxRateTextBox.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-			this.taxRateTextBox.HideSelection = true;
-			this.taxRateTextBox.IconLeft = null;
-			this.taxRateTextBox.IconLeftCursor = System.Windows.Forms.Cursors.IBeam;
-			this.taxRateTextBox.IconPadding = 10;
-			this.taxRateTextBox.IconRight = null;
-			this.taxRateTextBox.IconRightCursor = System.Windows.Forms.Cursors.IBeam;
-			this.taxRateTextBox.Lines = new string[0];
-			this.taxRateTextBox.Location = new System.Drawing.Point(19, 427);
-			this.taxRateTextBox.MaximumSize = new System.Drawing.Size(300, 30);
-			this.taxRateTextBox.MaxLength = 32767;
-			this.taxRateTextBox.MinimumSize = new System.Drawing.Size(300, 30);
-			this.taxRateTextBox.Modified = false;
-			this.taxRateTextBox.Multiline = false;
-			this.taxRateTextBox.Name = "taxRateTextBox";
-			stateProperties1.BorderColor = System.Drawing.Color.Empty;
-			stateProperties1.FillColor = System.Drawing.Color.Empty;
-			stateProperties1.ForeColor = System.Drawing.Color.Empty;
-			stateProperties1.PlaceholderForeColor = System.Drawing.Color.Empty;
-			this.taxRateTextBox.OnActiveState = stateProperties1;
-			stateProperties2.BorderColor = System.Drawing.Color.Empty;
-			stateProperties2.FillColor = System.Drawing.Color.White;
-			stateProperties2.ForeColor = System.Drawing.Color.Empty;
-			stateProperties2.PlaceholderForeColor = System.Drawing.Color.Silver;
-			this.taxRateTextBox.OnDisabledState = stateProperties2;
-			stateProperties3.BorderColor = System.Drawing.Color.Empty;
-			stateProperties3.FillColor = System.Drawing.Color.Empty;
-			stateProperties3.ForeColor = System.Drawing.Color.Empty;
-			stateProperties3.PlaceholderForeColor = System.Drawing.Color.Empty;
-			this.taxRateTextBox.OnHoverState = stateProperties3;
-			stateProperties4.BorderColor = System.Drawing.Color.Empty;
-			stateProperties4.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-			stateProperties4.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-			stateProperties4.PlaceholderForeColor = System.Drawing.Color.Empty;
-			this.taxRateTextBox.OnIdleState = stateProperties4;
-			this.taxRateTextBox.PasswordChar = '\0';
-			this.taxRateTextBox.PlaceholderForeColor = System.Drawing.Color.White;
-			this.taxRateTextBox.PlaceholderText = "% 0";
-			this.taxRateTextBox.ReadOnly = false;
-			this.taxRateTextBox.ScrollBars = System.Windows.Forms.ScrollBars.None;
-			this.taxRateTextBox.SelectedText = "";
-			this.taxRateTextBox.SelectionLength = 0;
-			this.taxRateTextBox.SelectionStart = 0;
-			this.taxRateTextBox.ShortcutsEnabled = true;
-			this.taxRateTextBox.Size = new System.Drawing.Size(300, 30);
-			this.taxRateTextBox.Style = Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox._Style.Material;
-			this.taxRateTextBox.TabIndex = 1;
-			this.taxRateTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-			this.taxRateTextBox.TextMarginBottom = 0;
-			this.taxRateTextBox.TextMarginLeft = 0;
-			this.taxRateTextBox.TextMarginTop = 2;
-			this.taxRateTextBox.TextPlaceholder = "% 0";
-			this.taxRateTextBox.UseSystemPasswordChar = false;
-			this.taxRateTextBox.WordWrap = true;
-			this.taxRateTextBox.TextChange += new System.EventHandler(this.TaxRateTextBox_TextChange);
-			this.taxRateTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TaxRateTextBox_KeyPress);
-			this.taxRateTextBox.Enter += new System.EventHandler(this.TaxRateTextBox_Enter);
 			// 
 			// remainingAmountTextBox
 			// 
 			this.remainingAmountTextBox.Font = new System.Drawing.Font("IRANSans", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
 			this.remainingAmountTextBox.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-			this.remainingAmountTextBox.Location = new System.Drawing.Point(19, 534);
-			this.remainingAmountTextBox.MaximumSize = new System.Drawing.Size(300, 30);
-			this.remainingAmountTextBox.MinimumSize = new System.Drawing.Size(300, 30);
+			this.remainingAmountTextBox.Location = new System.Drawing.Point(15, 490);
 			this.remainingAmountTextBox.Name = "remainingAmountTextBox";
 			this.remainingAmountTextBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-			this.remainingAmountTextBox.Size = new System.Drawing.Size(300, 30);
+			this.remainingAmountTextBox.Size = new System.Drawing.Size(257, 25);
 			this.remainingAmountTextBox.TabIndex = 22;
 			this.remainingAmountTextBox.Text = "0 تومان";
 			this.remainingAmountTextBox.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
 			// 
-			// totalSumPriceTextBox
+			// amountPayableTextBox
 			// 
-			this.totalSumPriceTextBox.Font = new System.Drawing.Font("IRANSans", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-			this.totalSumPriceTextBox.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-			this.totalSumPriceTextBox.Location = new System.Drawing.Point(19, 384);
-			this.totalSumPriceTextBox.Name = "totalSumPriceTextBox";
-			this.totalSumPriceTextBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-			this.totalSumPriceTextBox.Size = new System.Drawing.Size(300, 30);
-			this.totalSumPriceTextBox.TabIndex = 17;
-			this.totalSumPriceTextBox.Text = "0 تومان";
-			this.totalSumPriceTextBox.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-			this.totalSumPriceTextBox.TextAlignChanged += new System.EventHandler(this.TotalSumPriceTextBox_TextAlignChanged);
+			this.amountPayableTextBox.Font = new System.Drawing.Font("IRANSansXFaNum", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+			this.amountPayableTextBox.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+			this.amountPayableTextBox.Location = new System.Drawing.Point(15, 367);
+			this.amountPayableTextBox.Name = "amountPayableTextBox";
+			this.amountPayableTextBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+			this.amountPayableTextBox.Size = new System.Drawing.Size(257, 25);
+			this.amountPayableTextBox.TabIndex = 17;
+			this.amountPayableTextBox.Text = "0 تومان";
+			this.amountPayableTextBox.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+			this.amountPayableTextBox.TextAlignChanged += new System.EventHandler(this.AmountPayableTextBox_TextAlignChanged);
 			// 
 			// remainingAmountLabel
 			// 
 			this.remainingAmountLabel.AutoSize = true;
 			this.remainingAmountLabel.Font = new System.Drawing.Font("IRANSans", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
 			this.remainingAmountLabel.ForeColor = System.Drawing.Color.White;
-			this.remainingAmountLabel.Location = new System.Drawing.Point(336, 538);
+			this.remainingAmountLabel.Location = new System.Drawing.Point(291, 493);
 			this.remainingAmountLabel.Name = "remainingAmountLabel";
 			this.remainingAmountLabel.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
 			this.remainingAmountLabel.Size = new System.Drawing.Size(103, 22);
@@ -372,7 +337,7 @@ namespace Inventory_Forms
 			this.taxRateLabel.AutoSize = true;
 			this.taxRateLabel.Font = new System.Drawing.Font("IRANSans", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
 			this.taxRateLabel.ForeColor = System.Drawing.Color.White;
-			this.taxRateLabel.Location = new System.Drawing.Point(336, 431);
+			this.taxRateLabel.Location = new System.Drawing.Point(291, 404);
 			this.taxRateLabel.Name = "taxRateLabel";
 			this.taxRateLabel.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
 			this.taxRateLabel.Size = new System.Drawing.Size(84, 22);
@@ -380,77 +345,72 @@ namespace Inventory_Forms
 			this.taxRateLabel.Text = "درصد مالیات:";
 			this.taxRateLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
 			// 
-			// totalSumPriceLable
+			// amountPayableLable
 			// 
-			this.totalSumPriceLable.AutoSize = true;
-			this.totalSumPriceLable.Font = new System.Drawing.Font("IRANSans", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-			this.totalSumPriceLable.ForeColor = System.Drawing.Color.White;
-			this.totalSumPriceLable.Location = new System.Drawing.Point(336, 388);
-			this.totalSumPriceLable.Name = "totalSumPriceLable";
-			this.totalSumPriceLable.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-			this.totalSumPriceLable.Size = new System.Drawing.Size(99, 22);
-			this.totalSumPriceLable.TabIndex = 16;
-			this.totalSumPriceLable.Text = "جمع کل حساب:";
-			this.totalSumPriceLable.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+			this.amountPayableLable.AutoSize = true;
+			this.amountPayableLable.Font = new System.Drawing.Font("IRANSansXFaNum", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+			this.amountPayableLable.ForeColor = System.Drawing.Color.White;
+			this.amountPayableLable.Location = new System.Drawing.Point(291, 370);
+			this.amountPayableLable.Name = "amountPayableLable";
+			this.amountPayableLable.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+			this.amountPayableLable.Size = new System.Drawing.Size(101, 21);
+			this.amountPayableLable.TabIndex = 16;
+			this.amountPayableLable.Text = "جمع کل حساب:";
+			this.amountPayableLable.TextAlign = System.Drawing.ContentAlignment.TopCenter;
 			// 
 			// carrierNameTextBox
 			// 
-			this.carrierNameTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-			this.carrierNameTextBox.Font = new System.Drawing.Font("IRANSans", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+			this.carrierNameTextBox.Font = new System.Drawing.Font("IRANSansX", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
 			this.carrierNameTextBox.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-			this.carrierNameTextBox.Location = new System.Drawing.Point(577, 130);
+			this.carrierNameTextBox.Location = new System.Drawing.Point(604, 131);
 			this.carrierNameTextBox.Name = "carrierNameTextBox";
 			this.carrierNameTextBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-			this.carrierNameTextBox.Size = new System.Drawing.Size(214, 24);
+			this.carrierNameTextBox.Size = new System.Drawing.Size(214, 25);
 			this.carrierNameTextBox.TabIndex = 13;
 			this.carrierNameTextBox.Text = "نام حامل کالا";
 			this.carrierNameTextBox.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			// 
 			// carrierNameLabel
 			// 
-			this.carrierNameLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
 			this.carrierNameLabel.AutoSize = true;
-			this.carrierNameLabel.Font = new System.Drawing.Font("IRANSans", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+			this.carrierNameLabel.Font = new System.Drawing.Font("IRANSansX", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
 			this.carrierNameLabel.ForeColor = System.Drawing.Color.White;
-			this.carrierNameLabel.Location = new System.Drawing.Point(800, 131);
+			this.carrierNameLabel.Location = new System.Drawing.Point(826, 135);
 			this.carrierNameLabel.Name = "carrierNameLabel";
 			this.carrierNameLabel.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-			this.carrierNameLabel.Size = new System.Drawing.Size(86, 22);
+			this.carrierNameLabel.Size = new System.Drawing.Size(82, 20);
 			this.carrierNameLabel.TabIndex = 12;
 			this.carrierNameLabel.Text = "نام حامل کالا:";
 			// 
 			// clientNameTextBox
 			// 
-			this.clientNameTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-			this.clientNameTextBox.Font = new System.Drawing.Font("IRANSans", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+			this.clientNameTextBox.Font = new System.Drawing.Font("IRANSansX", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
 			this.clientNameTextBox.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-			this.clientNameTextBox.Location = new System.Drawing.Point(577, 96);
+			this.clientNameTextBox.Location = new System.Drawing.Point(604, 97);
 			this.clientNameTextBox.Name = "clientNameTextBox";
 			this.clientNameTextBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-			this.clientNameTextBox.Size = new System.Drawing.Size(214, 24);
+			this.clientNameTextBox.Size = new System.Drawing.Size(214, 25);
 			this.clientNameTextBox.TabIndex = 11;
 			this.clientNameTextBox.Text = "نام مشتری";
 			this.clientNameTextBox.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			// 
 			// clientNameLabel
 			// 
-			this.clientNameLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
 			this.clientNameLabel.AutoSize = true;
-			this.clientNameLabel.Font = new System.Drawing.Font("IRANSans", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+			this.clientNameLabel.Font = new System.Drawing.Font("IRANSansX", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
 			this.clientNameLabel.ForeColor = System.Drawing.Color.White;
-			this.clientNameLabel.Location = new System.Drawing.Point(812, 97);
+			this.clientNameLabel.Location = new System.Drawing.Point(839, 101);
 			this.clientNameLabel.Name = "clientNameLabel";
 			this.clientNameLabel.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-			this.clientNameLabel.Size = new System.Drawing.Size(74, 22);
+			this.clientNameLabel.Size = new System.Drawing.Size(69, 20);
 			this.clientNameLabel.TabIndex = 10;
 			this.clientNameLabel.Text = "نام مشتری:";
 			// 
 			// dateSetInvoiceTextBox
 			// 
-			this.dateSetInvoiceTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-			this.dateSetInvoiceTextBox.Font = new System.Drawing.Font("IRANSans", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+			this.dateSetInvoiceTextBox.Font = new System.Drawing.Font("IRANSansX", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
 			this.dateSetInvoiceTextBox.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-			this.dateSetInvoiceTextBox.Location = new System.Drawing.Point(645, 36);
+			this.dateSetInvoiceTextBox.Location = new System.Drawing.Point(663, 37);
 			this.dateSetInvoiceTextBox.Name = "dateSetInvoiceTextBox";
 			this.dateSetInvoiceTextBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
 			this.dateSetInvoiceTextBox.Size = new System.Drawing.Size(200, 19);
@@ -460,40 +420,37 @@ namespace Inventory_Forms
 			// 
 			// sellerNameTextBox
 			// 
-			this.sellerNameTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-			this.sellerNameTextBox.Font = new System.Drawing.Font("IRANSans", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+			this.sellerNameTextBox.Font = new System.Drawing.Font("IRANSansX", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
 			this.sellerNameTextBox.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-			this.sellerNameTextBox.Location = new System.Drawing.Point(577, 60);
+			this.sellerNameTextBox.Location = new System.Drawing.Point(604, 60);
 			this.sellerNameTextBox.Name = "sellerNameTextBox";
 			this.sellerNameTextBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-			this.sellerNameTextBox.Size = new System.Drawing.Size(214, 24);
+			this.sellerNameTextBox.Size = new System.Drawing.Size(214, 25);
 			this.sellerNameTextBox.TabIndex = 9;
 			this.sellerNameTextBox.Text = "نام فروشنده";
 			this.sellerNameTextBox.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			// 
 			// dateSetInvoiceLabel
 			// 
-			this.dateSetInvoiceLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
 			this.dateSetInvoiceLabel.AutoSize = true;
-			this.dateSetInvoiceLabel.Font = new System.Drawing.Font("IRANSans", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+			this.dateSetInvoiceLabel.Font = new System.Drawing.Font("IRANSansX", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
 			this.dateSetInvoiceLabel.ForeColor = System.Drawing.Color.White;
-			this.dateSetInvoiceLabel.Location = new System.Drawing.Point(851, 37);
+			this.dateSetInvoiceLabel.Location = new System.Drawing.Point(873, 38);
 			this.dateSetInvoiceLabel.Name = "dateSetInvoiceLabel";
 			this.dateSetInvoiceLabel.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-			this.dateSetInvoiceLabel.Size = new System.Drawing.Size(35, 17);
+			this.dateSetInvoiceLabel.Size = new System.Drawing.Size(35, 18);
 			this.dateSetInvoiceLabel.TabIndex = 6;
 			this.dateSetInvoiceLabel.Text = "تاریخ:";
 			// 
 			// sellerNameLabel
 			// 
-			this.sellerNameLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
 			this.sellerNameLabel.AutoSize = true;
-			this.sellerNameLabel.Font = new System.Drawing.Font("IRANSans", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+			this.sellerNameLabel.Font = new System.Drawing.Font("IRANSansX", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
 			this.sellerNameLabel.ForeColor = System.Drawing.Color.White;
-			this.sellerNameLabel.Location = new System.Drawing.Point(806, 61);
+			this.sellerNameLabel.Location = new System.Drawing.Point(832, 65);
 			this.sellerNameLabel.Name = "sellerNameLabel";
 			this.sellerNameLabel.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-			this.sellerNameLabel.Size = new System.Drawing.Size(80, 22);
+			this.sellerNameLabel.Size = new System.Drawing.Size(76, 20);
 			this.sellerNameLabel.TabIndex = 8;
 			this.sellerNameLabel.Text = "نام فروشنده:";
 			// 
@@ -504,7 +461,7 @@ namespace Inventory_Forms
 			this.topPanel.Dock = System.Windows.Forms.DockStyle.Top;
 			this.topPanel.Location = new System.Drawing.Point(0, 0);
 			this.topPanel.Name = "topPanel";
-			this.topPanel.Size = new System.Drawing.Size(910, 30);
+			this.topPanel.Size = new System.Drawing.Size(934, 30);
 			this.topPanel.TabIndex = 0;
 			// 
 			// minimizeButton
@@ -552,7 +509,7 @@ namespace Inventory_Forms
 			this.invoiceTitleLabel.AutoSize = true;
 			this.invoiceTitleLabel.Font = new System.Drawing.Font("IRANSans", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
 			this.invoiceTitleLabel.ForeColor = System.Drawing.Color.Aqua;
-			this.invoiceTitleLabel.Location = new System.Drawing.Point(328, 23);
+			this.invoiceTitleLabel.Location = new System.Drawing.Point(345, 23);
 			this.invoiceTitleLabel.Name = "invoiceTitleLabel";
 			this.invoiceTitleLabel.Size = new System.Drawing.Size(244, 63);
 			this.invoiceTitleLabel.TabIndex = 14;
@@ -560,14 +517,13 @@ namespace Inventory_Forms
 			// 
 			// plusMarkLabel
 			// 
-			this.plusMarkLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
 			this.plusMarkLabel.AutoSize = true;
-			this.plusMarkLabel.Font = new System.Drawing.Font("IRANSans", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+			this.plusMarkLabel.Font = new System.Drawing.Font("IRANSans", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
 			this.plusMarkLabel.ForeColor = System.Drawing.Color.White;
-			this.plusMarkLabel.Location = new System.Drawing.Point(676, 434);
+			this.plusMarkLabel.Location = new System.Drawing.Point(662, 407);
 			this.plusMarkLabel.Name = "plusMarkLabel";
 			this.plusMarkLabel.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-			this.plusMarkLabel.Size = new System.Drawing.Size(25, 31);
+			this.plusMarkLabel.Size = new System.Drawing.Size(21, 25);
 			this.plusMarkLabel.TabIndex = 4;
 			this.plusMarkLabel.Text = "+";
 			// 
@@ -575,7 +531,6 @@ namespace Inventory_Forms
 			// 
 			this.posPaymentTextBox.AcceptsReturn = false;
 			this.posPaymentTextBox.AcceptsTab = false;
-			this.posPaymentTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
 			this.posPaymentTextBox.AnimationSpeed = 200;
 			this.posPaymentTextBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
 			this.posPaymentTextBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
@@ -600,34 +555,34 @@ namespace Inventory_Forms
 			this.posPaymentTextBox.IconRight = null;
 			this.posPaymentTextBox.IconRightCursor = System.Windows.Forms.Cursors.IBeam;
 			this.posPaymentTextBox.Lines = new string[0];
-			this.posPaymentTextBox.Location = new System.Drawing.Point(500, 432);
+			this.posPaymentTextBox.Location = new System.Drawing.Point(456, 404);
 			this.posPaymentTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-			this.posPaymentTextBox.MaximumSize = new System.Drawing.Size(171, 28);
+			this.posPaymentTextBox.MaximumSize = new System.Drawing.Size(200, 30);
 			this.posPaymentTextBox.MaxLength = 32767;
-			this.posPaymentTextBox.MinimumSize = new System.Drawing.Size(86, 28);
+			this.posPaymentTextBox.MinimumSize = new System.Drawing.Size(200, 30);
 			this.posPaymentTextBox.Modified = false;
 			this.posPaymentTextBox.Multiline = false;
 			this.posPaymentTextBox.Name = "posPaymentTextBox";
-			stateProperties5.BorderColor = System.Drawing.Color.Fuchsia;
-			stateProperties5.FillColor = System.Drawing.Color.Empty;
-			stateProperties5.ForeColor = System.Drawing.Color.Empty;
-			stateProperties5.PlaceholderForeColor = System.Drawing.Color.Empty;
-			this.posPaymentTextBox.OnActiveState = stateProperties5;
-			stateProperties6.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(0)))), ((int)(((byte)(61)))));
-			stateProperties6.FillColor = System.Drawing.Color.White;
-			stateProperties6.ForeColor = System.Drawing.Color.Empty;
-			stateProperties6.PlaceholderForeColor = System.Drawing.Color.Silver;
-			this.posPaymentTextBox.OnDisabledState = stateProperties6;
-			stateProperties7.BorderColor = System.Drawing.Color.Cyan;
-			stateProperties7.FillColor = System.Drawing.Color.Empty;
-			stateProperties7.ForeColor = System.Drawing.Color.Empty;
-			stateProperties7.PlaceholderForeColor = System.Drawing.Color.Empty;
-			this.posPaymentTextBox.OnHoverState = stateProperties7;
-			stateProperties8.BorderColor = System.Drawing.Color.DimGray;
-			stateProperties8.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-			stateProperties8.ForeColor = System.Drawing.Color.White;
-			stateProperties8.PlaceholderForeColor = System.Drawing.Color.Empty;
-			this.posPaymentTextBox.OnIdleState = stateProperties8;
+			stateProperties1.BorderColor = System.Drawing.Color.Fuchsia;
+			stateProperties1.FillColor = System.Drawing.Color.Empty;
+			stateProperties1.ForeColor = System.Drawing.Color.Empty;
+			stateProperties1.PlaceholderForeColor = System.Drawing.Color.Empty;
+			this.posPaymentTextBox.OnActiveState = stateProperties1;
+			stateProperties2.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(0)))), ((int)(((byte)(61)))));
+			stateProperties2.FillColor = System.Drawing.Color.White;
+			stateProperties2.ForeColor = System.Drawing.Color.Empty;
+			stateProperties2.PlaceholderForeColor = System.Drawing.Color.Silver;
+			this.posPaymentTextBox.OnDisabledState = stateProperties2;
+			stateProperties3.BorderColor = System.Drawing.Color.Cyan;
+			stateProperties3.FillColor = System.Drawing.Color.Empty;
+			stateProperties3.ForeColor = System.Drawing.Color.Empty;
+			stateProperties3.PlaceholderForeColor = System.Drawing.Color.Empty;
+			this.posPaymentTextBox.OnHoverState = stateProperties3;
+			stateProperties4.BorderColor = System.Drawing.Color.DimGray;
+			stateProperties4.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+			stateProperties4.ForeColor = System.Drawing.Color.White;
+			stateProperties4.PlaceholderForeColor = System.Drawing.Color.Empty;
+			this.posPaymentTextBox.OnIdleState = stateProperties4;
 			this.posPaymentTextBox.PasswordChar = '\0';
 			this.posPaymentTextBox.PlaceholderForeColor = System.Drawing.Color.Silver;
 			this.posPaymentTextBox.PlaceholderText = "پرداخت کارت خوان";
@@ -638,7 +593,7 @@ namespace Inventory_Forms
 			this.posPaymentTextBox.SelectionLength = 0;
 			this.posPaymentTextBox.SelectionStart = 0;
 			this.posPaymentTextBox.ShortcutsEnabled = true;
-			this.posPaymentTextBox.Size = new System.Drawing.Size(171, 28);
+			this.posPaymentTextBox.Size = new System.Drawing.Size(200, 30);
 			this.posPaymentTextBox.Style = Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox._Style.Material;
 			this.posPaymentTextBox.TabIndex = 3;
 			this.posPaymentTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -657,7 +612,6 @@ namespace Inventory_Forms
 			// 
 			this.cashPaymentTextBox.AcceptsReturn = false;
 			this.cashPaymentTextBox.AcceptsTab = false;
-			this.cashPaymentTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
 			this.cashPaymentTextBox.AnimationSpeed = 200;
 			this.cashPaymentTextBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
 			this.cashPaymentTextBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
@@ -682,34 +636,34 @@ namespace Inventory_Forms
 			this.cashPaymentTextBox.IconRight = null;
 			this.cashPaymentTextBox.IconRightCursor = System.Windows.Forms.Cursors.IBeam;
 			this.cashPaymentTextBox.Lines = new string[0];
-			this.cashPaymentTextBox.Location = new System.Drawing.Point(702, 432);
+			this.cashPaymentTextBox.Location = new System.Drawing.Point(689, 404);
 			this.cashPaymentTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-			this.cashPaymentTextBox.MaximumSize = new System.Drawing.Size(171, 28);
+			this.cashPaymentTextBox.MaximumSize = new System.Drawing.Size(200, 30);
 			this.cashPaymentTextBox.MaxLength = 32767;
-			this.cashPaymentTextBox.MinimumSize = new System.Drawing.Size(86, 28);
+			this.cashPaymentTextBox.MinimumSize = new System.Drawing.Size(200, 30);
 			this.cashPaymentTextBox.Modified = false;
 			this.cashPaymentTextBox.Multiline = false;
 			this.cashPaymentTextBox.Name = "cashPaymentTextBox";
-			stateProperties9.BorderColor = System.Drawing.Color.Fuchsia;
-			stateProperties9.FillColor = System.Drawing.Color.Empty;
-			stateProperties9.ForeColor = System.Drawing.Color.Empty;
-			stateProperties9.PlaceholderForeColor = System.Drawing.Color.Empty;
-			this.cashPaymentTextBox.OnActiveState = stateProperties9;
-			stateProperties10.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(0)))), ((int)(((byte)(61)))));
-			stateProperties10.FillColor = System.Drawing.Color.White;
-			stateProperties10.ForeColor = System.Drawing.Color.Empty;
-			stateProperties10.PlaceholderForeColor = System.Drawing.Color.Silver;
-			this.cashPaymentTextBox.OnDisabledState = stateProperties10;
-			stateProperties11.BorderColor = System.Drawing.Color.Cyan;
-			stateProperties11.FillColor = System.Drawing.Color.Empty;
-			stateProperties11.ForeColor = System.Drawing.Color.Empty;
-			stateProperties11.PlaceholderForeColor = System.Drawing.Color.Empty;
-			this.cashPaymentTextBox.OnHoverState = stateProperties11;
-			stateProperties12.BorderColor = System.Drawing.Color.DimGray;
-			stateProperties12.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-			stateProperties12.ForeColor = System.Drawing.Color.White;
-			stateProperties12.PlaceholderForeColor = System.Drawing.Color.Empty;
-			this.cashPaymentTextBox.OnIdleState = stateProperties12;
+			stateProperties5.BorderColor = System.Drawing.Color.Fuchsia;
+			stateProperties5.FillColor = System.Drawing.Color.Empty;
+			stateProperties5.ForeColor = System.Drawing.Color.Empty;
+			stateProperties5.PlaceholderForeColor = System.Drawing.Color.Empty;
+			this.cashPaymentTextBox.OnActiveState = stateProperties5;
+			stateProperties6.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(0)))), ((int)(((byte)(61)))));
+			stateProperties6.FillColor = System.Drawing.Color.White;
+			stateProperties6.ForeColor = System.Drawing.Color.Empty;
+			stateProperties6.PlaceholderForeColor = System.Drawing.Color.Silver;
+			this.cashPaymentTextBox.OnDisabledState = stateProperties6;
+			stateProperties7.BorderColor = System.Drawing.Color.Cyan;
+			stateProperties7.FillColor = System.Drawing.Color.Empty;
+			stateProperties7.ForeColor = System.Drawing.Color.Empty;
+			stateProperties7.PlaceholderForeColor = System.Drawing.Color.Empty;
+			this.cashPaymentTextBox.OnHoverState = stateProperties7;
+			stateProperties8.BorderColor = System.Drawing.Color.DimGray;
+			stateProperties8.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+			stateProperties8.ForeColor = System.Drawing.Color.White;
+			stateProperties8.PlaceholderForeColor = System.Drawing.Color.Empty;
+			this.cashPaymentTextBox.OnIdleState = stateProperties8;
 			this.cashPaymentTextBox.PasswordChar = '\0';
 			this.cashPaymentTextBox.PlaceholderForeColor = System.Drawing.Color.Silver;
 			this.cashPaymentTextBox.PlaceholderText = "پرداخت نقدی";
@@ -720,7 +674,7 @@ namespace Inventory_Forms
 			this.cashPaymentTextBox.SelectionLength = 0;
 			this.cashPaymentTextBox.SelectionStart = 0;
 			this.cashPaymentTextBox.ShortcutsEnabled = true;
-			this.cashPaymentTextBox.Size = new System.Drawing.Size(171, 28);
+			this.cashPaymentTextBox.Size = new System.Drawing.Size(200, 30);
 			this.cashPaymentTextBox.Style = Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox._Style.Material;
 			this.cashPaymentTextBox.TabIndex = 2;
 			this.cashPaymentTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -737,7 +691,6 @@ namespace Inventory_Forms
 			// 
 			// paymentTypeGroupBox
 			// 
-			this.paymentTypeGroupBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
 			this.paymentTypeGroupBox.BackColor = System.Drawing.Color.Transparent;
 			this.paymentTypeGroupBox.BorderRadius = 15;
 			this.paymentTypeGroupBox.Controls.Add(this.debtorLabel);
@@ -752,11 +705,13 @@ namespace Inventory_Forms
 			this.paymentTypeGroupBox.CustomBorderThickness = new System.Windows.Forms.Padding(0, 25, 0, 0);
 			this.paymentTypeGroupBox.Font = new System.Drawing.Font("IRANSans", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.paymentTypeGroupBox.ForeColor = System.Drawing.Color.White;
-			this.paymentTypeGroupBox.Location = new System.Drawing.Point(500, 479);
+			this.paymentTypeGroupBox.Location = new System.Drawing.Point(492, 447);
 			this.paymentTypeGroupBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+			this.paymentTypeGroupBox.MaximumSize = new System.Drawing.Size(360, 90);
+			this.paymentTypeGroupBox.MinimumSize = new System.Drawing.Size(360, 90);
 			this.paymentTypeGroupBox.Name = "paymentTypeGroupBox";
 			this.paymentTypeGroupBox.ShadowDecoration.Parent = this.paymentTypeGroupBox;
-			this.paymentTypeGroupBox.Size = new System.Drawing.Size(374, 82);
+			this.paymentTypeGroupBox.Size = new System.Drawing.Size(360, 90);
 			this.paymentTypeGroupBox.TabIndex = 5;
 			this.paymentTypeGroupBox.Text = "نوع پرداخت";
 			this.paymentTypeGroupBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -770,7 +725,7 @@ namespace Inventory_Forms
 			this.debtorLabel.AutoSize = true;
 			this.debtorLabel.Font = new System.Drawing.Font("IRANSans", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.debtorLabel.ForeColor = System.Drawing.Color.Black;
-			this.debtorLabel.Location = new System.Drawing.Point(98, 57);
+			this.debtorLabel.Location = new System.Drawing.Point(95, 61);
 			this.debtorLabel.Name = "debtorLabel";
 			this.debtorLabel.Size = new System.Drawing.Size(37, 17);
 			this.debtorLabel.TabIndex = 7;
@@ -783,7 +738,7 @@ namespace Inventory_Forms
 			this.cachAndPosPaymentLabel.AutoSize = true;
 			this.cachAndPosPaymentLabel.Font = new System.Drawing.Font("IRANSans", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.cachAndPosPaymentLabel.ForeColor = System.Drawing.Color.Black;
-			this.cachAndPosPaymentLabel.Location = new System.Drawing.Point(208, 57);
+			this.cachAndPosPaymentLabel.Location = new System.Drawing.Point(186, 61);
 			this.cachAndPosPaymentLabel.Name = "cachAndPosPaymentLabel";
 			this.cachAndPosPaymentLabel.Size = new System.Drawing.Size(120, 17);
 			this.cachAndPosPaymentLabel.TabIndex = 5;
@@ -796,7 +751,7 @@ namespace Inventory_Forms
 			this.posPaymentLabel.AutoSize = true;
 			this.posPaymentLabel.Font = new System.Drawing.Font("IRANSans", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.posPaymentLabel.ForeColor = System.Drawing.Color.Black;
-			this.posPaymentLabel.Location = new System.Drawing.Point(40, 32);
+			this.posPaymentLabel.Location = new System.Drawing.Point(37, 34);
 			this.posPaymentLabel.Name = "posPaymentLabel";
 			this.posPaymentLabel.Size = new System.Drawing.Size(95, 17);
 			this.posPaymentLabel.TabIndex = 3;
@@ -809,7 +764,7 @@ namespace Inventory_Forms
 			this.cachPaymentLabel.AutoSize = true;
 			this.cachPaymentLabel.Font = new System.Drawing.Font("IRANSans", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.cachPaymentLabel.ForeColor = System.Drawing.Color.Black;
-			this.cachPaymentLabel.Location = new System.Drawing.Point(260, 32);
+			this.cachPaymentLabel.Location = new System.Drawing.Point(246, 34);
 			this.cachPaymentLabel.Name = "cachPaymentLabel";
 			this.cachPaymentLabel.Size = new System.Drawing.Size(60, 17);
 			this.cachPaymentLabel.TabIndex = 1;
@@ -826,7 +781,7 @@ namespace Inventory_Forms
 			this.debtorRadioButton.CheckedState.InnerColor = System.Drawing.Color.Aqua;
 			this.debtorRadioButton.CheckedState.InnerOffset = 1;
 			this.debtorRadioButton.CheckedState.Parent = this.debtorRadioButton;
-			this.debtorRadioButton.Location = new System.Drawing.Point(141, 57);
+			this.debtorRadioButton.Location = new System.Drawing.Point(138, 61);
 			this.debtorRadioButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.debtorRadioButton.Name = "debtorRadioButton";
 			this.debtorRadioButton.ShadowDecoration.Parent = this.debtorRadioButton;
@@ -849,7 +804,7 @@ namespace Inventory_Forms
 			this.cachAndPosPaymentRadioButton.CheckedState.InnerColor = System.Drawing.Color.Aqua;
 			this.cachAndPosPaymentRadioButton.CheckedState.InnerOffset = 1;
 			this.cachAndPosPaymentRadioButton.CheckedState.Parent = this.cachAndPosPaymentRadioButton;
-			this.cachAndPosPaymentRadioButton.Location = new System.Drawing.Point(331, 57);
+			this.cachAndPosPaymentRadioButton.Location = new System.Drawing.Point(312, 61);
 			this.cachAndPosPaymentRadioButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.cachAndPosPaymentRadioButton.Name = "cachAndPosPaymentRadioButton";
 			this.cachAndPosPaymentRadioButton.ShadowDecoration.Parent = this.cachAndPosPaymentRadioButton;
@@ -872,7 +827,7 @@ namespace Inventory_Forms
 			this.posPaymentRadioButton.CheckedState.InnerColor = System.Drawing.Color.Aqua;
 			this.posPaymentRadioButton.CheckedState.InnerOffset = 1;
 			this.posPaymentRadioButton.CheckedState.Parent = this.posPaymentRadioButton;
-			this.posPaymentRadioButton.Location = new System.Drawing.Point(141, 32);
+			this.posPaymentRadioButton.Location = new System.Drawing.Point(138, 34);
 			this.posPaymentRadioButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.posPaymentRadioButton.Name = "posPaymentRadioButton";
 			this.posPaymentRadioButton.ShadowDecoration.Parent = this.posPaymentRadioButton;
@@ -895,7 +850,7 @@ namespace Inventory_Forms
 			this.cachPaymentRadioButton.CheckedState.InnerColor = System.Drawing.Color.Aqua;
 			this.cachPaymentRadioButton.CheckedState.InnerOffset = 1;
 			this.cachPaymentRadioButton.CheckedState.Parent = this.cachPaymentRadioButton;
-			this.cachPaymentRadioButton.Location = new System.Drawing.Point(331, 32);
+			this.cachPaymentRadioButton.Location = new System.Drawing.Point(312, 34);
 			this.cachPaymentRadioButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.cachPaymentRadioButton.Name = "cachPaymentRadioButton";
 			this.cachPaymentRadioButton.ShadowDecoration.Parent = this.cachPaymentRadioButton;
@@ -910,73 +865,127 @@ namespace Inventory_Forms
 			// 
 			// cashRegisterButton
 			// 
-			this.cashRegisterButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
 			this.cashRegisterButton.Animated = true;
 			this.cashRegisterButton.BorderRadius = 5;
 			this.cashRegisterButton.CheckedState.Parent = this.cashRegisterButton;
 			this.cashRegisterButton.CustomImages.Parent = this.cashRegisterButton;
 			this.cashRegisterButton.FillColor = System.Drawing.Color.White;
 			this.cashRegisterButton.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-			this.cashRegisterButton.Font = new System.Drawing.Font("IRANSans", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.cashRegisterButton.Font = new System.Drawing.Font("IRANSansX", 9F);
 			this.cashRegisterButton.ForeColor = System.Drawing.Color.Black;
 			this.cashRegisterButton.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
 			this.cashRegisterButton.HoverState.FillColor2 = System.Drawing.Color.White;
 			this.cashRegisterButton.HoverState.Parent = this.cashRegisterButton;
 			this.cashRegisterButton.Image = ((System.Drawing.Image)(resources.GetObject("cashRegisterButton.Image")));
 			this.cashRegisterButton.ImageAlign = System.Windows.Forms.HorizontalAlignment.Right;
-			this.cashRegisterButton.ImageOffset = new System.Drawing.Point(10, 0);
-			this.cashRegisterButton.Location = new System.Drawing.Point(508, 380);
+			this.cashRegisterButton.ImageOffset = new System.Drawing.Point(3, 0);
+			this.cashRegisterButton.Location = new System.Drawing.Point(549, 353);
 			this.cashRegisterButton.Name = "cashRegisterButton";
 			this.cashRegisterButton.PressedColor = System.Drawing.Color.White;
 			this.cashRegisterButton.PressedDepth = 60;
 			this.cashRegisterButton.ShadowDecoration.Parent = this.cashRegisterButton;
-			this.cashRegisterButton.Size = new System.Drawing.Size(180, 32);
+			this.cashRegisterButton.Size = new System.Drawing.Size(175, 35);
 			this.cashRegisterButton.TabIndex = 25;
 			this.cashRegisterButton.Text = "ثبت پرداخت";
-			this.cashRegisterButton.TextOffset = new System.Drawing.Point(5, 0);
+			this.cashRegisterButton.TextOffset = new System.Drawing.Point(0, 1);
 			this.cashRegisterButton.TextRenderingHint = System.Drawing.Text.TextRenderingHint.AntiAlias;
 			this.cashRegisterButton.Click += new System.EventHandler(this.CashRegisterButton_Click);
 			// 
-			// Product_Name
+			// gunaAnimateWindow
 			// 
-			this.Product_Name.FillWeight = 150F;
-			this.Product_Name.HeaderText = "نام کالا";
-			this.Product_Name.Name = "Product_Name";
-			this.Product_Name.ReadOnly = true;
+			this.gunaAnimateWindow.AnimationType = Guna.UI.WinForms.GunaAnimateWindow.AnimateWindowType.AW_CENTER;
+			this.gunaAnimateWindow.Interval = 200;
+			this.gunaAnimateWindow.TargetControl = this;
 			// 
-			// Product_Price
+			// closeFormTimer
 			// 
-			this.Product_Price.HeaderText = "قیمت کالا";
-			this.Product_Price.Name = "Product_Price";
-			this.Product_Price.ReadOnly = true;
+			this.closeFormTimer.Interval = 5;
+			this.closeFormTimer.Tick += new System.EventHandler(this.CloseFormTimer_Tick);
 			// 
-			// Product_Quantity
+			// taxRateTextBox
 			// 
-			this.Product_Quantity.FillWeight = 50F;
-			this.Product_Quantity.HeaderText = "تعداد کالا";
-			this.Product_Quantity.Name = "Product_Quantity";
-			this.Product_Quantity.ReadOnly = true;
-			// 
-			// Product_Unit
-			// 
-			this.Product_Unit.FillWeight = 75F;
-			this.Product_Unit.HeaderText = "واحد کالا";
-			this.Product_Unit.Name = "Product_Unit";
-			this.Product_Unit.ReadOnly = true;
-			// 
-			// Total_Sum_Price
-			// 
-			this.Total_Sum_Price.FillWeight = 125F;
-			this.Total_Sum_Price.HeaderText = "جمع کل";
-			this.Total_Sum_Price.Name = "Total_Sum_Price";
-			this.Total_Sum_Price.ReadOnly = true;
+			this.taxRateTextBox.AcceptsReturn = false;
+			this.taxRateTextBox.AcceptsTab = false;
+			this.taxRateTextBox.AnimationSpeed = 200;
+			this.taxRateTextBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
+			this.taxRateTextBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
+			this.taxRateTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+			this.taxRateTextBox.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("taxRateTextBox.BackgroundImage")));
+			this.taxRateTextBox.BorderColorActive = System.Drawing.Color.DodgerBlue;
+			this.taxRateTextBox.BorderColorDisabled = System.Drawing.Color.FromArgb(((int)(((byte)(161)))), ((int)(((byte)(161)))), ((int)(((byte)(161)))));
+			this.taxRateTextBox.BorderColorHover = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(181)))), ((int)(((byte)(255)))));
+			this.taxRateTextBox.BorderColorIdle = System.Drawing.Color.Silver;
+			this.taxRateTextBox.BorderRadius = 1;
+			this.taxRateTextBox.BorderThickness = 0;
+			this.taxRateTextBox.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
+			this.taxRateTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
+			this.taxRateTextBox.DefaultFont = new System.Drawing.Font("IRANSansXFaNum", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+			this.taxRateTextBox.DefaultText = "";
+			this.taxRateTextBox.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+			this.taxRateTextBox.ForeColor = System.Drawing.Color.White;
+			this.taxRateTextBox.HideSelection = true;
+			this.taxRateTextBox.IconLeft = null;
+			this.taxRateTextBox.IconLeftCursor = System.Windows.Forms.Cursors.IBeam;
+			this.taxRateTextBox.IconPadding = 10;
+			this.taxRateTextBox.IconRight = null;
+			this.taxRateTextBox.IconRightCursor = System.Windows.Forms.Cursors.IBeam;
+			this.taxRateTextBox.Lines = new string[0];
+			this.taxRateTextBox.Location = new System.Drawing.Point(15, 402);
+			this.taxRateTextBox.MaxLength = 32767;
+			this.taxRateTextBox.MinimumSize = new System.Drawing.Size(86, 28);
+			this.taxRateTextBox.Modified = false;
+			this.taxRateTextBox.Multiline = false;
+			this.taxRateTextBox.Name = "taxRateTextBox";
+			stateProperties9.BorderColor = System.Drawing.Color.DodgerBlue;
+			stateProperties9.FillColor = System.Drawing.Color.Empty;
+			stateProperties9.ForeColor = System.Drawing.Color.Empty;
+			stateProperties9.PlaceholderForeColor = System.Drawing.Color.Empty;
+			this.taxRateTextBox.OnActiveState = stateProperties9;
+			stateProperties10.BorderColor = System.Drawing.Color.Empty;
+			stateProperties10.FillColor = System.Drawing.Color.White;
+			stateProperties10.ForeColor = System.Drawing.Color.Empty;
+			stateProperties10.PlaceholderForeColor = System.Drawing.Color.Silver;
+			this.taxRateTextBox.OnDisabledState = stateProperties10;
+			stateProperties11.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(181)))), ((int)(((byte)(255)))));
+			stateProperties11.FillColor = System.Drawing.Color.Empty;
+			stateProperties11.ForeColor = System.Drawing.Color.Empty;
+			stateProperties11.PlaceholderForeColor = System.Drawing.Color.Empty;
+			this.taxRateTextBox.OnHoverState = stateProperties11;
+			stateProperties12.BorderColor = System.Drawing.Color.Silver;
+			stateProperties12.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+			stateProperties12.ForeColor = System.Drawing.Color.White;
+			stateProperties12.PlaceholderForeColor = System.Drawing.Color.Empty;
+			this.taxRateTextBox.OnIdleState = stateProperties12;
+			this.taxRateTextBox.PasswordChar = '\0';
+			this.taxRateTextBox.PlaceholderForeColor = System.Drawing.Color.White;
+			this.taxRateTextBox.PlaceholderText = "% 0";
+			this.taxRateTextBox.ReadOnly = false;
+			this.taxRateTextBox.ScrollBars = System.Windows.Forms.ScrollBars.None;
+			this.taxRateTextBox.SelectedText = "";
+			this.taxRateTextBox.SelectionLength = 0;
+			this.taxRateTextBox.SelectionStart = 0;
+			this.taxRateTextBox.ShortcutsEnabled = true;
+			this.taxRateTextBox.Size = new System.Drawing.Size(257, 28);
+			this.taxRateTextBox.Style = Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox._Style.Material;
+			this.taxRateTextBox.TabIndex = 27;
+			this.taxRateTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+			this.taxRateTextBox.TextMarginBottom = 0;
+			this.taxRateTextBox.TextMarginLeft = -5;
+			this.taxRateTextBox.TextMarginTop = 0;
+			this.taxRateTextBox.TextPlaceholder = "% 0";
+			this.taxRateTextBox.UseSystemPasswordChar = false;
+			this.taxRateTextBox.WordWrap = true;
+			this.taxRateTextBox.TextChange += new System.EventHandler(this.TaxRateTextBox_TextChange);
+			this.taxRateTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TaxRateTextBox_KeyPress);
+			this.taxRateTextBox.Enter += new System.EventHandler(this.TaxRateTextBox_Enter);
 			// 
 			// BillSaleReportForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 17F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-			this.ClientSize = new System.Drawing.Size(910, 575);
+			this.ClientSize = new System.Drawing.Size(934, 550);
+			this.Controls.Add(this.taxRateTextBox);
 			this.Controls.Add(this.cashRegisterButton);
 			this.Controls.Add(this.plusMarkLabel);
 			this.Controls.Add(this.posPaymentTextBox);
@@ -987,12 +996,11 @@ namespace Inventory_Forms
 			this.Controls.Add(this.pictureBox1);
 			this.Controls.Add(this.printButton);
 			this.Controls.Add(this.guna2Panel1);
-			this.Controls.Add(this.taxRateTextBox);
 			this.Controls.Add(this.remainingAmountTextBox);
-			this.Controls.Add(this.totalSumPriceTextBox);
+			this.Controls.Add(this.amountPayableTextBox);
 			this.Controls.Add(this.remainingAmountLabel);
 			this.Controls.Add(this.taxRateLabel);
-			this.Controls.Add(this.totalSumPriceLable);
+			this.Controls.Add(this.amountPayableLable);
 			this.Controls.Add(this.carrierNameTextBox);
 			this.Controls.Add(this.carrierNameLabel);
 			this.Controls.Add(this.clientNameTextBox);
@@ -1004,10 +1012,11 @@ namespace Inventory_Forms
 			this.Controls.Add(this.productsListDataGridView);
 			this.Controls.Add(this.topPanel);
 			this.Controls.Add(this.invoiceTitleLabel);
+			this.Font = new System.Drawing.Font("IRANSansX", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
 			this.Name = "BillSaleReportForm";
-			this.Text = "InvoiceForm";
-			this.Load += new System.EventHandler(this.BillSalePrintForm_Load);
+			this.Text = "";
 			((System.ComponentModel.ISupportInitialize)(this.productsListDataGridView)).EndInit();
+			this.contextMenuStrip.ResumeLayout(false);
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
 			this.topPanel.ResumeLayout(false);
 			this.paymentTypeGroupBox.ResumeLayout(false);
@@ -1033,10 +1042,9 @@ namespace Inventory_Forms
 		private Mbb.Windows.Forms.Label dateSetInvoiceLabel;
 		private Mbb.Windows.Forms.Label dateSetInvoiceTextBox;
 		private Mbb.Windows.Forms.Label invoiceTitleLabel;
-		private Mbb.Windows.Forms.Label totalSumPriceTextBox;
-		private Mbb.Windows.Forms.Label totalSumPriceLable;
+		private Mbb.Windows.Forms.Label amountPayableTextBox;
+		private Mbb.Windows.Forms.Label amountPayableLable;
 		private Mbb.Windows.Forms.Label taxRateLabel;
-		private Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox taxRateTextBox;
 		private Guna.UI2.WinForms.Guna2Panel guna2Panel1;
 		private Mbb.Windows.Forms.Label remainingAmountLabel;
 		private Mbb.Windows.Forms.Label remainingAmountTextBox;
@@ -1067,5 +1075,10 @@ namespace Inventory_Forms
 		private System.Windows.Forms.DataGridViewTextBoxColumn Product_Quantity;
 		private System.Windows.Forms.DataGridViewTextBoxColumn Product_Unit;
 		private System.Windows.Forms.DataGridViewTextBoxColumn Total_Sum_Price;
+		private Guna.UI.WinForms.GunaAnimateWindow gunaAnimateWindow;
+		private System.Windows.Forms.ContextMenuStrip contextMenuStrip;
+		private System.Windows.Forms.ToolStripMenuItem deleteProductToolStripMenuItem;
+		private System.Windows.Forms.Timer closeFormTimer;
+		private Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox taxRateTextBox;
 	}
 }

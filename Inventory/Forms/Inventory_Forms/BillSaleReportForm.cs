@@ -1,15 +1,24 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 
 namespace Inventory_Forms
 {
 	public partial class BillSaleReportForm : Infrastructure.EmptyForm
 	{
-
 		#region Properties
 
 		#region Layer
+
+		private class BillItems
+		{
+			public string Product_Name { get; set; }
+			public int? Product_Quantity { get; set; }
+			public string Product_Unit { get; set; }
+			public string Product_Price { get; set; }
+			public string Total_Price { get; set; }
+		}
+
+
+
 
 		private BillSalePrintForm _billSalePrintForm = null;
 		public BillSalePrintForm BillSalePrintForm
@@ -24,24 +33,6 @@ namespace Inventory_Forms
 				return _billSalePrintForm;
 			}
 		}
-
-		private ProcutSalesForm _myProcutSalesForm = null;
-		public ProcutSalesForm MyProcutSalesForm
-		{
-			get 
-			{
-				if (_myProcutSalesForm == null || _myProcutSalesForm.IsDisposed == true)
-				{
-					_myProcutSalesForm =
-						new ProcutSalesForm();
-				}
-				return _myProcutSalesForm;
-			}
-		}
-
-		#endregion /Layer
-
-		public ProcutSalesForm.BillSaleReportItems BillSaleReportItems { get; set; }
 
 		private Models.CapitalFund _capitalFund;
 		public Models.CapitalFund CapitalFund
@@ -79,22 +70,45 @@ namespace Inventory_Forms
 			}
 		}
 
+		private ProcutSalesForm _myProcutSalesForm;
+		public ProcutSalesForm MyProcutSalesForm
+		{
+			get
+			{
+				if (_myProcutSalesForm == null || _myProcutSalesForm.IsDisposed == true)
+				{
+					_myProcutSalesForm =
+						new ProcutSalesForm();
+				}
+				return _myProcutSalesForm;
+			}
+			set
+			{
+				_myProcutSalesForm = value;
+			}
+		}
+
+		#endregion /Layer
+
+		public int? Amount { get; set; }
 		public int? AmountPayable { get; set; }
 		public int? AmountPayment { get; set; }
 		public int? CashPaymentAmount { get; set; }
-		public int? Amount { get; set; }
+		public int ProductPrice { get; set; }
 		public int? PosePaymentAmount { get; set; }
 		public int? TaxAmount { get; set; }
 		public int? TaxPercent { get; set; }
-		public int? TotalSumPrice { get; set; }
-
-		public ProcutSalesForm.TransactionFactorsItems TransactionFactorsItems { get; set; }
 
 		#endregion /Properties
 
 		public BillSaleReportForm()
 		{
 			InitializeComponent();
+
+			gunaAnimateWindow.Interval = 200;
+			gunaAnimateWindow.AnimationType = Guna.UI.WinForms.GunaAnimateWindow.AnimateWindowType.AW_CENTER;
+			gunaAnimateWindow.Start();
+
 			TaxAmount = 0;
 			AmountPayable = 0;
 			AmountPayment = 0;
@@ -111,16 +125,16 @@ namespace Inventory_Forms
 				if (Mbb.Windows.Forms.MessageBox.Show(text: "آیا فاکتور جاری حذف گردد؟", caption: "حذف فاکتور", icon: Mbb.Windows.Forms.MessageBoxIcon.Question, button: Mbb.Windows.Forms.MessageBoxButtons.YesNo) == System.Windows.Forms.DialogResult.Yes)
 				{
 					ResetAllControl();
-					this.Close();
+					closeFormTimer.Start();
 				}
 				else
 				{
-					this.Close();
+					closeFormTimer.Start();
 				}
 			}
 			else
 			{
-				this.Close();
+				closeFormTimer.Start();
 			}
 		}
 		#endregion /CloseButton_Click
@@ -132,19 +146,77 @@ namespace Inventory_Forms
 		}
 		#endregion /MinimizeButton_Click
 
-		#region ListWareDataGridView_RowsAdded
-		private void ListWareDataGridView_RowsAdded(object sender, System.Windows.Forms.DataGridViewRowsAddedEventArgs e)
+		#region ProductsListDataGridView_CellDoubleClick
+		private void ProductsListDataGridView_CellDoubleClick(object sender, System.Windows.Forms.DataGridViewCellEventArgs e)
 		{
-			AddRowRevice(e);
+			if ((e.ColumnIndex == 1 && e.RowIndex >= 0) || (e.ColumnIndex == 2 && e.RowIndex >= 0))
+			{
+				productsListDataGridView.CurrentCell.ReadOnly = false;
+				return;
+			}
+			else
+			{
+				productsListDataGridView.CurrentCell.ReadOnly = true;
+				return;
+			}
 		}
-		#endregion /ListWareDataGridView_RowsAdded
+		#endregion /ProductsListDataGridView_CellDoubleClick
 
-		#region TotalSumPriceTextBox_TextAlignChanged
-		private void TotalSumPriceTextBox_TextAlignChanged(object sender, System.EventArgs e)
+		#region ProductsListDataGridView_CellValueChanged
+		private void ProductsListDataGridView_CellValueChanged(object sender, System.Windows.Forms.DataGridViewCellEventArgs e)
 		{
-			remainingAmountTextBox.Text = totalSumPriceTextBox.Text;
+			int _productPrice,
+				_productQuantity,
+				_sumPrice,
+				_totalSumPrice = 0; 
+
+			if ((e.ColumnIndex == 1 && e.RowIndex >= 0))
+			{
+				_productPrice = int.Parse(productsListDataGridView.CurrentRow.Cells[e.ColumnIndex].Value.ToString().Replace("تومان", string.Empty).Replace(",", string.Empty).Trim());				
+				_productQuantity = int.Parse(productsListDataGridView.CurrentRow.Cells[e.ColumnIndex+1].Value.ToString().Replace("تومان", string.Empty).Replace(",", string.Empty).Trim());
+				_sumPrice = (_productPrice * _productQuantity);
+				productsListDataGridView.CurrentRow.Cells[4].Value = $"{_sumPrice:#,0} تومان";
+				productsListDataGridView.CurrentRow.Cells[e.ColumnIndex].Value = $"{_productPrice:#,0} تومان";
+
+				foreach (System.Windows.Forms.DataGridViewRow row in productsListDataGridView.Rows)
+				{
+					_totalSumPrice += int.Parse(row.Cells[4].Value.ToString().Replace("تومان", string.Empty).Replace(",", string.Empty).Trim());
+					amountPayableTextBox.Text = $"{_totalSumPrice:#,0} تومان";
+				}
+
+				EditBill();
+
+				return;
+			}
+			else if ((e.ColumnIndex == 2 && e.RowIndex >= 0))
+			{
+				_productPrice = int.Parse(productsListDataGridView.CurrentRow.Cells[e.ColumnIndex-1].Value.ToString().Replace("تومان", string.Empty).Replace(",", string.Empty).Trim());
+				_productQuantity = int.Parse(productsListDataGridView.CurrentRow.Cells[e.ColumnIndex].Value.ToString().Replace("تومان", string.Empty).Replace(",", string.Empty).Trim());
+				_sumPrice = (_productPrice * _productQuantity);
+				productsListDataGridView.CurrentRow.Cells[4].Value = $"{_sumPrice:#,0} تومان";
+				foreach (System.Windows.Forms.DataGridViewRow row in productsListDataGridView.Rows)
+				{
+					_totalSumPrice += int.Parse(row.Cells[4].Value.ToString().Replace("تومان", string.Empty).Replace(",", string.Empty).Trim());
+					amountPayableTextBox.Text = $"{_totalSumPrice:#,0} تومان";
+				}
+
+				EditBill();
+
+				return;
+			}
+			else
+			{
+				return;
+			}
 		}
-		#endregion /TotalSumPriceTextBox_TextAlignChanged
+		#endregion /ProductsListDataGridView_CellValueChanged
+
+		#region AmountPayableTextBox_TextAlignChanged
+		private void AmountPayableTextBox_TextAlignChanged(object sender, System.EventArgs e)
+		{
+			remainingAmountTextBox.Text = amountPayableTextBox.Text;
+		}
+		#endregion /AmountPayableTextBox_TextAlignChanged
 
 		#region TaxRateTextBox_Enter
 		private void TaxRateTextBox_Enter(object sender, System.EventArgs e)
@@ -155,7 +227,7 @@ namespace Inventory_Forms
 			{
 				TaxPercent = 0;
 				taxRateTextBox.Text = "% 0";
-				taxRateTextBox.Select(2, 1);
+				taxRateTextBox.Select(2,1);
 			}
 			else if (taxRateTextBox.Text.Contains("%"))
 			{
@@ -175,25 +247,67 @@ namespace Inventory_Forms
 		#region TaxRateTextBox_TextChange
 		private void TaxRateTextBox_TextChange(object sender, System.EventArgs e)
 		{
-			if (string.IsNullOrWhiteSpace(taxRateTextBox.Text) || (string.Compare(taxRateTextBox.Text, "% 0") == 0 || (string.Compare(taxRateTextBox.Text, "% ") == 0 || string.Compare(taxRateTextBox.Text, "%") == 0)))
+			if (string.IsNullOrWhiteSpace(taxRateTextBox.Text) ||
+				(string.Compare(taxRateTextBox.Text, "% 0") == 0 ||
+				(string.Compare(taxRateTextBox.Text, "% ") == 0 ||
+				string.Compare(taxRateTextBox.Text, "%") == 0)))
 			{
+				TaxPercent = 0;
+				taxRateTextBox.Clear();
 				return;
 			}
 			else
 			{
 				if (AmountPayment == 0 || AmountPayment == null)
 				{
-					TaxPercent = int.Parse(taxRateTextBox.Text.Replace("تومان", string.Empty).Trim());
-					TaxAmount = (TotalSumPrice / 100) * TaxPercent;
-					AmountPayable = TaxAmount + TotalSumPrice;
-					remainingAmountTextBox.Text = $"{AmountPayable:#,0} تومان";
+					TaxPercent = int.Parse(taxRateTextBox.Text.Replace("%", string.Empty).Trim());
+					if (TaxPercent> 5)
+					{
+						Mbb.Windows.Forms.MessageBox.Show
+						(text: "بیشتر از 5% امکان دریافت مالیات وجود ندارد.",
+						caption: "خطای ورودی",
+						icon: Mbb.Windows.Forms.MessageBoxIcon.Warning,
+						button: Mbb.Windows.Forms.MessageBoxButtons.Ok);
+
+						TaxPercent = 0;
+						taxRateTextBox.Text = "% 0";
+						taxRateTextBox.Select(2, 1);
+						return;
+					}
+					else
+					{
+						TaxAmount = (AmountPayable / 100) * TaxPercent;
+						AmountPayable = (TaxAmount + AmountPayable);
+						remainingAmountTextBox.Text = $"{AmountPayable:#,0} تومان";
+						taxRateTextBox.Text = $"% {TaxPercent}";
+					}
+					return;
 				}
 				else
 				{
 					TaxPercent = int.Parse(taxRateTextBox.Text.Replace("%", string.Empty).Trim());
-					TaxAmount = (TotalSumPrice / 100) * TaxPercent;
-					AmountPayable = TaxAmount + TotalSumPrice + AmountPayment;
-					remainingAmountTextBox.Text = $"{AmountPayable:#,0} تومان";
+					if (TaxPercent > 5)
+					{
+						Mbb.Windows.Forms.MessageBox.Show
+						(text: "بیشتر از 5% امکان دریافت مالیات وجود ندارد.",
+						caption: "خطای ورودی",
+						icon: Mbb.Windows.Forms.MessageBoxIcon.Warning,
+						button: Mbb.Windows.Forms.MessageBoxButtons.Ok);
+
+						TaxPercent = 0;
+						taxRateTextBox.Text = "% 0";
+						taxRateTextBox.Select(2, 1);
+						return;
+					}
+					else
+					{
+						TaxPercent = int.Parse(taxRateTextBox.Text.Replace("%", string.Empty).Trim());
+						TaxAmount = (AmountPayable / 100) * TaxPercent;
+						AmountPayable = (TaxAmount + AmountPayable) - AmountPayment;
+						remainingAmountTextBox.Text = $"{AmountPayable:#,0} تومان";
+						taxRateTextBox.Text = $"% {TaxPercent}";
+					}
+					return;
 				}
 			}
 		}
@@ -202,7 +316,7 @@ namespace Inventory_Forms
 		#region AmountPaymentTextBox_TextChanged
 		private void AmountPaymentTextBox_TextChanged(object sender, System.EventArgs e)
 		{
-			if (string.Compare(amountPaymentTextBox.Text , "0 تومان")==0 ||
+			if (string.Compare(amountPaymentTextBox.Text, "0 تومان") == 0 ||
 				string.Compare(amountPaymentTextBox.Text, " تومان") == 0 ||
 				string.Compare(amountPaymentTextBox.Text, "ومان") == 0 ||
 				string.Compare(amountPaymentTextBox.Text, "مان") == 0 ||
@@ -214,18 +328,18 @@ namespace Inventory_Forms
 			}
 			else
 			{
-				if (TaxAmount <= 0 || TaxAmount == null)
+				if (TaxAmount == 0 || TaxAmount == null)
 				{
 					//TaxPercent = int.Parse(taxRateTextBox.Text.Replace("%", string.Empty).Trim());
-					//TaxAmount = (TotalSumPrice / 100) * TaxPercent;
-					AmountPayable = AmountPayment + TotalSumPrice;
+					//TaxAmount = (AmountPayable / 100) * TaxPercent;
+					AmountPayable = AmountPayment - AmountPayable;
 					remainingAmountTextBox.Text = $"{AmountPayable:#,0} تومان";
 				}
 				else
 				{
 					TaxPercent = int.Parse(taxRateTextBox.Text.Replace("%", string.Empty).Trim());
-					TaxAmount = (TotalSumPrice / 100) * TaxPercent;
-					AmountPayable = TaxAmount + TotalSumPrice + AmountPayment;
+					TaxAmount = (AmountPayable / 100) * TaxPercent;
+					AmountPayable = (TaxAmount + AmountPayable) - AmountPayment;
 					remainingAmountTextBox.Text = $"{AmountPayable:#,0} تومان";
 				}
 			}
@@ -237,16 +351,16 @@ namespace Inventory_Forms
 		{
 			try
 			{
-				System.Collections.Generic.List<ProcutSalesForm.BillSaleReportItems> billSaleReportItemsList = new System.Collections.Generic.List<ProcutSalesForm.BillSaleReportItems>();
+				System.Collections.Generic.List<BillItems> billSaleReportItemsList = new System.Collections.Generic.List<BillItems>();
 
 				foreach (System.Windows.Forms.DataGridViewRow rows in productsListDataGridView.Rows)
 				{
-					ProcutSalesForm.BillSaleReportItems billSaleReportItems = new ProcutSalesForm.BillSaleReportItems
+					BillItems billSaleReportItems = new BillItems
 					{
 						Product_Name = rows.Cells[0].Value.ToString(),
-						Product_Quantity = int.Parse(rows.Cells[1].Value.ToString()),
-						Product_Unit = rows.Cells[2].Value.ToString(),
-						Product_Price = rows.Cells[3].Value.ToString(),
+						Product_Price = rows.Cells[1].Value.ToString(),
+						Product_Quantity = int.Parse(rows.Cells[2].Value.ToString()),
+						Product_Unit = rows.Cells[3].Value.ToString(),
 						Total_Price = rows.Cells[4].Value.ToString(),
 					};
 					billSaleReportItemsList.Add(billSaleReportItems);
@@ -258,10 +372,10 @@ namespace Inventory_Forms
 				printInvoice.RegBusinessObject("BillSale", billSaleReportItemsList);
 
 				(printInvoice.GetComponentByName("dateOfPrintTextBox") as Stimulsoft.Report.Components.StiText).Text = dateSetInvoiceTextBox.Text;
-				(printInvoice.GetComponentByName("sellerNameTextBox") as Stimulsoft.Report.Components.StiText).Text = Inventory.Program.UserAuthentication.Full_Name;
+				(printInvoice.GetComponentByName("sellerNameTextBox") as Stimulsoft.Report.Components.StiText).Text = "admin"; //Inventory.Program.UserAuthentication.Full_Name;
 				(printInvoice.GetComponentByName("clientNameTextBox") as Stimulsoft.Report.Components.StiText).Text = clientNameTextBox.Text;
 				(printInvoice.GetComponentByName("carrierNameTextBox") as Stimulsoft.Report.Components.StiText).Text = carrierNameTextBox.Text;
-				(printInvoice.GetComponentByName("totalSumPriceTextBox") as Stimulsoft.Report.Components.StiText).Text = totalSumPriceTextBox.Text;
+				(printInvoice.GetComponentByName("totalSumPriceTextBox") as Stimulsoft.Report.Components.StiText).Text = amountPayableTextBox.Text;
 				(printInvoice.GetComponentByName("taxRateTextBox") as Stimulsoft.Report.Components.StiText).Text = taxRateTextBox.Text;
 				(printInvoice.GetComponentByName("amountPaymentTextBox") as Stimulsoft.Report.Components.StiText).Text = amountPaymentTextBox.Text;
 				(printInvoice.GetComponentByName("remainingAmountTextBox") as Stimulsoft.Report.Components.StiText).Text = remainingAmountTextBox.Text;
@@ -281,9 +395,12 @@ namespace Inventory_Forms
 		private void CashRegisterButton_Click(object sender, System.EventArgs e)
 		{
 			FinancialFundInput.Client_Name = clientNameTextBox.Text;
-			FinancialFundInput.Amount_Payable = totalSumPriceTextBox.Text;
+			FinancialFundInput.Amount_Payable = amountPayableTextBox.Text;
 			FinancialFundInput.Amount_Paid = amountPaymentTextBox.Text;
 			FinancialFundInput.Remaininig_Amount = remainingAmountTextBox.Text;
+
+
+
 		}
 		#endregion /CashRegisterButton_Click
 
@@ -554,32 +671,16 @@ namespace Inventory_Forms
 		}
 		#endregion /DebtorLabel_Click
 
-		//----------End of code!----------
-
-		#region Function
-
-
-
-		#region AddRowRevice
-		private void AddRowRevice(System.Windows.Forms.DataGridViewRowsAddedEventArgs e)
+		#region DeleteProductToolStripMenuItem_Click
+		private void DeleteProductToolStripMenuItem_Click(object sender, System.EventArgs e)
 		{
-			string value;
-			int newPrice;
-			int totalSumPrice = 0;
-			if (e.RowIndex != -1)
+			if (productsListDataGridView.Rows.Count > 0)
 			{
-				if (productsListDataGridView.RowCount >= 1)
+				if (Mbb.Windows.Forms.MessageBox.Show(text: $"{productsListDataGridView.CurrentRow.Cells[0].Value} از فاکتور حذف گردد؟", caption: "حذف کالا", icon: Mbb.Windows.Forms.MessageBoxIcon.Question, button: Mbb.Windows.Forms.MessageBoxButtons.YesNo) == System.Windows.Forms.DialogResult.Yes)
 				{
-					for (int i = 0; i < productsListDataGridView.Rows.Count; i++)
-					{
-						value = productsListDataGridView.Rows[i].Cells[4].Value.ToString().Replace("تومان", string.Empty).Trim();
-						newPrice = int.Parse(value.Replace(",", string.Empty).Trim());
-						totalSumPrice += newPrice;
-					}
-					value =
-						$"{totalSumPrice:#,0} تومان";
-					TotalSumPrice = totalSumPrice;
-					totalSumPriceTextBox.Text = value;
+					productsListDataGridView.Rows.Remove(productsListDataGridView.CurrentRow);
+					RefreshCalculator();
+					EditBill();
 				}
 				else
 				{
@@ -588,32 +689,103 @@ namespace Inventory_Forms
 			}
 			else
 			{
+				this.Dispose();
+			}
+			
+		}
+		#endregion /DeleteProductToolStripMenuItem_Click
+
+		#region CloseFormTimer_Tick
+		private void CloseFormTimer_Tick(object sender, System.EventArgs e)
+		{
+			this.Opacity -= 0.1;
+
+			if (this.Opacity <= 0.0)
+			{
+				closeFormTimer.Stop();
+				this.Dispose();
+			}
+		}
+		#endregion /CloseFormTimer_Tick
+
+		//----------End of code!----------
+
+		#region Function
+
+		#region CalculatePurchaseAmount
+		public void CalculatePurchaseAmount()
+		{
+			if (productsListDataGridView.RowCount >= 1)
+			{
+				foreach (System.Windows.Forms.DataGridViewRow row in productsListDataGridView.Rows)
+				{
+					AmountPayable +=
+						int.Parse(row.Cells[4].Value.ToString().Replace("تومان", string.Empty).Replace(",", string.Empty).Trim());
+					amountPayableTextBox.Text = $"{AmountPayable:#,0} تومان";
+					remainingAmountTextBox.Text = $"{AmountPayable:#,0} تومان";
+				}
+			}
+			else
+			{
 				return;
 			}
 		}
-		#endregion /AddRowRevice
+		#endregion /CalculatePurchaseAmount
 
-		#region ReciveListWare
-		public void ReciveListWare(System.Collections.Generic.List<BillSaleReport> inputListWare, TransactionFactors transactionFactors)//ایا میتوان کلاس خصوصی تعریف کرد که بتوان از آن بعنوان  یک پارامتر ورودی در یک تابع استفاده نمود؟
+		#region EditBill
+		private	void EditBill()
 		{
-			for (int i = 0; i < inputListWare.Count; i++)
+			System.Collections.Generic.List<ProcutSalesForm.BillSaleReportItems> billSaleReportItemsList = new System.Collections.Generic.List<ProcutSalesForm.BillSaleReportItems>();
+
+			foreach (System.Windows.Forms.DataGridViewRow rows in productsListDataGridView.Rows)
 			{
-				productsListDataGridView.DataSource = inputListWare;
+				ProcutSalesForm.BillSaleReportItems billSaleReportItems = new ProcutSalesForm.BillSaleReportItems
+				{
+					Product_Name = rows.Cells[0].Value.ToString(),
+					Product_Price = rows.Cells[1].Value.ToString(),
+					Product_Quantity = int.Parse(rows.Cells[2].Value.ToString()),
+					Product_Unit = rows.Cells[3].Value.ToString(),
+					Total_Price = rows.Cells[4].Value.ToString(),
+				};
+				billSaleReportItemsList.Add(billSaleReportItems);
 			}
-			sellerNameTextBox.Text = transactionFactors.Seller_Name;
-			clientNameTextBox.Text = transactionFactors.Client_Name;
-			carrierNameTextBox.Text = transactionFactors.Carrier_Name;
+			MyProcutSalesForm.billSaleReportsList.Clear();
+			MyProcutSalesForm.billSaleReportsList = billSaleReportItemsList.ToList();
+			MyProcutSalesForm.billSaleReportsList.TrimExcess();
 		}
-		#endregion ReciveListWare
+		#endregion /EditBill
+
+		#region RefreshCalculator
+		private	void RefreshCalculator()
+		{
+			int amountPayable = 0;
+			if (productsListDataGridView.RowCount >= 1)
+			{
+				foreach (System.Windows.Forms.DataGridViewRow row in productsListDataGridView.Rows)
+				{
+					amountPayable +=
+						int.Parse(row.Cells[4].Value.ToString().Replace("تومان", string.Empty).Replace(",", string.Empty).Trim());
+					amountPayableTextBox.Text = $"{amountPayable:#,0} تومان";
+					remainingAmountTextBox.Text = $"{amountPayable:#,0} تومان";
+				}
+			}
+			else
+			{
+				return;
+			}
+		}
+		#endregion /RefreshCalculator
 
 		#region ResetAllControl
 		private void ResetAllControl()
 		{
+			MyProcutSalesForm.billSaleReportsList.Clear();
+			MyProcutSalesForm.transactionFactorsItems = null;
+
 			sellerNameTextBox.Text = "نام فروشنده";
 			clientNameTextBox.Text = "نام مشتری";
 			carrierNameTextBox.Text = "نام حامل کالا";
 			productsListDataGridView.DataSource = null;
-			TotalSumPrice = 0;
 			TaxPercent = 0;
 			TaxAmount = 0;
 			AmountPayable = 0;
@@ -629,9 +801,21 @@ namespace Inventory_Forms
 		#endregion ResetAllControl
 
 		#region SetItemsBillSale
-		public void SetItemsBillSale(ProcutSalesForm.BillSaleReportItems billSaleReportItems, ProcutSalesForm.TransactionFactorsItems transactionFactorsItems)
+		public void SetItemsBillSale(System.Collections.Generic.List<ProcutSalesForm.BillSaleReportItems> billSaleReportItems, ProcutSalesForm.TransactionFactorsItems transactionFactorsItems)
 		{
+			foreach (var item in billSaleReportItems)
+			{
+				productsListDataGridView.Rows.Add
+					(item.Product_Name,
+					item.Product_Price,
+					item.Product_Quantity.ToString(),
+					item.Product_Unit,
+					item.Total_Price);
+			}
 
+			sellerNameTextBox.Text = transactionFactorsItems.Seller_Name;
+			clientNameTextBox.Text = transactionFactorsItems.Client_Name;
+			carrierNameTextBox.Text = transactionFactorsItems.Carrier_Name;
 		}
 		#endregion /SetItemsBillSale
 
@@ -684,14 +868,10 @@ namespace Inventory_Forms
 			}
 		}
 
-
 		#endregion /FinancialOfficeInput
 
 		#endregion /Function
 
-		private void BillSalePrintForm_Load(object sender, EventArgs e)
-		{
-
-		}
+		
 	}
 }

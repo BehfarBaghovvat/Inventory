@@ -8,21 +8,21 @@ namespace Inventory
 
 		#region --------------------------------------------------------     Layer     --------------------------------------------------------
 
-		private static Inventory_Forms.InventoryEntranceForm _inventoryEntranceForm;
-		public static Inventory_Forms.InventoryEntranceForm InventoryEntranceForm
+		private static Inventory_Forms.ProductBuyForm _productBuyForm;
+		public static Inventory_Forms.ProductBuyForm ProductBuyForm
 		{
 			get
 			{
-				if (_inventoryEntranceForm == null || _inventoryEntranceForm.IsDisposed)
+				if (_productBuyForm == null || _productBuyForm.IsDisposed)
 				{
-					_inventoryEntranceForm =
-						new Inventory_Forms.InventoryEntranceForm();
+					_productBuyForm =
+						new Inventory_Forms.ProductBuyForm();
 
-					_inventoryEntranceForm.TopLevel = false;
-					_inventoryEntranceForm.TopMost = true;
-					_inventoryEntranceForm.Dock = System.Windows.Forms.DockStyle.Fill;
+					_productBuyForm.TopLevel = false;
+					_productBuyForm.TopMost = true;
+					_productBuyForm.Dock = System.Windows.Forms.DockStyle.Fill;
 				}
-				return _inventoryEntranceForm;
+				return _productBuyForm;
 			}
 		}
 
@@ -255,7 +255,7 @@ namespace Inventory
 
 				//-------------------------------------------- Inventory
 
-				InventoryEntranceForm.Dispose();
+				ProductBuyForm.Dispose();
 				ProcutSalesForm.Dispose();
 				InventoryForm.Dispose();
 				ServiceForm.Dispose();
@@ -312,6 +312,8 @@ namespace Inventory
 		#endregion /InventoryButton_Click
 
 		#region SubmenuInventory
+
+		#region InventoryEntryButton_Click
 		private void InventoryEntryButton_Click(object sender, System.EventArgs e)
 		{
 			if (inventoryEntryButton.Checked)
@@ -321,8 +323,8 @@ namespace Inventory
 			else
 			{
 				mainPanel.Controls.Clear();
-				mainPanel.Controls.Add(InventoryEntranceForm);
-				InventoryEntranceForm.Show();
+				mainPanel.Controls.Add(ProductBuyForm);
+				ProductBuyForm.Show();
 
 				ProcutSalesForm.Dispose();
 				InventoryForm.Dispose();
@@ -335,7 +337,9 @@ namespace Inventory
 				serviceButton.Checked = false;
 			}
 		}
+		#endregion /InventoryEntryButton_Click
 
+		#region ProductSalesButton_Click
 		private void ProductSalesButton_Click(object sender, System.EventArgs e)
 		{
 			if (productSalesButton.Checked)
@@ -347,7 +351,7 @@ namespace Inventory
 				mainPanel.Controls.Clear();
 				mainPanel.Controls.Add(ProcutSalesForm);
 				ProcutSalesForm.Show();
-				InventoryEntranceForm.Dispose();
+				ProductBuyForm.Dispose();
 				InventoryForm.Dispose();
 				ServiceForm.Dispose();
 
@@ -358,7 +362,9 @@ namespace Inventory
 				serviceButton.Checked = false;
 			}
 		}
+		#endregion /ProductSalesButton_Click
 
+		#region InventoryholdingButton_Click
 		private void InventoryholdingButton_Click(object sender, System.EventArgs e)
 		{
 			if (inventoryholdingButton.Checked)
@@ -371,7 +377,7 @@ namespace Inventory
 				mainPanel.Controls.Add(InventoryForm);
 				InventoryForm.Show();
 
-				InventoryEntranceForm.Dispose();
+				ProductBuyForm.Dispose();
 				ProcutSalesForm.Dispose();
 				ServiceForm.Dispose();
 
@@ -382,7 +388,9 @@ namespace Inventory
 				serviceButton.Checked = false;
 			}
 		}
+		#endregion /InventoryholdingButton_Click
 
+		#region ServiceButton_Click
 		private void ServiceButton_Click(object sender, System.EventArgs e)
 		{
 			if (serviceButton.Checked)
@@ -395,7 +403,7 @@ namespace Inventory
 				mainPanel.Controls.Add(ServiceForm);
 				ServiceForm.Show();
 
-				InventoryEntranceForm.Dispose();
+				ProductBuyForm.Dispose();
 				ProcutSalesForm.Dispose();
 				InventoryForm.Dispose();
 
@@ -406,6 +414,8 @@ namespace Inventory
 				serviceButton.Checked = true;
 			}
 		}
+		#endregion /ServiceButton_Click
+
 		#endregion /SubmenuInventory
 
 		#region DropDownInventoryTimer_Tick
@@ -780,7 +790,7 @@ namespace Inventory
 
 			//-------------------------------------------- Inventory
 
-			InventoryEntranceForm.Dispose();
+			ProductBuyForm.Dispose();
 			ProcutSalesForm.Dispose();
 			InventoryForm.Dispose();
 			ServiceForm.Dispose();

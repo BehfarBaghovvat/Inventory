@@ -2,7 +2,7 @@
 
 namespace Inventory_Forms
 {
-	public partial class InventoryEntranceForm : Infrastructure.EmptyForm
+	public partial class ProductBuyForm : Infrastructure.EmptyForm
 	{
 		#region Properties
 
@@ -32,7 +32,6 @@ namespace Inventory_Forms
 			}
 			set { _billBuyReportForm = value; }
 		}
-
 
 		#endregion /Layer
 
@@ -67,20 +66,6 @@ namespace Inventory_Forms
 			set { _inventoryHolding_New = value; }
 		}
 
-		private Models.InventoryHolding _inventoryHolding_Select;
-		public Models.InventoryHolding InventoryHolding_Select
-		{
-			get
-			{
-				if (_inventoryHolding_Select == null)
-				{
-					_inventoryHolding_Select =
-						new Models.InventoryHolding();
-				}
-				return _inventoryHolding_Select;
-			}
-			set { _inventoryHolding_Select = value; }
-		}
 		public int NumberPurchases { get; set; }
 
 		private Models.ProductReceived _productReceived_New;
@@ -118,7 +103,7 @@ namespace Inventory_Forms
 
 		#endregion /Properties
 
-		public InventoryEntranceForm()
+		public ProductBuyForm()
 		{
 			InitializeComponent();
 			AllClear();
@@ -167,24 +152,34 @@ namespace Inventory_Forms
 		{
 			if (string.IsNullOrWhiteSpace(productNameTextBox.Text))
 			{
-				checkProductNamePictureBox.Image = Inventory.Properties.Resources.Tik_True;
+				checkProductNamePictureBox.Image = Inventory.Properties.Resources.Tik_False;
+				checkProductNamePictureBox.Visible = false;
 				ProductReceived_New.Product_Name = null;
 				InventoryHolding_New.Product_Name = null;
 				return;
 			}
 			else
 			{
-				if (SearchProduct(productNameTextBox.Text))
+				checkProductNamePictureBox.Visible = true;
+				if (string.Compare(saveBottom.Text,"ثبت کالا")==0)
+				{
+					if (SearchProduct(productNameTextBox.Text))
+					{
+						checkProductNamePictureBox.Image = Inventory.Properties.Resources.Tik_True;
+						ProductReceived_New.Product_Name = productNameTextBox.Text;
+						InventoryHolding_New.Product_Name = productNameTextBox.Text;
+					}
+					else
+					{
+						checkProductNamePictureBox.Image = Inventory.Properties.Resources.Tik_False;
+						ProductReceived_New.Product_Name = null;
+						InventoryHolding_New.Product_Name = null;
+					}
+				}
+				else if (string.Compare(saveBottom.Text, "ویرایش کالا") == 0)
 				{
 					checkProductNamePictureBox.Image = Inventory.Properties.Resources.Tik_True;
-					ProductReceived_New.Product_Name = productNameTextBox.Text;
-					InventoryHolding_New.Product_Name = productNameTextBox.Text;
-				}
-				else
-				{
-					checkProductNamePictureBox.Image = Inventory.Properties.Resources.Tik_False;
-					ProductReceived_New.Product_Name = null;
-					InventoryHolding_New.Product_Name = null;
+					return;
 				}
 			}
 		}
@@ -451,7 +446,7 @@ namespace Inventory_Forms
 			}
 			else
 			{
-				BillBuyReportForm.MyInventoryEntranceForm = this;
+				BillBuyReportForm.MyProductBuyForm = this;
 				BillBuyReportForm.Sender_Name = senderNameTextBox.Text;
 				BillBuyReportForm.Carrier_Name = carrierNameTextBox.Text;
 				BillBuyReportForm.SetBillInDataGridView(billList);
@@ -661,11 +656,10 @@ namespace Inventory_Forms
 			ClearForEdit();
 
 			saveBottom.Text = "ویرایش کالا";
-
-			ProductReceived_Selected.Product_Name = productRecivedDataGridView.CurrentRow.Cells[1].Value.ToString();
+			
 			ProductReceived_New.Product_Name = productRecivedDataGridView.CurrentRow.Cells[1].Value.ToString();
-			InventoryHolding_Select.Product_Name = productRecivedDataGridView.CurrentRow.Cells[1].Value.ToString();
 			InventoryHolding_New.Product_Name = productRecivedDataGridView.CurrentRow.Cells[1].Value.ToString();
+			ProductReceived_Selected.Product_Name = productRecivedDataGridView.CurrentRow.Cells[1].Value.ToString();
 			productNameTextBox.Text = productRecivedDataGridView.CurrentRow.Cells[1].Value.ToString();
 
 			transferNameTextBox.Text = productRecivedDataGridView.CurrentRow.Cells[2].Value.ToString();
@@ -680,25 +674,21 @@ namespace Inventory_Forms
 
 			ProductReceived_Selected.Product_Purchase_Price = productRecivedDataGridView.CurrentRow.Cells[5].Value.ToString();
 			ProductReceived_New.Product_Purchase_Price = productRecivedDataGridView.CurrentRow.Cells[5].Value.ToString();
-			InventoryHolding_Select.Product_Purchase_Price = productRecivedDataGridView.CurrentRow.Cells[5].Value.ToString();
 			InventoryHolding_New.Product_Purchase_Price = productRecivedDataGridView.CurrentRow.Cells[5].Value.ToString();
 			productPriceTextBox.Text = productRecivedDataGridView.CurrentRow.Cells[5].Value.ToString();
 
 			ProductReceived_Selected.Product_Quantity = int.Parse(productRecivedDataGridView.CurrentRow.Cells[6].Value.ToString());
 			ProductReceived_New.Product_Quantity = int.Parse(productRecivedDataGridView.CurrentRow.Cells[6].Value.ToString());
-			InventoryHolding_Select.Product_Quantity = int.Parse(productRecivedDataGridView.CurrentRow.Cells[6].Value.ToString());
 			InventoryHolding_New.Product_Quantity = int.Parse(productRecivedDataGridView.CurrentRow.Cells[6].Value.ToString());
 			productQuantityTextBox.Text = productRecivedDataGridView.CurrentRow.Cells[6].Value.ToString();
 
 			ProductReceived_Selected.Product_Unit = productRecivedDataGridView.CurrentRow.Cells[7].Value.ToString();
 			ProductReceived_New.Product_Unit = productRecivedDataGridView.CurrentRow.Cells[7].Value.ToString();
-			InventoryHolding_Select.Product_Unit = productRecivedDataGridView.CurrentRow.Cells[7].Value.ToString();
 			InventoryHolding_New.Product_Unit = productRecivedDataGridView.CurrentRow.Cells[7].Value.ToString();
 			productUnitComboBox.SelectedIndex = productUnitComboBox.FindString(productRecivedDataGridView.CurrentRow.Cells[7].Value.ToString());
 
 			ProductReceived_Selected.Product_Image = (byte[])productRecivedDataGridView.CurrentRow.Cells[8].Value;
 			ProductReceived_New.Product_Image = (byte[])productRecivedDataGridView.CurrentRow.Cells[8].Value;
-			InventoryHolding_Select.Product_Image = (byte[])productRecivedDataGridView.CurrentRow.Cells[8].Value;
 			InventoryHolding_New.Product_Image = (byte[])productRecivedDataGridView.CurrentRow.Cells[8].Value;
 
 			using (System.IO.MemoryStream ms = new System.IO.MemoryStream(ProductReceived_Selected.Product_Image))
@@ -731,7 +721,10 @@ namespace Inventory_Forms
 		{
 			NumberPurchases = 0;
 			productNameTextBox.Clear();
+
 			transferNameTextBox.Text = Inventory.Program.UserAuthentication.Full_Name;
+			checkProductNamePictureBox.Image = Inventory.Properties.Resources.Tik_True;
+			checkProductNamePictureBox.Visible = false;
 			productPriceTextBox.Clear();
 			productQuantityTextBox.Clear();
 			productUnitComboBox.SelectedIndex = 0;
@@ -1142,17 +1135,17 @@ namespace Inventory_Forms
 		#endregion /TransferName
 
 		#region ValidationData
-		private bool ValidationData(Models.ProductReceived productReceived)
+		private bool ValidationData(Models.ProductReceived productReceivedNew)
 		{
 			string errorMessage = null;
 
 			try
 			{
-				if (string.IsNullOrEmpty(productReceived.Product_Name))
+				if (string.IsNullOrEmpty(productReceivedNew.Product_Name))
 				{
 					errorMessage = "لطفا نام کالا را وارد نمایید.";
 				}
-				if (string.IsNullOrEmpty(productReceived.Sender_Name))
+				if (string.IsNullOrEmpty(productReceivedNew.Sender_Name))
 				{
 					if (!string.IsNullOrEmpty(errorMessage))
 					{
@@ -1161,7 +1154,7 @@ namespace Inventory_Forms
 					}
 					errorMessage += "لطفا نام ارسال کننده وارد نمایید.";
 				}
-				if (string.IsNullOrEmpty(productReceived.Carrier_Name))
+				if (string.IsNullOrEmpty(productReceivedNew.Carrier_Name))
 				{
 					if (!string.IsNullOrEmpty(errorMessage))
 					{
@@ -1170,7 +1163,7 @@ namespace Inventory_Forms
 					}
 					errorMessage += "لطفا نام حامل کالا وارد نمایید.";
 				}
-				if (string.IsNullOrEmpty(productReceived.Product_Purchase_Price))
+				if (string.IsNullOrEmpty(productReceivedNew.Product_Purchase_Price))
 				{
 					if (!string.IsNullOrEmpty(errorMessage))
 					{
@@ -1179,7 +1172,7 @@ namespace Inventory_Forms
 					}
 					errorMessage += "لطفا قیمت کالا را تعیین نمایید.";
 				}
-				if (productReceived.Product_Quantity == null || productReceived.Product_Quantity == 0)
+				if (productReceivedNew.Product_Quantity == null || productReceivedNew.Product_Quantity == 0)
 				{
 					if (!string.IsNullOrEmpty(errorMessage))
 					{
@@ -1188,7 +1181,7 @@ namespace Inventory_Forms
 					}
 					errorMessage += "لطفا تعداد کالا را وارد نمایید.";
 				}
-				if (string.IsNullOrEmpty(productReceived.Product_Unit))
+				if (string.IsNullOrEmpty(productReceivedNew.Product_Unit))
 				{
 					if (!string.IsNullOrEmpty(errorMessage))
 					{
@@ -1197,7 +1190,7 @@ namespace Inventory_Forms
 					}
 					errorMessage += "لطفا واحد کالا را تعیین نمایید.";
 				}
-				if (productReceived.Product_Image == null)
+				if (productReceivedNew.Product_Image == null)
 				{
 					if (!string.IsNullOrEmpty(errorMessage))
 					{
@@ -1216,31 +1209,31 @@ namespace Inventory_Forms
 					Mbb.Windows.Forms.MessageBox.Show(text: errorMessage, caption: "خطای ورودی", icon: Mbb.Windows.Forms.MessageBoxIcon.Error, button: Mbb.Windows.Forms.MessageBoxButtons.Ok);
 
 
-					if (string.IsNullOrEmpty(productReceived.Product_Name))
+					if (string.IsNullOrEmpty(productReceivedNew.Product_Name))
 					{
 						productNameTextBox.Focus();
 					}
-					else if (string.IsNullOrEmpty(productReceived.Sender_Name))
+					else if (string.IsNullOrEmpty(productReceivedNew.Sender_Name))
 					{
 						senderNameTextBox.Focus();
 					}
-					else if (string.IsNullOrEmpty(productReceived.Carrier_Name))
+					else if (string.IsNullOrEmpty(productReceivedNew.Carrier_Name))
 					{
 						carrierNameTextBox.Focus();
 					}
-					else if (string.IsNullOrEmpty(productReceived.Product_Purchase_Price))
+					else if (string.IsNullOrEmpty(productReceivedNew.Product_Purchase_Price))
 					{
 						productPriceTextBox.Focus();
 					}
-					else if (productReceived.Product_Quantity == null || productReceived.Product_Quantity == 0)
+					else if (productReceivedNew.Product_Quantity == null || productReceivedNew.Product_Quantity == 0)
 					{
 						productQuantityTextBox.Focus();
 					}
-					else if (string.IsNullOrEmpty(productReceived.Product_Unit))
+					else if (string.IsNullOrEmpty(productReceivedNew.Product_Unit))
 					{
 						productUnitComboBox.Focus();
 					}
-					else if (productReceived.Product_Image == null)
+					else if (productReceivedNew.Product_Image == null)
 					{
 						System.Windows.Forms.OpenFileDialog openFileDialog =
 							new System.Windows.Forms.OpenFileDialog
@@ -1280,7 +1273,5 @@ namespace Inventory_Forms
 		#endregion /ValidationData
 
 		#endregion /Function
-
-		
 	}
 }

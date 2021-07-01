@@ -217,7 +217,7 @@ namespace Inventory_Forms
 			this.totalSumPriceLable.AutoSize = true;
 			this.totalSumPriceLable.Font = new System.Drawing.Font("IRANSans", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
 			this.totalSumPriceLable.ForeColor = System.Drawing.Color.White;
-			this.totalSumPriceLable.Location = new System.Drawing.Point(337, 446);
+			this.totalSumPriceLable.Location = new System.Drawing.Point(337, 443);
 			this.totalSumPriceLable.Name = "totalSumPriceLable";
 			this.totalSumPriceLable.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
 			this.totalSumPriceLable.Size = new System.Drawing.Size(99, 22);
@@ -242,7 +242,7 @@ namespace Inventory_Forms
 			this.amountPaymentTextBox.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
 			this.amountPaymentTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
 			this.amountPaymentTextBox.DefaultFont = new System.Drawing.Font("IRANSansXFaNum", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-			this.amountPaymentTextBox.DefaultText = "";
+			this.amountPaymentTextBox.DefaultText = "0 تومان";
 			this.amountPaymentTextBox.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
 			this.amountPaymentTextBox.ForeColor = System.Drawing.Color.White;
 			this.amountPaymentTextBox.HideSelection = true;
@@ -251,9 +251,12 @@ namespace Inventory_Forms
 			this.amountPaymentTextBox.IconPadding = 10;
 			this.amountPaymentTextBox.IconRight = null;
 			this.amountPaymentTextBox.IconRightCursor = System.Windows.Forms.Cursors.IBeam;
-			this.amountPaymentTextBox.Lines = new string[0];
+			this.amountPaymentTextBox.Lines = new string[] {
+        "0 تومان"};
 			this.amountPaymentTextBox.Location = new System.Drawing.Point(12, 482);
+			this.amountPaymentTextBox.MaximumSize = new System.Drawing.Size(300, 25);
 			this.amountPaymentTextBox.MaxLength = 32767;
+			this.amountPaymentTextBox.MinimumSize = new System.Drawing.Size(300, 25);
 			this.amountPaymentTextBox.Modified = false;
 			this.amountPaymentTextBox.Multiline = false;
 			this.amountPaymentTextBox.Name = "amountPaymentTextBox";
@@ -279,7 +282,7 @@ namespace Inventory_Forms
 			this.amountPaymentTextBox.OnIdleState = stateProperties4;
 			this.amountPaymentTextBox.PasswordChar = '\0';
 			this.amountPaymentTextBox.PlaceholderForeColor = System.Drawing.Color.White;
-			this.amountPaymentTextBox.PlaceholderText = "0 تومان";
+			this.amountPaymentTextBox.PlaceholderText = "";
 			this.amountPaymentTextBox.ReadOnly = false;
 			this.amountPaymentTextBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
 			this.amountPaymentTextBox.ScrollBars = System.Windows.Forms.ScrollBars.None;
@@ -294,7 +297,7 @@ namespace Inventory_Forms
 			this.amountPaymentTextBox.TextMarginBottom = 0;
 			this.amountPaymentTextBox.TextMarginLeft = -8;
 			this.amountPaymentTextBox.TextMarginTop = 0;
-			this.amountPaymentTextBox.TextPlaceholder = "0 تومان";
+			this.amountPaymentTextBox.TextPlaceholder = "";
 			this.amountPaymentTextBox.UseSystemPasswordChar = false;
 			this.amountPaymentTextBox.WordWrap = true;
 			this.amountPaymentTextBox.TextChange += new System.EventHandler(this.AmountPaymentTextBox_TextChange);
@@ -307,7 +310,7 @@ namespace Inventory_Forms
 			this.remainingAmountLabel.AutoSize = true;
 			this.remainingAmountLabel.Font = new System.Drawing.Font("IRANSans", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
 			this.remainingAmountLabel.ForeColor = System.Drawing.Color.White;
-			this.remainingAmountLabel.Location = new System.Drawing.Point(337, 540);
+			this.remainingAmountLabel.Location = new System.Drawing.Point(337, 537);
 			this.remainingAmountLabel.Name = "remainingAmountLabel";
 			this.remainingAmountLabel.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
 			this.remainingAmountLabel.Size = new System.Drawing.Size(62, 22);

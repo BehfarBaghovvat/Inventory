@@ -86,7 +86,7 @@ namespace Inventory_Forms
 			this.addOrderButton = new Guna.UI2.WinForms.Guna2GradientButton();
 			this.resetButton = new Guna.UI2.WinForms.Guna2GradientButton();
 			this.inventoryOutputButton = new Guna.UI2.WinForms.Guna2Button();
-			this.invoiceButton = new Guna.UI2.WinForms.Guna2Button();
+			this.billButton = new Guna.UI2.WinForms.Guna2Button();
 			this.productSearchTextBox = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox();
 			((System.ComponentModel.ISupportInitialize)(this.inventoryHoldingDataGridView)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.inventoryHoldingBindingSource)).BeginInit();
@@ -163,7 +163,7 @@ namespace Inventory_Forms
 			this.inventoryHoldingDataGridView.RowTemplate.ReadOnly = true;
 			this.inventoryHoldingDataGridView.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
 			this.inventoryHoldingDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-			this.inventoryHoldingDataGridView.Size = new System.Drawing.Size(1124, 397);
+			this.inventoryHoldingDataGridView.Size = new System.Drawing.Size(1124, 395);
 			this.inventoryHoldingDataGridView.TabIndex = 13;
 			this.inventoryHoldingDataGridView.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.InventoryHoldingDataGridView_CellDoubleClick);
 			// 
@@ -241,7 +241,7 @@ namespace Inventory_Forms
 			this.mainPanel.Controls.Add(this.addOrderButton);
 			this.mainPanel.Controls.Add(this.resetButton);
 			this.mainPanel.Controls.Add(this.inventoryOutputButton);
-			this.mainPanel.Controls.Add(this.invoiceButton);
+			this.mainPanel.Controls.Add(this.billButton);
 			this.mainPanel.Controls.Add(this.productSearchTextBox);
 			this.mainPanel.Controls.Add(this.inventoryHoldingDataGridView);
 			this.mainPanel.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -798,6 +798,7 @@ namespace Inventory_Forms
 			this.addOrderButton.BorderRadius = 5;
 			this.addOrderButton.CheckedState.Parent = this.addOrderButton;
 			this.addOrderButton.CustomImages.Parent = this.addOrderButton;
+			this.addOrderButton.Enabled = false;
 			this.addOrderButton.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(0)))), ((int)(((byte)(61)))));
 			this.addOrderButton.FillColor2 = System.Drawing.Color.Gray;
 			this.addOrderButton.Font = new System.Drawing.Font("IRANSans", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -848,7 +849,7 @@ namespace Inventory_Forms
 			this.inventoryOutputButton.CheckedState.Parent = this.inventoryOutputButton;
 			this.inventoryOutputButton.CustomImages.Parent = this.inventoryOutputButton;
 			this.inventoryOutputButton.FillColor = System.Drawing.Color.Transparent;
-			this.inventoryOutputButton.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.inventoryOutputButton.Font = new System.Drawing.Font("IRANSansX", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
 			this.inventoryOutputButton.ForeColor = System.Drawing.Color.White;
 			this.inventoryOutputButton.HoverState.Parent = this.inventoryOutputButton;
 			this.inventoryOutputButton.Image = ((System.Drawing.Image)(resources.GetObject("inventoryOutputButton.Image")));
@@ -864,28 +865,28 @@ namespace Inventory_Forms
 			this.inventoryOutputButton.TextOffset = new System.Drawing.Point(-16, 25);
 			this.inventoryOutputButton.Click += new System.EventHandler(this.InventoryOutputButton_Click);
 			// 
-			// invoiceButton
+			// billButton
 			// 
-			this.invoiceButton.Animated = true;
-			this.invoiceButton.BorderRadius = 10;
-			this.invoiceButton.CheckedState.Parent = this.invoiceButton;
-			this.invoiceButton.CustomImages.Parent = this.invoiceButton;
-			this.invoiceButton.FillColor = System.Drawing.Color.Transparent;
-			this.invoiceButton.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.invoiceButton.ForeColor = System.Drawing.Color.White;
-			this.invoiceButton.HoverState.Parent = this.invoiceButton;
-			this.invoiceButton.Image = ((System.Drawing.Image)(resources.GetObject("invoiceButton.Image")));
-			this.invoiceButton.ImageOffset = new System.Drawing.Point(28, -10);
-			this.invoiceButton.ImageSize = new System.Drawing.Size(40, 40);
-			this.invoiceButton.Location = new System.Drawing.Point(20, 12);
-			this.invoiceButton.Name = "invoiceButton";
-			this.invoiceButton.PressedColor = System.Drawing.Color.White;
-			this.invoiceButton.ShadowDecoration.Parent = this.invoiceButton;
-			this.invoiceButton.Size = new System.Drawing.Size(130, 75);
-			this.invoiceButton.TabIndex = 9;
-			this.invoiceButton.Text = "نمایش صورت حساب";
-			this.invoiceButton.TextOffset = new System.Drawing.Point(-10, 25);
-			this.invoiceButton.Click += new System.EventHandler(this.InvoiceButton_Click);
+			this.billButton.Animated = true;
+			this.billButton.BorderRadius = 10;
+			this.billButton.CheckedState.Parent = this.billButton;
+			this.billButton.CustomImages.Parent = this.billButton;
+			this.billButton.FillColor = System.Drawing.Color.Transparent;
+			this.billButton.Font = new System.Drawing.Font("IRANSansX", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+			this.billButton.ForeColor = System.Drawing.Color.White;
+			this.billButton.HoverState.Parent = this.billButton;
+			this.billButton.Image = ((System.Drawing.Image)(resources.GetObject("billButton.Image")));
+			this.billButton.ImageOffset = new System.Drawing.Point(19, -10);
+			this.billButton.ImageSize = new System.Drawing.Size(40, 40);
+			this.billButton.Location = new System.Drawing.Point(20, 12);
+			this.billButton.Name = "billButton";
+			this.billButton.PressedColor = System.Drawing.Color.White;
+			this.billButton.ShadowDecoration.Parent = this.billButton;
+			this.billButton.Size = new System.Drawing.Size(130, 75);
+			this.billButton.TabIndex = 9;
+			this.billButton.Text = "صورت حساب";
+			this.billButton.TextOffset = new System.Drawing.Point(-10, 25);
+			this.billButton.Click += new System.EventHandler(this.BillButton_Click);
 			// 
 			// productSearchTextBox
 			// 
@@ -993,7 +994,7 @@ namespace Inventory_Forms
 		private Guna.UI2.WinForms.Guna2GradientButton addOrderButton;
 		private Guna.UI2.WinForms.Guna2GradientButton resetButton;
 		private Guna.UI2.WinForms.Guna2Button inventoryOutputButton;
-		private Guna.UI2.WinForms.Guna2Button invoiceButton;
+		private Guna.UI2.WinForms.Guna2Button billButton;
 		private Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox productSearchTextBox;
 		private System.Windows.Forms.BindingSource inventoryHoldingBindingSource;
 		private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
