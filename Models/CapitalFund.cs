@@ -19,7 +19,5 @@
 		[System.ComponentModel.DisplayName(displayName: "صندوق سرمایه")]
 		public string Capital_Fund { get; set; }
 		#endregion /Capital_Fund
-
-
 	}
 }

@@ -510,7 +510,7 @@ namespace Infrastructure
 		///  و ترکیبی ایجاد کرده و به ما بر میگرداند.
 		/// </summary>
 		/// <returns>ممبر letter که حاصل دریافت ترکیبی عدد و حرف میباشد نتیجه این تابع میباشد. </returns>
-		public static string GeneratInvoiceSerialNumber()
+		public static string GeneratInvoiceSerialNumber(int numberSection)
 		{
 			int count, number1, number2;
 
@@ -520,57 +520,166 @@ namespace Infrastructure
 			System.Random randomCount = new System.Random();
 			System.Random randomNumber = new System.Random();
 			System.Random random = new System.Random();
-
-			for (int i = 1; i <= 20; i++)
+			if (numberSection == 1)
 			{
-				count = randomCount.Next(0, 2);
+				for (int i = 1; i <= 5; i++)
+				{
+					count = randomCount.Next(0, 2);
 
-				if (count == 0)
-				{
-					number1 = randomNumber.Next(0, 10);
-					letter += number1.ToString();
-				}
-				else if (count == 1)
-				{
-					for (int k = 0; k < 1; k++)
+					if (count == 0)
 					{
-						number2 = random.Next(65, 91);
-						text[k] = System.Convert.ToChar(number2).ToString();
-						letter += text[k];
+						number1 = randomNumber.Next(0, 10);
+						letter += number1.ToString();
+					}
+					else if (count == 1)
+					{
+						for (int k = 0; k < 1; k++)
+						{
+							number2 = random.Next(65, 91);
+							text[k] = System.Convert.ToChar(number2).ToString();
+							letter += text[k];
+						}
+					}
+				}
+
+				for (int i = 1; i < 6; i++)
+				{
+					if (i % 6 == 0)
+					{
+						letter = letter.Insert(i - 1, "-");
 					}
 				}
 			}
 
-			for (int i = 1; i < 21; i++)
+			else if (numberSection == 2)
 			{
-				if (i % 6 == 0)
+				for (int i = 1; i <= 10; i++)
 				{
-					letter = letter.Insert(i - 1, "-");
+					count = randomCount.Next(0, 2);
+
+					if (count == 0)
+					{
+						number1 = randomNumber.Next(0, 10);
+						letter += number1.ToString();
+					}
+					else if (count == 1)
+					{
+						for (int k = 0; k < 1; k++)
+						{
+							number2 = random.Next(65, 91);
+							text[k] = System.Convert.ToChar(number2).ToString();
+							letter += text[k];
+						}
+					}
+				}
+
+				for (int i = 1; i < 11; i++)
+				{
+					if (i % 6 == 0)
+					{
+						letter = letter.Insert(i - 1, "-");
+					}
 				}
 			}
+
+			else if (numberSection == 3)
+			{
+				for (int i = 1; i <= 15; i++)
+				{
+					count = randomCount.Next(0, 2);
+
+					if (count == 0)
+					{
+						number1 = randomNumber.Next(0, 10);
+						letter += number1.ToString();
+					}
+					else if (count == 1)
+					{
+						for (int k = 0; k < 1; k++)
+						{
+							number2 = random.Next(65, 91);
+							text[k] = System.Convert.ToChar(number2).ToString();
+							letter += text[k];
+						}
+					}
+				}
+
+				for (int i = 1; i < 16; i++)
+				{
+					if (i % 6 == 0)
+					{
+						letter = letter.Insert(i - 1, "-");
+					}
+				}
+			}
+
+			else if (numberSection == 4)
+			{
+				for (int i = 1; i <= 20; i++)
+				{
+					count = randomCount.Next(0, 2);
+
+					if (count == 0)
+					{
+						number1 = randomNumber.Next(0, 10);
+						letter += number1.ToString();
+					}
+					else if (count == 1)
+					{
+						for (int k = 0; k < 1; k++)
+						{
+							number2 = random.Next(65, 91);
+							text[k] = System.Convert.ToChar(number2).ToString();
+							letter += text[k];
+						}
+					}
+				}
+
+				for (int i = 1; i < 21; i++)
+				{
+					if (i % 6 == 0)
+					{
+						letter = letter.Insert(i - 1, "-");
+					}
+				}
+			}
+
+			else if (numberSection >= 5)
+			{
+				letter = string.Empty;
+			}
 			return letter;
+
+			//for (int i = 1; i <= 20; i++)
+			//{
+			//	count = randomCount.Next(0, 2);
+
+			//	if (count == 0)
+			//	{
+			//		number1 = randomNumber.Next(0, 10);
+			//		letter += number1.ToString();
+			//	}
+			//	else if (count == 1)
+			//	{
+			//		for (int k = 0; k < 1; k++)
+			//		{
+			//			number2 = random.Next(65, 91);
+			//			text[k] = System.Convert.ToChar(number2).ToString();
+			//			letter += text[k];
+			//		}
+			//	}
+			//}
+
+			//for (int i = 1; i < 21; i++)
+			//{
+			//	if (i % 6 == 0)
+			//	{
+			//		letter = letter.Insert(i - 1, "-");
+			//	}
+			//}
+			//return letter;
 		}
 		#endregion /GeneratInvoiceSerialNumber
-
-		#region GeneratInvoiceIDNumber
-		/// <summary>
-		/// تابعی چهت ایحاد عدد تصادفی بین دو عدد دلخواه (firstNumber , secondNumber)
-		/// </summary>
-		/// <param name="firstNumber"></param>
-		/// <param name="secondNumber"></param>
-		/// <returns></returns>
-		public static string GeneratInvoiceIDNumber(int firstNumber, int secondNumber)
-		{
-			System.Random generator = new System.Random();
-			string letter = string.Empty;
-
-			//Generate 10 random numbers
-
-			letter = generator.Next(firstNumber, secondNumber).ToString();
-
-			return letter;
-		}
-		#endregion /GeneratInvoiceIDNumber
 
 		#region GrayColor
 		/// <summary>

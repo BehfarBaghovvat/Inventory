@@ -171,12 +171,12 @@ namespace Inventory
 			System.Windows.Forms.Application.EnableVisualStyles();
 			System.Windows.Forms.Application.SetCompatibleTextRenderingDefault(false);
 			Administrator();
-			System.Windows.Forms.Application.Run(new Entry_Forms.StartUpForm());
+			//System.Windows.Forms.Application.Run(new Entry_Forms.StartUpForm());
 
 			//System.Windows.Forms.Application.Run(new Inventory_Forms.InvoiceForm());
 			//System.Windows.Forms.Application.Run(new Inventory_Forms.ProcutSalesForm());
 			//System.Windows.Forms.Application.Run(new Inventory_Forms.BillBuyReportForm());
-			//System.Windows.Forms.Application.Run(new Inventory_Forms.BillSaleReportForm());
+			System.Windows.Forms.Application.Run(new Inventory_Forms.BillSaleReportForm());
 			//System.Windows.Forms.Application.Run(new Inventory_Forms.ProductBuyForm());
 			//System.Windows.Forms.Application.Run(new Inventory_Forms.ViewProducrImageForm());
 			//System.Windows.Forms.Application.Run(new Inventory_Forms.ServiceForm());

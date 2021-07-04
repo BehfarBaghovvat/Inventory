@@ -108,7 +108,7 @@
 
 		[System.ComponentModel.DataAnnotations.StringLength
 			(maximumLength: 60)]
-		public string Transfer_Name { get; set; }
+		public string Recipient_Name { get; set; }
 		#endregion /Transfer_Name
 	}
 }

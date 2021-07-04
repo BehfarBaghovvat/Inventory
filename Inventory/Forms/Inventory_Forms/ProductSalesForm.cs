@@ -99,7 +99,7 @@ namespace Inventory_Forms
 		{
 			InitializeComponent();
 
-			//sellerNameTextBox.Text = Inventory.Program.UserAuthentication.Full_Name;
+			sellerNameTextBox.Text = Inventory.Program.UserAuthentication.Full_Name;
 
 			LoadedProduction();
 		}
@@ -675,7 +675,7 @@ namespace Inventory_Forms
 			}
 
 			transactionFactorsItems.Carrier_Name = inventoryOutput.Carrier_Name;
-			transactionFactorsItems.Seller_Name = "ندارد"; //Inventory.Program.UserAuthentication.Full_Name;
+			transactionFactorsItems.Seller_Name = Inventory.Program.UserAuthentication.Full_Name;
 			transactionFactorsItems.Client_Name = inventoryOutput.Client_Name;
 
 		}

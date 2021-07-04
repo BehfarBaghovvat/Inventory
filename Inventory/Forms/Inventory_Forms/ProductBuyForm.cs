@@ -662,7 +662,7 @@ namespace Inventory_Forms
 			ProductReceived_Selected.Product_Name = productRecivedDataGridView.CurrentRow.Cells[1].Value.ToString();
 			productNameTextBox.Text = productRecivedDataGridView.CurrentRow.Cells[1].Value.ToString();
 
-			transferNameTextBox.Text = productRecivedDataGridView.CurrentRow.Cells[2].Value.ToString();
+			recipientNameTextBox.Text = productRecivedDataGridView.CurrentRow.Cells[2].Value.ToString();
 
 			ProductReceived_Selected.Sender_Name = productRecivedDataGridView.CurrentRow.Cells[3].Value.ToString();
 			ProductReceived_New.Sender_Name = productRecivedDataGridView.CurrentRow.Cells[3].Value.ToString();
@@ -722,7 +722,7 @@ namespace Inventory_Forms
 			NumberPurchases = 0;
 			productNameTextBox.Clear();
 
-			transferNameTextBox.Text = Inventory.Program.UserAuthentication.Full_Name;
+			recipientNameTextBox.Text = Inventory.Program.UserAuthentication.Full_Name;
 			checkProductNamePictureBox.Image = Inventory.Properties.Resources.Tik_True;
 			checkProductNamePictureBox.Visible = false;
 			productPriceTextBox.Clear();
@@ -1009,7 +1009,8 @@ namespace Inventory_Forms
 						Product_Purchase_Price = inputProductReceived.Product_Purchase_Price,
 						Product_Quantity = inputProductReceived.Product_Quantity,
 						Product_Unit = inputProductReceived.Product_Unit,
-						Transfer_Name = Inventory.Program.UserAuthentication.Full_Name,
+						//Recipient_Name = Inventory.Program.UserAuthentication.Full_Name,
+						Recipient_Name = "Adminestrator",
 						Sender_Name = inputProductReceived.Sender_Name,
 						Carrier_Name = inputProductReceived.Carrier_Name,
 						Number_Edit = 0,
@@ -1038,7 +1039,7 @@ namespace Inventory_Forms
 					productReceived.Product_Purchase_Price = inputProductReceived.Product_Purchase_Price;
 					productReceived.Product_Quantity = inputProductReceived.Product_Quantity;
 					productReceived.Product_Unit = inputProductReceived.Product_Unit;
-					productReceived.Transfer_Name = Inventory.Program.UserAuthentication.Full_Name;
+					productReceived.Recipient_Name = Inventory.Program.UserAuthentication.Full_Name;
 					productReceived.Sender_Name = inputProductReceived.Sender_Name;
 					productReceived.Carrier_Name = inputProductReceived.Carrier_Name;
 					productReceived.Number_Edit = inputProductReceived.Number_Edit + 1;
@@ -1124,7 +1125,7 @@ namespace Inventory_Forms
 				}
 				else
 				{
-					transferNameTextBox.Text = Inventory.Program.UserAuthentication.Full_Name;
+					recipientNameTextBox.Text = Inventory.Program.UserAuthentication.Full_Name;
 				}
 			}
 			catch (System.Exception ex)

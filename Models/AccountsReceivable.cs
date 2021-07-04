@@ -74,5 +74,14 @@
 			(maximumLength: 60)]
 		public string Remaininig_Amount { get; set; }
 		#endregion /Remaininig_Amount
+
+		#region Tax_Percent
+		//--DisplayName Tax_Percent
+		[System.ComponentModel.DisplayName(displayName: "درصد مالیات")]
+		//--Lenght Tax_Percent
+		[System.ComponentModel.DataAnnotations.StringLength
+			(maximumLength: 3)]
+		public string Tax_Percent { get; set; }
+		#endregion /Tax_Percent
 	}
 }

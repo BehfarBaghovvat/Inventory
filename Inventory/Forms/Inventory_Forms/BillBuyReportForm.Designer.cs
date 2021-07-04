@@ -66,11 +66,13 @@ namespace Inventory_Forms
 			this.capitalFundTextBox = new System.Windows.Forms.Label();
 			this.carrierNameTextBox = new Mbb.Windows.Forms.Label();
 			this.carrierNameLabel = new Mbb.Windows.Forms.Label();
-			this.transferNameTextBox = new Mbb.Windows.Forms.Label();
-			this.transferNameLabel = new Mbb.Windows.Forms.Label();
+			this.recipientNameTextBox = new Mbb.Windows.Forms.Label();
+			this.recipientNameLabel = new Mbb.Windows.Forms.Label();
 			this.senderNameTextBox = new Mbb.Windows.Forms.Label();
 			this.senderNameLabel = new Mbb.Windows.Forms.Label();
 			this.amountPaymentLabel = new System.Windows.Forms.Label();
+			this.label1 = new Mbb.Windows.Forms.Label();
+			this.label2 = new Mbb.Windows.Forms.Label();
 			((System.ComponentModel.ISupportInitialize)(this.productListDataGridView)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.logoPictureBox)).BeginInit();
 			this.topPanel.SuspendLayout();
@@ -125,7 +127,7 @@ namespace Inventory_Forms
             this.Product_Unit,
             this.Total_Amount});
 			this.productListDataGridView.EnableHeadersVisualStyles = false;
-			this.productListDataGridView.Location = new System.Drawing.Point(12, 216);
+			this.productListDataGridView.Location = new System.Drawing.Point(12, 242);
 			this.productListDataGridView.MultiSelect = false;
 			this.productListDataGridView.Name = "productListDataGridView";
 			this.productListDataGridView.ReadOnly = true;
@@ -140,7 +142,7 @@ namespace Inventory_Forms
 			dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
 			this.productListDataGridView.RowsDefaultCellStyle = dataGridViewCellStyle3;
 			this.productListDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-			this.productListDataGridView.Size = new System.Drawing.Size(886, 221);
+			this.productListDataGridView.Size = new System.Drawing.Size(886, 160);
 			this.productListDataGridView.TabIndex = 7;
 			this.productListDataGridView.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.ProductListDataGridView_RowsAdded);
 			// 
@@ -191,7 +193,7 @@ namespace Inventory_Forms
 			// 
 			this.totalSumPriceTextBox.Font = new System.Drawing.Font("IRANSansXFaNum", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
 			this.totalSumPriceTextBox.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-			this.totalSumPriceTextBox.Location = new System.Drawing.Point(12, 442);
+			this.totalSumPriceTextBox.Location = new System.Drawing.Point(12, 413);
 			this.totalSumPriceTextBox.Name = "totalSumPriceTextBox";
 			this.totalSumPriceTextBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
 			this.totalSumPriceTextBox.Size = new System.Drawing.Size(300, 25);
@@ -204,7 +206,7 @@ namespace Inventory_Forms
 			// 
 			this.remainingAmountTextBox.Font = new System.Drawing.Font("IRANSansXFaNum", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
 			this.remainingAmountTextBox.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-			this.remainingAmountTextBox.Location = new System.Drawing.Point(12, 536);
+			this.remainingAmountTextBox.Location = new System.Drawing.Point(12, 507);
 			this.remainingAmountTextBox.Name = "remainingAmountTextBox";
 			this.remainingAmountTextBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
 			this.remainingAmountTextBox.Size = new System.Drawing.Size(300, 25);
@@ -217,7 +219,7 @@ namespace Inventory_Forms
 			this.totalSumPriceLable.AutoSize = true;
 			this.totalSumPriceLable.Font = new System.Drawing.Font("IRANSans", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
 			this.totalSumPriceLable.ForeColor = System.Drawing.Color.White;
-			this.totalSumPriceLable.Location = new System.Drawing.Point(337, 443);
+			this.totalSumPriceLable.Location = new System.Drawing.Point(337, 414);
 			this.totalSumPriceLable.Name = "totalSumPriceLable";
 			this.totalSumPriceLable.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
 			this.totalSumPriceLable.Size = new System.Drawing.Size(99, 22);
@@ -253,7 +255,7 @@ namespace Inventory_Forms
 			this.amountPaymentTextBox.IconRightCursor = System.Windows.Forms.Cursors.IBeam;
 			this.amountPaymentTextBox.Lines = new string[] {
         "0 تومان"};
-			this.amountPaymentTextBox.Location = new System.Drawing.Point(12, 482);
+			this.amountPaymentTextBox.Location = new System.Drawing.Point(12, 453);
 			this.amountPaymentTextBox.MaximumSize = new System.Drawing.Size(300, 25);
 			this.amountPaymentTextBox.MaxLength = 32767;
 			this.amountPaymentTextBox.MinimumSize = new System.Drawing.Size(300, 25);
@@ -310,7 +312,7 @@ namespace Inventory_Forms
 			this.remainingAmountLabel.AutoSize = true;
 			this.remainingAmountLabel.Font = new System.Drawing.Font("IRANSans", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
 			this.remainingAmountLabel.ForeColor = System.Drawing.Color.White;
-			this.remainingAmountLabel.Location = new System.Drawing.Point(337, 537);
+			this.remainingAmountLabel.Location = new System.Drawing.Point(337, 508);
 			this.remainingAmountLabel.Name = "remainingAmountLabel";
 			this.remainingAmountLabel.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
 			this.remainingAmountLabel.Size = new System.Drawing.Size(62, 22);
@@ -320,7 +322,7 @@ namespace Inventory_Forms
 			// panel1
 			// 
 			this.panel1.BackColor = System.Drawing.Color.White;
-			this.panel1.Location = new System.Drawing.Point(12, 521);
+			this.panel1.Location = new System.Drawing.Point(12, 492);
 			this.panel1.Name = "panel1";
 			this.panel1.Size = new System.Drawing.Size(450, 5);
 			this.panel1.TabIndex = 10;
@@ -341,7 +343,7 @@ namespace Inventory_Forms
 			this.dateOfPrintLabel.AutoSize = true;
 			this.dateOfPrintLabel.Font = new System.Drawing.Font("IRANSans", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
 			this.dateOfPrintLabel.ForeColor = System.Drawing.Color.White;
-			this.dateOfPrintLabel.Location = new System.Drawing.Point(863, 58);
+			this.dateOfPrintLabel.Location = new System.Drawing.Point(863, 42);
 			this.dateOfPrintLabel.Name = "dateOfPrintLabel";
 			this.dateOfPrintLabel.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
 			this.dateOfPrintLabel.Size = new System.Drawing.Size(35, 17);
@@ -353,7 +355,7 @@ namespace Inventory_Forms
 			this.dateOfPrintTextBox.AllowDrop = true;
 			this.dateOfPrintTextBox.Font = new System.Drawing.Font("IRANSansXFaNum", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
 			this.dateOfPrintTextBox.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-			this.dateOfPrintTextBox.Location = new System.Drawing.Point(707, 54);
+			this.dateOfPrintTextBox.Location = new System.Drawing.Point(707, 38);
 			this.dateOfPrintTextBox.Name = "dateOfPrintTextBox";
 			this.dateOfPrintTextBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
 			this.dateOfPrintTextBox.Size = new System.Drawing.Size(150, 25);
@@ -375,7 +377,8 @@ namespace Inventory_Forms
 			this.printButton.HoverState.FillColor2 = System.Drawing.SystemColors.ControlDarkDark;
 			this.printButton.HoverState.Parent = this.printButton;
 			this.printButton.Image = ((System.Drawing.Image)(resources.GetObject("printButton.Image")));
-			this.printButton.Location = new System.Drawing.Point(718, 443);
+			this.printButton.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+			this.printButton.Location = new System.Drawing.Point(718, 414);
 			this.printButton.Name = "printButton";
 			this.printButton.PressedColor = System.Drawing.Color.Teal;
 			this.printButton.ShadowDecoration.Parent = this.printButton;
@@ -399,13 +402,14 @@ namespace Inventory_Forms
 			this.paymentButton.HoverState.FillColor2 = System.Drawing.Color.White;
 			this.paymentButton.HoverState.Parent = this.paymentButton;
 			this.paymentButton.Image = ((System.Drawing.Image)(resources.GetObject("paymentButton.Image")));
-			this.paymentButton.Location = new System.Drawing.Point(532, 443);
+			this.paymentButton.ImageAlign = System.Windows.Forms.HorizontalAlignment.Right;
+			this.paymentButton.Location = new System.Drawing.Point(532, 414);
 			this.paymentButton.Name = "paymentButton";
 			this.paymentButton.PressedColor = System.Drawing.Color.Teal;
 			this.paymentButton.ShadowDecoration.Parent = this.paymentButton;
 			this.paymentButton.Size = new System.Drawing.Size(180, 35);
 			this.paymentButton.TabIndex = 27;
-			this.paymentButton.Text = "پرداخت  هزینه";
+			this.paymentButton.Text = "پرداخت هزینه";
 			this.paymentButton.TextRenderingHint = System.Drawing.Text.TextRenderingHint.AntiAlias;
 			this.paymentButton.Click += new System.EventHandler(this.PaymentButton_Click);
 			// 
@@ -463,9 +467,10 @@ namespace Inventory_Forms
 			// 
 			this.capitalFundLabel.AllowDrop = true;
 			this.capitalFundLabel.AutoSize = true;
+			this.capitalFundLabel.BackColor = System.Drawing.Color.Transparent;
 			this.capitalFundLabel.Font = new System.Drawing.Font("IRANSans", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
 			this.capitalFundLabel.ForeColor = System.Drawing.Color.White;
-			this.capitalFundLabel.Location = new System.Drawing.Point(778, 523);
+			this.capitalFundLabel.Location = new System.Drawing.Point(778, 471);
 			this.capitalFundLabel.Name = "capitalFundLabel";
 			this.capitalFundLabel.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
 			this.capitalFundLabel.Size = new System.Drawing.Size(120, 25);
@@ -475,9 +480,10 @@ namespace Inventory_Forms
 			// capitalFundTextBox
 			// 
 			this.capitalFundTextBox.AllowDrop = true;
+			this.capitalFundTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
 			this.capitalFundTextBox.Font = new System.Drawing.Font("IRANSansXFaNum", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
 			this.capitalFundTextBox.ForeColor = System.Drawing.Color.White;
-			this.capitalFundTextBox.Location = new System.Drawing.Point(532, 521);
+			this.capitalFundTextBox.Location = new System.Drawing.Point(532, 469);
 			this.capitalFundTextBox.Name = "capitalFundTextBox";
 			this.capitalFundTextBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
 			this.capitalFundTextBox.Size = new System.Drawing.Size(234, 30);
@@ -488,12 +494,12 @@ namespace Inventory_Forms
 			// carrierNameTextBox
 			// 
 			this.carrierNameTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-			this.carrierNameTextBox.Font = new System.Drawing.Font("IRANSans", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+			this.carrierNameTextBox.Font = new System.Drawing.Font("IRANSans", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
 			this.carrierNameTextBox.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-			this.carrierNameTextBox.Location = new System.Drawing.Point(571, 175);
+			this.carrierNameTextBox.Location = new System.Drawing.Point(601, 206);
 			this.carrierNameTextBox.Name = "carrierNameTextBox";
 			this.carrierNameTextBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-			this.carrierNameTextBox.Size = new System.Drawing.Size(214, 24);
+			this.carrierNameTextBox.Size = new System.Drawing.Size(200, 25);
 			this.carrierNameTextBox.TabIndex = 35;
 			this.carrierNameTextBox.Text = "نام حامل کالا";
 			this.carrierNameTextBox.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -502,50 +508,50 @@ namespace Inventory_Forms
 			// 
 			this.carrierNameLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
 			this.carrierNameLabel.AutoSize = true;
-			this.carrierNameLabel.Font = new System.Drawing.Font("IRANSans", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+			this.carrierNameLabel.Font = new System.Drawing.Font("IRANSans", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
 			this.carrierNameLabel.ForeColor = System.Drawing.Color.White;
-			this.carrierNameLabel.Location = new System.Drawing.Point(812, 176);
+			this.carrierNameLabel.Location = new System.Drawing.Point(828, 209);
 			this.carrierNameLabel.Name = "carrierNameLabel";
 			this.carrierNameLabel.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-			this.carrierNameLabel.Size = new System.Drawing.Size(86, 22);
+			this.carrierNameLabel.Size = new System.Drawing.Size(73, 19);
 			this.carrierNameLabel.TabIndex = 34;
 			this.carrierNameLabel.Text = "نام حامل کالا:";
 			// 
-			// transferNameTextBox
+			// recipientNameTextBox
 			// 
-			this.transferNameTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-			this.transferNameTextBox.Font = new System.Drawing.Font("IRANSans", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-			this.transferNameTextBox.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-			this.transferNameTextBox.Location = new System.Drawing.Point(571, 138);
-			this.transferNameTextBox.Name = "transferNameTextBox";
-			this.transferNameTextBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-			this.transferNameTextBox.Size = new System.Drawing.Size(214, 24);
-			this.transferNameTextBox.TabIndex = 33;
-			this.transferNameTextBox.Text = "نام تحویل گیرنده";
-			this.transferNameTextBox.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			this.recipientNameTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			this.recipientNameTextBox.Font = new System.Drawing.Font("IRANSans", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+			this.recipientNameTextBox.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+			this.recipientNameTextBox.Location = new System.Drawing.Point(601, 169);
+			this.recipientNameTextBox.Name = "recipientNameTextBox";
+			this.recipientNameTextBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+			this.recipientNameTextBox.Size = new System.Drawing.Size(200, 25);
+			this.recipientNameTextBox.TabIndex = 33;
+			this.recipientNameTextBox.Text = "نام تحویل گیرنده";
+			this.recipientNameTextBox.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			// 
-			// transferNameLabel
+			// recipientNameLabel
 			// 
-			this.transferNameLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-			this.transferNameLabel.AutoSize = true;
-			this.transferNameLabel.Font = new System.Drawing.Font("IRANSans", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-			this.transferNameLabel.ForeColor = System.Drawing.Color.White;
-			this.transferNameLabel.Location = new System.Drawing.Point(791, 139);
-			this.transferNameLabel.Name = "transferNameLabel";
-			this.transferNameLabel.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-			this.transferNameLabel.Size = new System.Drawing.Size(107, 22);
-			this.transferNameLabel.TabIndex = 32;
-			this.transferNameLabel.Text = "نام تحویل گیرنده:";
+			this.recipientNameLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			this.recipientNameLabel.AutoSize = true;
+			this.recipientNameLabel.Font = new System.Drawing.Font("IRANSans", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+			this.recipientNameLabel.ForeColor = System.Drawing.Color.White;
+			this.recipientNameLabel.Location = new System.Drawing.Point(807, 172);
+			this.recipientNameLabel.Name = "recipientNameLabel";
+			this.recipientNameLabel.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+			this.recipientNameLabel.Size = new System.Drawing.Size(92, 19);
+			this.recipientNameLabel.TabIndex = 32;
+			this.recipientNameLabel.Text = "نام تحویل گیرنده:";
 			// 
 			// senderNameTextBox
 			// 
 			this.senderNameTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-			this.senderNameTextBox.Font = new System.Drawing.Font("IRANSans", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+			this.senderNameTextBox.Font = new System.Drawing.Font("IRANSans", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
 			this.senderNameTextBox.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-			this.senderNameTextBox.Location = new System.Drawing.Point(571, 101);
+			this.senderNameTextBox.Location = new System.Drawing.Point(601, 132);
 			this.senderNameTextBox.Name = "senderNameTextBox";
 			this.senderNameTextBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-			this.senderNameTextBox.Size = new System.Drawing.Size(214, 24);
+			this.senderNameTextBox.Size = new System.Drawing.Size(200, 25);
 			this.senderNameTextBox.TabIndex = 31;
 			this.senderNameTextBox.Text = "نام فرستنده";
 			this.senderNameTextBox.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -554,12 +560,12 @@ namespace Inventory_Forms
 			// 
 			this.senderNameLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
 			this.senderNameLabel.AutoSize = true;
-			this.senderNameLabel.Font = new System.Drawing.Font("IRANSans", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+			this.senderNameLabel.Font = new System.Drawing.Font("IRANSans", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
 			this.senderNameLabel.ForeColor = System.Drawing.Color.White;
-			this.senderNameLabel.Location = new System.Drawing.Point(818, 102);
+			this.senderNameLabel.Location = new System.Drawing.Point(834, 135);
 			this.senderNameLabel.Name = "senderNameLabel";
 			this.senderNameLabel.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-			this.senderNameLabel.Size = new System.Drawing.Size(78, 22);
+			this.senderNameLabel.Size = new System.Drawing.Size(67, 19);
 			this.senderNameLabel.TabIndex = 30;
 			this.senderNameLabel.Text = "نام فرستنده:";
 			// 
@@ -568,24 +574,51 @@ namespace Inventory_Forms
 			this.amountPaymentLabel.AutoSize = true;
 			this.amountPaymentLabel.Font = new System.Drawing.Font("IRANSans", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
 			this.amountPaymentLabel.ForeColor = System.Drawing.Color.White;
-			this.amountPaymentLabel.Location = new System.Drawing.Point(337, 483);
+			this.amountPaymentLabel.Location = new System.Drawing.Point(337, 454);
 			this.amountPaymentLabel.Name = "amountPaymentLabel";
 			this.amountPaymentLabel.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
 			this.amountPaymentLabel.Size = new System.Drawing.Size(86, 22);
 			this.amountPaymentLabel.TabIndex = 36;
 			this.amountPaymentLabel.Text = "مبلغ پرداختی:";
 			// 
+			// label1
+			// 
+			this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			this.label1.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.label1.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+			this.label1.Location = new System.Drawing.Point(601, 98);
+			this.label1.Name = "label1";
+			this.label1.Size = new System.Drawing.Size(200, 25);
+			this.label1.TabIndex = 38;
+			this.label1.Text = "Serial Invoice";
+			this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			// 
+			// label2
+			// 
+			this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			this.label2.AutoSize = true;
+			this.label2.Font = new System.Drawing.Font("IRANSans", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+			this.label2.ForeColor = System.Drawing.Color.White;
+			this.label2.Location = new System.Drawing.Point(834, 101);
+			this.label2.Name = "label2";
+			this.label2.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+			this.label2.Size = new System.Drawing.Size(69, 19);
+			this.label2.TabIndex = 37;
+			this.label2.Text = "شماره فاکتور:";
+			// 
 			// BillBuyReportForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 17F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-			this.ClientSize = new System.Drawing.Size(910, 575);
+			this.ClientSize = new System.Drawing.Size(910, 550);
+			this.Controls.Add(this.label1);
+			this.Controls.Add(this.label2);
 			this.Controls.Add(this.amountPaymentLabel);
 			this.Controls.Add(this.carrierNameTextBox);
 			this.Controls.Add(this.carrierNameLabel);
-			this.Controls.Add(this.transferNameTextBox);
-			this.Controls.Add(this.transferNameLabel);
+			this.Controls.Add(this.recipientNameTextBox);
+			this.Controls.Add(this.recipientNameLabel);
 			this.Controls.Add(this.senderNameTextBox);
 			this.Controls.Add(this.senderNameLabel);
 			this.Controls.Add(this.capitalFundLabel);
@@ -643,10 +676,12 @@ namespace Inventory_Forms
 		private System.Windows.Forms.Label capitalFundTextBox;
 		private Mbb.Windows.Forms.Label carrierNameTextBox;
 		private Mbb.Windows.Forms.Label carrierNameLabel;
-		private Mbb.Windows.Forms.Label transferNameTextBox;
-		private Mbb.Windows.Forms.Label transferNameLabel;
+		private Mbb.Windows.Forms.Label recipientNameTextBox;
+		private Mbb.Windows.Forms.Label recipientNameLabel;
 		private Mbb.Windows.Forms.Label senderNameTextBox;
 		private Mbb.Windows.Forms.Label senderNameLabel;
 		private System.Windows.Forms.Label amountPaymentLabel;
+		private Mbb.Windows.Forms.Label label1;
+		private Mbb.Windows.Forms.Label label2;
 	}
 }

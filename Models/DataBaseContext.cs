@@ -23,6 +23,8 @@
 		public System.Data.Entity.DbSet<AccountsPayable> AccountsPayables { get; set; }
 		public System.Data.Entity.DbSet<InventoryHolding> InventoryHoldings { get; set; }
 		public System.Data.Entity.DbSet<LoginHistory> LoginHistories { get; set; }
+		public System.Data.Entity.DbSet<SalesInvoice> Invoices { get; set; }
+		public System.Data.Entity.DbSet<InvoiceSerialNumber> InvoiceSerialNumbers { get; set; }
 		public System.Data.Entity.DbSet<InventoryOutput> InventoryOutputs { get; set; }
 		public System.Data.Entity.DbSet<ProductReceived> ProductReceiveds { get; set; }
 		public System.Data.Entity.DbSet<ProgramSetting> ProgramSettings { get; set; }
