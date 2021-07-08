@@ -121,8 +121,14 @@
   <data name="circled_user_male_skin_type_3_512px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\circled_user_male_skin_type_3_512px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Complete_Operation" xml:space="preserve">
+    <value>عملیات ثبت انجام شد.</value>
+  </data>
   <data name="error-512" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\error-512.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Financial_Error" xml:space="preserve">
+    <value>موجودی مالی کافی نیست. لطفا بررسی شود.</value>
   </data>
   <data name="hide-512" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\hide-512.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -130,8 +136,20 @@
   <data name="info_512" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\info_512.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Inventory_Error" xml:space="preserve">
+    <value>کالای ثبت شده در انبار موجود می باشد.</value>
+  </data>
   <data name="new_user_1080_Light_Gray" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\new_user_1080_Light_Gray.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Operation_Defect" xml:space="preserve">
+    <value>نقص در علمیات ثبت</value>
+  </data>
+  <data name="Purchase_Error" xml:space="preserve">
+    <value>خریدی صورت نگرفته. حداقل یک خرید ثبت نمایید.</value>
+  </data>
+  <data name="Sales_Error" xml:space="preserve">
+    <value>فروشی صورت نگرفته. حداقل یک فروش ثبت نمایید.</value>
   </data>
   <data name="show-512" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\show-512.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>

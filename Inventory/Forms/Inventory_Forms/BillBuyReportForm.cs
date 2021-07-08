@@ -266,18 +266,18 @@ namespace Inventory_Forms
 				string.Compare(amountPaymentTextBox.Text, "تو") == 0 ||
 				string.Compare(amountPaymentTextBox.Text, "ت") == 0)
 			{
+				paymentButton.Enabled = false;
 				auditItem.Amount_Payment = 0;
 				auditItem.Remaining_Amount = auditItem.Total_Sum_Price - auditItem.Amount_Payment;
 				remainingAmountTextBox.Text = $"{auditItem.Remaining_Amount:#,0} تومان";
-				paymentButton.Enabled = false;
 				return;
 			}
 			else
 			{
+				paymentButton.Enabled = true;
 				auditItem.Amount_Payment = int.Parse(amountPaymentTextBox.Text.Replace("تومان", string.Empty).Replace(",", string.Empty).Trim());
 				auditItem.Remaining_Amount = auditItem.Total_Sum_Price - auditItem.Amount_Payment;
 				remainingAmountTextBox.Text = $"{auditItem.Remaining_Amount:#,0} تومان";
-				paymentButton.Enabled = true;
 			}
 		}
 		#endregion /AmountPaymentTextBox_TextChange
@@ -337,7 +337,20 @@ namespace Inventory_Forms
 		/// <param name="amountPayment"></param>
 		private bool Harvest(AuditItem auditItem)
 		{
-			auditItem.Capital_Fund -= auditItem.Amount_Payment;
+			if (auditItem.Capital_Fund < auditItem.Amount_Payment)
+			{
+				Mbb.Windows.Forms.MessageBox.Show
+					(text:Inventory.Properties.Resources.Financial_Error,
+					caption:"خطای موجودی",
+					icon: Mbb.Windows.Forms.MessageBoxIcon.Warning,
+					button: Mbb.Windows.Forms.MessageBoxButtons.Ok);
+				return false;
+			}
+			else
+			{
+				auditItem.Capital_Fund -= auditItem.Amount_Payment;
+			}
+
 
 			Models.DataBaseContext dataBaseContext = null;
 			try

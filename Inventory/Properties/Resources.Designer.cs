@@ -22,7 +22,7 @@ namespace Inventory.Properties {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class Resources {
+    public class Resources {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
@@ -36,7 +36,7 @@ namespace Inventory.Properties {
         ///   Returns the cached ResourceManager instance used by this class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Resources.ResourceManager ResourceManager {
+        public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
                     global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Inventory.Properties.Resources", typeof(Resources).Assembly);
@@ -51,7 +51,7 @@ namespace Inventory.Properties {
         ///   resource lookups using this strongly typed resource class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Globalization.CultureInfo Culture {
+        public static global::System.Globalization.CultureInfo Culture {
             get {
                 return resourceCulture;
             }
@@ -63,7 +63,7 @@ namespace Inventory.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap circled_user_male_skin_type_3_512px {
+        public static System.Drawing.Bitmap circled_user_male_skin_type_3_512px {
             get {
                 object obj = ResourceManager.GetObject("circled_user_male_skin_type_3_512px", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -71,9 +71,18 @@ namespace Inventory.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to عملیات ثبت انجام شد..
+        /// </summary>
+        public static string Complete_Operation {
+            get {
+                return ResourceManager.GetString("Complete_Operation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap error_512 {
+        public static System.Drawing.Bitmap error_512 {
             get {
                 object obj = ResourceManager.GetObject("error-512", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -81,9 +90,18 @@ namespace Inventory.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to موجودی مالی کافی نیست. لطفا بررسی شود..
+        /// </summary>
+        public static string Financial_Error {
+            get {
+                return ResourceManager.GetString("Financial_Error", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap hide_512 {
+        public static System.Drawing.Bitmap hide_512 {
             get {
                 object obj = ResourceManager.GetObject("hide-512", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -93,7 +111,7 @@ namespace Inventory.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap info_512 {
+        public static System.Drawing.Bitmap info_512 {
             get {
                 object obj = ResourceManager.GetObject("info_512", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -101,9 +119,18 @@ namespace Inventory.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to کالای ثبت شده در انبار موجود می باشد..
+        /// </summary>
+        public static string Inventory_Error {
+            get {
+                return ResourceManager.GetString("Inventory_Error", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap new_user_1080_Light_Gray {
+        public static System.Drawing.Bitmap new_user_1080_Light_Gray {
             get {
                 object obj = ResourceManager.GetObject("new_user_1080_Light_Gray", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -111,9 +138,36 @@ namespace Inventory.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to نقص در علمیات ثبت.
+        /// </summary>
+        public static string Operation_Defect {
+            get {
+                return ResourceManager.GetString("Operation_Defect", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to خریدی صورت نگرفته. حداقل یک خرید ثبت نمایید..
+        /// </summary>
+        public static string Purchase_Error {
+            get {
+                return ResourceManager.GetString("Purchase_Error", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to فروشی صورت نگرفته. حداقل یک فروش ثبت نمایید..
+        /// </summary>
+        public static string Sales_Error {
+            get {
+                return ResourceManager.GetString("Sales_Error", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap show_512 {
+        public static System.Drawing.Bitmap show_512 {
             get {
                 object obj = ResourceManager.GetObject("show-512", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -123,7 +177,7 @@ namespace Inventory.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap succes_512 {
+        public static System.Drawing.Bitmap succes_512 {
             get {
                 object obj = ResourceManager.GetObject("succes-512", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -133,7 +187,7 @@ namespace Inventory.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Tik_False {
+        public static System.Drawing.Bitmap Tik_False {
             get {
                 object obj = ResourceManager.GetObject("Tik False", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -143,7 +197,7 @@ namespace Inventory.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Tik_True {
+        public static System.Drawing.Bitmap Tik_True {
             get {
                 object obj = ResourceManager.GetObject("Tik True", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -153,7 +207,7 @@ namespace Inventory.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap user_512 {
+        public static System.Drawing.Bitmap user_512 {
             get {
                 object obj = ResourceManager.GetObject("user_512", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
@@ -163,7 +217,7 @@ namespace Inventory.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap warning_512 {
+        public static System.Drawing.Bitmap warning_512 {
             get {
                 object obj = ResourceManager.GetObject("warning-512", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));

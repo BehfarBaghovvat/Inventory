@@ -442,7 +442,11 @@ namespace Inventory_Forms
 		{
 			if (NumberPurchases == 0 && billList.Count == 0)
 			{
-				Mbb.Windows.Forms.MessageBox.Show(text: "خریدی توسط متصدی ثبت نگردیده.\n لطفا حداقل یک خرید ثبت نمایید.",caption: "خطای ورودی",icon: Mbb.Windows.Forms.MessageBoxIcon.Error,button: Mbb.Windows.Forms.MessageBoxButtons.Ok);
+				Mbb.Windows.Forms.MessageBox.Show
+					(text: Inventory.Properties.Resources.Purchase_Error,
+					caption: "خطای ورودی",
+					icon: Mbb.Windows.Forms.MessageBoxIcon.Error,
+					button: Mbb.Windows.Forms.MessageBoxButtons.Ok);
 			}
 			else
 			{

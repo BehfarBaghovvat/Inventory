@@ -100,12 +100,11 @@ namespace Inventory_Forms
 			this.productListDataGridView.AllowUserToDeleteRows = false;
 			dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
 			dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
-			dataGridViewCellStyle1.Font = new System.Drawing.Font("IRANSansXFaNum", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+			dataGridViewCellStyle1.Font = new System.Drawing.Font("IRANSansXFaNum Light", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
 			dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
 			dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(143)))), ((int)(((byte)(255)))));
 			dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Black;
 			this.productListDataGridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-			this.productListDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
 			this.productListDataGridView.BackgroundColor = System.Drawing.Color.White;
 			this.productListDataGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
 			this.productListDataGridView.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
@@ -134,13 +133,15 @@ namespace Inventory_Forms
 			this.productListDataGridView.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
 			this.productListDataGridView.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
 			this.productListDataGridView.RowHeadersVisible = false;
+			this.productListDataGridView.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
 			dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
 			dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(203)))), ((int)(((byte)(199)))), ((int)(((byte)(255)))));
-			dataGridViewCellStyle3.Font = new System.Drawing.Font("IRANSansX", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+			dataGridViewCellStyle3.Font = new System.Drawing.Font("IRANSansXFaNum Light", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
 			dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
 			dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(143)))), ((int)(((byte)(255)))));
 			dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
 			this.productListDataGridView.RowsDefaultCellStyle = dataGridViewCellStyle3;
+			this.productListDataGridView.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
 			this.productListDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
 			this.productListDataGridView.Size = new System.Drawing.Size(886, 160);
 			this.productListDataGridView.TabIndex = 7;
@@ -151,30 +152,35 @@ namespace Inventory_Forms
 			this.Product_Name.HeaderText = "نام کالا";
 			this.Product_Name.Name = "Product_Name";
 			this.Product_Name.ReadOnly = true;
+			this.Product_Name.Width = 177;
 			// 
 			// Product_Price
 			// 
 			this.Product_Price.HeaderText = "قیمت خرید کالا";
 			this.Product_Price.Name = "Product_Price";
 			this.Product_Price.ReadOnly = true;
+			this.Product_Price.Width = 177;
 			// 
 			// Product_Quantity
 			// 
 			this.Product_Quantity.HeaderText = "تعداد کالا";
 			this.Product_Quantity.Name = "Product_Quantity";
 			this.Product_Quantity.ReadOnly = true;
+			this.Product_Quantity.Width = 178;
 			// 
 			// Product_Unit
 			// 
 			this.Product_Unit.HeaderText = "واحد کالا";
 			this.Product_Unit.Name = "Product_Unit";
 			this.Product_Unit.ReadOnly = true;
+			this.Product_Unit.Width = 177;
 			// 
 			// Total_Amount
 			// 
 			this.Total_Amount.HeaderText = "جمع مبلغ";
 			this.Total_Amount.Name = "Total_Amount";
 			this.Total_Amount.ReadOnly = true;
+			this.Total_Amount.Width = 177;
 			// 
 			// titleLabel
 			// 
@@ -393,6 +399,7 @@ namespace Inventory_Forms
 			this.paymentButton.BorderRadius = 5;
 			this.paymentButton.CheckedState.Parent = this.paymentButton;
 			this.paymentButton.CustomImages.Parent = this.paymentButton;
+			this.paymentButton.Enabled = false;
 			this.paymentButton.FillColor = System.Drawing.Color.White;
 			this.paymentButton.FillColor2 = System.Drawing.SystemColors.ControlDarkDark;
 			this.paymentButton.Font = new System.Drawing.Font("IRANSansX", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
