@@ -16,9 +16,9 @@
 		#endregion /Id
 
 		#region Invoice_Serial_Numvber
-		//--DisplayName field for Id_Invoice
+		//--DisplayName field for Invoice_Serial_Numvber
 		[System.ComponentModel.DisplayName(displayName: "شماره فاکتور")]
-		//--Lenght Id_Invoice
+		//--Lenght Invoice_Serial_Numvber
 		[System.ComponentModel.DataAnnotations.StringLength
 			(maximumLength: 60)]
 		public string Invoice_Serial_Numvber { get; set; }
@@ -29,7 +29,7 @@
 		[System.ComponentModel.DisplayName(displayName: "تاریخ ثبت")]
 		//--Lenght RegistrationTime
 		[System.ComponentModel.DataAnnotations.StringLength
-			(maximumLength: 10)]
+			(maximumLength: 21)]
 		public string Registration_Date { get; set; }
 		#endregion /Registration_Date
 	}

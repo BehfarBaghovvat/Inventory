@@ -1063,9 +1063,7 @@ namespace Inventory_Forms
 		private Mbb.Windows.Forms.Label sellerNameLabel;
 		private Mbb.Windows.Forms.Label clientNameLabel;
 		private Mbb.Windows.Forms.Label carrierNameLabel;
-		private Mbb.Windows.Forms.Label sellerNameTextBox;
 		private Mbb.Windows.Forms.Label clientNameTextBox;
-		private Mbb.Windows.Forms.Label carrierNameTextBox;
 		private Mbb.Windows.Forms.Label dateSetInvoiceLabel;
 		private Mbb.Windows.Forms.Label dateSetInvoiceTextBox;
 		private Mbb.Windows.Forms.Label invoiceTitleLabel;
@@ -1112,5 +1110,7 @@ namespace Inventory_Forms
 		private Guna.UI2.WinForms.Guna2Button closeButton;
 		private Mbb.Windows.Forms.Panel topPanel;
 		private Guna.UI2.WinForms.Guna2Button minimizeButton;
+		private Mbb.Windows.Forms.Label sellerNameTextBox;
+		private Mbb.Windows.Forms.Label carrierNameTextBox;
 	}
 }

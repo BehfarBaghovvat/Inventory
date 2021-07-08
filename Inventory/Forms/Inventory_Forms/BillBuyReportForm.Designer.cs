@@ -71,8 +71,8 @@ namespace Inventory_Forms
 			this.senderNameTextBox = new Mbb.Windows.Forms.Label();
 			this.senderNameLabel = new Mbb.Windows.Forms.Label();
 			this.amountPaymentLabel = new System.Windows.Forms.Label();
-			this.label1 = new Mbb.Windows.Forms.Label();
-			this.label2 = new Mbb.Windows.Forms.Label();
+			this.invoiceSerialNumberTextBox = new Mbb.Windows.Forms.Label();
+			this.invoiceSerialNumbeLabel = new Mbb.Windows.Forms.Label();
 			((System.ComponentModel.ISupportInitialize)(this.productListDataGridView)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.logoPictureBox)).BeginInit();
 			this.topPanel.SuspendLayout();
@@ -353,14 +353,13 @@ namespace Inventory_Forms
 			// dateOfPrintTextBox
 			// 
 			this.dateOfPrintTextBox.AllowDrop = true;
-			this.dateOfPrintTextBox.Font = new System.Drawing.Font("IRANSansXFaNum", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+			this.dateOfPrintTextBox.Font = new System.Drawing.Font("IRANSansXFaNum", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
 			this.dateOfPrintTextBox.ForeColor = System.Drawing.SystemColors.ActiveCaption;
 			this.dateOfPrintTextBox.Location = new System.Drawing.Point(707, 38);
 			this.dateOfPrintTextBox.Name = "dateOfPrintTextBox";
-			this.dateOfPrintTextBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
 			this.dateOfPrintTextBox.Size = new System.Drawing.Size(150, 25);
 			this.dateOfPrintTextBox.TabIndex = 6;
-			this.dateOfPrintTextBox.Text = "00:00:00 - 0000/00/00";
+			this.dateOfPrintTextBox.Text = "00/00/00 - 00:00:00";
 			this.dateOfPrintTextBox.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
 			// 
 			// printButton
@@ -581,30 +580,30 @@ namespace Inventory_Forms
 			this.amountPaymentLabel.TabIndex = 36;
 			this.amountPaymentLabel.Text = "مبلغ پرداختی:";
 			// 
-			// label1
+			// invoiceSerialNumberTextBox
 			// 
-			this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-			this.label1.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label1.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-			this.label1.Location = new System.Drawing.Point(601, 98);
-			this.label1.Name = "label1";
-			this.label1.Size = new System.Drawing.Size(200, 25);
-			this.label1.TabIndex = 38;
-			this.label1.Text = "Serial Invoice";
-			this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			this.invoiceSerialNumberTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			this.invoiceSerialNumberTextBox.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.invoiceSerialNumberTextBox.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+			this.invoiceSerialNumberTextBox.Location = new System.Drawing.Point(601, 98);
+			this.invoiceSerialNumberTextBox.Name = "invoiceSerialNumberTextBox";
+			this.invoiceSerialNumberTextBox.Size = new System.Drawing.Size(200, 25);
+			this.invoiceSerialNumberTextBox.TabIndex = 38;
+			this.invoiceSerialNumberTextBox.Text = "Serial Invoice";
+			this.invoiceSerialNumberTextBox.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
 			// 
-			// label2
+			// invoiceSerialNumbeLabel
 			// 
-			this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-			this.label2.AutoSize = true;
-			this.label2.Font = new System.Drawing.Font("IRANSans", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-			this.label2.ForeColor = System.Drawing.Color.White;
-			this.label2.Location = new System.Drawing.Point(834, 101);
-			this.label2.Name = "label2";
-			this.label2.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-			this.label2.Size = new System.Drawing.Size(69, 19);
-			this.label2.TabIndex = 37;
-			this.label2.Text = "شماره فاکتور:";
+			this.invoiceSerialNumbeLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			this.invoiceSerialNumbeLabel.AutoSize = true;
+			this.invoiceSerialNumbeLabel.Font = new System.Drawing.Font("IRANSans", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+			this.invoiceSerialNumbeLabel.ForeColor = System.Drawing.Color.White;
+			this.invoiceSerialNumbeLabel.Location = new System.Drawing.Point(834, 101);
+			this.invoiceSerialNumbeLabel.Name = "invoiceSerialNumbeLabel";
+			this.invoiceSerialNumbeLabel.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+			this.invoiceSerialNumbeLabel.Size = new System.Drawing.Size(69, 19);
+			this.invoiceSerialNumbeLabel.TabIndex = 37;
+			this.invoiceSerialNumbeLabel.Text = "شماره فاکتور:";
 			// 
 			// BillBuyReportForm
 			// 
@@ -612,8 +611,8 @@ namespace Inventory_Forms
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
 			this.ClientSize = new System.Drawing.Size(910, 550);
-			this.Controls.Add(this.label1);
-			this.Controls.Add(this.label2);
+			this.Controls.Add(this.invoiceSerialNumberTextBox);
+			this.Controls.Add(this.invoiceSerialNumbeLabel);
 			this.Controls.Add(this.amountPaymentLabel);
 			this.Controls.Add(this.carrierNameTextBox);
 			this.Controls.Add(this.carrierNameLabel);
@@ -674,14 +673,14 @@ namespace Inventory_Forms
 		private Guna.UI2.WinForms.Guna2GradientButton paymentButton;
 		private System.Windows.Forms.Label capitalFundLabel;
 		private System.Windows.Forms.Label capitalFundTextBox;
-		private Mbb.Windows.Forms.Label carrierNameTextBox;
 		private Mbb.Windows.Forms.Label carrierNameLabel;
 		private Mbb.Windows.Forms.Label recipientNameTextBox;
 		private Mbb.Windows.Forms.Label recipientNameLabel;
-		private Mbb.Windows.Forms.Label senderNameTextBox;
 		private Mbb.Windows.Forms.Label senderNameLabel;
 		private System.Windows.Forms.Label amountPaymentLabel;
-		private Mbb.Windows.Forms.Label label1;
-		private Mbb.Windows.Forms.Label label2;
+		private Mbb.Windows.Forms.Label invoiceSerialNumberTextBox;
+		private Mbb.Windows.Forms.Label invoiceSerialNumbeLabel;
+		public Mbb.Windows.Forms.Label carrierNameTextBox;
+		public Mbb.Windows.Forms.Label senderNameTextBox;
 	}
 }

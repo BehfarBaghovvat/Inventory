@@ -7,6 +7,20 @@ namespace Inventory_Forms
 		#region Properties
 
 		#region Layer
+		public class AuditItem
+		{
+			public int Amount { get; set; }
+			public int Amount_Payment { get; set; }
+			public long Capital_Fund { get; set; }
+			public string Carrier_Name { get; set; }
+			public string InvoiceSerialNumber { get; set; }
+			public int Total_Sum_Price { get; set; }
+			public string Recipient_Name { get; set; }
+			public string Register_Date { get; set; }
+			public int Remaining_Amount { get; set; }
+
+			public string Sender_Name { get; set; }
+		}
 		private class Bill
 		{
 			public string Product_Name { get; set; }
@@ -45,15 +59,10 @@ namespace Inventory_Forms
 		}
 		#endregion /Layer
 
-		public int Amount { get; set; }
-		public int Amount_Payment { get; set; }
-		public long Capital_Fund { get; set; }
-		public string Carrier_Name { get; set; }
+		public static AuditItem auditItem = new AuditItem();
 
 		public ProductBuyForm MyProductBuyForm { get; set; }
-		public int Total_Sum_Price { get; set; }
-		public int Remaining_Amount { get; set; }
-		public string Sender_Name { get; set; }
+		
 		#endregion /Properties
 
 		public BillBuyReportForm()
@@ -120,8 +129,8 @@ namespace Inventory_Forms
 
 				(reportReceip.GetComponentByName("dateOfPrintTextBox") as Stimulsoft.Report.Components.StiText).Text = receipDate;
 				(reportReceip.GetComponentByName("transferNameTextBox") as Stimulsoft.Report.Components.StiText).Text = Inventory.Program.UserAuthentication.Full_Name;
-				(reportReceip.GetComponentByName("senderNameTextBox") as Stimulsoft.Report.Components.StiText).Text = Sender_Name;
-				(reportReceip.GetComponentByName("carrierNameTextBox") as Stimulsoft.Report.Components.StiText).Text = Carrier_Name;
+				(reportReceip.GetComponentByName("senderNameTextBox") as Stimulsoft.Report.Components.StiText).Text = auditItem.Sender_Name;
+				(reportReceip.GetComponentByName("carrierNameTextBox") as Stimulsoft.Report.Components.StiText).Text = auditItem.Carrier_Name;
 				(reportReceip.GetComponentByName("totalSumPriceTextBox") as Stimulsoft.Report.Components.StiText).Text = totalSumPriceTextBox.Text;
 				(reportReceip.GetComponentByName("amountPaymentTextBox") as Stimulsoft.Report.Components.StiText).Text = amountPaymentTextBox.Text;
 				(reportReceip.GetComponentByName("remainingAmountTextBox") as Stimulsoft.Report.Components.StiText).Text = remainingAmountTextBox.Text;
@@ -140,13 +149,14 @@ namespace Inventory_Forms
 		#region PaymentButton_Click
 		private void PaymentButton_Click(object sender, System.EventArgs e)
 		{
-			if (Harvest(Amount_Payment) && SetAccountPayable(Amount_Payment, Total_Sum_Price, Remaining_Amount))
+			if (Harvest(auditItem) && SetAccountPayable(auditItem) && InvoiceRegister(auditItem))
 			{
 				Infrastructure.Utility.WindowsNotification(message: "عملیات ثبت و پرداخت انجام گردید.", caption: Infrastructure.PopupNotificationForm.Caption.موفقیت);
 
-				Capital_Fund = LoadingCapitalFund();
-				capitalFundTextBox.Text = $"{Capital_Fund:#,0} تومان";
-
+				auditItem.Capital_Fund = LoadingCapitalFund();
+				capitalFundTextBox.Text = $"{auditItem.Capital_Fund:#,0} تومان";
+				MyProductBuyForm.RemoveBill();
+				paymentButton.Enabled = false;
 				//if (true)     بعدا حتما به گزینه ها اضافه گردد.
 				//{
 				//	Capital_Fund = LoadingCapitalFund();
@@ -193,7 +203,7 @@ namespace Inventory_Forms
 		private void TotalSumPriceTextBox_TextChanged(object sender, System.EventArgs e)
 		{
 			remainingAmountTextBox.Text = totalSumPriceTextBox.Text;
-			Total_Sum_Price = int.Parse(totalSumPriceTextBox.Text.Replace("تومان", string.Empty).Replace(",", string.Empty).Trim());
+			auditItem.Total_Sum_Price = int.Parse(totalSumPriceTextBox.Text.Replace("تومان", string.Empty).Replace(",", string.Empty).Trim());
 		}
 		#endregion /TotalSumPriceTextBox_TextChanged
 
@@ -204,7 +214,7 @@ namespace Inventory_Forms
 
 			if (string.IsNullOrWhiteSpace(amountPaymentTextBox.Text))
 			{
-				Amount_Payment = 0;
+				auditItem.Amount_Payment = 0;
 			}
 			else if (amountPaymentTextBox.Text.Contains("تومان"))
 			{
@@ -233,13 +243,13 @@ namespace Inventory_Forms
 			   string.Compare(amountPaymentTextBox.Text, "ت") == 0)
 			{
 				amountPaymentTextBox.Text = "0 تومان";
-				Amount_Payment = 0;
+				auditItem.Amount_Payment = 0;
 				return;
 			}
 			else
 			{
-				Amount_Payment = int.Parse(amountPaymentTextBox.Text.Replace("تومان", string.Empty).Replace(",", string.Empty).Trim());
-				amountPaymentTextBox.Text = $"{Amount_Payment:#,0} تومان";
+				auditItem.Amount_Payment = int.Parse(amountPaymentTextBox.Text.Replace("تومان", string.Empty).Replace(",", string.Empty).Trim());
+				amountPaymentTextBox.Text = $"{auditItem.Amount_Payment:#,0} تومان";
 			}
 		}
 		#endregion /AmountPaymentTextBox_Leave
@@ -256,16 +266,18 @@ namespace Inventory_Forms
 				string.Compare(amountPaymentTextBox.Text, "تو") == 0 ||
 				string.Compare(amountPaymentTextBox.Text, "ت") == 0)
 			{
-				Amount_Payment = 0;
-				Remaining_Amount = Total_Sum_Price - Amount_Payment;
-				remainingAmountTextBox.Text = $"{Remaining_Amount:#,0} تومان";
+				auditItem.Amount_Payment = 0;
+				auditItem.Remaining_Amount = auditItem.Total_Sum_Price - auditItem.Amount_Payment;
+				remainingAmountTextBox.Text = $"{auditItem.Remaining_Amount:#,0} تومان";
+				paymentButton.Enabled = false;
 				return;
 			}
 			else
 			{
-				Amount_Payment = int.Parse(amountPaymentTextBox.Text.Replace("تومان", string.Empty).Replace(",", string.Empty).Trim());
-				Remaining_Amount = Total_Sum_Price - Amount_Payment;
-				remainingAmountTextBox.Text = $"{Remaining_Amount:#,0} تومان";
+				auditItem.Amount_Payment = int.Parse(amountPaymentTextBox.Text.Replace("تومان", string.Empty).Replace(",", string.Empty).Trim());
+				auditItem.Remaining_Amount = auditItem.Total_Sum_Price - auditItem.Amount_Payment;
+				remainingAmountTextBox.Text = $"{auditItem.Remaining_Amount:#,0} تومان";
+				paymentButton.Enabled = true;
 			}
 		}
 		#endregion /AmountPaymentTextBox_TextChange
@@ -290,12 +302,7 @@ namespace Inventory_Forms
 		private void AllClear()
 		{
 			MyProductBuyForm.RemoveBill();
-			Amount = 0;
-			Amount_Payment = 0;
-			Carrier_Name = null;
-			Total_Sum_Price = 0;
-			Remaining_Amount = 0;
-			Sender_Name = null;
+			auditItem = null;
 
 			totalSumPriceTextBox.Text = "0 تومان";
 			amountPaymentTextBox.Clear();
@@ -304,21 +311,6 @@ namespace Inventory_Forms
 		}
 		#endregion /AllClear
 
-		#region SetBillInDataGridView
-		public void SetBillInDataGridView(System.Collections.Generic.List<ProductBuyForm.Bill> billList)
-		{
-			foreach (var item in billList)
-			{
-				productListDataGridView.Rows.Add
-					(item.Product_Name,
-					item.Product_Price,
-					item.Product_Quantity.ToString(),
-					item.Product_Unit,
-					item.Total_Price);
-			}
-		}
-		#endregion SetBillInDataGridView
-
 		#region CalculatePurchaseAmount
 		public void CalculatePurchaseAmount()
 		{
@@ -326,9 +318,9 @@ namespace Inventory_Forms
 			{
 				foreach (System.Windows.Forms.DataGridViewRow row in productListDataGridView.Rows)
 				{
-					Total_Sum_Price +=
+					auditItem.Total_Sum_Price +=
 						int.Parse(row.Cells[4].Value.ToString().Replace("تومان", string.Empty).Replace(",", string.Empty).Trim());
-					totalSumPriceTextBox.Text = $"{Total_Sum_Price:#,0} تومان";
+					totalSumPriceTextBox.Text = $"{auditItem.Total_Sum_Price:#,0} تومان";
 				}
 			}
 			else
@@ -343,9 +335,9 @@ namespace Inventory_Forms
 		/// تابع برداشت از صندوق
 		/// </summary>
 		/// <param name="amountPayment"></param>
-		private bool Harvest(int amountPayment)
+		private bool Harvest(AuditItem auditItem)
 		{
-			Capital_Fund -= amountPayment;
+			auditItem.Capital_Fund -= auditItem.Amount_Payment;
 
 			Models.DataBaseContext dataBaseContext = null;
 			try
@@ -357,8 +349,7 @@ namespace Inventory_Forms
 					dataBaseContext.CapitalFunds
 					.FirstOrDefault();
 
-				capitalFund.Capital_Fund = $"{Capital_Fund: #,0} تومان";
-
+				capitalFund.Capital_Fund = $"{auditItem.Capital_Fund: #,0} تومان";
 				dataBaseContext.SaveChanges();
 
 				#region -----------------------------------------     Save Event Log     -----------------------------------------
@@ -368,7 +359,7 @@ namespace Inventory_Forms
 					EventLog.Full_Name = Inventory.Program.UserAuthentication.Full_Name;
 					EventLog.Event_Date = $"{Infrastructure.Utility.PersianCalendar(System.DateTime.Now)}";
 					EventLog.Event_Time = $"{Infrastructure.Utility.ShowTime()}";
-					EventLog.Description = $"پرداخت هزینه به مبلغ {amountPayment: #,0} تومان و باقیمانده {Remaining_Amount:#,0} تومان";
+					EventLog.Description = $"پرداخت هزینه به مبلغ {auditItem.Amount_Payment: #,0} تومان و باقیمانده {auditItem.Remaining_Amount:#,0} تومان";
 					Infrastructure.Utility.EventLog(EventLog);
 				}
 				#endregion /-----------------------------------------     Save Event Log     -----------------------------------------
@@ -394,20 +385,90 @@ namespace Inventory_Forms
 		#region Initialize
 		private void Initialize()
 		{
-			Total_Sum_Price = 0;
+			auditItem.Total_Sum_Price = 0;
 			showGunaAnimateWindow.Interval = 200;
 			showGunaAnimateWindow.AnimationType = Guna.UI.WinForms.GunaAnimateWindow.AnimateWindowType.AW_CENTER;
 			showGunaAnimateWindow.Start();
 			dateOfPrintTextBox.Text = $"{Infrastructure.Utility.PersianCalendar(System.DateTime.Now)} - {Infrastructure.Utility.ShowTime()}";
-			Capital_Fund = LoadingCapitalFund();
-			capitalFundTextBox.Text = $"{Capital_Fund:#,0} تومان";
+			auditItem.Register_Date = $"{Infrastructure.Utility.PersianCalendar(System.DateTime.Now)} - {Infrastructure.Utility.ShowTime()}";
 
-			senderNameTextBox.Text = Sender_Name;
-			//transferNameTextBox.Text = Inventory.Program.UserAuthentication.Full_Name;
-			carrierNameTextBox.Text = Carrier_Name;
+			auditItem.Capital_Fund = LoadingCapitalFund();
+			capitalFundTextBox.Text = $"{auditItem.Capital_Fund:#,0} تومان";
+
+			senderNameTextBox.Text = auditItem.Sender_Name;
+			recipientNameTextBox.Text = Inventory.Program.UserAuthentication.Full_Name;
+			auditItem.Recipient_Name = Inventory.Program.UserAuthentication.Full_Name;
+			carrierNameTextBox.Text = auditItem.Carrier_Name;
+
+			invoiceSerialNumberTextBox.Text = SetInvoiceSerialNumber();
+			auditItem.InvoiceSerialNumber = SetInvoiceSerialNumber();
 
 		}
 		#endregion /Initialize
+
+		#region InvoiceRegister
+		private bool InvoiceRegister(AuditItem auditItem)
+		{
+			Models.DataBaseContext dataBaseContext = null;
+
+			try
+			{
+				dataBaseContext =
+					new Models.DataBaseContext();
+
+				//---- ثبت در جدول شماره فاکتور
+				#region SetInvoiceSerialNumber
+				Models.InvoiceSerialNumber invoiceSerialNumber =
+					new Models.InvoiceSerialNumber
+					{
+						Invoice_Serial_Numvber = auditItem.InvoiceSerialNumber,
+						Registration_Date = auditItem.Register_Date,
+					};
+				dataBaseContext.InvoiceSerialNumbers.Add(invoiceSerialNumber);
+				dataBaseContext.SaveChanges();
+				#endregion /SetInvoiceSerialNumber
+
+				//---- ثبت در جدول فاکتور خرید کالا
+				#region SetPurchaseInvoice
+				Models.PurchaseInvoice purchaseInvoice =
+					new Models.PurchaseInvoice();
+
+				foreach (System.Windows.Forms.DataGridViewRow row in productListDataGridView.Rows)
+				{
+					purchaseInvoice.Sender_Name = auditItem.Sender_Name;
+					purchaseInvoice.Carrier_Name = auditItem.Carrier_Name;
+					purchaseInvoice.Recipient_Name = auditItem.Recipient_Name;
+					purchaseInvoice.Invoice_Serial_Numvber = auditItem.InvoiceSerialNumber;
+
+					purchaseInvoice.Product_Name = row.Cells[0].Value.ToString();
+					purchaseInvoice.Product_Price = row.Cells[1].Value.ToString();
+					purchaseInvoice.Product_Quantity = int.Parse(row.Cells[2].Value.ToString());
+					purchaseInvoice.Product_Unit = row.Cells[3].Value.ToString();
+					purchaseInvoice.Total_Sum_Price = row.Cells[4].Value.ToString();
+				}
+
+				dataBaseContext.PurchaseInvoices.Add(purchaseInvoice);
+				dataBaseContext.SaveChanges();
+
+				#endregion /SetPurchaseInvoice
+
+				return true;
+			}
+			catch (System.Exception ex)
+			{
+				Infrastructure.Utility.ExceptionShow(ex);
+				return false;
+			}
+			finally
+			{
+				if (dataBaseContext != null)
+				{
+					dataBaseContext.Dispose();
+					dataBaseContext = null;
+				}
+			}
+		}
+		#endregion /InvoiceRegister
 
 		#region LoadingCapitalFund
 		private long LoadingCapitalFund()
@@ -449,7 +510,7 @@ namespace Inventory_Forms
 		#endregion /LoadingCapitalFund
 
 		#region SetAccountPayable
-		private bool SetAccountPayable(int amountPayment, int totalSumprice, int remainingAmount)
+		private bool SetAccountPayable(AuditItem auditItem)
 		{
 			Models.DataBaseContext dataBaseContext = null;
 			try
@@ -460,13 +521,13 @@ namespace Inventory_Forms
 				Models.AccountsPayable accountsPayable =
 					new Models.AccountsPayable
 					{
-						Amount_Paid = $"{amountPayment:#,0} تومان",
-						Amount_Payable = $"{totalSumprice:#,0} تومان",
+						Amount_Paid = $"{auditItem.Amount_Payment:#,0} تومان",
+						Amount_Payable = $"{auditItem.Total_Sum_Price:#,0} تومان",
 						Description = string.Empty,
-						Remaininig_Amount = $"{remainingAmount:#,0} تومان",
+						Remaininig_Amount = $"{auditItem.Remaining_Amount:#,0} تومان",
 						Registration_Date = $"{Infrastructure.Utility.PersianCalendar(System.DateTime.Now)}",
 						Registration_Time = $"{Infrastructure.Utility.ShowTime()}",
-						Seller_Name = Sender_Name,
+						Seller_Name = auditItem.Sender_Name,
 					};
 				dataBaseContext.AccountsPayables.Add(accountsPayable);
 				dataBaseContext.SaveChanges();
@@ -488,6 +549,68 @@ namespace Inventory_Forms
 			}
 		}
 		#endregion /SetAccountPayable
+
+		#region SetBillInDataGridView
+		public void SetBillInDataGridView(System.Collections.Generic.List<ProductBuyForm.Bill> billList)
+		{
+			foreach (var item in billList)
+			{
+				productListDataGridView.Rows.Add
+					(item.Product_Name,
+					item.Product_Price,
+					item.Product_Quantity.ToString(),
+					item.Product_Unit,
+					item.Total_Price);
+			}
+		}
+		#endregion SetBillInDataGridView
+
+		#region SetInvoiceSerialNumber
+		private string SetInvoiceSerialNumber()
+		{
+			string getSerial = null,
+				serialNumber = null;
+			Models.DataBaseContext dataBaseContext = null;
+			try
+			{
+				do
+				{
+					serialNumber = Infrastructure.Utility.GeneratInvoiceSerialNumber(int.Parse("2"));
+					dataBaseContext =
+					new Models.DataBaseContext();
+
+					Models.InvoiceSerialNumber invoiceSerialNumber =
+						dataBaseContext.InvoiceSerialNumbers
+						.Where(current => string.Compare(current.Invoice_Serial_Numvber, serialNumber) == 0)
+						.FirstOrDefault();
+					if (invoiceSerialNumber == null)
+					{
+						getSerial = serialNumber;
+					}
+					else
+					{
+						serialNumber = null;
+					}
+				} while (string.IsNullOrEmpty(serialNumber));
+
+				return getSerial;
+			}
+			catch (System.Exception ex)
+			{
+				Infrastructure.Utility.ExceptionShow(ex);
+				return null;
+			}
+			finally
+			{
+				if (dataBaseContext != null)
+				{
+					dataBaseContext.Dispose();
+
+					dataBaseContext = null;
+				}
+			}
+		}
+		#endregion /SetInvoiceSerialNumber
 
 		#endregion /Function
 	}

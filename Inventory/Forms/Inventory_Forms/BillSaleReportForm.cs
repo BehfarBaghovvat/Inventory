@@ -12,12 +12,14 @@ namespace Inventory_Forms
 			public int? Amount { get; set; }
 			public int? Amount_Payable { get; set; }
 			public int? Amount_Payment { get; set; }
+			public long? Capital_Fund { get; set; }
 			public string Client_Name { get; set; }
 			public string Carrier_Name { get; set; }
 			public int? Cash_Payment_Amount { get; set; }
 			public string InvoiceSerialNumber { get; set; }
 			public int Product_Price { get; set; }
 			public int? Pose_Payment_Amount { get; set; }
+			public int? Remaining_Amount { get; set; }
 			public string Seller_Name { get; set; }
 			public int? Tax_Amount { get; set; }
 			public int? Tax_Percent { get; set; }
@@ -61,6 +63,20 @@ namespace Inventory_Forms
 			set
 			{
 				_capitalFund = value;
+			}
+		}
+
+		private Models.EventLog _eventLog;
+		public Models.EventLog EventLog
+		{
+			get
+			{
+				if (_eventLog == null)
+				{
+					_eventLog =
+						new Models.EventLog();
+				}
+				return _eventLog;
 			}
 		}
 
@@ -109,6 +125,8 @@ namespace Inventory_Forms
 		public BillSaleReportForm()
 		{
 			InitializeComponent();
+
+			auditItem.Capital_Fund = LoadingCapitalFund();
 
 			auditItem.InvoiceSerialNumber = SetInvoiceSerialNumber();
 			invoiceSerialNumberTextBox.Text = auditItem.InvoiceSerialNumber;
@@ -287,6 +305,7 @@ namespace Inventory_Forms
 						auditItem.Tax_Amount = (auditItem.Amount_Payable / 100) * auditItem.Tax_Percent;
 						auditItem.Amount_Payable = (auditItem.Tax_Amount + auditItem.Amount_Payable);
 						remainingAmountTextBox.Text = $"{auditItem.Amount_Payable:#,0} تومان";
+						auditItem.Remaining_Amount = auditItem.Amount_Payable;
 						taxRateTextBox.Text = $"% {auditItem.Tax_Percent}";
 					}
 					return;
@@ -313,6 +332,7 @@ namespace Inventory_Forms
 						auditItem.Tax_Amount = (auditItem.Amount_Payable / 100) * auditItem.Tax_Percent;
 						auditItem.Amount_Payable = (auditItem.Tax_Amount + auditItem.Amount_Payable) - auditItem.Amount_Payment;
 						remainingAmountTextBox.Text = $"{auditItem.Amount_Payable:#,0} تومان";
+						auditItem.Remaining_Amount = auditItem.Amount_Payable;
 						taxRateTextBox.Text = $"% {auditItem.Tax_Percent}";
 					}
 					return;
@@ -340,6 +360,7 @@ namespace Inventory_Forms
 				{
 					auditItem.Amount_Payable = auditItem.Amount_Payment - auditItem.Amount_Payable;
 					remainingAmountTextBox.Text = $"{auditItem.Amount_Payable:#,0} تومان";
+					auditItem.Remaining_Amount = auditItem.Amount_Payable;
 				}
 				else
 				{
@@ -347,6 +368,7 @@ namespace Inventory_Forms
 					auditItem.Tax_Amount = (auditItem.Amount_Payable / 100) * auditItem.Tax_Percent;
 					auditItem.Amount_Payable = (auditItem.Tax_Amount + auditItem.Amount_Payable) - auditItem.Amount_Payment;
 					remainingAmountTextBox.Text = $"{auditItem.Amount_Payable:#,0} تومان";
+					auditItem.Remaining_Amount = auditItem.Amount_Payable;
 				}
 			}
 		}
@@ -740,8 +762,61 @@ namespace Inventory_Forms
 		}
 		#endregion /CalculatePurchaseAmount
 
+		#region Deposit
+		/// <summary>
+		/// تابع واریز پول به صندوق مالی
+		/// </summary>
+		/// <returns></returns>
+		private bool Deposit(AuditItem auditItem )
+		{
+			auditItem.Capital_Fund += auditItem.Amount_Payment;
+
+			Models.DataBaseContext dataBaseContext = null;
+			try
+			{
+				dataBaseContext =
+					new Models.DataBaseContext();
+
+				Models.CapitalFund capitalFund =
+					dataBaseContext.CapitalFunds
+					.FirstOrDefault();
+
+				capitalFund.Capital_Fund = $"{auditItem.Capital_Fund: #,0} تومان";
+
+				dataBaseContext.SaveChanges();
+
+				#region -----------------------------------------     Save Event Log     -----------------------------------------
+				if (string.Compare(Inventory.Program.UserAuthentication.Username, "admin") != 0)
+				{
+					EventLog.Username = Inventory.Program.UserAuthentication.Username;
+					EventLog.Full_Name = Inventory.Program.UserAuthentication.Full_Name;
+					EventLog.Event_Date = $"{Infrastructure.Utility.PersianCalendar(System.DateTime.Now)}";
+					EventLog.Event_Time = $"{Infrastructure.Utility.ShowTime()}";
+					EventLog.Description = $"خرید توسط {auditItem.Client_Name} به مبلغ {auditItem.Amount_Payment: #,0} تومان و باقیمانده {auditItem.Remaining_Amount}";
+					Infrastructure.Utility.EventLog(EventLog);
+				}
+				#endregion /-----------------------------------------     Save Event Log     -----------------------------------------
+
+				return true;
+			}
+			catch (System.Exception ex)
+			{
+				Infrastructure.Utility.ExceptionShow(ex);
+				return false;
+			}
+			finally
+			{
+				if (dataBaseContext != null)
+				{
+					dataBaseContext.Dispose();
+					dataBaseContext = null;
+				}
+			}
+		}
+		#endregion /Deposit
+
 		#region EditBill
-		private	void EditBill()
+		private void EditBill()
 		{
 			System.Collections.Generic.List<ProcutSalesForm.BillSaleReportItems> billSaleReportItemsList = new System.Collections.Generic.List<ProcutSalesForm.BillSaleReportItems>();
 
@@ -807,6 +882,45 @@ namespace Inventory_Forms
 			debtorRadioButton.Checked = false;
 		}
 		#endregion ResetAllControl
+
+		#region LoadingCapitalFund
+		private long LoadingCapitalFund()
+		{
+			long capital_Fund;
+			Models.DataBaseContext dataBaseContext = null;
+			try
+			{
+				dataBaseContext =
+					new Models.DataBaseContext();
+
+				Models.CapitalFund capitalFund =
+					dataBaseContext.CapitalFunds
+					.FirstOrDefault();
+				if (capitalFund == null)
+				{
+					return 0;
+				}
+				else
+				{
+					capital_Fund = long.Parse(capitalFund.Capital_Fund.Replace("تومان", string.Empty).Replace(",", string.Empty).Trim());
+					return capital_Fund;
+				}
+			}
+			catch (System.Exception ex)
+			{
+				Infrastructure.Utility.ExceptionShow(ex);
+				return 0;
+			}
+			finally
+			{
+				if (dataBaseContext != null)
+				{
+					dataBaseContext.Dispose();
+					dataBaseContext = null;
+				}
+			}
+		}
+		#endregion /LoadingCapitalFund
 
 		#region SetItemsBillSale
 		public void SetItemsBillSale(System.Collections.Generic.List<ProcutSalesForm.BillSaleReportItems> billSaleReportItems, ProcutSalesForm.TransactionFactorsItems transactionFactorsItems)

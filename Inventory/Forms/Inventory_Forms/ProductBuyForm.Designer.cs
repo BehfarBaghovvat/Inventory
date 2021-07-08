@@ -86,9 +86,9 @@ namespace Inventory_Forms
 			this.productPriceTextBox = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox();
 			this.recipientNameTextBox = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox();
 			this.productRecivedDataGridView = new System.Windows.Forms.DataGridView();
+			this.DataGridViewElipse = new Guna.UI2.WinForms.Guna2Elipse(this.components);
 			this.idDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.productNameDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.transferNameDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.senderNameDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.carrierNameDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.productPurchasePriceDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -101,7 +101,6 @@ namespace Inventory_Forms
 			this.lastEditedDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.lastEditedTimeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.productReceivedBindingSource = new System.Windows.Forms.BindingSource(this.components);
-			this.DataGridViewElipse = new Guna.UI2.WinForms.Guna2Elipse(this.components);
 			this.contextMenuStrip.SuspendLayout();
 			this.controlsPanel.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.checkProductNamePictureBox)).BeginInit();
@@ -952,7 +951,7 @@ namespace Inventory_Forms
 			this.productRecivedDataGridView.AllowUserToDeleteRows = false;
 			dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
 			dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
-			dataGridViewCellStyle1.Font = new System.Drawing.Font("IRANSansXFaNum", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+			dataGridViewCellStyle1.Font = new System.Drawing.Font("IRANSansXFaNum Light", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
 			dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
 			dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(183)))), ((int)(((byte)(85)))), ((int)(((byte)(225)))));
 			dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Black;
@@ -966,7 +965,7 @@ namespace Inventory_Forms
 			this.productRecivedDataGridView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
 			dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
 			dataGridViewCellStyle2.BackColor = System.Drawing.Color.DarkViolet;
-			dataGridViewCellStyle2.Font = new System.Drawing.Font("IRANSans", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+			dataGridViewCellStyle2.Font = new System.Drawing.Font("IRANSansX", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
 			dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
 			dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
 			this.productRecivedDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
@@ -975,7 +974,6 @@ namespace Inventory_Forms
 			this.productRecivedDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.idDataGridViewTextBoxColumn1,
             this.productNameDataGridViewTextBoxColumn1,
-            this.transferNameDataGridViewTextBoxColumn1,
             this.senderNameDataGridViewTextBoxColumn1,
             this.carrierNameDataGridViewTextBoxColumn1,
             this.productPurchasePriceDataGridViewTextBoxColumn1,
@@ -1006,7 +1004,7 @@ namespace Inventory_Forms
 			this.productRecivedDataGridView.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
 			dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
 			dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(188)))), ((int)(((byte)(220)))));
-			dataGridViewCellStyle4.Font = new System.Drawing.Font("IRANSansXFaNum", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+			dataGridViewCellStyle4.Font = new System.Drawing.Font("IRANSansXFaNum Light", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
 			dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
 			dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(183)))), ((int)(((byte)(85)))), ((int)(((byte)(225)))));
 			dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Black;
@@ -1018,6 +1016,11 @@ namespace Inventory_Forms
 			this.productRecivedDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
 			this.productRecivedDataGridView.Size = new System.Drawing.Size(1125, 358);
 			this.productRecivedDataGridView.TabIndex = 17;
+			// 
+			// DataGridViewElipse
+			// 
+			this.DataGridViewElipse.BorderRadius = 25;
+			this.DataGridViewElipse.TargetControl = this.productRecivedDataGridView;
 			// 
 			// idDataGridViewTextBoxColumn1
 			// 
@@ -1034,14 +1037,6 @@ namespace Inventory_Forms
 			this.productNameDataGridViewTextBoxColumn1.HeaderText = "نام کالا";
 			this.productNameDataGridViewTextBoxColumn1.Name = "productNameDataGridViewTextBoxColumn1";
 			this.productNameDataGridViewTextBoxColumn1.ReadOnly = true;
-			// 
-			// transferNameDataGridViewTextBoxColumn1
-			// 
-			this.transferNameDataGridViewTextBoxColumn1.DataPropertyName = "Transfer_Name";
-			this.transferNameDataGridViewTextBoxColumn1.HeaderText = "نام گیردنده";
-			this.transferNameDataGridViewTextBoxColumn1.Name = "transferNameDataGridViewTextBoxColumn1";
-			this.transferNameDataGridViewTextBoxColumn1.ReadOnly = true;
-			this.transferNameDataGridViewTextBoxColumn1.Visible = false;
 			// 
 			// senderNameDataGridViewTextBoxColumn1
 			// 
@@ -1128,11 +1123,6 @@ namespace Inventory_Forms
 			// productReceivedBindingSource
 			// 
 			this.productReceivedBindingSource.DataSource = typeof(Models.ProductReceived);
-			// 
-			// DataGridViewElipse
-			// 
-			this.DataGridViewElipse.BorderRadius = 25;
-			this.DataGridViewElipse.TargetControl = this.productRecivedDataGridView;
 			// 
 			// ProductBuyForm
 			// 

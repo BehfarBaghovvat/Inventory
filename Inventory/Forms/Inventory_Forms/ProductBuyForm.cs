@@ -447,10 +447,10 @@ namespace Inventory_Forms
 			else
 			{
 				BillBuyReportForm.MyProductBuyForm = this;
-				BillBuyReportForm.Sender_Name = senderNameTextBox.Text;
-				BillBuyReportForm.Carrier_Name = carrierNameTextBox.Text;
 				BillBuyReportForm.SetBillInDataGridView(billList);
 				BillBuyReportForm.CalculatePurchaseAmount();
+				BillBuyReportForm.senderNameTextBox.Text = senderNameTextBox.Text;
+				BillBuyReportForm.auditItem.Carrier_Name = carrierNameTextBox.Text;
 				BillBuyReportForm.ShowDialog();
 			}
 		}

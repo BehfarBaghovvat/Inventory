@@ -272,7 +272,7 @@ namespace Entry_Forms
 			if (this.Opacity <= 0.0)
 			{
 				fadeOutTimer.Stop();
-				this.Close();
+				this.Dispose();
 				Inventory.Program.MainFormShow();
 			}
 		}
