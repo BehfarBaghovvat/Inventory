@@ -53,6 +53,7 @@
   <ItemGroup>
     <Compile Include="CapitalFund.cs" />
     <Compile Include="Client.cs" />
+    <Compile Include="DailyOffice.cs" />
     <Compile Include="DataBaseContext.cs" />
     <Compile Include="DataBaseContextInitializer.cs" />
     <Compile Include="DataBaseContextInitializerBeforTheFirstRelease.cs" />

@@ -1,5 +1,8 @@
 ﻿namespace Models
 {
+	/// <summary>
+	/// ورودی کالاهای جدید
+	/// </summary>
 	public class ProductReceived //ورودی کالا
 	{
 		public ProductReceived() : base()

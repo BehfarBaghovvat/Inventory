@@ -1,5 +1,8 @@
 ﻿namespace Models
 {
+	/// <summary>
+	/// شماره فاکتور
+	/// </summary>
 	public class InvoiceSerialNumber
 	{
 		public InvoiceSerialNumber()

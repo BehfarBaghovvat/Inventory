@@ -1,5 +1,8 @@
 ﻿namespace Models
 {
+	/// <summary>
+	/// حساب دریافتی
+	/// </summary>
 	public class AccountsReceivable
 	{
 		public AccountsReceivable()

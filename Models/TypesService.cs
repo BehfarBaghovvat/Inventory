@@ -1,5 +1,8 @@
 ﻿namespace Models
 {
+	/// <summary>
+	/// لیست انواع خدمات
+	/// </summary>
 	public class TypesService
 	{
 		public TypesService()

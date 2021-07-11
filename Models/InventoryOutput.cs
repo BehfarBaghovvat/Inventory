@@ -1,6 +1,9 @@
 ﻿namespace Models
 {
-	public class InventoryOutput //لیست خروجی انبار
+	/// <summary>
+	/// لیست خروجی انبار
+	/// </summary>
+	public class InventoryOutput
 	{
 		public InventoryOutput() : base()
 		{

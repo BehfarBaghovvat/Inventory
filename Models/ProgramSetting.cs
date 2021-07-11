@@ -1,5 +1,8 @@
 ﻿namespace Models
 {
+	/// <summary>
+	/// تنظیمات برنامه
+	/// </summary>
 	public class ProgramSetting
 	{
 		public ProgramSetting(): base()

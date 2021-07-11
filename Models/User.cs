@@ -1,5 +1,8 @@
 ﻿namespace Models
 {
+	/// <summary>
+	/// لیست کاربران
+	/// </summary>
 	public class User
 	{
 		public enum AccessLeve

@@ -1,5 +1,8 @@
 ﻿namespace Models
 {
+	/// <summary>
+	/// حساب پرداختی
+	/// </summary>
 	public class AccountsPayable
 	{
 		public AccountsPayable()

@@ -1,6 +1,9 @@
 ﻿namespace Models
 {
-	public class EventLog //ثبت رخدادها
+	/// <summary>
+	/// رویدادها
+	/// </summary>
+	public class EventLog
 	{
 		public EventLog() : base()
 		{

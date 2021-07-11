@@ -1,5 +1,8 @@
 ﻿namespace Models
 {
+	/// <summary>
+	/// صندوق سرمایه
+	/// </summary>
 	public class CapitalFund
 	{
 		public CapitalFund()

@@ -1,5 +1,8 @@
 ﻿namespace Models
 {
+	/// <summary>
+	/// مشتری
+	/// </summary>
 	public class Client
 	{
 		public Client()

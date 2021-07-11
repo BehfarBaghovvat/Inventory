@@ -56,7 +56,7 @@ namespace Inventory_Forms
 			this.Total_Sum_Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.contextMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
 			this.deleteProductToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.amountPaymentTextBox = new Mbb.Windows.Forms.Label();
+			this.amountPaidTextBox = new Mbb.Windows.Forms.Label();
 			this.amountPaymentLabel = new Mbb.Windows.Forms.Label();
 			this.pictureBox1 = new System.Windows.Forms.PictureBox();
 			this.printButton = new Guna.UI2.WinForms.Guna2GradientButton();
@@ -224,18 +224,18 @@ namespace Inventory_Forms
 			this.deleteProductToolStripMenuItem.Text = "حذف کالا";
 			this.deleteProductToolStripMenuItem.Click += new System.EventHandler(this.DeleteProductToolStripMenuItem_Click);
 			// 
-			// amountPaymentTextBox
+			// amountPaidTextBox
 			// 
-			this.amountPaymentTextBox.Font = new System.Drawing.Font("IRANSans", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-			this.amountPaymentTextBox.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-			this.amountPaymentTextBox.Location = new System.Drawing.Point(15, 462);
-			this.amountPaymentTextBox.Name = "amountPaymentTextBox";
-			this.amountPaymentTextBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-			this.amountPaymentTextBox.Size = new System.Drawing.Size(257, 25);
-			this.amountPaymentTextBox.TabIndex = 20;
-			this.amountPaymentTextBox.Text = "0 تومان";
-			this.amountPaymentTextBox.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-			this.amountPaymentTextBox.TextChanged += new System.EventHandler(this.AmountPaymentTextBox_TextChanged);
+			this.amountPaidTextBox.Font = new System.Drawing.Font("IRANSans", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+			this.amountPaidTextBox.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+			this.amountPaidTextBox.Location = new System.Drawing.Point(15, 462);
+			this.amountPaidTextBox.Name = "amountPaidTextBox";
+			this.amountPaidTextBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+			this.amountPaidTextBox.Size = new System.Drawing.Size(257, 25);
+			this.amountPaidTextBox.TabIndex = 20;
+			this.amountPaidTextBox.Text = "0 تومان";
+			this.amountPaidTextBox.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+			this.amountPaidTextBox.TextChanged += new System.EventHandler(this.AmountPaidTextBox_TextChanged);
 			// 
 			// amountPaymentLabel
 			// 
@@ -1022,7 +1022,7 @@ namespace Inventory_Forms
 			this.Controls.Add(this.posPaymentTextBox);
 			this.Controls.Add(this.cashPaymentTextBox);
 			this.Controls.Add(this.paymentTypeGroupBox);
-			this.Controls.Add(this.amountPaymentTextBox);
+			this.Controls.Add(this.amountPaidTextBox);
 			this.Controls.Add(this.amountPaymentLabel);
 			this.Controls.Add(this.pictureBox1);
 			this.Controls.Add(this.printButton);
@@ -1080,7 +1080,7 @@ namespace Inventory_Forms
 		private System.Windows.Forms.DataGridViewTextBoxColumn productPriceDataGridViewTextBoxColumn;
 		private System.Windows.Forms.DataGridViewTextBoxColumn totalPriceDataGridViewTextBoxColumn;
 		private System.Windows.Forms.PictureBox pictureBox1;
-		private Mbb.Windows.Forms.Label amountPaymentTextBox;
+		private Mbb.Windows.Forms.Label amountPaidTextBox;
 		private Mbb.Windows.Forms.Label amountPaymentLabel;
 		private Mbb.Windows.Forms.Label plusMarkLabel;
 		private Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox posPaymentTextBox;

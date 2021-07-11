@@ -1,6 +1,9 @@
 ﻿namespace Models
 {
-	public class InventoryHolding //انبار کالا
+	/// <summary>
+	/// انبار کالا
+	/// </summary>
+	public class InventoryHolding
 	{
 		public InventoryHolding() : base()
 		{

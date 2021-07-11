@@ -1,5 +1,8 @@
 ﻿namespace Models
 {
+	/// <summary>
+	/// تاریخچه ورود و خروج
+	/// </summary>
 	public class LoginHistory //تاریخچه ورود و خروج
 	{
 		public LoginHistory() : base()
