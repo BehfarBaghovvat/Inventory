@@ -51,7 +51,7 @@ namespace Inventory_Forms
 			this.totalSumPriceTextBox = new System.Windows.Forms.Label();
 			this.remainingAmountTextBox = new System.Windows.Forms.Label();
 			this.totalSumPriceLable = new System.Windows.Forms.Label();
-			this.amountPaymentTextBox = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox();
+			this.amountPaidTextBox = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox();
 			this.remainingAmountLabel = new System.Windows.Forms.Label();
 			this.panel1 = new System.Windows.Forms.Panel();
 			this.logoPictureBox = new System.Windows.Forms.PictureBox();
@@ -70,7 +70,7 @@ namespace Inventory_Forms
 			this.recipientNameLabel = new Mbb.Windows.Forms.Label();
 			this.senderNameTextBox = new Mbb.Windows.Forms.Label();
 			this.senderNameLabel = new Mbb.Windows.Forms.Label();
-			this.amountPaymentLabel = new System.Windows.Forms.Label();
+			this.amountPaidLabel = new System.Windows.Forms.Label();
 			this.invoiceSerialNumberTextBox = new Mbb.Windows.Forms.Label();
 			this.invoiceSerialNumbeLabel = new Mbb.Windows.Forms.Label();
 			((System.ComponentModel.ISupportInitialize)(this.productListDataGridView)).BeginInit();
@@ -145,7 +145,6 @@ namespace Inventory_Forms
 			this.productListDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
 			this.productListDataGridView.Size = new System.Drawing.Size(886, 160);
 			this.productListDataGridView.TabIndex = 7;
-			this.productListDataGridView.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.ProductListDataGridView_RowsAdded);
 			// 
 			// Product_Name
 			// 
@@ -232,86 +231,86 @@ namespace Inventory_Forms
 			this.totalSumPriceLable.TabIndex = 8;
 			this.totalSumPriceLable.Text = "جمع کل حساب:";
 			// 
-			// amountPaymentTextBox
+			// amountPaidTextBox
 			// 
-			this.amountPaymentTextBox.AcceptsReturn = false;
-			this.amountPaymentTextBox.AcceptsTab = false;
-			this.amountPaymentTextBox.AnimationSpeed = 200;
-			this.amountPaymentTextBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
-			this.amountPaymentTextBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
-			this.amountPaymentTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-			this.amountPaymentTextBox.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("amountPaymentTextBox.BackgroundImage")));
-			this.amountPaymentTextBox.BorderColorActive = System.Drawing.Color.DodgerBlue;
-			this.amountPaymentTextBox.BorderColorDisabled = System.Drawing.Color.FromArgb(((int)(((byte)(161)))), ((int)(((byte)(161)))), ((int)(((byte)(161)))));
-			this.amountPaymentTextBox.BorderColorHover = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(181)))), ((int)(((byte)(255)))));
-			this.amountPaymentTextBox.BorderColorIdle = System.Drawing.Color.Silver;
-			this.amountPaymentTextBox.BorderRadius = 1;
-			this.amountPaymentTextBox.BorderThickness = 0;
-			this.amountPaymentTextBox.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
-			this.amountPaymentTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
-			this.amountPaymentTextBox.DefaultFont = new System.Drawing.Font("IRANSansXFaNum", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-			this.amountPaymentTextBox.DefaultText = "0 تومان";
-			this.amountPaymentTextBox.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-			this.amountPaymentTextBox.ForeColor = System.Drawing.Color.White;
-			this.amountPaymentTextBox.HideSelection = true;
-			this.amountPaymentTextBox.IconLeft = null;
-			this.amountPaymentTextBox.IconLeftCursor = System.Windows.Forms.Cursors.IBeam;
-			this.amountPaymentTextBox.IconPadding = 10;
-			this.amountPaymentTextBox.IconRight = null;
-			this.amountPaymentTextBox.IconRightCursor = System.Windows.Forms.Cursors.IBeam;
-			this.amountPaymentTextBox.Lines = new string[] {
+			this.amountPaidTextBox.AcceptsReturn = false;
+			this.amountPaidTextBox.AcceptsTab = false;
+			this.amountPaidTextBox.AnimationSpeed = 200;
+			this.amountPaidTextBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
+			this.amountPaidTextBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
+			this.amountPaidTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+			this.amountPaidTextBox.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("amountPaidTextBox.BackgroundImage")));
+			this.amountPaidTextBox.BorderColorActive = System.Drawing.Color.DodgerBlue;
+			this.amountPaidTextBox.BorderColorDisabled = System.Drawing.Color.FromArgb(((int)(((byte)(161)))), ((int)(((byte)(161)))), ((int)(((byte)(161)))));
+			this.amountPaidTextBox.BorderColorHover = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(181)))), ((int)(((byte)(255)))));
+			this.amountPaidTextBox.BorderColorIdle = System.Drawing.Color.Silver;
+			this.amountPaidTextBox.BorderRadius = 1;
+			this.amountPaidTextBox.BorderThickness = 0;
+			this.amountPaidTextBox.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
+			this.amountPaidTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
+			this.amountPaidTextBox.DefaultFont = new System.Drawing.Font("IRANSansXFaNum", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+			this.amountPaidTextBox.DefaultText = "0 تومان";
+			this.amountPaidTextBox.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+			this.amountPaidTextBox.ForeColor = System.Drawing.Color.White;
+			this.amountPaidTextBox.HideSelection = true;
+			this.amountPaidTextBox.IconLeft = null;
+			this.amountPaidTextBox.IconLeftCursor = System.Windows.Forms.Cursors.IBeam;
+			this.amountPaidTextBox.IconPadding = 10;
+			this.amountPaidTextBox.IconRight = null;
+			this.amountPaidTextBox.IconRightCursor = System.Windows.Forms.Cursors.IBeam;
+			this.amountPaidTextBox.Lines = new string[] {
         "0 تومان"};
-			this.amountPaymentTextBox.Location = new System.Drawing.Point(12, 453);
-			this.amountPaymentTextBox.MaximumSize = new System.Drawing.Size(300, 25);
-			this.amountPaymentTextBox.MaxLength = 32767;
-			this.amountPaymentTextBox.MinimumSize = new System.Drawing.Size(300, 25);
-			this.amountPaymentTextBox.Modified = false;
-			this.amountPaymentTextBox.Multiline = false;
-			this.amountPaymentTextBox.Name = "amountPaymentTextBox";
+			this.amountPaidTextBox.Location = new System.Drawing.Point(12, 453);
+			this.amountPaidTextBox.MaximumSize = new System.Drawing.Size(300, 25);
+			this.amountPaidTextBox.MaxLength = 32767;
+			this.amountPaidTextBox.MinimumSize = new System.Drawing.Size(300, 25);
+			this.amountPaidTextBox.Modified = false;
+			this.amountPaidTextBox.Multiline = false;
+			this.amountPaidTextBox.Name = "amountPaidTextBox";
 			stateProperties1.BorderColor = System.Drawing.Color.DodgerBlue;
 			stateProperties1.FillColor = System.Drawing.Color.Empty;
 			stateProperties1.ForeColor = System.Drawing.Color.Empty;
 			stateProperties1.PlaceholderForeColor = System.Drawing.Color.Empty;
-			this.amountPaymentTextBox.OnActiveState = stateProperties1;
+			this.amountPaidTextBox.OnActiveState = stateProperties1;
 			stateProperties2.BorderColor = System.Drawing.Color.Empty;
 			stateProperties2.FillColor = System.Drawing.Color.White;
 			stateProperties2.ForeColor = System.Drawing.Color.Empty;
 			stateProperties2.PlaceholderForeColor = System.Drawing.Color.Silver;
-			this.amountPaymentTextBox.OnDisabledState = stateProperties2;
+			this.amountPaidTextBox.OnDisabledState = stateProperties2;
 			stateProperties3.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(181)))), ((int)(((byte)(255)))));
 			stateProperties3.FillColor = System.Drawing.Color.Empty;
 			stateProperties3.ForeColor = System.Drawing.Color.Empty;
 			stateProperties3.PlaceholderForeColor = System.Drawing.Color.Empty;
-			this.amountPaymentTextBox.OnHoverState = stateProperties3;
+			this.amountPaidTextBox.OnHoverState = stateProperties3;
 			stateProperties4.BorderColor = System.Drawing.Color.Silver;
 			stateProperties4.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
 			stateProperties4.ForeColor = System.Drawing.Color.White;
 			stateProperties4.PlaceholderForeColor = System.Drawing.Color.Empty;
-			this.amountPaymentTextBox.OnIdleState = stateProperties4;
-			this.amountPaymentTextBox.PasswordChar = '\0';
-			this.amountPaymentTextBox.PlaceholderForeColor = System.Drawing.Color.White;
-			this.amountPaymentTextBox.PlaceholderText = "";
-			this.amountPaymentTextBox.ReadOnly = false;
-			this.amountPaymentTextBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-			this.amountPaymentTextBox.ScrollBars = System.Windows.Forms.ScrollBars.None;
-			this.amountPaymentTextBox.SelectedText = "";
-			this.amountPaymentTextBox.SelectionLength = 0;
-			this.amountPaymentTextBox.SelectionStart = 0;
-			this.amountPaymentTextBox.ShortcutsEnabled = true;
-			this.amountPaymentTextBox.Size = new System.Drawing.Size(300, 25);
-			this.amountPaymentTextBox.Style = Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox._Style.Material;
-			this.amountPaymentTextBox.TabIndex = 1;
-			this.amountPaymentTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-			this.amountPaymentTextBox.TextMarginBottom = 0;
-			this.amountPaymentTextBox.TextMarginLeft = -8;
-			this.amountPaymentTextBox.TextMarginTop = 0;
-			this.amountPaymentTextBox.TextPlaceholder = "";
-			this.amountPaymentTextBox.UseSystemPasswordChar = false;
-			this.amountPaymentTextBox.WordWrap = true;
-			this.amountPaymentTextBox.TextChange += new System.EventHandler(this.AmountPaymentTextBox_TextChange);
-			this.amountPaymentTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.AmountPaymentTextBox_KeyPress);
-			this.amountPaymentTextBox.Enter += new System.EventHandler(this.AmountPaymentTextBox_Enter);
-			this.amountPaymentTextBox.Leave += new System.EventHandler(this.AmountPaymentTextBox_Leave);
+			this.amountPaidTextBox.OnIdleState = stateProperties4;
+			this.amountPaidTextBox.PasswordChar = '\0';
+			this.amountPaidTextBox.PlaceholderForeColor = System.Drawing.Color.White;
+			this.amountPaidTextBox.PlaceholderText = "";
+			this.amountPaidTextBox.ReadOnly = false;
+			this.amountPaidTextBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+			this.amountPaidTextBox.ScrollBars = System.Windows.Forms.ScrollBars.None;
+			this.amountPaidTextBox.SelectedText = "";
+			this.amountPaidTextBox.SelectionLength = 0;
+			this.amountPaidTextBox.SelectionStart = 0;
+			this.amountPaidTextBox.ShortcutsEnabled = true;
+			this.amountPaidTextBox.Size = new System.Drawing.Size(300, 25);
+			this.amountPaidTextBox.Style = Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox._Style.Material;
+			this.amountPaidTextBox.TabIndex = 1;
+			this.amountPaidTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+			this.amountPaidTextBox.TextMarginBottom = 0;
+			this.amountPaidTextBox.TextMarginLeft = -8;
+			this.amountPaidTextBox.TextMarginTop = 0;
+			this.amountPaidTextBox.TextPlaceholder = "";
+			this.amountPaidTextBox.UseSystemPasswordChar = false;
+			this.amountPaidTextBox.WordWrap = true;
+			this.amountPaidTextBox.TextChange += new System.EventHandler(this.AmountPaidTextBox_TextChange);
+			this.amountPaidTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.AmountPaidTextBox_KeyPress);
+			this.amountPaidTextBox.Enter += new System.EventHandler(this.AmountPaidTextBox_Enter);
+			this.amountPaidTextBox.Leave += new System.EventHandler(this.AmountPaidTextBox_Leave);
 			// 
 			// remainingAmountLabel
 			// 
@@ -575,17 +574,17 @@ namespace Inventory_Forms
 			this.senderNameLabel.TabIndex = 30;
 			this.senderNameLabel.Text = "نام فرستنده:";
 			// 
-			// amountPaymentLabel
+			// amountPaidLabel
 			// 
-			this.amountPaymentLabel.AutoSize = true;
-			this.amountPaymentLabel.Font = new System.Drawing.Font("IRANSans", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-			this.amountPaymentLabel.ForeColor = System.Drawing.Color.White;
-			this.amountPaymentLabel.Location = new System.Drawing.Point(337, 454);
-			this.amountPaymentLabel.Name = "amountPaymentLabel";
-			this.amountPaymentLabel.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-			this.amountPaymentLabel.Size = new System.Drawing.Size(86, 22);
-			this.amountPaymentLabel.TabIndex = 36;
-			this.amountPaymentLabel.Text = "مبلغ پرداختی:";
+			this.amountPaidLabel.AutoSize = true;
+			this.amountPaidLabel.Font = new System.Drawing.Font("IRANSans", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+			this.amountPaidLabel.ForeColor = System.Drawing.Color.White;
+			this.amountPaidLabel.Location = new System.Drawing.Point(337, 454);
+			this.amountPaidLabel.Name = "amountPaidLabel";
+			this.amountPaidLabel.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+			this.amountPaidLabel.Size = new System.Drawing.Size(86, 22);
+			this.amountPaidLabel.TabIndex = 36;
+			this.amountPaidLabel.Text = "مبلغ پرداختی:";
 			// 
 			// invoiceSerialNumberTextBox
 			// 
@@ -620,7 +619,7 @@ namespace Inventory_Forms
 			this.ClientSize = new System.Drawing.Size(910, 550);
 			this.Controls.Add(this.invoiceSerialNumberTextBox);
 			this.Controls.Add(this.invoiceSerialNumbeLabel);
-			this.Controls.Add(this.amountPaymentLabel);
+			this.Controls.Add(this.amountPaidLabel);
 			this.Controls.Add(this.carrierNameTextBox);
 			this.Controls.Add(this.carrierNameLabel);
 			this.Controls.Add(this.recipientNameTextBox);
@@ -636,7 +635,7 @@ namespace Inventory_Forms
 			this.Controls.Add(this.logoPictureBox);
 			this.Controls.Add(this.panel1);
 			this.Controls.Add(this.remainingAmountLabel);
-			this.Controls.Add(this.amountPaymentTextBox);
+			this.Controls.Add(this.amountPaidTextBox);
 			this.Controls.Add(this.totalSumPriceLable);
 			this.Controls.Add(this.remainingAmountTextBox);
 			this.Controls.Add(this.totalSumPriceTextBox);
@@ -664,7 +663,7 @@ namespace Inventory_Forms
 		private System.Windows.Forms.Label totalSumPriceTextBox;
 		private System.Windows.Forms.Label remainingAmountTextBox;
 		private System.Windows.Forms.Label totalSumPriceLable;
-		private Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox amountPaymentTextBox;
+		private Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox amountPaidTextBox;
 		private System.Windows.Forms.Label remainingAmountLabel;
 		private System.Windows.Forms.Panel panel1;
 		private System.Windows.Forms.PictureBox logoPictureBox;
@@ -684,7 +683,7 @@ namespace Inventory_Forms
 		private Mbb.Windows.Forms.Label recipientNameTextBox;
 		private Mbb.Windows.Forms.Label recipientNameLabel;
 		private Mbb.Windows.Forms.Label senderNameLabel;
-		private System.Windows.Forms.Label amountPaymentLabel;
+		private System.Windows.Forms.Label amountPaidLabel;
 		private Mbb.Windows.Forms.Label invoiceSerialNumberTextBox;
 		private Mbb.Windows.Forms.Label invoiceSerialNumbeLabel;
 		public Mbb.Windows.Forms.Label carrierNameTextBox;

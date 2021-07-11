@@ -19,11 +19,11 @@
 		public string Agent { get; set; }
 		#endregion /Agent
 
-		#region Amount_Payment
+		#region Amount_Paid
 		//-----DisplayName field for Amount_Payment
 		[System.ComponentModel.DisplayName(displayName: "پرداختی")]
-		public string Amount_Payment { get; set; }
-		#endregion /Amount_Payment
+		public string Amount_Paid { get; set; }
+		#endregion /Amount_Paid
 
 		#region Amount_Received
 		//-----DisplayName field for Amount_Received

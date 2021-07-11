@@ -1,7 +1,7 @@
 ﻿namespace Models
 {
 	/// <summary>
-	/// حساب پرداختی
+	/// دفتر معین برداشت از صندوق
 	/// </summary>
 	public class AccountsPayable
 	{

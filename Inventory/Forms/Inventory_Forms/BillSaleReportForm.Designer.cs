@@ -57,7 +57,7 @@ namespace Inventory_Forms
 			this.contextMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
 			this.deleteProductToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.amountPaidTextBox = new Mbb.Windows.Forms.Label();
-			this.amountPaymentLabel = new Mbb.Windows.Forms.Label();
+			this.amountPaidLabel = new Mbb.Windows.Forms.Label();
 			this.pictureBox1 = new System.Windows.Forms.PictureBox();
 			this.printButton = new Guna.UI2.WinForms.Guna2GradientButton();
 			this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
@@ -88,7 +88,7 @@ namespace Inventory_Forms
 			this.posPaymentRadioButton = new Guna.UI2.WinForms.Guna2CustomRadioButton();
 			this.cachPaymentRadioButton = new Guna.UI2.WinForms.Guna2CustomRadioButton();
 			this.cashRegisterButton = new Guna.UI2.WinForms.Guna2GradientButton();
-			this.gunaAnimateWindow = new Guna.UI.WinForms.GunaAnimateWindow(this.components);
+			this.showFormAnimateWindow = new Guna.UI.WinForms.GunaAnimateWindow(this.components);
 			this.closeFormTimer = new System.Windows.Forms.Timer(this.components);
 			this.taxRateTextBox = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox();
 			this.invoiceSerialNumberTextBox = new Mbb.Windows.Forms.Label();
@@ -237,18 +237,18 @@ namespace Inventory_Forms
 			this.amountPaidTextBox.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
 			this.amountPaidTextBox.TextChanged += new System.EventHandler(this.AmountPaidTextBox_TextChanged);
 			// 
-			// amountPaymentLabel
+			// amountPaidLabel
 			// 
-			this.amountPaymentLabel.AutoSize = true;
-			this.amountPaymentLabel.Font = new System.Drawing.Font("IRANSans", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-			this.amountPaymentLabel.ForeColor = System.Drawing.Color.White;
-			this.amountPaymentLabel.Location = new System.Drawing.Point(291, 464);
-			this.amountPaymentLabel.Name = "amountPaymentLabel";
-			this.amountPaymentLabel.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-			this.amountPaymentLabel.Size = new System.Drawing.Size(86, 22);
-			this.amountPaymentLabel.TabIndex = 19;
-			this.amountPaymentLabel.Text = "مبلغ پرداختی:";
-			this.amountPaymentLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+			this.amountPaidLabel.AutoSize = true;
+			this.amountPaidLabel.Font = new System.Drawing.Font("IRANSans", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+			this.amountPaidLabel.ForeColor = System.Drawing.Color.White;
+			this.amountPaidLabel.Location = new System.Drawing.Point(291, 464);
+			this.amountPaidLabel.Name = "amountPaidLabel";
+			this.amountPaidLabel.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+			this.amountPaidLabel.Size = new System.Drawing.Size(86, 22);
+			this.amountPaidLabel.TabIndex = 19;
+			this.amountPaidLabel.Text = "مبلغ پرداختی:";
+			this.amountPaidLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
 			// 
 			// pictureBox1
 			// 
@@ -844,11 +844,11 @@ namespace Inventory_Forms
 			this.cashRegisterButton.TextRenderingHint = System.Drawing.Text.TextRenderingHint.AntiAlias;
 			this.cashRegisterButton.Click += new System.EventHandler(this.CashRegisterButton_Click);
 			// 
-			// gunaAnimateWindow
+			// showFormAnimateWindow
 			// 
-			this.gunaAnimateWindow.AnimationType = Guna.UI.WinForms.GunaAnimateWindow.AnimateWindowType.AW_CENTER;
-			this.gunaAnimateWindow.Interval = 200;
-			this.gunaAnimateWindow.TargetControl = this;
+			this.showFormAnimateWindow.AnimationType = Guna.UI.WinForms.GunaAnimateWindow.AnimateWindowType.AW_CENTER;
+			this.showFormAnimateWindow.Interval = 200;
+			this.showFormAnimateWindow.TargetControl = this;
 			// 
 			// closeFormTimer
 			// 
@@ -1023,7 +1023,7 @@ namespace Inventory_Forms
 			this.Controls.Add(this.cashPaymentTextBox);
 			this.Controls.Add(this.paymentTypeGroupBox);
 			this.Controls.Add(this.amountPaidTextBox);
-			this.Controls.Add(this.amountPaymentLabel);
+			this.Controls.Add(this.amountPaidLabel);
 			this.Controls.Add(this.pictureBox1);
 			this.Controls.Add(this.printButton);
 			this.Controls.Add(this.guna2Panel1);
@@ -1081,7 +1081,7 @@ namespace Inventory_Forms
 		private System.Windows.Forms.DataGridViewTextBoxColumn totalPriceDataGridViewTextBoxColumn;
 		private System.Windows.Forms.PictureBox pictureBox1;
 		private Mbb.Windows.Forms.Label amountPaidTextBox;
-		private Mbb.Windows.Forms.Label amountPaymentLabel;
+		private Mbb.Windows.Forms.Label amountPaidLabel;
 		private Mbb.Windows.Forms.Label plusMarkLabel;
 		private Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox posPaymentTextBox;
 		private Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox cashPaymentTextBox;
@@ -1100,7 +1100,7 @@ namespace Inventory_Forms
 		private System.Windows.Forms.DataGridViewTextBoxColumn Product_Quantity;
 		private System.Windows.Forms.DataGridViewTextBoxColumn Product_Unit;
 		private System.Windows.Forms.DataGridViewTextBoxColumn Total_Sum_Price;
-		private Guna.UI.WinForms.GunaAnimateWindow gunaAnimateWindow;
+		private Guna.UI.WinForms.GunaAnimateWindow showFormAnimateWindow;
 		private System.Windows.Forms.ContextMenuStrip contextMenuStrip;
 		private System.Windows.Forms.ToolStripMenuItem deleteProductToolStripMenuItem;
 		private System.Windows.Forms.Timer closeFormTimer;

@@ -87,6 +87,8 @@
 		public MessageBoxDOBForm()
 		{
 			InitializeComponent();
+
+			showFormAnimateWindow.Start();
 		}
 
 		//----------Beginning of the code!----------
@@ -105,5 +107,32 @@
 			this.Height = messageLabel.Height + 110;
 		}
 		#endregion /MessageBoxDOBForm_Load
+
+		#region NoButton_Click
+		private void NoButton_Click(object sender, System.EventArgs e)
+		{
+			closeFormTimer.Start();
+		}
+		#endregion /NoButton_Click
+
+		#region YesButton_Click
+		private void YesButton_Click(object sender, System.EventArgs e)
+		{
+			closeFormTimer.Start();
+		}
+		#endregion /YesButton_Click
+
+		#region CloseFormTimer_Tick
+		private void CloseFormTimer_Tick(object sender, System.EventArgs e)
+		{
+			this.Opacity -= 0.1;
+
+			if (this.Opacity <= 0.0)
+			{
+				closeFormTimer.Stop();
+				this.Dispose();
+			}
+		}
+		#endregion /CloseFormTimer_Tick
 	}
 }

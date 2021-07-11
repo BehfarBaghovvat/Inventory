@@ -118,18 +118,15 @@ namespace Inventory_Forms
 			auditItem.InvoiceSerialNumber = SetInvoiceSerialNumber();
 			invoiceSerialNumberTextBox.Text = auditItem.InvoiceSerialNumber;
 
-			gunaAnimateWindow.Interval = 200;
-			gunaAnimateWindow.AnimationType = Guna.UI.WinForms.GunaAnimateWindow.AnimateWindowType.AW_CENTER;
-			gunaAnimateWindow.Start();
+			showFormAnimateWindow.Interval = 200;
+			showFormAnimateWindow.AnimationType = Guna.UI.WinForms.GunaAnimateWindow.AnimateWindowType.AW_CENTER;
+			showFormAnimateWindow.Start();
 
 			auditItem.Tax_Amount = 0;
 			auditItem.Amount_Payable = 0;
 			auditItem.Amount_Paid = 0;
 			auditItem.Register_Date = Infrastructure.Utility.PersianCalendar(System.DateTime.Now);
 			auditItem.Register_Time = Infrastructure.Utility.ShowTime();
-
-
-
 
 			dateSetInvoiceTextBox.Text = $"{auditItem.Register_Date} - {auditItem.Register_Time}";
 		}
@@ -777,7 +774,7 @@ namespace Inventory_Forms
 				{
 					Agent = auditItem.Client_Name,
 					Amount_Received = $"{auditItem.Amount_Paid: #,0} تومان",
-					Amount_Payment = "0 تومان",
+					Amount_Paid = "0 تومان",
 					Description = $"فروش لوازم یدکی",
 					Invoice_Serial_Numvber = auditItem.InvoiceSerialNumber,
 					Registration_Date = auditItem.Register_Date,
@@ -1054,8 +1051,16 @@ namespace Inventory_Forms
 				accountsReceivable =
 					new Models.AccountsReceivable
 					{
-
+						Amount_Paid = _accountsReceivable.Amount_Paid,
+						Amount_Payable = _accountsReceivable.Amount_Payable,
+						Client_Name = _accountsReceivable.Client_Name,
+						Description = _accountsReceivable.Description,
+						Registration_Date = _accountsReceivable.Registration_Date,
+						Registration_Time = _accountsReceivable.Registration_Time,
+						Tax_Percent = _accountsReceivable.Tax_Percent,
 					};
+				dataBaseContext.AccountsReceivables.Add(accountsReceivable);
+				dataBaseContext.SaveChanges();
 				return true;
 			}
 			catch (System.Exception ex)

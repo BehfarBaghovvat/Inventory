@@ -1,7 +1,7 @@
 ﻿namespace Models
 {
 	/// <summary>
-	/// حساب دریافتی
+	///دفتر معین واریز به صندوق
 	/// </summary>
 	public class AccountsReceivable
 	{

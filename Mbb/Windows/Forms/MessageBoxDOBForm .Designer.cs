@@ -37,6 +37,8 @@
 			this.noButton = new Mbb.Windows.Forms.Button();
 			this.noButtonElipse = new Guna.UI2.WinForms.Guna2Elipse(this.components);
 			this.captionLabel = new Mbb.Windows.Forms.Label();
+			this.showFormAnimateWindow = new Guna.UI.WinForms.GunaAnimateWindow(this.components);
+			this.closeFormTimer = new System.Windows.Forms.Timer(this.components);
 			((System.ComponentModel.ISupportInitialize)(this.iconPicturBox)).BeginInit();
 			this.SuspendLayout();
 			// 
@@ -69,7 +71,7 @@
 			// 
 			// yesButtonElipse
 			// 
-			this.yesButtonElipse.BorderRadius = 14;
+			this.yesButtonElipse.BorderRadius = 5;
 			this.yesButtonElipse.TargetControl = this.yesButton;
 			// 
 			// yesButton
@@ -89,6 +91,7 @@
 			this.yesButton.TabIndex = 14;
 			this.yesButton.Text = "بله";
 			this.yesButton.UseVisualStyleBackColor = false;
+			this.yesButton.Click += new System.EventHandler(this.YesButton_Click);
 			// 
 			// noButton
 			// 
@@ -107,10 +110,11 @@
 			this.noButton.TabIndex = 13;
 			this.noButton.Text = "خیر";
 			this.noButton.UseVisualStyleBackColor = false;
+			this.noButton.Click += new System.EventHandler(this.NoButton_Click);
 			// 
 			// noButtonElipse
 			// 
-			this.noButtonElipse.BorderRadius = 14;
+			this.noButtonElipse.BorderRadius = 5;
 			this.noButtonElipse.TargetControl = this.noButton;
 			// 
 			// captionLabel
@@ -124,6 +128,17 @@
 			this.captionLabel.TabIndex = 15;
 			this.captionLabel.Text = "عنوان";
 			this.captionLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			// 
+			// showFormAnimateWindow
+			// 
+			this.showFormAnimateWindow.AnimationType = Guna.UI.WinForms.GunaAnimateWindow.AnimateWindowType.AW_CENTER;
+			this.showFormAnimateWindow.Interval = 200;
+			this.showFormAnimateWindow.TargetControl = this;
+			// 
+			// closeFormTimer
+			// 
+			this.closeFormTimer.Interval = 5;
+			this.closeFormTimer.Tick += new System.EventHandler(this.CloseFormTimer_Tick);
 			// 
 			// MessageBoxDOBForm
 			// 
@@ -159,5 +174,7 @@
 		private Button noButton;
 		private Guna.UI2.WinForms.Guna2Elipse noButtonElipse;
 		private Label captionLabel;
+		private Guna.UI.WinForms.GunaAnimateWindow showFormAnimateWindow;
+		private System.Windows.Forms.Timer closeFormTimer;
 	}
 }

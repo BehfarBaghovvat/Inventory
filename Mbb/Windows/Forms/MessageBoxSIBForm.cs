@@ -67,6 +67,7 @@ namespace Mbb.Windows.Forms
 		public MessageBoxSIBForm()
 		{
 			InitializeComponent();
+			showFormAnimateWindow.Start();
 		}
 
 		//----------Beginning of the code!----------
@@ -85,5 +86,25 @@ namespace Mbb.Windows.Forms
 			this.Height = messageLabel.Height + 110;
 		}
 		#endregion /MessageBoxSIBForm_Load
+
+		#region OkButton_Click
+		private void OkButton_Click(object sender, EventArgs e)
+		{
+			closeFormTimer.Start();
+		}
+		#endregion /OkButton_Click
+
+		#region CloseFormTimer_Tick
+		private void CloseFormTimer_Tick(object sender, EventArgs e)
+		{
+			this.Opacity -= 0.1;
+
+			if (this.Opacity <= 0.0)
+			{
+				closeFormTimer.Stop();
+				this.Dispose();
+			}
+		}
+		#endregion /CloseFormTimer_Tick
 	}
 }

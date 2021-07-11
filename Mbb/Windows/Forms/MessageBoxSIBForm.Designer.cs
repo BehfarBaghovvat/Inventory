@@ -35,6 +35,8 @@
 			this.okButton = new Mbb.Windows.Forms.Button();
 			this.okButtonElipse = new Guna.UI2.WinForms.Guna2Elipse(this.components);
 			this.captionLabel = new Mbb.Windows.Forms.Label();
+			this.closeFormTimer = new System.Windows.Forms.Timer(this.components);
+			this.showFormAnimateWindow = new Guna.UI.WinForms.GunaAnimateWindow(this.components);
 			((System.ComponentModel.ISupportInitialize)(this.iconPicturBox)).BeginInit();
 			this.SuspendLayout();
 			// 
@@ -80,12 +82,13 @@
 			this.okButton.Name = "okButton";
 			this.okButton.Size = new System.Drawing.Size(120, 30);
 			this.okButton.TabIndex = 14;
-			this.okButton.Text = "باشه";
+			this.okButton.Text = "بسیار خب";
 			this.okButton.UseVisualStyleBackColor = false;
+			this.okButton.Click += new System.EventHandler(this.OkButton_Click);
 			// 
 			// okButtonElipse
 			// 
-			this.okButtonElipse.BorderRadius = 14;
+			this.okButtonElipse.BorderRadius = 5;
 			this.okButtonElipse.TargetControl = this.okButton;
 			// 
 			// captionLabel
@@ -99,6 +102,17 @@
 			this.captionLabel.TabIndex = 15;
 			this.captionLabel.Text = "عنوان";
 			this.captionLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			// 
+			// closeFormTimer
+			// 
+			this.closeFormTimer.Interval = 5;
+			this.closeFormTimer.Tick += new System.EventHandler(this.CloseFormTimer_Tick);
+			// 
+			// showFormAnimateWindow
+			// 
+			this.showFormAnimateWindow.AnimationType = Guna.UI.WinForms.GunaAnimateWindow.AnimateWindowType.AW_CENTER;
+			this.showFormAnimateWindow.Interval = 200;
+			this.showFormAnimateWindow.TargetControl = null;
 			// 
 			// MessageBoxSIBForm
 			// 
@@ -130,5 +144,7 @@
 		private Button okButton;
 		private Guna.UI2.WinForms.Guna2Elipse okButtonElipse;
 		private Label captionLabel;
+		private System.Windows.Forms.Timer closeFormTimer;
+		private Guna.UI.WinForms.GunaAnimateWindow showFormAnimateWindow;
 	}
 }
