@@ -63,10 +63,15 @@ namespace Inventory_Forms
 			Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties30 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
 			Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties31 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
 			Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties32 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
+			Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties33 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
+			Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties34 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
+			Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties35 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
+			Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties36 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
 			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
 			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
 			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
 			this.controlsPanel = new Guna.UI2.WinForms.Guna2Panel();
+			this.cashRegisterButton = new Guna.UI2.WinForms.Guna2GradientButton();
 			this.serviceNameComboBox = new Guna.UI2.WinForms.Guna2ComboBox();
 			this.saveAllServiceButton = new Guna.UI2.WinForms.Guna2GradientButton();
 			this.showReportServiceButton = new Guna.UI2.WinForms.Guna2GradientButton();
@@ -88,8 +93,8 @@ namespace Inventory_Forms
 			this.cachAndPosPaymentRadioButton = new Guna.UI2.WinForms.Guna2CustomRadioButton();
 			this.posPaymentRadioButton = new Guna.UI2.WinForms.Guna2CustomRadioButton();
 			this.cachPaymentRadioButton = new Guna.UI2.WinForms.Guna2CustomRadioButton();
-			this.amountPaymentTextBox = new Mbb.Windows.Forms.Label();
-			this.amountPaymentLabel = new Mbb.Windows.Forms.Label();
+			this.amountPaidTextBox = new Mbb.Windows.Forms.Label();
+			this.amountPaidLabel = new Mbb.Windows.Forms.Label();
 			this.sumPriceTextBox = new Mbb.Windows.Forms.Label();
 			this.sumPriceLabel = new Mbb.Windows.Forms.Label();
 			this.addServiceButton = new Guna.UI2.WinForms.Guna2GradientButton();
@@ -98,6 +103,7 @@ namespace Inventory_Forms
 			this.repairmanNameTextBox = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox();
 			this.clientNameTextBox = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox();
 			this.servicePriceTextBox = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox();
+			this.inventorySerialNumberTextBox = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox();
 			this.registerDateTextBox = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox();
 			this.listServiceDataGridView = new Guna.UI.WinForms.GunaDataGridView();
 			this.Sevice_Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -119,6 +125,7 @@ namespace Inventory_Forms
 			this.controlsPanel.BorderColor = System.Drawing.Color.Indigo;
 			this.controlsPanel.BorderRadius = 15;
 			this.controlsPanel.BorderThickness = 5;
+			this.controlsPanel.Controls.Add(this.cashRegisterButton);
 			this.controlsPanel.Controls.Add(this.serviceNameComboBox);
 			this.controlsPanel.Controls.Add(this.saveAllServiceButton);
 			this.controlsPanel.Controls.Add(this.showReportServiceButton);
@@ -132,8 +139,8 @@ namespace Inventory_Forms
 			this.controlsPanel.Controls.Add(this.cashPaymentTextBox);
 			this.controlsPanel.Controls.Add(this.separatorPanel);
 			this.controlsPanel.Controls.Add(this.paymentTypeGroupBox);
-			this.controlsPanel.Controls.Add(this.amountPaymentTextBox);
-			this.controlsPanel.Controls.Add(this.amountPaymentLabel);
+			this.controlsPanel.Controls.Add(this.amountPaidTextBox);
+			this.controlsPanel.Controls.Add(this.amountPaidLabel);
 			this.controlsPanel.Controls.Add(this.sumPriceTextBox);
 			this.controlsPanel.Controls.Add(this.sumPriceLabel);
 			this.controlsPanel.Controls.Add(this.addServiceButton);
@@ -142,6 +149,7 @@ namespace Inventory_Forms
 			this.controlsPanel.Controls.Add(this.repairmanNameTextBox);
 			this.controlsPanel.Controls.Add(this.clientNameTextBox);
 			this.controlsPanel.Controls.Add(this.servicePriceTextBox);
+			this.controlsPanel.Controls.Add(this.inventorySerialNumberTextBox);
 			this.controlsPanel.Controls.Add(this.registerDateTextBox);
 			this.controlsPanel.Controls.Add(this.listServiceDataGridView);
 			this.controlsPanel.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -151,6 +159,34 @@ namespace Inventory_Forms
 			this.controlsPanel.ShadowDecoration.Parent = this.controlsPanel;
 			this.controlsPanel.Size = new System.Drawing.Size(1150, 650);
 			this.controlsPanel.TabIndex = 0;
+			// 
+			// cashRegisterButton
+			// 
+			this.cashRegisterButton.Animated = true;
+			this.cashRegisterButton.BorderColor = System.Drawing.Color.Transparent;
+			this.cashRegisterButton.BorderRadius = 5;
+			this.cashRegisterButton.CheckedState.Parent = this.cashRegisterButton;
+			this.cashRegisterButton.CustomImages.Parent = this.cashRegisterButton;
+			this.cashRegisterButton.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+			this.cashRegisterButton.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(0)))), ((int)(((byte)(61)))));
+			this.cashRegisterButton.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+			this.cashRegisterButton.ForeColor = System.Drawing.Color.White;
+			this.cashRegisterButton.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(0)))), ((int)(((byte)(61)))));
+			this.cashRegisterButton.HoverState.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+			this.cashRegisterButton.HoverState.Parent = this.cashRegisterButton;
+			this.cashRegisterButton.Image = ((System.Drawing.Image)(resources.GetObject("cashRegisterButton.Image")));
+			this.cashRegisterButton.ImageAlign = System.Windows.Forms.HorizontalAlignment.Right;
+			this.cashRegisterButton.ImageOffset = new System.Drawing.Point(3, 0);
+			this.cashRegisterButton.Location = new System.Drawing.Point(951, 448);
+			this.cashRegisterButton.Name = "cashRegisterButton";
+			this.cashRegisterButton.PressedColor = System.Drawing.Color.White;
+			this.cashRegisterButton.PressedDepth = 60;
+			this.cashRegisterButton.ShadowDecoration.Parent = this.cashRegisterButton;
+			this.cashRegisterButton.Size = new System.Drawing.Size(175, 35);
+			this.cashRegisterButton.TabIndex = 26;
+			this.cashRegisterButton.Text = "ثبت پرداخت";
+			this.cashRegisterButton.TextOffset = new System.Drawing.Point(0, -1);
+			this.cashRegisterButton.Click += new System.EventHandler(this.CashRegisterButton_Click);
 			// 
 			// serviceNameComboBox
 			// 
@@ -173,10 +209,10 @@ namespace Inventory_Forms
 			this.serviceNameComboBox.ItemsAppearance.Parent = this.serviceNameComboBox;
 			this.serviceNameComboBox.ItemsAppearance.SelectedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
 			this.serviceNameComboBox.ItemsAppearance.SelectedForeColor = System.Drawing.Color.White;
-			this.serviceNameComboBox.Location = new System.Drawing.Point(654, 16);
+			this.serviceNameComboBox.Location = new System.Drawing.Point(855, 63);
 			this.serviceNameComboBox.Name = "serviceNameComboBox";
 			this.serviceNameComboBox.ShadowDecoration.Parent = this.serviceNameComboBox;
-			this.serviceNameComboBox.Size = new System.Drawing.Size(250, 31);
+			this.serviceNameComboBox.Size = new System.Drawing.Size(275, 31);
 			this.serviceNameComboBox.Style = Guna.UI2.WinForms.Enums.TextBoxStyle.Material;
 			this.serviceNameComboBox.TabIndex = 1;
 			this.serviceNameComboBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -188,7 +224,7 @@ namespace Inventory_Forms
 			// 
 			this.saveAllServiceButton.Animated = true;
 			this.saveAllServiceButton.BorderColor = System.Drawing.Color.White;
-			this.saveAllServiceButton.BorderRadius = 15;
+			this.saveAllServiceButton.BorderRadius = 5;
 			this.saveAllServiceButton.BorderThickness = 2;
 			this.saveAllServiceButton.CheckedState.Parent = this.saveAllServiceButton;
 			this.saveAllServiceButton.CustomImages.Parent = this.saveAllServiceButton;
@@ -201,19 +237,20 @@ namespace Inventory_Forms
 			this.saveAllServiceButton.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
 			this.saveAllServiceButton.HoverState.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
 			this.saveAllServiceButton.HoverState.Parent = this.saveAllServiceButton;
-			this.saveAllServiceButton.Location = new System.Drawing.Point(495, 119);
+			this.saveAllServiceButton.Location = new System.Drawing.Point(495, 170);
 			this.saveAllServiceButton.Name = "saveAllServiceButton";
 			this.saveAllServiceButton.PressedColor = System.Drawing.Color.White;
 			this.saveAllServiceButton.ShadowDecoration.Parent = this.saveAllServiceButton;
 			this.saveAllServiceButton.Size = new System.Drawing.Size(160, 35);
 			this.saveAllServiceButton.TabIndex = 9;
 			this.saveAllServiceButton.Text = "ذخیره در سیستم";
+			this.saveAllServiceButton.TextOffset = new System.Drawing.Point(0, -1);
 			this.saveAllServiceButton.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
 			// 
 			// showReportServiceButton
 			// 
 			this.showReportServiceButton.Animated = true;
-			this.showReportServiceButton.BorderRadius = 15;
+			this.showReportServiceButton.BorderRadius = 5;
 			this.showReportServiceButton.CheckedState.Parent = this.showReportServiceButton;
 			this.showReportServiceButton.CustomImages.Parent = this.showReportServiceButton;
 			this.showReportServiceButton.Enabled = false;
@@ -224,19 +261,20 @@ namespace Inventory_Forms
 			this.showReportServiceButton.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(0)))), ((int)(((byte)(61)))));
 			this.showReportServiceButton.HoverState.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
 			this.showReportServiceButton.HoverState.Parent = this.showReportServiceButton;
-			this.showReportServiceButton.Location = new System.Drawing.Point(271, 119);
+			this.showReportServiceButton.Location = new System.Drawing.Point(271, 170);
 			this.showReportServiceButton.Name = "showReportServiceButton";
 			this.showReportServiceButton.PressedColor = System.Drawing.Color.White;
 			this.showReportServiceButton.ShadowDecoration.Parent = this.showReportServiceButton;
 			this.showReportServiceButton.Size = new System.Drawing.Size(160, 35);
 			this.showReportServiceButton.TabIndex = 10;
 			this.showReportServiceButton.Text = "گزارش سرویس";
+			this.showReportServiceButton.TextOffset = new System.Drawing.Point(0, -1);
 			this.showReportServiceButton.Click += new System.EventHandler(this.ShowReportServiceButton_Click);
 			// 
 			// newServiceButton
 			// 
 			this.newServiceButton.Animated = true;
-			this.newServiceButton.BorderRadius = 15;
+			this.newServiceButton.BorderRadius = 5;
 			this.newServiceButton.CheckedState.Parent = this.newServiceButton;
 			this.newServiceButton.CustomImages.Parent = this.newServiceButton;
 			this.newServiceButton.Enabled = false;
@@ -247,13 +285,14 @@ namespace Inventory_Forms
 			this.newServiceButton.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
 			this.newServiceButton.HoverState.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(0)))), ((int)(((byte)(61)))));
 			this.newServiceButton.HoverState.Parent = this.newServiceButton;
-			this.newServiceButton.Location = new System.Drawing.Point(105, 119);
+			this.newServiceButton.Location = new System.Drawing.Point(105, 170);
 			this.newServiceButton.Name = "newServiceButton";
 			this.newServiceButton.PressedColor = System.Drawing.Color.White;
 			this.newServiceButton.ShadowDecoration.Parent = this.newServiceButton;
 			this.newServiceButton.Size = new System.Drawing.Size(160, 35);
 			this.newServiceButton.TabIndex = 11;
 			this.newServiceButton.Text = "سرویس جدید";
+			this.newServiceButton.TextOffset = new System.Drawing.Point(0, -1);
 			this.newServiceButton.Click += new System.EventHandler(this.NewServiceButton_Click);
 			// 
 			// serviceInvoiceButton
@@ -266,7 +305,7 @@ namespace Inventory_Forms
 			this.serviceInvoiceButton.HoverState.Parent = this.serviceInvoiceButton;
 			this.serviceInvoiceButton.Image = ((System.Drawing.Image)(resources.GetObject("serviceInvoiceButton.Image")));
 			this.serviceInvoiceButton.ImageSize = new System.Drawing.Size(40, 40);
-			this.serviceInvoiceButton.Location = new System.Drawing.Point(33, 104);
+			this.serviceInvoiceButton.Location = new System.Drawing.Point(33, 155);
 			this.serviceInvoiceButton.Name = "serviceInvoiceButton";
 			this.serviceInvoiceButton.PressedColor = System.Drawing.Color.White;
 			this.serviceInvoiceButton.ShadowDecoration.Parent = this.serviceInvoiceButton;
@@ -277,7 +316,7 @@ namespace Inventory_Forms
 			// reductionServiceButton
 			// 
 			this.reductionServiceButton.Animated = true;
-			this.reductionServiceButton.BorderRadius = 15;
+			this.reductionServiceButton.BorderRadius = 5;
 			this.reductionServiceButton.CheckedState.Parent = this.reductionServiceButton;
 			this.reductionServiceButton.CustomImages.Parent = this.reductionServiceButton;
 			this.reductionServiceButton.Enabled = false;
@@ -288,23 +327,24 @@ namespace Inventory_Forms
 			this.reductionServiceButton.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(0)))), ((int)(((byte)(61)))));
 			this.reductionServiceButton.HoverState.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
 			this.reductionServiceButton.HoverState.Parent = this.reductionServiceButton;
-			this.reductionServiceButton.Location = new System.Drawing.Point(804, 119);
+			this.reductionServiceButton.Location = new System.Drawing.Point(804, 170);
 			this.reductionServiceButton.Name = "reductionServiceButton";
 			this.reductionServiceButton.PressedColor = System.Drawing.Color.White;
 			this.reductionServiceButton.ShadowDecoration.Parent = this.reductionServiceButton;
 			this.reductionServiceButton.Size = new System.Drawing.Size(160, 35);
 			this.reductionServiceButton.TabIndex = 8;
 			this.reductionServiceButton.Text = "کاهش سرویس";
+			this.reductionServiceButton.TextOffset = new System.Drawing.Point(0, -1);
 			this.reductionServiceButton.Click += new System.EventHandler(this.ReductionServiceButton_Click);
 			// 
 			// remainingTextBox
 			// 
 			this.remainingTextBox.Font = new System.Drawing.Font("IRANSansFaNum", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
 			this.remainingTextBox.ForeColor = System.Drawing.Color.White;
-			this.remainingTextBox.Location = new System.Drawing.Point(13, 582);
+			this.remainingTextBox.Location = new System.Drawing.Point(22, 557);
 			this.remainingTextBox.Name = "remainingTextBox";
 			this.remainingTextBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-			this.remainingTextBox.Size = new System.Drawing.Size(360, 31);
+			this.remainingTextBox.Size = new System.Drawing.Size(360, 25);
 			this.remainingTextBox.TabIndex = 23;
 			this.remainingTextBox.Text = "0 تومان";
 			this.remainingTextBox.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -314,7 +354,7 @@ namespace Inventory_Forms
 			this.remainingLabel.AutoSize = true;
 			this.remainingLabel.Font = new System.Drawing.Font("IRANSans", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
 			this.remainingLabel.ForeColor = System.Drawing.Color.White;
-			this.remainingLabel.Location = new System.Drawing.Point(397, 586);
+			this.remainingLabel.Location = new System.Drawing.Point(406, 558);
 			this.remainingLabel.Name = "remainingLabel";
 			this.remainingLabel.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
 			this.remainingLabel.Size = new System.Drawing.Size(112, 22);
@@ -326,7 +366,7 @@ namespace Inventory_Forms
 			this.plusMarkLabel.AutoSize = true;
 			this.plusMarkLabel.Font = new System.Drawing.Font("IRANSans", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
 			this.plusMarkLabel.ForeColor = System.Drawing.Color.White;
-			this.plusMarkLabel.Location = new System.Drawing.Point(896, 498);
+			this.plusMarkLabel.Location = new System.Drawing.Point(896, 496);
 			this.plusMarkLabel.Name = "plusMarkLabel";
 			this.plusMarkLabel.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
 			this.plusMarkLabel.Size = new System.Drawing.Size(25, 31);
@@ -361,7 +401,7 @@ namespace Inventory_Forms
 			this.posPaymentTextBox.IconRight = null;
 			this.posPaymentTextBox.IconRightCursor = System.Windows.Forms.Cursors.IBeam;
 			this.posPaymentTextBox.Lines = new string[0];
-			this.posPaymentTextBox.Location = new System.Drawing.Point(690, 496);
+			this.posPaymentTextBox.Location = new System.Drawing.Point(690, 494);
 			this.posPaymentTextBox.MaximumSize = new System.Drawing.Size(200, 35);
 			this.posPaymentTextBox.MaxLength = 32767;
 			this.posPaymentTextBox.MinimumSize = new System.Drawing.Size(100, 35);
@@ -441,7 +481,7 @@ namespace Inventory_Forms
 			this.cashPaymentTextBox.IconRight = null;
 			this.cashPaymentTextBox.IconRightCursor = System.Windows.Forms.Cursors.IBeam;
 			this.cashPaymentTextBox.Lines = new string[0];
-			this.cashPaymentTextBox.Location = new System.Drawing.Point(926, 496);
+			this.cashPaymentTextBox.Location = new System.Drawing.Point(926, 494);
 			this.cashPaymentTextBox.MaximumSize = new System.Drawing.Size(200, 35);
 			this.cashPaymentTextBox.MaxLength = 32767;
 			this.cashPaymentTextBox.MinimumSize = new System.Drawing.Size(100, 35);
@@ -496,7 +536,7 @@ namespace Inventory_Forms
 			// separatorPanel
 			// 
 			this.separatorPanel.BackColor = System.Drawing.Color.White;
-			this.separatorPanel.Location = new System.Drawing.Point(12, 565);
+			this.separatorPanel.Location = new System.Drawing.Point(21, 540);
 			this.separatorPanel.Name = "separatorPanel";
 			this.separatorPanel.Size = new System.Drawing.Size(495, 3);
 			this.separatorPanel.TabIndex = 21;
@@ -517,7 +557,7 @@ namespace Inventory_Forms
 			this.paymentTypeGroupBox.CustomBorderThickness = new System.Windows.Forms.Padding(0, 25, 0, 0);
 			this.paymentTypeGroupBox.Font = new System.Drawing.Font("IRANSans", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.paymentTypeGroupBox.ForeColor = System.Drawing.Color.White;
-			this.paymentTypeGroupBox.Location = new System.Drawing.Point(690, 542);
+			this.paymentTypeGroupBox.Location = new System.Drawing.Point(690, 540);
 			this.paymentTypeGroupBox.Name = "paymentTypeGroupBox";
 			this.paymentTypeGroupBox.ShadowDecoration.Parent = this.paymentTypeGroupBox;
 			this.paymentTypeGroupBox.Size = new System.Drawing.Size(436, 89);
@@ -668,39 +708,39 @@ namespace Inventory_Forms
 			this.cachPaymentRadioButton.UncheckedState.Parent = this.cachPaymentRadioButton;
 			this.cachPaymentRadioButton.CheckedChanged += new System.EventHandler(this.CachPaymentRadioButton_CheckedChanged);
 			// 
-			// amountPaymentTextBox
+			// amountPaidTextBox
 			// 
-			this.amountPaymentTextBox.Font = new System.Drawing.Font("IRANSansFaNum", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-			this.amountPaymentTextBox.ForeColor = System.Drawing.Color.White;
-			this.amountPaymentTextBox.Location = new System.Drawing.Point(12, 521);
-			this.amountPaymentTextBox.Name = "amountPaymentTextBox";
-			this.amountPaymentTextBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-			this.amountPaymentTextBox.Size = new System.Drawing.Size(360, 31);
-			this.amountPaymentTextBox.TabIndex = 20;
-			this.amountPaymentTextBox.Text = "0 تومان";
-			this.amountPaymentTextBox.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-			this.amountPaymentTextBox.TextChanged += new System.EventHandler(this.AmountPaymentTextBox_TextChanged);
+			this.amountPaidTextBox.Font = new System.Drawing.Font("IRANSansFaNum", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+			this.amountPaidTextBox.ForeColor = System.Drawing.Color.White;
+			this.amountPaidTextBox.Location = new System.Drawing.Point(21, 498);
+			this.amountPaidTextBox.Name = "amountPaidTextBox";
+			this.amountPaidTextBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+			this.amountPaidTextBox.Size = new System.Drawing.Size(360, 25);
+			this.amountPaidTextBox.TabIndex = 20;
+			this.amountPaidTextBox.Text = "0 تومان";
+			this.amountPaidTextBox.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+			this.amountPaidTextBox.TextChanged += new System.EventHandler(this.AmountPaidTextBox_TextChanged);
 			// 
-			// amountPaymentLabel
+			// amountPaidLabel
 			// 
-			this.amountPaymentLabel.AutoSize = true;
-			this.amountPaymentLabel.Font = new System.Drawing.Font("IRANSans", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-			this.amountPaymentLabel.ForeColor = System.Drawing.Color.White;
-			this.amountPaymentLabel.Location = new System.Drawing.Point(396, 525);
-			this.amountPaymentLabel.Name = "amountPaymentLabel";
-			this.amountPaymentLabel.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-			this.amountPaymentLabel.Size = new System.Drawing.Size(86, 22);
-			this.amountPaymentLabel.TabIndex = 19;
-			this.amountPaymentLabel.Text = "مبلغ پرداختی:";
+			this.amountPaidLabel.AutoSize = true;
+			this.amountPaidLabel.Font = new System.Drawing.Font("IRANSans", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+			this.amountPaidLabel.ForeColor = System.Drawing.Color.White;
+			this.amountPaidLabel.Location = new System.Drawing.Point(405, 499);
+			this.amountPaidLabel.Name = "amountPaidLabel";
+			this.amountPaidLabel.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+			this.amountPaidLabel.Size = new System.Drawing.Size(86, 22);
+			this.amountPaidLabel.TabIndex = 19;
+			this.amountPaidLabel.Text = "مبلغ پرداختی:";
 			// 
 			// sumPriceTextBox
 			// 
 			this.sumPriceTextBox.Font = new System.Drawing.Font("IRANSansFaNum", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
 			this.sumPriceTextBox.ForeColor = System.Drawing.Color.White;
-			this.sumPriceTextBox.Location = new System.Drawing.Point(12, 488);
+			this.sumPriceTextBox.Location = new System.Drawing.Point(21, 455);
 			this.sumPriceTextBox.Name = "sumPriceTextBox";
 			this.sumPriceTextBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-			this.sumPriceTextBox.Size = new System.Drawing.Size(360, 31);
+			this.sumPriceTextBox.Size = new System.Drawing.Size(360, 25);
 			this.sumPriceTextBox.TabIndex = 18;
 			this.sumPriceTextBox.Text = "0 تومان";
 			this.sumPriceTextBox.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -711,7 +751,7 @@ namespace Inventory_Forms
 			this.sumPriceLabel.AutoSize = true;
 			this.sumPriceLabel.Font = new System.Drawing.Font("IRANSans", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
 			this.sumPriceLabel.ForeColor = System.Drawing.Color.White;
-			this.sumPriceLabel.Location = new System.Drawing.Point(396, 488);
+			this.sumPriceLabel.Location = new System.Drawing.Point(405, 456);
 			this.sumPriceLabel.Name = "sumPriceLabel";
 			this.sumPriceLabel.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
 			this.sumPriceLabel.Size = new System.Drawing.Size(80, 22);
@@ -721,7 +761,7 @@ namespace Inventory_Forms
 			// addServiceButton
 			// 
 			this.addServiceButton.Animated = true;
-			this.addServiceButton.BorderRadius = 15;
+			this.addServiceButton.BorderRadius = 5;
 			this.addServiceButton.CheckedState.Parent = this.addServiceButton;
 			this.addServiceButton.CustomImages.Parent = this.addServiceButton;
 			this.addServiceButton.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(0)))), ((int)(((byte)(61)))));
@@ -731,13 +771,14 @@ namespace Inventory_Forms
 			this.addServiceButton.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
 			this.addServiceButton.HoverState.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(0)))), ((int)(((byte)(61)))));
 			this.addServiceButton.HoverState.Parent = this.addServiceButton;
-			this.addServiceButton.Location = new System.Drawing.Point(970, 119);
+			this.addServiceButton.Location = new System.Drawing.Point(970, 170);
 			this.addServiceButton.Name = "addServiceButton";
 			this.addServiceButton.PressedColor = System.Drawing.Color.White;
 			this.addServiceButton.ShadowDecoration.Parent = this.addServiceButton;
 			this.addServiceButton.Size = new System.Drawing.Size(160, 35);
 			this.addServiceButton.TabIndex = 7;
 			this.addServiceButton.Text = "افزودن سرویس";
+			this.addServiceButton.TextOffset = new System.Drawing.Point(0, -1);
 			this.addServiceButton.Click += new System.EventHandler(this.AddServiceButton_Click);
 			// 
 			// serviceNumberTextBox
@@ -768,7 +809,7 @@ namespace Inventory_Forms
 			this.serviceNumberTextBox.IconRight = null;
 			this.serviceNumberTextBox.IconRightCursor = System.Windows.Forms.Cursors.IBeam;
 			this.serviceNumberTextBox.Lines = new string[0];
-			this.serviceNumberTextBox.Location = new System.Drawing.Point(302, 12);
+			this.serviceNumberTextBox.Location = new System.Drawing.Point(523, 59);
 			this.serviceNumberTextBox.MaximumSize = new System.Drawing.Size(100, 35);
 			this.serviceNumberTextBox.MaxLength = 32767;
 			this.serviceNumberTextBox.MinimumSize = new System.Drawing.Size(100, 35);
@@ -846,7 +887,7 @@ namespace Inventory_Forms
 			this.descriptionTextBox.IconRight = null;
 			this.descriptionTextBox.IconRightCursor = System.Windows.Forms.Cursors.IBeam;
 			this.descriptionTextBox.Lines = new string[0];
-			this.descriptionTextBox.Location = new System.Drawing.Point(269, 63);
+			this.descriptionTextBox.Location = new System.Drawing.Point(495, 110);
 			this.descriptionTextBox.MaximumSize = new System.Drawing.Size(645, 35);
 			this.descriptionTextBox.MaxLength = 32767;
 			this.descriptionTextBox.MinimumSize = new System.Drawing.Size(100, 35);
@@ -924,7 +965,7 @@ namespace Inventory_Forms
 			this.repairmanNameTextBox.IconRight = null;
 			this.repairmanNameTextBox.IconRightCursor = System.Windows.Forms.Cursors.IBeam;
 			this.repairmanNameTextBox.Lines = new string[0];
-			this.repairmanNameTextBox.Location = new System.Drawing.Point(930, 63);
+			this.repairmanNameTextBox.Location = new System.Drawing.Point(282, 12);
 			this.repairmanNameTextBox.MaximumSize = new System.Drawing.Size(200, 35);
 			this.repairmanNameTextBox.MaxLength = 32767;
 			this.repairmanNameTextBox.MinimumSize = new System.Drawing.Size(100, 35);
@@ -1002,7 +1043,7 @@ namespace Inventory_Forms
 			this.clientNameTextBox.IconRight = null;
 			this.clientNameTextBox.IconRightCursor = System.Windows.Forms.Cursors.IBeam;
 			this.clientNameTextBox.Lines = new string[0];
-			this.clientNameTextBox.Location = new System.Drawing.Point(930, 12);
+			this.clientNameTextBox.Location = new System.Drawing.Point(498, 12);
 			this.clientNameTextBox.MaximumSize = new System.Drawing.Size(200, 35);
 			this.clientNameTextBox.MaxLength = 32767;
 			this.clientNameTextBox.MinimumSize = new System.Drawing.Size(100, 35);
@@ -1080,7 +1121,7 @@ namespace Inventory_Forms
 			this.servicePriceTextBox.IconRight = null;
 			this.servicePriceTextBox.IconRightCursor = System.Windows.Forms.Cursors.IBeam;
 			this.servicePriceTextBox.Lines = new string[0];
-			this.servicePriceTextBox.Location = new System.Drawing.Point(428, 12);
+			this.servicePriceTextBox.Location = new System.Drawing.Point(639, 59);
 			this.servicePriceTextBox.MaximumSize = new System.Drawing.Size(200, 35);
 			this.servicePriceTextBox.MaxLength = 32767;
 			this.servicePriceTextBox.MinimumSize = new System.Drawing.Size(100, 35);
@@ -1131,6 +1172,81 @@ namespace Inventory_Forms
 			this.servicePriceTextBox.Enter += new System.EventHandler(this.ServicePriceTextBox_Enter);
 			this.servicePriceTextBox.Leave += new System.EventHandler(this.ServicePriceTextBox_Leave);
 			// 
+			// inventorySerialNumberTextBox
+			// 
+			this.inventorySerialNumberTextBox.AcceptsReturn = false;
+			this.inventorySerialNumberTextBox.AcceptsTab = false;
+			this.inventorySerialNumberTextBox.AnimationSpeed = 200;
+			this.inventorySerialNumberTextBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
+			this.inventorySerialNumberTextBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
+			this.inventorySerialNumberTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(0)))), ((int)(((byte)(61)))));
+			this.inventorySerialNumberTextBox.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("inventorySerialNumberTextBox.BackgroundImage")));
+			this.inventorySerialNumberTextBox.BorderColorActive = System.Drawing.Color.Empty;
+			this.inventorySerialNumberTextBox.BorderColorDisabled = System.Drawing.Color.Empty;
+			this.inventorySerialNumberTextBox.BorderColorHover = System.Drawing.Color.Empty;
+			this.inventorySerialNumberTextBox.BorderColorIdle = System.Drawing.Color.Maroon;
+			this.inventorySerialNumberTextBox.BorderRadius = 1;
+			this.inventorySerialNumberTextBox.BorderThickness = 3;
+			this.inventorySerialNumberTextBox.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
+			this.inventorySerialNumberTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
+			this.inventorySerialNumberTextBox.DefaultFont = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.inventorySerialNumberTextBox.DefaultText = "";
+			this.inventorySerialNumberTextBox.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(0)))), ((int)(((byte)(61)))));
+			this.inventorySerialNumberTextBox.ForeColor = System.Drawing.Color.White;
+			this.inventorySerialNumberTextBox.HideSelection = true;
+			this.inventorySerialNumberTextBox.IconLeft = null;
+			this.inventorySerialNumberTextBox.IconLeftCursor = System.Windows.Forms.Cursors.IBeam;
+			this.inventorySerialNumberTextBox.IconPadding = 10;
+			this.inventorySerialNumberTextBox.IconRight = null;
+			this.inventorySerialNumberTextBox.IconRightCursor = System.Windows.Forms.Cursors.IBeam;
+			this.inventorySerialNumberTextBox.Lines = new string[0];
+			this.inventorySerialNumberTextBox.Location = new System.Drawing.Point(714, 12);
+			this.inventorySerialNumberTextBox.MaximumSize = new System.Drawing.Size(200, 35);
+			this.inventorySerialNumberTextBox.MaxLength = 32767;
+			this.inventorySerialNumberTextBox.MinimumSize = new System.Drawing.Size(100, 35);
+			this.inventorySerialNumberTextBox.Modified = false;
+			this.inventorySerialNumberTextBox.Multiline = false;
+			this.inventorySerialNumberTextBox.Name = "inventorySerialNumberTextBox";
+			stateProperties29.BorderColor = System.Drawing.Color.Empty;
+			stateProperties29.FillColor = System.Drawing.Color.Empty;
+			stateProperties29.ForeColor = System.Drawing.Color.Empty;
+			stateProperties29.PlaceholderForeColor = System.Drawing.Color.Empty;
+			this.inventorySerialNumberTextBox.OnActiveState = stateProperties29;
+			stateProperties30.BorderColor = System.Drawing.Color.Empty;
+			stateProperties30.FillColor = System.Drawing.Color.White;
+			stateProperties30.ForeColor = System.Drawing.Color.Empty;
+			stateProperties30.PlaceholderForeColor = System.Drawing.Color.Silver;
+			this.inventorySerialNumberTextBox.OnDisabledState = stateProperties30;
+			stateProperties31.BorderColor = System.Drawing.Color.Empty;
+			stateProperties31.FillColor = System.Drawing.Color.Empty;
+			stateProperties31.ForeColor = System.Drawing.Color.Empty;
+			stateProperties31.PlaceholderForeColor = System.Drawing.Color.Empty;
+			this.inventorySerialNumberTextBox.OnHoverState = stateProperties31;
+			stateProperties32.BorderColor = System.Drawing.Color.Maroon;
+			stateProperties32.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(0)))), ((int)(((byte)(61)))));
+			stateProperties32.ForeColor = System.Drawing.Color.White;
+			stateProperties32.PlaceholderForeColor = System.Drawing.Color.Empty;
+			this.inventorySerialNumberTextBox.OnIdleState = stateProperties32;
+			this.inventorySerialNumberTextBox.PasswordChar = '\0';
+			this.inventorySerialNumberTextBox.PlaceholderForeColor = System.Drawing.Color.Silver;
+			this.inventorySerialNumberTextBox.PlaceholderText = "Inventory Serial Number";
+			this.inventorySerialNumberTextBox.ReadOnly = true;
+			this.inventorySerialNumberTextBox.ScrollBars = System.Windows.Forms.ScrollBars.None;
+			this.inventorySerialNumberTextBox.SelectedText = "";
+			this.inventorySerialNumberTextBox.SelectionLength = 0;
+			this.inventorySerialNumberTextBox.SelectionStart = 0;
+			this.inventorySerialNumberTextBox.ShortcutsEnabled = true;
+			this.inventorySerialNumberTextBox.Size = new System.Drawing.Size(200, 35);
+			this.inventorySerialNumberTextBox.Style = Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox._Style.Material;
+			this.inventorySerialNumberTextBox.TabIndex = 4;
+			this.inventorySerialNumberTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+			this.inventorySerialNumberTextBox.TextMarginBottom = 0;
+			this.inventorySerialNumberTextBox.TextMarginLeft = 5;
+			this.inventorySerialNumberTextBox.TextMarginTop = 0;
+			this.inventorySerialNumberTextBox.TextPlaceholder = "Inventory Serial Number";
+			this.inventorySerialNumberTextBox.UseSystemPasswordChar = false;
+			this.inventorySerialNumberTextBox.WordWrap = true;
+			// 
 			// registerDateTextBox
 			// 
 			this.registerDateTextBox.AcceptsReturn = false;
@@ -1159,33 +1275,33 @@ namespace Inventory_Forms
 			this.registerDateTextBox.IconRight = null;
 			this.registerDateTextBox.IconRightCursor = System.Windows.Forms.Cursors.IBeam;
 			this.registerDateTextBox.Lines = new string[0];
-			this.registerDateTextBox.Location = new System.Drawing.Point(50, 12);
+			this.registerDateTextBox.Location = new System.Drawing.Point(930, 12);
 			this.registerDateTextBox.MaximumSize = new System.Drawing.Size(200, 35);
 			this.registerDateTextBox.MaxLength = 32767;
 			this.registerDateTextBox.MinimumSize = new System.Drawing.Size(100, 35);
 			this.registerDateTextBox.Modified = false;
 			this.registerDateTextBox.Multiline = false;
 			this.registerDateTextBox.Name = "registerDateTextBox";
-			stateProperties29.BorderColor = System.Drawing.Color.Empty;
-			stateProperties29.FillColor = System.Drawing.Color.Empty;
-			stateProperties29.ForeColor = System.Drawing.Color.Empty;
-			stateProperties29.PlaceholderForeColor = System.Drawing.Color.Empty;
-			this.registerDateTextBox.OnActiveState = stateProperties29;
-			stateProperties30.BorderColor = System.Drawing.Color.Empty;
-			stateProperties30.FillColor = System.Drawing.Color.White;
-			stateProperties30.ForeColor = System.Drawing.Color.Empty;
-			stateProperties30.PlaceholderForeColor = System.Drawing.Color.Silver;
-			this.registerDateTextBox.OnDisabledState = stateProperties30;
-			stateProperties31.BorderColor = System.Drawing.Color.Empty;
-			stateProperties31.FillColor = System.Drawing.Color.Empty;
-			stateProperties31.ForeColor = System.Drawing.Color.Empty;
-			stateProperties31.PlaceholderForeColor = System.Drawing.Color.Empty;
-			this.registerDateTextBox.OnHoverState = stateProperties31;
-			stateProperties32.BorderColor = System.Drawing.Color.Maroon;
-			stateProperties32.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(0)))), ((int)(((byte)(61)))));
-			stateProperties32.ForeColor = System.Drawing.Color.White;
-			stateProperties32.PlaceholderForeColor = System.Drawing.Color.Empty;
-			this.registerDateTextBox.OnIdleState = stateProperties32;
+			stateProperties33.BorderColor = System.Drawing.Color.Empty;
+			stateProperties33.FillColor = System.Drawing.Color.Empty;
+			stateProperties33.ForeColor = System.Drawing.Color.Empty;
+			stateProperties33.PlaceholderForeColor = System.Drawing.Color.Empty;
+			this.registerDateTextBox.OnActiveState = stateProperties33;
+			stateProperties34.BorderColor = System.Drawing.Color.Empty;
+			stateProperties34.FillColor = System.Drawing.Color.White;
+			stateProperties34.ForeColor = System.Drawing.Color.Empty;
+			stateProperties34.PlaceholderForeColor = System.Drawing.Color.Silver;
+			this.registerDateTextBox.OnDisabledState = stateProperties34;
+			stateProperties35.BorderColor = System.Drawing.Color.Empty;
+			stateProperties35.FillColor = System.Drawing.Color.Empty;
+			stateProperties35.ForeColor = System.Drawing.Color.Empty;
+			stateProperties35.PlaceholderForeColor = System.Drawing.Color.Empty;
+			this.registerDateTextBox.OnHoverState = stateProperties35;
+			stateProperties36.BorderColor = System.Drawing.Color.Maroon;
+			stateProperties36.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(0)))), ((int)(((byte)(61)))));
+			stateProperties36.ForeColor = System.Drawing.Color.White;
+			stateProperties36.PlaceholderForeColor = System.Drawing.Color.Empty;
+			this.registerDateTextBox.OnIdleState = stateProperties36;
 			this.registerDateTextBox.PasswordChar = '\0';
 			this.registerDateTextBox.PlaceholderForeColor = System.Drawing.Color.Silver;
 			this.registerDateTextBox.PlaceholderText = "تاریخ سرویس";
@@ -1221,7 +1337,7 @@ namespace Inventory_Forms
 			this.listServiceDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
 			this.listServiceDataGridView.BackgroundColor = System.Drawing.Color.White;
 			this.listServiceDataGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
-			this.listServiceDataGridView.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+			this.listServiceDataGridView.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
 			this.listServiceDataGridView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
 			dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
 			dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(148)))), ((int)(((byte)(0)))), ((int)(((byte)(211)))));
@@ -1250,7 +1366,7 @@ namespace Inventory_Forms
 			this.listServiceDataGridView.DefaultCellStyle = dataGridViewCellStyle3;
 			this.listServiceDataGridView.EnableHeadersVisualStyles = false;
 			this.listServiceDataGridView.GridColor = System.Drawing.Color.White;
-			this.listServiceDataGridView.Location = new System.Drawing.Point(13, 160);
+			this.listServiceDataGridView.Location = new System.Drawing.Point(13, 217);
 			this.listServiceDataGridView.MultiSelect = false;
 			this.listServiceDataGridView.Name = "listServiceDataGridView";
 			this.listServiceDataGridView.ReadOnly = true;
@@ -1267,7 +1383,7 @@ namespace Inventory_Forms
 			this.listServiceDataGridView.RowTemplate.Height = 30;
 			this.listServiceDataGridView.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
 			this.listServiceDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-			this.listServiceDataGridView.Size = new System.Drawing.Size(1125, 322);
+			this.listServiceDataGridView.Size = new System.Drawing.Size(1125, 225);
 			this.listServiceDataGridView.TabIndex = 13;
 			this.listServiceDataGridView.Theme = Guna.UI.WinForms.GunaDataGridViewPresetThemes.Turquoise;
 			this.listServiceDataGridView.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(223)))), ((int)(((byte)(179)))), ((int)(((byte)(241)))));
@@ -1396,8 +1512,8 @@ namespace Inventory_Forms
 		private Guna.UI2.WinForms.Guna2CustomRadioButton cachAndPosPaymentRadioButton;
 		private Guna.UI2.WinForms.Guna2CustomRadioButton posPaymentRadioButton;
 		private Guna.UI2.WinForms.Guna2CustomRadioButton cachPaymentRadioButton;
-		private Mbb.Windows.Forms.Label amountPaymentTextBox;
-		private Mbb.Windows.Forms.Label amountPaymentLabel;
+		private Mbb.Windows.Forms.Label amountPaidTextBox;
+		private Mbb.Windows.Forms.Label amountPaidLabel;
 		private Mbb.Windows.Forms.Label sumPriceTextBox;
 		private Mbb.Windows.Forms.Label sumPriceLabel;
 		private Guna.UI2.WinForms.Guna2Button serviceInvoiceButton;
@@ -1413,5 +1529,7 @@ namespace Inventory_Forms
 		private System.Windows.Forms.ContextMenuStrip contextMenuStrip;
 		private System.Windows.Forms.ToolStripMenuItem editServiceToolStripMenuItem;
 		private Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox repairmanNameTextBox;
+		private Guna.UI2.WinForms.Guna2GradientButton cashRegisterButton;
+		private Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox inventorySerialNumberTextBox;
 	}
 }

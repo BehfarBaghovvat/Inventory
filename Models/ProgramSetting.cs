@@ -12,8 +12,8 @@
 
 		#region Capital_Display
 		//-----DisplayName field for Capital_Display
-		[System.ComponentModel.DisplayName(displayName: "نمایش سرمایه")]
-		public bool Capital_Display { get; set; }
+		[System.ComponentModel.DisplayName(displayName: "اطلاعیه سرمایه")]
+		public bool Capital_Notification { get; set; }
 		#endregion /Capital_Display
 
 		#region Id
@@ -23,6 +23,8 @@
 		[System.ComponentModel.DataAnnotations.Key]
 		public int Id { get; set; }
 		#endregion /Id
+
+
 
 		
 	}

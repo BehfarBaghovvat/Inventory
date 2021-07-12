@@ -82,8 +82,21 @@ namespace Inventory_Forms
 			}
 		}
 
-		private Models.AccountsReceivable accountsReceivable = new Models.AccountsReceivable();
-		
+		private Models.AccountsReceivable _accountsReceivable;
+		public Models.AccountsReceivable AccountsReceivable
+		{
+			get 
+			{
+				if (_accountsReceivable == null)
+				{
+					_accountsReceivable = 
+						new Models.AccountsReceivable();
+				}
+				return _accountsReceivable;
+			}
+			set 
+			{ _accountsReceivable = value; }
+		}
 
 		private ProcutSalesForm _myProcutSalesForm;
 		public ProcutSalesForm MyProcutSalesForm
@@ -412,18 +425,25 @@ namespace Inventory_Forms
 		#region CashRegisterButton_Click
 		private void CashRegisterButton_Click(object sender, System.EventArgs e)
 		{
-			accountsReceivable.Client_Name = clientNameTextBox.Text;
-			accountsReceivable.Amount_Payable = amountPayableTextBox.Text;
-			accountsReceivable.Amount_Paid = amountPaidTextBox.Text;
-			accountsReceivable.Remaininig_Amount = remainingAmountTextBox.Text;
+			AccountsReceivable.Client_Name = clientNameTextBox.Text;
+			AccountsReceivable.Amount_Payable = amountPayableTextBox.Text;
+			AccountsReceivable.Amount_Paid = amountPaidTextBox.Text;
+			AccountsReceivable.Remaininig_Amount = remainingAmountTextBox.Text;
 
-			if (Deposit(auditItem))
+			if (Deposit(auditItem) && AccountRecivedBook(AccountsReceivable) && SetDailyOffice(auditItem))
 			{
+				Infrastructure.Utility.PopupNotification(message: "عملیات با موفقیت انجام گردید.", caption: Infrastructure.PopupNotificationForm.Caption.موفقیت);
 
+				//--- درصورت نیاز به نمایش مبلغ صندوق از کد زیر استفاده گردد.
+
+				if (true)
+				{
+
+				}
+
+
+				return;
 			}
-
-
-
 		}
 		#endregion /CashRegisterButton_Click
 
@@ -735,6 +755,56 @@ namespace Inventory_Forms
 
 		#region Function
 
+		#region AccountRecivedBook
+		/// <summary>
+		/// ثبت در دفتر معین واریزی
+		/// </summary>
+		/// <param name="_accountsReceivable"></param>
+		private bool AccountRecivedBook(Models.AccountsReceivable _accountsReceivable)
+		{
+			Models.DataBaseContext dataBaseContext = null;
+			try
+			{
+				dataBaseContext =
+					new Models.DataBaseContext();
+
+				Models.AccountsReceivable accountsReceivable =
+					dataBaseContext.AccountsReceivables
+					.FirstOrDefault();
+
+				accountsReceivable =
+					new Models.AccountsReceivable
+					{
+						Amount_Paid = _accountsReceivable.Amount_Paid,
+						Amount_Payable = _accountsReceivable.Amount_Payable,
+						Client_Name = _accountsReceivable.Client_Name,
+						Description = _accountsReceivable.Description,
+						Registration_Date = _accountsReceivable.Registration_Date,
+						Registration_Time = _accountsReceivable.Registration_Time,
+						Tax_Percent = _accountsReceivable.Tax_Percent,
+					};
+
+				dataBaseContext.AccountsReceivables.Add(accountsReceivable);
+				dataBaseContext.SaveChanges();
+				return true;
+			}
+			catch (System.Exception ex)
+			{
+				Infrastructure.Utility.ExceptionShow(ex);
+				return false;
+			}
+			finally
+			{
+				if (dataBaseContext != null)
+				{
+					dataBaseContext.Dispose();
+					dataBaseContext = null;
+				}
+			}
+		}
+
+		#endregion /AccountRecivedBook
+
 		#region CalculatePurchaseAmount
 		public void CalculatePurchaseAmount()
 		{
@@ -760,7 +830,7 @@ namespace Inventory_Forms
 		/// ثبت تمام هزینه ها در دفتر روزنامه
 		/// </summary>
 		/// <param name="auditItem"></param>
-		private void SetDailyOffice(AuditItem auditItem)
+		private bool SetDailyOffice(AuditItem auditItem)
 		{
 			Models.DataBaseContext dataBaseContext = null;
 
@@ -783,10 +853,13 @@ namespace Inventory_Forms
 
 				dataBaseContext.DailyOffices.Add(dailyOffice);
 				dataBaseContext.SaveChanges();
+
+				return true;
 			}
 			catch (System.Exception ex)
 			{
 				Infrastructure.Utility.ExceptionShow(ex);
+				return false;
 			}
 		}
 		#endregion /SetDailyOffice
@@ -974,6 +1047,10 @@ namespace Inventory_Forms
 		#endregion /SetItemsBillSale
 
 		#region SetInvoiceSerialNumber
+		/// <summary>
+		/// ساخت شماره فاکتور
+		/// </summary>
+		/// <returns></returns>
 		private string SetInvoiceSerialNumber()
 		{
 			string getSerial = null,
@@ -1031,57 +1108,8 @@ namespace Inventory_Forms
 		}
 		#endregion /Inbox
 
-		#region FinancialOfficeInput
-		/// <summary>
-		/// ثبت داده های مالی در دفتر معین پرداختی
-		/// </summary>
-		/// <param name="_accountsReceivable"></param>
-		private bool RecivedAccountBook(Models.AccountsReceivable _accountsReceivable)
-		{
-			Models.DataBaseContext dataBaseContext = null;
-			try
-			{
-				dataBaseContext =
-					new Models.DataBaseContext();
-
-				Models.AccountsReceivable accountsReceivable =
-					dataBaseContext.AccountsReceivables
-					.FirstOrDefault();
-
-				accountsReceivable =
-					new Models.AccountsReceivable
-					{
-						Amount_Paid = _accountsReceivable.Amount_Paid,
-						Amount_Payable = _accountsReceivable.Amount_Payable,
-						Client_Name = _accountsReceivable.Client_Name,
-						Description = _accountsReceivable.Description,
-						Registration_Date = _accountsReceivable.Registration_Date,
-						Registration_Time = _accountsReceivable.Registration_Time,
-						Tax_Percent = _accountsReceivable.Tax_Percent,
-					};
-				dataBaseContext.AccountsReceivables.Add(accountsReceivable);
-				dataBaseContext.SaveChanges();
-				return true;
-			}
-			catch (System.Exception ex)
-			{
-				Infrastructure.Utility.ExceptionShow(ex);
-				return false;
-			}
-			finally
-			{
-				if (dataBaseContext != null)
-				{
-					dataBaseContext.Dispose();
-					dataBaseContext = null;
-				}
-			}
-		}
-
-		#endregion /FinancialOfficeInput
-
 		#endregion /Function
 
-		
+
 	}
 }

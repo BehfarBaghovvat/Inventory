@@ -166,7 +166,6 @@
     <Compile Include="Forms\Inventory_Forms\ServiceReportForm.Designer.cs">
       <DependentUpon>ServiceReportForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Inventory_Forms\TransactionFactors.cs" />
     <Compile Include="Forms\Inventory_Forms\ViewProducrImageForm.cs">
       <SubType>Form</SubType>
     </Compile>

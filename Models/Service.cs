@@ -83,8 +83,5 @@
 		[System.ComponentModel.DisplayName(displayName: "تعداد سرویس")]
 		public int? Service_Number { get; set; }
 		#endregion /Service_Number
-
-		
-
 	}
 }

@@ -268,7 +268,7 @@ namespace Inventory_Forms
 			this.printButton.CustomImages.Parent = this.printButton;
 			this.printButton.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
 			this.printButton.FillColor2 = System.Drawing.Color.White;
-			this.printButton.Font = new System.Drawing.Font("IRANSansX", 9F);
+			this.printButton.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
 			this.printButton.ForeColor = System.Drawing.Color.Black;
 			this.printButton.HoverState.FillColor = System.Drawing.Color.White;
 			this.printButton.HoverState.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
@@ -283,8 +283,7 @@ namespace Inventory_Forms
 			this.printButton.Size = new System.Drawing.Size(175, 35);
 			this.printButton.TabIndex = 24;
 			this.printButton.Text = "چاپ صورت حساب";
-			this.printButton.TextOffset = new System.Drawing.Point(0, 1);
-			this.printButton.TextRenderingHint = System.Drawing.Text.TextRenderingHint.AntiAlias;
+			this.printButton.TextOffset = new System.Drawing.Point(0, -1);
 			this.printButton.Click += new System.EventHandler(this.PrintButton_Click);
 			// 
 			// guna2Panel1
@@ -824,7 +823,7 @@ namespace Inventory_Forms
 			this.cashRegisterButton.CustomImages.Parent = this.cashRegisterButton;
 			this.cashRegisterButton.FillColor = System.Drawing.Color.White;
 			this.cashRegisterButton.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-			this.cashRegisterButton.Font = new System.Drawing.Font("IRANSansX", 9F);
+			this.cashRegisterButton.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
 			this.cashRegisterButton.ForeColor = System.Drawing.Color.Black;
 			this.cashRegisterButton.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
 			this.cashRegisterButton.HoverState.FillColor2 = System.Drawing.Color.White;
@@ -840,8 +839,7 @@ namespace Inventory_Forms
 			this.cashRegisterButton.Size = new System.Drawing.Size(175, 35);
 			this.cashRegisterButton.TabIndex = 25;
 			this.cashRegisterButton.Text = "ثبت پرداخت";
-			this.cashRegisterButton.TextOffset = new System.Drawing.Point(0, 1);
-			this.cashRegisterButton.TextRenderingHint = System.Drawing.Text.TextRenderingHint.AntiAlias;
+			this.cashRegisterButton.TextOffset = new System.Drawing.Point(0, -1);
 			this.cashRegisterButton.Click += new System.EventHandler(this.CashRegisterButton_Click);
 			// 
 			// showFormAnimateWindow

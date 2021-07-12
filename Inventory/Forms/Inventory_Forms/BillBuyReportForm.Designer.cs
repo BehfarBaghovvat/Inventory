@@ -375,7 +375,7 @@ namespace Inventory_Forms
 			this.printButton.CustomImages.Parent = this.printButton;
 			this.printButton.FillColor = System.Drawing.SystemColors.ControlDarkDark;
 			this.printButton.FillColor2 = System.Drawing.Color.White;
-			this.printButton.Font = new System.Drawing.Font("IRANSansX", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+			this.printButton.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
 			this.printButton.ForeColor = System.Drawing.Color.Black;
 			this.printButton.HoverState.FillColor = System.Drawing.Color.White;
 			this.printButton.HoverState.FillColor2 = System.Drawing.SystemColors.ControlDarkDark;
@@ -389,7 +389,6 @@ namespace Inventory_Forms
 			this.printButton.Size = new System.Drawing.Size(180, 35);
 			this.printButton.TabIndex = 2;
 			this.printButton.Text = "چاپ رسید خرید";
-			this.printButton.TextRenderingHint = System.Drawing.Text.TextRenderingHint.AntiAlias;
 			this.printButton.Click += new System.EventHandler(this.PrintButton_Click);
 			// 
 			// paymentButton
@@ -401,7 +400,7 @@ namespace Inventory_Forms
 			this.paymentButton.Enabled = false;
 			this.paymentButton.FillColor = System.Drawing.Color.White;
 			this.paymentButton.FillColor2 = System.Drawing.SystemColors.ControlDarkDark;
-			this.paymentButton.Font = new System.Drawing.Font("IRANSansX", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+			this.paymentButton.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
 			this.paymentButton.ForeColor = System.Drawing.Color.Black;
 			this.paymentButton.HoverState.FillColor = System.Drawing.SystemColors.ControlDarkDark;
 			this.paymentButton.HoverState.FillColor2 = System.Drawing.Color.White;
@@ -415,7 +414,6 @@ namespace Inventory_Forms
 			this.paymentButton.Size = new System.Drawing.Size(180, 35);
 			this.paymentButton.TabIndex = 27;
 			this.paymentButton.Text = "پرداخت هزینه";
-			this.paymentButton.TextRenderingHint = System.Drawing.Text.TextRenderingHint.AntiAlias;
 			this.paymentButton.Click += new System.EventHandler(this.PaymentButton_Click);
 			// 
 			// topPanel

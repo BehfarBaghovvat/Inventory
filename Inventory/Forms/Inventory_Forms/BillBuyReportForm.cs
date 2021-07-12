@@ -375,6 +375,9 @@ namespace Inventory_Forms
 		#endregion /Harvest
 
 		#region Initialize
+		/// <summary>
+		/// تنظیمات اولیه
+		/// </summary>
 		private void Initialize()
 		{
 			auditItem.Total_Sum_Price = 0;
@@ -468,6 +471,10 @@ namespace Inventory_Forms
 		#endregion /InvoiceRegister
 
 		#region LoadingCapitalFund
+		/// <summary>
+		/// به روز رسانی صندوق
+		/// </summary>
+		/// <returns></returns>
 		private long LoadingCapitalFund()
 		{
 			long capital_Fund;
