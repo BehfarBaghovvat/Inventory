@@ -87,11 +87,10 @@ namespace Inventory_Forms
 			this.serviceListDataGridView.AllowUserToAddRows = false;
 			this.serviceListDataGridView.AllowUserToDeleteRows = false;
 			dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-			dataGridViewCellStyle1.BackColor = System.Drawing.Color.LightSkyBlue;
-			dataGridViewCellStyle1.Font = new System.Drawing.Font("IRANSansXFaNum", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-			dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
-			dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-			dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.White;
+			dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+			dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Empty;
+			dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.Empty;
+			dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Empty;
 			this.serviceListDataGridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
 			this.serviceListDataGridView.AutoGenerateColumns = false;
 			this.serviceListDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
@@ -262,6 +261,7 @@ namespace Inventory_Forms
 			this.selectSearchComboBox.ItemHeight = 30;
 			this.selectSearchComboBox.Items.AddRange(new object[] {
             "...نوع جستجو",
+            "بر اساس شماره فاکتور",
             "بر اساس نام مشتری",
             "بر اساس تاریخ ثبت",
             "بر اساس نام و تاریخ"});

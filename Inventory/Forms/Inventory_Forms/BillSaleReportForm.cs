@@ -839,8 +839,8 @@ namespace Inventory_Forms
 				dataBaseContext =
 					new Models.DataBaseContext();
 
-				Models.DailyOffice dailyOffice =
-				new Models.DailyOffice
+				Models.GeneralJournal dailyOffice =
+				new Models.GeneralJournal
 				{
 					Agent = auditItem.Client_Name,
 					Amount_Received = $"{auditItem.Amount_Paid: #,0} تومان",
@@ -851,7 +851,7 @@ namespace Inventory_Forms
 					Registration_Time = auditItem.Register_Time,
 				};
 
-				dataBaseContext.DailyOffices.Add(dailyOffice);
+				dataBaseContext.GeneralJournals.Add(dailyOffice);
 				dataBaseContext.SaveChanges();
 
 				return true;

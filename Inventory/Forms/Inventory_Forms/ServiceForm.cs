@@ -113,7 +113,7 @@ namespace Inventory_Forms
 
 			_audit.Capital_Fund = LoadingCapitalFund();
 
-			inventorySerialNumberTextBox.Text = _audit.Invoice_Serial_Number = SetInvoiceSerialNumber();
+			inventorySerialNumberTextBox.Text = Service.Invoice_Serial_Numvber = _audit.Invoice_Serial_Number = SetInvoiceSerialNumber();
 
 			_audit.Register_Date = Service.Registration_Date = 
 				Infrastructure.Utility.PersianCalendar(System.DateTime.Now);
@@ -385,6 +385,7 @@ namespace Inventory_Forms
 				serviceReport.RegBusinessObject("Service", serviceItemLists);
 
 				(serviceReport.GetComponentByName("dateOfPrintTextBox") as Stimulsoft.Report.Components.StiText).Text = $"{Service.Registration_Date} - {Service.Registration_Time}";
+				(serviceReport.GetComponentByName("invoiceSerialNumberTextBox") as Stimulsoft.Report.Components.StiText).Text = Service.Invoice_Serial_Numvber;
 				(serviceReport.GetComponentByName("repairmanNameTextBox") as Stimulsoft.Report.Components.StiText).Text = Service.Repairman_Name;
 				(serviceReport.GetComponentByName("clientNameTextBox") as Stimulsoft.Report.Components.StiText).Text = Service.Client_Name;
 				(serviceReport.GetComponentByName("sumPriceTextBox") as Stimulsoft.Report.Components.StiText).Text = sumPriceTextBox.Text;
@@ -410,15 +411,18 @@ namespace Inventory_Forms
 		}
 		#endregion /ListServiceDataGridView_RowsAdded
 
-		#region CashRegisterButton_Click
-		private void CashRegisterButton_Click(object sender, System.EventArgs e)
+		#region ServiceRegisterButton_Click
+		private void ServiceRegisterButton_Click(object sender, System.EventArgs e)
 		{
-			if (Deposit(_audit) && SetDailyOffice(_audit) && AccountRecivedBook(AccountsReceivable))
+			if (SetService(Service) && Deposit(_audit) && SetDailyOffice(_audit) && AccountRecivedBook(AccountsReceivable))
 			{
+				Infrastructure.Utility.WindowsNotification
+					(message: Inventory.Properties.Resources.Complete_Operation, caption: Infrastructure.PopupNotificationForm.Caption.موفقیت);
 
+				return;
 			}
 		}
-		#endregion /CashRegisterButton_Click
+		#endregion /ServiceRegisterButton_Click
 
 		#region SumPriceTextBox_TextChanged
 		private void SumPriceTextBox_TextChanged(object sender, System.EventArgs e)
@@ -813,7 +817,7 @@ namespace Inventory_Forms
 					newServiceButton.Enabled = true;
 					showReportServiceButton.Enabled = true;
 					editServiceToolStripMenuItem.Enabled = true;
-					saveAllServiceButton.Enabled = true;
+					serviceRegisterButton.Enabled = true;
 					reductionServiceButton.Enabled = true;
 					for (int i = 0; i < listServiceDataGridView.Rows.Count; i++)
 					{
@@ -1168,7 +1172,7 @@ namespace Inventory_Forms
 							newServiceButton.Enabled = false;
 							showReportServiceButton.Enabled = false;
 							editServiceToolStripMenuItem.Enabled = false;
-							saveAllServiceButton.Enabled = false;
+							serviceRegisterButton.Enabled = false;
 							reductionServiceButton.Enabled = false;
 							return;
 						}
@@ -1240,8 +1244,8 @@ namespace Inventory_Forms
 				dataBaseContext =
 					new Models.DataBaseContext();
 
-				Models.DailyOffice dailyOffice =
-				new Models.DailyOffice
+				Models.GeneralJournal dailyOffice =
+				new Models.GeneralJournal
 				{
 					Agent = auditItem.Client_Name,
 					Amount_Received = $"{auditItem.Amount_Paid: #,0} تومان",
@@ -1252,7 +1256,7 @@ namespace Inventory_Forms
 					Registration_Time = auditItem.Register_Time,
 				};
 
-				dataBaseContext.DailyOffices.Add(dailyOffice);
+				dataBaseContext.GeneralJournals.Add(dailyOffice);
 				dataBaseContext.SaveChanges();
 
 				return true;
@@ -1316,6 +1320,51 @@ namespace Inventory_Forms
 		}
 		#endregion /SetInvoiceSerialNumber
 
+		#region SetService
+		private bool SetService(Models.Service _service)
+		{
+			Models.DataBaseContext dataBaseContext = null;
+
+			try
+			{
+				dataBaseContext =
+					new Models.DataBaseContext();
+
+				Models.Service service =
+					new Models.Service();
+
+				foreach (System.Windows.Forms.DataGridViewRow row in listServiceDataGridView.Rows)
+				{
+					service.Client_Name = _service.Client_Name;
+					service.Repairman_Name = _service.Repairman_Name;
+					service.Service_Name = $"{row.Cells[0].Value}";
+					service.Description = $"{row.Cells[1].Value}";
+					service.Service_Price = $"{row.Cells[2].Value}";
+					service.Service_Number =int.Parse($"{row.Cells[3].Value}");
+					service.Total_Sum_Price = $"{row.Cells[4].Value}";
+				}
+
+				dataBaseContext.Services.Add(service);
+				dataBaseContext.SaveChanges();
+
+				return true;
+			}
+			catch (System.Exception ex)
+			{
+				Infrastructure.Utility.ExceptionShow(ex);
+				return false;
+			}
+			finally
+			{
+				if (dataBaseContext != null)
+				{
+					dataBaseContext.Dispose();
+					dataBaseContext = null;
+				}
+			}
+		}
+		#endregion
+
 		#region SetServicePrice
 		/// <summary>
 		/// .با دریافت نام سرویس قیمت آن را به نمایش در می آورد
@@ -1355,8 +1404,8 @@ namespace Inventory_Forms
 
 		#endregion /SetServicePrice
 
+
+
 		#endregion /Function
-
-
 	}
 }

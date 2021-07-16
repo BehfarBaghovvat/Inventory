@@ -86,7 +86,6 @@ namespace Inventory_Forms
 			this.productPriceTextBox = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox();
 			this.recipientNameTextBox = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox();
 			this.productRecivedDataGridView = new System.Windows.Forms.DataGridView();
-			this.DataGridViewElipse = new Guna.UI2.WinForms.Guna2Elipse(this.components);
 			this.idDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.productNameDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.senderNameDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -101,6 +100,7 @@ namespace Inventory_Forms
 			this.lastEditedDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.lastEditedTimeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.productReceivedBindingSource = new System.Windows.Forms.BindingSource(this.components);
+			this.DataGridViewElipse = new Guna.UI2.WinForms.Guna2Elipse(this.components);
 			this.contextMenuStrip.SuspendLayout();
 			this.controlsPanel.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.checkProductNamePictureBox)).BeginInit();
@@ -201,7 +201,7 @@ namespace Inventory_Forms
 			this.billButton.CheckedState.Parent = this.billButton;
 			this.billButton.CustomImages.Parent = this.billButton;
 			this.billButton.FillColor = System.Drawing.Color.Transparent;
-			this.billButton.Font = new System.Drawing.Font("IRANSans", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.billButton.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.billButton.ForeColor = System.Drawing.Color.White;
 			this.billButton.HoverState.Parent = this.billButton;
 			this.billButton.Image = ((System.Drawing.Image)(resources.GetObject("billButton.Image")));
@@ -443,7 +443,7 @@ namespace Inventory_Forms
 			this.resetBottom.CustomImages.Parent = this.resetBottom;
 			this.resetBottom.FillColor = System.Drawing.Color.Gray;
 			this.resetBottom.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(0)))), ((int)(((byte)(61)))));
-			this.resetBottom.Font = new System.Drawing.Font("IRANSans", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.resetBottom.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.resetBottom.ForeColor = System.Drawing.Color.White;
 			this.resetBottom.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(0)))), ((int)(((byte)(61)))));
 			this.resetBottom.HoverState.FillColor2 = System.Drawing.Color.Gray;
@@ -465,7 +465,7 @@ namespace Inventory_Forms
 			this.saveBottom.CustomImages.Parent = this.saveBottom;
 			this.saveBottom.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(0)))), ((int)(((byte)(61)))));
 			this.saveBottom.FillColor2 = System.Drawing.Color.Gray;
-			this.saveBottom.Font = new System.Drawing.Font("IRANSans", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.saveBottom.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.saveBottom.ForeColor = System.Drawing.Color.White;
 			this.saveBottom.HoverState.FillColor = System.Drawing.Color.Gray;
 			this.saveBottom.HoverState.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(0)))), ((int)(((byte)(61)))));
@@ -965,7 +965,7 @@ namespace Inventory_Forms
 			this.productRecivedDataGridView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
 			dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
 			dataGridViewCellStyle2.BackColor = System.Drawing.Color.DarkViolet;
-			dataGridViewCellStyle2.Font = new System.Drawing.Font("IRANSansX", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+			dataGridViewCellStyle2.Font = new System.Drawing.Font("IRANSans", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
 			dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
 			dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
 			this.productRecivedDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
@@ -1016,11 +1016,6 @@ namespace Inventory_Forms
 			this.productRecivedDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
 			this.productRecivedDataGridView.Size = new System.Drawing.Size(1125, 358);
 			this.productRecivedDataGridView.TabIndex = 17;
-			// 
-			// DataGridViewElipse
-			// 
-			this.DataGridViewElipse.BorderRadius = 25;
-			this.DataGridViewElipse.TargetControl = this.productRecivedDataGridView;
 			// 
 			// idDataGridViewTextBoxColumn1
 			// 
@@ -1123,6 +1118,11 @@ namespace Inventory_Forms
 			// productReceivedBindingSource
 			// 
 			this.productReceivedBindingSource.DataSource = typeof(Models.ProductReceived);
+			// 
+			// DataGridViewElipse
+			// 
+			this.DataGridViewElipse.BorderRadius = 25;
+			this.DataGridViewElipse.TargetControl = this.productRecivedDataGridView;
 			// 
 			// ProductBuyForm
 			// 

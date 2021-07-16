@@ -71,9 +71,8 @@ namespace Inventory_Forms
 			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
 			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
 			this.controlsPanel = new Guna.UI2.WinForms.Guna2Panel();
-			this.cashRegisterButton = new Guna.UI2.WinForms.Guna2GradientButton();
+			this.serviceRegisterButton = new Guna.UI2.WinForms.Guna2GradientButton();
 			this.serviceNameComboBox = new Guna.UI2.WinForms.Guna2ComboBox();
-			this.saveAllServiceButton = new Guna.UI2.WinForms.Guna2GradientButton();
 			this.showReportServiceButton = new Guna.UI2.WinForms.Guna2GradientButton();
 			this.newServiceButton = new Guna.UI2.WinForms.Guna2GradientButton();
 			this.serviceInvoiceButton = new Guna.UI2.WinForms.Guna2Button();
@@ -125,9 +124,8 @@ namespace Inventory_Forms
 			this.controlsPanel.BorderColor = System.Drawing.Color.Indigo;
 			this.controlsPanel.BorderRadius = 15;
 			this.controlsPanel.BorderThickness = 5;
-			this.controlsPanel.Controls.Add(this.cashRegisterButton);
+			this.controlsPanel.Controls.Add(this.serviceRegisterButton);
 			this.controlsPanel.Controls.Add(this.serviceNameComboBox);
-			this.controlsPanel.Controls.Add(this.saveAllServiceButton);
 			this.controlsPanel.Controls.Add(this.showReportServiceButton);
 			this.controlsPanel.Controls.Add(this.newServiceButton);
 			this.controlsPanel.Controls.Add(this.serviceInvoiceButton);
@@ -160,33 +158,35 @@ namespace Inventory_Forms
 			this.controlsPanel.Size = new System.Drawing.Size(1150, 650);
 			this.controlsPanel.TabIndex = 0;
 			// 
-			// cashRegisterButton
+			// serviceRegisterButton
 			// 
-			this.cashRegisterButton.Animated = true;
-			this.cashRegisterButton.BorderColor = System.Drawing.Color.Transparent;
-			this.cashRegisterButton.BorderRadius = 5;
-			this.cashRegisterButton.CheckedState.Parent = this.cashRegisterButton;
-			this.cashRegisterButton.CustomImages.Parent = this.cashRegisterButton;
-			this.cashRegisterButton.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-			this.cashRegisterButton.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(0)))), ((int)(((byte)(61)))));
-			this.cashRegisterButton.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-			this.cashRegisterButton.ForeColor = System.Drawing.Color.White;
-			this.cashRegisterButton.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(0)))), ((int)(((byte)(61)))));
-			this.cashRegisterButton.HoverState.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-			this.cashRegisterButton.HoverState.Parent = this.cashRegisterButton;
-			this.cashRegisterButton.Image = ((System.Drawing.Image)(resources.GetObject("cashRegisterButton.Image")));
-			this.cashRegisterButton.ImageAlign = System.Windows.Forms.HorizontalAlignment.Right;
-			this.cashRegisterButton.ImageOffset = new System.Drawing.Point(3, 0);
-			this.cashRegisterButton.Location = new System.Drawing.Point(951, 448);
-			this.cashRegisterButton.Name = "cashRegisterButton";
-			this.cashRegisterButton.PressedColor = System.Drawing.Color.White;
-			this.cashRegisterButton.PressedDepth = 60;
-			this.cashRegisterButton.ShadowDecoration.Parent = this.cashRegisterButton;
-			this.cashRegisterButton.Size = new System.Drawing.Size(175, 35);
-			this.cashRegisterButton.TabIndex = 26;
-			this.cashRegisterButton.Text = "ثبت پرداخت";
-			this.cashRegisterButton.TextOffset = new System.Drawing.Point(0, -1);
-			this.cashRegisterButton.Click += new System.EventHandler(this.CashRegisterButton_Click);
+			this.serviceRegisterButton.Animated = true;
+			this.serviceRegisterButton.BorderColor = System.Drawing.Color.White;
+			this.serviceRegisterButton.BorderRadius = 5;
+			this.serviceRegisterButton.BorderThickness = 2;
+			this.serviceRegisterButton.CheckedState.Parent = this.serviceRegisterButton;
+			this.serviceRegisterButton.CustomImages.Parent = this.serviceRegisterButton;
+			this.serviceRegisterButton.Enabled = false;
+			this.serviceRegisterButton.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(0)))), ((int)(((byte)(61)))));
+			this.serviceRegisterButton.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(0)))), ((int)(((byte)(61)))));
+			this.serviceRegisterButton.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+			this.serviceRegisterButton.ForeColor = System.Drawing.Color.White;
+			this.serviceRegisterButton.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(0)))), ((int)(((byte)(61)))));
+			this.serviceRegisterButton.HoverState.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+			this.serviceRegisterButton.HoverState.Parent = this.serviceRegisterButton;
+			this.serviceRegisterButton.Image = ((System.Drawing.Image)(resources.GetObject("serviceRegisterButton.Image")));
+			this.serviceRegisterButton.ImageAlign = System.Windows.Forms.HorizontalAlignment.Right;
+			this.serviceRegisterButton.ImageOffset = new System.Drawing.Point(3, 0);
+			this.serviceRegisterButton.Location = new System.Drawing.Point(515, 170);
+			this.serviceRegisterButton.Name = "serviceRegisterButton";
+			this.serviceRegisterButton.PressedColor = System.Drawing.Color.White;
+			this.serviceRegisterButton.PressedDepth = 60;
+			this.serviceRegisterButton.ShadowDecoration.Parent = this.serviceRegisterButton;
+			this.serviceRegisterButton.Size = new System.Drawing.Size(175, 35);
+			this.serviceRegisterButton.TabIndex = 26;
+			this.serviceRegisterButton.Text = "ثبت سرویس";
+			this.serviceRegisterButton.TextOffset = new System.Drawing.Point(0, -1);
+			this.serviceRegisterButton.Click += new System.EventHandler(this.ServiceRegisterButton_Click);
 			// 
 			// serviceNameComboBox
 			// 
@@ -220,33 +220,6 @@ namespace Inventory_Forms
 			this.serviceNameComboBox.SelectionChangeCommitted += new System.EventHandler(this.ServiceNameComboBox_SelectionChangeCommitted);
 			this.serviceNameComboBox.TextChanged += new System.EventHandler(this.ServiceNameComboBox_TextChanged);
 			// 
-			// saveAllServiceButton
-			// 
-			this.saveAllServiceButton.Animated = true;
-			this.saveAllServiceButton.BorderColor = System.Drawing.Color.White;
-			this.saveAllServiceButton.BorderRadius = 5;
-			this.saveAllServiceButton.BorderThickness = 2;
-			this.saveAllServiceButton.CheckedState.Parent = this.saveAllServiceButton;
-			this.saveAllServiceButton.CustomImages.Parent = this.saveAllServiceButton;
-			this.saveAllServiceButton.Enabled = false;
-			this.saveAllServiceButton.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(0)))), ((int)(((byte)(61)))));
-			this.saveAllServiceButton.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(0)))), ((int)(((byte)(61)))));
-			this.saveAllServiceButton.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.saveAllServiceButton.ForeColor = System.Drawing.Color.White;
-			this.saveAllServiceButton.HoverState.CustomBorderColor = System.Drawing.Color.White;
-			this.saveAllServiceButton.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
-			this.saveAllServiceButton.HoverState.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
-			this.saveAllServiceButton.HoverState.Parent = this.saveAllServiceButton;
-			this.saveAllServiceButton.Location = new System.Drawing.Point(495, 170);
-			this.saveAllServiceButton.Name = "saveAllServiceButton";
-			this.saveAllServiceButton.PressedColor = System.Drawing.Color.White;
-			this.saveAllServiceButton.ShadowDecoration.Parent = this.saveAllServiceButton;
-			this.saveAllServiceButton.Size = new System.Drawing.Size(160, 35);
-			this.saveAllServiceButton.TabIndex = 9;
-			this.saveAllServiceButton.Text = "ذخیره در سیستم";
-			this.saveAllServiceButton.TextOffset = new System.Drawing.Point(0, -1);
-			this.saveAllServiceButton.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
-			// 
 			// showReportServiceButton
 			// 
 			this.showReportServiceButton.Animated = true;
@@ -261,6 +234,8 @@ namespace Inventory_Forms
 			this.showReportServiceButton.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(0)))), ((int)(((byte)(61)))));
 			this.showReportServiceButton.HoverState.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
 			this.showReportServiceButton.HoverState.Parent = this.showReportServiceButton;
+			this.showReportServiceButton.Image = ((System.Drawing.Image)(resources.GetObject("showReportServiceButton.Image")));
+			this.showReportServiceButton.ImageSize = new System.Drawing.Size(25, 25);
 			this.showReportServiceButton.Location = new System.Drawing.Point(271, 170);
 			this.showReportServiceButton.Name = "showReportServiceButton";
 			this.showReportServiceButton.PressedColor = System.Drawing.Color.White;
@@ -285,6 +260,9 @@ namespace Inventory_Forms
 			this.newServiceButton.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
 			this.newServiceButton.HoverState.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(0)))), ((int)(((byte)(61)))));
 			this.newServiceButton.HoverState.Parent = this.newServiceButton;
+			this.newServiceButton.Image = ((System.Drawing.Image)(resources.GetObject("newServiceButton.Image")));
+			this.newServiceButton.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+			this.newServiceButton.ImageSize = new System.Drawing.Size(25, 25);
 			this.newServiceButton.Location = new System.Drawing.Point(105, 170);
 			this.newServiceButton.Name = "newServiceButton";
 			this.newServiceButton.PressedColor = System.Drawing.Color.White;
@@ -327,6 +305,9 @@ namespace Inventory_Forms
 			this.reductionServiceButton.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(0)))), ((int)(((byte)(61)))));
 			this.reductionServiceButton.HoverState.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
 			this.reductionServiceButton.HoverState.Parent = this.reductionServiceButton;
+			this.reductionServiceButton.Image = ((System.Drawing.Image)(resources.GetObject("reductionServiceButton.Image")));
+			this.reductionServiceButton.ImageAlign = System.Windows.Forms.HorizontalAlignment.Right;
+			this.reductionServiceButton.ImageSize = new System.Drawing.Size(25, 25);
 			this.reductionServiceButton.Location = new System.Drawing.Point(804, 170);
 			this.reductionServiceButton.Name = "reductionServiceButton";
 			this.reductionServiceButton.PressedColor = System.Drawing.Color.White;
@@ -341,7 +322,7 @@ namespace Inventory_Forms
 			// 
 			this.remainingTextBox.Font = new System.Drawing.Font("IRANSansFaNum", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
 			this.remainingTextBox.ForeColor = System.Drawing.Color.White;
-			this.remainingTextBox.Location = new System.Drawing.Point(22, 557);
+			this.remainingTextBox.Location = new System.Drawing.Point(37, 603);
 			this.remainingTextBox.Name = "remainingTextBox";
 			this.remainingTextBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
 			this.remainingTextBox.Size = new System.Drawing.Size(360, 25);
@@ -354,7 +335,7 @@ namespace Inventory_Forms
 			this.remainingLabel.AutoSize = true;
 			this.remainingLabel.Font = new System.Drawing.Font("IRANSans", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
 			this.remainingLabel.ForeColor = System.Drawing.Color.White;
-			this.remainingLabel.Location = new System.Drawing.Point(406, 558);
+			this.remainingLabel.Location = new System.Drawing.Point(421, 604);
 			this.remainingLabel.Name = "remainingLabel";
 			this.remainingLabel.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
 			this.remainingLabel.Size = new System.Drawing.Size(112, 22);
@@ -536,7 +517,7 @@ namespace Inventory_Forms
 			// separatorPanel
 			// 
 			this.separatorPanel.BackColor = System.Drawing.Color.White;
-			this.separatorPanel.Location = new System.Drawing.Point(21, 540);
+			this.separatorPanel.Location = new System.Drawing.Point(36, 586);
 			this.separatorPanel.Name = "separatorPanel";
 			this.separatorPanel.Size = new System.Drawing.Size(495, 3);
 			this.separatorPanel.TabIndex = 21;
@@ -712,7 +693,7 @@ namespace Inventory_Forms
 			// 
 			this.amountPaidTextBox.Font = new System.Drawing.Font("IRANSansFaNum", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
 			this.amountPaidTextBox.ForeColor = System.Drawing.Color.White;
-			this.amountPaidTextBox.Location = new System.Drawing.Point(21, 498);
+			this.amountPaidTextBox.Location = new System.Drawing.Point(36, 544);
 			this.amountPaidTextBox.Name = "amountPaidTextBox";
 			this.amountPaidTextBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
 			this.amountPaidTextBox.Size = new System.Drawing.Size(360, 25);
@@ -726,7 +707,7 @@ namespace Inventory_Forms
 			this.amountPaidLabel.AutoSize = true;
 			this.amountPaidLabel.Font = new System.Drawing.Font("IRANSans", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
 			this.amountPaidLabel.ForeColor = System.Drawing.Color.White;
-			this.amountPaidLabel.Location = new System.Drawing.Point(405, 499);
+			this.amountPaidLabel.Location = new System.Drawing.Point(420, 545);
 			this.amountPaidLabel.Name = "amountPaidLabel";
 			this.amountPaidLabel.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
 			this.amountPaidLabel.Size = new System.Drawing.Size(86, 22);
@@ -737,7 +718,7 @@ namespace Inventory_Forms
 			// 
 			this.sumPriceTextBox.Font = new System.Drawing.Font("IRANSansFaNum", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
 			this.sumPriceTextBox.ForeColor = System.Drawing.Color.White;
-			this.sumPriceTextBox.Location = new System.Drawing.Point(21, 455);
+			this.sumPriceTextBox.Location = new System.Drawing.Point(36, 501);
 			this.sumPriceTextBox.Name = "sumPriceTextBox";
 			this.sumPriceTextBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
 			this.sumPriceTextBox.Size = new System.Drawing.Size(360, 25);
@@ -751,7 +732,7 @@ namespace Inventory_Forms
 			this.sumPriceLabel.AutoSize = true;
 			this.sumPriceLabel.Font = new System.Drawing.Font("IRANSans", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
 			this.sumPriceLabel.ForeColor = System.Drawing.Color.White;
-			this.sumPriceLabel.Location = new System.Drawing.Point(405, 456);
+			this.sumPriceLabel.Location = new System.Drawing.Point(420, 502);
 			this.sumPriceLabel.Name = "sumPriceLabel";
 			this.sumPriceLabel.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
 			this.sumPriceLabel.Size = new System.Drawing.Size(80, 22);
@@ -771,6 +752,9 @@ namespace Inventory_Forms
 			this.addServiceButton.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
 			this.addServiceButton.HoverState.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(0)))), ((int)(((byte)(61)))));
 			this.addServiceButton.HoverState.Parent = this.addServiceButton;
+			this.addServiceButton.Image = ((System.Drawing.Image)(resources.GetObject("addServiceButton.Image")));
+			this.addServiceButton.ImageAlign = System.Windows.Forms.HorizontalAlignment.Right;
+			this.addServiceButton.ImageSize = new System.Drawing.Size(25, 25);
 			this.addServiceButton.Location = new System.Drawing.Point(970, 170);
 			this.addServiceButton.Name = "addServiceButton";
 			this.addServiceButton.PressedColor = System.Drawing.Color.White;
@@ -1383,7 +1367,7 @@ namespace Inventory_Forms
 			this.listServiceDataGridView.RowTemplate.Height = 30;
 			this.listServiceDataGridView.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
 			this.listServiceDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-			this.listServiceDataGridView.Size = new System.Drawing.Size(1125, 225);
+			this.listServiceDataGridView.Size = new System.Drawing.Size(1125, 271);
 			this.listServiceDataGridView.TabIndex = 13;
 			this.listServiceDataGridView.Theme = Guna.UI.WinForms.GunaDataGridViewPresetThemes.Turquoise;
 			this.listServiceDataGridView.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(223)))), ((int)(((byte)(179)))), ((int)(((byte)(241)))));
@@ -1518,7 +1502,6 @@ namespace Inventory_Forms
 		private Mbb.Windows.Forms.Label sumPriceLabel;
 		private Guna.UI2.WinForms.Guna2Button serviceInvoiceButton;
 		private Guna.UI2.WinForms.Guna2GradientButton newServiceButton;
-		private Guna.UI2.WinForms.Guna2GradientButton saveAllServiceButton;
 		private Guna.UI2.WinForms.Guna2GradientButton showReportServiceButton;
 		private Guna.UI2.WinForms.Guna2ComboBox serviceNameComboBox;
 		private System.Windows.Forms.DataGridViewTextBoxColumn Sevice_Name;
@@ -1529,7 +1512,7 @@ namespace Inventory_Forms
 		private System.Windows.Forms.ContextMenuStrip contextMenuStrip;
 		private System.Windows.Forms.ToolStripMenuItem editServiceToolStripMenuItem;
 		private Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox repairmanNameTextBox;
-		private Guna.UI2.WinForms.Guna2GradientButton cashRegisterButton;
+		private Guna.UI2.WinForms.Guna2GradientButton serviceRegisterButton;
 		private Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox inventorySerialNumberTextBox;
 	}
 }
