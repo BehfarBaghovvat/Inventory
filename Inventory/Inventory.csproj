@@ -253,6 +253,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Forms\Financial_Form\SafeBoxForm.resx">
+      <DependentUpon>SafeBoxForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Inventory_Forms\BillBuyReportForm.resx">
       <DependentUpon>BillBuyReportForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -327,13 +330,9 @@
       <DesignTime>True</DesignTime>
     </Compile>
     <None Include="packages.config" />
-    <None Include="Properties\DataSources\Inventory_Forms.PrintInvoice.datasource" />
     <None Include="Properties\DataSources\Models.InventoryHolding.datasource" />
     <None Include="Properties\DataSources\Models.InventoryOutput.datasource" />
-    <None Include="Properties\DataSources\Models.ProductGroup.datasource" />
     <None Include="Properties\DataSources\Models.ProductReceived.datasource" />
-    <None Include="Properties\DataSources\Models.ProductSubmission.datasource" />
-    <None Include="Properties\DataSources\Models.ProductUnit.datasource" />
     <None Include="Properties\DataSources\Models.Service1.datasource" />
     <None Include="Properties\DataSources\Models.TypesService.datasource" />
     <None Include="Properties\DataSources\Models.User.datasource" />

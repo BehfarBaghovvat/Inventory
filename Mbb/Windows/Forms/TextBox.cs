@@ -1,17 +1,20 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.ComponentModel.Design;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace Mbb.Windows.Forms
 {
-	public class TextBox : System.Windows.Forms.TextBox
+	public partial class TextBox : UserControl
 	{
-		#region Properties
-		#region CotrolsLayer
-		private System.Windows.Forms.Label WaterMarkLabel = new System.Windows.Forms.Label { Dock = System.Windows.Forms.DockStyle.Fill, };
-		private System.Windows.Forms.Panel MaterialBorder = new System.Windows.Forms.Panel { Dock = System.Windows.Forms.DockStyle.Bottom, };
-
-		#endregion /CotrolsLayer
-
-		public enum TypeWrite
+		//Enums
+		public enum _TypeWrite
 		{
 			English,
 			EnglishAndNumber,
@@ -21,170 +24,261 @@ namespace Mbb.Windows.Forms
 			PersianNumber,
 		}
 
-		public enum Style
+		public enum _Style
 		{
-			Default,
+			DefaultStyle,
 			MaterialStyle,
 		}
 
-		private System.Drawing.Color _materialBorderColor = System.Drawing.Color.DimGray;
-		public System.Drawing.Color MaterialBorderColor
+		//Fields
+		private Color borderColor = Color.MediumSlateBlue;
+		private int borderSize = 2;
+		private string text = string.Empty;
+		private _Style _style = _Style.DefaultStyle;
+
+
+		private PictureBox icoLeft = new PictureBox { SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage };
+		private PictureBox icoRight = new PictureBox { SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage };
+
+		//Constructor
+		public TextBox()
 		{
-			get { return _materialBorderColor; }
-			set 
+			InitializeComponent();
+		}
+
+		//Properties
+		public Color BorderColor
+		{
+			get
+			{
+				return borderColor;
+			}
+
+			set
+			{
+				borderColor = value;
+				this.Invalidate();
+			}
+		}
+
+		public int BorderSize
+		{
+			get
+			{
+				return borderSize;
+			}
+
+			set
+			{
+				borderSize = value;
+				this.Invalidate();
+			}
+		}
+
+		public string Caption
+		{
+			get
+			{
+				return captionLabel.Text;
+			}
+			set
+			{
+				captionLabel.Text = value;
+				this.Invalidate();
+
+				if (string.IsNullOrWhiteSpace(value))
+					captionLabel.Visible = false;
+				else
+					captionLabel.Visible = true;
+			}
+		}
+
+		public Color CaptionForeColor
+		{
+			get
+			{
+				return captionLabel.ForeColor;
+			}
+			set
+			{
+				captionLabel.ForeColor = value;
+				this.Invalidate();
+			}
+		}
+
+
+		public _Style Style
+		{
+			get
+			{
+				return _style;
+			}
+
+			set
+			{
+				_style = value;
+				this.Invalidate();
+			}
+
+		}
+
+		public bool PasswordChae
+		{ 
+			get
+			{
+				return inputTextBox.UseSystemPasswordChar;
+			}
+			set
+			{
+				inputTextBox.UseSystemPasswordChar = value;
+			}
+		}
+
+		public bool MultiLine 
+		{ 
+			get
 			{ 
-				_materialBorderColor = value;
-
-				MaterialBorder.BackColor = _materialBorderColor;
+				return inputTextBox.Multiline;
+			} 
+			set
+			{
+				inputTextBox.Multiline = value;
 			}
 		}
 
-		private System.Drawing.Color _materialBorderColorFocus = System.Drawing.Color.DimGray;
-		public System.Drawing.Color MaterialBorderColorFocus
+		public override Color BackColor
 		{
-			get { return _materialBorderColorFocus; }
+			get
+			{
+				return base.BackColor;
+			}
+
 			set
 			{
-				_materialBorderColorFocus = value;
-
-				MaterialBorder.BackColor = _materialBorderColorFocus;
+				base.BackColor = value;
+				inputTextBox.BackColor = value;
 			}
 		}
 
-		private int _materialBorderHeight = 1;
-		public int MaterialBorderHeight
+		public override Color ForeColor
 		{
-			get { return _materialBorderHeight; }
+			get
+			{
+				return base.ForeColor;
+			}
+
 			set
 			{
-				_materialBorderHeight = value;
-
-				MaterialBorder.Height = _materialBorderHeight;
+				base.ForeColor = value;
+				inputTextBox.ForeColor = value;
 			}
 		}
 
-		private System.Drawing.Color _materialBorderColorHover = System.Drawing.Color.DimGray;
-		public System.Drawing.Color MaterialBorderColorHover
+		public override Font Font
 		{
-			get { return _materialBorderColorHover; }
-			set
+			get
 			{
-				_materialBorderColorHover = value;
-
-				MaterialBorder.BackColor = _materialBorderColorHover;
+				return base.Font;
 			}
-		}
 
-		private Style _styleTextBox = Style.Default;
-
-		public Style StyleTextBox
-		{
-			get { return _styleTextBox; }
 			set
 			{
-				_styleTextBox = value;
+				base.Font = value;
+				inputTextBox.Font = value;
 
-				if (_styleTextBox == Style.Default)
+				if (this.DesignMode)
 				{
-					this.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-					this.Controls.Remove(MaterialBorder);
+					UpdateControlHeight();
 				}
-				else if (_styleTextBox == Style.MaterialStyle)
+			}
+		}
+
+		
+		[System.ComponentModel.Browsable(true)]
+		[System.ComponentModel.Editor(typeof(MultilineStringEditor), typeof(System.Drawing.Design.UITypeEditor))]
+		public string Text
+		{
+			get
+			{
+				text = inputTextBox.Text;
+				return text;
+			}
+			set
+			{
+				text = value;
+				inputTextBox.Text = text;
+				this.Invalidate();
+				this.Text = string.Empty;
+
+				if (string.IsNullOrWhiteSpace(text))
+					captionLabel.Visible = true;
+				else
+					captionLabel.Visible = false;
+			}
+		}
+
+		//Override Methods
+		protected override void OnPaint(PaintEventArgs e)
+		{
+			base.OnPaint(e);
+			Graphics graphics = e.Graphics;
+
+			//Drawing border
+			using(Pen penBorder = new Pen(borderColor, borderSize))
+			{
+				penBorder.Alignment = System.Drawing.Drawing2D.PenAlignment.Inset;
+
+				if (_style == _Style.MaterialStyle)//Line Style
 				{
-					this.BorderStyle = System.Windows.Forms.BorderStyle.None;
-					ShowMaterialBorder();
+					graphics.DrawLine(penBorder, 0, this.Height - 1, this.Width, this.Height - 1);
+				}
+				else//Normal Style
+				{
+					graphics.DrawRectangle(penBorder, 0, 0, this.Width - 0.5F, this.Height - 0.5F);
 				}
 			}
 		}
 
 		
 
-		private TypeWrite _typeWriteLanguage = TypeWrite.English;
-		public TypeWrite TypeWriteLanguage
+		protected override void OnResize(EventArgs e)
 		{
-			get
-			{ return _typeWriteLanguage; }
-			set
+			base.OnResize(e);
+			if(this.DesignMode)
+				UpdateControlHeight();
+
+			if (base.Width < 100)
 			{
-				_typeWriteLanguage = value;
+				base.Width = 100;
+			}
+
+			if (base.Height < 35)
+			{
+				base.Height = 35;
 			}
 		}
 
-		private string _waterMark = "Enter WaterMark";
-		public string WaterMark
+		protected override void OnLoad(EventArgs e)
 		{
-			get
-			{
-				return _waterMark;
-			}
-			set
-			{
-				_waterMark = value;
+			base.OnLoad(e);
+			UpdateControlHeight();
+		}
 
-				if (string.IsNullOrEmpty(_waterMark))
-				{
-					this.Controls.Remove(WaterMarkLabel);
-				}
-				else
-				{
-					ShowWaterMark(WaterMark);
-				}
+		//Privat Methods
+		private void UpdateControlHeight()
+		{
+			if (inputTextBox.Multiline == false)
+			{
+				int txtHeight = TextRenderer.MeasureText("Text", this.Font).Height + 1;
+				inputTextBox.Multiline = true;
+				inputTextBox.MinimumSize = new Size(0, txtHeight);
+				inputTextBox.Multiline = false;
+
+				this.Height = inputTextBox.Height + this.Padding.Top + this.Padding.Bottom;
+
 			}
 		}
 
-		private System.Drawing.Color _waterMarkColor = System.Drawing.Color.DimGray;
-		public System.Drawing.Color WaterMarkColor
-		{
-			get
-			{
-				return _waterMarkColor;
-			}
-			set
-			{
-				_waterMarkColor = value;
-
-				WaterMarkLabel.ForeColor = _waterMarkColor;
-			}
-		}
-		#endregion /Properties
-
-		public TextBox() : base()
-		{
-
-		}
-
-		#region ShowWaterMark
-		private void ShowWaterMark(string watermark)
-		{
-			if (string.IsNullOrEmpty(this.Text))
-			{
-				this.Controls.Add(WaterMarkLabel);
-				WaterMarkLabel.BringToFront();
-				WaterMarkLabel.AutoSize = false;
-				WaterMarkLabel.Dock = System.Windows.Forms.DockStyle.Fill;
-				WaterMarkLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-				WaterMarkLabel.Text = watermark;
-				WaterMarkLabel.ForeColor = _waterMarkColor;
-			}
-			else
-			{
-				this.Controls.Remove(WaterMarkLabel);
-			}
-
-			//WaterMarkLabel.ForeColor = CaptionColor;
-
-		}
-		#endregion /ShowWaterMark
-
-
-
-		private void ShowMaterialBorder()
-		{
-			this.Controls.Add(MaterialBorder);
-			MaterialBorder.Dock = System.Windows.Forms.DockStyle.Bottom;
-			MaterialBorder.BackColor = MaterialBorderColor;
-			MaterialBorder.Height = MaterialBorderHeight;
-		}
 
 	}
 }

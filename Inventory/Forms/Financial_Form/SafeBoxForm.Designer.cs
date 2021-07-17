@@ -1,5 +1,5 @@
 ﻿
-namespace Inventory.Forms.Financial_Form
+namespace Financial_Form
 {
 	partial class SafeBoxForm
 	{
@@ -29,12 +29,36 @@ namespace Inventory.Forms.Financial_Form
 		/// </summary>
 		private void InitializeComponent()
 		{
-			this.components = new System.ComponentModel.Container();
+			this.mainPanel = new Guna.UI2.WinForms.Guna2Panel();
+			this.SuspendLayout();
+			// 
+			// mainPanel
+			// 
+			this.mainPanel.BorderColor = System.Drawing.Color.Indigo;
+			this.mainPanel.BorderRadius = 15;
+			this.mainPanel.BorderThickness = 3;
+			this.mainPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.mainPanel.Location = new System.Drawing.Point(0, 0);
+			this.mainPanel.Name = "mainPanel";
+			this.mainPanel.ShadowDecoration.Parent = this.mainPanel;
+			this.mainPanel.Size = new System.Drawing.Size(1150, 650);
+			this.mainPanel.TabIndex = 0;
+			// 
+			// SafeBoxForm
+			// 
+			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 17F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(800, 450);
+			this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(0)))), ((int)(((byte)(61)))));
+			this.ClientSize = new System.Drawing.Size(1150, 650);
+			this.Controls.Add(this.mainPanel);
+			this.Name = "SafeBoxForm";
 			this.Text = "SafeBoxForm";
+			this.ResumeLayout(false);
+
 		}
 
 		#endregion
+
+		private Guna.UI2.WinForms.Guna2Panel mainPanel;
 	}
 }

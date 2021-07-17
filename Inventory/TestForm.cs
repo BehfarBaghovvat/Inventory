@@ -7,8 +7,6 @@
 		public TestForm()
 		{
 			InitializeComponent();
-			
-			
 		}
 
 		private void button1_Click(object sender, System.EventArgs e)
@@ -33,5 +31,7 @@
 
 			invoiceNumber4TextBox.Text = Infrastructure.Utility.GeneratInvoiceSerialNumber(int.Parse("4"));
 		}
+
+		
 	}
 }

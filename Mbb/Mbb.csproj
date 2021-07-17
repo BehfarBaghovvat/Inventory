@@ -141,7 +141,10 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Windows\Forms\TextBox.cs">
-      <SubType>Component</SubType>
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Windows\Forms\TextBox.Designer.cs">
+      <DependentUpon>TextBox.cs</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -160,6 +163,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Windows\Forms\MessageBoxSIBForm.resx">
       <DependentUpon>MessageBoxSIBForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Windows\Forms\TextBox.resx">
+      <DependentUpon>TextBox.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

@@ -1,20 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-
-namespace Inventory.Forms.Financial_Form
+﻿namespace Financial_Form
 {
-	public partial class SafeBoxForm : Form
+	public partial class SafeBoxForm : Infrastructure.EmptyForm
 	{
 		public SafeBoxForm()
 		{
 			InitializeComponent();
 		}
+
+
+
 	}
 }
