@@ -11,42 +11,74 @@ using System.Windows.Forms;
 
 namespace Mbb.Windows.Forms
 {
+	[DefaultEvent("TextChanged")]
 	public partial class TextBox : UserControl
 	{
-		//Enums
-		public enum _TypeWrite
+		//======================================================================= Enums
+		public enum _InputWrite
 		{
+			FreeType,
 			English,
-			EnglishAndNumber,
-			EnglishNumber,
-			Persian,
-			PersianAndNumber,
-			PersianNumber,
+			English_And_EnglishNumber,
+			فارسی,
+			فارسی_و_اعداد_فارسی,
+			Number,
+			Decimal_Number
 		}
-
 		public enum _Style
 		{
 			DefaultStyle,
 			MaterialStyle,
 		}
+		public enum _WritingLanguage
+		{
+			English_Language,
+			Free_Language,
+			زبان_فارسی,
+		}
 
-		//Fields
-		private Color borderColor = Color.MediumSlateBlue;
+		//======================================================================= Fields
+		private System.Drawing.Color borderColor = System.Drawing.Color.MediumSlateBlue;
 		private int borderSize = 2;
-		private string text = string.Empty;
+		private System.Drawing.Color borderColorHover = System.Drawing.Color.FromArgb(220, 20, 60);
+		private System.Drawing.Color borderColorFocus = System.Drawing.Color.FromArgb(123, 104, 238);
+		private System.Drawing.Font _captionFont = new System.Drawing.Font(familyName: "Century Gothic", emSize: 9F, FontStyle.Italic);
+		private System.Drawing.Color _captionForColor = System.Drawing.Color.Silver;
+
+		private _InputWrite _inputWirte = _InputWrite.FreeType;
+		private bool _isFocus = false;
+		private bool _isHover = false;
+		private System.Windows.Forms.HorizontalAlignment _textAling = HorizontalAlignment.Left;
+		private System.Drawing.Image _iconLeft;
+		private System.Drawing.Image _iconLeftMousClick;
+		private System.Drawing.Image _iconLeftMousDown;
+		private System.Drawing.Image _iconLeftMousUp;
+
+
+
+		private System.Drawing.Image _iconRight;
+		private System.Drawing.Image _iconRightMousClick;
+		private System.Drawing.Image _iconRightMousDown;
+		private System.Drawing.Image _iconRightMousUp;
+
+
+		private int _offsetLeft = 1;
+		private int _offsetRight = 1;
+
+
 		private _Style _style = _Style.DefaultStyle;
+		private _WritingLanguage _writingLanguage = _WritingLanguage.Free_Language;
 
-
-		private PictureBox icoLeft = new PictureBox { SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage };
-		private PictureBox icoRight = new PictureBox { SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage };
-
-		//Constructor
+		//======================================================================= Constructor
 		public TextBox()
 		{
 			InitializeComponent();
+			Caption = "Enter Text";
+			captionLabel.Font = _captionFont;
 		}
 
-		//Properties
+		//======================================================================= Properties
+		[Category("MBB Advance Properties")]
 		public Color BorderColor
 		{
 			get
@@ -60,7 +92,7 @@ namespace Mbb.Windows.Forms
 				this.Invalidate();
 			}
 		}
-
+		[Category("MBB Advance Properties")]
 		public int BorderSize
 		{
 			get
@@ -74,39 +106,46 @@ namespace Mbb.Windows.Forms
 				this.Invalidate();
 			}
 		}
-
-		public string Caption
+		[Category("MBB Advance Properties")]
+		public Color BorderColorHover
 		{
 			get
 			{
-				return captionLabel.Text;
+				return borderColorHover;
 			}
+
 			set
 			{
-				captionLabel.Text = value;
-				this.Invalidate();
-
-				if (string.IsNullOrWhiteSpace(value))
-					captionLabel.Visible = false;
-				else
-					captionLabel.Visible = true;
+				borderColorHover = value;
 			}
 		}
-
-		public Color CaptionForeColor
+		[Category("MBB Advance Properties")]
+		public Color BorderColorFocus
 		{
 			get
 			{
-				return captionLabel.ForeColor;
+				return borderColorFocus;
+			}
+
+			set
+			{
+				borderColorFocus = value;
+			}
+		}
+		[Category("MBB Advance Properties")]
+		[Description("نوع ورودی که کاربر برای وارد کردن داده از آن استفاده میکند را انتخاب میکند. \n این ورودی می تواند متن یا عدد به صورت انگلیسی یا فارسی باشد.")]
+		public _InputWrite InputWrite
+		{
+			get
+			{
+				return _inputWirte;
 			}
 			set
 			{
-				captionLabel.ForeColor = value;
-				this.Invalidate();
+				_inputWirte = value;
 			}
 		}
-
-
+		[Category("MBB Advance Properties")]
 		public _Style Style
 		{
 			get
@@ -121,30 +160,177 @@ namespace Mbb.Windows.Forms
 			}
 
 		}
-
-		public bool PasswordChae
-		{ 
+		[Category("MBB Advance Properties")]
+		[Description("زبان نوشتاری کنترل را تعیین می نمایید")]
+		public _WritingLanguage WritingLanguage
+		{
 			get
 			{
-				return inputTextBox.UseSystemPasswordChar;
+				return _writingLanguage;
+			}
+
+			set
+			{
+				_writingLanguage = value;
+			}
+		}
+		[Category("MBB Advance Properties")]
+		public string Caption
+		{
+			get
+			{
+				return captionLabel.Text;
 			}
 			set
 			{
-				inputTextBox.UseSystemPasswordChar = value;
+				captionLabel.Text = value;
+				this.Invalidate();
 			}
 		}
-
-		public bool MultiLine 
-		{ 
+		[Category("MBB Advance Properties")]
+		public Font CaptionFont
+		{
 			get
+			{
+
+				return _captionFont;
+			}
+
+			set
+			{
+				_captionFont = value;
+				captionLabel.Font = _captionFont;
+			}
+		}
+		[Category("MBB Advance Properties")]
+		public Color CaptionForeColor
+		{
+			get
+			{
+				return _captionForColor;
+			}
+			set
+			{
+				_captionForColor = value;
+				captionLabel.ForeColor = _captionForColor;
+				this.Invalidate();
+			}
+		}
+		[Category("MBB Advance Properties")]
+		public System.Drawing.Image IconLeft
+		{
+			get
+			{
+				return _iconLeft;
+			}
+			set
+			{
+				_iconLeft = value;
+				iconLeftBox.Image = _iconLeft;
+				if (_iconLeft == null)
+				{
+					iconLeftBox.Visible = false;
+				}
+				else
+				{
+					iconLeftBox.Visible = true;
+				}
+			}
+		}
+		[Category("MBB Advance Properties")]
+		public System.Drawing.Image IconLeftMousClick
+		{
+			get 
 			{ 
-				return inputTextBox.Multiline;
-			} 
+				return _iconLeftMousClick;
+			}
 			set
 			{
-				inputTextBox.Multiline = value;
+				_iconLeftMousClick = value;
 			}
 		}
+		[Category("MBB Advance Properties")]
+		public System.Drawing.Image IconLeftMousDown
+		{
+			get 
+			{ 
+				return _iconLeftMousDown;
+			}
+			set
+			{
+				_iconLeftMousDown = value;
+			}
+		}
+		[Category("MBB Advance Properties")]
+		public System.Drawing.Image IconLeftMousUp
+		{
+			get 
+			{ 
+				return _iconLeftMousUp;
+			}
+			set
+			{
+				_iconLeftMousUp = value;
+			}
+		}
+		[Category("MBB Advance Properties")]
+		public Image IconRight
+		{
+			get
+			{
+				return _iconRight;
+			}
+
+			set
+			{
+				_iconRight = value;
+			}
+		}
+
+
+
+		[Category("MBB Advance Properties")]
+		public int OffsetLeft
+		{
+			get
+			{
+				return _offsetLeft;
+			}
+			set
+			{
+				_offsetLeft = value;
+				if (_offsetLeft > 5)
+				{
+					return;
+				}
+				else
+				{
+					offsetLeft.Width = _offsetLeft;
+				}
+			}
+		}
+		[Category("MBB Advance Properties")]
+		public int OffsetRight
+		{
+			get
+			{
+				return _offsetRight;
+			}
+
+			set
+			{
+				_offsetRight = value;
+				if (_offsetRight > 5)
+				{
+					return;
+				}
+				else
+				{
+					offsetRight.Width = _offsetRight;
+				}
+			}
+		}
+
 
 		public override Color BackColor
 		{
@@ -157,9 +343,26 @@ namespace Mbb.Windows.Forms
 			{
 				base.BackColor = value;
 				inputTextBox.BackColor = value;
+				captionLabel.BackColor = value;
 			}
 		}
+		public override Font Font
+		{
+			get
+			{
+				return base.Font;
+			}
 
+			set
+			{
+				base.Font = value;
+				inputTextBox.Font = value;
+				if (this.DesignMode)
+				{
+					UpdateControlHeight();
+				}
+			}
+		}
 		public override Color ForeColor
 		{
 			get
@@ -173,78 +376,142 @@ namespace Mbb.Windows.Forms
 				inputTextBox.ForeColor = value;
 			}
 		}
-
-		public override Font Font
+		public bool MultiLine
 		{
 			get
 			{
-				return base.Font;
+				return inputTextBox.Multiline;
+			}
+			set
+			{
+				inputTextBox.Multiline = value;
+			}
+		}
+		public bool PasswordChae
+		{
+			get
+			{
+				return inputTextBox.UseSystemPasswordChar;
+			}
+			set
+			{
+				inputTextBox.UseSystemPasswordChar = value;
+			}
+		}
+		public string Texts
+		{
+			get
+			{
+				return inputTextBox.Text;
 			}
 
 			set
 			{
-				base.Font = value;
-				inputTextBox.Font = value;
+				inputTextBox.Text = value;
+				this.Invalidate();
+			}
+		}
+		public System.Windows.Forms.HorizontalAlignment TextAling
+		{
+			get { return _textAling; }
+			set
+			{
+				_textAling = value;
 
-				if (this.DesignMode)
+				inputTextBox.TextAlign = _textAling;
+				if (_textAling == System.Windows.Forms.HorizontalAlignment.Right)
 				{
-					UpdateControlHeight();
+					captionLabel.TextAlign = System.Drawing.ContentAlignment.TopRight;
+				}
+				else if (_textAling == System.Windows.Forms.HorizontalAlignment.Left)
+				{
+					captionLabel.TextAlign = System.Drawing.ContentAlignment.TopLeft;
+				}
+				else if (_textAling == System.Windows.Forms.HorizontalAlignment.Center)
+				{
+					captionLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
 				}
 			}
 		}
 
 		
-		[System.ComponentModel.Browsable(true)]
-		[System.ComponentModel.Editor(typeof(MultilineStringEditor), typeof(System.Drawing.Design.UITypeEditor))]
-		public string Text
-		{
-			get
-			{
-				text = inputTextBox.Text;
-				return text;
-			}
-			set
-			{
-				text = value;
-				inputTextBox.Text = text;
-				this.Invalidate();
-				this.Text = string.Empty;
 
-				if (string.IsNullOrWhiteSpace(text))
-					captionLabel.Visible = true;
-				else
-					captionLabel.Visible = false;
-			}
-		}
 
-		//Override Methods
+
+
+
+
+
+
+
+
+
+
+
+		//======================================================================= Override Methods
 		protected override void OnPaint(PaintEventArgs e)
 		{
 			base.OnPaint(e);
 			Graphics graphics = e.Graphics;
 
 			//Drawing border
-			using(Pen penBorder = new Pen(borderColor, borderSize))
+			using (Pen penBorder = new Pen(borderColor, borderSize))
 			{
 				penBorder.Alignment = System.Drawing.Drawing2D.PenAlignment.Inset;
-
-				if (_style == _Style.MaterialStyle)//Line Style
+				if (!_isFocus)
 				{
-					graphics.DrawLine(penBorder, 0, this.Height - 1, this.Width, this.Height - 1);
+					if (_style == _Style.MaterialStyle)//Line Style
+					{
+						graphics.DrawLine(penBorder, 0, this.Height - 1, this.Width, this.Height - 1);
+					}
+					else//Normal Style
+					{
+						graphics.DrawRectangle(penBorder, 0, 0, this.Width - 0.5F, this.Height - 0.5F);
+					}
 				}
-				else//Normal Style
+				else
 				{
-					graphics.DrawRectangle(penBorder, 0, 0, this.Width - 0.5F, this.Height - 0.5F);
+					penBorder.Color = BorderColorFocus;
+					if (_style == _Style.MaterialStyle)//Line Style
+					{
+						graphics.DrawLine(penBorder, 0, this.Height - 1, this.Width, this.Height - 1);
+					}
+					else//Normal Style
+					{
+						graphics.DrawRectangle(penBorder, 0, 0, this.Width - 0.5F, this.Height - 0.5F);
+					}
+				}
+
+				if (!_isHover)
+				{
+					if (_style == _Style.MaterialStyle)//Line Style
+					{
+						graphics.DrawLine(penBorder, 0, this.Height - 1, this.Width, this.Height - 1);
+					}
+					else//Normal Style
+					{
+						graphics.DrawRectangle(penBorder, 0, 0, this.Width - 0.5F, this.Height - 0.5F);
+					}
+				}
+				else
+				{
+					penBorder.Color = BorderColorHover;
+					if (_style == _Style.MaterialStyle)//Line Style
+					{
+						graphics.DrawLine(penBorder, 0, this.Height - 1, this.Width, this.Height - 1);
+					}
+					else//Normal Style
+					{
+						graphics.DrawRectangle(penBorder, 0, 0, this.Width - 0.5F, this.Height - 0.5F);
+					}
 				}
 			}
 		}
 
-		
-
 		protected override void OnResize(EventArgs e)
 		{
 			base.OnResize(e);
-			if(this.DesignMode)
+			if (this.DesignMode)
 				UpdateControlHeight();
 
 			if (base.Width < 100)
@@ -264,7 +531,60 @@ namespace Mbb.Windows.Forms
 			UpdateControlHeight();
 		}
 
-		//Privat Methods
+		//======================================================================= Privat Methods
+		#region DecimalNumberInputType
+		private void DecimalNumberInputType(System.Windows.Forms.KeyPressEventArgs e, string text)
+		{
+			char ch = e.KeyChar;
+
+			if (ch == 47 && text.IndexOf('/') != -1)
+			{
+				e.Handled = true;
+				return;
+			}
+
+			if (!char.IsDigit(ch) && ch != 8 && ch != 47)
+			{
+				e.Handled = true;
+			}
+		}
+		#endregion
+
+		#region EnglishLanguage
+		/// <summary>
+		/// Function to change Persian to English
+		/// </summary>
+		private void EnglishLanguage()
+		{
+			System.Threading.Thread.CurrentThread.CurrentCulture =
+				new System.Globalization.CultureInfo("en-us");
+
+			System.Threading.Thread.CurrentThread.CurrentUICulture =
+				System.Threading.Thread.CurrentThread.CurrentCulture;
+
+			System.Windows.Forms.InputLanguage.CurrentInputLanguage =
+				System.Windows.Forms.InputLanguage.FromCulture(new System.Globalization.CultureInfo("en-us"));
+		}
+		#endregion /EnglishLanguage
+
+		#region PersianLanguage
+		/// <summary>
+		/// Function to change English to Persian
+		/// </summary>
+		private void PersianLanguage()
+		{
+			System.Threading.Thread.CurrentThread.CurrentCulture =
+				new System.Globalization.CultureInfo("fa-ir");
+
+			System.Threading.Thread.CurrentThread.CurrentUICulture =
+				System.Threading.Thread.CurrentThread.CurrentCulture;
+
+			System.Windows.Forms.InputLanguage.CurrentInputLanguage =
+				System.Windows.Forms.InputLanguage.FromCulture(new System.Globalization.CultureInfo("fa-ir"));
+		}
+		#endregion /PersianLanguage
+
+		#region UpdateControlHeight
 		private void UpdateControlHeight()
 		{
 			if (inputTextBox.Multiline == false)
@@ -273,12 +593,306 @@ namespace Mbb.Windows.Forms
 				inputTextBox.Multiline = true;
 				inputTextBox.MinimumSize = new Size(0, txtHeight);
 				inputTextBox.Multiline = false;
-
 				this.Height = inputTextBox.Height + this.Padding.Top + this.Padding.Bottom;
+			}
+		}
+		#endregion /UpdateControlHeight
 
+		#region EnglishInputType
+		private void EnglishInputType(KeyPressEventArgs e)
+		{
+			if ((e.KeyChar >= 'آ' && e.KeyChar <= 'ی') || (e.KeyChar >= '0' && e.KeyChar <= '9'))
+			{
+				e.Handled = true;
+			}
+		}
+		#endregion /EnglishType
+
+		#region EnglishAndEnglishNumberInputType
+		private void EnglishAndEnglishNumberInputType(KeyPressEventArgs e)
+		{
+			if ((e.KeyChar >= 'آ' && e.KeyChar <= 'ی'))
+			{
+				e.Handled = true;
+			}
+		}
+		#endregion /EnglishAndEnglishNumberInputType
+
+		#region PersianInputType
+		private void PersianInputType(KeyPressEventArgs e)
+		{
+			if ((e.KeyChar >= 'a' && e.KeyChar <= 'z') || (e.KeyChar >= 'A' && e.KeyChar <= 'Z') || (e.KeyChar >= '0' && e.KeyChar <= '9'))
+			{
+				e.Handled = true;
+			}
+		}
+		#endregion /PersianInputType
+
+		#region PersianAndNunberInputType
+		private void PersianAndNunberInputType(KeyPressEventArgs e)
+		{
+			if ((e.KeyChar >= 'a' && e.KeyChar <= 'z') || (e.KeyChar >= 'A' && e.KeyChar <= 'Z'))
+			{
+				e.Handled = true;
+			}
+		}
+		#endregion /PersianAndPersianNunberInputType
+
+		#region NumberInputType
+		private void NumberInputType(KeyPressEventArgs e)
+		{
+			if (!(char.IsDigit(e.KeyChar) || char.IsControl(e.KeyChar)))
+			{
+				e.Handled = true;
+			}
+		}
+		#endregion /NumberInputType
+
+
+		//======================================================================= Eevents
+
+		//creat event _TextChanges for TextBox contorol.
+		[System.ComponentModel.Browsable(true)]
+		[System.ComponentModel.Editor(typeof(MultilineStringEditor), typeof(System.Drawing.Design.UITypeEditor))]
+		public event EventHandler TextChanged;
+		[System.ComponentModel.Browsable(false)]
+		public event EventHandler Load;
+
+		private void TextBox_Load(object sender, EventArgs e)
+		{
+			if (TextChanged != null)
+			{
+				TextChanged.Invoke(sender, e);
 			}
 		}
 
+		private void TextBox_Enter(object sender, EventArgs e)
+		{
+			_isFocus = true;
+			this.Invalidate();
+		}
 
+		private void TextBox_Leave(object sender, EventArgs e)
+		{
+			_isFocus = false;
+			this.Invalidate();
+		}
+
+		private void TextBox_MouseEnter(object sender, EventArgs e)
+		{
+			_isHover = true;
+			this.Invalidate();
+		}
+
+		private void TextBox_MouseLeave(object sender, EventArgs e)
+		{
+			_isHover = false;
+			this.Invalidate();
+		}
+
+		private void InputTextBox_Enter(object sender, EventArgs e)
+		{
+			_isFocus = true;
+			this.Invalidate();
+			if (WritingLanguage == _WritingLanguage.English_Language)
+			{
+				EnglishLanguage();
+			}
+			else if (WritingLanguage == _WritingLanguage.English_Language)
+			{
+				PersianLanguage();
+			}
+		}
+
+		private void InputTextBox_KeyPress(object sender, KeyPressEventArgs e)
+		{
+			if (InputWrite == _InputWrite.FreeType)
+			{
+				return;
+			}
+			else if (InputWrite == _InputWrite.English)
+			{
+				EnglishInputType(e);
+			}
+			else if (InputWrite == _InputWrite.English_And_EnglishNumber)
+			{
+				EnglishAndEnglishNumberInputType(e);
+			}
+			else if (InputWrite == _InputWrite.فارسی)
+			{
+				PersianInputType(e);
+			}
+			else if (InputWrite == _InputWrite.فارسی_و_اعداد_فارسی)
+			{
+				PersianAndNunberInputType(e);
+			}
+			else if (InputWrite == _InputWrite.Number)
+			{
+				NumberInputType(e);
+			}
+			else if (InputWrite == _InputWrite.Decimal_Number)
+			{
+				DecimalNumberInputType(e, inputTextBox.Text);
+			}
+		}
+
+		private void InputTextBox_Leave(object sender, EventArgs e)
+		{
+			_isFocus = false;
+			this.Invalidate();
+		}
+
+		private void InputTextBox_MouseEnter(object sender, EventArgs e)
+		{
+			_isHover = true;
+			this.Invalidate();
+		}
+
+		private void InputTextBox_MouseLeave(object sender, EventArgs e)
+		{
+			_isHover = false;
+			this.Invalidate();
+		}
+
+		private void InputTextBox_TextChanged(object sender, EventArgs e)
+		{
+			if (TextChanged != null)
+			{
+				TextChanged.Invoke(sender, e);
+			}
+
+			if (!string.IsNullOrWhiteSpace(inputTextBox.Text))
+			{
+				captionLabel.Visible = false;
+			}
+			else
+			{
+				captionLabel.Visible = true;
+			}
+		}
+
+		private void CaptionLabel_Click(object sender, EventArgs e)
+		{
+			inputTextBox.Focus();
+			if (WritingLanguage == _WritingLanguage.Free_Language)
+			{
+				return;
+			}
+			else if (WritingLanguage == _WritingLanguage.English_Language)
+			{
+				EnglishLanguage();
+			}
+			else if (WritingLanguage == _WritingLanguage.زبان_فارسی)
+			{
+				PersianLanguage();
+			}
+		}
+
+		private void CaptionLabel_Enter(object sender, EventArgs e)
+		{
+			_isFocus = true;
+			this.Invalidate();
+		}
+
+		private void CaptionLabel_Leave(object sender, EventArgs e)
+		{
+			_isFocus = false;
+			this.Invalidate();
+		}
+
+		private void CaptionLabel_MouseEnter(object sender, EventArgs e)
+		{
+			_isHover = true;
+			this.Invalidate();
+		}
+
+		private void CaptionLabel_MouseLeave(object sender, EventArgs e)
+		{
+			_isHover = false;
+			this.Invalidate();
+		}
+
+		private void CaptionLabel_TextChanged(object sender, EventArgs e)
+		{
+			if (TextChanged != null)
+			{
+				TextChanged.Invoke(sender, e);
+			}
+		}
+
+		private void IconLeftBox_Click(object sender, EventArgs e)
+		{
+			if (IconLeft != null)
+			{
+				if (IconLeftMousClick == null)
+				{
+					return;
+				}
+				else
+				{
+					iconLeftBox.Image = IconLeftMousClick;
+				} 
+			}
+			else
+			{
+				return;
+			}
+		}
+
+		private void IconLeftBox_MouseDown(object sender, MouseEventArgs e)
+		{
+			if (IconLeft != null)
+			{
+				if (IconLeftMousDown == null)
+				{
+					return;
+				}
+				else
+				{
+					iconLeftBox.Image = IconLeftMousDown;
+				}
+			}
+			else
+			{
+				return;
+			}
+			
+		}
+
+		private void IconLeftBox_MouseUp(object sender, MouseEventArgs e)
+		{
+			if (IconLeft != null)
+			{
+				if (IconLeftMousUp == null)
+				{
+					return;
+				}
+				else
+				{
+					iconLeftBox.Image = IconLeftMousUp;
+				}
+			}
+			else
+			{
+				return;
+			}
+		}
+
+		private void IconRightBox_Click(object sender, EventArgs e)
+		{
+
+		}
+
+		private void IconRightBox_MouseDown(object sender, MouseEventArgs e)
+		{
+
+		}
+
+		private void IconRightBox_MouseUp(object sender, MouseEventArgs e)
+		{
+
+		}
+
+		
 	}
 }

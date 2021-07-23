@@ -105,6 +105,15 @@ namespace Mbb.Windows.Forms
 				this.Dispose();
 			}
 		}
-		#endregion /CloseFormTimer_Tick
+
+
+		#endregion /CloseFormTimer_Tick	
+
+		#region ShowFaideTimer_Tick
+		private void ShowFaideTimer_Tick(object sender, EventArgs e)
+		{
+
+		}
+		#endregion /ShowFaideTimer_Tick
 	}
 }

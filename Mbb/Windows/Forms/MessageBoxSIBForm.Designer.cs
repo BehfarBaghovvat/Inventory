@@ -37,6 +37,7 @@
 			this.captionLabel = new Mbb.Windows.Forms.Label();
 			this.closeFormTimer = new System.Windows.Forms.Timer(this.components);
 			this.showFormAnimateWindow = new Guna.UI.WinForms.GunaAnimateWindow(this.components);
+			this.showFaideTimer = new System.Windows.Forms.Timer(this.components);
 			((System.ComponentModel.ISupportInitialize)(this.iconPicturBox)).BeginInit();
 			this.SuspendLayout();
 			// 
@@ -114,6 +115,10 @@
 			this.showFormAnimateWindow.Interval = 200;
 			this.showFormAnimateWindow.TargetControl = null;
 			// 
+			// showFaideTimer
+			// 
+			this.showFaideTimer.Tick += new System.EventHandler(this.ShowFaideTimer_Tick);
+			// 
 			// MessageBoxSIBForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 17F);
@@ -146,5 +151,6 @@
 		private Label captionLabel;
 		private System.Windows.Forms.Timer closeFormTimer;
 		private Guna.UI.WinForms.GunaAnimateWindow showFormAnimateWindow;
+		private System.Windows.Forms.Timer showFaideTimer;
 	}
 }

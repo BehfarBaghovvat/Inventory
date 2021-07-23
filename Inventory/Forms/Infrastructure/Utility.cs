@@ -943,7 +943,7 @@ namespace Infrastructure
 				e.Handled = true;
 			}
 		}
-		#endregion /PersianTyping		
+		#endregion /PersianTyping
 
 		#region PopupNotification
 		/// <summary>

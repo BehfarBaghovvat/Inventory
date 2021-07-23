@@ -1,14 +1,24 @@
-﻿using System.ComponentModel.Design;
+﻿using System.Drawing;
 
 namespace Mbb.Windows.Forms
 {
+	[System.ComponentModel.DefaultEvent("TextChanged")]
 	public partial class CustomTextBox : System.Windows.Forms.UserControl
 	{
-		#region Properties
+		//----------------------------------------------------   Properties ansd Fields
 
+		#region Properties ansd Fields
+
+		private bool _focus = false;
+		private bool _iconLeftActive = false;
+		private bool _iconRightActive = false;
+
+
+
+		//----------------------------------------------------   Cotrols Layer
 		#region CotrolsLayer
-		private System.Windows.Forms.TextBox InputBox = new System.Windows.Forms.TextBox { BorderStyle = System.Windows.Forms.BorderStyle.None, BackColor = default, };
-		private System.Windows.Forms.Label WaterMarkLabel = new System.Windows.Forms.Label { BackColor = default, };
+		private System.Windows.Forms.TextBox _inputTextBox = new System.Windows.Forms.TextBox { BorderStyle = System.Windows.Forms.BorderStyle.None, BackColor = default, };
+		private System.Windows.Forms.Label _captionLabel = new System.Windows.Forms.Label { BackColor = default, };
 		private System.Windows.Forms.Panel MaterialBorder = new System.Windows.Forms.Panel { Dock = System.Windows.Forms.DockStyle.Bottom, };
 
 		private System.Windows.Forms.Panel TopBorder = new System.Windows.Forms.Panel();
@@ -16,12 +26,12 @@ namespace Mbb.Windows.Forms
 		private System.Windows.Forms.Panel RightBorder = new System.Windows.Forms.Panel();
 		private System.Windows.Forms.Panel BottomBorder = new System.Windows.Forms.Panel();
 
-
-		private System.Windows.Forms.PictureBox IcoLeft = new System.Windows.Forms.PictureBox { SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom };
-		private System.Windows.Forms.PictureBox IcoRight = new System.Windows.Forms.PictureBox { SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom };
+		private System.Windows.Forms.PictureBox _iconLeftBox = new System.Windows.Forms.PictureBox { SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom };
+		private System.Windows.Forms.PictureBox _iconRightBox = new System.Windows.Forms.PictureBox { SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom };
 
 		#endregion /CotrolsLayer
-
+		//----------------------------------------------------   Enums
+		#region Enums
 		public enum TypeWrite
 		{
 			English,
@@ -36,7 +46,9 @@ namespace Mbb.Windows.Forms
 			Default,
 			MaterialStyle,
 		}
+		#endregion /Enums
 
+		//----------------------------------------------------   Properties
 		private System.Drawing.Color _borderColorIdle = System.Drawing.Color.Silver;
 		public System.Drawing.Color BorderColorIdle
 		{
@@ -63,15 +75,6 @@ namespace Mbb.Windows.Forms
 			set
 			{
 				_borderColorFocus = value;
-
-				if (_styleTextBox == Style.Default)
-				{
-					DefaultBorderColor(_borderColorFocus);
-				}
-				else if (_styleTextBox == Style.MaterialStyle)
-				{
-					MaterialBorderColor(_borderColorFocus);
-				}
 			}
 		}
 
@@ -82,15 +85,6 @@ namespace Mbb.Windows.Forms
 			set
 			{
 				_borderColorHover = value;
-
-				if (_styleTextBox == Style.Default)
-				{
-					DefaultBorderColor(_borderColorHover);
-				}
-				else if (_styleTextBox == Style.MaterialStyle)
-				{
-					MaterialBorderColor(_borderColorHover);
-				}
 			}
 		}
 
@@ -120,6 +114,43 @@ namespace Mbb.Windows.Forms
 			}
 		}
 
+		private string _caption = "Enter text";
+		public string Caption
+		{
+			get
+			{
+				return _caption;
+			}
+			set
+			{
+				_caption = value;
+
+				if (string.IsNullOrEmpty(_caption))
+				{
+					this.Controls.Remove(_captionLabel);
+				}
+				else
+				{
+					GetCaption(_caption);
+				}
+			}
+		}
+
+		private System.Drawing.Color _captionForeColor = System.Drawing.Color.Silver;
+		public System.Drawing.Color CaptionForeColor
+		{
+			get
+			{
+				return _captionForeColor;
+			}
+			set
+			{
+				_captionForeColor = value;
+
+				_captionLabel.ForeColor = _captionForeColor;
+			}
+		}
+
 		private System.Drawing.Image _iconLeft;
 		public System.Drawing.Image IconLeft
 		{
@@ -130,10 +161,12 @@ namespace Mbb.Windows.Forms
 
 				if (_iconLeft != null)
 				{
-					CreateIconLeft(size: IconLeftSize, location: IconLeftOffset, _iconLeft);
+					
+					GetIconLeft(size: IconLeftSize, location: IconLeftOffset, _iconLeft);
 				}
 				else
 				{
+					
 					RemoveIconLeft();
 				}
 			}
@@ -177,7 +210,7 @@ namespace Mbb.Windows.Forms
 			{
 				_iconLeftOffset = value;
 
-				IcoLeft.Location = new System.Drawing.Point(x: _iconLeftOffset.X, y: _iconLeftOffset.Y);
+				_iconLeftBox.Location = new System.Drawing.Point(x: _iconLeftOffset.X, y: _iconLeftOffset.Y);
 			}
 		}
 
@@ -208,7 +241,7 @@ namespace Mbb.Windows.Forms
 
 				if (_iconRight != null)
 				{
-					CreateIconRight(size: IconRightSize, location: IconRightOffset, icon: _iconRight);
+					GetIconRight(size: IconRightSize, location: IconRightOffset, icon: _iconRight);
 				}
 				else
 				{
@@ -225,7 +258,7 @@ namespace Mbb.Windows.Forms
 			{
 				_iconRightOffset = value;
 
-				IcoRight.Location = new System.Drawing.Point(x: _iconRightOffset.X, y: _iconRightOffset.Y);
+				_iconRightBox.Location = new System.Drawing.Point(x: _iconRightOffset.X, y: _iconRightOffset.Y);
 			}
 		}
 
@@ -245,6 +278,49 @@ namespace Mbb.Windows.Forms
 				}
 			}
 		}
+		
+		public bool Multiline
+		{
+			get 
+			{ 
+				return _inputTextBox.Multiline;
+			}
+			set
+			{
+				_inputTextBox.Multiline = value;
+
+				if (value == true)
+				{
+					_captionLabel.Location = _inputTextBox.Location = new Point(x: 10, y: 9);
+
+					_captionLabel.Size = _inputTextBox.Size = new Size(width: this.Width - 20, height: this.Height - 18);
+					_captionLabel.Anchor = _inputTextBox.Anchor = (System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right);
+					
+					if (_inputTextBox.TextAlign == System.Windows.Forms.HorizontalAlignment.Left)
+					{
+						_captionLabel.TextAlign = ContentAlignment.TopLeft;
+					}
+					else if (_inputTextBox.TextAlign == System.Windows.Forms.HorizontalAlignment.Center)
+					{
+						_captionLabel.TextAlign = ContentAlignment.TopCenter;
+					}
+					else if (_inputTextBox.TextAlign == System.Windows.Forms.HorizontalAlignment.Right)
+					{
+						_captionLabel.TextAlign = ContentAlignment.TopRight;
+					}
+				}
+				else if (value == false)
+				{
+					//this.Height = 35;
+					_captionLabel.Location = _inputTextBox.Location = new Point(x: 10, y: (this.Height / 2) - (_inputTextBox.Height / 2));
+
+					_captionLabel.Anchor = _inputTextBox.Anchor = (System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right);
+
+					_captionLabel.Size = _inputTextBox.Size = new Size(width: this.Width - 20, height: 17);
+				}
+
+			}
+		}
 
 		private Style _styleTextBox = Style.Default;
 		public Style StyleTextBox
@@ -254,7 +330,7 @@ namespace Mbb.Windows.Forms
 			{
 				if (_styleTextBox == Style.Default)
 				{
-					CreateTextBox();
+					GetInputTextBox();
 					DefaultBorderStyle();
 					MaterialBorderRemove();
 				}
@@ -274,43 +350,68 @@ namespace Mbb.Windows.Forms
 			{
 				_textAling = value;
 
-				InputBox.TextAlign = _textAling;
+				_inputTextBox.TextAlign = _textAling;
 
-				if (_textAling == System.Windows.Forms.HorizontalAlignment.Right)
-				{
-					//WaterMarkLabel.Location = new System.Drawing.Point(x: Box.Width - WaterMarkLabel.Text.Length, y: 9);
-					WaterMarkLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-				}
-				else if (_textAling == System.Windows.Forms.HorizontalAlignment.Left)
-				{
-					//WaterMarkLabel.Location = new System.Drawing.Point(x: 8, y: 9);
-					WaterMarkLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-				}
-			}
-		}
 
-		private string _text;
-		[System.ComponentModel.Browsable(true)]
-		[System.ComponentModel.Editor(typeof(MultilineStringEditor), typeof(System.Drawing.Design.UITypeEditor))]
-		public string Text
-		{
-			get
-			{
-				_text = InputBox.Text;
-				return _text;
-			}
-			set
-			{
-				_text = value;
-				InputBox.Text = _text;
-
-				if (string.IsNullOrEmpty(_text))
+				if (!Multiline)
 				{
-					ShowWaterMark(WaterMark);
+					if (_textAling == System.Windows.Forms.HorizontalAlignment.Right)
+					{
+
+						_captionLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+					}
+					else if (_textAling == System.Windows.Forms.HorizontalAlignment.Left)
+					{
+						_captionLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+					}
+					else if (_textAling == System.Windows.Forms.HorizontalAlignment.Center)
+					{
+						_captionLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+					}
 				}
 				else
 				{
-					this.Controls.Remove(WaterMarkLabel);
+					if (_textAling == System.Windows.Forms.HorizontalAlignment.Right)
+					{
+						_captionLabel.TextAlign = System.Drawing.ContentAlignment.TopRight;
+					}
+					else if (_textAling == System.Windows.Forms.HorizontalAlignment.Left)
+					{
+						_captionLabel.TextAlign = System.Drawing.ContentAlignment.TopLeft;
+					}
+					else if (_textAling == System.Windows.Forms.HorizontalAlignment.Center)
+					{
+						_captionLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+					}
+				}
+
+				
+			}
+		}
+
+		private string _texts;
+		[System.ComponentModel.Browsable(true)]
+		[System.ComponentModel.DisplayName("Text")]
+		[System.ComponentModel.Editor(typeof(System.ComponentModel.Design.MultilineStringEditor), typeof(System.Drawing.Design.UITypeEditor))]
+		public string Texts
+		{
+			get
+			{
+				_texts = _inputTextBox.Text;
+				return _texts;
+			}
+			set
+			{
+				_texts = value;
+				_inputTextBox.Text = _texts;
+
+				if (string.IsNullOrEmpty(_texts))
+				{
+					GetCaption(Caption);
+				}
+				else
+				{
+					this.Controls.Remove(_captionLabel);
 				}
 			}
 		}
@@ -326,92 +427,132 @@ namespace Mbb.Windows.Forms
 			}
 		}
 
-		private string _waterMark = "Enter text";
-		public string WaterMark
-		{
-			get
-			{
-				return _waterMark;
-			}
-			set
-			{
-				_waterMark = value;
+		
 
-				if (string.IsNullOrEmpty(_waterMark))
-				{
-					this.Controls.Remove(WaterMarkLabel);
-				}
-				else
-				{
-					ShowWaterMark(_waterMark);
-				}
-			}
-		}
+		#endregion /Properties ansd Fields
 
-		private System.Drawing.Color _waterMarkColor = System.Drawing.Color.DimGray;
-		public System.Drawing.Color WaterMarkColor
-		{
-			get
-			{
-				return _waterMarkColor;
-			}
-			set
-			{
-				_waterMarkColor = value;
 
-				WaterMarkLabel.ForeColor = _waterMarkColor;
-			}
-		}
 
-		#endregion /Properties
+		//----------------------------------------------------   Constracture
 
+		#region CustomTextBox
 		public CustomTextBox()
 		{
 			InitializeComponent();
 			//=============================================
 			DefaultBorderStyle();
-			CreateTextBox();
-			ShowWaterMark(WaterMark);
-			IcoLeft.MouseClick += IcoLeft_MouseClick;
-			IcoLeft.MouseDown += IcoLeft_MouseDown;
-			IcoLeft.MouseUp += IcoLeft_MouseUp;
-			WaterMarkLabel.Click += WaterMarkLabel_Click;
-			InputBox.KeyPress += InputBox_KeyPress;
-			InputBox.TextChanged += InputBox_TextChanged;
+			GetInputTextBox();
+			GetCaption(Caption);
+
+			_iconLeftBox.MouseClick += IconLeftBox_MouseClick;
+			_iconLeftBox.MouseDown += IconLeftBox_MouseDown;
+			_iconLeftBox.MouseUp += IconLeftBox_MouseUp;
+
+			_captionLabel.Click += CaptionLabel_Click;
+			_captionLabel.MouseEnter += CaptionLabel_MouseEnter;
+			_captionLabel.MouseLeave += CaptionLabel_MouseLeave;
+
+			_inputTextBox.Enter += InputTextBox_Enter;
+			_inputTextBox.KeyPress += InputBox_KeyPress;
+			_inputTextBox.Leave += InputTextBox_Leave;
+			_inputTextBox.MouseEnter += InputTextBox_MouseEnter;
+			_inputTextBox.MouseLeave += InputTextBox_MouseLeave;
+			_inputTextBox.TextChanged += InputBox_TextChanged;
 		}
+		#endregion /CustomTextBox
 
-		#region Events
 
+
+		//----------------------------------------------------   Events Handler
+
+		#region Events Handler
 		[System.ComponentModel.Browsable(true)]
 		[System.ComponentModel.Description("Occurs when the property 'Text' changes.")]
 		public event System.EventHandler TextChanged;
+		#endregion /Events Handler
 
-		
 
-		#endregion /Events
+		//----------------------------------------------------   Events Controls
+
+		#region CustomTextBox_BackColorChanged
+		private void CustomTextBox_BackColorChanged(object sender, System.EventArgs e)
+		{
+			_inputTextBox.BackColor = this.BackColor;
+			_captionLabel.BackColor = this.BackColor;
+		}
+		#endregion /CustomTextBox_BackColorChanged
+
+		#region CustomTextBox_Click
+		private void CustomTextBox_Click(object sender, System.EventArgs e)
+		{
+			_focus = true;
+			_inputTextBox.Focus();
+
+		}
+		#endregion /CustomTextBox_Click
+
+		#region CustomTextBox_Enter
+		private void CustomTextBox_Enter(object sender, System.EventArgs e)
+		{
+			_focus = true;
+			if (_styleTextBox == Style.Default)
+			{
+				DefaultBorderColor(_borderColorFocus);
+			}
+			else if (_styleTextBox == Style.MaterialStyle)
+			{
+				MaterialBorderColor(_borderColorFocus);
+			}
+		}
+		#endregion /CustomTextBox_Enter
+
+		#region CustomTextBox_ForeColorChanged
+		private void CustomTextBox_ForeColorChanged(object sender, System.EventArgs e)
+		{
+			_inputTextBox.ForeColor = this.ForeColor;
+		}
+		#endregion /CustomTextBox_ForeColorChanged
+
+		#region CustomTextBox_Leave
+		private void CustomTextBox_Leave(object sender, System.EventArgs e)
+		{
+			_focus = false;
+
+			if (_styleTextBox == Style.Default)
+			{
+				DefaultBorderColor(_borderColorIdle);
+			}
+			else if (_styleTextBox == Style.MaterialStyle)
+			{
+				MaterialBorderColor(_borderColorIdle);
+			}
+		}
+		#endregion /CustomTextBox_Leave
 
 		#region CustomTextBox_Load
 		private void CustomTextBox_Load(object sender, System.EventArgs e)
 		{
-			if (this.Controls.Contains(IcoLeft))
+			Text = string.Empty;
+
+			if (this.Controls.Contains(_iconLeftBox))
 			{
-				IcoLeft.Location = new System.Drawing.Point(x: 8, y: 7);
-				InputBox.Location = new System.Drawing.Point(x: 34, y: 9);
-				InputBox.Width = 200;
-				WaterMarkLabel.Location = InputBox.Location;
-				WaterMarkLabel.Width = InputBox.Width - 3;
+				_iconLeftBox.Location = new System.Drawing.Point(x: 8, y: 7);
+				_inputTextBox.Location = new System.Drawing.Point(x: 34, y: 9);
+				_inputTextBox.Width = 200;
+				_captionLabel.Location = _inputTextBox.Location;
+				_captionLabel.Width = _inputTextBox.Width - 3;
 			}
 			else
 			{
 				return;
 			}
 
-			if (this.Controls.Contains(IcoRight))
+			if (this.Controls.Contains(_iconRightBox))
 			{
-				IcoRight.Location = new System.Drawing.Point(x: 222, y: 7);
+				_iconRightBox.Location = new System.Drawing.Point(x: 222, y: 7);
 
-				InputBox.Width -= 52;
-				WaterMarkLabel.Width = InputBox.Width;
+				_inputTextBox.Width -= 52;
+				_captionLabel.Width = _inputTextBox.Width;
 			}
 			else
 			{
@@ -420,19 +561,136 @@ namespace Mbb.Windows.Forms
 		}
 		#endregion /CustomTextBox_Load
 
-		#region InputBox_TextChanged
-		public void InputBox_TextChanged(object sender, System.EventArgs e)
+		#region CustomTextBox_MouseEnter
+		private void CustomTextBox_MouseEnter(object sender, System.EventArgs e)
 		{
-			if (string.IsNullOrWhiteSpace(InputBox.Text))
+			if (_styleTextBox == Style.Default)
 			{
-				ShowWaterMark(WaterMark);
+				DefaultBorderColor(_borderColorHover);
+			}
+			else if (_styleTextBox == Style.MaterialStyle)
+			{
+				MaterialBorderColor(_borderColorHover);
+			}
+		}
+		#endregion /CustomTextBox_MouseEnter
+
+		#region CustomTextBox_MouseLeave
+		private void CustomTextBox_MouseLeave(object sender, System.EventArgs e)
+		{
+			if (_focus)
+			{
+				if (_styleTextBox == Style.Default)
+				{
+					DefaultBorderColor(_borderColorFocus);
+				}
+				else if (_styleTextBox == Style.MaterialStyle)
+				{
+					MaterialBorderColor(_borderColorFocus);
+				}
 			}
 			else
 			{
-				this.Controls.Remove(WaterMarkLabel);
+				if (_styleTextBox == Style.Default)
+				{
+					DefaultBorderColor(_borderColorIdle);
+				}
+				else if (_styleTextBox == Style.MaterialStyle)
+				{
+					MaterialBorderColor(_borderColorIdle);
+				}
+			}
+
+		}
+		#endregion /CustomTextBox_MouseLeave
+
+		#region CustomTextBox_Resize
+		private void CustomTextBox_Resize(object sender, System.EventArgs e)
+		{
+			if (this.Height < 35)
+			{
+				this.Height = 35;
+			}
+			if (this.Width < 100)
+			{
+				this.Width = 100;
 			}
 		}
-		#endregion /InputBox_TextChanged
+		#endregion /CustomTextBox_Resize
+
+		#region CustomTextBox_RightToLeftChanged
+		private void CustomTextBox_RightToLeftChanged(object sender, System.EventArgs e)
+		{
+			_inputTextBox.RightToLeft = this.RightToLeft;
+			_captionLabel.RightToLeft = this.RightToLeft;
+
+			StatusControls();
+
+		}
+		#endregion /CustomTextBox_RightToLeftChanged
+
+		//----------------------------------------------------
+
+		#region CaptionLabel_Click
+		private void CaptionLabel_Click(object sender, System.EventArgs e)
+		{
+			_focus = true;
+			_inputTextBox.Focus();
+
+			if (_styleTextBox == Style.Default)
+			{
+				DefaultBorderColor(_borderColorFocus);
+			}
+			else if (_styleTextBox == Style.MaterialStyle)
+			{
+				MaterialBorderColor(_borderColorFocus);
+			}
+		}
+		#endregion /CaptionLabel_Click
+
+		#region CaptionLabel_MouseEnter
+		private void CaptionLabel_MouseEnter(object sender, System.EventArgs e)
+		{
+			if (_styleTextBox == Style.Default)
+			{
+				DefaultBorderColor(_borderColorHover);
+			}
+			else if (_styleTextBox == Style.MaterialStyle)
+			{
+				MaterialBorderColor(_borderColorHover);
+			}
+		}
+		#endregion /CaptionLabel_MouseEnter
+
+		#region CaptionLabel_MouseLeave
+		private void CaptionLabel_MouseLeave(object sender, System.EventArgs e)
+		{
+			if (_focus)
+			{
+				if (_styleTextBox == Style.Default)
+				{
+					DefaultBorderColor(_borderColorFocus);
+				}
+				else if (_styleTextBox == Style.MaterialStyle)
+				{
+					MaterialBorderColor(_borderColorFocus);
+				}
+			}
+			else
+			{
+				if (_styleTextBox == Style.Default)
+				{
+					DefaultBorderColor(_borderColorIdle);
+				}
+				else if (_styleTextBox == Style.MaterialStyle)
+				{
+					MaterialBorderColor(_borderColorIdle);
+				}
+			}
+		}
+		#endregion /CaptionLabel_MouseLeave
+
+		//----------------------------------------------------
 
 		#region InputBox_KeyPress
 		public void InputBox_KeyPress(object sender, System.Windows.Forms.KeyPressEventArgs e)
@@ -448,15 +706,97 @@ namespace Mbb.Windows.Forms
 		}
 		#endregion /InputBox_KeyPress
 
-		#region WaterMarkLabel_Click
-		private void WaterMarkLabel_Click(object sender, System.EventArgs e)
+		#region InputTextBox_Enter
+		private void InputTextBox_Enter(object sender, System.EventArgs e)
 		{
-			InputBox.Focus();
+			_focus = true;
+
+			if (_styleTextBox == Style.Default)
+			{
+				DefaultBorderColor(_borderColorFocus);
+			}
+			else if (_styleTextBox == Style.MaterialStyle)
+			{
+				MaterialBorderColor(_borderColorFocus);
+			}
 		}
-		#endregion /WaterMarkLabel_Click
+		#endregion /InputTextBox_Enter
+
+		#region InputTextBox_Leave
+		private void InputTextBox_Leave(object sender, System.EventArgs e)
+		{
+			_focus = false;
+			if (_styleTextBox == Style.Default)
+			{
+				DefaultBorderColor(_borderColorIdle);
+			}
+			else if (_styleTextBox == Style.MaterialStyle)
+			{
+				MaterialBorderColor(_borderColorIdle);
+			}
+		}
+		#endregion /InputTextBox_Leave
+
+		#region InputTextBox_MouseEnter
+		private void InputTextBox_MouseEnter(object sender, System.EventArgs e)
+		{
+
+			if (_styleTextBox == Style.Default)
+			{
+				DefaultBorderColor(_borderColorHover);
+			}
+			else if (_styleTextBox == Style.MaterialStyle)
+			{
+				MaterialBorderColor(_borderColorHover);
+			}
+		}
+		#endregion /InputTextBox_MouseEnter
+
+		#region InputTextBox_MouseLeave
+		private void InputTextBox_MouseLeave(object sender, System.EventArgs e)
+		{
+			if (_focus)
+			{
+				if (_styleTextBox == Style.Default)
+				{
+					DefaultBorderColor(_borderColorFocus);
+				}
+				else if (_styleTextBox == Style.MaterialStyle)
+				{
+					MaterialBorderColor(_borderColorFocus);
+				}
+			}
+			else
+			{
+				if (_styleTextBox == Style.Default)
+				{
+					DefaultBorderColor(_borderColorIdle);
+				}
+				else if (_styleTextBox == Style.MaterialStyle)
+				{
+					MaterialBorderColor(_borderColorIdle);
+				}
+			}
+		}
+		#endregion /InputTextBox_MouseLeave
+
+		#region InputBox_TextChanged
+		public void InputBox_TextChanged(object sender, System.EventArgs e)
+		{
+			if (string.IsNullOrWhiteSpace(_inputTextBox.Text))
+			{
+				GetCaption(Caption);
+			}
+			else
+			{
+				this.Controls.Remove(_captionLabel);
+			}
+		}
+		#endregion /InputBox_TextChanged
+
 
 		#region IcoLeft_MouseDown
-		private void IcoLeft_MouseDown(object sender, System.Windows.Forms.MouseEventArgs e)
+		private void IconLeftBox_MouseDown(object sender, System.Windows.Forms.MouseEventArgs e)
 		{
 			if (IconLeftMousDown == null)
 			{
@@ -464,13 +804,13 @@ namespace Mbb.Windows.Forms
 			}
 			else
 			{
-				IcoLeft.Image = IconLeftMousDown;
+				_iconLeftBox.Image = IconLeftMousDown;
 			}
 		}
 		#endregion /IcoLeft_MouseDown
 
-		#region IcoLeft_MouseUp
-		private void IcoLeft_MouseUp(object sender, System.Windows.Forms.MouseEventArgs e)
+		#region IconLeftBox_MouseUp
+		private void IconLeftBox_MouseUp(object sender, System.Windows.Forms.MouseEventArgs e)
 		{
 			if (IconLeftMousUp == null)
 			{
@@ -478,13 +818,13 @@ namespace Mbb.Windows.Forms
 			}
 			else
 			{
-				IcoLeft.Image = IconLeftMousUp;
+				_iconLeftBox.Image = IconLeftMousUp;
 			}
 		}
-		#endregion /IcoLeft_MouseUp
+		#endregion /IconLeftBox_MouseUp
 
-		#region IcoLeft_MouseClick
-		private void IcoLeft_MouseClick(object sender, System.Windows.Forms.MouseEventArgs e)
+		#region IconLeftBox_MouseClick
+		private void IconLeftBox_MouseClick(object sender, System.Windows.Forms.MouseEventArgs e)
 		{
 			if (IconLeftMousClick == null)
 			{
@@ -495,55 +835,39 @@ namespace Mbb.Windows.Forms
 
 			}
 		}
-		#endregion /IcoLeft_MouseClick
+		#endregion /IconLeftBox_MouseClick
 
-		#region CustomTextBox_BackColorChanged
-		private void CustomTextBox_BackColorChanged(object sender, System.EventArgs e)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		#region Override_Methods
+		protected override void OnLoad(System.EventArgs e)
 		{
-			InputBox.BackColor = this.BackColor;
-			WaterMarkLabel.BackColor = this.BackColor;
+			base.OnLoad(e);
 		}
-		#endregion /CustomTextBox_BackColorChanged
-
-		#region CustomTextBox_RightToLeftChanged
-		private void CustomTextBox_RightToLeftChanged(object sender, System.EventArgs e)
+		protected override void OnResize(System.EventArgs e)
 		{
-			InputBox.RightToLeft = this.RightToLeft;
-			WaterMarkLabel.RightToLeft = this.RightToLeft;
+			base.OnResize(e);
+			
 		}
-		#endregion /CustomTextBox_RightToLeftChanged
+		#endregion /Override_Methods
 
-		#region CustomTextBox_SizeChanged
-		private void CustomTextBox_SizeChanged(object sender, System.EventArgs e)
-		{
-			if (this.Width <= 100)
-			{
-				this.Width = 100;
-			}
-			if (this.Height <= 35)
-			{
-				this.Height = 35;
-			}
-		}
-		#endregion /CustomTextBox_SizeChanged
 
-		//----------End of code!----------
 
-		#region CreateIconLeft
-		private void CreateIconLeft(int size, System.Drawing.Point location, System.Drawing.Image icon)
-		{
-			this.Controls.Add(IcoLeft);
-			IcoLeft.BringToFront();
-			IcoLeft.Location = new System.Drawing.Point(x: 8, y: 7);
-			IcoLeft.Size = new System.Drawing.Size(width: size, height: size);
-			IcoLeft.Image = icon;
-			IcoLeft.Anchor = System.Windows.Forms.AnchorStyles.Left;
-			InputBox.Location = new System.Drawing.Point(x: 34, y: 9);
-			InputBox.Width = 200;
-			WaterMarkLabel.Location = InputBox.Location;
-			WaterMarkLabel.Width = InputBox.Width - 3;
-		}
-		#endregion CreateIconLeft
+		//----------------------------------------------------   Privat Methods
+
+		
 
 		#region Clear
 		public void Clear()
@@ -555,47 +879,42 @@ namespace Mbb.Windows.Forms
 		#region RemoveIconLeft
 		private void RemoveIconLeft()
 		{
-			this.Controls.Remove(IcoLeft);
-			InputBox.Location = new System.Drawing.Point(x: 8, y: 9);
-			InputBox.Width = 234;
-			WaterMarkLabel.Location = new System.Drawing.Point(x: 8, y: 9);
+			_iconLeftActive = false;
+			this.Controls.Remove(_iconLeftBox);
+
+			if (this.Controls.Contains(_iconRightBox))
+			{
+				_captionLabel.Location = _inputTextBox.Location = new System.Drawing.Point(x: _iconLeftBox.Location.X + 26, y: 9);
+				_captionLabel.Width = _inputTextBox.Width = (_inputTextBox.Width - (_iconLeftBox.Width - 3));
+			}
+			else
+			{
+				_captionLabel.Location =_inputTextBox.Location = new System.Drawing.Point(x: 10, y: 9);
+				_captionLabel.Width = _inputTextBox.Width = 230;
+			}
 		}
 		#endregion /RemoveIconLeft
-
-		#region CreateIconRight
-		private void CreateIconRight(int size, System.Drawing.Point location, System.Drawing.Image icon)
-		{
-			this.Controls.Add(IcoRight);
-			IcoRight.BringToFront();
-			IcoRight.Location = new System.Drawing.Point(x: 222, y: 7);
-			IcoRight.Size = new System.Drawing.Size(width: size, height: size);
-			IcoRight.Image = icon;
-			IcoRight.Anchor = System.Windows.Forms.AnchorStyles.Left;
-
-			InputBox.Width -= 52;
-			WaterMarkLabel.Width = InputBox.Width;
-		}
-		#endregion /CreateIconRight
 
 		#region RemoveIconRight
 		private void RemoveIconRight()
 		{
-			this.Controls.Remove(IcoRight);
-			InputBox.Width += 52;
+			_iconRightActive = false;
+			this.Controls.Remove(_iconRightBox);
+			_inputTextBox.Width += 52;
+
+			if (this.Controls.Contains(_iconLeftBox))
+			{
+				_captionLabel.Location = _inputTextBox.Location = new System.Drawing.Point(x: _iconRightBox.Location.X + 26, y: 9);
+
+				_captionLabel.Width =_inputTextBox.Width += 33 ;
+			}
+			else
+			{
+				_captionLabel.Location = _inputTextBox.Location = new System.Drawing.Point(x: 10, y: 9);
+				_captionLabel.Width = _inputTextBox.Width += 230;
+			}
 		}
 		#endregion /RemoveIconRight
-
-		#region CreateTextBox
-		private void CreateTextBox()
-		{
-			this.Controls.Add(InputBox);
-			InputBox.SendToBack();
-			InputBox.Location = new System.Drawing.Point(x: 8, y: 9);
-			InputBox.Size = new System.Drawing.Size(width: 230, height: 17);
-			InputBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
-			InputBox.Anchor = (System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right);
-		}
-		#endregion /CreateTextBox
 
 		#region DefaultBorderColor
 		private void DefaultBorderColor(System.Drawing.Color borderColor)
@@ -669,6 +988,91 @@ namespace Mbb.Windows.Forms
 		}
 		#endregion /EnglishLanguage
 
+		#region GetCaption
+		private void GetCaption(string watermark)
+		{
+			if (string.IsNullOrEmpty(Text))
+			{
+				this.Controls.Add(_captionLabel);
+				_captionLabel.BringToFront();
+				_captionLabel.Anchor = System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
+				_captionLabel.AutoSize = false;
+				_captionLabel.Size = _inputTextBox.Size;
+				_captionLabel.Text = watermark;
+				_captionLabel.TextAlign = ContentAlignment.TopLeft;
+				_captionLabel.Location = _inputTextBox.Location;
+				_captionLabel.ForeColor = CaptionForeColor;
+				_captionLabel.BorderStyle = System.Windows.Forms.BorderStyle.None;
+			}
+			else
+			{
+				this.Controls.Remove(_captionLabel);
+			}
+
+			_captionLabel.ForeColor = CaptionForeColor;
+		}
+		#endregion /GetCaption
+
+		#region GetIconLeft
+		private void GetIconLeft(int size, System.Drawing.Point location, System.Drawing.Image icon)
+		{
+			_iconLeftActive = true;
+			if (this.Controls.Contains(_iconLeftBox))
+			{
+				_iconLeftBox.Image = icon;
+				return;
+			}
+			else
+			{
+				this.Controls.Add(_iconLeftBox);
+				_iconLeftBox.BringToFront();
+				_iconLeftBox.Location = new System.Drawing.Point(x: 8, y: 7);
+				_iconLeftBox.Size = new System.Drawing.Size(width: size, height: size);
+				_iconLeftBox.Image = icon;
+				_iconLeftBox.Anchor = System.Windows.Forms.AnchorStyles.Left;
+				_captionLabel.Location = _inputTextBox.Location = new System.Drawing.Point(x: _iconLeftBox.Location.X + 26, y: 9);
+				_captionLabel.Width = _inputTextBox.Width = (_inputTextBox.Width - (_iconLeftBox.Width - 3));
+			}
+		}
+		#endregion GetIconLeft
+
+		#region GetIconRight
+		private void GetIconRight(int size, System.Drawing.Point location, System.Drawing.Image icon)
+		{
+			_iconRightActive = true;
+			if (this.Controls.Contains(_iconRightBox))
+			{
+				_iconRightBox.Image = icon;
+				return;
+			}
+			else
+			{
+				this.Controls.Add(_iconRightBox);
+				_iconRightBox.BringToFront();
+				_iconRightBox.Location = new System.Drawing.Point(x: 222, y: 7);
+				_iconRightBox.Size = new System.Drawing.Size(width: size, height: size);
+				_iconRightBox.Image = icon;
+				_iconRightBox.Anchor = (System.Windows.Forms.AnchorStyles.Right);
+
+				_captionLabel.Width = _inputTextBox.Width = (_inputTextBox.Width - (_iconRightBox.Width - 3));
+			}
+			
+		}
+		#endregion /GetIconRight
+
+		#region GetInputTextBox
+		private void GetInputTextBox()
+		{
+			this.Controls.Add(_inputTextBox);
+			_inputTextBox.SendToBack();
+			_inputTextBox.Anchor = (System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right);
+			_inputTextBox.Multiline = false;
+			_inputTextBox.Location = new System.Drawing.Point(x: 10, y: 9);
+			_inputTextBox.Size = new System.Drawing.Size(width: 230, height: 17);
+			_inputTextBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+		}
+		#endregion /GetInputTextBox
+
 		#region MaterialBorderColor
 		private void MaterialBorderColor(System.Drawing.Color borderColor)
 		{
@@ -692,12 +1096,12 @@ namespace Mbb.Windows.Forms
 		}
 		#endregion /MaterialBorderThickness
 
-		#region MaterialBorderThickness
+		#region MaterialBorderRemove
 		private void MaterialBorderRemove()
 		{
 			this.Controls.Remove(MaterialBorder);
 		}
-		#endregion /MaterialBorderThickness
+		#endregion /MaterialBorderRemove
 
 		#region PersianLanguage
 		/// <summary>
@@ -714,29 +1118,34 @@ namespace Mbb.Windows.Forms
 			System.Windows.Forms.InputLanguage.CurrentInputLanguage =
 				System.Windows.Forms.InputLanguage.FromCulture(new System.Globalization.CultureInfo("fa-ir"));
 		}
+
+
+
+
+
+
 		#endregion /PersianLanguage
 
-		#region ShowWaterMark
-		private void ShowWaterMark(string watermark)
+		#region StatusControls
+		private void StatusControls()
 		{
-			if (string.IsNullOrEmpty(Text))
-			{
-				this.Controls.Add(WaterMarkLabel);
-				WaterMarkLabel.BringToFront();
-				WaterMarkLabel.Anchor = System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
-				WaterMarkLabel.AutoSize = false;
-				WaterMarkLabel.Size = InputBox.Size;
-				WaterMarkLabel.Text = watermark;
-				WaterMarkLabel.Location = InputBox.Location;
-				WaterMarkLabel.ForeColor = _waterMarkColor;
-			}
-			else
-			{
-				this.Controls.Remove(WaterMarkLabel);
-			}
-
-			WaterMarkLabel.ForeColor = WaterMarkColor;
+			System.Windows.Forms.MessageBox.Show($"InputBox Width is: {_inputTextBox.Width}" +
+				$"\nCaptionLabel Width is: {_captionLabel.Width}" +
+				$"\nInputBox Position X is: {_inputTextBox.Location.X}" +
+				$"\nInputBox Position Y is: {_inputTextBox.Location.Y}" +
+				$"\nCaptionLabel Location X is: {_captionLabel.Location.X}" +
+				$"\nCaptionLabel Location X is: {_captionLabel.Location.Y}");
 		}
-		#endregion /ShowWaterMark
+		#endregion /StatusControls
+
+
+
+
+
+
+
+
+
+
 	}
 }
