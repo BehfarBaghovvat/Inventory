@@ -18,7 +18,7 @@
 					messageBox.Icon = Properties.Resources.succes_512;
 					messageBox.BackColor = System.Drawing.Color.SeaGreen;
 					messageBox.OKBackColor = System.Drawing.Color.FromArgb(0, 19, 0);
-					messageBox.OKName = "باشه";
+					messageBox.OKName = "بسیار خوب";
 					dialogResult =  messageBox.ShowDialog();
 				}
 			}
@@ -31,7 +31,7 @@
 					messageBox.Icon = Properties.Resources.info_512;
 					messageBox.BackColor = System.Drawing.Color.RoyalBlue;
 					messageBox.OKBackColor = System.Drawing.Color.FromArgb(12, 128, 255);
-					messageBox.OKName = "باشه";
+					messageBox.OKName = "بسیار خوب";
 					dialogResult = messageBox.ShowDialog();
 				}
 			}
@@ -44,7 +44,7 @@
 					messageBox.Icon = Properties.Resources.none_512;
 					messageBox.BackColor = System.Drawing.Color.DarkGray;
 					messageBox.OKBackColor = System.Drawing.Color.WhiteSmoke;
-					messageBox.OKName = "باشه";
+					messageBox.OKName = "بسیار خوب";
 					dialogResult = messageBox.ShowDialog();
 				}
 			}
@@ -57,7 +57,7 @@
 					messageBox.Icon = Properties.Resources.error_512;
 					messageBox.BackColor = System.Drawing.Color.FromArgb(255, 128, 0);
 					messageBox.OKBackColor = System.Drawing.Color.FromArgb(192, 64, 0);
-					messageBox.OKName = "باشه";
+					messageBox.OKName = "بسیار خوب";
 					dialogResult = messageBox.ShowDialog();
 				}
 			}
@@ -70,13 +70,28 @@
 					messageBox.Icon = Properties.Resources.warning_512;
 					messageBox.BackColor = System.Drawing.Color.FromArgb(251, 66, 54);
 					messageBox.OKBackColor = System.Drawing.Color.FromArgb(128, 128, 255);
-					messageBox.OKName = "باشه";
+					messageBox.OKName = "بسیار خوب";
 					dialogResult = messageBox.ShowDialog();
 				}
 			}
 
 			//-----Double Buttons
 			if (icon == MessageBoxIcon.Question && button == MessageBoxButtons.YesNo)
+			{
+				using (MessageBoxDOBForm messageBox = new MessageBoxDOBForm())
+				{
+					messageBox.Message = text;
+					messageBox.Caption = caption;
+					messageBox.Icon = Properties.Resources.question_512;
+					messageBox.BackColor = System.Drawing.Color.RoyalBlue;
+					messageBox.YesBackColor = System.Drawing.Color.FromArgb(128, 128, 255);
+					messageBox.YesName = "بله";
+					messageBox.NoBackColor = System.Drawing.Color.FromArgb(128, 128, 255);
+					messageBox.NoName = "خیر";
+					dialogResult = messageBox.ShowDialog();
+				}
+			}
+			else if (icon == MessageBoxIcon.Information && button == MessageBoxButtons.YesNo)
 			{
 				using (MessageBoxDOBForm messageBox = new MessageBoxDOBForm())
 				{

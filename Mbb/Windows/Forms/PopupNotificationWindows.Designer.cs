@@ -77,9 +77,9 @@ namespace Mbb.Windows.Forms
 			// 
 			// objectPictureBox
 			// 
-			this.objectPictureBox.BorderCapStyle = System.Drawing.Drawing2D.DashCap.Flat;
-			this.objectPictureBox.BorderColor1 = System.Drawing.Color.RoyalBlue;
-			this.objectPictureBox.BorderColor2 = System.Drawing.Color.BlueViolet;
+			this.objectPictureBox.BorderCapStyle = System.Drawing.Drawing2D.DashCap.Round;
+			this.objectPictureBox.BorderColor1 = System.Drawing.Color.Lime;
+			this.objectPictureBox.BorderColor2 = System.Drawing.Color.White;
 			this.objectPictureBox.BorderLineStyle = System.Drawing.Drawing2D.DashStyle.Dash;
 			this.objectPictureBox.BordrSize = 0;
 			this.objectPictureBox.GradiantAngle = 50F;

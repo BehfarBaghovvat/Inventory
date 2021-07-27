@@ -119,6 +119,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Forms\Financial_Form\AncillaryCostsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Financial_Form\AncillaryCostsForm.Designer.cs">
+      <DependentUpon>AncillaryCostsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Financial_Form\FinancialOrderForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Financial_Form\FinancialOrderForm.Designer.cs">
+      <DependentUpon>FinancialOrderForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Financial_Form\SafeBoxForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -254,6 +266,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Forms\Financial_Form\FinancialOrderForm.resx">
+      <DependentUpon>FinancialOrderForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Financial_Form\SafeBoxForm.resx">
       <DependentUpon>SafeBoxForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -408,7 +423,9 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Forms\Financial_Form\Financial_Order\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

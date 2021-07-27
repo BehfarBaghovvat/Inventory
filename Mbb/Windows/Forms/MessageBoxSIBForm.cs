@@ -1,11 +1,20 @@
-﻿using System;
-using System.Drawing;
+﻿
 
 namespace Mbb.Windows.Forms
 {
 	public partial class MessageBoxSIBForm : Form
 	{
 		#region Properties
+
+		private int x, y;
+		private enum Action
+		{
+			Show,
+			Dispose,
+		}
+
+		private Action action;
+
 		public string Caption
 		{
 			get
@@ -39,7 +48,7 @@ namespace Mbb.Windows.Forms
 			{
 				messageLabel.Text = value;
 			}
-		}	
+		}
 		public System.Drawing.Color OKBackColor
 		{
 			get
@@ -67,20 +76,25 @@ namespace Mbb.Windows.Forms
 		public MessageBoxSIBForm()
 		{
 			InitializeComponent();
-			showFormAnimateWindow.Start();
+			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 		}
 
 		//----------Beginning of the code!----------
 
 		#region MessageBoxSIBForm_Load
-		private void MessageBoxSIBForm_Load(object sender, EventArgs e)
+		private void MessageBoxSIBForm_Load(object sender, System.EventArgs e)
 		{
+			action = Action.Show;
+			this.Opacity = 0.0;
+			SetCenterScreen();
+			fadeTimer.Start();
+
 			message = messageLabel.Text;
 
-			using (Graphics g = CreateGraphics())
+			using (System.Drawing.Graphics g = CreateGraphics())
 			{
-				SizeF size = g.MeasureString(message, messageLabel.Font, messageLabel.Width);
-				messageLabel.Height = (int)Math.Ceiling(size.Height);
+				System.Drawing.SizeF size = g.MeasureString(message, messageLabel.Font, messageLabel.Width);
+				messageLabel.Height = (int)System.Math.Ceiling(size.Height);
 				messageLabel.Text = message;
 			}
 			this.Height = messageLabel.Height + 110;
@@ -88,32 +102,70 @@ namespace Mbb.Windows.Forms
 		#endregion /MessageBoxSIBForm_Load
 
 		#region OkButton_Click
-		private void OkButton_Click(object sender, EventArgs e)
+		private void OkButton_Click(object sender, System.EventArgs e)
 		{
-			closeFormTimer.Start();
+			action = Action.Dispose;
+
+			fadeTimer.Start();
 		}
 		#endregion /OkButton_Click
 
-		#region CloseFormTimer_Tick
-		private void CloseFormTimer_Tick(object sender, EventArgs e)
+		#region FadeTimer_Tick
+		private void FadeTimer_Tick(object sender, System.EventArgs e)
 		{
-			this.Opacity -= 0.1;
+			Fade(fadeTimer, action);
+		}
+		#endregion /FadeTimer_Tick
 
-			if (this.Opacity <= 0.0)
+		#region Fade
+		private void Fade(System.Windows.Forms.Timer timer, Action _action)
+		{
+			timer.Interval = 1;
+
+			switch (_action)
 			{
-				closeFormTimer.Stop();
-				this.Dispose();
+				case Action.Show:
+					this.Opacity += 0.055;
+					if (this.Location.X > x)
+					{
+						//this.Location = new System.Drawing.Point(x: this.Location.X - 16, y);
+						this.Left -= 20;
+					}
+					else
+					{
+						action = Action.Dispose;
+						timer.Stop();
+
+					}
+					break;
+				case Action.Dispose:
+					this.Opacity -= 0.05;
+					if (this.Location.X > x - 450)
+					{
+						//this.Location = new System.Drawing.Point(x: this.Location.X - 16, y);
+						this.Left += 5;
+
+					}
+					else
+					{
+						timer.Stop();
+						this.Dispose();
+					}
+					break;
+				default:
+					break;
 			}
 		}
+		#endregion /Fade
 
-
-		#endregion /CloseFormTimer_Tick	
-
-		#region ShowFaideTimer_Tick
-		private void ShowFaideTimer_Tick(object sender, EventArgs e)
+		#region SetCenterScreen
+		private void SetCenterScreen()
 		{
-
+			x = this.Location.X;
+			y = this.Location.Y;
+			this.Location = new System.Drawing.Point(x: x + 250, y: y);
 		}
-		#endregion /ShowFaideTimer_Tick
+		#endregion /SetCenterScreen
 	}
 }
+

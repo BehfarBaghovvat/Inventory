@@ -3,6 +3,17 @@
 	public partial class MessageBoxDOBForm : Form
 	{
 		#region Properties
+
+		private int x, y;
+
+		private enum Action
+		{
+			Show,
+			Dispose,
+		}
+
+		private Action action;
+
 		public string Caption
 		{
 			get
@@ -88,7 +99,7 @@
 		{
 			InitializeComponent();
 
-			showFormAnimateWindow.Start();
+			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 		}
 
 		//----------Beginning of the code!----------
@@ -96,6 +107,9 @@
 		#region MessageBoxDOBForm_Load
 		private void MessageBoxDOBForm_Load(object sender, System.EventArgs e)
 		{
+			action = Action.Show;
+			SetCenterScreen();
+			fadeTimer.Start();
 			message = messageLabel.Text;
 
 			using (System.Drawing.Graphics g = CreateGraphics())
@@ -111,28 +125,77 @@
 		#region NoButton_Click
 		private void NoButton_Click(object sender, System.EventArgs e)
 		{
-			closeFormTimer.Start();
+			action = Action.Dispose;
+			fadeTimer.Start();
 		}
 		#endregion /NoButton_Click
 
 		#region YesButton_Click
 		private void YesButton_Click(object sender, System.EventArgs e)
 		{
-			closeFormTimer.Start();
+			action = Action.Dispose;
+			fadeTimer.Start();
 		}
 		#endregion /YesButton_Click
 
-		#region CloseFormTimer_Tick
-		private void CloseFormTimer_Tick(object sender, System.EventArgs e)
+		#region FadeTimer_Tick
+		private void FadeTimer_Tick(object sender, System.EventArgs e)
 		{
-			this.Opacity -= 0.1;
-
-			if (this.Opacity <= 0.0)
-			{
-				closeFormTimer.Stop();
-				this.Dispose();
-			}
+			Fade(fadeTimer, action);
 		}
-		#endregion /CloseFormTimer_Tick
+		#endregion /FadeTimer_Tick
+
+
+
+		#region Fade
+		private void Fade(System.Windows.Forms.Timer timer, Action action)
+		{
+			fadeTimer.Interval = 1;
+			switch (action)
+			{
+				case Action.Show:
+					if (this.Location.X > x)
+					{
+						this.Location = new System.Drawing.Point(x: this.Location.X - 16, y);
+						this.Opacity += 0.055;
+					}
+					else
+					{
+						timer.Stop();
+
+					}
+					break;
+				case Action.Dispose:
+					if (this.Location.X > x - 450)
+					{
+						this.Location = new System.Drawing.Point(x: this.Location.X - 16, y);
+						this.Opacity -= 0.03;
+					}
+					else
+					{
+						timer.Stop();
+						this.Dispose();
+					}
+					break;
+				default:
+					break;
+			}
+
+		}
+		#endregion /Fade
+
+		#region SetCenterScreen
+		private void SetCenterScreen()
+		{
+			x = this.Location.X;
+			y = this.Location.Y;
+			this.Location = new System.Drawing.Point(x: x + 250, y: y);
+		}
+		#endregion /SetCenterScreen
+
+
+
+
+
 	}
 }

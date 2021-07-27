@@ -37,8 +37,7 @@
 			this.noButton = new Mbb.Windows.Forms.Button();
 			this.noButtonElipse = new Guna.UI2.WinForms.Guna2Elipse(this.components);
 			this.captionLabel = new Mbb.Windows.Forms.Label();
-			this.showFormAnimateWindow = new Guna.UI.WinForms.GunaAnimateWindow(this.components);
-			this.closeFormTimer = new System.Windows.Forms.Timer(this.components);
+			this.fadeTimer = new System.Windows.Forms.Timer(this.components);
 			((System.ComponentModel.ISupportInitialize)(this.iconPicturBox)).BeginInit();
 			this.SuspendLayout();
 			// 
@@ -77,7 +76,7 @@
 			// yesButton
 			// 
 			this.yesButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-			this.yesButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+			this.yesButton.BackColor = System.Drawing.Color.RoyalBlue;
 			this.yesButton.DialogResult = System.Windows.Forms.DialogResult.Yes;
 			this.yesButton.FlatAppearance.BorderSize = 0;
 			this.yesButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
@@ -96,7 +95,7 @@
 			// noButton
 			// 
 			this.noButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-			this.noButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+			this.noButton.BackColor = System.Drawing.Color.RoyalBlue;
 			this.noButton.DialogResult = System.Windows.Forms.DialogResult.No;
 			this.noButton.FlatAppearance.BorderSize = 0;
 			this.noButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
@@ -129,22 +128,16 @@
 			this.captionLabel.Text = "عنوان";
 			this.captionLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			// 
-			// showFormAnimateWindow
+			// fadeTimer
 			// 
-			this.showFormAnimateWindow.AnimationType = Guna.UI.WinForms.GunaAnimateWindow.AnimateWindowType.AW_CENTER;
-			this.showFormAnimateWindow.Interval = 200;
-			this.showFormAnimateWindow.TargetControl = this;
-			// 
-			// closeFormTimer
-			// 
-			this.closeFormTimer.Interval = 5;
-			this.closeFormTimer.Tick += new System.EventHandler(this.CloseFormTimer_Tick);
+			this.fadeTimer.Interval = 5;
+			this.fadeTimer.Tick += new System.EventHandler(this.FadeTimer_Tick);
 			// 
 			// MessageBoxDOBForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 17F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.BackColor = System.Drawing.Color.RoyalBlue;
+			this.BackColor = System.Drawing.Color.CornflowerBlue;
 			this.ClientSize = new System.Drawing.Size(450, 135);
 			this.Controls.Add(this.yesButton);
 			this.Controls.Add(this.noButton);
@@ -174,7 +167,6 @@
 		private Button noButton;
 		private Guna.UI2.WinForms.Guna2Elipse noButtonElipse;
 		private Label captionLabel;
-		private Guna.UI.WinForms.GunaAnimateWindow showFormAnimateWindow;
-		private System.Windows.Forms.Timer closeFormTimer;
+		private System.Windows.Forms.Timer fadeTimer;
 	}
 }

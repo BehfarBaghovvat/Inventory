@@ -29,7 +29,16 @@ namespace Financial_Form
 		/// </summary>
 		private void InitializeComponent()
 		{
+			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SafeBoxForm));
+			Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties5 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
+			Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties6 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
+			Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties7 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
+			Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties8 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
 			this.mainPanel = new Guna.UI2.WinForms.Guna2Panel();
+			this.acceptButton = new Guna.UI2.WinForms.Guna2GradientButton();
+			this.entryFuneTextBox = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox();
+			this.funeLabel = new Mbb.Windows.Forms.Label();
+			this.mainPanel.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// mainPanel
@@ -37,12 +46,122 @@ namespace Financial_Form
 			this.mainPanel.BorderColor = System.Drawing.Color.Indigo;
 			this.mainPanel.BorderRadius = 15;
 			this.mainPanel.BorderThickness = 3;
+			this.mainPanel.Controls.Add(this.acceptButton);
+			this.mainPanel.Controls.Add(this.entryFuneTextBox);
+			this.mainPanel.Controls.Add(this.funeLabel);
 			this.mainPanel.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.mainPanel.Location = new System.Drawing.Point(0, 0);
 			this.mainPanel.Name = "mainPanel";
 			this.mainPanel.ShadowDecoration.Parent = this.mainPanel;
 			this.mainPanel.Size = new System.Drawing.Size(1150, 650);
 			this.mainPanel.TabIndex = 0;
+			// 
+			// acceptButton
+			// 
+			this.acceptButton.BackColor = System.Drawing.Color.Transparent;
+			this.acceptButton.BorderRadius = 20;
+			this.acceptButton.CheckedState.Parent = this.acceptButton;
+			this.acceptButton.CustomImages.Parent = this.acceptButton;
+			this.acceptButton.Font = new System.Drawing.Font("IRANSansX Light", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+			this.acceptButton.ForeColor = System.Drawing.Color.White;
+			this.acceptButton.HoverState.Parent = this.acceptButton;
+			this.acceptButton.Location = new System.Drawing.Point(450, 386);
+			this.acceptButton.Name = "acceptButton";
+			this.acceptButton.ShadowDecoration.Parent = this.acceptButton;
+			this.acceptButton.Size = new System.Drawing.Size(250, 45);
+			this.acceptButton.TabIndex = 2;
+			this.acceptButton.Text = "واریز مبلغ";
+			this.acceptButton.Click += new System.EventHandler(this.AcceptButton_Click);
+			// 
+			// entryFuneTextBox
+			// 
+			this.entryFuneTextBox.AcceptsReturn = false;
+			this.entryFuneTextBox.AcceptsTab = false;
+			this.entryFuneTextBox.AnimationSpeed = 200;
+			this.entryFuneTextBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
+			this.entryFuneTextBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
+			this.entryFuneTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(0)))), ((int)(((byte)(61)))));
+			this.entryFuneTextBox.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("entryFuneTextBox.BackgroundImage")));
+			this.entryFuneTextBox.BorderColorActive = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+			this.entryFuneTextBox.BorderColorDisabled = System.Drawing.Color.FromArgb(((int)(((byte)(161)))), ((int)(((byte)(161)))), ((int)(((byte)(161)))));
+			this.entryFuneTextBox.BorderColorHover = System.Drawing.Color.Purple;
+			this.entryFuneTextBox.BorderColorIdle = System.Drawing.Color.RoyalBlue;
+			this.entryFuneTextBox.BorderRadius = 1;
+			this.entryFuneTextBox.BorderThickness = 3;
+			this.entryFuneTextBox.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
+			this.entryFuneTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
+			this.entryFuneTextBox.DefaultFont = new System.Drawing.Font("IRANSansXFaNum", 12F);
+			this.entryFuneTextBox.DefaultText = "";
+			this.entryFuneTextBox.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(0)))), ((int)(((byte)(61)))));
+			this.entryFuneTextBox.ForeColor = System.Drawing.Color.White;
+			this.entryFuneTextBox.HideSelection = true;
+			this.entryFuneTextBox.IconLeft = null;
+			this.entryFuneTextBox.IconLeftCursor = System.Windows.Forms.Cursors.IBeam;
+			this.entryFuneTextBox.IconPadding = 10;
+			this.entryFuneTextBox.IconRight = null;
+			this.entryFuneTextBox.IconRightCursor = System.Windows.Forms.Cursors.IBeam;
+			this.entryFuneTextBox.Lines = new string[0];
+			this.entryFuneTextBox.Location = new System.Drawing.Point(374, 284);
+			this.entryFuneTextBox.MaxLength = 32767;
+			this.entryFuneTextBox.MinimumSize = new System.Drawing.Size(100, 35);
+			this.entryFuneTextBox.Modified = false;
+			this.entryFuneTextBox.Multiline = false;
+			this.entryFuneTextBox.Name = "entryFuneTextBox";
+			stateProperties5.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+			stateProperties5.FillColor = System.Drawing.Color.Empty;
+			stateProperties5.ForeColor = System.Drawing.Color.Empty;
+			stateProperties5.PlaceholderForeColor = System.Drawing.Color.Empty;
+			this.entryFuneTextBox.OnActiveState = stateProperties5;
+			stateProperties6.BorderColor = System.Drawing.Color.Empty;
+			stateProperties6.FillColor = System.Drawing.Color.White;
+			stateProperties6.ForeColor = System.Drawing.Color.Empty;
+			stateProperties6.PlaceholderForeColor = System.Drawing.Color.Silver;
+			this.entryFuneTextBox.OnDisabledState = stateProperties6;
+			stateProperties7.BorderColor = System.Drawing.Color.Purple;
+			stateProperties7.FillColor = System.Drawing.Color.Empty;
+			stateProperties7.ForeColor = System.Drawing.Color.Empty;
+			stateProperties7.PlaceholderForeColor = System.Drawing.Color.Empty;
+			this.entryFuneTextBox.OnHoverState = stateProperties7;
+			stateProperties8.BorderColor = System.Drawing.Color.RoyalBlue;
+			stateProperties8.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(0)))), ((int)(((byte)(61)))));
+			stateProperties8.ForeColor = System.Drawing.Color.White;
+			stateProperties8.PlaceholderForeColor = System.Drawing.Color.Empty;
+			this.entryFuneTextBox.OnIdleState = stateProperties8;
+			this.entryFuneTextBox.PasswordChar = '\0';
+			this.entryFuneTextBox.PlaceholderForeColor = System.Drawing.Color.Gray;
+			this.entryFuneTextBox.PlaceholderText = "مبلغ جدید برای صندوق";
+			this.entryFuneTextBox.ReadOnly = false;
+			this.entryFuneTextBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+			this.entryFuneTextBox.ScrollBars = System.Windows.Forms.ScrollBars.None;
+			this.entryFuneTextBox.SelectedText = "";
+			this.entryFuneTextBox.SelectionLength = 0;
+			this.entryFuneTextBox.SelectionStart = 0;
+			this.entryFuneTextBox.ShortcutsEnabled = true;
+			this.entryFuneTextBox.Size = new System.Drawing.Size(402, 51);
+			this.entryFuneTextBox.Style = Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox._Style.Material;
+			this.entryFuneTextBox.TabIndex = 1;
+			this.entryFuneTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+			this.entryFuneTextBox.TextMarginBottom = 0;
+			this.entryFuneTextBox.TextMarginLeft = 5;
+			this.entryFuneTextBox.TextMarginTop = 0;
+			this.entryFuneTextBox.TextPlaceholder = "مبلغ جدید برای صندوق";
+			this.entryFuneTextBox.UseSystemPasswordChar = false;
+			this.entryFuneTextBox.WordWrap = true;
+			this.entryFuneTextBox.TextChange += new System.EventHandler(this.EntryFuneTextBox_TextChange);
+			this.entryFuneTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.EntryFuneTextBox_KeyPress);
+			this.entryFuneTextBox.Enter += new System.EventHandler(this.EntryFuneTextBox_Enter);
+			this.entryFuneTextBox.Leave += new System.EventHandler(this.EntryFuneTextBox_Leave);
+			// 
+			// funeLabel
+			// 
+			this.funeLabel.Font = new System.Drawing.Font("IRANSansXFaNum", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+			this.funeLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+			this.funeLabel.Location = new System.Drawing.Point(12, 9);
+			this.funeLabel.Name = "funeLabel";
+			this.funeLabel.Size = new System.Drawing.Size(1126, 141);
+			this.funeLabel.TabIndex = 0;
+			this.funeLabel.Text = "مبلغ سرمایه";
+			this.funeLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
 			// 
 			// SafeBoxForm
 			// 
@@ -53,6 +172,8 @@ namespace Financial_Form
 			this.Controls.Add(this.mainPanel);
 			this.Name = "SafeBoxForm";
 			this.Text = "SafeBoxForm";
+			this.Load += new System.EventHandler(this.SafeBoxForm_Load);
+			this.mainPanel.ResumeLayout(false);
 			this.ResumeLayout(false);
 
 		}
@@ -60,5 +181,8 @@ namespace Financial_Form
 		#endregion
 
 		private Guna.UI2.WinForms.Guna2Panel mainPanel;
+		private Guna.UI2.WinForms.Guna2GradientButton acceptButton;
+		private Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox entryFuneTextBox;
+		private Mbb.Windows.Forms.Label funeLabel;
 	}
 }

@@ -30,6 +30,7 @@
 		#region CloseButton_Click
 		private void CloseButton_Click(object sender, System.EventArgs e)
 		{
+			fadeTimer.Interval = 1;
 			action = Action.close;
 			fadeTimer.Start();
 		}
@@ -68,7 +69,7 @@
 
 					if (Opacity == 0.0)
 					{
-						base.Close();
+						base.Dispose();
 					}
 					break;
 			}
@@ -87,9 +88,7 @@
 		/// <param name="picture"></param>
 		public void ShowAlert(string message, Caption caption, string picture)
 		{
-			objectPictureBox.BorderCapStyle = System.Drawing.Drawing2D.DashCap.Round;
-			objectPictureBox.BordrSize = 2;
-			objectPictureBox.BorderLineStyle = System.Drawing.Drawing2D.DashStyle.DashDot;
+			objectPictureBox.BordrSize = 1;
 			this.Opacity = 0.0;
 			this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
 
@@ -154,9 +153,7 @@
 		/// <param name="picture"></param>
 		public void ShowAlert(string message, Caption caption, byte[] picture)
 		{
-			objectPictureBox.BorderCapStyle = System.Drawing.Drawing2D.DashCap.Round;
-			objectPictureBox.BordrSize = 2;
-			objectPictureBox.BorderLineStyle = System.Drawing.Drawing2D.DashStyle.DashDot;
+			objectPictureBox.BordrSize = 1;
 			this.Opacity = 0.0;
 			this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
 
@@ -224,9 +221,7 @@
 		/// <param name="caption"></param>
 		public void ShowAlert(string message, Caption caption)
 		{
-			objectPictureBox.BorderCapStyle = System.Drawing.Drawing2D.DashCap.Round;
 			objectPictureBox.BordrSize = 0;
-			objectPictureBox.BorderLineStyle = System.Drawing.Drawing2D.DashStyle.DashDot;
 			this.Opacity = 0.0;
 			this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
 

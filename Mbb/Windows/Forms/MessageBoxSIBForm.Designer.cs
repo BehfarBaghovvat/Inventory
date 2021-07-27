@@ -35,9 +35,8 @@
 			this.okButton = new Mbb.Windows.Forms.Button();
 			this.okButtonElipse = new Guna.UI2.WinForms.Guna2Elipse(this.components);
 			this.captionLabel = new Mbb.Windows.Forms.Label();
-			this.closeFormTimer = new System.Windows.Forms.Timer(this.components);
-			this.showFormAnimateWindow = new Guna.UI.WinForms.GunaAnimateWindow(this.components);
-			this.showFaideTimer = new System.Windows.Forms.Timer(this.components);
+			this.animateWindow = new Guna.UI.WinForms.GunaAnimateWindow(this.components);
+			this.fadeTimer = new System.Windows.Forms.Timer(this.components);
 			((System.ComponentModel.ISupportInitialize)(this.iconPicturBox)).BeginInit();
 			this.SuspendLayout();
 			// 
@@ -71,8 +70,8 @@
 			// okButton
 			// 
 			this.okButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-			this.okButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-			this.okButton.DialogResult = System.Windows.Forms.DialogResult.OK;
+			this.okButton.BackColor = System.Drawing.Color.RoyalBlue;
+			this.okButton.DialogResult = System.Windows.Forms.DialogResult.Abort;
 			this.okButton.FlatAppearance.BorderSize = 0;
 			this.okButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
 			this.okButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
@@ -104,26 +103,22 @@
 			this.captionLabel.Text = "عنوان";
 			this.captionLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			// 
-			// closeFormTimer
+			// animateWindow
 			// 
-			this.closeFormTimer.Interval = 5;
-			this.closeFormTimer.Tick += new System.EventHandler(this.CloseFormTimer_Tick);
+			this.animateWindow.AnimationType = Guna.UI.WinForms.GunaAnimateWindow.AnimateWindowType.AW_CENTER;
+			this.animateWindow.Interval = 200;
+			this.animateWindow.TargetControl = this;
 			// 
-			// showFormAnimateWindow
+			// fadeTimer
 			// 
-			this.showFormAnimateWindow.AnimationType = Guna.UI.WinForms.GunaAnimateWindow.AnimateWindowType.AW_CENTER;
-			this.showFormAnimateWindow.Interval = 200;
-			this.showFormAnimateWindow.TargetControl = null;
-			// 
-			// showFaideTimer
-			// 
-			this.showFaideTimer.Tick += new System.EventHandler(this.ShowFaideTimer_Tick);
+			this.fadeTimer.Interval = 1;
+			this.fadeTimer.Tick += new System.EventHandler(this.FadeTimer_Tick);
 			// 
 			// MessageBoxSIBForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 17F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.BackColor = System.Drawing.Color.RoyalBlue;
+			this.BackColor = System.Drawing.Color.CornflowerBlue;
 			this.ClientSize = new System.Drawing.Size(450, 135);
 			this.Controls.Add(this.okButton);
 			this.Controls.Add(this.captionLabel);
@@ -149,8 +144,7 @@
 		private Button okButton;
 		private Guna.UI2.WinForms.Guna2Elipse okButtonElipse;
 		private Label captionLabel;
-		private System.Windows.Forms.Timer closeFormTimer;
-		private Guna.UI.WinForms.GunaAnimateWindow showFormAnimateWindow;
-		private System.Windows.Forms.Timer showFaideTimer;
+		private Guna.UI.WinForms.GunaAnimateWindow animateWindow;
+		private System.Windows.Forms.Timer fadeTimer;
 	}
 }
