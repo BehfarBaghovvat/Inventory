@@ -66,6 +66,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="Windows\Forms\ComboBox.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="Windows\Forms\CustomTextBox.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -88,9 +91,6 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Windows\Forms\CircularPictureBox.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Windows\Forms\ComboBox.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Windows\Forms\MessageBoxButtons.cs" />

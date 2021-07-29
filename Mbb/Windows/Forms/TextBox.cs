@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.ComponentModel.Design;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -38,17 +39,23 @@ namespace Mbb.Windows.Forms
 		}
 
 		//======================================================================= Fields
-		private System.Drawing.Color borderColor = System.Drawing.Color.MediumSlateBlue;
-		private int borderSize = 2;
-		private System.Drawing.Color borderColorHover = System.Drawing.Color.FromArgb(220, 20, 60);
-		private System.Drawing.Color borderColorFocus = System.Drawing.Color.FromArgb(123, 104, 238);
+		private System.Drawing.Color _borderColor = System.Drawing.Color.MediumSlateBlue;
+		private int _borderSize = 2;
+		private System.Drawing.Color _borderColorHover = System.Drawing.Color.FromArgb(220, 20, 60);
+		private System.Drawing.Color _borderColorFocus = System.Drawing.Color.FromArgb(123, 104, 238);
 		private System.Drawing.Font _captionFont = new System.Drawing.Font(familyName: "Century Gothic", emSize: 9F, FontStyle.Italic);
 		private System.Drawing.Color _captionForColor = System.Drawing.Color.Silver;
 
 		private _InputWrite _inputWirte = _InputWrite.FreeType;
 		private bool _isFocus = false;
 		private bool _isHover = false;
+
+		private int _borderRadius = 0;
+
+
+
 		private System.Windows.Forms.HorizontalAlignment _textAling = HorizontalAlignment.Left;
+
 		private System.Drawing.Image _iconLeft;
 		private System.Drawing.Image _iconLeftMousClick;
 		private System.Drawing.Image _iconLeftMousDown;
@@ -75,6 +82,7 @@ namespace Mbb.Windows.Forms
 			InitializeComponent();
 			Caption = "Enter Text";
 			captionLabel.Font = _captionFont;
+			captionLabel.ForeColor = _captionForColor;
 		}
 
 		//======================================================================= Properties
@@ -83,12 +91,12 @@ namespace Mbb.Windows.Forms
 		{
 			get
 			{
-				return borderColor;
+				return _borderColor;
 			}
 
 			set
 			{
-				borderColor = value;
+				_borderColor = value;
 				this.Invalidate();
 			}
 		}
@@ -97,12 +105,12 @@ namespace Mbb.Windows.Forms
 		{
 			get
 			{
-				return borderSize;
+				return _borderSize;
 			}
 
 			set
 			{
-				borderSize = value;
+				_borderSize = value;
 				this.Invalidate();
 			}
 		}
@@ -111,12 +119,12 @@ namespace Mbb.Windows.Forms
 		{
 			get
 			{
-				return borderColorHover;
+				return _borderColorHover;
 			}
 
 			set
 			{
-				borderColorHover = value;
+				_borderColorHover = value;
 			}
 		}
 		[Category("MBB Advance Properties")]
@@ -124,12 +132,32 @@ namespace Mbb.Windows.Forms
 		{
 			get
 			{
-				return borderColorFocus;
+				return _borderColorFocus;
 			}
 
 			set
 			{
-				borderColorFocus = value;
+				_borderColorFocus = value;
+			}
+		}
+		[Category("MBB Advance Properties")]
+		[Description("مقدار انحنای کنترل متن را تعیین میکند")]
+
+		public int BorderRadius
+		{
+			get
+			{
+				return _borderRadius;
+			}
+
+			set
+			{
+
+				if (value >= 0)
+				{
+					_borderRadius = value;
+					this.Invalidate();
+				}
 			}
 		}
 		[Category("MBB Advance Properties")]
@@ -226,14 +254,14 @@ namespace Mbb.Windows.Forms
 			set
 			{
 				_iconLeft = value;
-				iconLeftBox.Image = _iconLeft;
+				iconLeft.Image = _iconLeft;
 				if (_iconLeft == null)
 				{
-					iconLeftBox.Visible = false;
+					iconLeft.Visible = false;
 				}
 				else
 				{
-					iconLeftBox.Visible = true;
+					iconLeft.Visible = true;
 				}
 			}
 		}
@@ -286,7 +314,41 @@ namespace Mbb.Windows.Forms
 				_iconRight = value;
 			}
 		}
-
+		public System.Drawing.Image IconRightMousClick
+		{
+			get
+			{
+				return _iconLeftMousClick;
+			}
+			set
+			{
+				_iconLeftMousClick = value;
+			}
+		}
+		[Category("MBB Advance Properties")]
+		public System.Drawing.Image IconRightMousDown
+		{
+			get
+			{
+				return _iconLeftMousDown;
+			}
+			set
+			{
+				_iconLeftMousDown = value;
+			}
+		}
+		[Category("MBB Advance Properties")]
+		public System.Drawing.Image IconRightMousUp
+		{
+			get
+			{
+				return _iconLeftMousUp;
+			}
+			set
+			{
+				_iconLeftMousUp = value;
+			}
+		}
 
 
 		[Category("MBB Advance Properties")]
@@ -436,63 +498,191 @@ namespace Mbb.Windows.Forms
 
 
 
+
+
 		//======================================================================= Override Methods
+		private GraphicsPath GetFigurePath(Rectangle rect, int radius)
+		{
+			GraphicsPath path = new GraphicsPath();
+			float curveSize = radius * 2F;
+
+			path.StartFigure();
+			path.AddArc(rect.X, rect.Y, curveSize, curveSize, 180, 90);
+			path.AddArc(rect.Right - curveSize, rect.Y, curveSize, curveSize, 270, 90);
+			path.AddArc(rect.Right - curveSize, rect.Bottom - curveSize, curveSize, curveSize, 0, 90);
+			path.AddArc(rect.X, rect.Bottom - curveSize, curveSize, curveSize, 90, 90);
+			return path;
+		}
+
+		protected override void OnLoad(EventArgs e)
+		{
+			base.OnLoad(e);
+			UpdateControlHeight();
+		}
+
 		protected override void OnPaint(PaintEventArgs e)
 		{
 			base.OnPaint(e);
 			Graphics graphics = e.Graphics;
 
-			//Drawing border
-			using (Pen penBorder = new Pen(borderColor, borderSize))
-			{
-				penBorder.Alignment = System.Drawing.Drawing2D.PenAlignment.Inset;
-				if (!_isFocus)
-				{
-					if (_style == _Style.MaterialStyle)//Line Style
-					{
-						graphics.DrawLine(penBorder, 0, this.Height - 1, this.Width, this.Height - 1);
-					}
-					else//Normal Style
-					{
-						graphics.DrawRectangle(penBorder, 0, 0, this.Width - 0.5F, this.Height - 0.5F);
-					}
-				}
-				else
-				{
-					penBorder.Color = BorderColorFocus;
-					if (_style == _Style.MaterialStyle)//Line Style
-					{
-						graphics.DrawLine(penBorder, 0, this.Height - 1, this.Width, this.Height - 1);
-					}
-					else//Normal Style
-					{
-						graphics.DrawRectangle(penBorder, 0, 0, this.Width - 0.5F, this.Height - 0.5F);
-					}
-				}
 
-				if (!_isHover)
+			if (_borderRadius > 1) //Round TextBox
+			{
+				//_Fields
+				var rectBorderSmooth = this.ClientRectangle;
+				var rectBorder = Rectangle.Inflate(rectBorderSmooth, -_borderSize, -_borderSize);
+				int smoothSize = _borderSize > 0 ? _borderSize : 1;
+
+				using(GraphicsPath pathBorderSmooth = GetFigurePath(rectBorderSmooth, _borderRadius))
+				using(GraphicsPath pathBorder = GetFigurePath(rectBorder, _borderRadius - _borderSize))
+				using (Pen penBorderSmooth = new Pen(this.Parent.BackColor, smoothSize))
+				using (Pen penBorder = new Pen(_borderColor, _borderSize))
 				{
-					if (_style == _Style.MaterialStyle)//Line Style
+					//-Drawing
+
+					this.Region = new Region(pathBorderSmooth);
+					if (_borderRadius > 15)
 					{
-						graphics.DrawLine(penBorder, 0, this.Height - 1, this.Width, this.Height - 1);
+						SetTextBoxRoundedRegion();//Set the rounded of TextBox component
 					}
-					else//Normal Style
+					graphics.SmoothingMode = SmoothingMode.HighQuality;
+					penBorder.Alignment = PenAlignment.Center;
+
+					penBorder.Alignment = System.Drawing.Drawing2D.PenAlignment.Inset;
+
+					if (!_isFocus)
 					{
-						graphics.DrawRectangle(penBorder, 0, 0, this.Width - 0.5F, this.Height - 0.5F);
+						if (_style == _Style.MaterialStyle)//Line Style
+						{
+							//Draw border smoothing
+							graphics.DrawPath(penBorderSmooth, pathBorderSmooth);
+							//Draw border
+							graphics.SmoothingMode = SmoothingMode.None;
+							graphics.DrawLine(penBorder, 0, this.Height - 1, this.Width, this.Height - 1);
+						}
+						else//Normal Style
+						{
+							//Draw border smoothing
+							graphics.DrawPath(penBorderSmooth, pathBorderSmooth);
+							//Draw border
+							graphics.DrawPath(penBorder, pathBorder);
+
+						}
+					}
+					else
+					{
+						penBorder.Color = BorderColorFocus;
+						if (_style == _Style.MaterialStyle)//Line Style
+						{
+							graphics.DrawLine(penBorder, 0, this.Height - 1, this.Width, this.Height - 1);
+						}
+						else//Normal Style
+						{
+							graphics.DrawRectangle(penBorder, 0, 0, this.Width - 0.5F, this.Height - 0.5F);
+						}
+					}
+
+					if (!_isHover)
+					{
+						if (_style == _Style.MaterialStyle)//Line Style
+						{
+							graphics.DrawLine(penBorder, 0, this.Height - 1, this.Width, this.Height - 1);
+						}
+						else//Normal Style
+						{
+							graphics.DrawRectangle(penBorder, 0, 0, this.Width - 0.5F, this.Height - 0.5F);
+						}
+					}
+					else
+					{
+						penBorder.Color = BorderColorHover;
+						if (_style == _Style.MaterialStyle)//Line Style
+						{
+							graphics.DrawLine(penBorder, 0, this.Height - 1, this.Width, this.Height - 1);
+						}
+						else//Normal Style
+						{
+							graphics.DrawRectangle(penBorder, 0, 0, this.Width - 0.5F, this.Height - 0.5F);
+						}
 					}
 				}
-				else
+			}
+			else//Square/Normal TextBox
+			{
+				//Drawing border
+				using (Pen penBorder = new Pen(_borderColor, _borderSize))
 				{
-					penBorder.Color = BorderColorHover;
-					if (_style == _Style.MaterialStyle)//Line Style
+					this.Region = new Region(this.ClientRectangle);
+					penBorder.Alignment = System.Drawing.Drawing2D.PenAlignment.Inset;
+					if (!_isFocus)
 					{
-						graphics.DrawLine(penBorder, 0, this.Height - 1, this.Width, this.Height - 1);
+						if (_style == _Style.MaterialStyle)//Line Style
+						{
+							graphics.DrawLine(penBorder, 0, this.Height - 1, this.Width, this.Height - 1);
+						}
+						else//Normal Style
+						{
+							graphics.DrawRectangle(penBorder, 0, 0, this.Width - 0.5F, this.Height - 0.5F);
+						}
 					}
-					else//Normal Style
+					else
 					{
-						graphics.DrawRectangle(penBorder, 0, 0, this.Width - 0.5F, this.Height - 0.5F);
+						penBorder.Color = BorderColorFocus;
+						if (_style == _Style.MaterialStyle)//Line Style
+						{
+							graphics.DrawLine(penBorder, 0, this.Height - 1, this.Width, this.Height - 1);
+						}
+						else//Normal Style
+						{
+							graphics.DrawRectangle(penBorder, 0, 0, this.Width - 0.5F, this.Height - 0.5F);
+						}
+					}
+
+					if (!_isHover)
+					{
+						if (_style == _Style.MaterialStyle)//Line Style
+						{
+							graphics.DrawLine(penBorder, 0, this.Height - 1, this.Width, this.Height - 1);
+						}
+						else//Normal Style
+						{
+							graphics.DrawRectangle(penBorder, 0, 0, this.Width - 0.5F, this.Height - 0.5F);
+						}
+					}
+					else
+					{
+						penBorder.Color = BorderColorHover;
+						if (_style == _Style.MaterialStyle)//Line Style
+						{
+							graphics.DrawLine(penBorder, 0, this.Height - 1, this.Width, this.Height - 1);
+						}
+						else//Normal Style
+						{
+							graphics.DrawRectangle(penBorder, 0, 0, this.Width - 0.5F, this.Height - 0.5F);
+						}
 					}
 				}
+			}
+
+			
+		}
+
+		private void SetTextBoxRoundedRegion()
+		{
+			GraphicsPath pathTxt;
+			if (MultiLine)
+			{
+				pathTxt = GetFigurePath(captionLabel.ClientRectangle, _borderRadius - _borderSize);
+				captionLabel.Region = new Region(pathTxt);
+				pathTxt = GetFigurePath(inputTextBox.ClientRectangle, _borderRadius - _borderSize);
+				inputTextBox.Region = new Region(pathTxt);
+			}
+			else
+			{
+				pathTxt = GetFigurePath(captionLabel.ClientRectangle, _borderSize * 2);
+				captionLabel.Region = new Region(pathTxt);
+				pathTxt = GetFigurePath(inputTextBox.ClientRectangle, _borderSize * 2);
+				inputTextBox.Region = new Region(pathTxt);
 			}
 		}
 
@@ -513,11 +703,7 @@ namespace Mbb.Windows.Forms
 			}
 		}
 
-		protected override void OnLoad(EventArgs e)
-		{
-			base.OnLoad(e);
-			UpdateControlHeight();
-		}
+		
 
 		//======================================================================= Privat Methods
 		#region DecimalNumberInputType
@@ -728,6 +914,16 @@ namespace Mbb.Windows.Forms
 		{
 			_isFocus = false;
 			this.Invalidate();
+
+			if (string.IsNullOrWhiteSpace(inputTextBox.Text))
+			{
+				captionLabel.BringToFront();
+			}
+			else
+			{
+				captionLabel.SendToBack();
+			}
+
 		}
 
 		private void InputTextBox_MouseEnter(object sender, EventArgs e)
@@ -749,19 +945,23 @@ namespace Mbb.Windows.Forms
 				TextChanged.Invoke(sender, e);
 			}
 
-			if (!string.IsNullOrWhiteSpace(inputTextBox.Text))
-			{
-				captionLabel.Visible = false;
-			}
-			else
-			{
-				captionLabel.Visible = true;
-			}
+			//if (!string.IsNullOrWhiteSpace(inputTextBox.Text))
+			//{
+			//	captionLabel.Visible = false;
+			//}
+			//else
+			//{
+			//	captionLabel.Visible = true;
+			//}
 		}
 
 		private void CaptionLabel_Click(object sender, EventArgs e)
 		{
+			_isFocus = true;
 			inputTextBox.Focus();
+
+			captionLabel.SendToBack();
+
 			if (WritingLanguage == _WritingLanguage.Free_Language)
 			{
 				return;
@@ -802,10 +1002,7 @@ namespace Mbb.Windows.Forms
 
 		private void CaptionLabel_TextChanged(object sender, EventArgs e)
 		{
-			if (TextChanged != null)
-			{
-				TextChanged.Invoke(sender, e);
-			}
+
 		}
 
 		private void IconLeftBox_Click(object sender, EventArgs e)
@@ -818,7 +1015,7 @@ namespace Mbb.Windows.Forms
 				}
 				else
 				{
-					iconLeftBox.Image = IconLeftMousClick;
+					iconLeft.Image = IconLeftMousClick;
 				} 
 			}
 			else
@@ -837,7 +1034,7 @@ namespace Mbb.Windows.Forms
 				}
 				else
 				{
-					iconLeftBox.Image = IconLeftMousDown;
+					iconLeft.Image = IconLeftMousDown;
 				}
 			}
 			else
@@ -845,6 +1042,18 @@ namespace Mbb.Windows.Forms
 				return;
 			}
 			
+		}
+
+		private void IconLeftBox_MouseEnter(object sender, EventArgs e)
+		{
+			_isHover = true;
+			this.Invalidate();
+		}
+
+		private void IconLeftBox_MouseLeave(object sender, EventArgs e)
+		{
+			_isHover = false;
+			this.Invalidate();
 		}
 
 		private void IconLeftBox_MouseUp(object sender, MouseEventArgs e)
@@ -857,7 +1066,7 @@ namespace Mbb.Windows.Forms
 				}
 				else
 				{
-					iconLeftBox.Image = IconLeftMousUp;
+					iconLeft.Image = IconLeftMousUp;
 				}
 			}
 			else
@@ -868,17 +1077,71 @@ namespace Mbb.Windows.Forms
 
 		private void IconRightBox_Click(object sender, EventArgs e)
 		{
-
+			if (IconRight != null)
+			{
+				if (IconRightMousClick == null)
+				{
+					return;
+				}
+				else
+				{
+					iconRight.Image = IconLeftMousClick;
+				}
+			}
+			else
+			{
+				return;
+			}
 		}
 
 		private void IconRightBox_MouseDown(object sender, MouseEventArgs e)
 		{
+			if (IconRight != null)
+			{
+				if (IconRightMousDown == null)
+				{
+					return;
+				}
+				else
+				{
+					iconRight.Image = IconRightMousDown;
+				}
+			}
+			else
+			{
+				return;
+			}
+		}
 
+		private void IconRightBox_MouseEnter(object sender, EventArgs e)
+		{
+			_isHover = true;
+			this.Invalidate();
+		}
+
+		private void IconRightBox_MouseLeave(object sender, EventArgs e)
+		{
+			_isHover = false;
+			this.Invalidate();
 		}
 
 		private void IconRightBox_MouseUp(object sender, MouseEventArgs e)
 		{
-
+			if (IconRight != null)
+			{
+				if (IconRightMousUp == null)
+				{
+					return;
+				}
+				else
+				{
+					iconRight.Image = IconRightMousUp;
+				}
+			}
+			else
+			{
+				return;
+			}
 		}
 
 		
