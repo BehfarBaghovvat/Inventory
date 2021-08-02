@@ -51,6 +51,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AncillaryCosts.cs" />
     <Compile Include="CapitalFund.cs" />
     <Compile Include="Client.cs" />
     <Compile Include="GeneralJournal.cs" />

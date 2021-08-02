@@ -389,23 +389,23 @@ namespace Mbb.Windows.Forms
 			}
 		}
 
-		private string _texts;
+		private string _text;
 		[System.ComponentModel.Browsable(true)]
 		[System.ComponentModel.DisplayName("Text")]
 		[System.ComponentModel.Editor(typeof(System.ComponentModel.Design.MultilineStringEditor), typeof(System.Drawing.Design.UITypeEditor))]
-		public string Texts
+		public new string Text
 		{
 			get
 			{
-				_texts = _inputTextBox.Text;
-				return _texts;
+				_text = _inputTextBox.Text;
+				return _text;
 			}
 			set
 			{
-				_texts = value;
-				_inputTextBox.Text = _texts;
+				_text = value;
+				_inputTextBox.Text = _text;
 
-				if (string.IsNullOrEmpty(_texts))
+				if (string.IsNullOrEmpty(_text))
 				{
 					GetCaption(Caption);
 				}
@@ -532,7 +532,7 @@ namespace Mbb.Windows.Forms
 		#region CustomTextBox_Load
 		private void CustomTextBox_Load(object sender, System.EventArgs e)
 		{
-			Text = string.Empty;
+			base.Text = string.Empty;
 
 			if (this.Controls.Contains(_iconLeftBox))
 			{
@@ -991,18 +991,18 @@ namespace Mbb.Windows.Forms
 		#region GetCaption
 		private void GetCaption(string watermark)
 		{
-			if (string.IsNullOrEmpty(Text))
+			if (string.IsNullOrEmpty(base.Text))
 			{
 				this.Controls.Add(_captionLabel);
-				_captionLabel.BringToFront();
-				_captionLabel.Anchor = System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
-				_captionLabel.AutoSize = false;
-				_captionLabel.Size = _inputTextBox.Size;
-				_captionLabel.Text = watermark;
-				_captionLabel.TextAlign = ContentAlignment.TopLeft;
-				_captionLabel.Location = _inputTextBox.Location;
-				_captionLabel.ForeColor = CaptionForeColor;
-				_captionLabel.BorderStyle = System.Windows.Forms.BorderStyle.None;
+                _captionLabel.BringToFront();
+                _captionLabel.Anchor = System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
+                _captionLabel.AutoSize = false;
+                _captionLabel.Size = _inputTextBox.Size;
+                _captionLabel.Text = watermark;
+                _captionLabel.TextAlign = ContentAlignment.TopLeft;
+                _captionLabel.Location = _inputTextBox.Location;
+                _captionLabel.ForeColor = CaptionForeColor;
+                _captionLabel.BorderStyle = System.Windows.Forms.BorderStyle.None;
 			}
 			else
 			{
