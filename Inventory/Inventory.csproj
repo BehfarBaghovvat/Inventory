@@ -54,13 +54,6 @@
     <ApplicationIcon>Inventory.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Bunifu.Core, Version=1.11.5.1, Culture=neutral, PublicKeyToken=e8e24ccd28363fe9" />
-    <Reference Include="Bunifu.UI.WinForms.BunifuDataGridView">
-      <HintPath>E:\Visual Studio Project\New folder\Component UI Windows Form\Bunifu UI\Bunifu UI WinForms 1.11.5.1\Bunifu.UI.WinForms.BunifuDataGridView.dll</HintPath>
-    </Reference>
-    <Reference Include="Bunifu.UI.WinForms.BunifuDropdown">
-      <HintPath>E:\Visual Studio Project\New folder\Component UI Windows Form\Bunifu UI\Bunifu UI WinForms 1.11.5.1\Bunifu.UI.WinForms.BunifuDropdown.dll</HintPath>
-    </Reference>
     <Reference Include="Bunifu.UI.WinForms.BunifuTextbox">
       <HintPath>..\..\..\Component UI Windows Form\Bunifu UI\Bunifu UI WinForms 1.11.5.1\Bunifu.UI.WinForms.BunifuTextbox.dll</HintPath>
     </Reference>
@@ -76,6 +69,17 @@
     <Reference Include="Guna.UI2">
       <HintPath>..\..\..\Component UI Windows Form\Guna UI Framework Ultimate 2.0.0.1\Guna UI Framework Ultimate v2.0.0.1 Lib-Master\Guna.UI2 WinForms\.net 4.0\Guna.UI2.dll</HintPath>
     </Reference>
+    <Reference Include="LiveCharts, Version=0.9.7.0, Culture=neutral, PublicKeyToken=0bc1f845d1ebb8df, processorArchitecture=MSIL">
+      <HintPath>..\packages\LiveCharts.0.9.7\lib\net45\LiveCharts.dll</HintPath>
+    </Reference>
+    <Reference Include="LiveCharts.WinForms, Version=0.9.7.1, Culture=neutral, PublicKeyToken=0bc1f845d1ebb8df, processorArchitecture=MSIL">
+      <HintPath>..\packages\LiveCharts.WinForms.0.9.7.1\lib\net45\LiveCharts.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="LiveCharts.Wpf, Version=0.9.7.0, Culture=neutral, PublicKeyToken=0bc1f845d1ebb8df, processorArchitecture=MSIL">
+      <HintPath>..\packages\LiveCharts.Wpf.0.9.7\lib\net45\LiveCharts.Wpf.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
     <Reference Include="Stimulsoft.Base, Version=2021.1.1.0, Culture=neutral, PublicKeyToken=ebe6666cba19647a, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>bin\Debug\Stimulsoft.Base.dll</HintPath>
@@ -104,7 +108,10 @@
     <Reference Include="System.Security" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Windows.Forms.DataVisualization" />
+    <Reference Include="System.Xaml" />
     <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
+    <Reference Include="WindowsFormsIntegration" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Forms\Financial_Form\AncillaryCostsForm.cs">
@@ -118,6 +125,12 @@
     </Compile>
     <Compile Include="Forms\Financial_Form\FinancialOrderForm.Designer.cs">
       <DependentUpon>FinancialOrderForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Financial_Form\Financial_Order\CapitalTurnoverChartUC.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\Financial_Form\Financial_Order\CapitalTurnoverChartUC.Designer.cs">
+      <DependentUpon>CapitalTurnoverChartUC.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Financial_Form\SafeBoxForm.cs">
       <SubType>Form</SubType>
@@ -260,6 +273,9 @@
     <EmbeddedResource Include="Forms\Financial_Form\FinancialOrderForm.resx">
       <DependentUpon>FinancialOrderForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Financial_Form\Financial_Order\CapitalTurnoverChartUC.resx">
+      <DependentUpon>CapitalTurnoverChartUC.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Financial_Form\SafeBoxForm.resx">
       <DependentUpon>SafeBoxForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -337,6 +353,7 @@
       <DependentUpon>TestControlForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\Models.AncillaryCosts.datasource" />
     <None Include="Properties\DataSources\Models.InventoryHolding.datasource" />
     <None Include="Properties\DataSources\Models.InventoryOutput.datasource" />
     <None Include="Properties\DataSources\Models.ProductReceived.datasource" />
@@ -414,9 +431,7 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Forms\Financial_Form\Financial_Order\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

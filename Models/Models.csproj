@@ -53,7 +53,9 @@
   <ItemGroup>
     <Compile Include="AncillaryCosts.cs" />
     <Compile Include="CapitalFund.cs" />
+    <Compile Include="CapitalTurnover.cs" />
     <Compile Include="Client.cs" />
+    <Compile Include="DailyFinancialReport.cs" />
     <Compile Include="GeneralJournal.cs" />
     <Compile Include="DataBaseContext.cs" />
     <Compile Include="DataBaseContextInitializer.cs" />
@@ -62,6 +64,7 @@
     <Compile Include="AccountsReceivable.cs" />
     <Compile Include="AccountsPayable.cs" />
     <Compile Include="InventoryHolding.cs" />
+    <Compile Include="MonthlyFinancialReport.cs" />
     <Compile Include="PurchaseInvoice.cs" />
     <Compile Include="SalesInvoice.cs" />
     <Compile Include="InvoiceSerialNumber.cs" />
@@ -73,6 +76,7 @@
     <Compile Include="Service.cs" />
     <Compile Include="TypesService.cs" />
     <Compile Include="User.cs" />
+    <Compile Include="YearlyFinancialReport.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

@@ -7,7 +7,24 @@ namespace Financial_Form
 		//-----------------------------------------------------------------------------------------------     Fields, Properties, Layers
 
 		#region Properties
-		public Models.CapitalFund CapitalFund { get; set; }
+		private Models.CapitalFund _capitalFund;
+		public Models.CapitalFund CapitalFund
+		{
+			get
+			{
+				if (_capitalFund==null)
+				{
+					_capitalFund =
+						new Models.CapitalFund();
+				}
+				return _capitalFund;
+			}
+			set
+			{
+				_capitalFund = value;
+			}
+		}
+
 		public int? Amount { get; set; }
 		public string Capital_Fund { get; set; }
 		#endregion /Properties
@@ -113,7 +130,7 @@ namespace Financial_Form
 		#region AcceptButton_Click
 		private void AcceptButton_Click(object sender, System.EventArgs e)
 		{
-			if (SetInCapitalFund(CapitalFund))
+			if (SetInCapitalFund(Amount))
 			{
 				Infrastructure.Utility.WindowsNotification(message: "مبلغ واریز شد.", caption: Infrastructure.PopupNotificationForm.Caption.موفقیت);
 			}
@@ -162,9 +179,9 @@ namespace Financial_Form
 		#endregion /LoadingFund
 
 		#region SetInCapitalFund
-		private bool SetInCapitalFund(Models.CapitalFund _capitalFund)
+		private bool SetInCapitalFund(int? _amount)
 		{
-			int fund, amount, sumAccount;
+			int? fund, sumAccount;
 			Models.DataBaseContext dataBaseContext = null;
 			try
 			{
@@ -176,9 +193,9 @@ namespace Financial_Form
 					.FirstOrDefault();
 
 				fund = int.Parse(capitalFund.Capital_Fund.Replace("تومان", string.Empty).Replace(",", string.Empty).Trim());
-				amount = int.Parse(_capitalFund.Capital_Fund.Replace("تومان", string.Empty).Replace(",", string.Empty).Trim());
+				
 
-				sumAccount = fund + amount;
+				sumAccount = fund + _amount;
 				capitalFund.Capital_Fund = $"{sumAccount:#,0} تومان";
 				dataBaseContext.SaveChanges();
 

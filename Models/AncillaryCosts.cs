@@ -1,14 +1,17 @@
 ﻿namespace Models
 {
-    public class AncillaryCosts
-    {
-        public AncillaryCosts()
-        {
+	/// <summary>
+	/// هزینه های جانبی
+	/// </summary>
+	public class AncillaryCosts
+	{
+		public AncillaryCosts()
+		{
 
-        }
-        #region Amount_Payment
-        //--DisplayName field for Cost_Name
-        [System.ComponentModel.DisplayName(displayName: "مبلغ پرداختی")]		
+		}
+		#region Amount_Payment
+		//--DisplayName field for Cost_Name
+		[System.ComponentModel.DisplayName(displayName: "مبلغ پرداختی")]
 		//--Lenght Cost_Name
 		[System.ComponentModel.DataAnnotations.StringLength
 			(maximumLength: 60)]
@@ -27,9 +30,9 @@
 		#region Id
 		//-----DisplayName field for Id
 		[System.ComponentModel.DisplayName(displayName: "ردیف")]
-        //-----Primery Key For this field
-        [System.ComponentModel.DataAnnotations.Key]
-        public int Id { get; set; }
+		//-----Primery Key For this field
+		[System.ComponentModel.DataAnnotations.Key]
+		public int Id { get; set; }
 		#endregion /Id
 
 		#region Name_Payer

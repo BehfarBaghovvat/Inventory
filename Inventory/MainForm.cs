@@ -4,7 +4,7 @@ namespace Inventory
 {
 	public partial class MainForm : Infrastructure.BaseForm
 	{
-		#region Peroperties
+		#region --------------------------------------------------------     Properties     --------------------------------------------------------
 
 		#region --------------------------------------------------------     Layer     --------------------------------------------------------
 
@@ -80,6 +80,62 @@ namespace Inventory
 			}
 		}
 
+		private Financial_Form.SafeBoxForm _safeBoxForm;
+		public Financial_Form.SafeBoxForm SafeBoxForm
+		{
+			get
+			{
+				if (_safeBoxForm == null || _safeBoxForm.IsDisposed == true)
+				{
+					_safeBoxForm =
+						new Financial_Form.SafeBoxForm();
+				}
+				return _safeBoxForm;
+			}
+			set
+			{
+				_safeBoxForm = value;
+			}
+		}
+
+		private Financial_Form.AncillaryCostsForm _ancillaryCostsForm;
+		public Financial_Form.AncillaryCostsForm AncillaryCostsForm
+		{
+			get
+			{
+				if (_ancillaryCostsForm == null || _ancillaryCostsForm.IsDisposed == true)
+				{
+					_ancillaryCostsForm =
+						new Financial_Form.AncillaryCostsForm();
+				}
+				return _ancillaryCostsForm;
+			}
+			set
+			{
+				_ancillaryCostsForm = value;
+			}
+		}
+
+		private Financial_Form.FinancialOrderForm _financialOrderForm;
+		public Financial_Form.FinancialOrderForm FinancialOrderForm
+		{
+			get
+			{
+				if (_financialOrderForm == null || _financialOrderForm.IsDisposed == true)
+				{
+					_financialOrderForm = 
+						new Financial_Form.FinancialOrderForm();
+				}
+				return _financialOrderForm;
+			}
+			set
+			{
+				_financialOrderForm = value;
+			}
+		}
+
+
+
 		#endregion /--------------------------------------------------------     Layer     --------------------------------------------------------
 
 		private Models.LoginHistory _logHistory;
@@ -104,7 +160,7 @@ namespace Inventory
 			نیروی_خدماتی,
 			کاربر_ساده,
 		}
-		#endregion /Peroperties
+		#endregion /--------------------------------------------------------     Properties     --------------------------------------------------------
 
 		public MainForm()
 		{
@@ -330,11 +386,19 @@ namespace Inventory
 				InventoryForm.Dispose();
 				ServiceForm.Dispose();
 
+				AncillaryCostsForm.Dispose();
+				FinancialOrderForm.Dispose();
+				SafeBoxForm.Dispose();
+
 				homeButton.Checked = false;
 				inventoryEntryButton.Checked = true;
 				productSalesButton.Checked = false;
 				inventoryholdingButton.Checked = false;
 				serviceButton.Checked = false;
+
+				ancillaryCostsButton.Checked = false;
+				financialOrderButton.Checked = false;
+				safeBoxButton.Checked = false;
 			}
 		}
 		#endregion /InventoryEntryButton_Click
@@ -351,15 +415,24 @@ namespace Inventory
 				mainPanel.Controls.Clear();
 				mainPanel.Controls.Add(ProcutSalesForm);
 				ProcutSalesForm.Show();
+
 				ProductBuyForm.Dispose();
 				InventoryForm.Dispose();
 				ServiceForm.Dispose();
+
+				AncillaryCostsForm.Dispose();
+				FinancialOrderForm.Dispose();
+				SafeBoxForm.Dispose();
 
 				homeButton.Checked = false;
 				inventoryEntryButton.Checked = false;
 				productSalesButton.Checked = true;
 				inventoryholdingButton.Checked = false;
 				serviceButton.Checked = false;
+
+				ancillaryCostsButton.Checked = false;
+				financialOrderButton.Checked = false;
+				safeBoxButton.Checked = false;
 			}
 		}
 		#endregion /ProductSalesButton_Click
@@ -381,11 +454,19 @@ namespace Inventory
 				ProcutSalesForm.Dispose();
 				ServiceForm.Dispose();
 
+				AncillaryCostsForm.Dispose();
+				FinancialOrderForm.Dispose();
+				SafeBoxForm.Dispose();
+
 				homeButton.Checked = false;
 				inventoryEntryButton.Checked = false;
 				productSalesButton.Checked = false;
 				inventoryholdingButton.Checked = true;
 				serviceButton.Checked = false;
+
+				ancillaryCostsButton.Checked = false;
+				financialOrderButton.Checked = false;
+				safeBoxButton.Checked = false;
 			}
 		}
 		#endregion /InventoryholdingButton_Click
@@ -407,11 +488,19 @@ namespace Inventory
 				ProcutSalesForm.Dispose();
 				InventoryForm.Dispose();
 
+				AncillaryCostsForm.Dispose();
+				FinancialOrderForm.Dispose();
+				SafeBoxForm.Dispose();
+
 				homeButton.Checked = false;
 				inventoryEntryButton.Checked = false;
 				productSalesButton.Checked = false;
 				inventoryholdingButton.Checked = false;
 				serviceButton.Checked = true;
+
+				ancillaryCostsButton.Checked = false;
+				financialOrderButton.Checked = false;
+				safeBoxButton.Checked = false;
 			}
 		}
 		#endregion /ServiceButton_Click
@@ -474,10 +563,110 @@ namespace Inventory
 
 		#region SubmenuFinancial
 
+		#region SafeBoxButton_Click
+		private void SafeBoxButton_Click(object sender, System.EventArgs e)
+		{
+			if (safeBoxButton.Checked)
+			{
+				return;
+			}
+			else
+			{
+				mainPanel.Controls.Clear();
+				mainPanel.Controls.Add(SafeBoxForm);
+				SafeBoxForm.Show();
 
+				ProductBuyForm.Dispose();
+				ProcutSalesForm.Dispose();
+				InventoryForm.Dispose();
+				ServiceForm.Dispose();
 
+				AncillaryCostsForm.Dispose();
+				FinancialOrderForm.Dispose();
 
+				homeButton.Checked = false;
 
+				inventoryEntryButton.Checked = false;
+				productSalesButton.Checked = false;
+				inventoryholdingButton.Checked = false;
+				serviceButton.Checked = false;
+
+				ancillaryCostsButton.Checked = false;
+				financialOrderButton.Checked = false;
+				safeBoxButton.Checked = true;
+			}
+		}
+		#endregion /SafeBoxButton_Click
+
+		#region AncillaryCostsButton_Click
+		private void AncillaryCostsButton_Click(object sender, System.EventArgs e)
+		{
+			if (ancillaryCostsButton.Checked)
+			{
+				return;
+			}
+			else
+			{
+				mainPanel.Controls.Clear();
+				mainPanel.Controls.Add(AncillaryCostsForm);
+				AncillaryCostsForm.Show();
+
+				ProductBuyForm.Dispose();
+				ProcutSalesForm.Dispose();
+				InventoryForm.Dispose();
+				ServiceForm.Dispose();
+				
+				FinancialOrderForm.Dispose();
+				SafeBoxForm.Dispose();
+
+				homeButton.Checked = false;
+
+				inventoryEntryButton.Checked = false;
+				productSalesButton.Checked = false;
+				inventoryholdingButton.Checked = false;
+				serviceButton.Checked = false;
+
+				ancillaryCostsButton.Checked = true;
+				financialOrderButton.Checked = false;
+				safeBoxButton.Checked = false;
+			}
+		}
+		#endregion /AncillaryCostsButton_Click
+
+		#region FinancialOrderButton_Click
+		private void FinancialOrderButton_Click(object sender, System.EventArgs e)
+		{
+			if (financialOrderButton.Checked)
+			{
+				return;
+			}
+			else
+			{
+				mainPanel.Controls.Clear();
+				mainPanel.Controls.Add(FinancialOrderForm);
+				FinancialOrderForm.Show();
+
+				ProductBuyForm.Dispose();
+				ProcutSalesForm.Dispose();
+				InventoryForm.Dispose();
+				ServiceForm.Dispose();
+
+				AncillaryCostsForm.Dispose();
+				SafeBoxForm.Dispose();
+
+				homeButton.Checked = false;
+
+				inventoryEntryButton.Checked = false;
+				productSalesButton.Checked = false;
+				inventoryholdingButton.Checked = false;
+				serviceButton.Checked = false;
+
+				ancillaryCostsButton.Checked = false;
+				financialOrderButton.Checked = true;
+				safeBoxButton.Checked = false;
+			}
+		}
+		#endregion /FinancialOrderButton_Click
 
 
 
@@ -496,7 +685,7 @@ namespace Inventory
 		private void DropDownFinancialTimer_Tick(object sender, System.EventArgs e)
 		{
 			submenuFinancialPanel.Height += 10;
-			if (submenuFinancialPanel.Height >= 120)
+			if (submenuFinancialPanel.Height >= 190)
 			{
 				dropDownFinancialTimer.Stop();
 			}
@@ -865,6 +1054,9 @@ namespace Inventory
 				dataBaseContext = null;
 			}
 		}
+
+
+
 		#endregion /SaveLoginHistory
 
 		#endregion /Founcitons

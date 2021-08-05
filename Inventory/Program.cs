@@ -171,9 +171,9 @@ namespace Inventory
 			System.Windows.Forms.Application.EnableVisualStyles();
 			System.Windows.Forms.Application.SetCompatibleTextRenderingDefault(false);
 			Administrator();
-			//System.Windows.Forms.Application.Run(new Entry_Forms.StartUpForm());
+			System.Windows.Forms.Application.Run(new Entry_Forms.StartUpForm());
 
-			
+			//System.Windows.Forms.Application.Run(new Financial_Form.AncillaryCostsForm());
 			//System.Windows.Forms.Application.Run(new Financial_Form.SafeBoxForm());
 			//System.Windows.Forms.Application.Run(new Inventory_Forms.InvoiceForm());
 			//System.Windows.Forms.Application.Run(new Inventory_Forms.ProcutSalesForm());
@@ -183,7 +183,7 @@ namespace Inventory
 			//System.Windows.Forms.Application.Run(new Inventory_Forms.ViewProducrImageForm());
 			//System.Windows.Forms.Application.Run(new Inventory_Forms.ServiceForm());
 			//System.Windows.Forms.Application.Run(new Inventory_Forms.ServiceReportForm());
-			System.Windows.Forms.Application.Run(new TestControlForm());
+			//System.Windows.Forms.Application.Run(new TestControlForm());
 		}
 	}
 }
