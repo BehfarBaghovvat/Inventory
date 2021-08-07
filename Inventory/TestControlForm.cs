@@ -17,9 +17,10 @@ namespace Inventory
 			InitializeComponent();
 		}
 
-        private void mbbComboBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-			Mbb.Windows.Forms.MessageBox.Show($"{mbbComboBox1.SelectedItem}","name item",icon: Mbb.Windows.Forms.MessageBoxIcon.Information,button: Mbb.Windows.Forms.MessageBoxButtons.Ok);
-        }
-    }
+		private void guna2ComboBox1_SelectedIndexChanged(object sender, EventArgs e)
+		{
+			MessageBox.Show($"Month name:{guna2ComboBox1.SelectedItem}and month number:{guna2ComboBox1.SelectedIndex}");
+			
+		}
+	}
 }

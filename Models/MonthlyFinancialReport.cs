@@ -55,9 +55,6 @@
 		#region Register_Date
 		//----- Display Name TotalPrice
 		[System.ComponentModel.DisplayName(displayName: "تاریخ ثبت")]
-		//-----Allow Empty TotalPrice
-		[System.ComponentModel.DataAnnotations.Required
-			(AllowEmptyStrings = false)]
 		//-----StringLength TotalPrice
 		[System.ComponentModel.DataAnnotations.StringLength
 			(maximumLength: 10)]

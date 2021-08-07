@@ -416,6 +416,7 @@ namespace Inventory_Forms
 		{
 			if (SetService(Service) && Deposit(_audit) && SetDailyOffice(_audit) && AccountRecivedBook(AccountsReceivable))
 			{
+				SetDailyFinancialReport(_audit);
 				Infrastructure.Utility.WindowsNotification
 					(message: Inventory.Properties.Resources.Complete_Operation, caption: Infrastructure.PopupNotificationForm.Caption.موفقیت);
 
@@ -1230,6 +1231,53 @@ namespace Inventory_Forms
 		}
 		#endregion /ReductionService
 
+		#region SetDailyFinancialReport
+		/// <summary>
+		/// تابع ثبت گزارش مالی روزانه
+		/// </summary>
+		/// <param name="auditItem"></param>
+		private void SetDailyFinancialReport(AuditItem auditItem)
+		{
+			Models.DataBaseContext dataBaseContext = null;
+			try
+			{
+				dataBaseContext =
+					new Models.DataBaseContext();
+
+				Models.DailyFinancialReport dailyFinancialReport =
+					new Models.DailyFinancialReport()
+					{
+						Amounts_Received = $"{auditItem.Amount_Paid:#,0} تومان",
+						Registration_Date = $"{auditItem.Register_Date}",
+						Registration_Time = $"{auditItem.Register_Time}",
+
+						Year = int.Parse(auditItem.Register_Date.Substring(0, 4)),
+						Month = int.Parse(auditItem.Register_Date.Substring(5, 2)),
+						Day = int.Parse(auditItem.Register_Date.Substring(8, 2)),
+
+						Hour = int.Parse(auditItem.Register_Time.Substring(0, 2)),
+						Minute = int.Parse(auditItem.Register_Time.Substring(3, 2)),
+						Second = int.Parse(auditItem.Register_Time.Substring(6, 2)),
+					};
+				dataBaseContext.DailyFinancialReports.Add(dailyFinancialReport);
+				dataBaseContext.SaveChanges();
+
+			}
+			catch (System.Exception ex)
+			{
+				Infrastructure.Utility.ExceptionShow(ex);
+			}
+			finally
+			{
+				if (dataBaseContext != null)
+				{
+					dataBaseContext.Dispose();
+					dataBaseContext = null;
+				}
+			}
+		}
+		#endregion SetDailyFinancialReport
+
 		#region SetDailyOffice
 		/// <summary>
 		/// ثبت تمام هزینه ها در دفتر روزنامه
@@ -1403,8 +1451,6 @@ namespace Inventory_Forms
 		}
 
 		#endregion /SetServicePrice
-
-
 
 		#endregion /Function
 	}

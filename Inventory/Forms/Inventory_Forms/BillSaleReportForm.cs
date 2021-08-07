@@ -432,16 +432,17 @@ namespace Inventory_Forms
 
 			if (Deposit(auditItem) && AccountRecivedBook(AccountsReceivable) && SetDailyOffice(auditItem))
 			{
-				Infrastructure.Utility.PopupNotification(message: "عملیات با موفقیت انجام گردید.", caption: Infrastructure.PopupNotificationForm.Caption.موفقیت);
+
+				SetDailyFinancialReport(auditItem);
+				Infrastructure.Utility.WindowsNotification
+					(message: "عملیات با موفقیت انجام گردید.",
+					caption: Infrastructure.PopupNotificationForm.Caption.موفقیت);
 
 				//--- درصورت نیاز به نمایش مبلغ صندوق از کد زیر استفاده گردد.
+				//if (true)
+				//{
 
-				if (true)
-				{
-
-				}
-
-
+				//}
 				return;
 			}
 		}
@@ -1023,6 +1024,53 @@ namespace Inventory_Forms
 			}
 		}
 		#endregion /LoadingCapitalFund
+
+		#region SetDailyFinancialReport
+		/// <summary>
+		/// تابع ثبت گزارش مالی روزانه
+		/// </summary>
+		/// <param name="auditItem"></param>
+		private void SetDailyFinancialReport(AuditItem auditItem)
+		{
+			Models.DataBaseContext dataBaseContext = null;
+			try
+			{
+				dataBaseContext =
+					new Models.DataBaseContext();
+
+				Models.DailyFinancialReport dailyFinancialReport =
+					new Models.DailyFinancialReport()
+					{
+						Amounts_Received = $"{auditItem.Amount_Paid:#,0} تومان",
+						Registration_Date = $"{auditItem.Register_Date}",
+						Registration_Time = $"{auditItem.Register_Time}",
+
+						Year = int.Parse(auditItem.Register_Date.Substring(0, 4)),
+						Month = int.Parse(auditItem.Register_Date.Substring(5, 2)),
+						Day = int.Parse(auditItem.Register_Date.Substring(8, 2)),
+
+						Hour = int.Parse(auditItem.Register_Time.Substring(0, 2)),
+						Minute = int.Parse(auditItem.Register_Time.Substring(3, 2)),
+						Second = int.Parse(auditItem.Register_Time.Substring(6, 2)),
+					};
+				dataBaseContext.DailyFinancialReports.Add(dailyFinancialReport);
+				dataBaseContext.SaveChanges();
+
+			}
+			catch (System.Exception ex)
+			{
+				Infrastructure.Utility.ExceptionShow(ex);
+			}
+			finally
+			{
+				if (dataBaseContext != null)
+				{
+					dataBaseContext.Dispose();
+					dataBaseContext = null;
+				}
+			}
+		}
+		#endregion SetDailyFinancialReport
 
 		#region SetItemsBillSale
 		public void SetItemsBillSale(System.Collections.Generic.List<ProcutSalesForm.BillSaleReportItems> billSaleReportItems, ProcutSalesForm.TransactionFactorsItems transactionFactorsItems)

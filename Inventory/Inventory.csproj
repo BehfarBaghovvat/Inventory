@@ -354,12 +354,15 @@
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\DataSources\Models.AncillaryCosts.datasource" />
+    <None Include="Properties\DataSources\Models.DailyFinancialReport.datasource" />
     <None Include="Properties\DataSources\Models.InventoryHolding.datasource" />
     <None Include="Properties\DataSources\Models.InventoryOutput.datasource" />
+    <None Include="Properties\DataSources\Models.MonthlyFinancialReport.datasource" />
     <None Include="Properties\DataSources\Models.ProductReceived.datasource" />
     <None Include="Properties\DataSources\Models.Service1.datasource" />
     <None Include="Properties\DataSources\Models.TypesService.datasource" />
     <None Include="Properties\DataSources\Models.User.datasource" />
+    <None Include="Properties\DataSources\Models.YearlyFinancialReport.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

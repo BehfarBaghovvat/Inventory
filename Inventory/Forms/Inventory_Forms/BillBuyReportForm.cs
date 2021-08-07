@@ -17,8 +17,8 @@ namespace Inventory_Forms
 			public int Total_Sum_Price { get; set; }
 			public string Recipient_Name { get; set; }
 			public string Register_Date { get; set; }
+			public string Register_Time { get; set; }
 			public int Remaining_Amount { get; set; }
-
 			public string Sender_Name { get; set; }
 		}
 		private class Bill
@@ -151,6 +151,7 @@ namespace Inventory_Forms
 		{
 			if (Harvest(auditItem) && SetAccountPayable(auditItem) && InvoiceRegister(auditItem))
 			{
+				SetDailyFinancialReport(auditItem);
 				Infrastructure.Utility.WindowsNotification(message: "عملیات ثبت و پرداخت انجام گردید.", caption: Infrastructure.PopupNotificationForm.Caption.موفقیت);
 
 				auditItem.Capital_Fund = LoadingCapitalFund();
@@ -573,6 +574,53 @@ namespace Inventory_Forms
 			}
 		}
 		#endregion SetBillInDataGridView
+
+		#region SetDailyFinancialReport
+		/// <summary>
+		/// تابع ثبت گزارش مالی روزانه
+		/// </summary>
+		/// <param name="auditItem"></param>
+		private void SetDailyFinancialReport(AuditItem auditItem)
+		{
+			Models.DataBaseContext dataBaseContext = null;
+			try
+			{
+				dataBaseContext =
+					new Models.DataBaseContext();
+
+				Models.DailyFinancialReport dailyFinancialReport =
+					new Models.DailyFinancialReport()
+					{
+						Amounts_Paid = $"{auditItem.Amount_Paid:#,0} تومان",
+						Registration_Date = $"{auditItem.Register_Date}",
+						Registration_Time = $"{auditItem.Register_Time}",
+
+						Year = int.Parse(auditItem.Register_Date.Substring(0, 4)),
+						Month = int.Parse(auditItem.Register_Date.Substring(5, 2)),
+						Day = int.Parse(auditItem.Register_Date.Substring(8, 2)),
+
+						Hour = int.Parse(auditItem.Register_Time.Substring(0, 2)),
+						Minute = int.Parse(auditItem.Register_Time.Substring(3, 2)),
+						Second = int.Parse(auditItem.Register_Time.Substring(6, 2)),
+					};
+				dataBaseContext.DailyFinancialReports.Add(dailyFinancialReport);
+				dataBaseContext.SaveChanges();
+
+			}
+			catch (System.Exception ex)
+			{
+				Infrastructure.Utility.ExceptionShow(ex);
+			}
+			finally
+			{
+				if (dataBaseContext != null)
+				{
+					dataBaseContext.Dispose();
+					dataBaseContext = null;
+				}
+			}
+		}
+		#endregion SetDailyFinancialReport
 
 		#region SetInvoiceSerialNumber
 		/// <summary>
