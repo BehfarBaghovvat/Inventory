@@ -10,6 +10,9 @@ namespace Inventory
 		//------------------------------------------------------------------
 
 		#region Administrator
+		/// <summary>
+		/// ثبت خودکار کاربر ادمین در صورت حذف دیتابیس
+		/// </summary>
 		private static void Administrator()
 		{
 			Models.DataBaseContext dataBaseContext = null;
@@ -70,6 +73,54 @@ namespace Inventory
 			}
 		}
 		#endregion /Administrator
+
+		#region InitialAmountCapital
+		/// <summary>
+		/// ثبت خودکار مبلغ اولیه 0 در صورت حذف دیتابیس
+		/// </summary>
+		private static void InitialAmountCapital()
+		{
+			Models.DataBaseContext dataBaseContext = null;
+
+			try
+			{
+				dataBaseContext =
+					new Models.DataBaseContext();
+
+				Models.CapitalFund capitalFund =
+					dataBaseContext.CapitalFunds
+					.FirstOrDefault();
+
+				if (capitalFund == null)
+				{
+					capitalFund =
+						new Models.CapitalFund()
+						{
+							Capital_Fund = "0 تومان",
+						};
+					dataBaseContext.CapitalFunds.Add(capitalFund);
+					dataBaseContext.SaveChanges();
+				}
+				else
+				{
+					return;
+				}
+				
+			}
+			catch (System.Exception ex)
+			{
+				Infrastructure.Utility.ExceptionShow(ex);
+			}
+			finally
+			{
+				if (dataBaseContext != null)
+				{
+					dataBaseContext.Dispose();
+					dataBaseContext = null;
+				}
+			}
+		}
+		#endregion /InitialAmountCapital
 
 		#region MainForm
 		private static MainForm _mainForm;
@@ -171,8 +222,10 @@ namespace Inventory
 			System.Windows.Forms.Application.EnableVisualStyles();
 			System.Windows.Forms.Application.SetCompatibleTextRenderingDefault(false);
 			Administrator();
-			//System.Windows.Forms.Application.Run(new Entry_Forms.StartUpForm());
+			InitialAmountCapital();
+			System.Windows.Forms.Application.Run(new Entry_Forms.StartUpForm());
 
+			//System.Windows.Forms.Application.Run(new MainForm());
 			//System.Windows.Forms.Application.Run(new Financial_Form.AncillaryCostsForm());
 			//System.Windows.Forms.Application.Run(new Financial_Form.SafeBoxForm());
 			//System.Windows.Forms.Application.Run(new Inventory_Forms.InvoiceForm());
@@ -183,7 +236,7 @@ namespace Inventory
 			//System.Windows.Forms.Application.Run(new Inventory_Forms.ViewProducrImageForm());
 			//System.Windows.Forms.Application.Run(new Inventory_Forms.ServiceForm());
 			//System.Windows.Forms.Application.Run(new Inventory_Forms.ServiceReportForm());
-			System.Windows.Forms.Application.Run(new TestControlForm());
+			//System.Windows.Forms.Application.Run(new TestControlForm());
 		}
 	}
 }

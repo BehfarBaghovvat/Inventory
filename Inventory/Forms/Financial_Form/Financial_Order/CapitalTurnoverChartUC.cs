@@ -356,7 +356,6 @@ namespace Financial_Order
 						amountsReceived = int.Parse(data.FirstOrDefault().Amounts_Received);
 					}
 					values.Add(amountsReceived);
-
 				}
 				seriesViews.Add(new LiveCharts.Wpf.LineSeries() { Title = "مبالغ دریافتی", Values = new LiveCharts.ChartValues<int>(values) });
 				statisticsDisplayChart.Series = seriesViews;

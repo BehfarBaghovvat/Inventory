@@ -1042,8 +1042,8 @@ namespace Inventory_Forms
 					new Models.DailyFinancialReport()
 					{
 						Amounts_Received = $"{auditItem.Amount_Paid:#,0} تومان",
-						Registration_Date = $"{auditItem.Register_Date}",
-						Registration_Time = $"{auditItem.Register_Time}",
+						Register_Date = $"{auditItem.Register_Date}",
+						Register_Time = $"{auditItem.Register_Time}",
 
 						Year = int.Parse(auditItem.Register_Date.Substring(0, 4)),
 						Month = int.Parse(auditItem.Register_Date.Substring(5, 2)),

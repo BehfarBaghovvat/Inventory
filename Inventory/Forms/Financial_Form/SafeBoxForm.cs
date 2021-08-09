@@ -1,4 +1,5 @@
 ﻿using System.Linq;
+using static Inventory_Forms.BillBuyReportForm;
 
 namespace Financial_Form
 {
@@ -12,7 +13,7 @@ namespace Financial_Form
 		{
 			get
 			{
-				if (_capitalFund==null)
+				if (_capitalFund == null)
 				{
 					_capitalFund =
 						new Models.CapitalFund();
@@ -25,8 +26,27 @@ namespace Financial_Form
 			}
 		}
 
-		public int? Amount { get; set; }
-		public string Capital_Fund { get; set; }
+		private Models.EventLog _eventLog;
+		public Models.EventLog EventLog
+		{
+			get
+			{
+				if (_eventLog == null)
+				{
+					_eventLog =
+						new Models.EventLog();
+				}
+				return _eventLog;
+			}
+			set
+			{
+				_eventLog = value;
+			}
+		}
+
+
+		public long? Amount { get; set; }
+		public long? OldCash { get; set; }
 		#endregion /Properties
 
 
@@ -36,6 +56,9 @@ namespace Financial_Form
 		public SafeBoxForm()
 		{
 			InitializeComponent();
+
+			OldCash = LoadingFund();
+			funeLabel.Text = $"{OldCash:#,0} تومان";
 		}
 
 		//-----------------------------------------------------------------------------------------------     Events Controls
@@ -96,9 +119,9 @@ namespace Financial_Form
 			}
 			else
 			{
-				Amount = int.Parse(entryFuneTextBox.Text.Replace("تومان", string.Empty).Replace(",", string.Empty).Trim());
+				Amount = long.Parse(entryFuneTextBox.Text.Replace("تومان", string.Empty).Replace(",", string.Empty).Trim());
 				entryFuneTextBox.Text = $"{Amount:#,0} تومان";
-				Capital_Fund = $"{Amount:#,0} تومان";
+				CapitalFund.Capital_Fund = $"{Amount:#,0} تومان";
 			}
 		}
 		#endregion /EntryFuneTextBox_Leave
@@ -116,7 +139,7 @@ namespace Financial_Form
 				string.Compare(entryFuneTextBox.Text, "ت") == 0)
 			{
 				acceptButton.Enabled = false;
-				Capital_Fund = null;
+				CapitalFund.Capital_Fund = null;
 				Amount = null;
 				return;
 			}
@@ -130,13 +153,14 @@ namespace Financial_Form
 		#region AcceptButton_Click
 		private void AcceptButton_Click(object sender, System.EventArgs e)
 		{
-			if (SetInCapitalFund(Amount))
+			if (SetInCapitalFund(CapitalFund, OldCash))
 			{
+				AllClear();
 				Infrastructure.Utility.WindowsNotification(message: "مبلغ واریز شد.", caption: Infrastructure.PopupNotificationForm.Caption.موفقیت);
 			}
 			else
 			{
-				Infrastructure.Utility.WindowsNotification(message:$"{Inventory.Properties.Resources.Operation_Defect}", caption: Infrastructure.PopupNotificationForm.Caption.خطا);
+				Infrastructure.Utility.WindowsNotification(message: $"{Inventory.Properties.Resources.Operation_Defect}", caption: Infrastructure.PopupNotificationForm.Caption.خطا);
 			}
 		}
 		#endregion /AcceptButton_Click
@@ -147,9 +171,28 @@ namespace Financial_Form
 
 		#region Function
 
-		#region LoadingFund
-		private void LoadingFund()
+		#region AllClear
+		/// <summary>
+		/// پاک کردن تمام محتوای متغییرها و کنترلها
+		/// </summary>
+		private void AllClear()
 		{
+			Amount = null;
+			CapitalFund = null;
+			EventLog = null;
+			OldCash = null;
+			entryFuneTextBox.Clear();
+		}
+		#endregion /AllClear
+
+		#region LoadingFund
+		/// <summary>
+		/// بارگزاری موجودی صندوق
+		/// </summary>
+		/// <returns></returns>
+		private long LoadingFund()
+		{
+			long fund;
 			Models.DataBaseContext dataBaseContext = null;
 
 			try
@@ -161,11 +204,26 @@ namespace Financial_Form
 					dataBaseContext.CapitalFunds
 					.FirstOrDefault();
 
-				funeLabel.Text = capitalFund.Capital_Fund;
+				if (capitalFund == null)
+				{
+					fund = 0;
+
+					return fund;
+				}
+				else
+				{
+					fund = long.Parse(capitalFund.Capital_Fund
+						.Replace("تومان", string.Empty)
+						.Replace(",", string.Empty)
+						.Trim());
+
+					return fund;
+				}
 			}
 			catch (System.Exception ex)
 			{
 				Infrastructure.Utility.ExceptionShow(ex);
+				return 0;
 			}
 			finally
 			{
@@ -179,9 +237,22 @@ namespace Financial_Form
 		#endregion /LoadingFund
 
 		#region SetInCapitalFund
-		private bool SetInCapitalFund(int? _amount)
+		/// <summary>
+		/// واریز کردن مبلغ وارد شده توسط کاربر به صندوق
+		/// </summary>
+		/// <param name="_capitalFund"></param>
+		/// <param name="_oldCahsh"></param>
+		/// <returns></returns>
+		private bool SetInCapitalFund(Models.CapitalFund _capitalFund, long? _oldCahsh)
 		{
-			int? fund, sumAccount;
+			long? _newCahsh;
+			long _amount = long.Parse(_capitalFund.Capital_Fund
+				.Replace("تومان", string.Empty)
+				.Replace(",", string.Empty)
+				.Trim());
+
+			_newCahsh = _amount + _oldCahsh;
+
 			Models.DataBaseContext dataBaseContext = null;
 			try
 			{
@@ -192,20 +263,30 @@ namespace Financial_Form
 					dataBaseContext.CapitalFunds
 					.FirstOrDefault();
 
-				fund = int.Parse(capitalFund.Capital_Fund.Replace("تومان", string.Empty).Replace(",", string.Empty).Trim());
-				
-
-				sumAccount = fund + _amount;
-				capitalFund.Capital_Fund = $"{sumAccount:#,0} تومان";
+				capitalFund.Capital_Fund = $"{_newCahsh:#,0} تومان";
 				dataBaseContext.SaveChanges();
 
-				LoadingFund();
-				return true;
+				funeLabel.Text = $"{LoadingFund():#,0} تومان";
 
+				#region -----------------------------------------     Save Event Log     -----------------------------------------
+				if (string.Compare(Inventory.Program.UserAuthentication.Username, "admin") != 0)
+				{
+					EventLog.Username = Inventory.Program.UserAuthentication.Username;
+					EventLog.Full_Name = Inventory.Program.UserAuthentication.Full_Name;
+					EventLog.Event_Date = $"{Infrastructure.Utility.PersianCalendar(System.DateTime.Now)}";
+					EventLog.Event_Time = $"{Infrastructure.Utility.ShowTime()}";
+					EventLog.Description = $"واریز مبلغ {_capitalFund.Capital_Fund} به صندوق، موجودی صندوق {_newCahsh:#,0} تومان می باشد ";
+					Infrastructure.Utility.EventLog(EventLog);
+				}
+
+				#endregion /-----------------------------------------     Save Event Log     -----------------------------------------
+
+				return true;
 			}
 			catch (System.Exception ex)
 			{
 				Infrastructure.Utility.ExceptionShow(ex);
+
 				return false;
 			}
 			finally

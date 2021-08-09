@@ -155,17 +155,10 @@ namespace Inventory_Forms
 				Infrastructure.Utility.WindowsNotification(message: "عملیات ثبت و پرداخت انجام گردید.", caption: Infrastructure.PopupNotificationForm.Caption.موفقیت);
 
 				auditItem.Capital_Fund = LoadingCapitalFund();
-				capitalFundTextBox.Text = $"{auditItem.Capital_Fund:#,0} تومان";
+				
 				MyProductBuyForm.RemoveBill();
 				paymentButton.Enabled = false;
-				//if (true)     بعدا حتما به گزینه ها اضافه گردد.
-				//{
-				//	Capital_Fund = LoadingCapitalFund();
-				//	Mbb.Windows.Forms.MessageBox.Show(text: $"موجودی صندوق \n {Capital_Fund:#,0} تومان می باشد.",
-				//		caption:"گزارش",
-				//		icon: Mbb.Windows.Forms.MessageBoxIcon.Information,
-				//		button: Mbb.Windows.Forms.MessageBoxButtons.Ok);
-				//}
+				
 			}
 			else
 			{
@@ -377,7 +370,7 @@ namespace Inventory_Forms
 
 		#region Initialize
 		/// <summary>
-		/// تنظیمات اولیه
+		/// تنظیم ورودی اولیه
 		/// </summary>
 		private void Initialize()
 		{
@@ -389,7 +382,6 @@ namespace Inventory_Forms
 			auditItem.Register_Date = $"{Infrastructure.Utility.PersianCalendar(System.DateTime.Now)} - {Infrastructure.Utility.ShowTime()}";
 
 			auditItem.Capital_Fund = LoadingCapitalFund();
-			capitalFundTextBox.Text = $"{auditItem.Capital_Fund:#,0} تومان";
 
 			senderNameTextBox.Text = auditItem.Sender_Name;
 			recipientNameTextBox.Text = Inventory.Program.UserAuthentication.Full_Name;
@@ -398,7 +390,6 @@ namespace Inventory_Forms
 
 			invoiceSerialNumberTextBox.Text = SetInvoiceSerialNumber();
 			auditItem.InvoiceSerialNumber = SetInvoiceSerialNumber();
-
 		}
 		#endregion /Initialize
 
@@ -592,8 +583,8 @@ namespace Inventory_Forms
 					new Models.DailyFinancialReport()
 					{
 						Amounts_Paid = $"{auditItem.Amount_Paid:#,0} تومان",
-						Registration_Date = $"{auditItem.Register_Date}",
-						Registration_Time = $"{auditItem.Register_Time}",
+						Register_Date = $"{auditItem.Register_Date}",
+						Register_Time = $"{auditItem.Register_Time}",
 
 						Year = int.Parse(auditItem.Register_Date.Substring(0, 4)),
 						Month = int.Parse(auditItem.Register_Date.Substring(5, 2)),

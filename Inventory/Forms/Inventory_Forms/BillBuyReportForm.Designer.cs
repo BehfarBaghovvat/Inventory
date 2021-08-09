@@ -62,8 +62,6 @@ namespace Inventory_Forms
 			this.topPanel = new Mbb.Windows.Forms.Panel();
 			this.minimizeButton = new Guna.UI2.WinForms.Guna2Button();
 			this.closeButton = new Guna.UI2.WinForms.Guna2Button();
-			this.capitalFundLabel = new System.Windows.Forms.Label();
-			this.capitalFundTextBox = new System.Windows.Forms.Label();
 			this.carrierNameTextBox = new Mbb.Windows.Forms.Label();
 			this.carrierNameLabel = new Mbb.Windows.Forms.Label();
 			this.recipientNameTextBox = new Mbb.Windows.Forms.Label();
@@ -466,34 +464,6 @@ namespace Inventory_Forms
 			this.closeButton.TabIndex = 0;
 			this.closeButton.Click += new System.EventHandler(this.CloseButton_Click);
 			// 
-			// capitalFundLabel
-			// 
-			this.capitalFundLabel.AllowDrop = true;
-			this.capitalFundLabel.AutoSize = true;
-			this.capitalFundLabel.BackColor = System.Drawing.Color.Transparent;
-			this.capitalFundLabel.Font = new System.Drawing.Font("IRANSans", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-			this.capitalFundLabel.ForeColor = System.Drawing.Color.White;
-			this.capitalFundLabel.Location = new System.Drawing.Point(778, 471);
-			this.capitalFundLabel.Name = "capitalFundLabel";
-			this.capitalFundLabel.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-			this.capitalFundLabel.Size = new System.Drawing.Size(120, 25);
-			this.capitalFundLabel.TabIndex = 28;
-			this.capitalFundLabel.Text = "موجودی صندوق:";
-			// 
-			// capitalFundTextBox
-			// 
-			this.capitalFundTextBox.AllowDrop = true;
-			this.capitalFundTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-			this.capitalFundTextBox.Font = new System.Drawing.Font("IRANSansXFaNum", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-			this.capitalFundTextBox.ForeColor = System.Drawing.Color.White;
-			this.capitalFundTextBox.Location = new System.Drawing.Point(532, 469);
-			this.capitalFundTextBox.Name = "capitalFundTextBox";
-			this.capitalFundTextBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-			this.capitalFundTextBox.Size = new System.Drawing.Size(234, 30);
-			this.capitalFundTextBox.TabIndex = 29;
-			this.capitalFundTextBox.Text = "0 تومان";
-			this.capitalFundTextBox.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-			// 
 			// carrierNameTextBox
 			// 
 			this.carrierNameTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -624,8 +594,6 @@ namespace Inventory_Forms
 			this.Controls.Add(this.recipientNameLabel);
 			this.Controls.Add(this.senderNameTextBox);
 			this.Controls.Add(this.senderNameLabel);
-			this.Controls.Add(this.capitalFundLabel);
-			this.Controls.Add(this.capitalFundTextBox);
 			this.Controls.Add(this.paymentButton);
 			this.Controls.Add(this.printButton);
 			this.Controls.Add(this.dateOfPrintLabel);
@@ -675,8 +643,6 @@ namespace Inventory_Forms
 		private System.Windows.Forms.DataGridViewTextBoxColumn Product_Unit;
 		private System.Windows.Forms.DataGridViewTextBoxColumn Total_Amount;
 		private Guna.UI2.WinForms.Guna2GradientButton paymentButton;
-		private System.Windows.Forms.Label capitalFundLabel;
-		private System.Windows.Forms.Label capitalFundTextBox;
 		private Mbb.Windows.Forms.Label carrierNameLabel;
 		private Mbb.Windows.Forms.Label recipientNameTextBox;
 		private Mbb.Windows.Forms.Label recipientNameLabel;

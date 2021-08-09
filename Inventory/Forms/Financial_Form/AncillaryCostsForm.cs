@@ -1,4 +1,5 @@
-﻿using Models;
+﻿using Guna.UI.WinForms;
+using Models;
 using System.Linq;
 
 namespace Financial_Form
@@ -153,7 +154,6 @@ namespace Financial_Form
 			{
 				listExpensesComboBox.ForeColor = System.Drawing.Color.White;
 				AncillaryCosts.Cost_Name = listExpensesComboBox.SelectedItem.ToString();
-				System.Windows.Forms.MessageBox.Show($"{AncillaryCosts.Cost_Name}");
 			}
 		}
 		#endregion /ListExpensesComboBox_SelectedIndexChanged
@@ -190,7 +190,7 @@ namespace Financial_Form
 			DataBaseContext dataBaseContext = null;
 			try
 			{
-				dataBaseContext = 
+				dataBaseContext =
 					new DataBaseContext();
 
 				Models.EventLog eventLog =
@@ -253,7 +253,7 @@ namespace Financial_Form
 			}
 			finally
 			{
-				if (dataBaseContext!= null)
+				if (dataBaseContext != null)
 				{
 					dataBaseContext.Dispose();
 					dataBaseContext = null;
@@ -276,12 +276,25 @@ namespace Financial_Form
 				Models.CapitalFund capitalFund =
 					dataBaseContext.CapitalFunds
 					.FirstOrDefault();
-				if (capitalFund != null)
-					return _capitalFund = long.Parse
+
+				capitalFund = new Models.CapitalFund();
+				if (capitalFund == null)
+				{
+					return 0;
+				}
+				else
+				{
+					if (string.IsNullOrEmpty(capitalFund.Capital_Fund) || string.Compare(capitalFund.Capital_Fund, "0 تومان") == 0)
+					{
+						return 0;
+					}
+					else
+					{
+						return _capitalFund = long.Parse
 						(capitalFund.Capital_Fund.Replace("تومان", string.Empty)
 						.Replace(",", string.Empty).Trim());
-				else
-					return 0;
+					}
+				}
 			}
 			catch (System.Exception ex)
 			{

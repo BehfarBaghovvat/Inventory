@@ -1010,14 +1010,26 @@ namespace Inventory_Forms
 				Models.CapitalFund capitalFund =
 					dataBaseContext.CapitalFunds
 					.FirstOrDefault();
+
+				capitalFund = new Models.CapitalFund();
+
 				if (capitalFund == null)
 				{
+					
 					return 0;
 				}
 				else
 				{
-					capital_Fund = long.Parse(capitalFund.Capital_Fund.Replace("تومان", string.Empty).Replace(",", string.Empty).Trim());
-					return capital_Fund;
+					if (string.IsNullOrEmpty(capitalFund.Capital_Fund) || string.Compare(capitalFund.Capital_Fund,"0 تومان") == 0)
+					{
+						return 0;
+					}
+					else
+					{
+						capital_Fund = long.Parse(capitalFund.Capital_Fund.Replace("تومان", string.Empty).Replace(",", string.Empty).Trim());
+						return capital_Fund;
+					}
+					
 				}
 			}
 			catch (System.Exception ex)
@@ -1248,8 +1260,8 @@ namespace Inventory_Forms
 					new Models.DailyFinancialReport()
 					{
 						Amounts_Received = $"{auditItem.Amount_Paid:#,0} تومان",
-						Registration_Date = $"{auditItem.Register_Date}",
-						Registration_Time = $"{auditItem.Register_Time}",
+						Register_Date = $"{auditItem.Register_Date}",
+						Register_Time = $"{auditItem.Register_Time}",
 
 						Year = int.Parse(auditItem.Register_Date.Substring(0, 4)),
 						Month = int.Parse(auditItem.Register_Date.Substring(5, 2)),

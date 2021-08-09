@@ -726,7 +726,15 @@ namespace Inventory_Forms
 			NumberPurchases = 0;
 			productNameTextBox.Clear();
 
-			recipientNameTextBox.Text = Inventory.Program.UserAuthentication.Full_Name;
+			if (Inventory.Program.UserAuthentication == null)
+			{
+				recipientNameTextBox.Text = "حالت استفاده بدون کاربر";
+			}
+			else
+			{
+				recipientNameTextBox.Text = Inventory.Program.UserAuthentication.Full_Name;
+			}
+			
 			checkProductNamePictureBox.Image = Inventory.Properties.Resources.Tik_True;
 			checkProductNamePictureBox.Visible = false;
 			productPriceTextBox.Clear();

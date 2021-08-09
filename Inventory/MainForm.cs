@@ -8,6 +8,8 @@ namespace Inventory
 
 		#region --------------------------------------------------------     Layer     --------------------------------------------------------
 
+		//------------------------------------------------------------------------- Inventory
+
 		private static Inventory_Forms.ProductBuyForm _productBuyForm;
 		public static Inventory_Forms.ProductBuyForm ProductBuyForm
 		{
@@ -80,6 +82,8 @@ namespace Inventory
 			}
 		}
 
+		//------------------------------------------------------------------------- Financial
+
 		private Financial_Form.SafeBoxForm _safeBoxForm;
 		public Financial_Form.SafeBoxForm SafeBoxForm
 		{
@@ -89,6 +93,10 @@ namespace Inventory
 				{
 					_safeBoxForm =
 						new Financial_Form.SafeBoxForm();
+
+					_safeBoxForm.TopLevel = false;
+					_safeBoxForm.TopMost = true;
+					_safeBoxForm.Dock = System.Windows.Forms.DockStyle.Fill;
 				}
 				return _safeBoxForm;
 			}
@@ -107,6 +115,11 @@ namespace Inventory
 				{
 					_ancillaryCostsForm =
 						new Financial_Form.AncillaryCostsForm();
+
+					_ancillaryCostsForm.TopLevel = false;
+					_ancillaryCostsForm.TopMost = true;
+					_ancillaryCostsForm.Dock = System.Windows.Forms.DockStyle.Fill;
+
 				}
 				return _ancillaryCostsForm;
 			}
@@ -125,6 +138,10 @@ namespace Inventory
 				{
 					_financialOrderForm = 
 						new Financial_Form.FinancialOrderForm();
+					_financialOrderForm.TopLevel = false;
+					_financialOrderForm.TopMost = true;
+					_financialOrderForm.Dock = System.Windows.Forms.DockStyle.Fill;
+
 				}
 				return _financialOrderForm;
 			}
@@ -166,6 +183,8 @@ namespace Inventory
 		{
 			InitializeComponent();
 			ResetSubmenu();
+			LoadingFund();
+
 		}
 
 		//----------Beginning of the code!----------
@@ -911,65 +930,125 @@ namespace Inventory
 		#region Founcitons
 
 		#region AccountLoaded
+		/// <summary>
+		/// بارگزاری حساب کاربری
+		/// </summary>
 		private void AccountLoaded()
 		{
-
-			var byteImage = Program.UserAuthentication.User_Image;
-
-			if (byteImage != null)
-			{
-				using (System.IO.MemoryStream ms = new System.IO.MemoryStream(byteImage))
-				{
-					userImagePictureBox.Image = System.Drawing.Image.FromStream(ms);
-				}
-			}
-			else
-			{
-				return;
-			}
-
-			if (string.Compare(Inventory.Program.UserAuthentication.Username, "admin", true) == 0)
+			if (Inventory.Program.UserAuthentication == null)
 			{
 				return;
 			}
 			else
 			{
-				switch (Program.UserAuthentication.Access_Level)
+				var byteImage = Program.UserAuthentication.User_Image;
+				if (byteImage != null)
 				{
-					case Models.User.AccessLeve.مدیریت:
-						homeButton.Enabled = true;
-						inventoryButton.Enabled = true;
-						break;
-
-					case Models.User.AccessLeve.معاونت:
-						homeButton.Enabled = true;
-						inventoryButton.Enabled = true;
-						break;
-
-					case Models.User.AccessLeve.کارمند:
-						homeButton.Enabled = true;
-						inventoryButton.Enabled = true;
-						break;
-
-					case Models.User.AccessLeve.نیروی_خدماتی:
-						homeButton.Enabled = true;
-						inventoryButton.Enabled = true;
-						break;
-
-					case Models.User.AccessLeve.کاربر_ساده:
-						homeButton.Enabled = true;
-						inventoryButton.Enabled = true;
-						break;
-
-					default:
-						break;
+					using (System.IO.MemoryStream ms = new System.IO.MemoryStream(byteImage))
+					{
+						userImagePictureBox.Image = System.Drawing.Image.FromStream(ms);
+					}
 				}
-				SaveLoginHistory(Program.UserAuthentication);
+				else
+				{
+					return;
+				}
+
+				if (string.Compare(Inventory.Program.UserAuthentication.Username, "admin", true) == 0)
+				{
+					return;
+				}
+				else
+				{
+					switch (Program.UserAuthentication.Access_Level)
+					{
+						case Models.User.AccessLeve.مدیریت:
+						homeButton.Enabled = true;
+						inventoryButton.Enabled = true;
+						break;
+
+						case Models.User.AccessLeve.معاونت:
+						homeButton.Enabled = true;
+						inventoryButton.Enabled = true;
+						break;
+
+						case Models.User.AccessLeve.کارمند:
+						homeButton.Enabled = true;
+						inventoryButton.Enabled = true;
+						break;
+
+						case Models.User.AccessLeve.نیروی_خدماتی:
+						homeButton.Enabled = true;
+						inventoryButton.Enabled = true;
+						break;
+
+						case Models.User.AccessLeve.کاربر_ساده:
+						homeButton.Enabled = true;
+						inventoryButton.Enabled = true;
+						break;
+
+						default:
+						break;
+					}
+					SaveLoginHistory(Program.UserAuthentication);
+				}
 			}
 		}
 		#endregion /AccountLoaded
 
+		#region LoadingFund
+		/// <summary>
+		/// بارگزاری موجودی صندوق
+		/// </summary>
+		/// <returns></returns>
+		private void LoadingFund()
+		{
+			long fund;
+			Models.DataBaseContext dataBaseContext = null;
+
+			try
+			{
+				dataBaseContext =
+					new Models.DataBaseContext();
+
+				Models.CapitalFund capitalFund =
+					dataBaseContext.CapitalFunds
+					.FirstOrDefault();
+
+				if (capitalFund == null)
+				{
+					fund = 0;
+				}
+				else
+				{
+					fund = long.Parse(capitalFund.Capital_Fund
+						.Replace("تومان", string.Empty)
+						.Replace(",", string.Empty)
+						.Trim());
+				}
+
+				fundsLabel.Text = $"{fund:#,0} تومان";
+			}
+			catch (System.Exception ex)
+			{
+				Infrastructure.Utility.ExceptionShow(ex);
+				
+			}
+			finally
+			{
+				if (dataBaseContext != null)
+				{
+					dataBaseContext.Dispose();
+					dataBaseContext = null;
+				}
+			}
+		}
+		#endregion /LoadingFund
+
 		#region ResetSubmenu
+		/// <summary>
+		/// بستن همه منوهای برنامه
+		/// </summary>
 		private void ResetSubmenu()
 		{
 			submenuInventoryPanel.Height = 0;
@@ -1004,6 +1083,10 @@ namespace Inventory
 		#endregion /ResetSubmenu
 
 		#region SaveLoginHistory
+		/// <summary>
+		/// ثبت زمان و تاریخ خروج کاربر
+		/// </summary>
+		/// <param name="user"></param>
 		private void SaveLoginHistory(Models.User user)
 		{
 			LogHistory.Login_Time = $"{Infrastructure.Utility.ShowTime()} - {Infrastructure.Utility.PersianCalendar(System.DateTime.Now)}";

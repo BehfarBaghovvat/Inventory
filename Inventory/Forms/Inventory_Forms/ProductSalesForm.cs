@@ -99,7 +99,15 @@ namespace Inventory_Forms
 		{
 			InitializeComponent();
 
-			sellerNameTextBox.Text = Inventory.Program.UserAuthentication.Full_Name;
+			if (Inventory.Program.UserAuthentication == null)
+			{
+				sellerNameTextBox.Text = "حالت استفاده بدون کاربر";
+			}
+			else
+			{
+				sellerNameTextBox.Text = Inventory.Program.UserAuthentication.Full_Name;
+			}
+			
 
 			LoadedProduction();
 		}

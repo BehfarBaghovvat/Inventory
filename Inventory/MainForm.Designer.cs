@@ -89,6 +89,7 @@ namespace Inventory
 			this.dropUpSettingTimer = new System.Windows.Forms.Timer(this.components);
 			this.dropDownSettingTimer = new System.Windows.Forms.Timer(this.components);
 			this.logOutMainFormTimer = new System.Windows.Forms.Timer(this.components);
+			this.fundsLabel = new Mbb.Windows.Forms.Label();
 			this.menuPanel.SuspendLayout();
 			this.submenuSettingPanel.SuspendLayout();
 			this.submenuClientPanel.SuspendLayout();
@@ -891,6 +892,7 @@ namespace Inventory
 			// 
 			// topMainPanel
 			// 
+			this.topMainPanel.Controls.Add(this.fundsLabel);
 			this.topMainPanel.Controls.Add(this.logoutButton);
 			this.topMainPanel.Controls.Add(this.shutDownButton);
 			this.topMainPanel.Dock = System.Windows.Forms.DockStyle.Top;
@@ -995,6 +997,17 @@ namespace Inventory
 			this.logOutMainFormTimer.Interval = 10;
 			this.logOutMainFormTimer.Tick += new System.EventHandler(this.LogOutMainFormTimer_Tick);
 			// 
+			// fundsLabel
+			// 
+			this.fundsLabel.ForeColor = System.Drawing.Color.Yellow;
+			this.fundsLabel.Location = new System.Drawing.Point(27, 5);
+			this.fundsLabel.Name = "fundsLabel";
+			this.fundsLabel.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+			this.fundsLabel.Size = new System.Drawing.Size(350, 30);
+			this.fundsLabel.TabIndex = 1;
+			this.fundsLabel.Text = "0 تومان";
+			this.fundsLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+			// 
 			// MainForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 17F);
@@ -1095,6 +1108,7 @@ namespace Inventory
 		private Guna.UI2.WinForms.Guna2GradientButton serviceButton;
 		private Guna.UI2.WinForms.Guna2GradientButton guna2GradientButton2;
 		private Guna.UI2.WinForms.Guna2GradientButton guna2GradientButton1;
+		private Mbb.Windows.Forms.Label fundsLabel;
 	}
 }
 
