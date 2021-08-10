@@ -4,6 +4,8 @@ namespace Inventory_Forms
 {
 	public partial class ProductBuyForm : Infrastructure.EmptyForm
 	{
+		//-----------------------------------------------------------------------------------------------     Fields, Properties, Layers
+
 		#region Properties
 
 		#region Layer
@@ -103,6 +105,10 @@ namespace Inventory_Forms
 
 		#endregion /Properties
 
+
+
+		//-----------------------------------------------------------------------------------------------     Constracture
+
 		public ProductBuyForm()
 		{
 			InitializeComponent();
@@ -110,7 +116,9 @@ namespace Inventory_Forms
 			RefrashData();
 		}
 
-		//----------Beginning of the code!----------
+
+
+		//-----------------------------------------------------------------------------------------------     Events Controls
 
 		#region InventoryEntranceForm_Load
 		private void InventoryEntranceForm_Load(object sender, System.EventArgs e)
@@ -716,7 +724,9 @@ namespace Inventory_Forms
 		}
 		#endregion /ContextMenuStrip_Opening
 
-		//----------End of code!----------
+
+
+		//-----------------------------------------------------------------------------------------------     Privat Methods
 
 		#region Function
 

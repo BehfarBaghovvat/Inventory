@@ -1108,7 +1108,7 @@ namespace Inventory
 		private Guna.UI2.WinForms.Guna2GradientButton serviceButton;
 		private Guna.UI2.WinForms.Guna2GradientButton guna2GradientButton2;
 		private Guna.UI2.WinForms.Guna2GradientButton guna2GradientButton1;
-		private Mbb.Windows.Forms.Label fundsLabel;
+		public Mbb.Windows.Forms.Label fundsLabel;
 	}
 }
 

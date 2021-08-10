@@ -2,15 +2,22 @@
 {
 	public partial class ViewProducrImageForm : Infrastructure.EmptyForm
 	{
-		public ViewProducrImageForm(System.Drawing.Image product_Image)
+		//-----------------------------------------------------------------------------------------------     Fields, Properties, Layers
+
+
+
+
+		//-----------------------------------------------------------------------------------------------     Constracture
+
+		public ViewProducrImageForm(System.Drawing.Image _product_Image)
 		{
 			InitializeComponent();
-			showGunaAnimateWindow.Interval = 200;
-			showGunaAnimateWindow.AnimationType = Guna.UI.WinForms.GunaAnimateWindow.AnimateWindowType.AW_CENTER;
-			showGunaAnimateWindow.Start();
-
-			productImagePictureBox.Image = product_Image;
+			Initialize( _product_Image);
 		}
+
+
+
+		//-----------------------------------------------------------------------------------------------     Events Controls
 
 		#region CloseButton_Click
 		private void CloseButton_Click(object sender, System.EventArgs e)
@@ -39,5 +46,23 @@
 			}
 		}
 		#endregion /CloseFormTimer_Tick
+
+
+
+		//-----------------------------------------------------------------------------------------------     Privat Methods
+
+		#region Function
+
+		#region Initialize
+		private void Initialize(System.Drawing.Image _product_Image)
+		{
+			showGunaAnimateWindow.Interval = 200;
+			showGunaAnimateWindow.AnimationType = Guna.UI.WinForms.GunaAnimateWindow.AnimateWindowType.AW_CENTER;
+			showGunaAnimateWindow.Start();
+			productImagePictureBox.Image = _product_Image;
+		}
+		#endregion /Initialize
+
+		#endregion Function
 	}
 }

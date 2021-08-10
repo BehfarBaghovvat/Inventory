@@ -4,13 +4,21 @@ namespace Inventory_Forms
 {
 	public partial class ServiceReportForm : Infrastructure.EmptyForm
 	{
+		//-----------------------------------------------------------------------------------------------     Fields, Properties, Layers
+
+
+
+		//-----------------------------------------------------------------------------------------------     Constracture
+
 		public ServiceReportForm()
 		{
 			InitializeComponent();
 			LoadingService();
 		}
 
-		//----------Beginning of the code!----------
+
+
+		//-----------------------------------------------------------------------------------------------     Events Controls
 
 		#region CloseButton_Click
 		private void CloseButton_Click(object sender, System.EventArgs e)
@@ -165,7 +173,9 @@ namespace Inventory_Forms
 		}
 		#endregion /ServiceListDataGridView_CellDoubleClick
 
-		//----------End of code!----------
+
+
+		//-----------------------------------------------------------------------------------------------     Privat Methods
 
 		#region Founction
 

@@ -1,9 +1,13 @@
-﻿using System.Linq;
+﻿using Inventory;
+using System.Linq;
 
 namespace Inventory_Forms
 {
 	public partial class BillSaleReportForm : Infrastructure.EmptyForm
 	{
+
+		//-----------------------------------------------------------------------------------------------     Fields, Properties, Layers
+
 		#region Properties
 
 		#region Layer
@@ -26,7 +30,6 @@ namespace Inventory_Forms
 			public int? Tax_Amount { get; set; }
 			public int? Tax_Percent { get; set; }
 		}
-
 		private class BillItems
 		{
 			public string Product_Name { get; set; }
@@ -34,6 +37,22 @@ namespace Inventory_Forms
 			public string Product_Unit { get; set; }
 			public string Product_Price { get; set; }
 			public string Total_Price { get; set; }
+		}
+
+		private Models.AccountsReceivable _accountsReceivable;
+		public Models.AccountsReceivable AccountsReceivable
+		{
+			get
+			{
+				if (_accountsReceivable == null)
+				{
+					_accountsReceivable =
+						new Models.AccountsReceivable();
+				}
+				return _accountsReceivable;
+			}
+			set
+			{ _accountsReceivable = value; }
 		}
 
 		private BillSalePrintForm _billSalePrintForm = null;
@@ -82,20 +101,21 @@ namespace Inventory_Forms
 			}
 		}
 
-		private Models.AccountsReceivable _accountsReceivable;
-		public Models.AccountsReceivable AccountsReceivable
+		private Inventory.MainForm _mainForm;
+		public Inventory.MainForm MainForm
 		{
-			get 
+			get
 			{
-				if (_accountsReceivable == null)
+				if (_mainForm == null || _mainForm.IsDisposed == true)
 				{
-					_accountsReceivable = 
-						new Models.AccountsReceivable();
+
 				}
-				return _accountsReceivable;
+				return _mainForm;
 			}
-			set 
-			{ _accountsReceivable = value; }
+			set
+			{
+				_mainForm = value;
+			}
 		}
 
 		private ProcutSalesForm _myProcutSalesForm;
@@ -122,29 +142,19 @@ namespace Inventory_Forms
 
 		#endregion /Properties
 
+
+
+		//-----------------------------------------------------------------------------------------------     Constracture
+
 		public BillSaleReportForm()
 		{
 			InitializeComponent();
-
-			auditItem.Capital_Fund = LoadingCapitalFund();
-
-			auditItem.InvoiceSerialNumber = SetInvoiceSerialNumber();
-			invoiceSerialNumberTextBox.Text = auditItem.InvoiceSerialNumber;
-
-			showFormAnimateWindow.Interval = 200;
-			showFormAnimateWindow.AnimationType = Guna.UI.WinForms.GunaAnimateWindow.AnimateWindowType.AW_CENTER;
-			showFormAnimateWindow.Start();
-
-			auditItem.Tax_Amount = 0;
-			auditItem.Amount_Payable = 0;
-			auditItem.Amount_Paid = 0;
-			auditItem.Register_Date = Infrastructure.Utility.PersianCalendar(System.DateTime.Now);
-			auditItem.Register_Time = Infrastructure.Utility.ShowTime();
-
-			dateSetInvoiceTextBox.Text = $"{auditItem.Register_Date} - {auditItem.Register_Time}";
+			Initialize();
 		}
 
-		//----------Beginning of the code!----------
+
+
+		//-----------------------------------------------------------------------------------------------     Events Controls
 
 		#region CloseButton_Click
 		private void CloseButton_Click(object sender, System.EventArgs e)
@@ -752,7 +762,9 @@ namespace Inventory_Forms
 		}
 		#endregion /CloseFormTimer_Tick
 
-		//----------End of code!----------
+
+
+		//-----------------------------------------------------------------------------------------------     Privat Methods
 
 		#region Function
 
@@ -826,44 +838,26 @@ namespace Inventory_Forms
 		}
 		#endregion /CalculatePurchaseAmount
 
-		#region SetDailyOffice
+		#region Initialize
 		/// <summary>
-		/// ثبت تمام هزینه ها در دفتر روزنامه
+		/// مقدار دهی اولیه
 		/// </summary>
-		/// <param name="auditItem"></param>
-		private bool SetDailyOffice(AuditItem auditItem)
+		private void Initialize()
 		{
-			Models.DataBaseContext dataBaseContext = null;
-
-			try
-			{
-				dataBaseContext =
-					new Models.DataBaseContext();
-
-				Models.GeneralJournal dailyOffice =
-				new Models.GeneralJournal
-				{
-					Agent = auditItem.Client_Name,
-					Amount_Received = $"{auditItem.Amount_Paid: #,0} تومان",
-					Amount_Paid = "0 تومان",
-					Description = $"فروش لوازم یدکی",
-					Invoice_Serial_Numvber = auditItem.InvoiceSerialNumber,
-					Registration_Date = auditItem.Register_Date,
-					Registration_Time = auditItem.Register_Time,
-				};
-
-				dataBaseContext.GeneralJournals.Add(dailyOffice);
-				dataBaseContext.SaveChanges();
-
-				return true;
-			}
-			catch (System.Exception ex)
-			{
-				Infrastructure.Utility.ExceptionShow(ex);
-				return false;
-			}
+			auditItem.Capital_Fund = LoadingCapitalFund();
+			auditItem.InvoiceSerialNumber = SetInvoiceSerialNumber();
+			invoiceSerialNumberTextBox.Text = auditItem.InvoiceSerialNumber;
+			showFormAnimateWindow.Interval = 200;
+			showFormAnimateWindow.AnimationType = Guna.UI.WinForms.GunaAnimateWindow.AnimateWindowType.AW_CENTER;
+			showFormAnimateWindow.Start();
+			auditItem.Tax_Amount = 0;
+			auditItem.Amount_Payable = 0;
+			auditItem.Amount_Paid = 0;
+			auditItem.Register_Date = Infrastructure.Utility.PersianCalendar(System.DateTime.Now);
+			auditItem.Register_Time = Infrastructure.Utility.ShowTime();
+			dateSetInvoiceTextBox.Text = $"{auditItem.Register_Date} - {auditItem.Register_Time}";
 		}
-		#endregion /SetDailyOffice
+		#endregion /Initialize
 
 		#region Deposit
 		/// <summary>
@@ -899,6 +893,9 @@ namespace Inventory_Forms
 					Infrastructure.Utility.EventLog(EventLog);
 				}
 				#endregion /-----------------------------------------     Save Event Log     -----------------------------------------
+
+
+
 
 				return true;
 			}
@@ -987,6 +984,10 @@ namespace Inventory_Forms
 		#endregion ResetAllControl
 
 		#region LoadingCapitalFund
+		/// <summary>
+		/// به روز رسانی صندوق
+		/// </summary>
+		/// <returns></returns>
 		private long LoadingCapitalFund()
 		{
 			long capital_Fund;
@@ -999,19 +1000,21 @@ namespace Inventory_Forms
 				Models.CapitalFund capitalFund =
 					dataBaseContext.CapitalFunds
 					.FirstOrDefault();
-				if (capitalFund == null)
-				{
-					return 0;
-				}
-				else
-				{
-					capital_Fund = long.Parse(capitalFund.Capital_Fund.Replace("تومان", string.Empty).Replace(",", string.Empty).Trim());
-					return capital_Fund;
-				}
+
+				capital_Fund = long.Parse(capitalFund.Capital_Fund
+					.Replace("تومان", string.Empty)
+					.Replace(",", string.Empty)
+					.Trim());
+
+				MainForm.fundsLabel.Text = $"{capital_Fund:#,0} تومان";
+
+				return capital_Fund;
+
 			}
 			catch (System.Exception ex)
 			{
 				Infrastructure.Utility.ExceptionShow(ex);
+
 				return 0;
 			}
 			finally
@@ -1071,6 +1074,45 @@ namespace Inventory_Forms
 			}
 		}
 		#endregion SetDailyFinancialReport
+
+		#region SetDailyOffice
+		/// <summary>
+		/// ثبت تمام هزینه ها در دفتر روزنامه
+		/// </summary>
+		/// <param name="auditItem"></param>
+		private bool SetDailyOffice(AuditItem auditItem)
+		{
+			Models.DataBaseContext dataBaseContext = null;
+
+			try
+			{
+				dataBaseContext =
+					new Models.DataBaseContext();
+
+				Models.GeneralJournal dailyOffice =
+				new Models.GeneralJournal
+				{
+					Agent = auditItem.Client_Name,
+					Amount_Received = $"{auditItem.Amount_Paid: #,0} تومان",
+					Amount_Paid = "0 تومان",
+					Description = $"فروش لوازم یدکی",
+					Invoice_Serial_Numvber = auditItem.InvoiceSerialNumber,
+					Registration_Date = auditItem.Register_Date,
+					Registration_Time = auditItem.Register_Time,
+				};
+
+				dataBaseContext.GeneralJournals.Add(dailyOffice);
+				dataBaseContext.SaveChanges();
+
+				return true;
+			}
+			catch (System.Exception ex)
+			{
+				Infrastructure.Utility.ExceptionShow(ex);
+				return false;
+			}
+		}
+		#endregion /SetDailyOffice
 
 		#region SetItemsBillSale
 		public void SetItemsBillSale(System.Collections.Generic.List<ProcutSalesForm.BillSaleReportItems> billSaleReportItems, ProcutSalesForm.TransactionFactorsItems transactionFactorsItems)

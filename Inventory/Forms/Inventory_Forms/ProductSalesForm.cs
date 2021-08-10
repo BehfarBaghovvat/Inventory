@@ -4,6 +4,8 @@ namespace Inventory_Forms
 {
 	public partial class ProcutSalesForm : Infrastructure.EmptyForm
 	{
+		//-----------------------------------------------------------------------------------------------     Fields, Properties, Layers
+
 		#region Properties
 
 		#region Layer
@@ -95,24 +97,20 @@ namespace Inventory_Forms
 		public int? NewQuantity { get; set; }
 		#endregion/Properties
 
+
+
+		//-----------------------------------------------------------------------------------------------     Constracture
+
 		public ProcutSalesForm()
 		{
 			InitializeComponent();
 
-			if (Inventory.Program.UserAuthentication == null)
-			{
-				sellerNameTextBox.Text = "حالت استفاده بدون کاربر";
-			}
-			else
-			{
-				sellerNameTextBox.Text = Inventory.Program.UserAuthentication.Full_Name;
-			}
 			
-
-			LoadedProduction();
 		}
 
-		//----------Beginning of the code!----------
+
+
+		//-----------------------------------------------------------------------------------------------     Events Controls
 
 		#region ProductQuantityTextBox_Enter
 		private void ProductQuantityTextBox_Enter(object sender, System.EventArgs e)
@@ -408,11 +406,17 @@ namespace Inventory_Forms
 		}
 		#endregion /InventoryHoldingDataGridView_CellDoubleClick
 
-		//----------End of code!----------
+
+
+		//-----------------------------------------------------------------------------------------------     Privat Methods
 
 		#region Founction
 
 		#region AddOrder
+		/// <summary>
+		/// افزودن سفارش
+		/// </summary>
+		/// <param name="inputInventoryOutput"></param>
 		private void AddOrder(Models.InventoryOutput inputInventoryOutput)
 		{
 			Models.DataBaseContext dataBaseContext = null;
@@ -479,6 +483,11 @@ namespace Inventory_Forms
 		#endregion AddOrder
 
 		#region CheckInventory
+		/// <summary>
+		/// بررسی موجودی یک کالا در انبار
+		/// </summary>
+		/// <param name="productQuantity"></param>
+		/// <returns></returns>
 		private bool CheckInventory(int? productQuantity)
 		{
 			Models.DataBaseContext dataBaseContext = null;
@@ -520,6 +529,9 @@ namespace Inventory_Forms
 		#endregion
 
 		#region LoadedProduction
+		/// <summary>
+		/// بارگزاری محصولات
+		/// </summary>
 		private void LoadedProduction()
 		{
 			Models.DataBaseContext dataBaseContext = null;
@@ -546,7 +558,31 @@ namespace Inventory_Forms
 
 		#endregion /LoadedProduction
 
+		#region Initialize
+		/// <summary>
+		/// مقداردهی اولیه
+		/// </summary>
+		private void Initialize()
+		{
+			if (Inventory.Program.UserAuthentication == null)
+			{
+				sellerNameTextBox.Text = "حالت استفاده بدون کاربر";
+			}
+			else
+			{
+				sellerNameTextBox.Text = Inventory.Program.UserAuthentication.Full_Name;
+			}
+
+			LoadedProduction();
+		}
+		#endregion /Initialize
+
 		#region InputValidation
+		/// <summary>
+		/// اعتبارسنجی ورودی
+		/// </summary>
+		/// <param name="inventoryOutput"></param>
+		/// <returns></returns>
 		private bool InputValidation(Models.InventoryOutput inventoryOutput)
 		{
 			string errorMessage = null;
@@ -617,6 +653,11 @@ namespace Inventory_Forms
 		#endregion /InputValidtion
 
 		#region ProductReceived
+		/// <summary>
+		/// دریافت کالا
+		/// </summary>
+		/// <param name="newQuantity"></param>
+		/// <param name="productName"></param>
 		private void ProductReceived(int? newQuantity, string productName)
 		{
 			Models.DataBaseContext dataBaseContext = null;
@@ -690,6 +731,10 @@ namespace Inventory_Forms
 		#endregion PrintInvoiceWare
 
 		#region ProductSearch
+		/// <summary>
+		/// جستجوی کالا
+		/// </summary>
+		/// <param name="productName"></param>
 		private void ProductSearch(string productName)
 		{
 			Models.DataBaseContext dataBaseContext = null;
@@ -736,6 +781,9 @@ namespace Inventory_Forms
 		#endregion /ProductSearch
 
 		#region ResetOrder
+		/// <summary>
+		/// برگشت به حالت اولیه سفارش
+		/// </summary>
 		private void ResetOrder()
 		{
 			InventoryOutput = null;
@@ -751,6 +799,11 @@ namespace Inventory_Forms
 		#endregion /ResetOrder
 
 		#region WarehouseOutput
+		/// <summary>
+		/// ثبت مقدار خروجی انبار
+		/// </summary>
+		/// <param name="newQuantity"></param>
+		/// <param name="productName"></param>
 		private void WarehouseOutput(int? newQuantity, string productName)
 		{
 			Models.DataBaseContext dataBaseContext = null;

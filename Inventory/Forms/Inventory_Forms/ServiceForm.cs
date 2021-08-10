@@ -4,6 +4,8 @@ namespace Inventory_Forms
 {
 	public partial class ServiceForm : Infrastructure.EmptyForm
 	{
+		//-----------------------------------------------------------------------------------------------     Fields, Properties, Layers
+
 		#region Properties
 
 		#region Layer
@@ -107,27 +109,19 @@ namespace Inventory_Forms
 
 		#endregion /Properties
 
+
+
+		//-----------------------------------------------------------------------------------------------     Constracture
+
 		public ServiceForm()
 		{
 			InitializeComponent();
-
-			_audit.Capital_Fund = LoadingCapitalFund();
-
-			inventorySerialNumberTextBox.Text = Service.Invoice_Serial_Numvber = _audit.Invoice_Serial_Number = SetInvoiceSerialNumber();
-
-			_audit.Register_Date = Service.Registration_Date = 
-				Infrastructure.Utility.PersianCalendar(System.DateTime.Now);
-
-		 _audit.Register_Time =	Service.Registration_Time = 
-				Infrastructure.Utility.ShowTime();
-
-			registerDateTextBox.Text = 
-				$"{Infrastructure.Utility.PersianCalendar(System.DateTime.Now)} - { Infrastructure.Utility.ShowTime()}";
-
-			LoadService();
+			Initialize();
 		}
 
-		//----------Beginning of the code!----------
+
+
+		//-----------------------------------------------------------------------------------------------     Events Controls
 
 		#region ClientNameTextBox_Enter
 		private void ClientNameTextBox_Enter(object sender, System.EventArgs e)
@@ -725,7 +719,9 @@ namespace Inventory_Forms
 		}
 		#endregion /EditServiceToolStripMenuItem_Click
 
-		//----------End of code!----------
+
+
+		//-----------------------------------------------------------------------------------------------     Privat Methods
 
 		#region Function
 
@@ -932,6 +928,24 @@ namespace Inventory_Forms
 			}
 		}
 		#endregion
+
+		#region Initialize
+		/// <summary>
+		/// مقداردهی اولیه
+		/// </summary>
+		private void Initialize()
+		{
+			_audit.Capital_Fund = LoadingCapitalFund();
+			inventorySerialNumberTextBox.Text = Service.Invoice_Serial_Numvber = _audit.Invoice_Serial_Number = SetInvoiceSerialNumber();
+			_audit.Register_Date = Service.Registration_Date =
+				Infrastructure.Utility.PersianCalendar(System.DateTime.Now);
+			_audit.Register_Time = Service.Registration_Time =
+				   Infrastructure.Utility.ShowTime();
+			registerDateTextBox.Text =
+				$"{Infrastructure.Utility.PersianCalendar(System.DateTime.Now)} - { Infrastructure.Utility.ShowTime()}";
+			LoadService();
+		}
+		#endregion /Initialize
 
 		#region InputValidation
 		/// <summary>

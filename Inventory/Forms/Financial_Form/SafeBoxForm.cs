@@ -8,6 +8,9 @@ namespace Financial_Form
 		//-----------------------------------------------------------------------------------------------     Fields, Properties, Layers
 
 		#region Properties
+
+		#region Layers
+
 		private Models.CapitalFund _capitalFund;
 		public Models.CapitalFund CapitalFund
 		{
@@ -44,6 +47,9 @@ namespace Financial_Form
 			}
 		}
 
+		#endregion /Layers
+
+
 
 		public long? Amount { get; set; }
 		public long? OldCash { get; set; }
@@ -56,10 +62,10 @@ namespace Financial_Form
 		public SafeBoxForm()
 		{
 			InitializeComponent();
-
-			OldCash = LoadingFund();
-			funeLabel.Text = $"{OldCash:#,0} تومان";
+			Initialize();
 		}
+
+
 
 		//-----------------------------------------------------------------------------------------------     Events Controls
 
@@ -185,6 +191,17 @@ namespace Financial_Form
 		}
 		#endregion /AllClear
 
+		#region Initialize
+		/// <summary>
+		/// مقدار دهی اولیه
+		/// </summary>
+		private void Initialize()
+		{
+			OldCash = LoadingFund();
+			funeLabel.Text = $"{OldCash:#,0} تومان";
+		}
+		#endregion /Initialize
+
 		#region LoadingFund
 		/// <summary>
 		/// بارگزاری موجودی صندوق
@@ -301,7 +318,5 @@ namespace Financial_Form
 		#endregion /SetInCapitalFund
 
 		#endregion /Function
-
-
 	}
 }

@@ -4,6 +4,12 @@ namespace Inventory_Forms
 {
 	public partial class InventoryForm : Infrastructure.EmptyForm
 	{
+		//-----------------------------------------------------------------------------------------------     Fields, Properties, Layers
+
+
+
+		//-----------------------------------------------------------------------------------------------     Constracture
+
 		public InventoryForm()
 		{
 			InitializeComponent();
@@ -11,7 +17,9 @@ namespace Inventory_Forms
 			LoadedProduction();
 		}
 
-		//----------Beginning of the code!----------
+
+
+		//-----------------------------------------------------------------------------------------------     Events Controls
 
 		#region ProductNameSearchTextBox_Enter
 		private void ProductNameSearchTextBox_Enter(object sender, System.EventArgs e)
@@ -41,7 +49,9 @@ namespace Inventory_Forms
 		}
 		#endregion /ProductNameSearchTextBox_TextChange
 
-		//----------End of code!----------
+
+
+		//-----------------------------------------------------------------------------------------------     Privat Methods
 
 		#region Function
 

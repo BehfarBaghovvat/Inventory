@@ -457,7 +457,7 @@ namespace Inventory_Forms
 			// 
 			// invoiceTitleLabel
 			// 
-			this.invoiceTitleLabel.Font = new System.Drawing.Font("IRANSans", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+			this.invoiceTitleLabel.Font = new System.Drawing.Font("IRANSansX", 30F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
 			this.invoiceTitleLabel.ForeColor = System.Drawing.Color.White;
 			this.invoiceTitleLabel.Location = new System.Drawing.Point(356, 28);
 			this.invoiceTitleLabel.Name = "invoiceTitleLabel";

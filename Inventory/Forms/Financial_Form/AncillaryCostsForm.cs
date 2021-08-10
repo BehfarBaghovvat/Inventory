@@ -1,4 +1,5 @@
 ﻿using Guna.UI.WinForms;
+using Inventory;
 using Models;
 using System.Linq;
 
@@ -6,11 +7,12 @@ namespace Financial_Form
 {
 	public partial class AncillaryCostsForm : Infrastructure.EmptyForm
 	{
-		//--------------------------------------------------------------------------------------------------    Properties
-		#region Properties
-		public int? AmountPayment { get; set; }
+		//-----------------------------------------------------------------------------------------------     Fields, Properties, Layers
 
-		private Models.AncillaryCosts _ancillaryCosts = null;
+		#region Properties
+		#region Layers
+
+		private Models.AncillaryCosts _ancillaryCosts;
 		public Models.AncillaryCosts AncillaryCosts
 		{
 			get
@@ -27,37 +29,62 @@ namespace Financial_Form
 				_ancillaryCosts = value;
 			}
 		}
-		public Models.CapitalFund CapitalFund { get; set; }
-		public long CapitalFundLong { get; set; }
 
-		private Models.EventLog _eventLog;
-		public Models.EventLog EventLog
+		private Models.CapitalFund _capitalFund;
+		public Models.CapitalFund CapitalFund
 		{
 			get
 			{
-				if (_eventLog == null)
+				if (_capitalFund == null)
 				{
-					_eventLog =
-						new EventLog();
+					_capitalFund =
+						new Models.CapitalFund();
 				}
-				return _eventLog;
+				return _capitalFund;
 			}
 			set
 			{
-				_eventLog = value;
+				_capitalFund = value;
 			}
 		}
 
+		private Inventory.MainForm _mainForm;
+		public Inventory.MainForm MainForm
+		{
+			get
+			{
+				if (_mainForm == null || _mainForm.IsDisposed == true)
+				{
+					_mainForm =
+						new Inventory.MainForm();
+				}
+				return _mainForm;
+			}
+			set
+			{
+				_mainForm = value;
+			}
+		}
+
+		#endregion /Layers
+
+		public int? AmountPayment { get; set; }
+		public long Capital_Fund { get; set; }
 		#endregion /Properties
 
-		//--------------------------------------------------------------------------------------------------    Constracture
+
+
+		//-----------------------------------------------------------------------------------------------     Constracture
+
 		public AncillaryCostsForm()
 		{
 			InitializeComponent();
-			CapitalFundLong = LoadFund();
+			Capital_Fund = LoadingCapitalFund();
 		}
 
-		//--------------------------------------------------------------------------------------------------    Envent Controls
+
+
+		//-----------------------------------------------------------------------------------------------     Events Controls
 
 		#region AncillaryCostsForm_Load
 		private void AncillaryCostsForm_Load(object sender, System.EventArgs e)
@@ -158,14 +185,14 @@ namespace Financial_Form
 		}
 		#endregion /ListExpensesComboBox_SelectedIndexChanged
 
+		#region PaymentButton_Click
 		private void PaymentButton_Click(object sender, System.EventArgs e)
 		{
 			if (ValidationData(AncillaryCosts))
 			{
-				if (SetDataInDatabase(AncillaryCosts))
+				if (SetToAncillaryCosts(AncillaryCosts))
 				{
-					PaymentCost(AmountPayment, CapitalFundLong);
-					SetEventLog(AncillaryCosts);
+					PaymentCost(AmountPayment, Capital_Fund);
 
 					Infrastructure.Utility.WindowsNotification
 						($"{Inventory.Properties.Resources.Complete_Operation}",
@@ -180,11 +207,14 @@ namespace Financial_Form
 				return;
 			}
 		}
+		#endregion /PaymentButton_Click
+
 
 
 		//--------------------------------------------------------------------------------------------------    Private Methods
 
 		#region SetEventLog
+
 		private void SetEventLog(Models.AncillaryCosts _ancillaryCosts)
 		{
 			DataBaseContext dataBaseContext = null;
@@ -226,6 +256,11 @@ namespace Financial_Form
 		#endregion /SetEventLog
 
 		#region PaymentCost
+		/// <summary>
+		/// پرداخت هزینه ها از صندوق
+		/// </summary>
+		/// <param name="_amountPayment"></param>
+		/// <param name="_capitalFund"></param>
 		private void PaymentCost(int? _amountPayment, long? _capitalFund)
 		{
 			_capitalFund -= _amountPayment;
@@ -262,12 +297,15 @@ namespace Financial_Form
 		}
 		#endregion /PaymentCost
 
-		#region LoadFund
-		private long LoadFund()
+		#region LoadingCapitalFund
+		/// <summary>
+		/// به روز رسانی صندوق
+		/// </summary>
+		/// <returns></returns>
+		private long LoadingCapitalFund()
 		{
-			long _capitalFund;
+			long capital_Fund;
 			Models.DataBaseContext dataBaseContext = null;
-
 			try
 			{
 				dataBaseContext =
@@ -277,28 +315,16 @@ namespace Financial_Form
 					dataBaseContext.CapitalFunds
 					.FirstOrDefault();
 
-				capitalFund = new Models.CapitalFund();
-				if (capitalFund == null)
-				{
-					return 0;
-				}
-				else
-				{
-					if (string.IsNullOrEmpty(capitalFund.Capital_Fund) || string.Compare(capitalFund.Capital_Fund, "0 تومان") == 0)
-					{
-						return 0;
-					}
-					else
-					{
-						return _capitalFund = long.Parse
-						(capitalFund.Capital_Fund.Replace("تومان", string.Empty)
-						.Replace(",", string.Empty).Trim());
-					}
-				}
+				capital_Fund = long.Parse(capitalFund.Capital_Fund.Replace("تومان", string.Empty).Replace(",", string.Empty).Trim());
+				MainForm.fundsLabel.Text = $"{capital_Fund:#,0} تومان";
+
+				return capital_Fund;
+
 			}
 			catch (System.Exception ex)
 			{
-				Mbb.Windows.Forms.Utility.ExceptionShow(ex);
+				Infrastructure.Utility.ExceptionShow(ex);
+
 				return 0;
 			}
 			finally
@@ -310,12 +336,16 @@ namespace Financial_Form
 				}
 			}
 		}
-		#endregion /LoadFund
+		#endregion /LoadingCapitalFund
 
-		#region SetDataInDatabase
-		private bool SetDataInDatabase(Models.AncillaryCosts _ancillaryCosts)
+		#region SetToAncillaryCosts
+		/// <summary>
+		/// ثبت هزینه جانبی در دیتابیس
+		/// </summary>
+		/// <param name="_ancillaryCosts"></param>
+		/// <returns></returns>
+		private bool SetToAncillaryCosts(Models.AncillaryCosts _ancillaryCosts)
 		{
-
 			Models.DataBaseContext dataBaseContext = null;
 			try
 			{
@@ -354,9 +384,14 @@ namespace Financial_Form
 				}
 			}
 		}
-		#endregion /SetDataInDatabase
+		#endregion /SetToAncillaryCosts
 
 		#region ValidationData
+		/// <summary>
+		/// اعتبار سنجی داده های وارد شده توسط کاربر
+		/// </summary>
+		/// <param name="_ancillaryCosts"></param>
+		/// <returns></returns>
 		private bool ValidationData(Models.AncillaryCosts _ancillaryCosts)
 		{
 			string _errorMessage = null;

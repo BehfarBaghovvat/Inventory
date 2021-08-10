@@ -2,12 +2,21 @@
 {
 	public partial class BillServicePrintForm : Infrastructure.EmptyForm
 	{
+		//-----------------------------------------------------------------------------------------------     Fields, Properties, Layers
+
+
+
+
+
+
+		//-----------------------------------------------------------------------------------------------     Constracture
+
 		public BillServicePrintForm()
 		{
 			InitializeComponent();
 		}
 
-		//----------Beginning of the code!----------
+		//-----------------------------------------------------------------------------------------------     Events Controls
 
 		#region CloseButton_Click
 		private void CloseButton_Click(object sender, System.EventArgs e)
@@ -40,6 +49,9 @@
 		}
 		#endregion /MinimizeButton_Click
 
-		//----------End of code!----------
+
+
+		//-----------------------------------------------------------------------------------------------     Privat Methods
+
 	}
 }

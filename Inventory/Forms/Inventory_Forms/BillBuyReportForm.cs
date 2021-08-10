@@ -4,6 +4,7 @@ namespace Inventory_Forms
 {
 	public partial class BillBuyReportForm : Infrastructure.EmptyForm
 	{
+		//-----------------------------------------------------------------------------------------------     Fields, Properties, Layers
 		#region Properties
 
 		#region Layer
@@ -57,13 +58,35 @@ namespace Inventory_Forms
 				return _eventLog;
 			}
 		}
+
+		private Inventory.MainForm _mainForm;
+		public Inventory.MainForm MainForm
+		{
+			get
+			{
+				if (_mainForm == null || _mainForm.IsDisposed == true)
+				{
+					_mainForm =
+						new Inventory.MainForm();
+				}
+				return _mainForm;
+			}
+			set
+			{
+				_mainForm = value;
+			}
+		}
+
+
 		#endregion /Layer
 
 		public static AuditItem auditItem = new AuditItem();
-
 		public ProductBuyForm MyProductBuyForm { get; set; }
-		
 		#endregion /Properties
+
+
+
+		//-----------------------------------------------------------------------------------------------     Constracture
 
 		public BillBuyReportForm()
 		{
@@ -71,7 +94,9 @@ namespace Inventory_Forms
 			Initialize();
 		}
 
-		//----------Beginning of the code!----------
+
+
+		//-----------------------------------------------------------------------------------------------     Events Controls
 
 		#region CloseButton_Click
 		private void CloseButton_Click(object sender, System.EventArgs e)
@@ -152,13 +177,10 @@ namespace Inventory_Forms
 			if (Harvest(auditItem) && SetAccountPayable(auditItem) && InvoiceRegister(auditItem))
 			{
 				SetDailyFinancialReport(auditItem);
-				Infrastructure.Utility.WindowsNotification(message: "عملیات ثبت و پرداخت انجام گردید.", caption: Infrastructure.PopupNotificationForm.Caption.موفقیت);
-
-				auditItem.Capital_Fund = LoadingCapitalFund();
-				
 				MyProductBuyForm.RemoveBill();
 				paymentButton.Enabled = false;
-				
+
+				Infrastructure.Utility.WindowsNotification(message: "عملیات ثبت و پرداخت انجام گردید.", caption: Infrastructure.PopupNotificationForm.Caption.موفقیت);
 			}
 			else
 			{
@@ -243,7 +265,11 @@ namespace Inventory_Forms
 			else
 			{
 				paymentButton.Enabled = true;
-				auditItem.Amount_Paid = int.Parse(amountPaidTextBox.Text.Replace("تومان", string.Empty).Replace(",", string.Empty).Trim());
+				auditItem.Amount_Paid = int.Parse(amountPaidTextBox.Text
+					.Replace("تومان", string.Empty)
+					.Replace(",", string.Empty)
+					.Trim());
+
 				auditItem.Remaining_Amount = auditItem.Total_Sum_Price - auditItem.Amount_Paid;
 				remainingAmountTextBox.Text = $"{auditItem.Remaining_Amount:#,0} تومان";
 			}
@@ -262,7 +288,9 @@ namespace Inventory_Forms
 		}
 		#endregion /CloseFormTimer_Tick
 
-		//----------End of code!----------
+
+
+		//-----------------------------------------------------------------------------------------------     Privat Methods
 
 		#region Function
 
@@ -290,7 +318,11 @@ namespace Inventory_Forms
 				foreach (System.Windows.Forms.DataGridViewRow row in productListDataGridView.Rows)
 				{
 					auditItem.Total_Sum_Price +=
-						int.Parse(row.Cells[4].Value.ToString().Replace("تومان", string.Empty).Replace(",", string.Empty).Trim());
+						int.Parse(row.Cells[4].Value.ToString()
+						.Replace("تومان", string.Empty)
+						.Replace(",", string.Empty)
+						.Trim());
+
 					totalSumPriceTextBox.Text = $"{auditItem.Total_Sum_Price:#,0} تومان";
 				}
 			}
@@ -479,19 +511,17 @@ namespace Inventory_Forms
 				Models.CapitalFund capitalFund =
 					dataBaseContext.CapitalFunds
 					.FirstOrDefault();
-				if (capitalFund == null)
-				{
-					return 0;
-				}
-				else
-				{
-					capital_Fund = long.Parse(capitalFund.Capital_Fund.Replace("تومان", string.Empty).Replace(",", string.Empty).Trim());
-					return capital_Fund;
-				}
+				
+				capital_Fund = long.Parse(capitalFund.Capital_Fund.Replace("تومان", string.Empty).Replace(",", string.Empty).Trim());
+				MainForm.fundsLabel.Text = $"{capital_Fund:#,0} تومان";
+
+				return capital_Fund;
+				
 			}
 			catch (System.Exception ex)
 			{
 				Infrastructure.Utility.ExceptionShow(ex);
+
 				return 0;
 			}
 			finally

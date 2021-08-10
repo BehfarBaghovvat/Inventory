@@ -2,6 +2,8 @@
 {
 	public partial class BillBuyPrintForm : Infrastructure.EmptyForm
 	{
+		//-----------------------------------------------------------------------------------------------     Fields, Properties, Layers
+
 		#region Properties
 
 		#region Layer
@@ -9,10 +11,18 @@
 
 		#endregion /Properties
 
+
+
+		//-----------------------------------------------------------------------------------------------     Constracture
+
 		public BillBuyPrintForm()
 		{
 			InitializeComponent();
 		}
+
+
+
+		//-----------------------------------------------------------------------------------------------     Events Controls
 
 		#region CloseButton_Click
 		private void CloseButton_Click(object sender, System.EventArgs e)
