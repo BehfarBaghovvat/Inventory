@@ -77,6 +77,7 @@ namespace Inventory
 			this.hoursLabel = new Mbb.Windows.Forms.Label();
 			this.solarCalenderLabel = new Mbb.Windows.Forms.Label();
 			this.topMainPanel = new Guna.UI2.WinForms.Guna2Panel();
+			this.fundsNotificationTextBox = new Mbb.Windows.Forms.Label();
 			this.logoutButton = new Guna.UI2.WinForms.Guna2CircleButton();
 			this.shutDownButton = new Guna.UI2.WinForms.Guna2CircleButton();
 			this.fadeInMainFormTimer = new System.Windows.Forms.Timer(this.components);
@@ -89,7 +90,7 @@ namespace Inventory
 			this.dropUpSettingTimer = new System.Windows.Forms.Timer(this.components);
 			this.dropDownSettingTimer = new System.Windows.Forms.Timer(this.components);
 			this.logOutMainFormTimer = new System.Windows.Forms.Timer(this.components);
-			this.fundsLabel = new Mbb.Windows.Forms.Label();
+			this.fundLabel = new Mbb.Windows.Forms.Label();
 			this.menuPanel.SuspendLayout();
 			this.submenuSettingPanel.SuspendLayout();
 			this.submenuClientPanel.SuspendLayout();
@@ -892,7 +893,8 @@ namespace Inventory
 			// 
 			// topMainPanel
 			// 
-			this.topMainPanel.Controls.Add(this.fundsLabel);
+			this.topMainPanel.Controls.Add(this.fundLabel);
+			this.topMainPanel.Controls.Add(this.fundsNotificationTextBox);
 			this.topMainPanel.Controls.Add(this.logoutButton);
 			this.topMainPanel.Controls.Add(this.shutDownButton);
 			this.topMainPanel.Dock = System.Windows.Forms.DockStyle.Top;
@@ -901,6 +903,18 @@ namespace Inventory
 			this.topMainPanel.ShadowDecoration.Parent = this.topMainPanel;
 			this.topMainPanel.Size = new System.Drawing.Size(1150, 40);
 			this.topMainPanel.TabIndex = 3;
+			// 
+			// fundsNotificationTextBox
+			// 
+			this.fundsNotificationTextBox.Font = new System.Drawing.Font("IRANSans", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+			this.fundsNotificationTextBox.ForeColor = System.Drawing.Color.Yellow;
+			this.fundsNotificationTextBox.Location = new System.Drawing.Point(137, 5);
+			this.fundsNotificationTextBox.Name = "fundsNotificationTextBox";
+			this.fundsNotificationTextBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+			this.fundsNotificationTextBox.Size = new System.Drawing.Size(250, 30);
+			this.fundsNotificationTextBox.TabIndex = 1;
+			this.fundsNotificationTextBox.Text = "0 تومان";
+			this.fundsNotificationTextBox.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
 			// 
 			// logoutButton
 			// 
@@ -997,16 +1011,17 @@ namespace Inventory
 			this.logOutMainFormTimer.Interval = 10;
 			this.logOutMainFormTimer.Tick += new System.EventHandler(this.LogOutMainFormTimer_Tick);
 			// 
-			// fundsLabel
+			// fundLabel
 			// 
-			this.fundsLabel.ForeColor = System.Drawing.Color.Yellow;
-			this.fundsLabel.Location = new System.Drawing.Point(27, 5);
-			this.fundsLabel.Name = "fundsLabel";
-			this.fundsLabel.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-			this.fundsLabel.Size = new System.Drawing.Size(350, 30);
-			this.fundsLabel.TabIndex = 1;
-			this.fundsLabel.Text = "0 تومان";
-			this.fundsLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+			this.fundLabel.AutoSize = true;
+			this.fundLabel.ForeColor = System.Drawing.Color.White;
+			this.fundLabel.Location = new System.Drawing.Point(48, 12);
+			this.fundLabel.Name = "fundLabel";
+			this.fundLabel.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+			this.fundLabel.Size = new System.Drawing.Size(83, 17);
+			this.fundLabel.TabIndex = 2;
+			this.fundLabel.Text = ":موجودی صندوق";
+			this.fundLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
 			// 
 			// MainForm
 			// 
@@ -1044,6 +1059,7 @@ namespace Inventory
 			this.timePanel.ResumeLayout(false);
 			this.timePanel.PerformLayout();
 			this.topMainPanel.ResumeLayout(false);
+			this.topMainPanel.PerformLayout();
 			this.ResumeLayout(false);
 
 		}
@@ -1108,7 +1124,8 @@ namespace Inventory
 		private Guna.UI2.WinForms.Guna2GradientButton serviceButton;
 		private Guna.UI2.WinForms.Guna2GradientButton guna2GradientButton2;
 		private Guna.UI2.WinForms.Guna2GradientButton guna2GradientButton1;
-		public Mbb.Windows.Forms.Label fundsLabel;
+		public Mbb.Windows.Forms.Label fundsNotificationTextBox;
+		public Mbb.Windows.Forms.Label fundLabel;
 	}
 }
 

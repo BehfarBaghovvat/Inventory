@@ -10,14 +10,20 @@
 
 		}
 
+		/// <summary>
+		/// ردیف
+		/// </summary>
 		#region Id
 		//-----DisplayName field for Id
 		[System.ComponentModel.DisplayName(displayName: "ردیف")]
 		//-----Primery Key For this field
 		[System.ComponentModel.DataAnnotations.Key]
-		public int Id { get; set; }
+		public uint Id { get; set; }
 		#endregion /Id
 
+		/// <summary>
+		/// مبلغ سرویس
+		/// </summary>
 		#region Service_Price
 		[System.ComponentModel.DisplayName(displayName: "قیمت سرویس دهی")]
 		//--Lenght FullName
@@ -26,6 +32,9 @@
 		public string Service_Price { get; set; }
 		#endregion /Service_Price
 
+		/// <summary>
+		/// نام سرویس
+		/// </summary>
 		#region Service_Name
 		//-----DisplayName field for FullName
 		[System.ComponentModel.DisplayName(displayName: "نام سرویس")]

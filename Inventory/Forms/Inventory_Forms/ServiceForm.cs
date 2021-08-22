@@ -205,7 +205,12 @@ namespace Inventory_Forms
 				return;
 
 			}
-			else if (string.Compare(servicePriceTextBox.Text, " تومان") == 0 || string.Compare(servicePriceTextBox.Text, "تومان") == 0 || string.Compare(servicePriceTextBox.Text, "توما") == 0 || string.Compare(servicePriceTextBox.Text, "توم") == 0 || string.Compare(servicePriceTextBox.Text, "تو") == 0 || string.Compare(servicePriceTextBox.Text, "ت") == 0)
+			else if (string.Compare(servicePriceTextBox.Text, " تومان") == 0 ||
+				string.Compare(servicePriceTextBox.Text, "تومان") == 0 ||
+				string.Compare(servicePriceTextBox.Text, "توما") == 0 ||
+				string.Compare(servicePriceTextBox.Text, "توم") == 0 ||
+				string.Compare(servicePriceTextBox.Text, "تو") == 0 ||
+				string.Compare(servicePriceTextBox.Text, "ت") == 0)
 			{
 				servicePriceTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
 				servicePriceTextBox.Clear();
@@ -1029,12 +1034,12 @@ namespace Inventory_Forms
 
 				if (capitalFund == null)
 				{
-					
+
 					return 0;
 				}
 				else
 				{
-					if (string.IsNullOrEmpty(capitalFund.Capital_Fund) || string.Compare(capitalFund.Capital_Fund,"0 تومان") == 0)
+					if (string.IsNullOrEmpty(capitalFund.Capital_Fund) || string.Compare(capitalFund.Capital_Fund, "0 تومان") == 0)
 					{
 						return 0;
 					}
@@ -1043,7 +1048,7 @@ namespace Inventory_Forms
 						capital_Fund = long.Parse(capitalFund.Capital_Fund.Replace("تومان", string.Empty).Replace(",", string.Empty).Trim());
 						return capital_Fund;
 					}
-					
+
 				}
 			}
 			catch (System.Exception ex)
@@ -1414,7 +1419,7 @@ namespace Inventory_Forms
 					service.Service_Name = $"{row.Cells[0].Value}";
 					service.Description = $"{row.Cells[1].Value}";
 					service.Service_Price = $"{row.Cells[2].Value}";
-					service.Service_Number =int.Parse($"{row.Cells[3].Value}");
+					service.Service_Number = int.Parse($"{row.Cells[3].Value}");
 					service.Total_Sum_Price = $"{row.Cells[4].Value}";
 				}
 
@@ -1479,5 +1484,80 @@ namespace Inventory_Forms
 		#endregion /SetServicePrice
 
 		#endregion /Function
+
+		#region KilometersCarTextBox_Enter
+		private void KilometersCarTextBox_Enter(object sender, System.EventArgs e)
+		{
+			Infrastructure.Utility.PersianLanguage();
+
+			if (string.IsNullOrWhiteSpace(kilometersCarTextBox.Text))
+			{
+				kilometersCarTextBox.Text = "0 کیلومتر";
+				kilometersCarTextBox.Select(0, 1);
+				kilometersCarTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+			}
+			else if (kilometersCarTextBox.Text.Contains("کیلومتر"))
+			{
+				return;
+			}
+		}
+		#endregion /KilometersCarTextBox_Enter
+
+		#region KilometersCarTextBox_KeyPress
+		private void KilometersCarTextBox_KeyPress(object sender, System.Windows.Forms.KeyPressEventArgs e)
+		{
+			Infrastructure.Utility.InsertOnlyNumber(e);
+		}
+		#endregion /KilometersCarTextBox_KeyPress
+
+		#region KilometersCarTextBox_Leave
+		private void KilometersCarTextBox_Leave(object sender, System.EventArgs e)
+		{
+			if (string.IsNullOrWhiteSpace(kilometersCarTextBox.Text))
+			{
+				kilometersCarTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+				return;
+			}
+			else if (string.Compare(kilometersCarTextBox.Text, "0 تومان") == 0)
+			{
+				kilometersCarTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+				kilometersCarTextBox.Clear();
+				return;
+			}
+			else if (string.Compare(kilometersCarTextBox.Text, " کیلومتر") == 0 ||
+				string.Compare(kilometersCarTextBox.Text, "کیلومتر") == 0 ||
+				string.Compare(kilometersCarTextBox.Text, "کیلومت") == 0 ||
+				string.Compare(kilometersCarTextBox.Text, "کیلوم") == 0 ||
+				string.Compare(kilometersCarTextBox.Text, "کیلو") == 0 ||
+				string.Compare(kilometersCarTextBox.Text, "کیل") == 0 ||
+				string.Compare(kilometersCarTextBox.Text, "کی") == 0 ||
+				string.Compare(kilometersCarTextBox.Text, "ک") == 0)
+			{
+				kilometersCarTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+				kilometersCarTextBox.Clear();
+				return;
+			}
+			else
+			{
+				kilometersCarTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+
+				//-----ادامه کد را بنویسید
+			}
+		}
+		#endregion /KilometersCarTextBox_Leave
+
+		#region KilometersCarTextBox_TextChange
+		private void KilometersCarTextBox_TextChange(object sender, System.EventArgs e)
+		{
+			if (string.IsNullOrWhiteSpace(kilometersCarTextBox.Text))
+			{
+				kilometersCarTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+			}
+			else
+			{
+				kilometersCarTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+			}
+		}
+		#endregion /KilometersCarTextBox_TextChange
 	}
 }

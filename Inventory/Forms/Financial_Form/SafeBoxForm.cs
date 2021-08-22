@@ -9,7 +9,7 @@ namespace Financial_Form
 
 		#region Properties
 
-		#region Layers
+		#region Layers		
 
 		private Models.CapitalFund _capitalFund;
 		public Models.CapitalFund CapitalFund
@@ -283,7 +283,10 @@ namespace Financial_Form
 				capitalFund.Capital_Fund = $"{_newCahsh:#,0} تومان";
 				dataBaseContext.SaveChanges();
 
-				funeLabel.Text = $"{LoadingFund():#,0} تومان";
+				funeLabel.Text =  $"{_newCahsh:#,0} تومان";
+				Inventory.Program.MainForm.fundsNotificationTextBox.Text = $"{_newCahsh:#,0} تومان";
+
+
 
 				#region -----------------------------------------     Save Event Log     -----------------------------------------
 				if (string.Compare(Inventory.Program.UserAuthentication.Username, "admin") != 0)

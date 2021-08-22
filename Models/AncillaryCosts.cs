@@ -9,6 +9,9 @@
 		{
 
 		}
+		/// <summary>
+		/// مبلغ پرداختی
+		/// </summary>
 		#region Amount_Payment
 		//--DisplayName field for Cost_Name
 		[System.ComponentModel.DisplayName(displayName: "مبلغ پرداختی")]
@@ -18,6 +21,9 @@
 		public string Amount_Payment { get; set; }
 		#endregion /Amount_Payment
 
+		/// <summary>
+		/// نام هزینه صورت گرفته
+		/// </summary>
 		#region Cost_Name
 		//--DisplayName field for Cost_Name
 		[System.ComponentModel.DisplayName(displayName: "نام هزینه صورت گرفته")]
@@ -27,6 +33,9 @@
 		public string Cost_Name { get; set; }
 		#endregion /Cost_Name
 
+		/// <summary>
+		/// ردیف
+		/// </summary>
 		#region Id
 		//-----DisplayName field for Id
 		[System.ComponentModel.DisplayName(displayName: "ردیف")]
@@ -35,6 +44,9 @@
 		public int Id { get; set; }
 		#endregion /Id
 
+		/// <summary>
+		/// نام پرداخت کننده
+		/// </summary>
 		#region Name_Payer
 		//--DisplayName field for NamePayer
 		[System.ComponentModel.DisplayName(displayName: "نام پرداخت کننده")]
@@ -44,6 +56,9 @@
 		public string Name_Payer { get; set; }
 		#endregion /Name_Payer
 
+		/// <summary>
+		/// تاریخ ثبت
+		/// </summary>
 		#region Registration_Date
 		//-----DisplayName field for RegistrationDate
 		[System.ComponentModel.DisplayName(displayName: "تاریخ ثبت")]
@@ -53,6 +68,9 @@
 		public string Registration_Date { get; set; }
 		#endregion /Registration_Date
 
+		/// <summary>
+		/// زمان ثبت 
+		/// </summary>
 		#region Registration_Time
 		//-----DisplayName field for RegistrationTime
 		[System.ComponentModel.DisplayName(displayName: "زمان ثبت")]

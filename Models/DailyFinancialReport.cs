@@ -69,6 +69,9 @@
 		public string Register_Time { get; set; }
 		#endregion /Register_Time
 
+		/// <summary>
+		/// تفکیک تاریخ
+		/// </summary>
 		#region Date
 		/// <summary>
 		/// سال
@@ -84,6 +87,9 @@
 		public int? Day { get; set; }
 		#endregion /Date
 
+		/// <summary>
+		/// تفکیک زمان
+		/// </summary>
 		#region Time
 		/// <summary>
 		/// ساعت

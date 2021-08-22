@@ -10,6 +10,9 @@
 
 		}
 
+		/// <summary>
+		/// نام مشتری
+		/// </summary>
 		#region Client_Name
 		/// <summary>
 		/// نام مشتری یا درخواست کننده سرویس
@@ -22,6 +25,9 @@
 		public string Client_Name { get; set; }
 		#endregion /Client_Name
 
+		/// <summary>
+		/// توضیحات
+		/// </summary>
 		#region Description
 		/// <summary>
 		/// توضیحات برای سرویس انجام شده
@@ -34,17 +40,20 @@
 		public string Description { get; set; }
 		#endregion /Description
 
-		#region Id
 		/// <summary>
-		/// ردیف یا به عبارتی تعداد سرویس های انجام شده
+		/// ردیف
 		/// </summary>
+		#region Id
 		//-----DisplayName field for Id
 		[System.ComponentModel.DisplayName(displayName: "ردیف")]
 		//-----Primery Key For this field
 		[System.ComponentModel.DataAnnotations.Key]
-		public int Id { get; set; }
+		public uint Id { get; set; }
 		#endregion /Id
 
+		/// <summary>
+		/// شماره فاکتور
+		/// </summary>
 		#region Invoice_Serial_Numvber
 		/// <summary>
 		/// شماره سریال فاکتور
@@ -57,6 +66,9 @@
 		public string Invoice_Serial_Numvber { get; set; }
 		#endregion /Invoice_Serial_Numvber
 
+		/// <summary>
+		/// تاریخ ثبت
+		/// </summary>
 		#region Registration_Date
 		/// <summary>
 		/// تاریخ ثبت سرویس
@@ -69,6 +81,9 @@
 		public string Registration_Date { get; set; }
 		#endregion /Registration_Date
 
+		/// <summary>
+		/// زمان ثبت
+		/// </summary>
 		#region Registration_Time
 		/// <summary>
 		/// زمان ثبت سرویس
@@ -81,6 +96,9 @@
 		public string Registration_Time { get; set; }
 		#endregion /Registration_Time
 
+		/// <summary>
+		/// نام تعمیر کار
+		/// </summary>
 		#region Repairmaen_Name
 		/// <summary>
 		/// نام سرویس کاری که کار مورد نظر را انجام داده
@@ -93,6 +111,9 @@
 		public string Repairman_Name { get; set; }
 		#endregion /Repairmaen_Name
 
+		/// <summary>
+		/// قیمت سرویس
+		/// </summary>
 		#region Service_Price
 		/// <summary>
 		/// قیمتی که برای هر سرویس یا کار انجام شده تعیین میگردد
@@ -104,6 +125,9 @@
 		public string Service_Price { get; set; }
 		#endregion /Service_Price
 
+		/// <summary>
+		/// نام سرویس
+		/// </summary>
 		#region Service_Name
 		/// <summary>
 		/// نام سرویس
@@ -116,6 +140,9 @@
 		public string Service_Name { get; set; }
 		#endregion /Service_Name
 
+		/// <summary>
+		/// تعداد سرویس
+		/// </summary>
 		#region Service_Number
 		/// <summary>
 		/// تعداد سرویس 
@@ -125,6 +152,9 @@
 		public int? Service_Number { get; set; }
 		#endregion /Service_Number
 
+		/// <summary>
+		/// جمع قیمت
+		/// </summary>
 		#region Total_Sum_Price
 		/// <summary>
 		/// جمع قیمت هر سرویس

@@ -10,6 +10,9 @@
 
 		}
 
+		/// <summary>
+		/// نام کاربر
+		/// </summary>
 		#region FullName
 		[System.ComponentModel.DisplayName(displayName: "نام کاربر")]
 
@@ -24,14 +27,20 @@
 		public string Full_Name { get; set; }
 		#endregion /FullName
 
+		/// <summary>
+		/// ردیف
+		/// </summary>
 		#region Id
 		//-----DisplayName field for Id
 		[System.ComponentModel.DisplayName(displayName: "ردیف")]
 		//-----Primery Key For this field
 		[System.ComponentModel.DataAnnotations.Key]
-		public int Id { get; set; }
+		public uint Id { get; set; }
 		#endregion /Id
 
+		/// <summary>
+		/// تاریخ ورود
+		/// </summary>
 		#region Login_Time
 		[System.ComponentModel.DisplayName(displayName: "زمان ورود")]
 		//--Lenght Login_Date
@@ -40,6 +49,9 @@
 		public string Login_Time { get; set; }
 		#endregion /Login_Time
 
+		/// <summary>
+		/// تاریخ خروج
+		/// </summary>
 		#region Logout_Time
 		[System.ComponentModel.DisplayName(displayName: "زمان خروج")]
 		//--Lenght Logout_Time
@@ -49,6 +61,9 @@
 		public string Logout_Time { get; set; }
 		#endregion /Logout_Time
 
+		/// <summary>
+		/// شناسه کاربری
+		/// </summary>
 		#region Username
 		[System.ComponentModel.DisplayName(displayName: "شناسه کاربری")]
 

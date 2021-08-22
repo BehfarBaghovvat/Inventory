@@ -7,14 +7,20 @@
 
 		}
 
+		/// <summary>
+		/// ردیق
+		/// </summary>
 		#region Id
 		//-----DisplayName field for Id
 		[System.ComponentModel.DisplayName(displayName: "ردیف")]
 		//-----Primery Key For this field
 		[System.ComponentModel.DataAnnotations.Key]
-		public int Id { get; set; }
+		public uint Id { get; set; }
 		#endregion /Id
 
+		/// <summary>
+		/// جمع کل حساب ماه
+		/// </summary>
 		#region Sum_Total_Price_Of_Month
 		//----- Display Name TotalPrice
 		[System.ComponentModel.DisplayName(displayName: "جمع کل حساب ماه")]
@@ -27,6 +33,9 @@
 		public string Sum_Total_Price_Of_Month { get; set; }
 		#endregion /Sum_Total_Price_Of_Month
 
+		/// <summary>
+		/// چمع مبلغ پرداختی ماه
+		/// </summary>
 		#region Sum_Payment_Amount_Of_Month
 		//----- Display Name Payment
 		[System.ComponentModel.DisplayName(displayName: "جمع مبلغ پرداختی ماه")]
@@ -40,6 +49,9 @@
 		//-----
 		#endregion /Sum_Payment_Amount_Of_Month
 
+		/// <summary>
+		/// چمع مبلغ بدهی ماه
+		/// </summary>
 		#region Sum_Remaining_Amount_Of_Month
 		//----- Display Name Remaining Amount
 		[System.ComponentModel.DisplayName(displayName: "جمع مبلغ بدهی ماه")]
@@ -52,6 +64,9 @@
 		public string Sum_Remaining_Amount_Of_Month { get; set; }
 		#endregion /Sum_Remaining_Amount_Of_Month
 
+		/// <summary>
+		/// تاریخ ثبت
+		/// </summary>
 		#region Register_Date
 		//----- Display Name TotalPrice
 		[System.ComponentModel.DisplayName(displayName: "تاریخ ثبت")]
@@ -64,6 +79,9 @@
 		public string Register_Date { get; set; }
 		#endregion /Register_Date
 
+		/// <summary>
+		/// تکفکیک تاریخ
+		/// </summary>
 		#region Date
 		public int Year { get; set; }
 		public int Month { get; set; }

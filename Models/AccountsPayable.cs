@@ -9,7 +9,9 @@
 		{
 
 		}
-
+		/// <summary>
+		/// مبلغ پرداخت شده
+		/// </summary>
 		#region Amount_Paid
 		//-----DisplayName field for Amount_Payable
 		[System.ComponentModel.DisplayName(displayName: "مبلغ پرداخت شده")]
@@ -19,6 +21,9 @@
 		public string Amount_Paid { get; set; }
 		#endregion /Amount_Paid
 
+		/// <summary>
+		/// مبلغ قابل پرداخت
+		/// </summary>
 		#region Amount_Payable
 		//-----DisplayName field for Amount_Payable
 		[System.ComponentModel.DisplayName(displayName: "مبلغ قابل پرداخت")]
@@ -28,6 +33,9 @@
 		public string Amount_Payable { get; set; }
 		#endregion /Amount_Payable
 
+		/// <summary>
+		/// توضیحات
+		/// </summary>
 		#region Description
 		//--DisplayName field for Description
 		[System.ComponentModel.DisplayName(displayName: "توضیحات")]
@@ -37,6 +45,9 @@
 		public string Description { get; set; }
 		#endregion /Description
 
+		/// <summary>
+		/// ردیف
+		/// </summary>
 		#region Id
 		//-----DisplayName field for Id
 		[System.ComponentModel.DisplayName(displayName: "ردیف")]
@@ -45,6 +56,9 @@
 		public int Id { get; set; }
 		#endregion /Id
 
+		/// <summary>
+		/// تاریخ ثبت
+		/// </summary>
 		#region Registration_Date
 		//-----DisplayName field for RegistrationDate
 		[System.ComponentModel.DisplayName(displayName: "تاریخ ثبت")]
@@ -54,6 +68,9 @@
 		public string Registration_Date { get; set; }
 		#endregion /Registration_Date
 
+		/// <summary>
+		/// زمان ثبت
+		/// </summary>
 		#region Registration_Time
 		//-----DisplayName field for RegistrationTime
 		[System.ComponentModel.DisplayName(displayName: "زمان ثبت")]
@@ -63,6 +80,9 @@
 		public string Registration_Time { get; set; }
 		#endregion /Registration_Time
 
+		/// <summary>
+		/// مبلغ باقیمانده
+		/// </summary>
 		#region Remaininig_Amount
 		[System.ComponentModel.DisplayName(displayName: "مبلغ باقیمانده")]
 		//--Lenght Amount_Payable
@@ -71,6 +91,9 @@
 		public string Remaininig_Amount { get; set; }
 		#endregion /Remaininig_Amount
 
+		/// <summary>
+		/// نام فروشنده
+		/// </summary>
 		#region Seller_Name
 		//--DisplayName field for Seller_Name
 		[System.ComponentModel.DisplayName(displayName: "نام فروشنده")]

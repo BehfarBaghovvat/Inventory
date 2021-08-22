@@ -1006,7 +1006,7 @@ namespace Inventory_Forms
 					.Replace(",", string.Empty)
 					.Trim());
 
-				MainForm.fundsLabel.Text = $"{capital_Fund:#,0} تومان";
+				MainForm.fundsNotificationTextBox.Text = $"{capital_Fund:#,0} تومان";
 
 				return capital_Fund;
 

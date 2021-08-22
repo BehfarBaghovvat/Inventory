@@ -316,7 +316,7 @@ namespace Financial_Form
 					.FirstOrDefault();
 
 				capital_Fund = long.Parse(capitalFund.Capital_Fund.Replace("تومان", string.Empty).Replace(",", string.Empty).Trim());
-				MainForm.fundsLabel.Text = $"{capital_Fund:#,0} تومان";
+				MainForm.fundsNotificationTextBox.Text = $"{capital_Fund:#,0} تومان";
 
 				return capital_Fund;
 

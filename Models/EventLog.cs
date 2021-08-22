@@ -10,6 +10,9 @@
 
 		}
 
+		/// <summary>
+		/// توضیحات
+		/// </summary>
 		#region Description
 		//-----DisplayName field for Description
 		[System.ComponentModel.DisplayName(displayName: "توضیحات")]
@@ -22,6 +25,9 @@
 		public string Description { get; set; }
 		#endregion /Description
 
+		/// <summary>
+		/// تاریخ رخداد
+		/// </summary>
 		#region Event_Date
 		//-----DisplayName field for FullName
 		[System.ComponentModel.DisplayName(displayName: "تاریخ رخداد")]
@@ -34,6 +40,9 @@
 		public string Event_Date { get; set; }
 		#endregion /Event_Date
 
+		/// <summary>
+		/// زمان رخداد
+		/// </summary>
 		#region Event_Time
 		//-----DisplayName field for FullName
 		[System.ComponentModel.DisplayName(displayName: "زمان رخداد")]
@@ -46,6 +55,9 @@
 		public string Event_Time { get; set; }
 		#endregion /Event_Time
 
+		/// <summary>
+		/// نام و نام خانوادگی کاربر
+		/// </summary>
 		#region FullName
 		//-----DisplayName field for FullName
 		[System.ComponentModel.DisplayName(displayName: "نام و نام خانوادگی")]
@@ -55,14 +67,20 @@
 		public string Full_Name { get; set; }
 		#endregion /FullName
 
+		/// <summary>
+		/// ردیف
+		/// </summary>
 		#region Id
 		//-----DisplayName field for Id
 		[System.ComponentModel.DisplayName(displayName: "ردیف")]
 		//-----Primery Key For this field
 		[System.ComponentModel.DataAnnotations.Key]
-		public int Id { get; set; }
+		public uint Id { get; set; }
 		#endregion /Id
 
+		/// <summary>
+		/// شناسه کاربری
+		/// </summary>
 		#region Username
 		//-----DisplayName field for Username
 		[System.ComponentModel.DisplayName(displayName: "شناسه کاربری")]

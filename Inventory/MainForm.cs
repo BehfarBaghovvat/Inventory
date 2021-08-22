@@ -10,8 +10,8 @@ namespace Inventory
 
 		//------------------------------------------------------------------------- Inventory
 
-		private static Inventory_Forms.ProductBuyForm _productBuyForm;
-		public static Inventory_Forms.ProductBuyForm ProductBuyForm
+		private Inventory_Forms.ProductBuyForm _productBuyForm;
+		public Inventory_Forms.ProductBuyForm ProductBuyForm
 		{
 			get
 			{
@@ -28,8 +28,8 @@ namespace Inventory
 			}
 		}
 
-		private static Inventory_Forms.ProcutSalesForm _procutSalesForm;
-		public static Inventory_Forms.ProcutSalesForm ProcutSalesForm
+		private Inventory_Forms.ProcutSalesForm _procutSalesForm;
+		public Inventory_Forms.ProcutSalesForm ProcutSalesForm
 		{
 			get
 			{
@@ -46,8 +46,8 @@ namespace Inventory
 			}
 		}
 
-		private static Inventory_Forms.InventoryForm _inventoryForm;
-		public static Inventory_Forms.InventoryForm InventoryForm
+		private Inventory_Forms.InventoryForm _inventoryForm;
+		public Inventory_Forms.InventoryForm InventoryForm
 		{
 			get
 			{
@@ -64,8 +64,8 @@ namespace Inventory
 			}
 		}
 
-		private static Inventory_Forms.ServiceForm _serviceForm;
-		public static Inventory_Forms.ServiceForm ServiceForm
+		private Inventory_Forms.ServiceForm _serviceForm;
+		public Inventory_Forms.ServiceForm ServiceForm
 		{
 			get
 			{
@@ -1027,7 +1027,7 @@ namespace Inventory
 						.Trim());
 				}
 
-				fundsLabel.Text = $"{fund:#,0} تومان";
+				fundsNotificationTextBox.Text = $"{fund:#,0} تومان";
 			}
 			catch (System.Exception ex)
 			{

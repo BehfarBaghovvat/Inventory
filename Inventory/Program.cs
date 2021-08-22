@@ -9,6 +9,8 @@ namespace Inventory
 
 		//------------------------------------------------------------------
 
+		
+
 		#region Administrator
 		/// <summary>
 		/// ثبت خودکار کاربر ادمین در صورت حذف دیتابیس
@@ -212,6 +214,7 @@ namespace Inventory
 		}
 
 		#endregion /BillBuyReportForm
+
 
 		/// <summary>
 		/// The main entry point for the application.

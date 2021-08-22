@@ -10,14 +10,20 @@
 
 		}
 
+		/// <summary>
+		/// ردیف
+		/// </summary>
 		#region Id
-		//--DisplayName field for Id
+		//-----DisplayName field for Id
 		[System.ComponentModel.DisplayName(displayName: "ردیف")]
-		//--Primery Key For this field
+		//-----Primery Key For this field
 		[System.ComponentModel.DataAnnotations.Key]
-		public int Id { get; set; }
+		public uint Id { get; set; }
 		#endregion /Id
 
+		/// <summary>
+		/// شماره فاکتور
+		/// </summary>
 		#region Invoice_Serial_Numvber
 		//--DisplayName field for Invoice_Serial_Numvber
 		[System.ComponentModel.DisplayName(displayName: "شماره فاکتور")]
@@ -27,6 +33,9 @@
 		public string Invoice_Serial_Numvber { get; set; }
 		#endregion /Invoice_Serial_Numvber
 
+		/// <summary>
+		/// تاریخ ثبت
+		/// </summary>
 		#region Registration_Date
 		//-----DisplayName field for RegistrationDate
 		[System.ComponentModel.DisplayName(displayName: "تاریخ ثبت")]

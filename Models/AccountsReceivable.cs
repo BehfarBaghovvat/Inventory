@@ -9,7 +9,9 @@
 		{
 
 		}
-
+		/// <summary>
+		/// مبلغ پرداخت شده
+		/// </summary>
 		#region Amount_Paid
 		//-----DisplayName field for Amount_Payable
 		[System.ComponentModel.DisplayName(displayName: "مبلغ پرداخت شده")]
@@ -19,6 +21,9 @@
 		public string Amount_Paid { get; set; }
 		#endregion /Amount_Paid
 
+		/// <summary>
+		/// مبلغ قابل پرداخت
+		/// </summary>
 		#region Amount_Payable
 		//-----DisplayName field for Amount_Payable
 		[System.ComponentModel.DisplayName(displayName: "مبلغ قابل پرداخت")]
@@ -28,6 +33,9 @@
 		public string Amount_Payable { get; set; }
 		#endregion /Amount_Payable
 
+		/// <summary>
+		/// نام مشتری
+		/// </summary>
 		#region Client_Name
 		[System.ComponentModel.DisplayName(displayName: "نام مشتری")]
 		//--Lenght FullName
@@ -36,6 +44,9 @@
 		public string Client_Name { get; set; }
 		#endregion /Client_Name
 
+		/// <summary>
+		/// توضیحات
+		/// </summary>
 		#region Description
 		[System.ComponentModel.DisplayName(displayName: "توضیحات")]
 		//--Lenght FullName
@@ -44,6 +55,9 @@
 		public string Description { get; set; }
 		#endregion /Description
 
+		/// <summary>
+		/// ردیف
+		/// </summary>
 		#region Id
 		//-----DisplayName field for Id
 		[System.ComponentModel.DisplayName(displayName: "ردیف")]
@@ -52,6 +66,9 @@
 		public int Id { get; set; }
 		#endregion /Id
 
+		/// <summary>
+		/// تاریخ ثبت
+		/// </summary>
 		#region Registration_Date
 		//-----DisplayName field for RegistrationDate
 		[System.ComponentModel.DisplayName(displayName: "تاریخ ثبت")]
@@ -61,6 +78,9 @@
 		public string Registration_Date { get; set; }
 		#endregion /Registration_Date
 
+		/// <summary>
+		/// زمان ثبت
+		/// </summary>
 		#region Registration_Time
 		//-----DisplayName field for RegistrationTime
 		[System.ComponentModel.DisplayName(displayName: "زمان ثبت")]
@@ -70,6 +90,9 @@
 		public string Registration_Time { get; set; }
 		#endregion /Registration_Time
 
+		/// <summary>
+		/// مبلغ باقی مانده
+		/// </summary>
 		#region Remaininig_Amount
 		[System.ComponentModel.DisplayName(displayName: "مبلغ باقیمانده")]
 		//--Lenght Amount_Payable
@@ -78,6 +101,9 @@
 		public string Remaininig_Amount { get; set; }
 		#endregion /Remaininig_Amount
 
+		/// <summary>
+		/// درصد مالیات
+		/// </summary>
 		#region Tax_Percent
 		//--DisplayName Tax_Percent
 		[System.ComponentModel.DisplayName(displayName: "درصد مالیات")]

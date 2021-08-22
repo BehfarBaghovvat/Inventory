@@ -10,6 +10,9 @@
 
 		}
 
+		/// <summary>
+		/// ردیف
+		/// </summary>
 		#region Id
 		//-----DisplayName field for Id
 		[System.ComponentModel.DisplayName(displayName: "ردیف")]
@@ -18,6 +21,9 @@
 		public int Id { get; set; }
 		#endregion /Id
 
+		/// <summary>
+		/// صندوق سرمایه
+		/// </summary>
 		#region Capital_Fund
 		[System.ComponentModel.DisplayName(displayName: "صندوق سرمایه")]
 		public string Capital_Fund { get; set; }
