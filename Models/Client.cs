@@ -47,9 +47,12 @@
 		/// شماره تماس
 		/// </summary>
 		#region Phone_Number
+		//-----DisplayName field for Phone_Number
 		[System.ComponentModel.DisplayName(displayName: "شماره تماس")]
-		
-		public byte Phone_Number { get; set; }
+		//--Lenght Phone_Number
+		[System.ComponentModel.DataAnnotations.StringLength
+			(maximumLength: 10)]
+		public string Phone_Number { get; set; }
 		#endregion /Phone_Number
 
 	}

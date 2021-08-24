@@ -64,19 +64,21 @@
     <Compile Include="AccountsReceivable.cs" />
     <Compile Include="AccountsPayable.cs" />
     <Compile Include="InventoryHolding.cs" />
-    <Compile Include="ListIncidentalExpenses.cs" />
-    <Compile Include="ListServiceNames.cs" />
+    <Compile Include="ListFinancialClient.cs" />
+    <Compile Include="ListIncidentalExpensesName.cs" />
+    <Compile Include="ListPurchaseProduct.cs" />
+    <Compile Include="ListSalesProduct.cs" />
     <Compile Include="MonthlyFinancialReport.cs" />
     <Compile Include="PurchaseInvoice.cs" />
     <Compile Include="SalesInvoice.cs" />
-    <Compile Include="InvoiceSerialNumber.cs" />
+    <Compile Include="ServiceInvoice.cs" />
     <Compile Include="LoginHistory.cs" />
     <Compile Include="ProgramSetting.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ProductReceived.cs" />
     <Compile Include="InventoryOutput.cs" />
-    <Compile Include="Service.cs" />
-    <Compile Include="TypesService.cs" />
+    <Compile Include="ListService.cs" />
+    <Compile Include="ListServiceName.cs" />
     <Compile Include="User.cs" />
     <Compile Include="YearlyFinancialReport.cs" />
   </ItemGroup>

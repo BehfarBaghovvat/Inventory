@@ -1,26 +1,27 @@
-﻿namespace Models
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Models
 {
 	/// <summary>
-	/// جدول اسامی خدمات
+	/// بانک اسامی هزینه های جانبی
 	/// </summary>
-	public class ListServiceNames
+	public class ListIncidentalExpensesName
 	{
-		public ListServiceNames()
-		{
-
-		}
-
 		/// <summary>
-		/// لیست اسامی خدمات
+		/// لیست اسامی هزینه ها
 		/// </summary>
-		#region List_Services_Name
+		#region List_Cost_Name
 		//-----DisplayName field for Cost_Name
-		[System.ComponentModel.DisplayName(displayName: "لیست اسامی خدمات")]
+		[System.ComponentModel.DisplayName(displayName: "لیست اسامی هزینه")]
 		//--Lenght Cost_Name
 		[System.ComponentModel.DataAnnotations.StringLength
 			(maximumLength: 25)]
-		public string List_Services_Name { get; set; }
-		#endregion /List_Services_Name
+		public string List_Cost_Name { get; set; }
+		#endregion /List_Cost_Name
 
 		/// <summary>
 		/// ردیف

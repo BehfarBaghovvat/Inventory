@@ -15,7 +15,7 @@ namespace Inventory_Forms
 		private class AuditItem
 		{
 			public int? Amount_Paid { get; set; }
-			public long? Capital_Fund { get; set; }
+			public decimal? Capital_Fund { get; set; }
 			public int? Cash_Payment_Amount { get; set; }
 			public string Client_Name { get; set; }
 			public string Invoice_Serial_Number { get; set; }
@@ -112,22 +112,38 @@ namespace Inventory_Forms
 			set { _eventLog = value; }
 		}
 
-		private Models.Service _service = null;
-		public Models.Service Service
+		private Models.ServiceInvoice _invoiceSerialNumber = null;
+		public Models.ServiceInvoice InvoiceSerialNumber
+		{
+			get
+			{
+				if (_invoiceSerialNumber == null)
+				{
+					_invoiceSerialNumber =
+						new Models.ServiceInvoice();
+				}
+				return _invoiceSerialNumber;
+			}
+			set
+			{
+				_invoiceSerialNumber = value;
+			}
+		}
+
+		private Models.ListService _service = null;
+		public Models.ListService Service
 		{
 			get
 			{
 				if (_service == null)
 				{
 					_service =
-						new Models.Service();
+						new Models.ListService();
 				}
 				return _service;
 			}
 			set { _service = value; }
 		}
-
-
 
 		#endregion /Properties
 
@@ -164,13 +180,13 @@ namespace Inventory_Forms
 		{
 			if (string.IsNullOrWhiteSpace(clientNameTextBox.Text))
 			{
-				Service.Client_Name = null;
+				InvoiceSerialNumber.Client_Name = null;
 				_audit.Client_Name = null;
 				return;
 			}
 			else
 			{
-				Service.Client_Name = clientNameTextBox.Text;
+				InvoiceSerialNumber.Client_Name = clientNameTextBox.Text;
 				_audit.Client_Name = clientNameTextBox.Text;
 			}
 		}
@@ -289,7 +305,7 @@ namespace Inventory_Forms
 			}
 			else
 			{
-				Service.Service_Number = int.Parse(serviceNumberTextBox.Text);
+				Service.Service_Number = byte.Parse(serviceNumberTextBox.Text);
 			}
 		}
 		#endregion /ServiceNumberTextBox_TextChange
@@ -383,7 +399,7 @@ namespace Inventory_Forms
 		#region ServiceInvoiceButton_Click
 		private void ServiceInvoiceButton_Click(object sender, System.EventArgs e)
 		{
-			if (InputValidation(Service))
+			if (InputValidation(Service,InvoiceSerialNumber))
 			{
 				System.Collections.Generic.List<ServiceItem> serviceItemLists = new System.Collections.Generic.List<ServiceItem>();
 
@@ -405,10 +421,10 @@ namespace Inventory_Forms
 				serviceReport.Load(System.Windows.Forms.Application.StartupPath + "\\Reports\\ServicReport.mrt");
 				serviceReport.RegBusinessObject("Service", serviceItemLists);
 
-				(serviceReport.GetComponentByName("dateOfPrintTextBox") as Stimulsoft.Report.Components.StiText).Text = $"{Service.Registration_Date} - {Service.Registration_Time}";
+				(serviceReport.GetComponentByName("dateOfPrintTextBox") as Stimulsoft.Report.Components.StiText).Text = $"{Service.Service_Date} - {Service.Service_Time}";
 				(serviceReport.GetComponentByName("invoiceSerialNumberTextBox") as Stimulsoft.Report.Components.StiText).Text = Service.Invoice_Serial_Numvber;
 				(serviceReport.GetComponentByName("repairmanNameTextBox") as Stimulsoft.Report.Components.StiText).Text = Service.Repairman_Name;
-				(serviceReport.GetComponentByName("clientNameTextBox") as Stimulsoft.Report.Components.StiText).Text = Service.Client_Name;
+				(serviceReport.GetComponentByName("clientNameTextBox") as Stimulsoft.Report.Components.StiText).Text = InvoiceSerialNumber.Client_Name;
 				(serviceReport.GetComponentByName("sumPriceTextBox") as Stimulsoft.Report.Components.StiText).Text = sumPriceTextBox.Text;
 				(serviceReport.GetComponentByName("amountPaymentTextBox") as Stimulsoft.Report.Components.StiText).Text = amountPaidTextBox.Text;
 				(serviceReport.GetComponentByName("remainingTexBox") as Stimulsoft.Report.Components.StiText).Text = remainingTextBox.Text;
@@ -807,7 +823,7 @@ namespace Inventory_Forms
 		/// اضافه کردن سرویس
 		/// </summary>
 		/// <param name="service"></param>
-		private void AddService(Models.Service service)
+		private void AddService(Models.ListService service)
 		{
 			int servicePice = int.Parse(service.Service_Price.Replace("تومان", string.Empty).Replace(",", string.Empty).Trim());
 			int? price = service.Service_Number * servicePice;
@@ -956,92 +972,14 @@ namespace Inventory_Forms
 		}
 		#endregion
 
-		#region Initialize
-		/// <summary>
-		/// مقداردهی اولیه
-		/// </summary>
-		private void Initialize()
-		{
-			_audit.Capital_Fund = LoadingCapitalFund();
-			inventorySerialNumberTextBox.Text = Service.Invoice_Serial_Numvber = _audit.Invoice_Serial_Number = SetInvoiceSerialNumber();
-			_audit.Register_Date = Service.Registration_Date =
-				Infrastructure.Utility.PersianCalendar(System.DateTime.Now);
-			_audit.Register_Time = Service.Registration_Time =
-				   Infrastructure.Utility.ShowTime();
-			registerDateTextBox.Text =
-				$"{Infrastructure.Utility.PersianCalendar(System.DateTime.Now)} - { Infrastructure.Utility.ShowTime()}";
-			LoadService();
-		}
-		#endregion /Initialize
-
-		#region InputValidation
-		/// <summary>
-		/// اعتبار سنچی ورودی اطلاعات
-		/// </summary>
-		/// <param name="service"></param>
-		/// <returns></returns>
-		private bool InputValidation(Models.Service service)
-		{
-			string errorMessage = null;
-
-			if (string.IsNullOrEmpty(service.Client_Name))
-			{
-				errorMessage = "لطفا نام مشتری را وارد نمایید.";
-			}
-			if (string.IsNullOrEmpty(service.Repairman_Name))
-			{
-				if (!string.IsNullOrEmpty(errorMessage))
-				{
-					errorMessage +=
-						System.Environment.NewLine;
-				}
-				errorMessage += "لطفا نام تعمیرکار را وارد نمایید.";
-			}
-			if (listServiceDataGridView.Rows.Count <= 0)
-			{
-				if (!string.IsNullOrEmpty(errorMessage))
-				{
-					errorMessage +=
-						System.Environment.NewLine;
-				}
-				errorMessage += "حداقل یک سرویس ثبت نمایید.";
-			}
-
-			if (!string.IsNullOrEmpty(errorMessage))
-			{
-				if (string.IsNullOrEmpty(service.Client_Name))
-				{
-					clientNameTextBox.Focus();
-				}
-				else if (string.IsNullOrEmpty(service.Repairman_Name))
-				{
-					repairmanNameTextBox.Focus();
-				}
-				else if (listServiceDataGridView.Rows.Count <= 0)
-				{
-					serviceNameComboBox.Focus();
-				}
-
-				Mbb.Windows.Forms.MessageBox.Show
-					(text: errorMessage, caption: "خطای ورودی", icon: Mbb.Windows.Forms.MessageBoxIcon.Error, button: Mbb.Windows.Forms.MessageBoxButtons.Ok);
-
-				return false;
-			}
-			else
-			{
-				return true;
-			}
-		}
-		#endregion /InputValidation
-
-		#region LoadingCapitalFund
+		#region GetCapitalFund
 		/// <summary>
 		/// بارگذاری مبلغ صندوق
 		/// </summary>
 		/// <returns></returns>
-		private long LoadingCapitalFund()
+		private decimal GetCapitalFund()
 		{
-			long capital_Fund;
+			decimal capital_Fund;
 			Models.DataBaseContext dataBaseContext = null;
 			try
 			{
@@ -1067,7 +1005,7 @@ namespace Inventory_Forms
 					}
 					else
 					{
-						capital_Fund = long.Parse(capitalFund.Capital_Fund.Replace("تومان", string.Empty).Replace(",", string.Empty).Trim());
+						capital_Fund = decimal.Parse(capitalFund.Capital_Fund.Replace("تومان", string.Empty).Replace(",", string.Empty).Trim());
 						return capital_Fund;
 					}
 
@@ -1087,13 +1025,13 @@ namespace Inventory_Forms
 				}
 			}
 		}
-		#endregion /LoadingCapitalFund
+		#endregion /GetCapitalFund
 
-		#region LoadService
+		#region GetServiceName
 		/// <summary>
-		/// بارگذاری سرویسها از دیتابیس به داخل برنامه
+		/// بارگذاری لیست اسامی سرویسها از دیتابیس به داخل برنامه
 		/// </summary>
-		private void LoadService()
+		private void GetServiceName()
 		{
 			serviceNameComboBox.Items.Add("...انتخاب سرویس");
 			serviceNameComboBox.StartIndex = 0;
@@ -1104,10 +1042,10 @@ namespace Inventory_Forms
 				dataBaseContext =
 					 new Models.DataBaseContext();
 
-				System.Collections.Generic.List<Models.TypesService> listTypesService = new System.Collections.Generic.List<Models.TypesService>();
+				System.Collections.Generic.List<Models.ListServiceName> listTypesService = new System.Collections.Generic.List<Models.ListServiceName>();
 
 				listTypesService =
-					dataBaseContext.TypesServices
+					dataBaseContext.ListServiceNames
 					.OrderBy(current => current.Id)
 					.ToList();
 
@@ -1125,7 +1063,179 @@ namespace Inventory_Forms
 				Infrastructure.Utility.ExceptionShow(ex);
 			}
 		}
-		#endregion /LoadService
+		#endregion /GetServiceName
+
+		#region Initialize
+		/// <summary>
+		/// مقداردهی اولیه
+		/// </summary>
+		private void Initialize()
+		{
+			_audit.Capital_Fund = GetCapitalFund();
+			inventorySerialNumberTextBox.Text = Service.Invoice_Serial_Numvber = _audit.Invoice_Serial_Number = SetInvoiceSerialNumber();
+			_audit.Register_Date = Service.Service_Date =
+				Infrastructure.Utility.PersianCalendar(System.DateTime.Now);
+			_audit.Register_Time = Service.Service_Time =
+				   Infrastructure.Utility.ShowTime();
+			serviceDateTextBox.Text =
+				$"{Infrastructure.Utility.PersianCalendar(System.DateTime.Now)} - { Infrastructure.Utility.ShowTime()}";
+			GetServiceName();
+		}
+		#endregion /Initialize
+
+		#region InputValidation
+		/// <summary>
+		/// اعتبار سنچی ورودی اطلاعات
+		/// </summary>
+		/// <param name="_service"></param>
+		/// <param name="_invoiceSerialNumber"></param>
+		/// <returns>true or false</returns>
+		private bool InputValidation(Models.ListService _service, Models.ServiceInvoice _invoiceSerialNumber)
+		{
+			string errorMessage = null;
+
+			if (string.IsNullOrEmpty(_invoiceSerialNumber.Client_Name))
+			{
+				errorMessage = "لطفا نام مشتری را وارد نمایید.";
+			}
+			if (string.IsNullOrEmpty(_invoiceSerialNumber.License_Plate))
+			{
+				if (!string.IsNullOrEmpty(errorMessage))
+				{
+					errorMessage +=
+						System.Environment.NewLine;
+				}
+				errorMessage += "لطفا شماره پلاک وسیله نقلیه را وارد نمایید.";
+			}
+			if (string.IsNullOrEmpty(_service.Service_Name))
+			{
+				if (!string.IsNullOrEmpty(errorMessage))
+				{
+					errorMessage +=
+						System.Environment.NewLine;
+				}
+				errorMessage += "لطفا نام سرویس را انتخاب نمایید.";
+			}
+			if (string.IsNullOrEmpty(_service.Service_Price))
+			{
+				if (!string.IsNullOrEmpty(errorMessage))
+				{
+					errorMessage +=
+						System.Environment.NewLine;
+				}
+				errorMessage += "لطفا هزینه سرویس را وارد نمایید.";
+			}
+			if (string.IsNullOrEmpty(_service.Service_Number.ToString()))
+			{
+				if (!string.IsNullOrEmpty(errorMessage))
+				{
+					errorMessage +=
+						System.Environment.NewLine;
+				}
+				errorMessage += "لطفا تعداد سرویس را وارد نمایید.";
+			}
+			if (string.IsNullOrEmpty(_service.Repairman_Name))
+			{
+				if (!string.IsNullOrEmpty(errorMessage))
+				{
+					errorMessage +=
+						System.Environment.NewLine;
+				}
+				errorMessage += "لطفا نام تعمیرکار را وارد نمایید.";
+			}
+			if (string.IsNullOrEmpty(_service.Description))
+			{
+				if (!string.IsNullOrEmpty(errorMessage))
+				{
+					errorMessage +=
+						System.Environment.NewLine;
+				}
+				errorMessage += "لطفا توضیحات مربوط به سرویس را درج نمایید.";
+			}
+			if (string.IsNullOrEmpty(_invoiceSerialNumber.Current_Kilometer))
+			{
+				if (!string.IsNullOrEmpty(errorMessage))
+				{
+					errorMessage +=
+						System.Environment.NewLine;
+				}
+				errorMessage += "لطفا کیلومتر فعلی را وارد نمایید.";
+			}
+			if (string.IsNullOrEmpty(_invoiceSerialNumber.Next_Kilometer))
+			{
+				if (!string.IsNullOrEmpty(errorMessage))
+				{
+					errorMessage +=
+						System.Environment.NewLine;
+				}
+				errorMessage += "لطفا کیلومتر بعدی وارد نماییید.";
+			}
+			if (listServiceDataGridView.Rows.Count <= 0)
+			{
+				if (!string.IsNullOrEmpty(errorMessage))
+				{
+					errorMessage +=
+						System.Environment.NewLine;
+				}
+				errorMessage += "حداقل یک سرویس ثبت نمایید.";
+			}
+
+			if (!string.IsNullOrEmpty(errorMessage))
+			{
+				if (string.IsNullOrEmpty(_invoiceSerialNumber.Client_Name))
+				{
+					clientNameTextBox.Focus();
+				}
+				else if (string.IsNullOrEmpty(_invoiceSerialNumber.License_Plate))
+				{
+					licensePlateTextBox.Focus();
+				}
+				else if (string.IsNullOrEmpty(_service.Service_Name))
+				{
+					serviceNameComboBox.Focus();
+				}
+				else if (string.IsNullOrEmpty(_service.Service_Price))
+				{
+					servicePriceTextBox.Focus();
+				}
+				else if (string.IsNullOrEmpty(_service.Service_Number.ToString()))
+				{
+					serviceNumberTextBox.Focus();
+				}
+				else if (string.IsNullOrEmpty(_service.Repairman_Name))
+				{
+					repairmanNameTextBox.Focus();
+				}
+				else if (string.IsNullOrEmpty(_service.Description))
+				{
+					descriptionTextBox.Focus();
+				}
+				else if (string.IsNullOrEmpty(_invoiceSerialNumber.Current_Kilometer))
+				{
+					currerntKilometerTextBox.Focus();
+				}
+				else if (string.IsNullOrEmpty(_invoiceSerialNumber.Next_Kilometer))
+				{
+					nextKilometerTextBox.Focus();
+				}
+				else if (listServiceDataGridView.Rows.Count <= 0)
+				{
+					serviceNameComboBox.Focus();
+				}
+
+				Mbb.Windows.Forms.MessageBox.Show
+					(text: errorMessage, caption: "خطای ورودی", icon: Mbb.Windows.Forms.MessageBoxIcon.Error, button: Mbb.Windows.Forms.MessageBoxButtons.Ok);
+
+				return false;
+			}
+			else
+			{
+				return true;
+			}
+		}
+		#endregion /InputValidation
+
+		
 
 		#region NewService
 		/// <summary>
@@ -1138,8 +1248,11 @@ namespace Inventory_Forms
 			clientNameTextBox.Clear();
 			serviceNameComboBox.StartIndex = 0;
 			serviceNumberTextBox.Clear();
-			registerDateTextBox.Text =
-				$"{Infrastructure.Utility.PersianCalendar(System.DateTime.Now)} - { Infrastructure.Utility.ShowTime()}";
+			serviceDateTextBox.Text =
+				$"{Infrastructure.Utility.PersianCalendar(System.DateTime.Now)}";
+			serviceTimeTextBox.Text =
+				$"{Infrastructure.Utility.ShowTime()}";
+			inventorySerialNumberTextBox.Clear();
 			repairmanNameTextBox.Clear();
 			descriptionTextBox.Clear();
 
@@ -1388,8 +1501,8 @@ namespace Inventory_Forms
 					dataBaseContext =
 					new Models.DataBaseContext();
 
-					Models.InvoiceSerialNumber invoiceSerialNumber =
-						dataBaseContext.InvoiceSerialNumbers
+					Models.ServiceInvoice invoiceSerialNumber =
+						dataBaseContext.ServiceInvoices
 						.Where(current => string.Compare(current.Invoice_Serial_Numvber, serialNumber) == 0)
 						.FirstOrDefault();
 					if (invoiceSerialNumber == null)
@@ -1422,7 +1535,7 @@ namespace Inventory_Forms
 		#endregion /SetInvoiceSerialNumber
 
 		#region SetService
-		private bool SetService(Models.Service _service)
+		private bool SetService(Models.ListService _service)
 		{
 			Models.DataBaseContext dataBaseContext = null;
 
@@ -1431,17 +1544,19 @@ namespace Inventory_Forms
 				dataBaseContext =
 					new Models.DataBaseContext();
 
-				Models.Service service =
-					new Models.Service();
+				Models.ListService service =
+					new Models.ListService();
 
 				foreach (System.Windows.Forms.DataGridViewRow row in listServiceDataGridView.Rows)
 				{
-					service.Client_Name = _service.Client_Name;
+					service.Service_Date = _service.Service_Date;
+					service.Service_Time = _service.Service_Time;
+					service.Invoice_Serial_Numvber = _service.Invoice_Serial_Numvber;
 					service.Repairman_Name = _service.Repairman_Name;
 					service.Service_Name = $"{row.Cells[0].Value}";
 					service.Description = $"{row.Cells[1].Value}";
 					service.Service_Price = $"{row.Cells[2].Value}";
-					service.Service_Number = int.Parse($"{row.Cells[3].Value}");
+					service.Service_Number = byte.Parse($"{row.Cells[3].Value}");
 					service.Total_Sum_Price = $"{row.Cells[4].Value}";
 				}
 
@@ -1490,7 +1605,7 @@ namespace Inventory_Forms
 			}
 			else
 			{
-				Models.TypesService typesService = serviceNameComboBox.SelectedItem as Models.TypesService;
+				Models.ListServiceName typesService = serviceNameComboBox.SelectedItem as Models.ListServiceName;
 
 				if (typesService != null)
 				{
@@ -1512,13 +1627,13 @@ namespace Inventory_Forms
 		{
 			Infrastructure.Utility.PersianLanguage();
 
-			if (string.IsNullOrWhiteSpace(kilometersCarTextBox.Text))
+			if (string.IsNullOrWhiteSpace(currerntKilometerTextBox.Text))
 			{
-				kilometersCarTextBox.Text = "0 کیلومتر";
-				kilometersCarTextBox.Select(0, 1);
-				kilometersCarTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+				currerntKilometerTextBox.Text = "0 کیلومتر";
+				currerntKilometerTextBox.Select(0, 1);
+				currerntKilometerTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
 			}
-			else if (kilometersCarTextBox.Text.Contains("کیلومتر"))
+			else if (currerntKilometerTextBox.Text.Contains("کیلومتر"))
 			{
 				return;
 			}
@@ -1535,33 +1650,33 @@ namespace Inventory_Forms
 		#region KilometersCarTextBox_Leave
 		private void KilometersCarTextBox_Leave(object sender, System.EventArgs e)
 		{
-			if (string.IsNullOrWhiteSpace(kilometersCarTextBox.Text))
+			if (string.IsNullOrWhiteSpace(currerntKilometerTextBox.Text))
 			{
-				kilometersCarTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+				currerntKilometerTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
 				return;
 			}
-			else if (string.Compare(kilometersCarTextBox.Text, "0 تومان") == 0)
+			else if (string.Compare(currerntKilometerTextBox.Text, "0 تومان") == 0)
 			{
-				kilometersCarTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-				kilometersCarTextBox.Clear();
+				currerntKilometerTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+				currerntKilometerTextBox.Clear();
 				return;
 			}
-			else if (string.Compare(kilometersCarTextBox.Text, " کیلومتر") == 0 ||
-				string.Compare(kilometersCarTextBox.Text, "کیلومتر") == 0 ||
-				string.Compare(kilometersCarTextBox.Text, "کیلومت") == 0 ||
-				string.Compare(kilometersCarTextBox.Text, "کیلوم") == 0 ||
-				string.Compare(kilometersCarTextBox.Text, "کیلو") == 0 ||
-				string.Compare(kilometersCarTextBox.Text, "کیل") == 0 ||
-				string.Compare(kilometersCarTextBox.Text, "کی") == 0 ||
-				string.Compare(kilometersCarTextBox.Text, "ک") == 0)
+			else if (string.Compare(currerntKilometerTextBox.Text, " کیلومتر") == 0 ||
+				string.Compare(currerntKilometerTextBox.Text, "کیلومتر") == 0 ||
+				string.Compare(currerntKilometerTextBox.Text, "کیلومت") == 0 ||
+				string.Compare(currerntKilometerTextBox.Text, "کیلوم") == 0 ||
+				string.Compare(currerntKilometerTextBox.Text, "کیلو") == 0 ||
+				string.Compare(currerntKilometerTextBox.Text, "کیل") == 0 ||
+				string.Compare(currerntKilometerTextBox.Text, "کی") == 0 ||
+				string.Compare(currerntKilometerTextBox.Text, "ک") == 0)
 			{
-				kilometersCarTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-				kilometersCarTextBox.Clear();
+				currerntKilometerTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+				currerntKilometerTextBox.Clear();
 				return;
 			}
 			else
 			{
-				kilometersCarTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+				currerntKilometerTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
 
 				//-----ادامه کد را بنویسید
 			}
@@ -1571,13 +1686,13 @@ namespace Inventory_Forms
 		#region KilometersCarTextBox_TextChange
 		private void KilometersCarTextBox_TextChange(object sender, System.EventArgs e)
 		{
-			if (string.IsNullOrWhiteSpace(kilometersCarTextBox.Text))
+			if (string.IsNullOrWhiteSpace(currerntKilometerTextBox.Text))
 			{
-				kilometersCarTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+				currerntKilometerTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
 			}
 			else
 			{
-				kilometersCarTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+				currerntKilometerTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
 			}
 		}
 		#endregion /KilometersCarTextBox_TextChange

@@ -1,11 +1,11 @@
 ﻿namespace Models
 {
 	/// <summary>
-	/// شماره فاکتور
+	/// فاکتور سرویس
 	/// </summary>
-	public class InvoiceSerialNumber
+	public class ServiceInvoice
 	{
-		public InvoiceSerialNumber()
+		public ServiceInvoice()
 		{
 
 		}
@@ -82,6 +82,18 @@
 			(maximumLength:20)]
 		public string Next_Kilometer { get; set; }
 		#endregion /Next_Kilometer
+
+		/// <summary>
+		/// شماره تماس
+		/// </summary>
+		#region Phone_Number
+		//-----DisplayName field for Phone_Number
+		[System.ComponentModel.DisplayName(displayName: "شماره تماس")]
+		//--Lenght Phone_Number
+		[System.ComponentModel.DataAnnotations.StringLength
+			(maximumLength: 10)]
+		public string Phone_Number { get; set; }
+		#endregion /Phone_Number
 
 		/// <summary>
 		/// تاریخ سرویس

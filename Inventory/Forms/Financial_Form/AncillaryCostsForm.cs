@@ -79,7 +79,8 @@ namespace Financial_Form
 		public AncillaryCostsForm()
 		{
 			InitializeComponent();
-			Capital_Fund = LoadingCapitalFund();
+
+			Initialize();
 		}
 
 
@@ -213,6 +214,18 @@ namespace Financial_Form
 
 		//--------------------------------------------------------------------------------------------------    Private Methods
 
+
+		#region Initialize
+		/// <summary>
+		/// مقداردهی اولیه
+		/// </summary>
+		private void Initialize()
+		{
+			Capital_Fund = LoadingCapitalFund();
+			LoadListIncidentalExpenses();
+		}
+		#endregion /Initialize
+
 		#region SetEventLog
 
 		private void SetEventLog(Models.AncillaryCosts _ancillaryCosts)
@@ -337,6 +350,44 @@ namespace Financial_Form
 			}
 		}
 		#endregion /LoadingCapitalFund
+
+		#region LoadListIncidentalExpenses
+		/// <summary>
+		/// بارگذاری لیست اسامی هزینه ها از دیتابیس به داخل برنامه
+		/// </summary>
+		private void LoadListIncidentalExpenses()
+		{
+			listExpensesComboBox.Items.Add("...انتخاب هزینه");
+			listExpensesComboBox.StartIndex = 0;
+
+			Models.DataBaseContext dataBaseContext = null;
+			try
+			{
+				dataBaseContext =
+					 new Models.DataBaseContext();
+
+				System.Collections.Generic.List<Models.ListIncidentalExpensesName> listIncidentalExpenses = new System.Collections.Generic.List<Models.ListIncidentalExpensesName>();
+
+				listIncidentalExpenses =
+					dataBaseContext.ListIncidentalExpensesNames
+					.OrderBy(current => current.Id)
+					.ToList();
+
+
+				for (int i = 0; i < listIncidentalExpenses.Count; i++)
+				{
+					listExpensesComboBox.Items.Add(listIncidentalExpenses.ElementAt(i));
+					listExpensesComboBox.ValueMember = "Id";
+					listExpensesComboBox.DisplayMember = "List_Cost_Name";
+				}
+			}
+			catch (System.Exception ex)
+			{
+
+				Infrastructure.Utility.ExceptionShow(ex);
+			}
+		}
+		#endregion /LoadListIncidentalExpenses
 
 		#region SetToAncillaryCosts
 		/// <summary>

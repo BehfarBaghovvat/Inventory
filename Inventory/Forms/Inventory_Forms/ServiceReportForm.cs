@@ -284,10 +284,10 @@ namespace Inventory_Forms
 				dataBaseContext =
 					new Models.DataBaseContext();
 
-				System.Collections.Generic.List<Models.Service> listService = null;
+				System.Collections.Generic.List<Models.ListService> listService = null;
 
-				Models.InvoiceSerialNumber invoiceSerialNumber=
-					dataBaseContext.InvoiceSerialNumbers
+				Models.ServiceInvoice invoiceSerialNumber=
+					dataBaseContext.ServiceInvoices
 					.Where(current => string.Compare(current.Invoice_Serial_Numvber, _invoiceSerialNumvber) == 0)
 					.FirstOrDefault();
 
@@ -313,7 +313,13 @@ namespace Inventory_Forms
 				serviceListDataGridView.DataSource = listService;
 
 				invoiceSerialNumberTextBox.Text = invoiceSerialNumber.Invoice_Serial_Numvber;
-
+				serviceDateTextBox.Text = invoiceSerialNumber.Service_Date;
+				serviceTimeTextBox.Text = invoiceSerialNumber.Service_Time;
+				currentKilometersTextBox.Text = invoiceSerialNumber.Current_Kilometer;
+				clientNameTextBox.Text = invoiceSerialNumber.Client_Name;
+				licensePlateTextBox.Text = invoiceSerialNumber.License_Plate;
+				phonNumberTextBox.Text = invoiceSerialNumber.Phone_Number;
+				nextKilometersTextBox.Text = invoiceSerialNumber.Next_Kilometer;
 
 
 
@@ -358,7 +364,7 @@ namespace Inventory_Forms
 				dataBaseContext =
 					new Models.DataBaseContext();
 
-				System.Collections.Generic.List<Models.Service> serviceList = new System.Collections.Generic.List<Models.Service>();
+				System.Collections.Generic.List<Models.ListService> serviceList = new System.Collections.Generic.List<Models.ListService>();
 
 				serviceList =
 					dataBaseContext.Services

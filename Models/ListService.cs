@@ -3,9 +3,9 @@
 	/// <summary>
 	/// جدول سرویس خودرو
 	/// </summary>
-	public class Service
+	public class ListService
 	{
-		public Service()
+		public ListService()
 		{
 
 		}
@@ -52,30 +52,6 @@
 		#endregion /Invoice_Serial_Numvber
 
 		/// <summary>
-		/// تاریخ ثبت سرویس
-		/// </summary>
-		#region Registration_Date
-		//-----DisplayName field for RegistrationDate
-		[System.ComponentModel.DisplayName(displayName: "تاریخ سرویس")]
-		//--Lenght RegistrationTime
-		[System.ComponentModel.DataAnnotations.StringLength
-			(maximumLength: 10)]
-		public string Registration_Date { get; set; }
-		#endregion /Registration_Date
-
-		/// <summary>
-		/// زمان ثبت سرویس
-		/// </summary>
-		#region Registration_Time
-		//-----DisplayName field for RegistrationTime
-		[System.ComponentModel.DisplayName(displayName: "زمان سرویس")]
-		//--Lenght RegistrationTime
-		[System.ComponentModel.DataAnnotations.StringLength
-			(maximumLength: 8)]
-		public string Registration_Time { get; set; }
-		#endregion /Registration_Time
-
-		/// <summary>
 		/// نام تعمیر کار
 		/// </summary>
 		#region Repairmaen_Name
@@ -91,18 +67,16 @@
 		#endregion /Repairmaen_Name
 
 		/// <summary>
-		/// قیمت سرویس
+		/// تاریخ ثبت سرویس
 		/// </summary>
-		#region Service_Price
-		/// <summary>
-		/// قیمتی که برای هر سرویس یا کار انجام شده تعیین میگردد
-		/// </summary>
-		[System.ComponentModel.DisplayName(displayName: "قیمت سرویس ")]
-		//--Lenght FullName
+		#region Service_Date
+		//-----DisplayName field for Service_Date
+		[System.ComponentModel.DisplayName(displayName: "تاریخ سرویس")]
+		//--Lenght Service_Date
 		[System.ComponentModel.DataAnnotations.StringLength
-			(maximumLength: 150)]
-		public string Service_Price { get; set; }
-		#endregion /Service_Price
+			(maximumLength: 10)]
+		public string Service_Date { get; set; }
+		#endregion /Service_Date
 
 		/// <summary>
 		/// نام سرویس
@@ -128,8 +102,34 @@
 		/// </summary>
 		//-----DisplayName field for FullName
 		[System.ComponentModel.DisplayName(displayName: "تعداد سرویس")]
-		public int? Service_Number { get; set; }
+		public byte? Service_Number { get; set; }
 		#endregion /Service_Number
+
+		/// <summary>
+		/// قیمت سرویس
+		/// </summary>
+		#region Service_Price
+		/// <summary>
+		/// قیمتی که برای هر سرویس یا کار انجام شده تعیین میگردد
+		/// </summary>
+		[System.ComponentModel.DisplayName(displayName: "قیمت سرویس ")]
+		//--Lenght FullName
+		[System.ComponentModel.DataAnnotations.StringLength
+			(maximumLength: 150)]
+		public string Service_Price { get; set; }
+		#endregion /Service_Price
+
+		/// <summary>
+		/// زمان ثبت سرویس
+		/// </summary>
+		#region Service_Time
+		//-----DisplayName field for Service_Time
+		[System.ComponentModel.DisplayName(displayName: "زمان سرویس")]
+		//--Lenght Service_Time
+		[System.ComponentModel.DataAnnotations.StringLength
+			(maximumLength: 8)]
+		public string Service_Time { get; set; }
+		#endregion /Service_Time
 
 		/// <summary>
 		/// جمع قیمت

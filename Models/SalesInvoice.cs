@@ -58,46 +58,28 @@
 		#endregion /Invoice_Serial_Numvber
 
 		/// <summary>
-		/// نام کالا
+		/// تایخ فروش
 		/// </summary>
-		#region Product_Name
-		//--DisplayName field for Product_Name
-		[System.ComponentModel.DisplayName(displayName: "نام کالا")]
-		//--Lenght Product_Name
+		#region Sales_Date
+		//-----DisplayName field for RegistrationDate
+		[System.ComponentModel.DisplayName(displayName: "تاریخ فروش")]
+		//--Lenght RegistrationTime
 		[System.ComponentModel.DataAnnotations.StringLength
-			(maximumLength: 100)]
-		public string Product_Name { get; set; }
-		#endregion /Product_Name
+			(maximumLength: 10)]
+		public string Sales_Date { get; set; }
+		#endregion /Sales_Date
 
 		/// <summary>
-		/// قیمت کالا
+		/// زمان فروش
 		/// </summary>
-		#region Product_Price
-		//--DisplayName field for Product_Price
-		[System.ComponentModel.DisplayName(displayName: "قیمت کالا")]
-		//--Lenght Product_Price
+		#region Sales_Time
+		//-----DisplayName field for Purchase_Time
+		[System.ComponentModel.DisplayName(displayName: "زمان فروش")]
+		//--Lenght Purchase_Time
 		[System.ComponentModel.DataAnnotations.StringLength
-			(maximumLength: 150)]
-		public string Product_Price { get; set; }
-		#endregion /Product_Price
-
-		/// <summary>
-		/// تعداد کالا
-		/// </summary>
-		#region Product_Quantity
-		//--DisplayName field for Product_Quantity
-		[System.ComponentModel.DisplayName(displayName: "تعداد کالا")]
-		public int? Product_Quantity { get; set; }
-		#endregion /Product_Quantity
-
-		/// <summary>
-		/// واحد کالا
-		/// </summary>
-		#region Product_Unit
-		//--DisplayName field for Product_Unit
-		[System.ComponentModel.DisplayName(displayName: "واحد کالا")]
-		public string Product_Unit { get; set; }
-		#endregion /Product_Unit
+			(maximumLength: 8)]
+		public string Sales_Time { get; set; }
+		#endregion /Sales_Time
 
 		/// <summary>
 		/// نام فروشنده

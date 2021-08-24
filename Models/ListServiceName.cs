@@ -3,9 +3,9 @@
 	/// <summary>
 	/// لیست انواع خدمات
 	/// </summary>
-	public class TypesService
+	public class ListServiceName
 	{
-		public TypesService()
+		public ListServiceName()
 		{
 
 		}

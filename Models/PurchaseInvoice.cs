@@ -45,48 +45,6 @@
 		#endregion /Invoice_Serial_Numvber
 
 		/// <summary>
-		/// نام کالا
-		/// </summary>
-		#region Product_Name
-		//--DisplayName field for Product_Name
-		[System.ComponentModel.DisplayName(displayName: "نام کالا")]
-		//--Lenght Product_Name
-		[System.ComponentModel.DataAnnotations.StringLength
-			(maximumLength: 100)]
-		public string Product_Name { get; set; }
-		#endregion /Product_Name
-
-		/// <summary>
-		/// قیمت کالا
-		/// </summary>
-		#region Product_Price
-		//--DisplayName field for Product_Price
-		[System.ComponentModel.DisplayName(displayName: "قیمت کالا")]
-		//--Lenght Product_Price
-		[System.ComponentModel.DataAnnotations.StringLength
-			(maximumLength: 150)]
-		public string Product_Price { get; set; }
-		#endregion /Product_Price
-
-		/// <summary>
-		/// تعداد کالا
-		/// </summary>
-		#region Product_Quantity
-		//--DisplayName field for Product_Quantity
-		[System.ComponentModel.DisplayName(displayName: "تعداد کالا")]
-		public int? Product_Quantity { get; set; }
-		#endregion /Product_Quantity
-
-		/// <summary>
-		/// واحد کالا
-		/// </summary>
-		#region Product_Unit
-		//--DisplayName field for Product_Unit
-		[System.ComponentModel.DisplayName(displayName: "واحد کالا")]
-		public string Product_Unit { get; set; }
-		#endregion /Product_Unit
-
-		/// <summary>
 		/// نام تحویل گیرنده
 		/// </summary>
 		#region Recipient_Name
@@ -97,6 +55,30 @@
 			(maximumLength: 60)]
 		public string Recipient_Name { get; set; }
 		#endregion /Recipient_Name
+
+		/// <summary>
+		/// تایخ خرید
+		/// </summary>
+		#region Purchase_Date
+		//-----DisplayName field for RegistrationDate
+		[System.ComponentModel.DisplayName(displayName: "تاریخ خرید")]
+		//--Lenght RegistrationTime
+		[System.ComponentModel.DataAnnotations.StringLength
+			(maximumLength: 10)]
+		public string Purchase_Date { get; set; }
+		#endregion /Purchase_Date
+
+		/// <summary>
+		/// زمان خرید
+		/// </summary>
+		#region Purchase_Time
+		//-----DisplayName field for Purchase_Time
+		[System.ComponentModel.DisplayName(displayName: "زمان خرید")]
+		//--Lenght Purchase_Time
+		[System.ComponentModel.DataAnnotations.StringLength
+			(maximumLength: 8)]
+		public string Purchase_Time { get; set; }
+		#endregion /Purchase_Time
 
 		/// <summary>
 		/// نام فرستنده

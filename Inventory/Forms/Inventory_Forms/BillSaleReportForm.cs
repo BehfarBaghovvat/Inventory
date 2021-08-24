@@ -1154,8 +1154,8 @@ namespace Inventory_Forms
 					dataBaseContext =
 					new Models.DataBaseContext();
 
-					Models.InvoiceSerialNumber invoiceSerialNumber =
-						dataBaseContext.InvoiceSerialNumbers
+					Models.ServiceInvoice invoiceSerialNumber =
+						dataBaseContext.ServiceInvoices
 						.Where(current => string.Compare(current.Invoice_Serial_Numvber, serialNumber) == 0)
 						.FirstOrDefault();
 					if (invoiceSerialNumber == null)
