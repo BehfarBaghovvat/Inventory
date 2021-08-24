@@ -34,13 +34,11 @@ namespace Inventory
 			this.menuPanel = new Mbb.Windows.Forms.Panel();
 			this.separator5 = new Mbb.Windows.Forms.Panel();
 			this.submenuSettingPanel = new Mbb.Windows.Forms.Panel();
-			this.guna2GradientButton9 = new Guna.UI2.WinForms.Guna2GradientButton();
 			this.guna2GradientButton10 = new Guna.UI2.WinForms.Guna2GradientButton();
 			this.guna2GradientButton11 = new Guna.UI2.WinForms.Guna2GradientButton();
 			this.settingButton = new Guna.UI2.WinForms.Guna2GradientButton();
 			this.separator4 = new Mbb.Windows.Forms.Panel();
 			this.submenuClientPanel = new Mbb.Windows.Forms.Panel();
-			this.guna2GradientButton5 = new Guna.UI2.WinForms.Guna2GradientButton();
 			this.guna2GradientButton6 = new Guna.UI2.WinForms.Guna2GradientButton();
 			this.guna2GradientButton7 = new Guna.UI2.WinForms.Guna2GradientButton();
 			this.clientButton = new Guna.UI2.WinForms.Guna2GradientButton();
@@ -77,6 +75,7 @@ namespace Inventory
 			this.hoursLabel = new Mbb.Windows.Forms.Label();
 			this.solarCalenderLabel = new Mbb.Windows.Forms.Label();
 			this.topMainPanel = new Guna.UI2.WinForms.Guna2Panel();
+			this.fundLabel = new Mbb.Windows.Forms.Label();
 			this.fundsNotificationTextBox = new Mbb.Windows.Forms.Label();
 			this.logoutButton = new Guna.UI2.WinForms.Guna2CircleButton();
 			this.shutDownButton = new Guna.UI2.WinForms.Guna2CircleButton();
@@ -90,7 +89,6 @@ namespace Inventory
 			this.dropUpSettingTimer = new System.Windows.Forms.Timer(this.components);
 			this.dropDownSettingTimer = new System.Windows.Forms.Timer(this.components);
 			this.logOutMainFormTimer = new System.Windows.Forms.Timer(this.components);
-			this.fundLabel = new Mbb.Windows.Forms.Label();
 			this.menuPanel.SuspendLayout();
 			this.submenuSettingPanel.SuspendLayout();
 			this.submenuClientPanel.SuspendLayout();
@@ -135,46 +133,20 @@ namespace Inventory
 			// 
 			this.separator5.BackColor = System.Drawing.Color.Indigo;
 			this.separator5.Dock = System.Windows.Forms.DockStyle.Top;
-			this.separator5.Location = new System.Drawing.Point(0, 980);
+			this.separator5.Location = new System.Drawing.Point(0, 910);
 			this.separator5.Name = "separator5";
 			this.separator5.Size = new System.Drawing.Size(183, 5);
 			this.separator5.TabIndex = 32;
 			// 
 			// submenuSettingPanel
 			// 
-			this.submenuSettingPanel.Controls.Add(this.guna2GradientButton9);
 			this.submenuSettingPanel.Controls.Add(this.guna2GradientButton10);
 			this.submenuSettingPanel.Controls.Add(this.guna2GradientButton11);
 			this.submenuSettingPanel.Dock = System.Windows.Forms.DockStyle.Top;
-			this.submenuSettingPanel.Location = new System.Drawing.Point(0, 860);
+			this.submenuSettingPanel.Location = new System.Drawing.Point(0, 825);
 			this.submenuSettingPanel.Name = "submenuSettingPanel";
-			this.submenuSettingPanel.Size = new System.Drawing.Size(183, 120);
+			this.submenuSettingPanel.Size = new System.Drawing.Size(183, 85);
 			this.submenuSettingPanel.TabIndex = 31;
-			// 
-			// guna2GradientButton9
-			// 
-			this.guna2GradientButton9.Animated = true;
-			this.guna2GradientButton9.BackColor = System.Drawing.Color.Transparent;
-			this.guna2GradientButton9.BorderRadius = 5;
-			this.guna2GradientButton9.CheckedState.FillColor = System.Drawing.Color.Olive;
-			this.guna2GradientButton9.CheckedState.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(0)))), ((int)(((byte)(61)))));
-			this.guna2GradientButton9.CheckedState.Parent = this.guna2GradientButton9;
-			this.guna2GradientButton9.CustomImages.Parent = this.guna2GradientButton9;
-			this.guna2GradientButton9.FillColor = System.Drawing.Color.Lime;
-			this.guna2GradientButton9.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(0)))), ((int)(((byte)(61)))));
-			this.guna2GradientButton9.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-			this.guna2GradientButton9.ForeColor = System.Drawing.Color.White;
-			this.guna2GradientButton9.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(0)))), ((int)(((byte)(61)))));
-			this.guna2GradientButton9.HoverState.FillColor2 = System.Drawing.Color.Lime;
-			this.guna2GradientButton9.HoverState.Parent = this.guna2GradientButton9;
-			this.guna2GradientButton9.Location = new System.Drawing.Point(16, 81);
-			this.guna2GradientButton9.Name = "guna2GradientButton9";
-			this.guna2GradientButton9.PressedColor = System.Drawing.Color.White;
-			this.guna2GradientButton9.ShadowDecoration.Enabled = true;
-			this.guna2GradientButton9.ShadowDecoration.Parent = this.guna2GradientButton9;
-			this.guna2GradientButton9.Size = new System.Drawing.Size(150, 30);
-			this.guna2GradientButton9.TabIndex = 0;
-			this.guna2GradientButton9.Text = "موجودی انبار";
 			// 
 			// guna2GradientButton10
 			// 
@@ -199,7 +171,7 @@ namespace Inventory
 			this.guna2GradientButton10.ShadowDecoration.Parent = this.guna2GradientButton10;
 			this.guna2GradientButton10.Size = new System.Drawing.Size(150, 30);
 			this.guna2GradientButton10.TabIndex = 0;
-			this.guna2GradientButton10.Text = "ورودی انبار";
+			this.guna2GradientButton10.Text = "تنظیمات مدیریتی";
 			// 
 			// guna2GradientButton11
 			// 
@@ -224,7 +196,7 @@ namespace Inventory
 			this.guna2GradientButton11.ShadowDecoration.Parent = this.guna2GradientButton11;
 			this.guna2GradientButton11.Size = new System.Drawing.Size(150, 30);
 			this.guna2GradientButton11.TabIndex = 0;
-			this.guna2GradientButton11.Text = "خروجی انبار";
+			this.guna2GradientButton11.Text = "تنظیمات پشتیبان گیری";
 			// 
 			// settingButton
 			// 
@@ -240,7 +212,7 @@ namespace Inventory
 			this.settingButton.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(0)))), ((int)(((byte)(61)))));
 			this.settingButton.HoverState.FillColor2 = System.Drawing.Color.Teal;
 			this.settingButton.HoverState.Parent = this.settingButton;
-			this.settingButton.Location = new System.Drawing.Point(0, 815);
+			this.settingButton.Location = new System.Drawing.Point(0, 780);
 			this.settingButton.Name = "settingButton";
 			this.settingButton.PressedColor = System.Drawing.Color.White;
 			this.settingButton.ShadowDecoration.Parent = this.settingButton;
@@ -253,46 +225,20 @@ namespace Inventory
 			// 
 			this.separator4.BackColor = System.Drawing.Color.Indigo;
 			this.separator4.Dock = System.Windows.Forms.DockStyle.Top;
-			this.separator4.Location = new System.Drawing.Point(0, 810);
+			this.separator4.Location = new System.Drawing.Point(0, 775);
 			this.separator4.Name = "separator4";
 			this.separator4.Size = new System.Drawing.Size(183, 5);
 			this.separator4.TabIndex = 29;
 			// 
 			// submenuClientPanel
 			// 
-			this.submenuClientPanel.Controls.Add(this.guna2GradientButton5);
 			this.submenuClientPanel.Controls.Add(this.guna2GradientButton6);
 			this.submenuClientPanel.Controls.Add(this.guna2GradientButton7);
 			this.submenuClientPanel.Dock = System.Windows.Forms.DockStyle.Top;
 			this.submenuClientPanel.Location = new System.Drawing.Point(0, 690);
 			this.submenuClientPanel.Name = "submenuClientPanel";
-			this.submenuClientPanel.Size = new System.Drawing.Size(183, 120);
+			this.submenuClientPanel.Size = new System.Drawing.Size(183, 85);
 			this.submenuClientPanel.TabIndex = 28;
-			// 
-			// guna2GradientButton5
-			// 
-			this.guna2GradientButton5.Animated = true;
-			this.guna2GradientButton5.BackColor = System.Drawing.Color.Transparent;
-			this.guna2GradientButton5.BorderRadius = 5;
-			this.guna2GradientButton5.CheckedState.FillColor = System.Drawing.Color.Olive;
-			this.guna2GradientButton5.CheckedState.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(0)))), ((int)(((byte)(61)))));
-			this.guna2GradientButton5.CheckedState.Parent = this.guna2GradientButton5;
-			this.guna2GradientButton5.CustomImages.Parent = this.guna2GradientButton5;
-			this.guna2GradientButton5.FillColor = System.Drawing.Color.Lime;
-			this.guna2GradientButton5.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(0)))), ((int)(((byte)(61)))));
-			this.guna2GradientButton5.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-			this.guna2GradientButton5.ForeColor = System.Drawing.Color.White;
-			this.guna2GradientButton5.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(0)))), ((int)(((byte)(61)))));
-			this.guna2GradientButton5.HoverState.FillColor2 = System.Drawing.Color.Lime;
-			this.guna2GradientButton5.HoverState.Parent = this.guna2GradientButton5;
-			this.guna2GradientButton5.Location = new System.Drawing.Point(16, 81);
-			this.guna2GradientButton5.Name = "guna2GradientButton5";
-			this.guna2GradientButton5.PressedColor = System.Drawing.Color.White;
-			this.guna2GradientButton5.ShadowDecoration.Enabled = true;
-			this.guna2GradientButton5.ShadowDecoration.Parent = this.guna2GradientButton5;
-			this.guna2GradientButton5.Size = new System.Drawing.Size(150, 30);
-			this.guna2GradientButton5.TabIndex = 0;
-			this.guna2GradientButton5.Text = "موجودی انبار";
 			// 
 			// guna2GradientButton6
 			// 
@@ -317,7 +263,7 @@ namespace Inventory
 			this.guna2GradientButton6.ShadowDecoration.Parent = this.guna2GradientButton6;
 			this.guna2GradientButton6.Size = new System.Drawing.Size(150, 30);
 			this.guna2GradientButton6.TabIndex = 0;
-			this.guna2GradientButton6.Text = "ورودی انبار";
+			this.guna2GradientButton6.Text = "ثبت مشتری";
 			// 
 			// guna2GradientButton7
 			// 
@@ -342,7 +288,7 @@ namespace Inventory
 			this.guna2GradientButton7.ShadowDecoration.Parent = this.guna2GradientButton7;
 			this.guna2GradientButton7.Size = new System.Drawing.Size(150, 30);
 			this.guna2GradientButton7.TabIndex = 0;
-			this.guna2GradientButton7.Text = "خروجی انبار";
+			this.guna2GradientButton7.Text = "وضعیت مالی مشتریان";
 			// 
 			// clientButton
 			// 
@@ -904,6 +850,18 @@ namespace Inventory
 			this.topMainPanel.Size = new System.Drawing.Size(1150, 40);
 			this.topMainPanel.TabIndex = 3;
 			// 
+			// fundLabel
+			// 
+			this.fundLabel.AutoSize = true;
+			this.fundLabel.ForeColor = System.Drawing.Color.White;
+			this.fundLabel.Location = new System.Drawing.Point(48, 12);
+			this.fundLabel.Name = "fundLabel";
+			this.fundLabel.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+			this.fundLabel.Size = new System.Drawing.Size(83, 17);
+			this.fundLabel.TabIndex = 2;
+			this.fundLabel.Text = ":موجودی صندوق";
+			this.fundLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+			// 
 			// fundsNotificationTextBox
 			// 
 			this.fundsNotificationTextBox.Font = new System.Drawing.Font("IRANSans", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
@@ -1011,18 +969,6 @@ namespace Inventory
 			this.logOutMainFormTimer.Interval = 10;
 			this.logOutMainFormTimer.Tick += new System.EventHandler(this.LogOutMainFormTimer_Tick);
 			// 
-			// fundLabel
-			// 
-			this.fundLabel.AutoSize = true;
-			this.fundLabel.ForeColor = System.Drawing.Color.White;
-			this.fundLabel.Location = new System.Drawing.Point(48, 12);
-			this.fundLabel.Name = "fundLabel";
-			this.fundLabel.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-			this.fundLabel.Size = new System.Drawing.Size(83, 17);
-			this.fundLabel.TabIndex = 2;
-			this.fundLabel.Text = ":موجودی صندوق";
-			this.fundLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-			// 
 			// MainForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 17F);
@@ -1104,13 +1050,11 @@ namespace Inventory
 		private System.Windows.Forms.Timer dropDownSettingTimer;
 		private Mbb.Windows.Forms.Panel separator5;
 		private Mbb.Windows.Forms.Panel submenuSettingPanel;
-		private Guna.UI2.WinForms.Guna2GradientButton guna2GradientButton9;
 		private Guna.UI2.WinForms.Guna2GradientButton guna2GradientButton10;
 		private Guna.UI2.WinForms.Guna2GradientButton guna2GradientButton11;
 		private Guna.UI2.WinForms.Guna2GradientButton settingButton;
 		private Mbb.Windows.Forms.Panel separator4;
 		private Mbb.Windows.Forms.Panel submenuClientPanel;
-		private Guna.UI2.WinForms.Guna2GradientButton guna2GradientButton5;
 		private Guna.UI2.WinForms.Guna2GradientButton guna2GradientButton6;
 		private Guna.UI2.WinForms.Guna2GradientButton guna2GradientButton7;
 		private Guna.UI2.WinForms.Guna2GradientButton clientButton;

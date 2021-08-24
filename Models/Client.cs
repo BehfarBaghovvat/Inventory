@@ -1,7 +1,7 @@
 ﻿namespace Models
 {
 	/// <summary>
-	/// مشتری
+	/// جدول مشتریان
 	/// </summary>
 	public class Client
 	{
@@ -39,7 +39,7 @@
 		[System.ComponentModel.DisplayName(displayName: "پلاک وسیله نقیله")]
 		//--Lenght LicensePlate
 		[System.ComponentModel.DataAnnotations.StringLength
-			(maximumLength: 1000)]
+			(maximumLength: 20)]
 		public string License_Plate { get; set; }
 		#endregion /License_Plate
 

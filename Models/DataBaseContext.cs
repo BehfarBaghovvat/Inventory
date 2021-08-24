@@ -20,15 +20,19 @@
 		public System.Data.Entity.DbSet<AccountsPayable> AccountsPayables { get; set; }
         public System.Data.Entity.DbSet<AncillaryCosts> AncillaryCosts { get; set; }
         public System.Data.Entity.DbSet<CapitalFund> CapitalFunds { get; set; }
+		public System.Data.Entity.DbSet<CapitalTurnover> CapitalTurnovers { get; set; }
 		public System.Data.Entity.DbSet<Client> Clients { get; set; }
 		public System.Data.Entity.DbSet<DailyFinancialReport> DailyFinancialReports { get; set; }
 		public System.Data.Entity.DbSet<EventLog> EventLogs { get; set; }
 		public System.Data.Entity.DbSet<GeneralJournal> GeneralJournals { get; set; }
 		public System.Data.Entity.DbSet<InventoryHolding> InventoryHoldings { get; set; }
+		public System.Data.Entity.DbSet<InventoryOutput> InventoryOutputs { get; set; }
+		public System.Data.Entity.DbSet<InvoiceSerialNumber> InvoiceSerialNumbers { get; set; }
+		public System.Data.Entity.DbSet<ListClientService> ListClientServices { get; set; }
+		public System.Data.Entity.DbSet<ListIncidentalExpenses> ListIncidentalExpenses { get; set; }
+		public System.Data.Entity.DbSet<ListServiceNames> ListServiceNames { get; set; }
 		public System.Data.Entity.DbSet<LoginHistory> LoginHistories { get; set; }
 		public System.Data.Entity.DbSet<MonthlyFinancialReport> MonthlyFinancialReports { get; set; }
-		public System.Data.Entity.DbSet<InvoiceSerialNumber> InvoiceSerialNumbers { get; set; }
-		public System.Data.Entity.DbSet<InventoryOutput> InventoryOutputs { get; set; }
 		public System.Data.Entity.DbSet<ProductReceived> ProductReceiveds { get; set; }
 		public System.Data.Entity.DbSet<ProgramSetting> ProgramSettings { get; set; }
 		public System.Data.Entity.DbSet<PurchaseInvoice> PurchaseInvoices { get; set; }

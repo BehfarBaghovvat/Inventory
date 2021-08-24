@@ -1,29 +1,14 @@
 ﻿namespace Models
 {
+	/// <summary>
+	/// جدول سرویس خودرو
+	/// </summary>
 	public class Service
 	{
-		/// <summary>
-		/// جدول خدمات
-		/// </summary>
 		public Service()
 		{
 
 		}
-
-		/// <summary>
-		/// نام مشتری
-		/// </summary>
-		#region Client_Name
-		/// <summary>
-		/// نام مشتری یا درخواست کننده سرویس
-		/// </summary>
-		//-----DisplayName field for Client_Name
-		[System.ComponentModel.DisplayName(displayName: "نام مشتری")]
-		//--Lenght Client_Name
-		[System.ComponentModel.DataAnnotations.StringLength
-			(maximumLength: 60)]
-		public string Client_Name { get; set; }
-		#endregion /Client_Name
 
 		/// <summary>
 		/// توضیحات
@@ -67,14 +52,11 @@
 		#endregion /Invoice_Serial_Numvber
 
 		/// <summary>
-		/// تاریخ ثبت
-		/// </summary>
-		#region Registration_Date
-		/// <summary>
 		/// تاریخ ثبت سرویس
 		/// </summary>
+		#region Registration_Date
 		//-----DisplayName field for RegistrationDate
-		[System.ComponentModel.DisplayName(displayName: "تاریخ ثبت")]
+		[System.ComponentModel.DisplayName(displayName: "تاریخ سرویس")]
 		//--Lenght RegistrationTime
 		[System.ComponentModel.DataAnnotations.StringLength
 			(maximumLength: 10)]
@@ -82,14 +64,11 @@
 		#endregion /Registration_Date
 
 		/// <summary>
-		/// زمان ثبت
-		/// </summary>
-		#region Registration_Time
-		/// <summary>
 		/// زمان ثبت سرویس
 		/// </summary>
+		#region Registration_Time
 		//-----DisplayName field for RegistrationTime
-		[System.ComponentModel.DisplayName(displayName: "زمان ثبت")]
+		[System.ComponentModel.DisplayName(displayName: "زمان سرویس")]
 		//--Lenght RegistrationTime
 		[System.ComponentModel.DataAnnotations.StringLength
 			(maximumLength: 8)]

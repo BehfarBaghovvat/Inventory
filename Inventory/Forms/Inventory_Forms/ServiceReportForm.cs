@@ -6,7 +6,9 @@ namespace Inventory_Forms
 	{
 		//-----------------------------------------------------------------------------------------------     Fields, Properties, Layers
 
+		private int index = 0;
 
+		public string SearchItem { get; set; }
 
 		//-----------------------------------------------------------------------------------------------     Constracture
 
@@ -37,141 +39,95 @@ namespace Inventory_Forms
 		#region SelectSearchComboBox_SelectedIndexChanged
 		private void SelectSearchComboBox_SelectedIndexChanged(object sender, System.EventArgs e)
 		{
-			int index = selectSearchComboBox.SelectedIndex;
+			index = selectSearchComboBox.SelectedIndex;
 
 			switch (index)
 			{
-				case 0:
-					searchClientNameTextBox.Visible = false;
-					searchDateTextBox.Visible = false;
-					break;
 				case 1:
-					searchClientNameTextBox.Visible = true;
-					searchDateTextBox.Visible = false;
-					break;
+				Infrastructure.Utility.EnglishLanguage();
+				invoicePanel.Visible = true;
+					licensePlatePanel.Visible = false;
+				break;
+
 				case 2:
-					searchClientNameTextBox.Visible = false;
-					searchDateTextBox.Visible = true;
-					break;
+				Infrastructure.Utility.PersianLanguage();
+				invoicePanel.Visible = false;
+					licensePlatePanel.Visible = true;
+				break;
+
 				case 3:
-					searchClientNameTextBox.Visible = true;
-					searchDateTextBox.Visible = true;
-					break;
+				Infrastructure.Utility.PersianLanguage();
+				invoicePanel.Visible = false;
+					licensePlatePanel.Visible = true;
+				break;
 			}
 		}
 		#endregion /SelectSearchComboBox_SelectedIndexChanged
 
 		#region SearchClientNameTextBox_Enter
-		private void SearchClientNameTextBox_Enter(object sender, System.EventArgs e)
+		private void SearchTextBox_Enter(object sender, System.EventArgs e)
 		{
-			Infrastructure.Utility.PersianLanguage();
+			switch (index)
+			{
+				case 1:
+				searchTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+				break;
+				case 2:
+				searchTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+				break;
+				case 3:
+				searchTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+				break;
+			}
 		}
 		#endregion /SearchClientNameTextBox_Enter
 
 		#region SearchClientNameTextBox_KeyPress
-		private void SearchClientNameTextBox_KeyPress(object sender, System.Windows.Forms.KeyPressEventArgs e)
+		private void SearchTextBox_KeyPress(object sender, System.Windows.Forms.KeyPressEventArgs e)
 		{
-			Infrastructure.Utility.PersianTyping(e);
+			switch (index)
+			{
+				case 0:
+				Mbb.Windows.Forms.MessageBox.Show(
+					text: "لطفا نوع جستجو را تعیین نمایید.",
+					caption: "خطای ورودی",
+					icon: Mbb.Windows.Forms.MessageBoxIcon.Alert,
+					button: Mbb.Windows.Forms.MessageBoxButtons.Ok);
+				selectSearchComboBox.Focus();
+				break;
+				case 1:
+					Infrastructure.Utility.EnglishAndNumberTyping(e);
+				break;
+				case 2:
+				Infrastructure.Utility.PersianAndNumberTyping(e);
+				break;
+				case 3:
+				Infrastructure.Utility.InsertOnlyNumber(e);
+				break;
+			}
 		}
 		#endregion /SearchClientNameTextBox_KeyPress
 
 		#region SearchClientNameTextBox_TextChange
-		private void SearchClientNameTextBox_TextChange(object sender, System.EventArgs e)
+		private void SearchTextBox_TextChange(object sender, System.EventArgs e)
 		{
-			if (selectSearchComboBox.SelectedIndex == 1)
+			if (string.IsNullOrWhiteSpace(searchTextBox.Text))
 			{
-				if (string.IsNullOrWhiteSpace (searchClientNameTextBox.Text))
-				{
-					return;
-				}
-				else
-				{
-					ClientNameSearch(searchClientNameTextBox.Text);
-					return;
-				}
-				
+				SearchItem = null;
 			}
-			else if(selectSearchComboBox.SelectedIndex == 3)
+			else
 			{
-				if (string.IsNullOrWhiteSpace(searchClientNameTextBox.Text) || string.IsNullOrWhiteSpace(searchDateTextBox.Text))
-				{
-					return;
-				}
-				else
-				{
-					ClientAndDateSearch(searchClientNameTextBox.Text, searchDateTextBox.Text);
-				}
+				SearchItem = searchTextBox.Text;
 			}
 		}
 		#endregion /SearchClientNameTextBox_TextChange
 
-		#region SearchDateTextBox_Enter
-		private void SearchDateTextBox_Enter(object sender, System.EventArgs e)
+		#region SearchButton_Click
+		private void SearchButton_Click(object sender, System.EventArgs e)
 		{
-			Infrastructure.Utility.PersianLanguage();
-		}
-		#endregion /SearchDateTextBox_Enter
 
-		#region SearchDateTextBox_KeyPress
-		private void SearchDateTextBox_KeyPress(object sender, System.Windows.Forms.KeyPressEventArgs e)
-		{
-			Infrastructure.Utility.PersianAndNumberTyping(e);
 		}
-		#endregion /SearchDateTextBox_KeyPress
-
-		#region SearchDateTextBox_TextChange
-		private void SearchDateTextBox_TextChange(object sender, System.EventArgs e)
-		{
-			if (selectSearchComboBox.SelectedIndex == 2)
-			{
-				if (string.IsNullOrWhiteSpace(searchDateTextBox.Text))
-				{
-					return;
-				}
-				else
-				{
-					DateSearch(searchDateTextBox.Text);
-					return;
-				}
-			}
-			else if (selectSearchComboBox.SelectedIndex == 3)
-			{
-				if (string.IsNullOrWhiteSpace(searchDateTextBox.Text) || string.IsNullOrWhiteSpace(searchClientNameTextBox.Text))
-				{
-					return;
-				}
-				else
-				{
-					ClientAndDateSearch(searchClientNameTextBox.Text, searchDateTextBox.Text);
-					return;
-				}
-			}
-		}
-		#endregion /SearchDateTextBox_TextChange
-
-		#region ServiceListDataGridView_CellDoubleClick
-		private void ServiceListDataGridView_CellDoubleClick(object sender, System.Windows.Forms.DataGridViewCellEventArgs e)
-		{
-			if (e.RowIndex < 0)
-			{
-				return;
-			}
-			if (e.ColumnIndex < 0)
-			{
-				return;
-			}
-
-			clientNameLabel.Text = serviceListDataGridView.CurrentRow.Cells[1].Value.ToString();
-			repairmanNameLabel.Text = serviceListDataGridView.CurrentRow.Cells[2].Value.ToString();
-			registerDateLabel.Text = $"{serviceListDataGridView.CurrentRow.Cells[6].Value} - {serviceListDataGridView.CurrentRow.Cells[7].Value}";
-			registerDateLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-			serviceNameLabel.Text = serviceListDataGridView.CurrentRow.Cells[3].Value.ToString();
-			servicePriceLabel.Text = serviceListDataGridView.CurrentRow.Cells[4].Value.ToString();
-			serviceNumberLabel.Text = serviceListDataGridView.CurrentRow.Cells[5].Value.ToString();
-			serviceNumberLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-			descriptionLabel.Text = serviceListDataGridView.CurrentRow.Cells[8].Value.ToString();
-		}
-		#endregion /ServiceListDataGridView_CellDoubleClick
+		#endregion /SearchButton_Click
 
 
 
@@ -179,38 +135,196 @@ namespace Inventory_Forms
 
 		#region Founction
 
-		#region ClientNameSearch
-		private void ClientNameSearch(string clientName)
+		//#region ClientNameSearch
+		//private void ClientNameSearch(string clientName)
+		//{
+		//	Models.DataBaseContext dataBaseContext = null;
+
+		//	try
+		//	{
+		//		dataBaseContext =
+		//			new Models.DataBaseContext();
+		//		System.Collections.Generic.List<Models.Service> clientList = new System.Collections.Generic.List<Models.Service>();
+
+		//		if (string.IsNullOrEmpty(clientName))
+		//		{
+		//			clientList =
+		//			dataBaseContext.Services
+		//			.OrderBy(current => current.Id)
+		//			.ToList();
+		//		}
+		//		else
+		//		{
+		//			clientList =
+		//			dataBaseContext.Services
+		//			.Where(current => current.Client_Name.Contains(clientName))
+		//			.OrderBy(current => current.Client_Name)
+		//			.ToList();
+		//		}
+
+		//		serviceListDataGridView.DataSource = clientList;
+		//	}
+		//	catch (System.Exception ex)
+		//	{
+		//		Infrastructure.Utility.ExceptionShow(ex);
+		//	}
+		//	finally
+		//	{
+		//		if (dataBaseContext != null)
+		//		{
+		//			dataBaseContext.Dispose();
+		//			dataBaseContext = null;
+		//		}
+		//	}
+		//}
+		//#endregion /ClientNameSearch
+
+		//#region ClientAndDateSearch
+		//private void ClientAndDateSearch(string clientNameSearch, string dateSearch)
+		//{
+		//	Models.DataBaseContext dataBaseContext = null;
+
+		//	try
+		//	{
+		//		dataBaseContext =
+		//			new Models.DataBaseContext();
+		//		System.Collections.Generic.List<Models.Service> clientAndDateList = new System.Collections.Generic.List<Models.Service>();
+
+		//		if (string.IsNullOrEmpty(clientNameSearch) || string.IsNullOrEmpty(dateSearch))
+		//		{
+		//			clientAndDateList =
+		//			dataBaseContext.Services
+		//			.OrderBy(current => current.Id)
+		//			.ToList();
+		//		}
+		//		else
+		//		{
+		//			clientAndDateList =
+		//			dataBaseContext.Services
+		//			.Where(current => current.Client_Name.Contains(clientNameSearch) && current.Registration_Date.Contains(dateSearch))
+		//			.OrderBy(current => current.Client_Name)
+		//			.ToList();
+		//		}
+
+		//		serviceListDataGridView.DataSource = clientAndDateList;
+
+		//	}
+		//	catch (System.Exception ex)
+		//	{
+		//		Infrastructure.Utility.ExceptionShow(ex);
+		//	}
+		//	finally
+		//	{
+		//		if (dataBaseContext != null)
+		//		{
+		//			dataBaseContext.Dispose();
+		//			dataBaseContext = null;
+		//		}
+		//	}
+		//}
+		//#endregion /ClientAndDateSearch
+
+
+
+
+		//#region DateSearch
+		//private void DateSearch(string dateSearch)
+		//{
+		//	Models.DataBaseContext dataBaseContext = null;
+
+		//	try
+		//	{
+		//		dataBaseContext =
+		//			new Models.DataBaseContext();
+		//		System.Collections.Generic.List<Models.Service> dateList = new System.Collections.Generic.List<Models.Service>();
+
+
+		//		dataBaseContext =
+		//			new Models.DataBaseContext();
+		//		System.Collections.Generic.List<Models.Service> clientList = new System.Collections.Generic.List<Models.Service>();
+
+		//		if (string.IsNullOrEmpty(dateSearch))
+		//		{
+		//			clientList =
+		//			dataBaseContext.Services
+		//			.OrderBy(current => current.Id)
+		//			.ToList();
+		//		}
+		//		else
+		//		{
+		//			clientList =
+		//			dataBaseContext.Services
+		//			.Where(current => current.Registration_Date.Contains(dateSearch))
+		//			.OrderBy(current => current.Client_Name)
+		//			.ToList();
+		//		}
+
+		//		serviceListDataGridView.DataSource = clientList;
+		//	}
+		//	catch (System.Exception ex)
+		//	{
+		//		Infrastructure.Utility.ExceptionShow(ex);
+		//	}
+		//	finally
+		//	{
+		//		if (dataBaseContext != null)
+		//		{
+		//			dataBaseContext.Dispose();
+		//			dataBaseContext = null;
+		//		}
+		//	}
+		//}
+		//#endregion /DateSearch
+
+		private void GetInvoiced (string _invoiceSerialNumvber)
 		{
 			Models.DataBaseContext dataBaseContext = null;
-
 			try
 			{
 				dataBaseContext =
 					new Models.DataBaseContext();
-				System.Collections.Generic.List<Models.Service> clientList = new System.Collections.Generic.List<Models.Service>();
 
-				if (string.IsNullOrEmpty(clientName))
+				System.Collections.Generic.List<Models.Service> listService = null;
+
+				Models.InvoiceSerialNumber invoiceSerialNumber=
+					dataBaseContext.InvoiceSerialNumbers
+					.Where(current => string.Compare(current.Invoice_Serial_Numvber, _invoiceSerialNumvber) == 0)
+					.FirstOrDefault();
+
+				if (invoiceSerialNumber == null)
 				{
-					clientList =
-					dataBaseContext.Services
-					.OrderBy(current => current.Id)
-					.ToList();
+					Mbb.Windows.Forms.MessageBox.Show(
+						text:"شماره فاکتور مورد نظر در سیستم یافت نگردید. \n لطفا مجدد تلاش نمیادد."
+						,caption: "جستجوی ناموفق"
+						,icon: Mbb.Windows.Forms.MessageBoxIcon.Error
+						,button: Mbb.Windows.Forms.MessageBoxButtons.Ok);
+
+					searchTextBox.Focus();
 				}
 				else
 				{
-					clientList =
+					listService =
 					dataBaseContext.Services
-					.Where(current => current.Client_Name.Contains(clientName))
-					.OrderBy(current => current.Client_Name)
+					.Where(current => current.Invoice_Serial_Numvber.Contains(invoiceSerialNumber.Invoice_Serial_Numvber))
+					.OrderByDescending(current => current.Service_Name)
 					.ToList();
 				}
 
-				serviceListDataGridView.DataSource = clientList;
+				serviceListDataGridView.DataSource = listService;
+
+				invoiceSerialNumberTextBox.Text = invoiceSerialNumber.Invoice_Serial_Numvber;
+
+
+
+
+
+
+
 			}
 			catch (System.Exception ex)
 			{
-				Infrastructure.Utility.ExceptionShow(ex);
+
+				throw;
 			}
 			finally
 			{
@@ -220,102 +334,19 @@ namespace Inventory_Forms
 					dataBaseContext = null;
 				}
 			}
-		}
-		#endregion /ClientNameSearch
 
-		#region ClientAndDateSearch
-		private void ClientAndDateSearch (string clientNameSearch, string dateSearch)
+			
+		}
+		
+		private void GetLicensePlate(string searchItem)
 		{
-			Models.DataBaseContext dataBaseContext = null;
 
-			try
-			{
-				dataBaseContext =
-					new Models.DataBaseContext();
-				System.Collections.Generic.List<Models.Service> clientAndDateList = new System.Collections.Generic.List<Models.Service>();
-
-				if (string.IsNullOrEmpty(clientNameSearch) || string.IsNullOrEmpty(dateSearch))
-				{
-					clientAndDateList =
-					dataBaseContext.Services
-					.OrderBy(current => current.Id)
-					.ToList();
-				}
-				else
-				{
-					clientAndDateList =
-					dataBaseContext.Services
-					.Where(current => current.Client_Name.Contains(clientNameSearch) && current.Registration_Date.Contains(dateSearch))
-					.OrderBy(current => current.Client_Name)
-					.ToList();
-				}
-
-				serviceListDataGridView.DataSource = clientAndDateList;
-
-			}
-			catch (System.Exception ex)
-			{
-				Infrastructure.Utility.ExceptionShow(ex);
-			}
-			finally
-			{
-				if (dataBaseContext != null)
-				{
-					dataBaseContext.Dispose();
-					dataBaseContext = null;
-				}
-			}
 		}
-		#endregion /ClientAndDateSearch
 
-		#region DateSearch
-		private void DateSearch(string dateSearch)
+		private void GetPhoneNumber(string searchItem)
 		{
-			Models.DataBaseContext dataBaseContext = null;
 
-			try
-			{
-				dataBaseContext =
-					new Models.DataBaseContext();
-				System.Collections.Generic.List<Models.Service> dateList = new System.Collections.Generic.List<Models.Service>();
-
-
-				dataBaseContext =
-					new Models.DataBaseContext();
-				System.Collections.Generic.List<Models.Service> clientList = new System.Collections.Generic.List<Models.Service>();
-
-				if (string.IsNullOrEmpty(dateSearch))
-				{
-					clientList =
-					dataBaseContext.Services
-					.OrderBy(current => current.Id)
-					.ToList();
-				}
-				else
-				{
-					clientList =
-					dataBaseContext.Services
-					.Where(current => current.Registration_Date.Contains(dateSearch))
-					.OrderBy(current => current.Client_Name)
-					.ToList();
-				}
-
-				serviceListDataGridView.DataSource = clientList;
-			}
-			catch (System.Exception ex)
-			{
-				Infrastructure.Utility.ExceptionShow(ex);
-			}
-			finally
-			{
-				if (dataBaseContext != null)
-				{
-					dataBaseContext.Dispose();
-					dataBaseContext = null;
-				}
-			}
 		}
-		#endregion /DateSearch
 
 		#region LoadingService
 		private void LoadingService()
@@ -358,8 +389,11 @@ namespace Inventory_Forms
 			}
 		}
 
+
 		#endregion /LoadingService
 
 		#endregion /Founction
+
+		
 	}
 }

@@ -1,9 +1,9 @@
 ﻿namespace Models
 {
 	/// <summary>
-	/// بانک اسامی خدمات
+	/// جدول اسامی خدمات
 	/// </summary>
-	class ListServiceNames
+	public class ListServiceNames
 	{
 		public ListServiceNames()
 		{

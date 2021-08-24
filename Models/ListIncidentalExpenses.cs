@@ -9,7 +9,7 @@ namespace Models
 	/// <summary>
 	/// بانک اسامی هزینه های جانبی
 	/// </summary>
-	class ListIncidentalExpenses
+	public class ListIncidentalExpenses
 	{
 		/// <summary>
 		/// لیست اسامی هزینه ها

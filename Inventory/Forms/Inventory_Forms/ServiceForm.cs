@@ -14,7 +14,6 @@ namespace Inventory_Forms
 		/// </summary>
 		private class AuditItem
 		{
-
 			public int? Amount_Paid { get; set; }
 			public long? Capital_Fund { get; set; }
 			public int? Cash_Payment_Amount { get; set; }
@@ -42,23 +41,7 @@ namespace Inventory_Forms
 			public string Service_Price { get; set; }
 			public int Service_Number { get; set; }
 			public string TotalPrice { get; set; }
-		}
-
-		private Models.AccountsReceivable _accountsReceivable;
-		public Models.AccountsReceivable AccountsReceivable
-		{
-			get
-			{
-				if (_accountsReceivable == null)
-				{
-					_accountsReceivable =
-						new Models.AccountsReceivable();
-				}
-				return _accountsReceivable;
-			}
-			set
-			{ _accountsReceivable = value; }
-		}
+		}		
 
 		private BillServicePrintForm _billServicePrintForm;
 		public BillServicePrintForm BillServicePrintForm
@@ -74,7 +57,47 @@ namespace Inventory_Forms
 			}
 		}
 
-		private Models.EventLog _eventLog;
+		private Inventory_Forms.ServiceReportForm _serviceReportForm;
+		public Inventory_Forms.ServiceReportForm ServiceReportForm
+		{
+			get 
+			{
+				if (_serviceReportForm == null || _serviceReportForm.IsDisposed == true)
+				{
+					_serviceReportForm =
+						new ServiceReportForm();
+				}
+				return _serviceReportForm;
+			}
+			set 
+			{ 
+				_serviceReportForm = value;
+			}
+		}
+
+
+
+		#endregion /Layer
+
+		private AuditItem _audit = new AuditItem();
+
+		private Models.AccountsReceivable _accountsReceivable = null;
+		public Models.AccountsReceivable AccountsReceivable
+		{
+			get
+			{
+				if (_accountsReceivable == null)
+				{
+					_accountsReceivable =
+						new Models.AccountsReceivable();
+				}
+				return _accountsReceivable;
+			}
+			set
+			{ _accountsReceivable = value; }
+		}
+
+		private Models.EventLog _eventLog = null;
 		public Models.EventLog EventLog
 		{
 			get
@@ -103,9 +126,8 @@ namespace Inventory_Forms
 			}
 			set { _service = value; }
 		}
-		#endregion /Layer
 
-		private AuditItem _audit = new AuditItem();
+
 
 		#endregion /Properties
 
@@ -354,7 +376,7 @@ namespace Inventory_Forms
 		#region ShowReportServiceButton_Click
 		private void ShowReportServiceButton_Click(object sender, System.EventArgs e)
 		{
-
+			ServiceReportForm.ShowDialog();
 		}
 		#endregion /ShowReportServiceButton_Click
 

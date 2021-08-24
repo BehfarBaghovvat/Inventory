@@ -114,6 +114,18 @@
     <Reference Include="WindowsFormsIntegration" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Forms\Client_Forms\ClientFinancialSituationForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Client_Forms\ClientFinancialSituationForm.Designer.cs">
+      <DependentUpon>ClientFinancialSituationForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Client_Forms\RegisterClientForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Client_Forms\RegisterClientForm.Designer.cs">
+      <DependentUpon>RegisterClientForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Financial_Form\AncillaryCostsForm.cs">
       <SubType>Form</SubType>
     </Compile>

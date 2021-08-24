@@ -64,7 +64,6 @@
     <Compile Include="AccountsReceivable.cs" />
     <Compile Include="AccountsPayable.cs" />
     <Compile Include="InventoryHolding.cs" />
-    <Compile Include="ListClientService.cs" />
     <Compile Include="ListIncidentalExpenses.cs" />
     <Compile Include="ListServiceNames.cs" />
     <Compile Include="MonthlyFinancialReport.cs" />
