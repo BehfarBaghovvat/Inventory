@@ -11,6 +11,28 @@
 		}
 
 		/// <summary>
+		/// نام حامل
+		/// </summary>
+		#region Carrier_Name
+		[System.ComponentModel.DisplayName(displayName: "نام حامل کالا")]
+
+		[System.ComponentModel.DataAnnotations.StringLength
+			(maximumLength: 60)]
+		public string Carrier_Name { get; set; }
+		#endregion /Carrier_Name
+
+		/// <summary>
+		/// ردیف
+		/// </summary>
+		#region Id
+		//-----DisplayName field for Id
+		[System.ComponentModel.DisplayName(displayName: "ردیف")]
+		//-----Primery Key For this field
+		[System.ComponentModel.DataAnnotations.Key]
+		public int Id { get; set; }
+		#endregion /Id
+
+		/// <summary>
 		/// تاریخ آخرین ویرایش
 		/// </summary>
 		#region Last_Edited_Date
@@ -33,28 +55,6 @@
 			(maximumLength: 8)]
 		public string Last_Edited_Time { get; set; }
 		#endregion /Last_Edited_Time
-
-		/// <summary>
-		/// نام حامل
-		/// </summary>
-		#region Carrier_Name
-		[System.ComponentModel.DisplayName(displayName: "نام حامل کالا")]
-
-		[System.ComponentModel.DataAnnotations.StringLength
-			(maximumLength: 60)]
-		public string Carrier_Name { get; set; }
-		#endregion /Carrier_Name
-
-		/// <summary>
-		/// ردیف
-		/// </summary>
-		#region Id
-		//-----DisplayName field for Id
-		[System.ComponentModel.DisplayName(displayName: "ردیف")]
-		//-----Primery Key For this field
-		[System.ComponentModel.DataAnnotations.Key]
-		public uint Id { get; set; }
-		#endregion /Id
 
 		/// <summary>
 		/// تعداد ویرایش

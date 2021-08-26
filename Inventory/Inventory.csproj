@@ -369,6 +369,7 @@
     <None Include="Properties\DataSources\Models.DailyFinancialReport.datasource" />
     <None Include="Properties\DataSources\Models.InventoryHolding.datasource" />
     <None Include="Properties\DataSources\Models.InventoryOutput.datasource" />
+    <None Include="Properties\DataSources\Models.ListService.datasource" />
     <None Include="Properties\DataSources\Models.MonthlyFinancialReport.datasource" />
     <None Include="Properties\DataSources\Models.ProductReceived.datasource" />
     <None Include="Properties\DataSources\Models.Service1.datasource" />

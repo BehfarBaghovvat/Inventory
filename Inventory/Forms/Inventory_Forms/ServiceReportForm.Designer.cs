@@ -101,7 +101,6 @@ namespace Inventory_Forms
 			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
 			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
 			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-			this.serviceBindingSource = new System.Windows.Forms.BindingSource(this.components);
 			this.serviceListDataGridViewElipse = new Guna.UI2.WinForms.Guna2Elipse(this.components);
 			this.selectSearchComboBox = new Guna.UI2.WinForms.Guna2ComboBox();
 			this.ServiceReportFormElipse = new Guna.UI2.WinForms.Guna2Elipse(this.components);
@@ -135,25 +134,6 @@ namespace Inventory_Forms
 			this.bunifuTextBox14 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox();
 			this.bunifuTextBox15 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox();
 			this.licensePlateAndPhoneNumberDataGridView = new Guna.UI2.WinForms.Guna2DataGridView();
-			this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.clientNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.repairmanNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.serviceNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.servicePriceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.serviceNumberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.registrationDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.registrationTimeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.descriptionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			((System.ComponentModel.ISupportInitialize)(this.serviceBindingSource)).BeginInit();
 			this.topPanel.SuspendLayout();
 			this.searchGroupBox.SuspendLayout();
 			this.mainPanel.SuspendLayout();
@@ -164,10 +144,6 @@ namespace Inventory_Forms
 			this.titleLicensePlatePanel.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.licensePlateAndPhoneNumberDataGridView)).BeginInit();
 			this.SuspendLayout();
-			// 
-			// serviceBindingSource
-			// 
-			this.serviceBindingSource.DataSource = typeof(Models.ListService);
 			// 
 			// serviceListDataGridViewElipse
 			// 
@@ -1051,7 +1027,6 @@ namespace Inventory_Forms
 			dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
 			dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
 			this.serviceListDataGridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-			this.serviceListDataGridView.AutoGenerateColumns = false;
 			this.serviceListDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
 			this.serviceListDataGridView.BackgroundColor = System.Drawing.Color.White;
 			this.serviceListDataGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
@@ -1066,17 +1041,6 @@ namespace Inventory_Forms
 			dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
 			this.serviceListDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
 			this.serviceListDataGridView.ColumnHeadersHeight = 35;
-			this.serviceListDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.idDataGridViewTextBoxColumn,
-            this.clientNameDataGridViewTextBoxColumn,
-            this.repairmanNameDataGridViewTextBoxColumn,
-            this.serviceNameDataGridViewTextBoxColumn,
-            this.servicePriceDataGridViewTextBoxColumn,
-            this.serviceNumberDataGridViewTextBoxColumn,
-            this.registrationDateDataGridViewTextBoxColumn,
-            this.registrationTimeDataGridViewTextBoxColumn,
-            this.descriptionDataGridViewTextBoxColumn});
-			this.serviceListDataGridView.DataSource = this.serviceBindingSource;
 			dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
 			dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
 			dataGridViewCellStyle3.Font = new System.Drawing.Font("IRANSans", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
@@ -1693,7 +1657,6 @@ namespace Inventory_Forms
 			dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
 			dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
 			this.licensePlateAndPhoneNumberDataGridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
-			this.licensePlateAndPhoneNumberDataGridView.AutoGenerateColumns = false;
 			this.licensePlateAndPhoneNumberDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
 			this.licensePlateAndPhoneNumberDataGridView.BackgroundColor = System.Drawing.Color.White;
 			this.licensePlateAndPhoneNumberDataGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
@@ -1708,17 +1671,6 @@ namespace Inventory_Forms
 			dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
 			this.licensePlateAndPhoneNumberDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
 			this.licensePlateAndPhoneNumberDataGridView.ColumnHeadersHeight = 35;
-			this.licensePlateAndPhoneNumberDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn1,
-            this.dataGridViewTextBoxColumn2,
-            this.dataGridViewTextBoxColumn3,
-            this.dataGridViewTextBoxColumn4,
-            this.dataGridViewTextBoxColumn5,
-            this.dataGridViewTextBoxColumn6,
-            this.dataGridViewTextBoxColumn7,
-            this.dataGridViewTextBoxColumn8,
-            this.dataGridViewTextBoxColumn9});
-			this.licensePlateAndPhoneNumberDataGridView.DataSource = this.serviceBindingSource;
 			dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
 			dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
 			dataGridViewCellStyle6.Font = new System.Drawing.Font("IRANSans", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
@@ -1763,156 +1715,6 @@ namespace Inventory_Forms
 			this.licensePlateAndPhoneNumberDataGridView.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
 			this.licensePlateAndPhoneNumberDataGridView.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
 			// 
-			// dataGridViewTextBoxColumn1
-			// 
-			this.dataGridViewTextBoxColumn1.DataPropertyName = "Id";
-			this.dataGridViewTextBoxColumn1.FillWeight = 50F;
-			this.dataGridViewTextBoxColumn1.HeaderText = "ردیف";
-			this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-			this.dataGridViewTextBoxColumn1.ReadOnly = true;
-			// 
-			// dataGridViewTextBoxColumn2
-			// 
-			this.dataGridViewTextBoxColumn2.DataPropertyName = "Client_Name";
-			this.dataGridViewTextBoxColumn2.HeaderText = "نام مشتری";
-			this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-			this.dataGridViewTextBoxColumn2.ReadOnly = true;
-			this.dataGridViewTextBoxColumn2.Visible = false;
-			// 
-			// dataGridViewTextBoxColumn3
-			// 
-			this.dataGridViewTextBoxColumn3.DataPropertyName = "Repairman_Name";
-			this.dataGridViewTextBoxColumn3.HeaderText = "نام تعمیرکار";
-			this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-			this.dataGridViewTextBoxColumn3.ReadOnly = true;
-			this.dataGridViewTextBoxColumn3.Visible = false;
-			// 
-			// dataGridViewTextBoxColumn4
-			// 
-			this.dataGridViewTextBoxColumn4.DataPropertyName = "Service_Name";
-			this.dataGridViewTextBoxColumn4.FillWeight = 300F;
-			this.dataGridViewTextBoxColumn4.HeaderText = "نام سرویس";
-			this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-			this.dataGridViewTextBoxColumn4.ReadOnly = true;
-			// 
-			// dataGridViewTextBoxColumn5
-			// 
-			this.dataGridViewTextBoxColumn5.DataPropertyName = "Service_Price";
-			this.dataGridViewTextBoxColumn5.HeaderText = "هزینه سرویس";
-			this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
-			this.dataGridViewTextBoxColumn5.ReadOnly = true;
-			this.dataGridViewTextBoxColumn5.Visible = false;
-			// 
-			// dataGridViewTextBoxColumn6
-			// 
-			this.dataGridViewTextBoxColumn6.DataPropertyName = "Service_Number";
-			this.dataGridViewTextBoxColumn6.FillWeight = 50F;
-			this.dataGridViewTextBoxColumn6.HeaderText = "تعداد سرویس";
-			this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
-			this.dataGridViewTextBoxColumn6.ReadOnly = true;
-			this.dataGridViewTextBoxColumn6.Visible = false;
-			// 
-			// dataGridViewTextBoxColumn7
-			// 
-			this.dataGridViewTextBoxColumn7.DataPropertyName = "Registration_Date";
-			this.dataGridViewTextBoxColumn7.FillWeight = 75F;
-			this.dataGridViewTextBoxColumn7.HeaderText = "تاریخ ثبت";
-			this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
-			this.dataGridViewTextBoxColumn7.ReadOnly = true;
-			this.dataGridViewTextBoxColumn7.Visible = false;
-			// 
-			// dataGridViewTextBoxColumn8
-			// 
-			this.dataGridViewTextBoxColumn8.DataPropertyName = "Registration_Time";
-			this.dataGridViewTextBoxColumn8.FillWeight = 75F;
-			this.dataGridViewTextBoxColumn8.HeaderText = "زمان ثبت";
-			this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
-			this.dataGridViewTextBoxColumn8.ReadOnly = true;
-			this.dataGridViewTextBoxColumn8.Visible = false;
-			// 
-			// dataGridViewTextBoxColumn9
-			// 
-			this.dataGridViewTextBoxColumn9.DataPropertyName = "Description";
-			this.dataGridViewTextBoxColumn9.FillWeight = 450F;
-			this.dataGridViewTextBoxColumn9.HeaderText = "توضیحات";
-			this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
-			this.dataGridViewTextBoxColumn9.ReadOnly = true;
-			// 
-			// idDataGridViewTextBoxColumn
-			// 
-			this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
-			this.idDataGridViewTextBoxColumn.FillWeight = 50F;
-			this.idDataGridViewTextBoxColumn.HeaderText = "ردیف";
-			this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
-			this.idDataGridViewTextBoxColumn.ReadOnly = true;
-			// 
-			// clientNameDataGridViewTextBoxColumn
-			// 
-			this.clientNameDataGridViewTextBoxColumn.DataPropertyName = "Client_Name";
-			this.clientNameDataGridViewTextBoxColumn.HeaderText = "نام مشتری";
-			this.clientNameDataGridViewTextBoxColumn.Name = "clientNameDataGridViewTextBoxColumn";
-			this.clientNameDataGridViewTextBoxColumn.ReadOnly = true;
-			this.clientNameDataGridViewTextBoxColumn.Visible = false;
-			// 
-			// repairmanNameDataGridViewTextBoxColumn
-			// 
-			this.repairmanNameDataGridViewTextBoxColumn.DataPropertyName = "Repairman_Name";
-			this.repairmanNameDataGridViewTextBoxColumn.HeaderText = "نام تعمیرکار";
-			this.repairmanNameDataGridViewTextBoxColumn.Name = "repairmanNameDataGridViewTextBoxColumn";
-			this.repairmanNameDataGridViewTextBoxColumn.ReadOnly = true;
-			this.repairmanNameDataGridViewTextBoxColumn.Visible = false;
-			// 
-			// serviceNameDataGridViewTextBoxColumn
-			// 
-			this.serviceNameDataGridViewTextBoxColumn.DataPropertyName = "Service_Name";
-			this.serviceNameDataGridViewTextBoxColumn.FillWeight = 300F;
-			this.serviceNameDataGridViewTextBoxColumn.HeaderText = "نام سرویس";
-			this.serviceNameDataGridViewTextBoxColumn.Name = "serviceNameDataGridViewTextBoxColumn";
-			this.serviceNameDataGridViewTextBoxColumn.ReadOnly = true;
-			// 
-			// servicePriceDataGridViewTextBoxColumn
-			// 
-			this.servicePriceDataGridViewTextBoxColumn.DataPropertyName = "Service_Price";
-			this.servicePriceDataGridViewTextBoxColumn.HeaderText = "هزینه سرویس";
-			this.servicePriceDataGridViewTextBoxColumn.Name = "servicePriceDataGridViewTextBoxColumn";
-			this.servicePriceDataGridViewTextBoxColumn.ReadOnly = true;
-			this.servicePriceDataGridViewTextBoxColumn.Visible = false;
-			// 
-			// serviceNumberDataGridViewTextBoxColumn
-			// 
-			this.serviceNumberDataGridViewTextBoxColumn.DataPropertyName = "Service_Number";
-			this.serviceNumberDataGridViewTextBoxColumn.FillWeight = 50F;
-			this.serviceNumberDataGridViewTextBoxColumn.HeaderText = "تعداد سرویس";
-			this.serviceNumberDataGridViewTextBoxColumn.Name = "serviceNumberDataGridViewTextBoxColumn";
-			this.serviceNumberDataGridViewTextBoxColumn.ReadOnly = true;
-			this.serviceNumberDataGridViewTextBoxColumn.Visible = false;
-			// 
-			// registrationDateDataGridViewTextBoxColumn
-			// 
-			this.registrationDateDataGridViewTextBoxColumn.DataPropertyName = "Registration_Date";
-			this.registrationDateDataGridViewTextBoxColumn.FillWeight = 75F;
-			this.registrationDateDataGridViewTextBoxColumn.HeaderText = "تاریخ سرویس";
-			this.registrationDateDataGridViewTextBoxColumn.Name = "registrationDateDataGridViewTextBoxColumn";
-			this.registrationDateDataGridViewTextBoxColumn.ReadOnly = true;
-			this.registrationDateDataGridViewTextBoxColumn.Visible = false;
-			// 
-			// registrationTimeDataGridViewTextBoxColumn
-			// 
-			this.registrationTimeDataGridViewTextBoxColumn.DataPropertyName = "Registration_Time";
-			this.registrationTimeDataGridViewTextBoxColumn.FillWeight = 75F;
-			this.registrationTimeDataGridViewTextBoxColumn.HeaderText = "زمان سرویس";
-			this.registrationTimeDataGridViewTextBoxColumn.Name = "registrationTimeDataGridViewTextBoxColumn";
-			this.registrationTimeDataGridViewTextBoxColumn.ReadOnly = true;
-			this.registrationTimeDataGridViewTextBoxColumn.Visible = false;
-			// 
-			// descriptionDataGridViewTextBoxColumn
-			// 
-			this.descriptionDataGridViewTextBoxColumn.DataPropertyName = "Description";
-			this.descriptionDataGridViewTextBoxColumn.FillWeight = 450F;
-			this.descriptionDataGridViewTextBoxColumn.HeaderText = "توضیحات";
-			this.descriptionDataGridViewTextBoxColumn.Name = "descriptionDataGridViewTextBoxColumn";
-			this.descriptionDataGridViewTextBoxColumn.ReadOnly = true;
-			// 
 			// ServiceReportForm
 			// 
 			this.AcceptButton = this.searchButton;
@@ -1924,7 +1726,6 @@ namespace Inventory_Forms
 			this.Controls.Add(this.topPanel);
 			this.Name = "ServiceReportForm";
 			this.Text = "ServiceReportForm";
-			((System.ComponentModel.ISupportInitialize)(this.serviceBindingSource)).EndInit();
 			this.topPanel.ResumeLayout(false);
 			this.searchGroupBox.ResumeLayout(false);
 			this.mainPanel.ResumeLayout(false);
@@ -1939,7 +1740,6 @@ namespace Inventory_Forms
 		}
 
 		#endregion
-		private System.Windows.Forms.BindingSource serviceBindingSource;
 		private Guna.UI2.WinForms.Guna2Elipse serviceListDataGridViewElipse;
 		private Guna.UI2.WinForms.Guna2ComboBox selectSearchComboBox;
 		private Guna.UI2.WinForms.Guna2Elipse ServiceReportFormElipse;

@@ -16,11 +16,5 @@ namespace Inventory
 		{
 			InitializeComponent();
 		}
-
-		private void guna2ComboBox1_SelectedIndexChanged(object sender, EventArgs e)
-		{
-			MessageBox.Show($"Month name:{guna2ComboBox1.SelectedItem}and month number:{guna2ComboBox1.SelectedIndex}");
-			
-		}
 	}
 }

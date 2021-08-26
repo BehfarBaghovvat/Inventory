@@ -54,6 +54,5 @@
 			(maximumLength: 10)]
 		public string Phone_Number { get; set; }
 		#endregion /Phone_Number
-
 	}
 }

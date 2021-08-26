@@ -133,150 +133,10 @@ namespace Inventory_Forms
 
 		//-----------------------------------------------------------------------------------------------     Privat Methods
 
-		#region Founction
+		#region Founction		
 
-		//#region ClientNameSearch
-		//private void ClientNameSearch(string clientName)
-		//{
-		//	Models.DataBaseContext dataBaseContext = null;
-
-		//	try
-		//	{
-		//		dataBaseContext =
-		//			new Models.DataBaseContext();
-		//		System.Collections.Generic.List<Models.Service> clientList = new System.Collections.Generic.List<Models.Service>();
-
-		//		if (string.IsNullOrEmpty(clientName))
-		//		{
-		//			clientList =
-		//			dataBaseContext.Services
-		//			.OrderBy(current => current.Id)
-		//			.ToList();
-		//		}
-		//		else
-		//		{
-		//			clientList =
-		//			dataBaseContext.Services
-		//			.Where(current => current.Client_Name.Contains(clientName))
-		//			.OrderBy(current => current.Client_Name)
-		//			.ToList();
-		//		}
-
-		//		serviceListDataGridView.DataSource = clientList;
-		//	}
-		//	catch (System.Exception ex)
-		//	{
-		//		Infrastructure.Utility.ExceptionShow(ex);
-		//	}
-		//	finally
-		//	{
-		//		if (dataBaseContext != null)
-		//		{
-		//			dataBaseContext.Dispose();
-		//			dataBaseContext = null;
-		//		}
-		//	}
-		//}
-		//#endregion /ClientNameSearch
-
-		//#region ClientAndDateSearch
-		//private void ClientAndDateSearch(string clientNameSearch, string dateSearch)
-		//{
-		//	Models.DataBaseContext dataBaseContext = null;
-
-		//	try
-		//	{
-		//		dataBaseContext =
-		//			new Models.DataBaseContext();
-		//		System.Collections.Generic.List<Models.Service> clientAndDateList = new System.Collections.Generic.List<Models.Service>();
-
-		//		if (string.IsNullOrEmpty(clientNameSearch) || string.IsNullOrEmpty(dateSearch))
-		//		{
-		//			clientAndDateList =
-		//			dataBaseContext.Services
-		//			.OrderBy(current => current.Id)
-		//			.ToList();
-		//		}
-		//		else
-		//		{
-		//			clientAndDateList =
-		//			dataBaseContext.Services
-		//			.Where(current => current.Client_Name.Contains(clientNameSearch) && current.Registration_Date.Contains(dateSearch))
-		//			.OrderBy(current => current.Client_Name)
-		//			.ToList();
-		//		}
-
-		//		serviceListDataGridView.DataSource = clientAndDateList;
-
-		//	}
-		//	catch (System.Exception ex)
-		//	{
-		//		Infrastructure.Utility.ExceptionShow(ex);
-		//	}
-		//	finally
-		//	{
-		//		if (dataBaseContext != null)
-		//		{
-		//			dataBaseContext.Dispose();
-		//			dataBaseContext = null;
-		//		}
-		//	}
-		//}
-		//#endregion /ClientAndDateSearch
-
-
-
-
-		//#region DateSearch
-		//private void DateSearch(string dateSearch)
-		//{
-		//	Models.DataBaseContext dataBaseContext = null;
-
-		//	try
-		//	{
-		//		dataBaseContext =
-		//			new Models.DataBaseContext();
-		//		System.Collections.Generic.List<Models.Service> dateList = new System.Collections.Generic.List<Models.Service>();
-
-
-		//		dataBaseContext =
-		//			new Models.DataBaseContext();
-		//		System.Collections.Generic.List<Models.Service> clientList = new System.Collections.Generic.List<Models.Service>();
-
-		//		if (string.IsNullOrEmpty(dateSearch))
-		//		{
-		//			clientList =
-		//			dataBaseContext.Services
-		//			.OrderBy(current => current.Id)
-		//			.ToList();
-		//		}
-		//		else
-		//		{
-		//			clientList =
-		//			dataBaseContext.Services
-		//			.Where(current => current.Registration_Date.Contains(dateSearch))
-		//			.OrderBy(current => current.Client_Name)
-		//			.ToList();
-		//		}
-
-		//		serviceListDataGridView.DataSource = clientList;
-		//	}
-		//	catch (System.Exception ex)
-		//	{
-		//		Infrastructure.Utility.ExceptionShow(ex);
-		//	}
-		//	finally
-		//	{
-		//		if (dataBaseContext != null)
-		//		{
-		//			dataBaseContext.Dispose();
-		//			dataBaseContext = null;
-		//		}
-		//	}
-		//}
-		//#endregion /DateSearch
-
-		private void GetInvoiced (string _invoiceSerialNumvber)
+		#region GetInvoiced
+		private void GetInvoiced(string _invoiceSerialNumvber)
 		{
 			Models.DataBaseContext dataBaseContext = null;
 			try
@@ -286,7 +146,7 @@ namespace Inventory_Forms
 
 				System.Collections.Generic.List<Models.ListService> listService = null;
 
-				Models.ServiceInvoice invoiceSerialNumber=
+				Models.ServiceInvoice invoiceSerialNumber =
 					dataBaseContext.ServiceInvoices
 					.Where(current => string.Compare(current.Invoice_Serial_Numvber, _invoiceSerialNumvber) == 0)
 					.FirstOrDefault();
@@ -294,17 +154,17 @@ namespace Inventory_Forms
 				if (invoiceSerialNumber == null)
 				{
 					Mbb.Windows.Forms.MessageBox.Show(
-						text:"شماره فاکتور مورد نظر در سیستم یافت نگردید. \n لطفا مجدد تلاش نمیادد."
-						,caption: "جستجوی ناموفق"
-						,icon: Mbb.Windows.Forms.MessageBoxIcon.Error
-						,button: Mbb.Windows.Forms.MessageBoxButtons.Ok);
+						text: "شماره فاکتور مورد نظر در سیستم یافت نگردید. \n لطفا مجدد تلاش نمیادد."
+						, caption: "جستجوی ناموفق"
+						, icon: Mbb.Windows.Forms.MessageBoxIcon.Error
+						, button: Mbb.Windows.Forms.MessageBoxButtons.Ok);
 
 					searchTextBox.Focus();
 				}
 				else
 				{
 					listService =
-					dataBaseContext.Services
+					dataBaseContext.ListServices
 					.Where(current => current.Invoice_Serial_Numvber.Contains(invoiceSerialNumber.Invoice_Serial_Numvber))
 					.OrderByDescending(current => current.Service_Name)
 					.ToList();
@@ -321,16 +181,11 @@ namespace Inventory_Forms
 				phonNumberTextBox.Text = invoiceSerialNumber.Phone_Number;
 				nextKilometersTextBox.Text = invoiceSerialNumber.Next_Kilometer;
 
-
-
-
-
-
 			}
 			catch (System.Exception ex)
 			{
 
-				throw;
+				Infrastructure.Utility.ExceptionShow(ex);
 			}
 			finally
 			{
@@ -341,9 +196,10 @@ namespace Inventory_Forms
 				}
 			}
 
-			
+
 		}
-		
+		#endregion /GetInvoiced
+
 		private void GetLicensePlate(string searchItem)
 		{
 
@@ -367,7 +223,7 @@ namespace Inventory_Forms
 				System.Collections.Generic.List<Models.ListService> serviceList = new System.Collections.Generic.List<Models.ListService>();
 
 				serviceList =
-					dataBaseContext.Services
+					dataBaseContext.ListServices
 					.OrderBy(current => current.Id)
 					.ToList();
 

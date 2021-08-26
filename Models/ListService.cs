@@ -33,7 +33,7 @@
 		[System.ComponentModel.DisplayName(displayName: "ردیف")]
 		//-----Primery Key For this field
 		[System.ComponentModel.DataAnnotations.Key]
-		public uint Id { get; set; }
+		public int Id { get; set; }
 		#endregion /Id
 
 		/// <summary>
@@ -145,7 +145,5 @@
 			(maximumLength: 160)]
 		public string Total_Sum_Price { get; set; }
 		#endregion /Total_Sum_Price
-
-
 	}
 }

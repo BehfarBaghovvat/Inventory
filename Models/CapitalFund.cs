@@ -11,6 +11,14 @@
 		}
 
 		/// <summary>
+		/// صندوق سرمایه
+		/// </summary>
+		#region Capital_Fund
+		[System.ComponentModel.DisplayName(displayName: "صندوق سرمایه")]
+		public string Capital_Fund { get; set; }
+		#endregion /Capital_Fund
+
+		/// <summary>
 		/// ردیف
 		/// </summary>
 		#region Id
@@ -21,12 +29,5 @@
 		public int Id { get; set; }
 		#endregion /Id
 
-		/// <summary>
-		/// صندوق سرمایه
-		/// </summary>
-		#region Capital_Fund
-		[System.ComponentModel.DisplayName(displayName: "صندوق سرمایه")]
-		public string Capital_Fund { get; set; }
-		#endregion /Capital_Fund
 	}
 }
