@@ -704,7 +704,7 @@ namespace Inventory
 		private void DropDownFinancialTimer_Tick(object sender, System.EventArgs e)
 		{
 			submenuFinancialPanel.Height += 10;
-			if (submenuFinancialPanel.Height >= 190)
+			if (submenuFinancialPanel.Height >= 155)
 			{
 				dropDownFinancialTimer.Stop();
 			}

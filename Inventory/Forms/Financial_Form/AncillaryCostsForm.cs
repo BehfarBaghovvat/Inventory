@@ -1,7 +1,4 @@
-﻿using Guna.UI.WinForms;
-using Inventory;
-using Models;
-using System.Linq;
+﻿using System.Linq;
 
 namespace Financial_Form
 {
@@ -10,6 +7,7 @@ namespace Financial_Form
 		//-----------------------------------------------------------------------------------------------     Fields, Properties, Layers
 
 		#region Properties
+
 		#region Layers
 
 		private Models.AncillaryCosts _ancillaryCosts;
@@ -20,7 +18,7 @@ namespace Financial_Form
 				if (_ancillaryCosts == null)
 				{
 					_ancillaryCosts =
-						new AncillaryCosts();
+						new Models.AncillaryCosts();
 				};
 				return _ancillaryCosts;
 			}
@@ -214,7 +212,6 @@ namespace Financial_Form
 
 		//--------------------------------------------------------------------------------------------------    Private Methods
 
-
 		#region Initialize
 		/// <summary>
 		/// مقداردهی اولیه
@@ -227,21 +224,20 @@ namespace Financial_Form
 		#endregion /Initialize
 
 		#region SetEventLog
-
 		private void SetEventLog(Models.AncillaryCosts _ancillaryCosts)
 		{
-			DataBaseContext dataBaseContext = null;
+			Models.DataBaseContext dataBaseContext = null;
 			try
 			{
 				dataBaseContext =
-					new DataBaseContext();
+					new Models.DataBaseContext();
 
 				Models.EventLog eventLog =
 					dataBaseContext.EventLogs
 					.FirstOrDefault();
 
 				eventLog =
-					new EventLog()
+					new Models.EventLog()
 					{
 						Event_Date = $"{Infrastructure.Utility.PersianCalendar(System.DateTime.Now)}",
 						Event_Time = $"{Infrastructure.Utility.ShowTime()}",
@@ -281,14 +277,14 @@ namespace Financial_Form
 			try
 			{
 				dataBaseContext =
-					new DataBaseContext();
+					new Models.DataBaseContext();
 
 				Models.CapitalFund capitalFund =
 					dataBaseContext.CapitalFunds
 					.FirstOrDefault();
 
 				capitalFund =
-					new CapitalFund()
+					new Models.CapitalFund()
 					{
 						Capital_Fund = $"{_capitalFund:#,0} تومان",
 					};
@@ -401,14 +397,14 @@ namespace Financial_Form
 			try
 			{
 				dataBaseContext =
-					new DataBaseContext();
+					new Models.DataBaseContext();
 
 				Models.AncillaryCosts ancillaryCosts =
 					dataBaseContext.AncillaryCosts
 					.FirstOrDefault();
 
 				ancillaryCosts =
-					new AncillaryCosts()
+					new Models.AncillaryCosts()
 					{
 						Name_Payer = Inventory.Program.UserAuthentication.Full_Name,
 						Cost_Name = _ancillaryCosts.Cost_Name,

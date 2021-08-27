@@ -133,7 +133,7 @@ namespace Financial_Form
 			// 
 			// ancillaryCostsLabel
 			// 
-			this.ancillaryCostsLabel.Font = new System.Drawing.Font("IRANSans", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+			this.ancillaryCostsLabel.Font = new System.Drawing.Font("IRANSans", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
 			this.ancillaryCostsLabel.ForeColor = System.Drawing.Color.White;
 			this.ancillaryCostsLabel.Location = new System.Drawing.Point(10, 10);
 			this.ancillaryCostsLabel.Name = "ancillaryCostsLabel";
@@ -180,7 +180,7 @@ namespace Financial_Form
 			// 
 			// capitalOutflowLabel
 			// 
-			this.capitalOutflowLabel.Font = new System.Drawing.Font("IRANSans", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+			this.capitalOutflowLabel.Font = new System.Drawing.Font("IRANSans", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
 			this.capitalOutflowLabel.ForeColor = System.Drawing.Color.White;
 			this.capitalOutflowLabel.Location = new System.Drawing.Point(10, 10);
 			this.capitalOutflowLabel.Name = "capitalOutflowLabel";
@@ -227,7 +227,7 @@ namespace Financial_Form
 			// 
 			// capitalInflowLabel
 			// 
-			this.capitalInflowLabel.Font = new System.Drawing.Font("IRANSans", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+			this.capitalInflowLabel.Font = new System.Drawing.Font("IRANSans", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
 			this.capitalInflowLabel.ForeColor = System.Drawing.Color.White;
 			this.capitalInflowLabel.Location = new System.Drawing.Point(10, 10);
 			this.capitalInflowLabel.Name = "capitalInflowLabel";
@@ -274,7 +274,7 @@ namespace Financial_Form
 			// 
 			// capitalFundLabel
 			// 
-			this.capitalFundLabel.Font = new System.Drawing.Font("IRANSans", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+			this.capitalFundLabel.Font = new System.Drawing.Font("IRANSans", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
 			this.capitalFundLabel.ForeColor = System.Drawing.Color.White;
 			this.capitalFundLabel.Location = new System.Drawing.Point(10, 10);
 			this.capitalFundLabel.Name = "capitalFundLabel";

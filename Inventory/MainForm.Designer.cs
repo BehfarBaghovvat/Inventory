@@ -44,7 +44,6 @@ namespace Inventory
 			this.clientButton = new Guna.UI2.WinForms.Guna2GradientButton();
 			this.separator3 = new Mbb.Windows.Forms.Panel();
 			this.submenuFinancialPanel = new Mbb.Windows.Forms.Panel();
-			this.guna2GradientButton2 = new Guna.UI2.WinForms.Guna2GradientButton();
 			this.guna2GradientButton1 = new Guna.UI2.WinForms.Guna2GradientButton();
 			this.financialOrderButton = new Guna.UI2.WinForms.Guna2GradientButton();
 			this.safeBoxButton = new Guna.UI2.WinForms.Guna2GradientButton();
@@ -133,7 +132,7 @@ namespace Inventory
 			// 
 			this.separator5.BackColor = System.Drawing.Color.Indigo;
 			this.separator5.Dock = System.Windows.Forms.DockStyle.Top;
-			this.separator5.Location = new System.Drawing.Point(0, 910);
+			this.separator5.Location = new System.Drawing.Point(0, 875);
 			this.separator5.Name = "separator5";
 			this.separator5.Size = new System.Drawing.Size(183, 5);
 			this.separator5.TabIndex = 32;
@@ -143,7 +142,7 @@ namespace Inventory
 			this.submenuSettingPanel.Controls.Add(this.guna2GradientButton10);
 			this.submenuSettingPanel.Controls.Add(this.guna2GradientButton11);
 			this.submenuSettingPanel.Dock = System.Windows.Forms.DockStyle.Top;
-			this.submenuSettingPanel.Location = new System.Drawing.Point(0, 825);
+			this.submenuSettingPanel.Location = new System.Drawing.Point(0, 790);
 			this.submenuSettingPanel.Name = "submenuSettingPanel";
 			this.submenuSettingPanel.Size = new System.Drawing.Size(183, 85);
 			this.submenuSettingPanel.TabIndex = 31;
@@ -157,12 +156,12 @@ namespace Inventory
 			this.guna2GradientButton10.CheckedState.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(0)))), ((int)(((byte)(61)))));
 			this.guna2GradientButton10.CheckedState.Parent = this.guna2GradientButton10;
 			this.guna2GradientButton10.CustomImages.Parent = this.guna2GradientButton10;
-			this.guna2GradientButton10.FillColor = System.Drawing.Color.Lime;
+			this.guna2GradientButton10.FillColor = System.Drawing.Color.RoyalBlue;
 			this.guna2GradientButton10.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(0)))), ((int)(((byte)(61)))));
 			this.guna2GradientButton10.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
 			this.guna2GradientButton10.ForeColor = System.Drawing.Color.White;
 			this.guna2GradientButton10.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(0)))), ((int)(((byte)(61)))));
-			this.guna2GradientButton10.HoverState.FillColor2 = System.Drawing.Color.Lime;
+			this.guna2GradientButton10.HoverState.FillColor2 = System.Drawing.Color.RoyalBlue;
 			this.guna2GradientButton10.HoverState.Parent = this.guna2GradientButton10;
 			this.guna2GradientButton10.Location = new System.Drawing.Point(16, 9);
 			this.guna2GradientButton10.Name = "guna2GradientButton10";
@@ -182,12 +181,12 @@ namespace Inventory
 			this.guna2GradientButton11.CheckedState.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(0)))), ((int)(((byte)(61)))));
 			this.guna2GradientButton11.CheckedState.Parent = this.guna2GradientButton11;
 			this.guna2GradientButton11.CustomImages.Parent = this.guna2GradientButton11;
-			this.guna2GradientButton11.FillColor = System.Drawing.Color.Lime;
+			this.guna2GradientButton11.FillColor = System.Drawing.Color.RoyalBlue;
 			this.guna2GradientButton11.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(0)))), ((int)(((byte)(61)))));
 			this.guna2GradientButton11.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
 			this.guna2GradientButton11.ForeColor = System.Drawing.Color.White;
 			this.guna2GradientButton11.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(0)))), ((int)(((byte)(61)))));
-			this.guna2GradientButton11.HoverState.FillColor2 = System.Drawing.Color.Lime;
+			this.guna2GradientButton11.HoverState.FillColor2 = System.Drawing.Color.RoyalBlue;
 			this.guna2GradientButton11.HoverState.Parent = this.guna2GradientButton11;
 			this.guna2GradientButton11.Location = new System.Drawing.Point(16, 45);
 			this.guna2GradientButton11.Name = "guna2GradientButton11";
@@ -212,7 +211,7 @@ namespace Inventory
 			this.settingButton.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(0)))), ((int)(((byte)(61)))));
 			this.settingButton.HoverState.FillColor2 = System.Drawing.Color.Teal;
 			this.settingButton.HoverState.Parent = this.settingButton;
-			this.settingButton.Location = new System.Drawing.Point(0, 780);
+			this.settingButton.Location = new System.Drawing.Point(0, 745);
 			this.settingButton.Name = "settingButton";
 			this.settingButton.PressedColor = System.Drawing.Color.White;
 			this.settingButton.ShadowDecoration.Parent = this.settingButton;
@@ -225,7 +224,7 @@ namespace Inventory
 			// 
 			this.separator4.BackColor = System.Drawing.Color.Indigo;
 			this.separator4.Dock = System.Windows.Forms.DockStyle.Top;
-			this.separator4.Location = new System.Drawing.Point(0, 775);
+			this.separator4.Location = new System.Drawing.Point(0, 740);
 			this.separator4.Name = "separator4";
 			this.separator4.Size = new System.Drawing.Size(183, 5);
 			this.separator4.TabIndex = 29;
@@ -235,7 +234,7 @@ namespace Inventory
 			this.submenuClientPanel.Controls.Add(this.guna2GradientButton6);
 			this.submenuClientPanel.Controls.Add(this.guna2GradientButton7);
 			this.submenuClientPanel.Dock = System.Windows.Forms.DockStyle.Top;
-			this.submenuClientPanel.Location = new System.Drawing.Point(0, 690);
+			this.submenuClientPanel.Location = new System.Drawing.Point(0, 655);
 			this.submenuClientPanel.Name = "submenuClientPanel";
 			this.submenuClientPanel.Size = new System.Drawing.Size(183, 85);
 			this.submenuClientPanel.TabIndex = 28;
@@ -249,12 +248,12 @@ namespace Inventory
 			this.guna2GradientButton6.CheckedState.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(0)))), ((int)(((byte)(61)))));
 			this.guna2GradientButton6.CheckedState.Parent = this.guna2GradientButton6;
 			this.guna2GradientButton6.CustomImages.Parent = this.guna2GradientButton6;
-			this.guna2GradientButton6.FillColor = System.Drawing.Color.Lime;
+			this.guna2GradientButton6.FillColor = System.Drawing.Color.RoyalBlue;
 			this.guna2GradientButton6.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(0)))), ((int)(((byte)(61)))));
 			this.guna2GradientButton6.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
 			this.guna2GradientButton6.ForeColor = System.Drawing.Color.White;
 			this.guna2GradientButton6.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(0)))), ((int)(((byte)(61)))));
-			this.guna2GradientButton6.HoverState.FillColor2 = System.Drawing.Color.Lime;
+			this.guna2GradientButton6.HoverState.FillColor2 = System.Drawing.Color.RoyalBlue;
 			this.guna2GradientButton6.HoverState.Parent = this.guna2GradientButton6;
 			this.guna2GradientButton6.Location = new System.Drawing.Point(16, 9);
 			this.guna2GradientButton6.Name = "guna2GradientButton6";
@@ -274,12 +273,12 @@ namespace Inventory
 			this.guna2GradientButton7.CheckedState.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(0)))), ((int)(((byte)(61)))));
 			this.guna2GradientButton7.CheckedState.Parent = this.guna2GradientButton7;
 			this.guna2GradientButton7.CustomImages.Parent = this.guna2GradientButton7;
-			this.guna2GradientButton7.FillColor = System.Drawing.Color.Lime;
+			this.guna2GradientButton7.FillColor = System.Drawing.Color.RoyalBlue;
 			this.guna2GradientButton7.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(0)))), ((int)(((byte)(61)))));
 			this.guna2GradientButton7.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
 			this.guna2GradientButton7.ForeColor = System.Drawing.Color.White;
 			this.guna2GradientButton7.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(0)))), ((int)(((byte)(61)))));
-			this.guna2GradientButton7.HoverState.FillColor2 = System.Drawing.Color.Lime;
+			this.guna2GradientButton7.HoverState.FillColor2 = System.Drawing.Color.RoyalBlue;
 			this.guna2GradientButton7.HoverState.Parent = this.guna2GradientButton7;
 			this.guna2GradientButton7.Location = new System.Drawing.Point(16, 45);
 			this.guna2GradientButton7.Name = "guna2GradientButton7";
@@ -304,7 +303,7 @@ namespace Inventory
 			this.clientButton.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(0)))), ((int)(((byte)(61)))));
 			this.clientButton.HoverState.FillColor2 = System.Drawing.Color.Teal;
 			this.clientButton.HoverState.Parent = this.clientButton;
-			this.clientButton.Location = new System.Drawing.Point(0, 645);
+			this.clientButton.Location = new System.Drawing.Point(0, 610);
 			this.clientButton.Name = "clientButton";
 			this.clientButton.PressedColor = System.Drawing.Color.White;
 			this.clientButton.ShadowDecoration.Parent = this.clientButton;
@@ -317,14 +316,13 @@ namespace Inventory
 			// 
 			this.separator3.BackColor = System.Drawing.Color.Indigo;
 			this.separator3.Dock = System.Windows.Forms.DockStyle.Top;
-			this.separator3.Location = new System.Drawing.Point(0, 640);
+			this.separator3.Location = new System.Drawing.Point(0, 605);
 			this.separator3.Name = "separator3";
 			this.separator3.Size = new System.Drawing.Size(183, 5);
 			this.separator3.TabIndex = 26;
 			// 
 			// submenuFinancialPanel
 			// 
-			this.submenuFinancialPanel.Controls.Add(this.guna2GradientButton2);
 			this.submenuFinancialPanel.Controls.Add(this.guna2GradientButton1);
 			this.submenuFinancialPanel.Controls.Add(this.financialOrderButton);
 			this.submenuFinancialPanel.Controls.Add(this.safeBoxButton);
@@ -332,33 +330,8 @@ namespace Inventory
 			this.submenuFinancialPanel.Dock = System.Windows.Forms.DockStyle.Top;
 			this.submenuFinancialPanel.Location = new System.Drawing.Point(0, 450);
 			this.submenuFinancialPanel.Name = "submenuFinancialPanel";
-			this.submenuFinancialPanel.Size = new System.Drawing.Size(183, 190);
+			this.submenuFinancialPanel.Size = new System.Drawing.Size(183, 155);
 			this.submenuFinancialPanel.TabIndex = 25;
-			// 
-			// guna2GradientButton2
-			// 
-			this.guna2GradientButton2.Animated = true;
-			this.guna2GradientButton2.BackColor = System.Drawing.Color.Transparent;
-			this.guna2GradientButton2.BorderRadius = 5;
-			this.guna2GradientButton2.CheckedState.FillColor = System.Drawing.Color.Olive;
-			this.guna2GradientButton2.CheckedState.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(0)))), ((int)(((byte)(61)))));
-			this.guna2GradientButton2.CheckedState.Parent = this.guna2GradientButton2;
-			this.guna2GradientButton2.CustomImages.Parent = this.guna2GradientButton2;
-			this.guna2GradientButton2.FillColor = System.Drawing.Color.Lime;
-			this.guna2GradientButton2.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(0)))), ((int)(((byte)(61)))));
-			this.guna2GradientButton2.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-			this.guna2GradientButton2.ForeColor = System.Drawing.Color.White;
-			this.guna2GradientButton2.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(0)))), ((int)(((byte)(61)))));
-			this.guna2GradientButton2.HoverState.FillColor2 = System.Drawing.Color.Lime;
-			this.guna2GradientButton2.HoverState.Parent = this.guna2GradientButton2;
-			this.guna2GradientButton2.Location = new System.Drawing.Point(16, 152);
-			this.guna2GradientButton2.Name = "guna2GradientButton2";
-			this.guna2GradientButton2.PressedColor = System.Drawing.Color.White;
-			this.guna2GradientButton2.ShadowDecoration.Enabled = true;
-			this.guna2GradientButton2.ShadowDecoration.Parent = this.guna2GradientButton2;
-			this.guna2GradientButton2.Size = new System.Drawing.Size(150, 30);
-			this.guna2GradientButton2.TabIndex = 2;
-			this.guna2GradientButton2.Text = "دفتر معین";
 			// 
 			// guna2GradientButton1
 			// 
@@ -369,12 +342,12 @@ namespace Inventory
 			this.guna2GradientButton1.CheckedState.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(0)))), ((int)(((byte)(61)))));
 			this.guna2GradientButton1.CheckedState.Parent = this.guna2GradientButton1;
 			this.guna2GradientButton1.CustomImages.Parent = this.guna2GradientButton1;
-			this.guna2GradientButton1.FillColor = System.Drawing.Color.Lime;
+			this.guna2GradientButton1.FillColor = System.Drawing.Color.RoyalBlue;
 			this.guna2GradientButton1.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(0)))), ((int)(((byte)(61)))));
 			this.guna2GradientButton1.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
 			this.guna2GradientButton1.ForeColor = System.Drawing.Color.White;
 			this.guna2GradientButton1.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(0)))), ((int)(((byte)(61)))));
-			this.guna2GradientButton1.HoverState.FillColor2 = System.Drawing.Color.Lime;
+			this.guna2GradientButton1.HoverState.FillColor2 = System.Drawing.Color.RoyalBlue;
 			this.guna2GradientButton1.HoverState.Parent = this.guna2GradientButton1;
 			this.guna2GradientButton1.Location = new System.Drawing.Point(16, 116);
 			this.guna2GradientButton1.Name = "guna2GradientButton1";
@@ -394,12 +367,12 @@ namespace Inventory
 			this.financialOrderButton.CheckedState.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(0)))), ((int)(((byte)(61)))));
 			this.financialOrderButton.CheckedState.Parent = this.financialOrderButton;
 			this.financialOrderButton.CustomImages.Parent = this.financialOrderButton;
-			this.financialOrderButton.FillColor = System.Drawing.Color.Lime;
+			this.financialOrderButton.FillColor = System.Drawing.Color.RoyalBlue;
 			this.financialOrderButton.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(0)))), ((int)(((byte)(61)))));
 			this.financialOrderButton.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
 			this.financialOrderButton.ForeColor = System.Drawing.Color.White;
 			this.financialOrderButton.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(0)))), ((int)(((byte)(61)))));
-			this.financialOrderButton.HoverState.FillColor2 = System.Drawing.Color.Lime;
+			this.financialOrderButton.HoverState.FillColor2 = System.Drawing.Color.RoyalBlue;
 			this.financialOrderButton.HoverState.Parent = this.financialOrderButton;
 			this.financialOrderButton.Location = new System.Drawing.Point(16, 80);
 			this.financialOrderButton.Name = "financialOrderButton";
@@ -420,12 +393,12 @@ namespace Inventory
 			this.safeBoxButton.CheckedState.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(0)))), ((int)(((byte)(61)))));
 			this.safeBoxButton.CheckedState.Parent = this.safeBoxButton;
 			this.safeBoxButton.CustomImages.Parent = this.safeBoxButton;
-			this.safeBoxButton.FillColor = System.Drawing.Color.Lime;
+			this.safeBoxButton.FillColor = System.Drawing.Color.RoyalBlue;
 			this.safeBoxButton.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(0)))), ((int)(((byte)(61)))));
 			this.safeBoxButton.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
 			this.safeBoxButton.ForeColor = System.Drawing.Color.White;
 			this.safeBoxButton.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(0)))), ((int)(((byte)(61)))));
-			this.safeBoxButton.HoverState.FillColor2 = System.Drawing.Color.Lime;
+			this.safeBoxButton.HoverState.FillColor2 = System.Drawing.Color.RoyalBlue;
 			this.safeBoxButton.HoverState.Parent = this.safeBoxButton;
 			this.safeBoxButton.Location = new System.Drawing.Point(16, 8);
 			this.safeBoxButton.Name = "safeBoxButton";
@@ -446,12 +419,12 @@ namespace Inventory
 			this.ancillaryCostsButton.CheckedState.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(0)))), ((int)(((byte)(61)))));
 			this.ancillaryCostsButton.CheckedState.Parent = this.ancillaryCostsButton;
 			this.ancillaryCostsButton.CustomImages.Parent = this.ancillaryCostsButton;
-			this.ancillaryCostsButton.FillColor = System.Drawing.Color.Lime;
+			this.ancillaryCostsButton.FillColor = System.Drawing.Color.RoyalBlue;
 			this.ancillaryCostsButton.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(0)))), ((int)(((byte)(61)))));
 			this.ancillaryCostsButton.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
 			this.ancillaryCostsButton.ForeColor = System.Drawing.Color.White;
 			this.ancillaryCostsButton.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(0)))), ((int)(((byte)(61)))));
-			this.ancillaryCostsButton.HoverState.FillColor2 = System.Drawing.Color.Lime;
+			this.ancillaryCostsButton.HoverState.FillColor2 = System.Drawing.Color.RoyalBlue;
 			this.ancillaryCostsButton.HoverState.Parent = this.ancillaryCostsButton;
 			this.ancillaryCostsButton.Location = new System.Drawing.Point(16, 44);
 			this.ancillaryCostsButton.Name = "ancillaryCostsButton";
@@ -516,12 +489,12 @@ namespace Inventory
 			this.serviceButton.CheckedState.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(0)))), ((int)(((byte)(61)))));
 			this.serviceButton.CheckedState.Parent = this.serviceButton;
 			this.serviceButton.CustomImages.Parent = this.serviceButton;
-			this.serviceButton.FillColor = System.Drawing.Color.Lime;
+			this.serviceButton.FillColor = System.Drawing.Color.RoyalBlue;
 			this.serviceButton.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(0)))), ((int)(((byte)(61)))));
 			this.serviceButton.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
 			this.serviceButton.ForeColor = System.Drawing.Color.White;
 			this.serviceButton.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(0)))), ((int)(((byte)(61)))));
-			this.serviceButton.HoverState.FillColor2 = System.Drawing.Color.Lime;
+			this.serviceButton.HoverState.FillColor2 = System.Drawing.Color.RoyalBlue;
 			this.serviceButton.HoverState.Parent = this.serviceButton;
 			this.serviceButton.Location = new System.Drawing.Point(16, 117);
 			this.serviceButton.Name = "serviceButton";
@@ -542,12 +515,12 @@ namespace Inventory
 			this.inventoryholdingButton.CheckedState.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(0)))), ((int)(((byte)(61)))));
 			this.inventoryholdingButton.CheckedState.Parent = this.inventoryholdingButton;
 			this.inventoryholdingButton.CustomImages.Parent = this.inventoryholdingButton;
-			this.inventoryholdingButton.FillColor = System.Drawing.Color.Lime;
+			this.inventoryholdingButton.FillColor = System.Drawing.Color.RoyalBlue;
 			this.inventoryholdingButton.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(0)))), ((int)(((byte)(61)))));
 			this.inventoryholdingButton.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
 			this.inventoryholdingButton.ForeColor = System.Drawing.Color.White;
 			this.inventoryholdingButton.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(0)))), ((int)(((byte)(61)))));
-			this.inventoryholdingButton.HoverState.FillColor2 = System.Drawing.Color.Lime;
+			this.inventoryholdingButton.HoverState.FillColor2 = System.Drawing.Color.RoyalBlue;
 			this.inventoryholdingButton.HoverState.Parent = this.inventoryholdingButton;
 			this.inventoryholdingButton.Location = new System.Drawing.Point(16, 81);
 			this.inventoryholdingButton.Name = "inventoryholdingButton";
@@ -568,12 +541,12 @@ namespace Inventory
 			this.inventoryEntryButton.CheckedState.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(0)))), ((int)(((byte)(61)))));
 			this.inventoryEntryButton.CheckedState.Parent = this.inventoryEntryButton;
 			this.inventoryEntryButton.CustomImages.Parent = this.inventoryEntryButton;
-			this.inventoryEntryButton.FillColor = System.Drawing.Color.Lime;
+			this.inventoryEntryButton.FillColor = System.Drawing.Color.RoyalBlue;
 			this.inventoryEntryButton.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(0)))), ((int)(((byte)(61)))));
 			this.inventoryEntryButton.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
 			this.inventoryEntryButton.ForeColor = System.Drawing.Color.White;
 			this.inventoryEntryButton.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(0)))), ((int)(((byte)(61)))));
-			this.inventoryEntryButton.HoverState.FillColor2 = System.Drawing.Color.Lime;
+			this.inventoryEntryButton.HoverState.FillColor2 = System.Drawing.Color.RoyalBlue;
 			this.inventoryEntryButton.HoverState.Parent = this.inventoryEntryButton;
 			this.inventoryEntryButton.Location = new System.Drawing.Point(16, 9);
 			this.inventoryEntryButton.Name = "inventoryEntryButton";
@@ -594,12 +567,12 @@ namespace Inventory
 			this.productSalesButton.CheckedState.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(0)))), ((int)(((byte)(61)))));
 			this.productSalesButton.CheckedState.Parent = this.productSalesButton;
 			this.productSalesButton.CustomImages.Parent = this.productSalesButton;
-			this.productSalesButton.FillColor = System.Drawing.Color.Lime;
+			this.productSalesButton.FillColor = System.Drawing.Color.RoyalBlue;
 			this.productSalesButton.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(0)))), ((int)(((byte)(61)))));
 			this.productSalesButton.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
 			this.productSalesButton.ForeColor = System.Drawing.Color.White;
 			this.productSalesButton.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(0)))), ((int)(((byte)(61)))));
-			this.productSalesButton.HoverState.FillColor2 = System.Drawing.Color.Lime;
+			this.productSalesButton.HoverState.FillColor2 = System.Drawing.Color.RoyalBlue;
 			this.productSalesButton.HoverState.Parent = this.productSalesButton;
 			this.productSalesButton.Location = new System.Drawing.Point(16, 45);
 			this.productSalesButton.Name = "productSalesButton";
@@ -1066,7 +1039,6 @@ namespace Inventory
 		private Guna.UI2.WinForms.Guna2GradientButton fainancialButton;
 		public System.Windows.Forms.Timer logOutMainFormTimer;
 		private Guna.UI2.WinForms.Guna2GradientButton serviceButton;
-		private Guna.UI2.WinForms.Guna2GradientButton guna2GradientButton2;
 		private Guna.UI2.WinForms.Guna2GradientButton guna2GradientButton1;
 		public Mbb.Windows.Forms.Label fundsNotificationTextBox;
 		public Mbb.Windows.Forms.Label fundLabel;

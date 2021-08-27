@@ -138,6 +138,12 @@
     <Compile Include="Forms\Financial_Form\FinancialOrderForm.Designer.cs">
       <DependentUpon>FinancialOrderForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Financial_Form\Financial_Order\AncillaryCostsUC.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\Financial_Form\Financial_Order\AncillaryCostsUC.Designer.cs">
+      <DependentUpon>AncillaryCostsUC.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Financial_Form\Financial_Order\CapitalTurnoverChartUC.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -284,6 +290,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Financial_Form\FinancialOrderForm.resx">
       <DependentUpon>FinancialOrderForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Financial_Form\Financial_Order\AncillaryCostsUC.resx">
+      <DependentUpon>AncillaryCostsUC.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Financial_Form\Financial_Order\CapitalTurnoverChartUC.resx">
       <DependentUpon>CapitalTurnoverChartUC.cs</DependentUpon>

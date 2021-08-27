@@ -1101,7 +1101,7 @@ namespace Inventory_Forms
 					Registration_Time = auditItem.Register_Time,
 				};
 
-				dataBaseContext.GeneralJournals.Add(dailyOffice);
+				dataBaseContext.Journals.Add(dailyOffice);
 				dataBaseContext.SaveChanges();
 
 				return true;

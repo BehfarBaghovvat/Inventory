@@ -53,10 +53,9 @@
   <ItemGroup>
     <Compile Include="AncillaryCosts.cs" />
     <Compile Include="CapitalFund.cs" />
-    <Compile Include="CapitalTurnover.cs" />
     <Compile Include="Client.cs" />
     <Compile Include="DailyFinancialReport.cs" />
-    <Compile Include="GeneralJournal.cs" />
+    <Compile Include="Journal.cs" />
     <Compile Include="DataBaseContext.cs" />
     <Compile Include="DataBaseContextInitializer.cs" />
     <Compile Include="DataBaseContextInitializerBeforTheFirstRelease.cs" />
