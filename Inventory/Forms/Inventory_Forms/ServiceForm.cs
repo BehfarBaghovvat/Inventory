@@ -75,8 +75,6 @@ namespace Inventory_Forms
 			}
 		}
 
-
-
 		#endregion /Layer
 
 		private AuditItem _audit = new AuditItem();
@@ -189,6 +187,36 @@ namespace Inventory_Forms
 			}
 		}
 		#endregion /ClientNameTextBox_TextChange
+
+		#region LicensePlateTextBox_Enter
+		private void LicensePlateTextBox_Enter(object sender, System.EventArgs e)
+		{
+			Infrastructure.Utility.PersianLanguage();
+			licensePlateTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+		}
+		#endregion /LicensePlateTextBox_Enter
+
+		#region LicensePlateTextBox_KeyPress
+		private void LicensePlateTextBox_KeyPress(object sender, System.Windows.Forms.KeyPressEventArgs e)
+		{
+			Infrastructure.Utility.PersianAndNumberTyping(e);
+		}
+		#endregion /LicensePlateTextBox_KeyPress
+
+		#region LicensePlateTextBox_TextChange
+		private void LicensePlateTextBox_TextChange(object sender, System.EventArgs e)
+		{
+			if (string.IsNullOrWhiteSpace(licensePlateTextBox.Text))
+			{
+				ServiceInvoice.License_Plate = null;
+				return;
+			}
+			else
+			{
+				ServiceInvoice.License_Plate = licensePlateTextBox.Text;
+			}
+		}
+		#endregion /LicensePlateTextBox_TextChange
 
 		#region ServceNameComboBox_SelectionChangeCommitted
 		private void ServiceNameComboBox_SelectionChangeCommitted(object sender, System.EventArgs e)
@@ -365,6 +393,164 @@ namespace Inventory_Forms
 			}
 		}
 		#endregion /DescriptionTextBox_TextChange
+
+		#region CurrerntKilometerTextBox_Enter
+		private void CurrerntKilometerTextBox_Enter(object sender, System.EventArgs e)
+		{
+			Infrastructure.Utility.PersianLanguage();
+
+			if (string.IsNullOrWhiteSpace(currerntKilometerTextBox.Text))
+			{
+				currerntKilometerTextBox.Text = "0 کیلومتر";
+				currerntKilometerTextBox.Select(0, 1);
+				currerntKilometerTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+			}
+			else if (currerntKilometerTextBox.Text.Contains("کیلومتر"))
+			{
+				return;
+			}
+		}
+		#endregion /CurrerntKilometerTextBox_Enter
+
+		#region CurrerntKilometerTextBox_KeyPress
+		private void CurrerntKilometerTextBox_KeyPress(object sender, System.Windows.Forms.KeyPressEventArgs e)
+		{
+			Infrastructure.Utility.InsertOnlyNumber(e);
+		}
+		#endregion /CurrerntKilometerTextBox_KeyPress
+
+		#region CurrerntKilometerTextBox_Leave
+		private void CurrerntKilometerTextBox_Leave(object sender, System.EventArgs e)
+		{
+			if (string.IsNullOrWhiteSpace(currerntKilometerTextBox.Text))
+			{
+				currerntKilometerTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+				ServiceInvoice.Current_Kilometer = "0 کیلومتر";
+				return;
+			}
+			else if (string.Compare(currerntKilometerTextBox.Text, "0 تومان") == 0)
+			{
+				currerntKilometerTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+				currerntKilometerTextBox.Clear();
+				ServiceInvoice.Current_Kilometer = "0 کیلومتر";
+				return;
+			}
+			else if (string.Compare(currerntKilometerTextBox.Text, " کیلومتر") == 0 ||
+				string.Compare(currerntKilometerTextBox.Text, "کیلومتر") == 0 ||
+				string.Compare(currerntKilometerTextBox.Text, "کیلومت") == 0 ||
+				string.Compare(currerntKilometerTextBox.Text, "کیلوم") == 0 ||
+				string.Compare(currerntKilometerTextBox.Text, "کیلو") == 0 ||
+				string.Compare(currerntKilometerTextBox.Text, "کیل") == 0 ||
+				string.Compare(currerntKilometerTextBox.Text, "کی") == 0 ||
+				string.Compare(currerntKilometerTextBox.Text, "ک") == 0)
+			{
+				currerntKilometerTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+				currerntKilometerTextBox.Clear();
+				ServiceInvoice.Current_Kilometer = "0 کیلومتر";
+				return;
+			}
+			else
+			{
+				currerntKilometerTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+
+				ServiceInvoice.Current_Kilometer = currerntKilometerTextBox.Text;
+			}
+		}
+		#endregion /CurrerntKilometerTextBox_Leave
+
+		#region CurrerntKilometerTextBox_TextChange
+		private void CurrerntKilometerTextBox_TextChange(object sender, System.EventArgs e)
+		{
+			if (string.IsNullOrWhiteSpace(currerntKilometerTextBox.Text))
+			{
+				currerntKilometerTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+
+			}
+			else
+			{
+				currerntKilometerTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+			}
+		}
+		#endregion /CurrerntKilometerTextBox_TextChange
+
+		#region NextKilometerTextBox_Enter
+		private void NextKilometerTextBox_Enter(object sender, System.EventArgs e)
+		{
+			Infrastructure.Utility.PersianLanguage();
+
+			if (string.IsNullOrWhiteSpace(nextKilometerTextBox.Text))
+			{
+				nextKilometerTextBox.Text = "0 کیلومتر";
+				nextKilometerTextBox.Select(0, 1);
+				nextKilometerTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+			}
+			else if (currerntKilometerTextBox.Text.Contains("کیلومتر"))
+			{
+				return;
+			}
+		}
+		#endregion /NextKilometerTextBox_Enter
+
+		#region NextKilometerTextBox_KeyPress
+		private void NextKilometerTextBox_KeyPress(object sender, System.Windows.Forms.KeyPressEventArgs e)
+		{
+			Infrastructure.Utility.InsertOnlyNumber(e);
+		}
+		#endregion /NextKilometerTextBox_KeyPress
+
+		#region NextKilometerTextBox_Leave
+		private void NextKilometerTextBox_Leave(object sender, System.EventArgs e)
+		{
+			if (string.IsNullOrWhiteSpace(nextKilometerTextBox.Text))
+			{
+				nextKilometerTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+				ServiceInvoice.Next_Kilometer = "0 کیلومتر";
+				return;
+			}
+			else if (string.Compare(nextKilometerTextBox.Text, "0 تومان") == 0)
+			{
+				nextKilometerTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+				nextKilometerTextBox.Clear();
+				ServiceInvoice.Next_Kilometer = "0 کیلومتر";
+				return;
+			}
+			else if (string.Compare(nextKilometerTextBox.Text, " کیلومتر") == 0 ||
+				string.Compare(nextKilometerTextBox.Text, "کیلومتر") == 0 ||
+				string.Compare(nextKilometerTextBox.Text, "کیلومت") == 0 ||
+				string.Compare(nextKilometerTextBox.Text, "کیلوم") == 0 ||
+				string.Compare(nextKilometerTextBox.Text, "کیلو") == 0 ||
+				string.Compare(nextKilometerTextBox.Text, "کیل") == 0 ||
+				string.Compare(nextKilometerTextBox.Text, "کی") == 0 ||
+				string.Compare(nextKilometerTextBox.Text, "ک") == 0)
+			{
+				nextKilometerTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+				nextKilometerTextBox.Clear();
+				ServiceInvoice.Next_Kilometer = "0 کیلومتر";
+				return;
+			}
+			else
+			{
+				nextKilometerTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+
+				ServiceInvoice.Next_Kilometer = nextKilometerTextBox.Text;
+			}
+		}
+		#endregion /NextKilometerTextBox_Leave
+
+		#region NextKilometerTextBox_TextChange
+		private void NextKilometerTextBox_TextChange(object sender, System.EventArgs e)
+		{
+			if (string.IsNullOrWhiteSpace(nextKilometerTextBox.Text))
+			{
+				nextKilometerTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+
+			}
+			else
+			{
+				nextKilometerTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+			}
+		}
+		#endregion /NextKilometerTextBox_TextChange
 
 		#region AddServiceButton_Click
 		private void AddServiceButton_Click(object sender, System.EventArgs e)
@@ -836,9 +1022,6 @@ namespace Inventory_Forms
 			listServiceDataGridView.Rows.Add(service.Service_Name, service.Description, service.Service_Price, service.Service_Number, sumPrice);
 
 			ContinueRegisterService();
-
-
-
 		}
 		#endregion /AddService
 
@@ -1644,95 +1827,5 @@ namespace Inventory_Forms
 		#endregion /SetServicePrice
 
 		#endregion /Function
-
-		#region KilometersCarTextBox_Enter
-		private void KilometersCarTextBox_Enter(object sender, System.EventArgs e)
-		{
-			Infrastructure.Utility.PersianLanguage();
-
-			if (string.IsNullOrWhiteSpace(currerntKilometerTextBox.Text))
-			{
-				currerntKilometerTextBox.Text = "0 کیلومتر";
-				currerntKilometerTextBox.Select(0, 1);
-				currerntKilometerTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-			}
-			else if (currerntKilometerTextBox.Text.Contains("کیلومتر"))
-			{
-				return;
-			}
-		}
-		#endregion /KilometersCarTextBox_Enter
-
-		#region KilometersCarTextBox_KeyPress
-		private void KilometersCarTextBox_KeyPress(object sender, System.Windows.Forms.KeyPressEventArgs e)
-		{
-			Infrastructure.Utility.InsertOnlyNumber(e);
-		}
-		#endregion /KilometersCarTextBox_KeyPress
-
-		#region KilometersCarTextBox_Leave
-		private void KilometersCarTextBox_Leave(object sender, System.EventArgs e)
-		{
-			if (string.IsNullOrWhiteSpace(currerntKilometerTextBox.Text))
-			{
-				currerntKilometerTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-				return;
-			}
-			else if (string.Compare(currerntKilometerTextBox.Text, "0 تومان") == 0)
-			{
-				currerntKilometerTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-				currerntKilometerTextBox.Clear();
-				return;
-			}
-			else if (string.Compare(currerntKilometerTextBox.Text, " کیلومتر") == 0 ||
-				string.Compare(currerntKilometerTextBox.Text, "کیلومتر") == 0 ||
-				string.Compare(currerntKilometerTextBox.Text, "کیلومت") == 0 ||
-				string.Compare(currerntKilometerTextBox.Text, "کیلوم") == 0 ||
-				string.Compare(currerntKilometerTextBox.Text, "کیلو") == 0 ||
-				string.Compare(currerntKilometerTextBox.Text, "کیل") == 0 ||
-				string.Compare(currerntKilometerTextBox.Text, "کی") == 0 ||
-				string.Compare(currerntKilometerTextBox.Text, "ک") == 0)
-			{
-				currerntKilometerTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-				currerntKilometerTextBox.Clear();
-				return;
-			}
-			else
-			{
-				currerntKilometerTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-
-				//-----ادامه کد را بنویسید
-			}
-		}
-		#endregion /KilometersCarTextBox_Leave
-
-		#region KilometersCarTextBox_TextChange
-		private void KilometersCarTextBox_TextChange(object sender, System.EventArgs e)
-		{
-			if (string.IsNullOrWhiteSpace(currerntKilometerTextBox.Text))
-			{
-				currerntKilometerTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-			}
-			else
-			{
-				currerntKilometerTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-			}
-		}
-		#endregion /KilometersCarTextBox_TextChange
-
-		private void licensePlateTextBox_Enter(object sender, System.EventArgs e)
-		{
-
-		}
-
-		private void licensePlateTextBox_KeyPress(object sender, System.Windows.Forms.KeyPressEventArgs e)
-		{
-
-		}
-
-		private void licensePlateTextBox_TextChange(object sender, System.EventArgs e)
-		{
-
-		}
 	}
 }

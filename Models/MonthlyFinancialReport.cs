@@ -80,9 +80,9 @@
 		/// اجزای تاریخ
 		/// </summary>
 		#region Date
-		public int Year { get; set; }
-		public int Month { get; set; }
-		public int Day { get; set; }
+		public int? Year { get; set; }
+		public int? Month { get; set; }
+		public int? Day { get; set; }
 		#endregion /Date
 
 		

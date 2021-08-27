@@ -102,6 +102,11 @@
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 		}
 
+		[System.Runtime.InteropServices.DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
+		private extern static void ReleaseCapture();
+		[System.Runtime.InteropServices.DllImport("user32.DLL", EntryPoint = "SendMessage")]
+		private extern static void SendMessage(System.IntPtr hwnd, int wmsg, int wparam, int lparam);
+
 		//----------Beginning of the code!----------
 
 		#region MessageBoxDOBForm_Load
@@ -145,8 +150,6 @@
 		}
 		#endregion /FadeTimer_Tick
 
-
-
 		#region Fade
 		private void Fade(System.Windows.Forms.Timer timer, Action action)
 		{
@@ -180,7 +183,6 @@
 				default:
 					break;
 			}
-
 		}
 		#endregion /Fade
 
@@ -193,9 +195,20 @@
 		}
 		#endregion /SetCenterScreen
 
+		#region CaptionLabel_MouseDown
+		private void CaptionLabel_MouseDown(object sender, System.Windows.Forms.MouseEventArgs e)
+		{
+			ReleaseCapture();
+			SendMessage(this.Handle, 0x112, 0xf012, 0);
+		}
+		#endregion /CaptionLabel_MouseDown
 
-
-
-
+		#region MessageLabel_MouseDown
+		private void MessageLabel_MouseDown(object sender, System.Windows.Forms.MouseEventArgs e)
+		{
+			ReleaseCapture();
+			SendMessage(this.Handle, 0x112, 0xf012, 0);
+		}
+		#endregion /MessageLabel_MouseDown
 	}
 }

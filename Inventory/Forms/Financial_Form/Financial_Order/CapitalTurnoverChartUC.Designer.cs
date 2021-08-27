@@ -31,54 +31,54 @@ namespace Financial_Order
 		{
 			this.components = new System.ComponentModel.Container();
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CapitalTurnoverChartUC));
-			Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties1 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
-			Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties2 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
-			Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties3 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
-			Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties4 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
-			Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties5 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
-			Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties6 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
-			Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties7 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
-			Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties8 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
-			Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties9 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
-			Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties10 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
-			Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties11 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
-			Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties12 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
-			Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties13 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
-			Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties14 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
-			Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties15 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
-			Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties16 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
+			Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties81 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
+			Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties82 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
+			Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties83 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
+			Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties84 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
+			Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties85 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
+			Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties86 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
+			Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties87 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
+			Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties88 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
+			Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties89 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
+			Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties90 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
+			Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties91 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
+			Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties92 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
+			Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties93 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
+			Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties94 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
+			Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties95 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
+			Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties96 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
 			this.mainPanel = new Guna.UI2.WinForms.Guna2GradientPanel();
+			this.chartAndDataGridViewPanel = new Guna.UI.WinForms.GunaPanel();
+			this.statisticsDisplayChart = new LiveCharts.WinForms.CartesianChart();
+			this.financialDataGridView = new Mbb.Windows.Forms.DataGridView();
 			this.searchPanel = new Guna.UI2.WinForms.Guna2Panel();
-			this.searchDailyPanel = new Guna.UI2.WinForms.Guna2Panel();
-			this.yearDailyOrderTextBox = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox();
-			this.monthOrderDailyComboBox = new Guna.UI2.WinForms.Guna2ComboBox();
-			this.dayDailyOrderTextBox = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox();
-			this.showDailyChartButton = new Guna.UI2.WinForms.Guna2GradientButton();
 			this.topPanel = new Guna.UI2.WinForms.Guna2Panel();
 			this.yearlyButton = new Guna.UI2.WinForms.Guna2GradientButton();
 			this.monthlyButton = new Guna.UI2.WinForms.Guna2GradientButton();
 			this.dailyButton = new Guna.UI2.WinForms.Guna2GradientButton();
+			this.searchDailyPanel = new Guna.UI2.WinForms.Guna2Panel();
+			this.yearDailyOrderTextBox = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox();
+			this.monthDailyOrderComboBox = new Guna.UI2.WinForms.Guna2ComboBox();
+			this.dayDailyOrderTextBox = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox();
+			this.showDailyChartButton = new Guna.UI2.WinForms.Guna2GradientButton();
 			this.searchMonthlyPanel = new Guna.UI2.WinForms.Guna2Panel();
-			this.guna2ComboBox2 = new Guna.UI2.WinForms.Guna2ComboBox();
-			this.bunifuTextBox1 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox();
-			this.guna2GradientButton1 = new Guna.UI2.WinForms.Guna2GradientButton();
+			this.yearMonthlyOrderTextBox = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox();
+			this.ShowMonthlyChartButton = new Guna.UI2.WinForms.Guna2GradientButton();
+			this.monthMonthlyOrderComboBox = new Guna.UI2.WinForms.Guna2ComboBox();
 			this.searchYearlyPanel = new Guna.UI2.WinForms.Guna2Panel();
-			this.bunifuTextBox2 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox();
-			this.guna2GradientButton2 = new Guna.UI2.WinForms.Guna2GradientButton();
-			this.chartAndDataGridViewPanel = new Guna.UI.WinForms.GunaPanel();
-			this.statisticsDisplayChart = new LiveCharts.WinForms.CartesianChart();
-			this.financialDataGridView = new Mbb.Windows.Forms.DataGridView();
+			this.yearlyYearOrderTextBox = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox();
+			this.showYearlyChartButton = new Guna.UI2.WinForms.Guna2GradientButton();
 			this.dailyFinancialReportBindingSource = new System.Windows.Forms.BindingSource(this.components);
 			this.monthlyFinancialReportBindingSource = new System.Windows.Forms.BindingSource(this.components);
 			this.yearlyFinancialReportBindingSource = new System.Windows.Forms.BindingSource(this.components);
 			this.mainPanel.SuspendLayout();
-			this.searchPanel.SuspendLayout();
-			this.searchDailyPanel.SuspendLayout();
-			this.topPanel.SuspendLayout();
-			this.searchMonthlyPanel.SuspendLayout();
-			this.searchYearlyPanel.SuspendLayout();
 			this.chartAndDataGridViewPanel.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.financialDataGridView)).BeginInit();
+			this.searchPanel.SuspendLayout();
+			this.topPanel.SuspendLayout();
+			this.searchDailyPanel.SuspendLayout();
+			this.searchMonthlyPanel.SuspendLayout();
+			this.searchYearlyPanel.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.dailyFinancialReportBindingSource)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.monthlyFinancialReportBindingSource)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.yearlyFinancialReportBindingSource)).BeginInit();
@@ -98,11 +98,45 @@ namespace Financial_Order
 			this.mainPanel.Size = new System.Drawing.Size(1125, 460);
 			this.mainPanel.TabIndex = 2;
 			// 
+			// chartAndDataGridViewPanel
+			// 
+			this.chartAndDataGridViewPanel.BackColor = System.Drawing.Color.Transparent;
+			this.chartAndDataGridViewPanel.Controls.Add(this.statisticsDisplayChart);
+			this.chartAndDataGridViewPanel.Controls.Add(this.financialDataGridView);
+			this.chartAndDataGridViewPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.chartAndDataGridViewPanel.Location = new System.Drawing.Point(0, 135);
+			this.chartAndDataGridViewPanel.Name = "chartAndDataGridViewPanel";
+			this.chartAndDataGridViewPanel.Size = new System.Drawing.Size(1125, 325);
+			this.chartAndDataGridViewPanel.TabIndex = 2;
+			// 
+			// statisticsDisplayChart
+			// 
+			this.statisticsDisplayChart.BackColor = System.Drawing.Color.Transparent;
+			this.statisticsDisplayChart.BackColorTransparent = true;
+			this.statisticsDisplayChart.Font = new System.Drawing.Font("IRANSansXFaNum", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+			this.statisticsDisplayChart.ForeColor = System.Drawing.Color.White;
+			this.statisticsDisplayChart.Location = new System.Drawing.Point(0, 0);
+			this.statisticsDisplayChart.Name = "statisticsDisplayChart";
+			this.statisticsDisplayChart.Size = new System.Drawing.Size(1125, 325);
+			this.statisticsDisplayChart.TabIndex = 1;
+			// 
+			// financialDataGridView
+			// 
+			this.financialDataGridView.AllowUserToAddRows = false;
+			this.financialDataGridView.AllowUserToDeleteRows = false;
+			this.financialDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+			this.financialDataGridView.Location = new System.Drawing.Point(0, 0);
+			this.financialDataGridView.Name = "financialDataGridView";
+			this.financialDataGridView.ReadOnly = true;
+			this.financialDataGridView.Size = new System.Drawing.Size(1125, 325);
+			this.financialDataGridView.TabIndex = 2;
+			this.financialDataGridView.Visible = false;
+			// 
 			// searchPanel
 			// 
 			this.searchPanel.BackColor = System.Drawing.Color.Transparent;
-			this.searchPanel.Controls.Add(this.searchDailyPanel);
 			this.searchPanel.Controls.Add(this.topPanel);
+			this.searchPanel.Controls.Add(this.searchDailyPanel);
 			this.searchPanel.Controls.Add(this.searchMonthlyPanel);
 			this.searchPanel.Controls.Add(this.searchYearlyPanel);
 			this.searchPanel.Dock = System.Windows.Forms.DockStyle.Top;
@@ -111,245 +145,6 @@ namespace Financial_Order
 			this.searchPanel.ShadowDecoration.Parent = this.searchPanel;
 			this.searchPanel.Size = new System.Drawing.Size(1125, 135);
 			this.searchPanel.TabIndex = 1;
-			// 
-			// searchDailyPanel
-			// 
-			this.searchDailyPanel.Controls.Add(this.yearDailyOrderTextBox);
-			this.searchDailyPanel.Controls.Add(this.monthOrderDailyComboBox);
-			this.searchDailyPanel.Controls.Add(this.dayDailyOrderTextBox);
-			this.searchDailyPanel.Controls.Add(this.showDailyChartButton);
-			this.searchDailyPanel.Location = new System.Drawing.Point(0, 45);
-			this.searchDailyPanel.Name = "searchDailyPanel";
-			this.searchDailyPanel.ShadowDecoration.Parent = this.searchDailyPanel;
-			this.searchDailyPanel.Size = new System.Drawing.Size(1125, 90);
-			this.searchDailyPanel.TabIndex = 3;
-			// 
-			// yearDailyOrderTextBox
-			// 
-			this.yearDailyOrderTextBox.AcceptsReturn = false;
-			this.yearDailyOrderTextBox.AcceptsTab = false;
-			this.yearDailyOrderTextBox.AnimationSpeed = 200;
-			this.yearDailyOrderTextBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
-			this.yearDailyOrderTextBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
-			this.yearDailyOrderTextBox.BackColor = System.Drawing.Color.Transparent;
-			this.yearDailyOrderTextBox.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("yearDailyOrderTextBox.BackgroundImage")));
-			this.yearDailyOrderTextBox.BorderColorActive = System.Drawing.Color.RoyalBlue;
-			this.yearDailyOrderTextBox.BorderColorDisabled = System.Drawing.Color.FromArgb(((int)(((byte)(161)))), ((int)(((byte)(161)))), ((int)(((byte)(161)))));
-			this.yearDailyOrderTextBox.BorderColorHover = System.Drawing.Color.SlateBlue;
-			this.yearDailyOrderTextBox.BorderColorIdle = System.Drawing.Color.MidnightBlue;
-			this.yearDailyOrderTextBox.BorderRadius = 10;
-			this.yearDailyOrderTextBox.BorderThickness = 2;
-			this.yearDailyOrderTextBox.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
-			this.yearDailyOrderTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
-			this.yearDailyOrderTextBox.DefaultFont = new System.Drawing.Font("IRANSansXFaNum", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-			this.yearDailyOrderTextBox.DefaultText = "";
-			this.yearDailyOrderTextBox.FillColor = System.Drawing.SystemColors.Control;
-			this.yearDailyOrderTextBox.HideSelection = true;
-			this.yearDailyOrderTextBox.IconLeft = null;
-			this.yearDailyOrderTextBox.IconLeftCursor = System.Windows.Forms.Cursors.IBeam;
-			this.yearDailyOrderTextBox.IconPadding = 10;
-			this.yearDailyOrderTextBox.IconRight = null;
-			this.yearDailyOrderTextBox.IconRightCursor = System.Windows.Forms.Cursors.IBeam;
-			this.yearDailyOrderTextBox.Lines = new string[0];
-			this.yearDailyOrderTextBox.Location = new System.Drawing.Point(378, 28);
-			this.yearDailyOrderTextBox.MaximumSize = new System.Drawing.Size(175, 35);
-			this.yearDailyOrderTextBox.MaxLength = 32767;
-			this.yearDailyOrderTextBox.MinimumSize = new System.Drawing.Size(100, 35);
-			this.yearDailyOrderTextBox.Modified = false;
-			this.yearDailyOrderTextBox.Multiline = false;
-			this.yearDailyOrderTextBox.Name = "yearDailyOrderTextBox";
-			stateProperties1.BorderColor = System.Drawing.Color.RoyalBlue;
-			stateProperties1.FillColor = System.Drawing.Color.Empty;
-			stateProperties1.ForeColor = System.Drawing.Color.Empty;
-			stateProperties1.PlaceholderForeColor = System.Drawing.Color.Empty;
-			this.yearDailyOrderTextBox.OnActiveState = stateProperties1;
-			stateProperties2.BorderColor = System.Drawing.Color.Empty;
-			stateProperties2.FillColor = System.Drawing.Color.White;
-			stateProperties2.ForeColor = System.Drawing.Color.Empty;
-			stateProperties2.PlaceholderForeColor = System.Drawing.Color.Silver;
-			this.yearDailyOrderTextBox.OnDisabledState = stateProperties2;
-			stateProperties3.BorderColor = System.Drawing.Color.SlateBlue;
-			stateProperties3.FillColor = System.Drawing.Color.Empty;
-			stateProperties3.ForeColor = System.Drawing.Color.Empty;
-			stateProperties3.PlaceholderForeColor = System.Drawing.Color.Empty;
-			this.yearDailyOrderTextBox.OnHoverState = stateProperties3;
-			stateProperties4.BorderColor = System.Drawing.Color.MidnightBlue;
-			stateProperties4.FillColor = System.Drawing.SystemColors.Control;
-			stateProperties4.ForeColor = System.Drawing.Color.Empty;
-			stateProperties4.PlaceholderForeColor = System.Drawing.Color.Empty;
-			this.yearDailyOrderTextBox.OnIdleState = stateProperties4;
-			this.yearDailyOrderTextBox.PasswordChar = '\0';
-			this.yearDailyOrderTextBox.PlaceholderForeColor = System.Drawing.Color.Silver;
-			this.yearDailyOrderTextBox.PlaceholderText = "درج سال...";
-			this.yearDailyOrderTextBox.ReadOnly = false;
-			this.yearDailyOrderTextBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-			this.yearDailyOrderTextBox.ScrollBars = System.Windows.Forms.ScrollBars.None;
-			this.yearDailyOrderTextBox.SelectedText = "";
-			this.yearDailyOrderTextBox.SelectionLength = 0;
-			this.yearDailyOrderTextBox.SelectionStart = 0;
-			this.yearDailyOrderTextBox.ShortcutsEnabled = true;
-			this.yearDailyOrderTextBox.Size = new System.Drawing.Size(175, 35);
-			this.yearDailyOrderTextBox.Style = Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox._Style.Bunifu;
-			this.yearDailyOrderTextBox.TabIndex = 4;
-			this.yearDailyOrderTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-			this.yearDailyOrderTextBox.TextMarginBottom = 0;
-			this.yearDailyOrderTextBox.TextMarginLeft = 5;
-			this.yearDailyOrderTextBox.TextMarginTop = 0;
-			this.yearDailyOrderTextBox.TextPlaceholder = "درج سال...";
-			this.yearDailyOrderTextBox.UseSystemPasswordChar = false;
-			this.yearDailyOrderTextBox.WordWrap = true;
-			this.yearDailyOrderTextBox.TextChange += new System.EventHandler(this.YearDailyOrderTextBox_TextChange);
-			this.yearDailyOrderTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.YearDailyOrderTextBox_KeyPress);
-			this.yearDailyOrderTextBox.Enter += new System.EventHandler(this.YearDailyOrderTextBox_Enter);
-			// 
-			// monthOrderDailyComboBox
-			// 
-			this.monthOrderDailyComboBox.Animated = true;
-			this.monthOrderDailyComboBox.BackColor = System.Drawing.Color.Transparent;
-			this.monthOrderDailyComboBox.BorderColor = System.Drawing.Color.MidnightBlue;
-			this.monthOrderDailyComboBox.BorderRadius = 5;
-			this.monthOrderDailyComboBox.BorderThickness = 2;
-			this.monthOrderDailyComboBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-			this.monthOrderDailyComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-			this.monthOrderDailyComboBox.FillColor = System.Drawing.SystemColors.Control;
-			this.monthOrderDailyComboBox.FocusedColor = System.Drawing.Color.RoyalBlue;
-			this.monthOrderDailyComboBox.FocusedState.BorderColor = System.Drawing.Color.RoyalBlue;
-			this.monthOrderDailyComboBox.FocusedState.Parent = this.monthOrderDailyComboBox;
-			this.monthOrderDailyComboBox.Font = new System.Drawing.Font("IRANSansX", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-			this.monthOrderDailyComboBox.ForeColor = System.Drawing.Color.Silver;
-			this.monthOrderDailyComboBox.FormattingEnabled = true;
-			this.monthOrderDailyComboBox.HoverState.BorderColor = System.Drawing.Color.SlateBlue;
-			this.monthOrderDailyComboBox.HoverState.Parent = this.monthOrderDailyComboBox;
-			this.monthOrderDailyComboBox.ItemHeight = 28;
-			this.monthOrderDailyComboBox.Items.AddRange(new object[] {
-            "...انتخاب ماه",
-            "فروردین",
-            "اردیبهشت",
-            "خرداد",
-            "تیر",
-            "مرداد",
-            "شهریور",
-            "مهر",
-            "آبان",
-            "آذر",
-            "دی",
-            "بهمن",
-            "اسفند"});
-			this.monthOrderDailyComboBox.ItemsAppearance.BackColor = System.Drawing.Color.Teal;
-			this.monthOrderDailyComboBox.ItemsAppearance.ForeColor = System.Drawing.Color.White;
-			this.monthOrderDailyComboBox.ItemsAppearance.Parent = this.monthOrderDailyComboBox;
-			this.monthOrderDailyComboBox.ItemsAppearance.SelectedBackColor = System.Drawing.Color.DarkSlateBlue;
-			this.monthOrderDailyComboBox.ItemsAppearance.SelectedForeColor = System.Drawing.Color.White;
-			this.monthOrderDailyComboBox.Location = new System.Drawing.Point(559, 28);
-			this.monthOrderDailyComboBox.Name = "monthOrderDailyComboBox";
-			this.monthOrderDailyComboBox.ShadowDecoration.Parent = this.monthOrderDailyComboBox;
-			this.monthOrderDailyComboBox.Size = new System.Drawing.Size(187, 34);
-			this.monthOrderDailyComboBox.StartIndex = 0;
-			this.monthOrderDailyComboBox.TabIndex = 3;
-			this.monthOrderDailyComboBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-			this.monthOrderDailyComboBox.TextOffset = new System.Drawing.Point(0, 2);
-			this.monthOrderDailyComboBox.TextRenderingHint = System.Drawing.Text.TextRenderingHint.AntiAlias;
-			this.monthOrderDailyComboBox.SelectedIndexChanged += new System.EventHandler(this.MonthOrderDailyComboBox_SelectedIndexChanged);
-			// 
-			// dayDailyOrderTextBox
-			// 
-			this.dayDailyOrderTextBox.AcceptsReturn = false;
-			this.dayDailyOrderTextBox.AcceptsTab = false;
-			this.dayDailyOrderTextBox.AnimationSpeed = 200;
-			this.dayDailyOrderTextBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
-			this.dayDailyOrderTextBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
-			this.dayDailyOrderTextBox.BackColor = System.Drawing.Color.Transparent;
-			this.dayDailyOrderTextBox.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("dayDailyOrderTextBox.BackgroundImage")));
-			this.dayDailyOrderTextBox.BorderColorActive = System.Drawing.Color.RoyalBlue;
-			this.dayDailyOrderTextBox.BorderColorDisabled = System.Drawing.Color.FromArgb(((int)(((byte)(161)))), ((int)(((byte)(161)))), ((int)(((byte)(161)))));
-			this.dayDailyOrderTextBox.BorderColorHover = System.Drawing.Color.SlateBlue;
-			this.dayDailyOrderTextBox.BorderColorIdle = System.Drawing.Color.MidnightBlue;
-			this.dayDailyOrderTextBox.BorderRadius = 10;
-			this.dayDailyOrderTextBox.BorderThickness = 2;
-			this.dayDailyOrderTextBox.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
-			this.dayDailyOrderTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
-			this.dayDailyOrderTextBox.DefaultFont = new System.Drawing.Font("IRANSansXFaNum", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-			this.dayDailyOrderTextBox.DefaultText = "";
-			this.dayDailyOrderTextBox.FillColor = System.Drawing.SystemColors.Control;
-			this.dayDailyOrderTextBox.HideSelection = true;
-			this.dayDailyOrderTextBox.IconLeft = null;
-			this.dayDailyOrderTextBox.IconLeftCursor = System.Windows.Forms.Cursors.IBeam;
-			this.dayDailyOrderTextBox.IconPadding = 10;
-			this.dayDailyOrderTextBox.IconRight = null;
-			this.dayDailyOrderTextBox.IconRightCursor = System.Windows.Forms.Cursors.IBeam;
-			this.dayDailyOrderTextBox.Lines = new string[0];
-			this.dayDailyOrderTextBox.Location = new System.Drawing.Point(752, 28);
-			this.dayDailyOrderTextBox.MaximumSize = new System.Drawing.Size(175, 35);
-			this.dayDailyOrderTextBox.MaxLength = 32767;
-			this.dayDailyOrderTextBox.MinimumSize = new System.Drawing.Size(100, 35);
-			this.dayDailyOrderTextBox.Modified = false;
-			this.dayDailyOrderTextBox.Multiline = false;
-			this.dayDailyOrderTextBox.Name = "dayDailyOrderTextBox";
-			stateProperties5.BorderColor = System.Drawing.Color.RoyalBlue;
-			stateProperties5.FillColor = System.Drawing.Color.Empty;
-			stateProperties5.ForeColor = System.Drawing.Color.Empty;
-			stateProperties5.PlaceholderForeColor = System.Drawing.Color.Empty;
-			this.dayDailyOrderTextBox.OnActiveState = stateProperties5;
-			stateProperties6.BorderColor = System.Drawing.Color.Empty;
-			stateProperties6.FillColor = System.Drawing.Color.White;
-			stateProperties6.ForeColor = System.Drawing.Color.Empty;
-			stateProperties6.PlaceholderForeColor = System.Drawing.Color.Silver;
-			this.dayDailyOrderTextBox.OnDisabledState = stateProperties6;
-			stateProperties7.BorderColor = System.Drawing.Color.SlateBlue;
-			stateProperties7.FillColor = System.Drawing.Color.Empty;
-			stateProperties7.ForeColor = System.Drawing.Color.Empty;
-			stateProperties7.PlaceholderForeColor = System.Drawing.Color.Empty;
-			this.dayDailyOrderTextBox.OnHoverState = stateProperties7;
-			stateProperties8.BorderColor = System.Drawing.Color.MidnightBlue;
-			stateProperties8.FillColor = System.Drawing.SystemColors.Control;
-			stateProperties8.ForeColor = System.Drawing.Color.Empty;
-			stateProperties8.PlaceholderForeColor = System.Drawing.Color.Empty;
-			this.dayDailyOrderTextBox.OnIdleState = stateProperties8;
-			this.dayDailyOrderTextBox.PasswordChar = '\0';
-			this.dayDailyOrderTextBox.PlaceholderForeColor = System.Drawing.Color.Silver;
-			this.dayDailyOrderTextBox.PlaceholderText = "درج روز...";
-			this.dayDailyOrderTextBox.ReadOnly = false;
-			this.dayDailyOrderTextBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-			this.dayDailyOrderTextBox.ScrollBars = System.Windows.Forms.ScrollBars.None;
-			this.dayDailyOrderTextBox.SelectedText = "";
-			this.dayDailyOrderTextBox.SelectionLength = 0;
-			this.dayDailyOrderTextBox.SelectionStart = 0;
-			this.dayDailyOrderTextBox.ShortcutsEnabled = true;
-			this.dayDailyOrderTextBox.Size = new System.Drawing.Size(175, 35);
-			this.dayDailyOrderTextBox.Style = Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox._Style.Bunifu;
-			this.dayDailyOrderTextBox.TabIndex = 2;
-			this.dayDailyOrderTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-			this.dayDailyOrderTextBox.TextMarginBottom = 0;
-			this.dayDailyOrderTextBox.TextMarginLeft = 5;
-			this.dayDailyOrderTextBox.TextMarginTop = 0;
-			this.dayDailyOrderTextBox.TextPlaceholder = "درج روز...";
-			this.dayDailyOrderTextBox.UseSystemPasswordChar = false;
-			this.dayDailyOrderTextBox.WordWrap = true;
-			this.dayDailyOrderTextBox.TextChange += new System.EventHandler(this.DayDailyOrderTextBox_TextChange);
-			this.dayDailyOrderTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.DayDailyOrderTextBox_KeyPress);
-			this.dayDailyOrderTextBox.Enter += new System.EventHandler(this.DayDailyOrderTextBox_Enter);
-			// 
-			// showDailyChartButton
-			// 
-			this.showDailyChartButton.Animated = true;
-			this.showDailyChartButton.BorderRadius = 10;
-			this.showDailyChartButton.CheckedState.Parent = this.showDailyChartButton;
-			this.showDailyChartButton.CustomImages.Parent = this.showDailyChartButton;
-			this.showDailyChartButton.FillColor = System.Drawing.Color.MidnightBlue;
-			this.showDailyChartButton.FillColor2 = System.Drawing.Color.RoyalBlue;
-			this.showDailyChartButton.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.showDailyChartButton.ForeColor = System.Drawing.Color.White;
-			this.showDailyChartButton.HoverState.FillColor = System.Drawing.Color.RoyalBlue;
-			this.showDailyChartButton.HoverState.FillColor2 = System.Drawing.Color.MidnightBlue;
-			this.showDailyChartButton.HoverState.Parent = this.showDailyChartButton;
-			this.showDailyChartButton.Location = new System.Drawing.Point(197, 25);
-			this.showDailyChartButton.Name = "showDailyChartButton";
-			this.showDailyChartButton.PressedColor = System.Drawing.Color.White;
-			this.showDailyChartButton.ShadowDecoration.Parent = this.showDailyChartButton;
-			this.showDailyChartButton.Size = new System.Drawing.Size(175, 40);
-			this.showDailyChartButton.TabIndex = 1;
-			this.showDailyChartButton.Text = "نمایش نمودار روزانه";
-			this.showDailyChartButton.Click += new System.EventHandler(this.ShowDailyChartButton_Click);
 			// 
 			// topPanel
 			// 
@@ -433,37 +228,116 @@ namespace Financial_Order
 			this.dailyButton.TextOffset = new System.Drawing.Point(0, -5);
 			this.dailyButton.Click += new System.EventHandler(this.DailyButton_Click);
 			// 
-			// searchMonthlyPanel
+			// searchDailyPanel
 			// 
-			this.searchMonthlyPanel.Controls.Add(this.guna2ComboBox2);
-			this.searchMonthlyPanel.Controls.Add(this.bunifuTextBox1);
-			this.searchMonthlyPanel.Controls.Add(this.guna2GradientButton1);
-			this.searchMonthlyPanel.Location = new System.Drawing.Point(0, 45);
-			this.searchMonthlyPanel.Name = "searchMonthlyPanel";
-			this.searchMonthlyPanel.ShadowDecoration.Parent = this.searchMonthlyPanel;
-			this.searchMonthlyPanel.Size = new System.Drawing.Size(1125, 90);
-			this.searchMonthlyPanel.TabIndex = 4;
+			this.searchDailyPanel.Controls.Add(this.yearDailyOrderTextBox);
+			this.searchDailyPanel.Controls.Add(this.monthDailyOrderComboBox);
+			this.searchDailyPanel.Controls.Add(this.dayDailyOrderTextBox);
+			this.searchDailyPanel.Controls.Add(this.showDailyChartButton);
+			this.searchDailyPanel.Location = new System.Drawing.Point(0, 45);
+			this.searchDailyPanel.Name = "searchDailyPanel";
+			this.searchDailyPanel.ShadowDecoration.Parent = this.searchDailyPanel;
+			this.searchDailyPanel.Size = new System.Drawing.Size(1125, 90);
+			this.searchDailyPanel.TabIndex = 3;
 			// 
-			// guna2ComboBox2
+			// yearDailyOrderTextBox
 			// 
-			this.guna2ComboBox2.Animated = true;
-			this.guna2ComboBox2.BackColor = System.Drawing.Color.Transparent;
-			this.guna2ComboBox2.BorderColor = System.Drawing.Color.MidnightBlue;
-			this.guna2ComboBox2.BorderRadius = 5;
-			this.guna2ComboBox2.BorderThickness = 3;
-			this.guna2ComboBox2.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-			this.guna2ComboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-			this.guna2ComboBox2.FillColor = System.Drawing.SystemColors.Control;
-			this.guna2ComboBox2.FocusedColor = System.Drawing.Color.RoyalBlue;
-			this.guna2ComboBox2.FocusedState.BorderColor = System.Drawing.Color.RoyalBlue;
-			this.guna2ComboBox2.FocusedState.Parent = this.guna2ComboBox2;
-			this.guna2ComboBox2.Font = new System.Drawing.Font("IRANSansX", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-			this.guna2ComboBox2.ForeColor = System.Drawing.Color.Gray;
-			this.guna2ComboBox2.FormattingEnabled = true;
-			this.guna2ComboBox2.HoverState.BorderColor = System.Drawing.Color.SlateBlue;
-			this.guna2ComboBox2.HoverState.Parent = this.guna2ComboBox2;
-			this.guna2ComboBox2.ItemHeight = 28;
-			this.guna2ComboBox2.Items.AddRange(new object[] {
+			this.yearDailyOrderTextBox.AcceptsReturn = false;
+			this.yearDailyOrderTextBox.AcceptsTab = false;
+			this.yearDailyOrderTextBox.AnimationSpeed = 200;
+			this.yearDailyOrderTextBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
+			this.yearDailyOrderTextBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
+			this.yearDailyOrderTextBox.BackColor = System.Drawing.Color.Transparent;
+			this.yearDailyOrderTextBox.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("yearDailyOrderTextBox.BackgroundImage")));
+			this.yearDailyOrderTextBox.BorderColorActive = System.Drawing.Color.RoyalBlue;
+			this.yearDailyOrderTextBox.BorderColorDisabled = System.Drawing.Color.FromArgb(((int)(((byte)(161)))), ((int)(((byte)(161)))), ((int)(((byte)(161)))));
+			this.yearDailyOrderTextBox.BorderColorHover = System.Drawing.Color.SlateBlue;
+			this.yearDailyOrderTextBox.BorderColorIdle = System.Drawing.Color.MidnightBlue;
+			this.yearDailyOrderTextBox.BorderRadius = 10;
+			this.yearDailyOrderTextBox.BorderThickness = 2;
+			this.yearDailyOrderTextBox.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
+			this.yearDailyOrderTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
+			this.yearDailyOrderTextBox.DefaultFont = new System.Drawing.Font("IRANSansXFaNum", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+			this.yearDailyOrderTextBox.DefaultText = "";
+			this.yearDailyOrderTextBox.FillColor = System.Drawing.SystemColors.Control;
+			this.yearDailyOrderTextBox.HideSelection = true;
+			this.yearDailyOrderTextBox.IconLeft = null;
+			this.yearDailyOrderTextBox.IconLeftCursor = System.Windows.Forms.Cursors.IBeam;
+			this.yearDailyOrderTextBox.IconPadding = 10;
+			this.yearDailyOrderTextBox.IconRight = null;
+			this.yearDailyOrderTextBox.IconRightCursor = System.Windows.Forms.Cursors.IBeam;
+			this.yearDailyOrderTextBox.Lines = new string[0];
+			this.yearDailyOrderTextBox.Location = new System.Drawing.Point(378, 28);
+			this.yearDailyOrderTextBox.MaximumSize = new System.Drawing.Size(175, 35);
+			this.yearDailyOrderTextBox.MaxLength = 32767;
+			this.yearDailyOrderTextBox.MinimumSize = new System.Drawing.Size(100, 35);
+			this.yearDailyOrderTextBox.Modified = false;
+			this.yearDailyOrderTextBox.Multiline = false;
+			this.yearDailyOrderTextBox.Name = "yearDailyOrderTextBox";
+			stateProperties81.BorderColor = System.Drawing.Color.RoyalBlue;
+			stateProperties81.FillColor = System.Drawing.Color.Empty;
+			stateProperties81.ForeColor = System.Drawing.Color.Empty;
+			stateProperties81.PlaceholderForeColor = System.Drawing.Color.Empty;
+			this.yearDailyOrderTextBox.OnActiveState = stateProperties81;
+			stateProperties82.BorderColor = System.Drawing.Color.Empty;
+			stateProperties82.FillColor = System.Drawing.Color.White;
+			stateProperties82.ForeColor = System.Drawing.Color.Empty;
+			stateProperties82.PlaceholderForeColor = System.Drawing.Color.Silver;
+			this.yearDailyOrderTextBox.OnDisabledState = stateProperties82;
+			stateProperties83.BorderColor = System.Drawing.Color.SlateBlue;
+			stateProperties83.FillColor = System.Drawing.Color.Empty;
+			stateProperties83.ForeColor = System.Drawing.Color.Empty;
+			stateProperties83.PlaceholderForeColor = System.Drawing.Color.Empty;
+			this.yearDailyOrderTextBox.OnHoverState = stateProperties83;
+			stateProperties84.BorderColor = System.Drawing.Color.MidnightBlue;
+			stateProperties84.FillColor = System.Drawing.SystemColors.Control;
+			stateProperties84.ForeColor = System.Drawing.Color.Empty;
+			stateProperties84.PlaceholderForeColor = System.Drawing.Color.Empty;
+			this.yearDailyOrderTextBox.OnIdleState = stateProperties84;
+			this.yearDailyOrderTextBox.PasswordChar = '\0';
+			this.yearDailyOrderTextBox.PlaceholderForeColor = System.Drawing.Color.Silver;
+			this.yearDailyOrderTextBox.PlaceholderText = "درج سال...";
+			this.yearDailyOrderTextBox.ReadOnly = false;
+			this.yearDailyOrderTextBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+			this.yearDailyOrderTextBox.ScrollBars = System.Windows.Forms.ScrollBars.None;
+			this.yearDailyOrderTextBox.SelectedText = "";
+			this.yearDailyOrderTextBox.SelectionLength = 0;
+			this.yearDailyOrderTextBox.SelectionStart = 0;
+			this.yearDailyOrderTextBox.ShortcutsEnabled = true;
+			this.yearDailyOrderTextBox.Size = new System.Drawing.Size(175, 35);
+			this.yearDailyOrderTextBox.Style = Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox._Style.Bunifu;
+			this.yearDailyOrderTextBox.TabIndex = 4;
+			this.yearDailyOrderTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+			this.yearDailyOrderTextBox.TextMarginBottom = 0;
+			this.yearDailyOrderTextBox.TextMarginLeft = 0;
+			this.yearDailyOrderTextBox.TextMarginTop = 0;
+			this.yearDailyOrderTextBox.TextPlaceholder = "درج سال...";
+			this.yearDailyOrderTextBox.UseSystemPasswordChar = false;
+			this.yearDailyOrderTextBox.WordWrap = true;
+			this.yearDailyOrderTextBox.TextChange += new System.EventHandler(this.YearDailyOrderTextBox_TextChange);
+			this.yearDailyOrderTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.YearDailyOrderTextBox_KeyPress);
+			this.yearDailyOrderTextBox.Enter += new System.EventHandler(this.YearDailyOrderTextBox_Enter);
+			// 
+			// monthDailyOrderComboBox
+			// 
+			this.monthDailyOrderComboBox.Animated = true;
+			this.monthDailyOrderComboBox.BackColor = System.Drawing.Color.Transparent;
+			this.monthDailyOrderComboBox.BorderColor = System.Drawing.Color.MidnightBlue;
+			this.monthDailyOrderComboBox.BorderRadius = 5;
+			this.monthDailyOrderComboBox.BorderThickness = 2;
+			this.monthDailyOrderComboBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+			this.monthDailyOrderComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+			this.monthDailyOrderComboBox.FillColor = System.Drawing.SystemColors.Control;
+			this.monthDailyOrderComboBox.FocusedColor = System.Drawing.Color.RoyalBlue;
+			this.monthDailyOrderComboBox.FocusedState.BorderColor = System.Drawing.Color.RoyalBlue;
+			this.monthDailyOrderComboBox.FocusedState.Parent = this.monthDailyOrderComboBox;
+			this.monthDailyOrderComboBox.Font = new System.Drawing.Font("IRANSansX", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+			this.monthDailyOrderComboBox.ForeColor = System.Drawing.Color.Silver;
+			this.monthDailyOrderComboBox.FormattingEnabled = true;
+			this.monthDailyOrderComboBox.HoverState.BorderColor = System.Drawing.Color.SlateBlue;
+			this.monthDailyOrderComboBox.HoverState.Parent = this.monthDailyOrderComboBox;
+			this.monthDailyOrderComboBox.ItemHeight = 28;
+			this.monthDailyOrderComboBox.Items.AddRange(new object[] {
             "...انتخاب ماه",
             "فروردین",
             "اردیبهشت",
@@ -477,256 +351,391 @@ namespace Financial_Order
             "دی",
             "بهمن",
             "اسفند"});
-			this.guna2ComboBox2.ItemsAppearance.BackColor = System.Drawing.Color.Teal;
-			this.guna2ComboBox2.ItemsAppearance.ForeColor = System.Drawing.Color.White;
-			this.guna2ComboBox2.ItemsAppearance.Parent = this.guna2ComboBox2;
-			this.guna2ComboBox2.ItemsAppearance.SelectedBackColor = System.Drawing.Color.DarkSlateBlue;
-			this.guna2ComboBox2.ItemsAppearance.SelectedForeColor = System.Drawing.Color.White;
-			this.guna2ComboBox2.Location = new System.Drawing.Point(670, 28);
-			this.guna2ComboBox2.Name = "guna2ComboBox2";
-			this.guna2ComboBox2.ShadowDecoration.Parent = this.guna2ComboBox2;
-			this.guna2ComboBox2.Size = new System.Drawing.Size(187, 34);
-			this.guna2ComboBox2.StartIndex = 0;
-			this.guna2ComboBox2.TabIndex = 6;
-			this.guna2ComboBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-			this.guna2ComboBox2.TextOffset = new System.Drawing.Point(0, 2);
-			this.guna2ComboBox2.TextRenderingHint = System.Drawing.Text.TextRenderingHint.AntiAlias;
+			this.monthDailyOrderComboBox.ItemsAppearance.BackColor = System.Drawing.Color.Teal;
+			this.monthDailyOrderComboBox.ItemsAppearance.ForeColor = System.Drawing.Color.White;
+			this.monthDailyOrderComboBox.ItemsAppearance.Parent = this.monthDailyOrderComboBox;
+			this.monthDailyOrderComboBox.ItemsAppearance.SelectedBackColor = System.Drawing.Color.DarkSlateBlue;
+			this.monthDailyOrderComboBox.ItemsAppearance.SelectedForeColor = System.Drawing.Color.White;
+			this.monthDailyOrderComboBox.Location = new System.Drawing.Point(559, 28);
+			this.monthDailyOrderComboBox.Name = "monthDailyOrderComboBox";
+			this.monthDailyOrderComboBox.ShadowDecoration.Parent = this.monthDailyOrderComboBox;
+			this.monthDailyOrderComboBox.Size = new System.Drawing.Size(187, 34);
+			this.monthDailyOrderComboBox.StartIndex = 0;
+			this.monthDailyOrderComboBox.TabIndex = 3;
+			this.monthDailyOrderComboBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+			this.monthDailyOrderComboBox.TextOffset = new System.Drawing.Point(0, 2);
+			this.monthDailyOrderComboBox.TextRenderingHint = System.Drawing.Text.TextRenderingHint.AntiAlias;
+			this.monthDailyOrderComboBox.SelectedIndexChanged += new System.EventHandler(this.MonthDailyOrderComboBox_SelectedIndexChanged);
 			// 
-			// bunifuTextBox1
+			// dayDailyOrderTextBox
 			// 
-			this.bunifuTextBox1.AcceptsReturn = false;
-			this.bunifuTextBox1.AcceptsTab = false;
-			this.bunifuTextBox1.AnimationSpeed = 200;
-			this.bunifuTextBox1.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
-			this.bunifuTextBox1.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
-			this.bunifuTextBox1.BackColor = System.Drawing.Color.Transparent;
-			this.bunifuTextBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bunifuTextBox1.BackgroundImage")));
-			this.bunifuTextBox1.BorderColorActive = System.Drawing.Color.RoyalBlue;
-			this.bunifuTextBox1.BorderColorDisabled = System.Drawing.Color.FromArgb(((int)(((byte)(161)))), ((int)(((byte)(161)))), ((int)(((byte)(161)))));
-			this.bunifuTextBox1.BorderColorHover = System.Drawing.Color.SlateBlue;
-			this.bunifuTextBox1.BorderColorIdle = System.Drawing.Color.MidnightBlue;
-			this.bunifuTextBox1.BorderRadius = 10;
-			this.bunifuTextBox1.BorderThickness = 3;
-			this.bunifuTextBox1.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
-			this.bunifuTextBox1.Cursor = System.Windows.Forms.Cursors.IBeam;
-			this.bunifuTextBox1.DefaultFont = new System.Drawing.Font("IRANSansXFaNum", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-			this.bunifuTextBox1.DefaultText = "";
-			this.bunifuTextBox1.FillColor = System.Drawing.SystemColors.Control;
-			this.bunifuTextBox1.HideSelection = true;
-			this.bunifuTextBox1.IconLeft = null;
-			this.bunifuTextBox1.IconLeftCursor = System.Windows.Forms.Cursors.IBeam;
-			this.bunifuTextBox1.IconPadding = 10;
-			this.bunifuTextBox1.IconRight = null;
-			this.bunifuTextBox1.IconRightCursor = System.Windows.Forms.Cursors.IBeam;
-			this.bunifuTextBox1.Lines = new string[0];
-			this.bunifuTextBox1.Location = new System.Drawing.Point(489, 28);
-			this.bunifuTextBox1.MaximumSize = new System.Drawing.Size(175, 35);
-			this.bunifuTextBox1.MaxLength = 32767;
-			this.bunifuTextBox1.MinimumSize = new System.Drawing.Size(100, 35);
-			this.bunifuTextBox1.Modified = false;
-			this.bunifuTextBox1.Multiline = false;
-			this.bunifuTextBox1.Name = "bunifuTextBox1";
-			stateProperties9.BorderColor = System.Drawing.Color.RoyalBlue;
-			stateProperties9.FillColor = System.Drawing.Color.Empty;
-			stateProperties9.ForeColor = System.Drawing.Color.Empty;
-			stateProperties9.PlaceholderForeColor = System.Drawing.Color.Empty;
-			this.bunifuTextBox1.OnActiveState = stateProperties9;
-			stateProperties10.BorderColor = System.Drawing.Color.Empty;
-			stateProperties10.FillColor = System.Drawing.Color.White;
-			stateProperties10.ForeColor = System.Drawing.Color.Empty;
-			stateProperties10.PlaceholderForeColor = System.Drawing.Color.Silver;
-			this.bunifuTextBox1.OnDisabledState = stateProperties10;
-			stateProperties11.BorderColor = System.Drawing.Color.SlateBlue;
-			stateProperties11.FillColor = System.Drawing.Color.Empty;
-			stateProperties11.ForeColor = System.Drawing.Color.Empty;
-			stateProperties11.PlaceholderForeColor = System.Drawing.Color.Empty;
-			this.bunifuTextBox1.OnHoverState = stateProperties11;
-			stateProperties12.BorderColor = System.Drawing.Color.MidnightBlue;
-			stateProperties12.FillColor = System.Drawing.SystemColors.Control;
-			stateProperties12.ForeColor = System.Drawing.Color.Empty;
-			stateProperties12.PlaceholderForeColor = System.Drawing.Color.Empty;
-			this.bunifuTextBox1.OnIdleState = stateProperties12;
-			this.bunifuTextBox1.PasswordChar = '\0';
-			this.bunifuTextBox1.PlaceholderForeColor = System.Drawing.Color.Gray;
-			this.bunifuTextBox1.PlaceholderText = "درج سال...";
-			this.bunifuTextBox1.ReadOnly = false;
-			this.bunifuTextBox1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-			this.bunifuTextBox1.ScrollBars = System.Windows.Forms.ScrollBars.None;
-			this.bunifuTextBox1.SelectedText = "";
-			this.bunifuTextBox1.SelectionLength = 0;
-			this.bunifuTextBox1.SelectionStart = 0;
-			this.bunifuTextBox1.ShortcutsEnabled = true;
-			this.bunifuTextBox1.Size = new System.Drawing.Size(175, 35);
-			this.bunifuTextBox1.Style = Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox._Style.Bunifu;
-			this.bunifuTextBox1.TabIndex = 5;
-			this.bunifuTextBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-			this.bunifuTextBox1.TextMarginBottom = 0;
-			this.bunifuTextBox1.TextMarginLeft = 5;
-			this.bunifuTextBox1.TextMarginTop = -2;
-			this.bunifuTextBox1.TextPlaceholder = "درج سال...";
-			this.bunifuTextBox1.UseSystemPasswordChar = false;
-			this.bunifuTextBox1.WordWrap = true;
+			this.dayDailyOrderTextBox.AcceptsReturn = false;
+			this.dayDailyOrderTextBox.AcceptsTab = false;
+			this.dayDailyOrderTextBox.AnimationSpeed = 200;
+			this.dayDailyOrderTextBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
+			this.dayDailyOrderTextBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
+			this.dayDailyOrderTextBox.BackColor = System.Drawing.Color.Transparent;
+			this.dayDailyOrderTextBox.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("dayDailyOrderTextBox.BackgroundImage")));
+			this.dayDailyOrderTextBox.BorderColorActive = System.Drawing.Color.RoyalBlue;
+			this.dayDailyOrderTextBox.BorderColorDisabled = System.Drawing.Color.FromArgb(((int)(((byte)(161)))), ((int)(((byte)(161)))), ((int)(((byte)(161)))));
+			this.dayDailyOrderTextBox.BorderColorHover = System.Drawing.Color.SlateBlue;
+			this.dayDailyOrderTextBox.BorderColorIdle = System.Drawing.Color.MidnightBlue;
+			this.dayDailyOrderTextBox.BorderRadius = 10;
+			this.dayDailyOrderTextBox.BorderThickness = 2;
+			this.dayDailyOrderTextBox.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
+			this.dayDailyOrderTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
+			this.dayDailyOrderTextBox.DefaultFont = new System.Drawing.Font("IRANSansXFaNum", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+			this.dayDailyOrderTextBox.DefaultText = "";
+			this.dayDailyOrderTextBox.FillColor = System.Drawing.SystemColors.Control;
+			this.dayDailyOrderTextBox.HideSelection = true;
+			this.dayDailyOrderTextBox.IconLeft = null;
+			this.dayDailyOrderTextBox.IconLeftCursor = System.Windows.Forms.Cursors.IBeam;
+			this.dayDailyOrderTextBox.IconPadding = 10;
+			this.dayDailyOrderTextBox.IconRight = null;
+			this.dayDailyOrderTextBox.IconRightCursor = System.Windows.Forms.Cursors.IBeam;
+			this.dayDailyOrderTextBox.Lines = new string[0];
+			this.dayDailyOrderTextBox.Location = new System.Drawing.Point(752, 28);
+			this.dayDailyOrderTextBox.MaximumSize = new System.Drawing.Size(175, 35);
+			this.dayDailyOrderTextBox.MaxLength = 32767;
+			this.dayDailyOrderTextBox.MinimumSize = new System.Drawing.Size(100, 35);
+			this.dayDailyOrderTextBox.Modified = false;
+			this.dayDailyOrderTextBox.Multiline = false;
+			this.dayDailyOrderTextBox.Name = "dayDailyOrderTextBox";
+			stateProperties85.BorderColor = System.Drawing.Color.RoyalBlue;
+			stateProperties85.FillColor = System.Drawing.Color.Empty;
+			stateProperties85.ForeColor = System.Drawing.Color.Empty;
+			stateProperties85.PlaceholderForeColor = System.Drawing.Color.Empty;
+			this.dayDailyOrderTextBox.OnActiveState = stateProperties85;
+			stateProperties86.BorderColor = System.Drawing.Color.Empty;
+			stateProperties86.FillColor = System.Drawing.Color.White;
+			stateProperties86.ForeColor = System.Drawing.Color.Empty;
+			stateProperties86.PlaceholderForeColor = System.Drawing.Color.Silver;
+			this.dayDailyOrderTextBox.OnDisabledState = stateProperties86;
+			stateProperties87.BorderColor = System.Drawing.Color.SlateBlue;
+			stateProperties87.FillColor = System.Drawing.Color.Empty;
+			stateProperties87.ForeColor = System.Drawing.Color.Empty;
+			stateProperties87.PlaceholderForeColor = System.Drawing.Color.Empty;
+			this.dayDailyOrderTextBox.OnHoverState = stateProperties87;
+			stateProperties88.BorderColor = System.Drawing.Color.MidnightBlue;
+			stateProperties88.FillColor = System.Drawing.SystemColors.Control;
+			stateProperties88.ForeColor = System.Drawing.Color.Empty;
+			stateProperties88.PlaceholderForeColor = System.Drawing.Color.Empty;
+			this.dayDailyOrderTextBox.OnIdleState = stateProperties88;
+			this.dayDailyOrderTextBox.PasswordChar = '\0';
+			this.dayDailyOrderTextBox.PlaceholderForeColor = System.Drawing.Color.Silver;
+			this.dayDailyOrderTextBox.PlaceholderText = "درج روز...";
+			this.dayDailyOrderTextBox.ReadOnly = false;
+			this.dayDailyOrderTextBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+			this.dayDailyOrderTextBox.ScrollBars = System.Windows.Forms.ScrollBars.None;
+			this.dayDailyOrderTextBox.SelectedText = "";
+			this.dayDailyOrderTextBox.SelectionLength = 0;
+			this.dayDailyOrderTextBox.SelectionStart = 0;
+			this.dayDailyOrderTextBox.ShortcutsEnabled = true;
+			this.dayDailyOrderTextBox.Size = new System.Drawing.Size(175, 35);
+			this.dayDailyOrderTextBox.Style = Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox._Style.Bunifu;
+			this.dayDailyOrderTextBox.TabIndex = 2;
+			this.dayDailyOrderTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+			this.dayDailyOrderTextBox.TextMarginBottom = 0;
+			this.dayDailyOrderTextBox.TextMarginLeft = 0;
+			this.dayDailyOrderTextBox.TextMarginTop = 0;
+			this.dayDailyOrderTextBox.TextPlaceholder = "درج روز...";
+			this.dayDailyOrderTextBox.UseSystemPasswordChar = false;
+			this.dayDailyOrderTextBox.WordWrap = true;
+			this.dayDailyOrderTextBox.TextChange += new System.EventHandler(this.DayDailyOrderTextBox_TextChange);
+			this.dayDailyOrderTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.DayDailyOrderTextBox_KeyPress);
+			this.dayDailyOrderTextBox.Enter += new System.EventHandler(this.DayDailyOrderTextBox_Enter);
 			// 
-			// guna2GradientButton1
+			// showDailyChartButton
 			// 
-			this.guna2GradientButton1.Animated = true;
-			this.guna2GradientButton1.BorderRadius = 10;
-			this.guna2GradientButton1.CheckedState.Parent = this.guna2GradientButton1;
-			this.guna2GradientButton1.CustomImages.Parent = this.guna2GradientButton1;
-			this.guna2GradientButton1.FillColor = System.Drawing.Color.MidnightBlue;
-			this.guna2GradientButton1.FillColor2 = System.Drawing.Color.RoyalBlue;
-			this.guna2GradientButton1.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.guna2GradientButton1.ForeColor = System.Drawing.Color.White;
-			this.guna2GradientButton1.HoverState.FillColor = System.Drawing.Color.RoyalBlue;
-			this.guna2GradientButton1.HoverState.FillColor2 = System.Drawing.Color.MidnightBlue;
-			this.guna2GradientButton1.HoverState.Parent = this.guna2GradientButton1;
-			this.guna2GradientButton1.Location = new System.Drawing.Point(308, 25);
-			this.guna2GradientButton1.Name = "guna2GradientButton1";
-			this.guna2GradientButton1.PressedColor = System.Drawing.Color.White;
-			this.guna2GradientButton1.ShadowDecoration.Parent = this.guna2GradientButton1;
-			this.guna2GradientButton1.Size = new System.Drawing.Size(175, 40);
-			this.guna2GradientButton1.TabIndex = 4;
-			this.guna2GradientButton1.Text = "نمایش نمودار روزانه";
+			this.showDailyChartButton.Animated = true;
+			this.showDailyChartButton.BorderRadius = 10;
+			this.showDailyChartButton.CheckedState.Parent = this.showDailyChartButton;
+			this.showDailyChartButton.CustomImages.Parent = this.showDailyChartButton;
+			this.showDailyChartButton.FillColor = System.Drawing.Color.MidnightBlue;
+			this.showDailyChartButton.FillColor2 = System.Drawing.Color.RoyalBlue;
+			this.showDailyChartButton.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.showDailyChartButton.ForeColor = System.Drawing.Color.White;
+			this.showDailyChartButton.HoverState.FillColor = System.Drawing.Color.RoyalBlue;
+			this.showDailyChartButton.HoverState.FillColor2 = System.Drawing.Color.MidnightBlue;
+			this.showDailyChartButton.HoverState.Parent = this.showDailyChartButton;
+			this.showDailyChartButton.Location = new System.Drawing.Point(197, 25);
+			this.showDailyChartButton.Name = "showDailyChartButton";
+			this.showDailyChartButton.PressedColor = System.Drawing.Color.White;
+			this.showDailyChartButton.ShadowDecoration.Parent = this.showDailyChartButton;
+			this.showDailyChartButton.Size = new System.Drawing.Size(175, 40);
+			this.showDailyChartButton.TabIndex = 1;
+			this.showDailyChartButton.Text = "نمایش نمودار روزانه";
+			this.showDailyChartButton.Click += new System.EventHandler(this.ShowDailyChartButton_Click);
+			// 
+			// searchMonthlyPanel
+			// 
+			this.searchMonthlyPanel.Controls.Add(this.yearMonthlyOrderTextBox);
+			this.searchMonthlyPanel.Controls.Add(this.ShowMonthlyChartButton);
+			this.searchMonthlyPanel.Controls.Add(this.monthMonthlyOrderComboBox);
+			this.searchMonthlyPanel.Location = new System.Drawing.Point(0, 45);
+			this.searchMonthlyPanel.Name = "searchMonthlyPanel";
+			this.searchMonthlyPanel.ShadowDecoration.Parent = this.searchMonthlyPanel;
+			this.searchMonthlyPanel.Size = new System.Drawing.Size(1125, 90);
+			this.searchMonthlyPanel.TabIndex = 4;
+			// 
+			// yearMonthlyOrderTextBox
+			// 
+			this.yearMonthlyOrderTextBox.AcceptsReturn = false;
+			this.yearMonthlyOrderTextBox.AcceptsTab = false;
+			this.yearMonthlyOrderTextBox.AnimationSpeed = 200;
+			this.yearMonthlyOrderTextBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
+			this.yearMonthlyOrderTextBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
+			this.yearMonthlyOrderTextBox.BackColor = System.Drawing.Color.Transparent;
+			this.yearMonthlyOrderTextBox.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("yearMonthlyOrderTextBox.BackgroundImage")));
+			this.yearMonthlyOrderTextBox.BorderColorActive = System.Drawing.Color.RoyalBlue;
+			this.yearMonthlyOrderTextBox.BorderColorDisabled = System.Drawing.Color.FromArgb(((int)(((byte)(161)))), ((int)(((byte)(161)))), ((int)(((byte)(161)))));
+			this.yearMonthlyOrderTextBox.BorderColorHover = System.Drawing.Color.SlateBlue;
+			this.yearMonthlyOrderTextBox.BorderColorIdle = System.Drawing.Color.MidnightBlue;
+			this.yearMonthlyOrderTextBox.BorderRadius = 10;
+			this.yearMonthlyOrderTextBox.BorderThickness = 2;
+			this.yearMonthlyOrderTextBox.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
+			this.yearMonthlyOrderTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
+			this.yearMonthlyOrderTextBox.DefaultFont = new System.Drawing.Font("IRANSansXFaNum", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+			this.yearMonthlyOrderTextBox.DefaultText = "";
+			this.yearMonthlyOrderTextBox.FillColor = System.Drawing.SystemColors.Control;
+			this.yearMonthlyOrderTextBox.HideSelection = true;
+			this.yearMonthlyOrderTextBox.IconLeft = null;
+			this.yearMonthlyOrderTextBox.IconLeftCursor = System.Windows.Forms.Cursors.IBeam;
+			this.yearMonthlyOrderTextBox.IconPadding = 10;
+			this.yearMonthlyOrderTextBox.IconRight = null;
+			this.yearMonthlyOrderTextBox.IconRightCursor = System.Windows.Forms.Cursors.IBeam;
+			this.yearMonthlyOrderTextBox.Lines = new string[0];
+			this.yearMonthlyOrderTextBox.Location = new System.Drawing.Point(489, 28);
+			this.yearMonthlyOrderTextBox.MaximumSize = new System.Drawing.Size(175, 35);
+			this.yearMonthlyOrderTextBox.MaxLength = 32767;
+			this.yearMonthlyOrderTextBox.MinimumSize = new System.Drawing.Size(100, 35);
+			this.yearMonthlyOrderTextBox.Modified = false;
+			this.yearMonthlyOrderTextBox.Multiline = false;
+			this.yearMonthlyOrderTextBox.Name = "yearMonthlyOrderTextBox";
+			stateProperties89.BorderColor = System.Drawing.Color.RoyalBlue;
+			stateProperties89.FillColor = System.Drawing.Color.Empty;
+			stateProperties89.ForeColor = System.Drawing.Color.Empty;
+			stateProperties89.PlaceholderForeColor = System.Drawing.Color.Empty;
+			this.yearMonthlyOrderTextBox.OnActiveState = stateProperties89;
+			stateProperties90.BorderColor = System.Drawing.Color.Empty;
+			stateProperties90.FillColor = System.Drawing.Color.White;
+			stateProperties90.ForeColor = System.Drawing.Color.Empty;
+			stateProperties90.PlaceholderForeColor = System.Drawing.Color.Silver;
+			this.yearMonthlyOrderTextBox.OnDisabledState = stateProperties90;
+			stateProperties91.BorderColor = System.Drawing.Color.SlateBlue;
+			stateProperties91.FillColor = System.Drawing.Color.Empty;
+			stateProperties91.ForeColor = System.Drawing.Color.Empty;
+			stateProperties91.PlaceholderForeColor = System.Drawing.Color.Empty;
+			this.yearMonthlyOrderTextBox.OnHoverState = stateProperties91;
+			stateProperties92.BorderColor = System.Drawing.Color.MidnightBlue;
+			stateProperties92.FillColor = System.Drawing.SystemColors.Control;
+			stateProperties92.ForeColor = System.Drawing.Color.Empty;
+			stateProperties92.PlaceholderForeColor = System.Drawing.Color.Empty;
+			this.yearMonthlyOrderTextBox.OnIdleState = stateProperties92;
+			this.yearMonthlyOrderTextBox.PasswordChar = '\0';
+			this.yearMonthlyOrderTextBox.PlaceholderForeColor = System.Drawing.Color.Silver;
+			this.yearMonthlyOrderTextBox.PlaceholderText = "درج سال...";
+			this.yearMonthlyOrderTextBox.ReadOnly = false;
+			this.yearMonthlyOrderTextBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+			this.yearMonthlyOrderTextBox.ScrollBars = System.Windows.Forms.ScrollBars.None;
+			this.yearMonthlyOrderTextBox.SelectedText = "";
+			this.yearMonthlyOrderTextBox.SelectionLength = 0;
+			this.yearMonthlyOrderTextBox.SelectionStart = 0;
+			this.yearMonthlyOrderTextBox.ShortcutsEnabled = true;
+			this.yearMonthlyOrderTextBox.Size = new System.Drawing.Size(175, 35);
+			this.yearMonthlyOrderTextBox.Style = Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox._Style.Bunifu;
+			this.yearMonthlyOrderTextBox.TabIndex = 5;
+			this.yearMonthlyOrderTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+			this.yearMonthlyOrderTextBox.TextMarginBottom = 0;
+			this.yearMonthlyOrderTextBox.TextMarginLeft = 0;
+			this.yearMonthlyOrderTextBox.TextMarginTop = 0;
+			this.yearMonthlyOrderTextBox.TextPlaceholder = "درج سال...";
+			this.yearMonthlyOrderTextBox.UseSystemPasswordChar = false;
+			this.yearMonthlyOrderTextBox.WordWrap = true;
+			this.yearMonthlyOrderTextBox.TextChange += new System.EventHandler(this.YearMonthlyOrderTextBox_TextChange);
+			this.yearMonthlyOrderTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.YearMonthlyOrderTextBox_KeyPress);
+			this.yearMonthlyOrderTextBox.Enter += new System.EventHandler(this.YearMonthlyOrderTextBox_Enter);
+			// 
+			// ShowMonthlyChartButton
+			// 
+			this.ShowMonthlyChartButton.Animated = true;
+			this.ShowMonthlyChartButton.BorderRadius = 10;
+			this.ShowMonthlyChartButton.CheckedState.Parent = this.ShowMonthlyChartButton;
+			this.ShowMonthlyChartButton.CustomImages.Parent = this.ShowMonthlyChartButton;
+			this.ShowMonthlyChartButton.FillColor = System.Drawing.Color.MidnightBlue;
+			this.ShowMonthlyChartButton.FillColor2 = System.Drawing.Color.RoyalBlue;
+			this.ShowMonthlyChartButton.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.ShowMonthlyChartButton.ForeColor = System.Drawing.Color.White;
+			this.ShowMonthlyChartButton.HoverState.FillColor = System.Drawing.Color.RoyalBlue;
+			this.ShowMonthlyChartButton.HoverState.FillColor2 = System.Drawing.Color.MidnightBlue;
+			this.ShowMonthlyChartButton.HoverState.Parent = this.ShowMonthlyChartButton;
+			this.ShowMonthlyChartButton.Location = new System.Drawing.Point(308, 25);
+			this.ShowMonthlyChartButton.Name = "ShowMonthlyChartButton";
+			this.ShowMonthlyChartButton.PressedColor = System.Drawing.Color.White;
+			this.ShowMonthlyChartButton.ShadowDecoration.Parent = this.ShowMonthlyChartButton;
+			this.ShowMonthlyChartButton.Size = new System.Drawing.Size(175, 40);
+			this.ShowMonthlyChartButton.TabIndex = 4;
+			this.ShowMonthlyChartButton.Text = "نمایش نمودار ماهانه";
+			this.ShowMonthlyChartButton.Click += new System.EventHandler(this.ShowMonthlyChartButton_Click);
+			// 
+			// monthMonthlyOrderComboBox
+			// 
+			this.monthMonthlyOrderComboBox.Animated = true;
+			this.monthMonthlyOrderComboBox.BackColor = System.Drawing.Color.Transparent;
+			this.monthMonthlyOrderComboBox.BorderColor = System.Drawing.Color.MidnightBlue;
+			this.monthMonthlyOrderComboBox.BorderRadius = 5;
+			this.monthMonthlyOrderComboBox.BorderThickness = 2;
+			this.monthMonthlyOrderComboBox.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+			this.monthMonthlyOrderComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+			this.monthMonthlyOrderComboBox.FillColor = System.Drawing.SystemColors.Control;
+			this.monthMonthlyOrderComboBox.FocusedColor = System.Drawing.Color.RoyalBlue;
+			this.monthMonthlyOrderComboBox.FocusedState.BorderColor = System.Drawing.Color.RoyalBlue;
+			this.monthMonthlyOrderComboBox.FocusedState.Parent = this.monthMonthlyOrderComboBox;
+			this.monthMonthlyOrderComboBox.Font = new System.Drawing.Font("IRANSansX", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+			this.monthMonthlyOrderComboBox.ForeColor = System.Drawing.Color.Silver;
+			this.monthMonthlyOrderComboBox.FormattingEnabled = true;
+			this.monthMonthlyOrderComboBox.HoverState.BorderColor = System.Drawing.Color.SlateBlue;
+			this.monthMonthlyOrderComboBox.HoverState.Parent = this.monthMonthlyOrderComboBox;
+			this.monthMonthlyOrderComboBox.ItemHeight = 28;
+			this.monthMonthlyOrderComboBox.Items.AddRange(new object[] {
+            "...انتخاب ماه",
+            "فروردین",
+            "اردیبهشت",
+            "خرداد",
+            "تیر",
+            "مرداد",
+            "شهریور",
+            "مهر",
+            "آبان",
+            "آذر",
+            "دی",
+            "بهمن",
+            "اسفند"});
+			this.monthMonthlyOrderComboBox.ItemsAppearance.BackColor = System.Drawing.Color.Teal;
+			this.monthMonthlyOrderComboBox.ItemsAppearance.ForeColor = System.Drawing.Color.White;
+			this.monthMonthlyOrderComboBox.ItemsAppearance.Parent = this.monthMonthlyOrderComboBox;
+			this.monthMonthlyOrderComboBox.ItemsAppearance.SelectedBackColor = System.Drawing.Color.DarkSlateBlue;
+			this.monthMonthlyOrderComboBox.ItemsAppearance.SelectedForeColor = System.Drawing.Color.White;
+			this.monthMonthlyOrderComboBox.Location = new System.Drawing.Point(670, 28);
+			this.monthMonthlyOrderComboBox.Name = "monthMonthlyOrderComboBox";
+			this.monthMonthlyOrderComboBox.ShadowDecoration.Parent = this.monthMonthlyOrderComboBox;
+			this.monthMonthlyOrderComboBox.Size = new System.Drawing.Size(187, 34);
+			this.monthMonthlyOrderComboBox.StartIndex = 0;
+			this.monthMonthlyOrderComboBox.TabIndex = 6;
+			this.monthMonthlyOrderComboBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+			this.monthMonthlyOrderComboBox.TextOffset = new System.Drawing.Point(0, 2);
+			this.monthMonthlyOrderComboBox.TextRenderingHint = System.Drawing.Text.TextRenderingHint.AntiAlias;
+			this.monthMonthlyOrderComboBox.SelectedIndexChanged += new System.EventHandler(this.MonthMonthlyOrderComboBox_SelectedIndexChanged);
 			// 
 			// searchYearlyPanel
 			// 
-			this.searchYearlyPanel.Controls.Add(this.bunifuTextBox2);
-			this.searchYearlyPanel.Controls.Add(this.guna2GradientButton2);
+			this.searchYearlyPanel.Controls.Add(this.yearlyYearOrderTextBox);
+			this.searchYearlyPanel.Controls.Add(this.showYearlyChartButton);
 			this.searchYearlyPanel.Location = new System.Drawing.Point(0, 45);
 			this.searchYearlyPanel.Name = "searchYearlyPanel";
 			this.searchYearlyPanel.ShadowDecoration.Parent = this.searchYearlyPanel;
 			this.searchYearlyPanel.Size = new System.Drawing.Size(1125, 90);
 			this.searchYearlyPanel.TabIndex = 5;
 			// 
-			// bunifuTextBox2
+			// yearlyYearOrderTextBox
 			// 
-			this.bunifuTextBox2.AcceptsReturn = false;
-			this.bunifuTextBox2.AcceptsTab = false;
-			this.bunifuTextBox2.AnimationSpeed = 200;
-			this.bunifuTextBox2.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
-			this.bunifuTextBox2.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
-			this.bunifuTextBox2.BackColor = System.Drawing.Color.Transparent;
-			this.bunifuTextBox2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bunifuTextBox2.BackgroundImage")));
-			this.bunifuTextBox2.BorderColorActive = System.Drawing.Color.RoyalBlue;
-			this.bunifuTextBox2.BorderColorDisabled = System.Drawing.Color.FromArgb(((int)(((byte)(161)))), ((int)(((byte)(161)))), ((int)(((byte)(161)))));
-			this.bunifuTextBox2.BorderColorHover = System.Drawing.Color.SlateBlue;
-			this.bunifuTextBox2.BorderColorIdle = System.Drawing.Color.MidnightBlue;
-			this.bunifuTextBox2.BorderRadius = 10;
-			this.bunifuTextBox2.BorderThickness = 3;
-			this.bunifuTextBox2.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
-			this.bunifuTextBox2.Cursor = System.Windows.Forms.Cursors.IBeam;
-			this.bunifuTextBox2.DefaultFont = new System.Drawing.Font("IRANSansXFaNum", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-			this.bunifuTextBox2.DefaultText = "";
-			this.bunifuTextBox2.FillColor = System.Drawing.SystemColors.Control;
-			this.bunifuTextBox2.HideSelection = true;
-			this.bunifuTextBox2.IconLeft = null;
-			this.bunifuTextBox2.IconLeftCursor = System.Windows.Forms.Cursors.IBeam;
-			this.bunifuTextBox2.IconPadding = 10;
-			this.bunifuTextBox2.IconRight = null;
-			this.bunifuTextBox2.IconRightCursor = System.Windows.Forms.Cursors.IBeam;
-			this.bunifuTextBox2.Lines = new string[0];
-			this.bunifuTextBox2.Location = new System.Drawing.Point(565, 28);
-			this.bunifuTextBox2.MaximumSize = new System.Drawing.Size(175, 35);
-			this.bunifuTextBox2.MaxLength = 32767;
-			this.bunifuTextBox2.MinimumSize = new System.Drawing.Size(100, 35);
-			this.bunifuTextBox2.Modified = false;
-			this.bunifuTextBox2.Multiline = false;
-			this.bunifuTextBox2.Name = "bunifuTextBox2";
-			stateProperties13.BorderColor = System.Drawing.Color.RoyalBlue;
-			stateProperties13.FillColor = System.Drawing.Color.Empty;
-			stateProperties13.ForeColor = System.Drawing.Color.Empty;
-			stateProperties13.PlaceholderForeColor = System.Drawing.Color.Empty;
-			this.bunifuTextBox2.OnActiveState = stateProperties13;
-			stateProperties14.BorderColor = System.Drawing.Color.Empty;
-			stateProperties14.FillColor = System.Drawing.Color.White;
-			stateProperties14.ForeColor = System.Drawing.Color.Empty;
-			stateProperties14.PlaceholderForeColor = System.Drawing.Color.Silver;
-			this.bunifuTextBox2.OnDisabledState = stateProperties14;
-			stateProperties15.BorderColor = System.Drawing.Color.SlateBlue;
-			stateProperties15.FillColor = System.Drawing.Color.Empty;
-			stateProperties15.ForeColor = System.Drawing.Color.Empty;
-			stateProperties15.PlaceholderForeColor = System.Drawing.Color.Empty;
-			this.bunifuTextBox2.OnHoverState = stateProperties15;
-			stateProperties16.BorderColor = System.Drawing.Color.MidnightBlue;
-			stateProperties16.FillColor = System.Drawing.SystemColors.Control;
-			stateProperties16.ForeColor = System.Drawing.Color.Empty;
-			stateProperties16.PlaceholderForeColor = System.Drawing.Color.Empty;
-			this.bunifuTextBox2.OnIdleState = stateProperties16;
-			this.bunifuTextBox2.PasswordChar = '\0';
-			this.bunifuTextBox2.PlaceholderForeColor = System.Drawing.Color.Gray;
-			this.bunifuTextBox2.PlaceholderText = "درج سال...";
-			this.bunifuTextBox2.ReadOnly = false;
-			this.bunifuTextBox2.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-			this.bunifuTextBox2.ScrollBars = System.Windows.Forms.ScrollBars.None;
-			this.bunifuTextBox2.SelectedText = "";
-			this.bunifuTextBox2.SelectionLength = 0;
-			this.bunifuTextBox2.SelectionStart = 0;
-			this.bunifuTextBox2.ShortcutsEnabled = true;
-			this.bunifuTextBox2.Size = new System.Drawing.Size(175, 35);
-			this.bunifuTextBox2.Style = Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox._Style.Bunifu;
-			this.bunifuTextBox2.TabIndex = 8;
-			this.bunifuTextBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-			this.bunifuTextBox2.TextMarginBottom = 0;
-			this.bunifuTextBox2.TextMarginLeft = 5;
-			this.bunifuTextBox2.TextMarginTop = -1;
-			this.bunifuTextBox2.TextPlaceholder = "درج سال...";
-			this.bunifuTextBox2.UseSystemPasswordChar = false;
-			this.bunifuTextBox2.WordWrap = true;
+			this.yearlyYearOrderTextBox.AcceptsReturn = false;
+			this.yearlyYearOrderTextBox.AcceptsTab = false;
+			this.yearlyYearOrderTextBox.AnimationSpeed = 200;
+			this.yearlyYearOrderTextBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
+			this.yearlyYearOrderTextBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
+			this.yearlyYearOrderTextBox.BackColor = System.Drawing.Color.Transparent;
+			this.yearlyYearOrderTextBox.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("yearlyYearOrderTextBox.BackgroundImage")));
+			this.yearlyYearOrderTextBox.BorderColorActive = System.Drawing.Color.RoyalBlue;
+			this.yearlyYearOrderTextBox.BorderColorDisabled = System.Drawing.Color.FromArgb(((int)(((byte)(161)))), ((int)(((byte)(161)))), ((int)(((byte)(161)))));
+			this.yearlyYearOrderTextBox.BorderColorHover = System.Drawing.Color.SlateBlue;
+			this.yearlyYearOrderTextBox.BorderColorIdle = System.Drawing.Color.MidnightBlue;
+			this.yearlyYearOrderTextBox.BorderRadius = 10;
+			this.yearlyYearOrderTextBox.BorderThickness = 2;
+			this.yearlyYearOrderTextBox.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
+			this.yearlyYearOrderTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
+			this.yearlyYearOrderTextBox.DefaultFont = new System.Drawing.Font("IRANSansXFaNum", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+			this.yearlyYearOrderTextBox.DefaultText = "";
+			this.yearlyYearOrderTextBox.FillColor = System.Drawing.SystemColors.Control;
+			this.yearlyYearOrderTextBox.HideSelection = true;
+			this.yearlyYearOrderTextBox.IconLeft = null;
+			this.yearlyYearOrderTextBox.IconLeftCursor = System.Windows.Forms.Cursors.IBeam;
+			this.yearlyYearOrderTextBox.IconPadding = 10;
+			this.yearlyYearOrderTextBox.IconRight = null;
+			this.yearlyYearOrderTextBox.IconRightCursor = System.Windows.Forms.Cursors.IBeam;
+			this.yearlyYearOrderTextBox.Lines = new string[0];
+			this.yearlyYearOrderTextBox.Location = new System.Drawing.Point(565, 28);
+			this.yearlyYearOrderTextBox.MaximumSize = new System.Drawing.Size(175, 35);
+			this.yearlyYearOrderTextBox.MaxLength = 32767;
+			this.yearlyYearOrderTextBox.MinimumSize = new System.Drawing.Size(100, 35);
+			this.yearlyYearOrderTextBox.Modified = false;
+			this.yearlyYearOrderTextBox.Multiline = false;
+			this.yearlyYearOrderTextBox.Name = "yearlyYearOrderTextBox";
+			stateProperties93.BorderColor = System.Drawing.Color.RoyalBlue;
+			stateProperties93.FillColor = System.Drawing.Color.Empty;
+			stateProperties93.ForeColor = System.Drawing.Color.Empty;
+			stateProperties93.PlaceholderForeColor = System.Drawing.Color.Empty;
+			this.yearlyYearOrderTextBox.OnActiveState = stateProperties93;
+			stateProperties94.BorderColor = System.Drawing.Color.Empty;
+			stateProperties94.FillColor = System.Drawing.Color.White;
+			stateProperties94.ForeColor = System.Drawing.Color.Empty;
+			stateProperties94.PlaceholderForeColor = System.Drawing.Color.Silver;
+			this.yearlyYearOrderTextBox.OnDisabledState = stateProperties94;
+			stateProperties95.BorderColor = System.Drawing.Color.SlateBlue;
+			stateProperties95.FillColor = System.Drawing.Color.Empty;
+			stateProperties95.ForeColor = System.Drawing.Color.Empty;
+			stateProperties95.PlaceholderForeColor = System.Drawing.Color.Empty;
+			this.yearlyYearOrderTextBox.OnHoverState = stateProperties95;
+			stateProperties96.BorderColor = System.Drawing.Color.MidnightBlue;
+			stateProperties96.FillColor = System.Drawing.SystemColors.Control;
+			stateProperties96.ForeColor = System.Drawing.Color.Empty;
+			stateProperties96.PlaceholderForeColor = System.Drawing.Color.Empty;
+			this.yearlyYearOrderTextBox.OnIdleState = stateProperties96;
+			this.yearlyYearOrderTextBox.PasswordChar = '\0';
+			this.yearlyYearOrderTextBox.PlaceholderForeColor = System.Drawing.Color.Silver;
+			this.yearlyYearOrderTextBox.PlaceholderText = "درج سال...";
+			this.yearlyYearOrderTextBox.ReadOnly = false;
+			this.yearlyYearOrderTextBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+			this.yearlyYearOrderTextBox.ScrollBars = System.Windows.Forms.ScrollBars.None;
+			this.yearlyYearOrderTextBox.SelectedText = "";
+			this.yearlyYearOrderTextBox.SelectionLength = 0;
+			this.yearlyYearOrderTextBox.SelectionStart = 0;
+			this.yearlyYearOrderTextBox.ShortcutsEnabled = true;
+			this.yearlyYearOrderTextBox.Size = new System.Drawing.Size(175, 35);
+			this.yearlyYearOrderTextBox.Style = Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox._Style.Bunifu;
+			this.yearlyYearOrderTextBox.TabIndex = 8;
+			this.yearlyYearOrderTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+			this.yearlyYearOrderTextBox.TextMarginBottom = 0;
+			this.yearlyYearOrderTextBox.TextMarginLeft = 0;
+			this.yearlyYearOrderTextBox.TextMarginTop = 0;
+			this.yearlyYearOrderTextBox.TextPlaceholder = "درج سال...";
+			this.yearlyYearOrderTextBox.UseSystemPasswordChar = false;
+			this.yearlyYearOrderTextBox.WordWrap = true;
+			this.yearlyYearOrderTextBox.TextChange += new System.EventHandler(this.YearlyYearOrderTextBox_TextChange);
+			this.yearlyYearOrderTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.YearlyYearOrderTextBox_KeyPress);
+			this.yearlyYearOrderTextBox.Enter += new System.EventHandler(this.YearlyYearOrderTextBox_Enter);
 			// 
-			// guna2GradientButton2
+			// showYearlyChartButton
 			// 
-			this.guna2GradientButton2.Animated = true;
-			this.guna2GradientButton2.BorderRadius = 10;
-			this.guna2GradientButton2.CheckedState.Parent = this.guna2GradientButton2;
-			this.guna2GradientButton2.CustomImages.Parent = this.guna2GradientButton2;
-			this.guna2GradientButton2.FillColor = System.Drawing.Color.MidnightBlue;
-			this.guna2GradientButton2.FillColor2 = System.Drawing.Color.RoyalBlue;
-			this.guna2GradientButton2.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.guna2GradientButton2.ForeColor = System.Drawing.Color.White;
-			this.guna2GradientButton2.HoverState.FillColor = System.Drawing.Color.RoyalBlue;
-			this.guna2GradientButton2.HoverState.FillColor2 = System.Drawing.Color.MidnightBlue;
-			this.guna2GradientButton2.HoverState.Parent = this.guna2GradientButton2;
-			this.guna2GradientButton2.Location = new System.Drawing.Point(384, 25);
-			this.guna2GradientButton2.Name = "guna2GradientButton2";
-			this.guna2GradientButton2.PressedColor = System.Drawing.Color.White;
-			this.guna2GradientButton2.ShadowDecoration.Parent = this.guna2GradientButton2;
-			this.guna2GradientButton2.Size = new System.Drawing.Size(175, 40);
-			this.guna2GradientButton2.TabIndex = 7;
-			this.guna2GradientButton2.Text = "نمایش نمودار روزانه";
-			// 
-			// chartAndDataGridViewPanel
-			// 
-			this.chartAndDataGridViewPanel.BackColor = System.Drawing.Color.Transparent;
-			this.chartAndDataGridViewPanel.Controls.Add(this.statisticsDisplayChart);
-			this.chartAndDataGridViewPanel.Controls.Add(this.financialDataGridView);
-			this.chartAndDataGridViewPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.chartAndDataGridViewPanel.Location = new System.Drawing.Point(0, 135);
-			this.chartAndDataGridViewPanel.Name = "chartAndDataGridViewPanel";
-			this.chartAndDataGridViewPanel.Size = new System.Drawing.Size(1125, 325);
-			this.chartAndDataGridViewPanel.TabIndex = 2;
-			// 
-			// statisticsDisplayChart
-			// 
-			this.statisticsDisplayChart.BackColor = System.Drawing.Color.Transparent;
-			this.statisticsDisplayChart.BackColorTransparent = true;
-			this.statisticsDisplayChart.Font = new System.Drawing.Font("IRANSansXFaNum", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-			this.statisticsDisplayChart.ForeColor = System.Drawing.Color.White;
-			this.statisticsDisplayChart.Location = new System.Drawing.Point(0, 0);
-			this.statisticsDisplayChart.Name = "statisticsDisplayChart";
-			this.statisticsDisplayChart.Size = new System.Drawing.Size(1125, 325);
-			this.statisticsDisplayChart.TabIndex = 1;
-			// 
-			// financialDataGridView
-			// 
-			this.financialDataGridView.AllowUserToAddRows = false;
-			this.financialDataGridView.AllowUserToDeleteRows = false;
-			this.financialDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-			this.financialDataGridView.Location = new System.Drawing.Point(0, 0);
-			this.financialDataGridView.Name = "financialDataGridView";
-			this.financialDataGridView.ReadOnly = true;
-			this.financialDataGridView.Size = new System.Drawing.Size(1125, 325);
-			this.financialDataGridView.TabIndex = 2;
-			this.financialDataGridView.Visible = false;
+			this.showYearlyChartButton.Animated = true;
+			this.showYearlyChartButton.BorderRadius = 10;
+			this.showYearlyChartButton.CheckedState.Parent = this.showYearlyChartButton;
+			this.showYearlyChartButton.CustomImages.Parent = this.showYearlyChartButton;
+			this.showYearlyChartButton.FillColor = System.Drawing.Color.MidnightBlue;
+			this.showYearlyChartButton.FillColor2 = System.Drawing.Color.RoyalBlue;
+			this.showYearlyChartButton.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.showYearlyChartButton.ForeColor = System.Drawing.Color.White;
+			this.showYearlyChartButton.HoverState.FillColor = System.Drawing.Color.RoyalBlue;
+			this.showYearlyChartButton.HoverState.FillColor2 = System.Drawing.Color.MidnightBlue;
+			this.showYearlyChartButton.HoverState.Parent = this.showYearlyChartButton;
+			this.showYearlyChartButton.Location = new System.Drawing.Point(384, 25);
+			this.showYearlyChartButton.Name = "showYearlyChartButton";
+			this.showYearlyChartButton.PressedColor = System.Drawing.Color.White;
+			this.showYearlyChartButton.ShadowDecoration.Parent = this.showYearlyChartButton;
+			this.showYearlyChartButton.Size = new System.Drawing.Size(175, 40);
+			this.showYearlyChartButton.TabIndex = 7;
+			this.showYearlyChartButton.Text = "نمایش نمودار سالانه";
+			this.showYearlyChartButton.Click += new System.EventHandler(this.ShowYearlyChartButton_Click);
 			// 
 			// dailyFinancialReportBindingSource
 			// 
@@ -750,13 +759,13 @@ namespace Financial_Order
 			this.Name = "CapitalTurnoverChartUC";
 			this.Size = new System.Drawing.Size(1125, 460);
 			this.mainPanel.ResumeLayout(false);
-			this.searchPanel.ResumeLayout(false);
-			this.searchDailyPanel.ResumeLayout(false);
-			this.topPanel.ResumeLayout(false);
-			this.searchMonthlyPanel.ResumeLayout(false);
-			this.searchYearlyPanel.ResumeLayout(false);
 			this.chartAndDataGridViewPanel.ResumeLayout(false);
 			((System.ComponentModel.ISupportInitialize)(this.financialDataGridView)).EndInit();
+			this.searchPanel.ResumeLayout(false);
+			this.topPanel.ResumeLayout(false);
+			this.searchDailyPanel.ResumeLayout(false);
+			this.searchMonthlyPanel.ResumeLayout(false);
+			this.searchYearlyPanel.ResumeLayout(false);
 			((System.ComponentModel.ISupportInitialize)(this.dailyFinancialReportBindingSource)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.monthlyFinancialReportBindingSource)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.yearlyFinancialReportBindingSource)).EndInit();
@@ -773,16 +782,16 @@ namespace Financial_Order
 		private Guna.UI2.WinForms.Guna2GradientButton yearlyButton;
 		private Guna.UI2.WinForms.Guna2GradientButton monthlyButton;
 		private Guna.UI2.WinForms.Guna2GradientButton dailyButton;
-		private Guna.UI2.WinForms.Guna2ComboBox monthOrderDailyComboBox;
+		private Guna.UI2.WinForms.Guna2ComboBox monthDailyOrderComboBox;
 		private Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox dayDailyOrderTextBox;
 		private Guna.UI2.WinForms.Guna2GradientButton showDailyChartButton;
 		private Guna.UI2.WinForms.Guna2Panel searchMonthlyPanel;
 		private Guna.UI2.WinForms.Guna2Panel searchYearlyPanel;
-		private Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox bunifuTextBox2;
-		private Guna.UI2.WinForms.Guna2GradientButton guna2GradientButton2;
-		private Guna.UI2.WinForms.Guna2ComboBox guna2ComboBox2;
-		private Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox bunifuTextBox1;
-		private Guna.UI2.WinForms.Guna2GradientButton guna2GradientButton1;
+		private Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox yearlyYearOrderTextBox;
+		private Guna.UI2.WinForms.Guna2GradientButton showYearlyChartButton;
+		private Guna.UI2.WinForms.Guna2ComboBox monthMonthlyOrderComboBox;
+		private Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox yearMonthlyOrderTextBox;
+		private Guna.UI2.WinForms.Guna2GradientButton ShowMonthlyChartButton;
 		private Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox yearDailyOrderTextBox;
 		private Guna.UI.WinForms.GunaPanel chartAndDataGridViewPanel;
 		private LiveCharts.WinForms.CartesianChart statisticsDisplayChart;

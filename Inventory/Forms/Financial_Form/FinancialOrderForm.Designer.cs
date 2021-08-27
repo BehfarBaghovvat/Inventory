@@ -129,6 +129,7 @@ namespace Financial_Form
 			this.ancillaryCostsButton.Size = new System.Drawing.Size(235, 45);
 			this.ancillaryCostsButton.TabIndex = 1;
 			this.ancillaryCostsButton.Text = "نمایش هزینه های جانبی";
+			this.ancillaryCostsButton.Click += new System.EventHandler(this.AncillaryCostsButton_Click);
 			// 
 			// ancillaryCostsLabel
 			// 
@@ -175,6 +176,7 @@ namespace Financial_Form
 			this.capitalOutflowButton.Size = new System.Drawing.Size(235, 45);
 			this.capitalOutflowButton.TabIndex = 1;
 			this.capitalOutflowButton.Text = "نمایش خروج سرمایه";
+			this.capitalOutflowButton.Click += new System.EventHandler(this.CapitalOutflowButton_Click);
 			// 
 			// capitalOutflowLabel
 			// 
@@ -221,6 +223,7 @@ namespace Financial_Form
 			this.capitalInflowButton.Size = new System.Drawing.Size(235, 45);
 			this.capitalInflowButton.TabIndex = 1;
 			this.capitalInflowButton.Text = "نمایش ورود سرمایه";
+			this.capitalInflowButton.Click += new System.EventHandler(this.CapitalInflowButton_Click);
 			// 
 			// capitalInflowLabel
 			// 
@@ -267,6 +270,7 @@ namespace Financial_Form
 			this.capitalTurnoverButton.Size = new System.Drawing.Size(235, 45);
 			this.capitalTurnoverButton.TabIndex = 1;
 			this.capitalTurnoverButton.Text = "نمایش گردش سرمایه";
+			this.capitalTurnoverButton.Click += new System.EventHandler(this.CapitalTurnoverButton_Click);
 			// 
 			// capitalFundLabel
 			// 

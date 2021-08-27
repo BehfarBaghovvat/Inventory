@@ -225,7 +225,6 @@ namespace Inventory
 			System.Windows.Forms.Application.EnableVisualStyles();
 			System.Windows.Forms.Application.SetCompatibleTextRenderingDefault(false);
 			Administrator();
-			InitialAmountCapital();
 			System.Windows.Forms.Application.Run(new Entry_Forms.StartUpForm());
 
 			//System.Windows.Forms.Application.Run(new MainForm());

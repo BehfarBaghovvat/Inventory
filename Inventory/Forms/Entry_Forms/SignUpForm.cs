@@ -4,6 +4,8 @@ namespace Entry_Forms
 {
 	public partial class SingUpForm : Infrastructure.BaseForm
 	{
+		//-----------------------------------------------------------------------------------------------     Fields, Properties, Layers
+
 		#region Properties
 		public enum AccessLeve
 		{
@@ -32,6 +34,11 @@ namespace Entry_Forms
 
 
 		#endregion /Properties
+
+
+
+		//-----------------------------------------------------------------------------------------------     Constracture
+
 		public SingUpForm()
 		{
 			InitializeComponent();
@@ -39,7 +46,9 @@ namespace Entry_Forms
 			RefreshData();
 		}
 
-		//----------Beginning of the code!----------
+
+
+		//-----------------------------------------------------------------------------------------------     Events Controls
 
 		#region UsernameTextBox_Enter
 		private void UsernameTextBox_Enter(object sender, System.EventArgs e)
@@ -384,7 +393,7 @@ namespace Entry_Forms
 		}
 		#endregion /FadeOutTimer_Tick
 
-		//----------End of code!----------
+		//-----------------------------------------------------------------------------------------------     Privat Methods
 
 		#region Functions
 		//==============

@@ -4,6 +4,7 @@ namespace Entry_Forms
 {
 	public partial class SingInForm : Infrastructure.EmptyForm
 	{
+		//-----------------------------------------------------------------------------------------------     Fields, Properties, Layers
 
 		#region Properties
 		public string LoginTime { get; set; }
@@ -13,12 +14,16 @@ namespace Entry_Forms
 		private Models.DataBaseContext dataBaseContext = new Models.DataBaseContext();
 		#endregion /Properties
 
+
+
+		//-----------------------------------------------------------------------------------------------     Constracture
+
 		public SingInForm()
 		{
 			InitializeComponent();
 		}
 
-		//----------Beginning of the code!----------
+		//-----------------------------------------------------------------------------------------------     Events Controls
 
 		#region SingInForm_Load
 		private void SingInForm_Load(object sender, System.EventArgs e)
@@ -246,7 +251,7 @@ namespace Entry_Forms
 		}
 		#endregion /FadeOutForSingUpTimer_Tick
 
-		//----------End of code!----------
+		//-----------------------------------------------------------------------------------------------     Privat Methods
 
 		#region Functions
 		//===============

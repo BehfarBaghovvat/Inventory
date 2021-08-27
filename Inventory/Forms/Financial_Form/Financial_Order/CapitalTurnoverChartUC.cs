@@ -1,6 +1,4 @@
-﻿using Models;
-using System.Linq;
-using System.Windows.Media;
+﻿using System.Linq;
 
 namespace Financial_Order
 {
@@ -15,9 +13,6 @@ namespace Financial_Order
 			public int CurrentMonth { get; set; }
 			public int CurrentDay { get; set; }
 		}
-
-
-
 
 		private Models.DailyFinancialReport _dailyFinancialReport;
 		public Models.DailyFinancialReport DailyFinancialReport
@@ -37,11 +32,43 @@ namespace Financial_Order
 			}
 		}
 
+		private Models.MonthlyFinancialReport _monthlyFinancialReport;
+		public Models.MonthlyFinancialReport MonthlyFinancialReport
+		{
+			get 
+			{
+				if (_monthlyFinancialReport == null)
+				{
+					_monthlyFinancialReport =
+						new Models.MonthlyFinancialReport();
+				}
+				return _monthlyFinancialReport;
+			}
+			set 
+			{ 
+				_monthlyFinancialReport = value;
+			}
+		}
+
+		private Models.YearlyFinancialReport _yearlyFinancialReport;
+		public Models.YearlyFinancialReport YearlyFinancialReport
+		{
+			get
+			{
+				if (_yearlyFinancialReport == null)
+				{
+					_yearlyFinancialReport =
+						new Models.YearlyFinancialReport();
+				}
+				return _yearlyFinancialReport;
+			}
+			set
+			{
+				_yearlyFinancialReport = value;
+			}
+		}
+
 		private CurrentDate currentDate = new CurrentDate();
-
-
-
-
 
 		#endregion /Properties
 
@@ -51,15 +78,7 @@ namespace Financial_Order
 		{
 			InitializeComponent();
 
-			System.Globalization.PersianCalendar persianCalendar =
-				new System.Globalization.PersianCalendar();
-
-			currentDate.CurrentDay = persianCalendar.GetDayOfMonth(System.DateTime.Now);
-			currentDate.CurrentMonth = persianCalendar.GetMonth(System.DateTime.Now);
-			currentDate.CurrentYear = persianCalendar.GetYear(System.DateTime.Now);
-
-			financialDataGridView.DataSource = null;
-			ViewDailyChart();
+			
 		}
 
 
@@ -71,6 +90,9 @@ namespace Financial_Order
 		#region DailyButton_Click
 		private void DailyButton_Click(object sender, System.EventArgs e)
 		{
+			statisticsDisplayChart.Series.Clear();
+			statisticsDisplayChart.AxisX.Clear();
+			statisticsDisplayChart.AxisY.Clear();
 			searchDailyPanel.BringToFront();
 			searchMonthlyPanel.SendToBack();
 			searchYearlyPanel.SendToBack();
@@ -107,18 +129,18 @@ namespace Financial_Order
 		#endregion /DayDailyOrderTextBox_TextChange
 
 		#region MonthOrderDailyComboBox_SelectedIndexChanged
-		private void MonthOrderDailyComboBox_SelectedIndexChanged(object sender, System.EventArgs e)
+		private void MonthDailyOrderComboBox_SelectedIndexChanged(object sender, System.EventArgs e)
 		{
-			if (monthOrderDailyComboBox.SelectedIndex < 1)
+			if (monthDailyOrderComboBox.SelectedIndex < 1)
 			{
 				DailyFinancialReport.Month = null;
-				monthOrderDailyComboBox.ForeColor = System.Drawing.Color.Gray;
+				monthDailyOrderComboBox.ForeColor = System.Drawing.Color.Gray;
 				return;
 			}
 			else
 			{
-				monthOrderDailyComboBox.ForeColor = System.Drawing.Color.White;
-				DailyFinancialReport.Month = monthOrderDailyComboBox.SelectedIndex;
+				monthDailyOrderComboBox.ForeColor = System.Drawing.Color.White;
+				DailyFinancialReport.Month = monthDailyOrderComboBox.SelectedIndex ;
 			}
 		}
 		#endregion /MonthOrderDailyComboBox_SelectedIndexChanged
@@ -157,9 +179,9 @@ namespace Financial_Order
 		{
 			if (ValidationDateOfDay(DailyFinancialReport))
 			{
-				if (CheckValueDate(DailyFinancialReport, currentDate))
+				if (CheckValueDateDay(DailyFinancialReport, currentDate))
 				{
-
+					ShowDailyStatistics(DailyFinancialReport);
 				}
 			}
 			else
@@ -170,45 +192,167 @@ namespace Financial_Order
 		#endregion /ShowDailyChartButton_Click
 
 
+
 		#endregion /--------------------------------------------------------------------------					Daily_Report
 
-
-
-
-
-
-
-
+		#region --------------------------------------------------------------------------					Monthly_Report
 
 		#region MonthlyButton_Click
 		private void MonthlyButton_Click(object sender, System.EventArgs e)
 		{
+			statisticsDisplayChart.Series.Clear();
+			statisticsDisplayChart.AxisX.Clear();
+			statisticsDisplayChart.AxisY.Clear();
 			searchMonthlyPanel.BringToFront();
 			searchDailyPanel.SendToBack();
 			searchYearlyPanel.SendToBack();
 		}
 		#endregion /MonthlyButton_Click
 
+		#region MonthMonthlyOrderComboBox_SelectedIndexChanged
+		private void MonthMonthlyOrderComboBox_SelectedIndexChanged(object sender, System.EventArgs e)
+		{
+			if (monthMonthlyOrderComboBox.SelectedIndex < 1)
+			{
+				MonthlyFinancialReport.Month = null;
+				monthMonthlyOrderComboBox.ForeColor = System.Drawing.Color.Gray;
+				return;
+			}
+			else
+			{
+				monthMonthlyOrderComboBox.ForeColor = System.Drawing.Color.White;
+				MonthlyFinancialReport.Month = monthMonthlyOrderComboBox.SelectedIndex;
+			}
+		}
+		#endregion /MonthMonthlyOrderComboBox_SelectedIndexChanged
+
+		#region YearMonthlyOrderTextBox_Enter
+		private void YearMonthlyOrderTextBox_Enter(object sender, System.EventArgs e)
+		{
+			Infrastructure.Utility.PersianLanguage();
+		}
+		#endregion /YearMonthlyOrderTextBox_Enter
+
+		#region YearMonthlyOrderTextBox_KeyPress
+		private void YearMonthlyOrderTextBox_KeyPress(object sender, System.Windows.Forms.KeyPressEventArgs e)
+		{
+			Infrastructure.Utility.InsertOnlyNumber(e);
+		}
+		#endregion /YearMonthlyOrderTextBox_KeyPress
+
+		#region YearMonthlyOrderTextBox_TextChange
+		private void YearMonthlyOrderTextBox_TextChange(object sender, System.EventArgs e)
+		{
+			if (string.IsNullOrWhiteSpace(yearMonthlyOrderTextBox.Text))
+			{
+				MonthlyFinancialReport.Year = null;
+				return;
+			}
+			else
+			{
+				MonthlyFinancialReport.Year = int.Parse(yearMonthlyOrderTextBox.Text);
+			}
+		}
+		#endregion /YearMonthlyOrderTextBox_TextChange
+
+		#region ShowMonthlyChartButton_Click
+		private void ShowMonthlyChartButton_Click(object sender, System.EventArgs e)
+		{
+			if (ValidationDateOfMonth(MonthlyFinancialReport))
+			{
+				if (CheckValueDateMonth(MonthlyFinancialReport, currentDate))
+				{
+					ShowMonthlyStatistics(MonthlyFinancialReport);
+				}
+			}
+			else
+			{
+				return;
+			}
+		}
+		#endregion /ShowMonthlyChartButton_Click
+
+
+
+		#endregion /--------------------------------------------------------------------------					Monthly_Report
+
+		#region --------------------------------------------------------------------------					Yearly_Report
+
 		#region YearlyButton_Click
 		private void YearlyButton_Click(object sender, System.EventArgs e)
 		{
+			statisticsDisplayChart.Series.Clear();
+			statisticsDisplayChart.AxisX.Clear();
+			statisticsDisplayChart.AxisY.Clear();
 			searchYearlyPanel.BringToFront();
 			searchMonthlyPanel.SendToBack();
 			searchDailyPanel.SendToBack();
 		}
-		#endregion /YearlyButton_Click
+		#endregion /YearlyButton_Click 
+
+		#region YearlyYearOrderTextBox_Enter
+		private void YearlyYearOrderTextBox_Enter(object sender, System.EventArgs e)
+		{
+			Infrastructure.Utility.PersianLanguage();
+		}
+		#endregion /YearlyYearOrderTextBox_Enter
+
+		#region YearlyYearOrderTextBox_KeyPress
+		private void YearlyYearOrderTextBox_KeyPress(object sender, System.Windows.Forms.KeyPressEventArgs e)
+		{
+			Infrastructure.Utility.InsertOnlyNumber(e);
+		}
+		#endregion /YearlyYearOrderTextBox_KeyPress
+
+		#region YearlyYearOrderTextBox_TextChange
+		private void YearlyYearOrderTextBox_TextChange(object sender, System.EventArgs e)
+		{
+			if (string.IsNullOrWhiteSpace(yearlyYearOrderTextBox.Text))
+			{
+				YearlyFinancialReport.Year = null;
+				return;
+			}
+			else
+			{
+				YearlyFinancialReport.Year = int.Parse(yearlyYearOrderTextBox.Text);
+			}
+		}
+		#endregion /YearlyYearOrderTextBox_TextChange
+
+		#region ShowYearlyChartButton_Click
+		private void ShowYearlyChartButton_Click(object sender, System.EventArgs e)
+		{
+			if (ValidationDateOfYear(YearlyFinancialReport))
+			{
+				if (CheckValueDateYear(YearlyFinancialReport, currentDate))
+				{
+					ShowYearlyStatistics(YearlyFinancialReport);
+				}
+			}
+			else
+			{
+				return;
+			}
+		}
+		#endregion /ShowYearlyChartButton_Click
+
+
+
+		#endregion /--------------------------------------------------------------------------					Yearly_Report
 
 
 
 		//------------------------------------------------------------------------------------ Private Methods
 
-		#region CheckValueDate
+
+
+		#region CheckValueDateDay
 		/// <summary>
-		/// روز و سال وارد شده توسط کاربر با روز و سال جاری سیستم بررسی میگردد
+		/// محدوده روز و سال وارد شده توسط کاربر با روز و سال جاری سیستم بررسی میگردد
 		/// </summary>
 		/// <param name="_dailyFinancialReport"></param>
 		/// <returns></returns>
-		private bool CheckValueDate(DailyFinancialReport _dailyFinancialReport, CurrentDate _currentDate)
+		private bool CheckValueDateDay(Models.DailyFinancialReport _dailyFinancialReport, CurrentDate _currentDate)
 		{
 			if ((_dailyFinancialReport.Day >= 1 && _dailyFinancialReport.Day <= 31) && (_dailyFinancialReport.Year == _currentDate.CurrentYear))
 			{
@@ -242,7 +386,85 @@ namespace Financial_Order
 				return false;
 			}
 		}
-		#endregion /CheckValueDate
+		#endregion /CheckValueDateDay
+
+		#region CheckValueDateMonth
+		/// <summary>
+		/// محدوده سال وارد شده توسط کاربر با سال جاری سیستم بررسی میگردد
+		/// </summary>
+		/// <param name="_dailyFinancialReport"></param>
+		/// <returns></returns>
+		private bool CheckValueDateMonth(Models.MonthlyFinancialReport _monthlyFinancialReport, CurrentDate _currentDate)
+		{
+			if ((_monthlyFinancialReport.Year == _currentDate.CurrentYear))
+			{
+				return true;
+			}
+			else
+			{
+				if (_monthlyFinancialReport.Year != _currentDate.CurrentYear)
+				{
+					Mbb.Windows.Forms.MessageBox.Show(
+						$"سال درج شده صحیح نمی باشد.\n لطفا سال صحیح را وارد نمایید.",
+						$"خطای ورودی",
+						Mbb.Windows.Forms.MessageBoxIcon.Error,
+						Mbb.Windows.Forms.MessageBoxButtons.Ok);
+					_monthlyFinancialReport.Year = null;
+					yearDailyOrderTextBox.Clear();
+					yearDailyOrderTextBox.Focus();
+				}
+				return false;
+			}
+		}
+		#endregion /CheckValueDateMonth
+
+		#region CheckValueDateMonth
+		/// <summary>
+		/// محدوده سال وارد شده توسط کاربر با سال جاری سیستم بررسی میگردد
+		/// </summary>
+		/// <param name="_dailyFinancialReport"></param>
+		/// <returns></returns>
+		private bool CheckValueDateYear(Models.YearlyFinancialReport _yearlyFinancialReport, CurrentDate _currentDate)
+		{
+			if ((_yearlyFinancialReport.Year == _currentDate.CurrentYear))
+			{
+				return true;
+			}
+			else
+			{
+				if (_yearlyFinancialReport.Year != _currentDate.CurrentYear)
+				{
+					Mbb.Windows.Forms.MessageBox.Show(
+						$"سال درج شده صحیح نمی باشد.\n لطفا سال صحیح را وارد نمایید.",
+						$"خطای ورودی",
+						Mbb.Windows.Forms.MessageBoxIcon.Error,
+						Mbb.Windows.Forms.MessageBoxButtons.Ok);
+					_yearlyFinancialReport.Year = null;
+					yearDailyOrderTextBox.Clear();
+					yearDailyOrderTextBox.Focus();
+				}
+				return false;
+			}
+		}
+		#endregion /CheckValueDateMonth
+
+		#region Initialize
+		/// <summary>
+		/// تنظیمات ورودی اولیه 
+		/// </summary>
+		private void Initialize()
+		{
+			System.Globalization.PersianCalendar persianCalendar =
+				new System.Globalization.PersianCalendar();
+
+			currentDate.CurrentDay = persianCalendar.GetDayOfMonth(System.DateTime.Now);
+			currentDate.CurrentMonth = persianCalendar.GetMonth(System.DateTime.Now);
+			currentDate.CurrentYear = persianCalendar.GetYear(System.DateTime.Now);
+
+			financialDataGridView.DataSource = null;
+			ViewDailyChart();
+		}
+		#endregion /Initialize
 
 		#region ShowDailyStatistics
 		/// <summary>
@@ -278,7 +500,7 @@ namespace Financial_Order
 
 					dayDailyOrderTextBox.Clear();
 					dayDailyOrderTextBox.Focus();
-					monthOrderDailyComboBox.SelectedIndex = 0;
+					monthDailyOrderComboBox.SelectedIndex = 0;
 					yearDailyOrderTextBox.Clear();
 					DailyFinancialReport = null;
 					return;
@@ -305,7 +527,9 @@ namespace Financial_Order
 			}
 
 			//------------------------------------------------------------------------------------ Show Statistics Result
+
 			#region ShowStatisticsResult
+
 			statisticsDisplayChart.Series.Clear();
 			LiveCharts.SeriesCollection seriesViews = new LiveCharts.SeriesCollection();
 
@@ -363,20 +587,14 @@ namespace Financial_Order
 			#endregion /Amounts Received
 
 			#endregion /ShowStatisticsResult
-
-
-
-
-
-
-
-
 		}
 		#endregion /ShowDailyStatistics
 
 		#region ShowMonthlyStatistics
 		private void ShowMonthlyStatistics(Models.MonthlyFinancialReport _monthlyFinancialReport)
 		{
+			ViewMonthlyChart();
+
 			Models.DataBaseContext dataBaseContext = null;
 			try
 			{
@@ -403,11 +621,10 @@ namespace Financial_Order
 							icon: Mbb.Windows.Forms.MessageBoxIcon.Error,
 							button: Mbb.Windows.Forms.MessageBoxButtons.Ok);
 
-					//dayDailyOrderTextBox.Clear();
-					//dayDailyOrderTextBox.Focus();
-					//monthOrderDailyComboBox.SelectedIndex = 0;
-					//yearDailyOrderTextBox.Clear();
-					//DailyFinancialReport = null;
+					
+					monthMonthlyOrderComboBox.SelectedIndex = 0;
+					yearMonthlyOrderTextBox.Clear();
+					MonthlyFinancialReport = null;
 					return;
 				}
 				else
@@ -430,8 +647,234 @@ namespace Financial_Order
 					dataBaseContext = null;
 				}
 			}
+
+			#region ViewMonthlyFinancial
+			statisticsDisplayChart.Series.Clear();
+			LiveCharts.SeriesCollection series = new LiveCharts.SeriesCollection();
+
+			var months = (from o in financialDataGridView.DataSource as System.Collections.Generic.List<Models.MonthlyFinancialReport>
+						  select new { Month = o.Month, }).Distinct();
+
+			#region Sum Total Price Of Day
+			foreach (var month in months)
+			{
+				System.Collections.Generic.List<int> values = new System.Collections.Generic.List<int>();
+
+				for (int day = 1; day <= 31; day++)
+				{
+					int totalPrice = 0;
+
+					var data = from o in financialDataGridView.DataSource as System.Collections.Generic.List<Models.MonthlyFinancialReport>
+							   where o.Month.Equals(month.Month) && o.Day.Equals(day)
+							   orderby o.Day ascending
+							   select new { o.Sum_Total_Price_Of_Day, o.Day };
+					if (data.SingleOrDefault() != null)
+					{
+						totalPrice = int.Parse(data.FirstOrDefault().Sum_Total_Price_Of_Day);
+					}
+					values.Add(totalPrice);
+				}
+				series.Add(new LiveCharts.Wpf.LineSeries() { Title = $"جمع کل حساب روز", Values = new LiveCharts.ChartValues<int>(values) });
+				statisticsDisplayChart.Series = series;
+			}
+			#endregion /Sum Total Price Of Day
+
+			#region Sum Payment Amount Of Day
+			foreach (var month in months)
+			{
+				System.Collections.Generic.List<int> values = new System.Collections.Generic.List<int>();
+
+				for (int day = 1; day <= 31; day++)
+				{
+					int paymentAmount = 0;
+
+					var data = from o in financialDataGridView.DataSource as System.Collections.Generic.List<Models.MonthlyFinancialReport>
+							   where o.Month.Equals(month.Month) && o.Day.Equals(day)
+							   orderby o.Day ascending
+							   select new { o.Sum_Payment_Amount_Of_Day, o.Day };
+					if (data.SingleOrDefault() != null)
+					{
+						paymentAmount = int.Parse(data.FirstOrDefault().Sum_Payment_Amount_Of_Day);
+					}
+					values.Add(paymentAmount);
+
+				}
+				series.Add(new LiveCharts.Wpf.LineSeries() { Title = "جمع کل پرداختی روز", Values = new LiveCharts.ChartValues<int>(values) });
+				statisticsDisplayChart.Series = series;
+			}
+			#endregion /Sum Payment Amount Of Day
+
+			#region Sum Remaining Amount Of Day
+			foreach (var month in months)
+			{
+				System.Collections.Generic.List<int> values = new System.Collections.Generic.List<int>();
+
+				for (int day = 1; day <= 31; day++)
+				{
+					int remainingAmount = 0;
+
+					var data = from o in financialDataGridView.DataSource as System.Collections.Generic.List<Models.MonthlyFinancialReport>
+							   where o.Month.Equals(month.Month) && o.Day.Equals(day)
+							   orderby o.Day ascending
+							   select new { o.Sum_Remaining_Amount_Of_Day, o.Day };
+					if (data.SingleOrDefault() != null)
+					{
+						remainingAmount = int.Parse(data.FirstOrDefault().Sum_Remaining_Amount_Of_Day);
+					}
+					values.Add(remainingAmount);
+
+				}
+				series.Add(new LiveCharts.Wpf.LineSeries() { Title = "جمع کل بدهی روز", Values = new LiveCharts.ChartValues<int>(values) });
+				statisticsDisplayChart.Series = series;
+			}
+			#endregion /Sum Remaining Amount Of Day
+
+			#endregion /ViewMonthlyFinancial
 		}
 		#endregion /ShowMonthlyStatistics
+
+		#region ShowYearlyStatistics
+		private void ShowYearlyStatistics(Models.YearlyFinancialReport _yearlyFinancialReport)
+		{
+			ViewYearlyChart();
+
+			Models.DataBaseContext dataBaseContext = null;
+			try
+			{
+				string selectDate =
+					$"{_yearlyFinancialReport.Year}";
+
+				dataBaseContext =
+					new Models.DataBaseContext();
+
+				System.Collections.Generic.List<Models.YearlyFinancialReport> listyearlyFinancialReports = null;
+
+
+				listyearlyFinancialReports =
+					dataBaseContext.YearlyFinancialReports
+					.Where(current => current.Register_Date.Contains(selectDate))
+					.OrderBy(current => current.Month)
+						.ToList();
+
+				if (listyearlyFinancialReports.Count == 0)
+				{
+					Mbb.Windows.Forms.MessageBox.Show(
+							text: "اطلاعاتی برای تاریخ مورد نظر یافت نگردید!",
+							caption: "جستجوی ناموفق",
+							icon: Mbb.Windows.Forms.MessageBoxIcon.Error,
+							button: Mbb.Windows.Forms.MessageBoxButtons.Ok);
+
+					yearlyYearOrderTextBox.Clear();
+					yearlyYearOrderTextBox.Focus();
+					return;
+				}
+				else
+				{
+					financialDataGridView.DataSource = null;
+					financialDataGridView.DataSource = listyearlyFinancialReports;
+
+				}
+
+			}
+			catch (System.Exception ex)
+			{
+				Infrastructure.Utility.ExceptionShow(ex);
+			}
+			finally
+			{
+				if (dataBaseContext != null)
+				{
+					dataBaseContext.Dispose();
+					dataBaseContext = null;
+				}
+			}
+
+			#region ViewMonthlyFinancial
+			
+			LiveCharts.SeriesCollection series = new LiveCharts.SeriesCollection();
+
+			var years = (from o in financialDataGridView.DataSource as System.Collections.Generic.List<Models.YearlyFinancialReport>
+						  select new { Year = o.Year, }).Distinct();
+
+			#region Sum Total Price Of Day
+			foreach (var year in years)
+			{
+				System.Collections.Generic.List<int> values = new System.Collections.Generic.List<int>();
+
+				for (int month = 1; month <= 12; month++)
+				{
+					int totalPrice = 0;
+
+					var data = from o in financialDataGridView.DataSource as System.Collections.Generic.List<Models.YearlyFinancialReport>
+							   where o.Year.Equals(year.Year) && o.Month.Equals(month)
+							   orderby o.Month ascending
+							   select new { o.Sum_Total_Price_Of_Month, o.Month };
+					if (data.SingleOrDefault() != null)
+					{
+						totalPrice = int.Parse(data.FirstOrDefault().Sum_Total_Price_Of_Month);
+					}
+					values.Add(totalPrice);
+				}
+				series.Add(new LiveCharts.Wpf.LineSeries() { Title = $"جمع کل حساب ماه", Values = new LiveCharts.ChartValues<int>(values) });
+				statisticsDisplayChart.Series = series;
+			}
+			#endregion /Sum Total Price Of Day
+
+			#region Sum_Payment_Amount_Of_Month
+			foreach (var year in years)
+			{
+				System.Collections.Generic.List<int> values = new System.Collections.Generic.List<int>();
+
+				for (int month = 1; month <= 12; month++)
+				{
+					int paymentAmount = 0;
+
+					var data = from o in financialDataGridView.DataSource as System.Collections.Generic.List<Models.YearlyFinancialReport>
+							   where o.Year.Equals(year.Year) && o.Month.Equals(month)
+							   orderby o.Month ascending
+							   select new { o.Sum_Payment_Amount_Of_Month, o.Month };
+					if (data.SingleOrDefault() != null)
+					{
+						paymentAmount = int.Parse(data.FirstOrDefault().Sum_Payment_Amount_Of_Month);
+					}
+					values.Add(paymentAmount);
+
+				}
+				series.Add(new LiveCharts.Wpf.LineSeries() { Title = "جمع کل پرداختی ماه", Values = new LiveCharts.ChartValues<int>(values) });
+				statisticsDisplayChart.Series = series;
+			}
+			#endregion /Sum_Payment_Amount_Of_Month
+
+			#region Sum_Remaining_Amount_Of_Month
+			foreach (var year in years)
+			{
+				System.Collections.Generic.List<int> values = new System.Collections.Generic.List<int>();
+
+				for (int month = 1; month <= 12; month++)
+				{
+					int remainingAmount = 0;
+
+					var data = from o in financialDataGridView.DataSource as System.Collections.Generic.List<Models.YearlyFinancialReport>
+							   where o.Year.Equals(year.Year) && o.Month.Equals(month)
+							   orderby o.Month ascending
+							   select new { o.Sum_Remaining_Amount_Of_Month, o.Month };
+					if (data.SingleOrDefault() != null)
+					{
+						remainingAmount = int.Parse(data.FirstOrDefault().Sum_Remaining_Amount_Of_Month);
+					}
+					values.Add(remainingAmount);
+
+				}
+				series.Add(new LiveCharts.Wpf.LineSeries() { Title = "جمع کل بدهی ماه", Values = new LiveCharts.ChartValues<int>(values) });
+				statisticsDisplayChart.Series = series;
+			}
+			#endregion /Sum Remaining Amount Of Day
+
+			#endregion /ViewMonthlyFinancial
+
+
+		}
+		#endregion /ShowYearlyStatistics
 
 		#region ValidationDateOfDay
 		/// <summary>
@@ -474,7 +917,7 @@ namespace Financial_Order
 				}
 				if (string.IsNullOrEmpty(_dailyFinancialReport.Month.ToString()) || _dailyFinancialReport.Month == 0)
 				{
-					monthOrderDailyComboBox.Focus();
+					monthDailyOrderComboBox.Focus();
 				}
 				if (string.IsNullOrEmpty(_dailyFinancialReport.Year.ToString()) || _dailyFinancialReport.Year == 0)
 				{
@@ -502,7 +945,45 @@ namespace Financial_Order
 		/// <returns></returns>
 		private bool ValidationDateOfMonth(Models.MonthlyFinancialReport _monthlyFinancialReport)
 		{
-			return true;
+			string errorMessage = null;
+			if (string.IsNullOrEmpty(_monthlyFinancialReport.Month.ToString()) || _monthlyFinancialReport.Month == 0)
+			{
+				errorMessage += $"لطفا یک ماه را انتخاب نمایید.";
+			}
+			else if (string.IsNullOrEmpty(_monthlyFinancialReport.Year.ToString()) || _monthlyFinancialReport.Year == 0)
+			{
+				if (!string.IsNullOrEmpty(errorMessage))
+				{
+					errorMessage +=
+						System.Environment.NewLine;
+				}
+				errorMessage += $"لطفا سال مورد نظر را انتخاب کنید.";
+			}
+
+			//--------------------------------------------------------------------------------------------------------------------------
+			if (!string.IsNullOrEmpty(errorMessage))
+			{
+				if (string.IsNullOrEmpty(_dailyFinancialReport.Month.ToString()) || _dailyFinancialReport.Month == 0)
+				{
+					monthDailyOrderComboBox.Focus();
+				}
+				if (string.IsNullOrEmpty(_dailyFinancialReport.Year.ToString()) || _dailyFinancialReport.Year == 0)
+				{
+					yearDailyOrderTextBox.Focus();
+				}
+
+				Mbb.Windows.Forms.MessageBox.Show(
+					errorMessage,
+					  $"خطای ورودی",
+					  Mbb.Windows.Forms.MessageBoxIcon.Error,
+					  Mbb.Windows.Forms.MessageBoxButtons.Ok);
+				return false;
+			}
+			else
+			{
+				return true;
+			}
+			
 		}
 		#endregion /ValidationDateOfMonth
 
@@ -583,8 +1064,8 @@ namespace Financial_Order
 		{
 			yearlyFinancialReportBindingSource.DataSource = new System.Collections.Generic.List<Models.YearlyFinancialReport>();
 
-			statisticsDisplayChart.Series.Clear();
-			statisticsDisplayChart.AxisX.Clear();
+			
+			
 			statisticsDisplayChart.AxisX.Add(new LiveCharts.Wpf.Axis
 			{
 				Title = "Month Days",
@@ -593,7 +1074,7 @@ namespace Financial_Order
 					"مهر", "آبان", "آذر", "دی", "بهمن", "اسفند",}
 			});
 
-			statisticsDisplayChart.AxisY.Clear();
+			
 			statisticsDisplayChart.AxisY.Add(new LiveCharts.Wpf.Axis
 			{
 				Title = "Amount",
@@ -601,7 +1082,10 @@ namespace Financial_Order
 			});
 			statisticsDisplayChart.LegendLocation = LiveCharts.LegendLocation.Right;
 		}
-		#endregion /ViewYearlyChart
 
+
+
+
+		#endregion /ViewYearlyChart	
 	}
 }

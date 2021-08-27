@@ -9,6 +9,9 @@ namespace Inventory_Forms
 		#region Properties
 
 		#region Layer
+		/// <summary>
+		/// کلاس صورت حساب
+		/// </summary>
 		public class Bill
 		{
 			//نکته: به یاد داشته باشید که نام پراپرتیز ها باید هم نام با عناصر داخل گزارش باشد
@@ -760,6 +763,10 @@ namespace Inventory_Forms
 		#endregion /AllClear
 
 		#region DeleteToGetNew
+		/// <summary>
+		/// حذف داده های درج شده جهت
+		/// دریافت اطلاعات جدید
+		/// </summary>
 		private void DeleteToGetNew()
 		{
 			productNameTextBox.Clear();
@@ -787,6 +794,9 @@ namespace Inventory_Forms
 		#endregion /DeleteToGetNew
 
 		#region RemoveBill
+		/// <summary>
+		/// حذف اطلاعات صورت حساب
+		/// </summary>
 		public void RemoveBill()
 		{
 			NumberPurchases = 0;
@@ -928,6 +938,10 @@ namespace Inventory_Forms
 		#endregion /LogInformationEditingEvents
 
 		#region SetReceiptDataGridView
+		/// <summary>
+		/// ثبت داده های دیتاگریدویو در کلاس صورت حساب
+		/// </summary>
+		/// <param name="productReceived"></param>
 		private void SetReceiptDataGridView(Models.ProductReceived productReceived)
 		{
 			int price;

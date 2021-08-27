@@ -129,6 +129,45 @@
   <metadata name="searchDailyPanel.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
+  <metadata name="searchMonthlyPanel.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="searchYearlyPanel.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="yearlyButton.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="monthlyButton.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="dailyButton.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="yearlyButton.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="monthlyButton.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="dailyButton.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="searchDailyPanel.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="yearDailyOrderTextBox.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="monthDailyOrderComboBox.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="dayDailyOrderTextBox.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="showDailyChartButton.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
   <metadata name="yearDailyOrderTextBox.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
@@ -147,7 +186,7 @@
         kCVJuM9ys5NNdfqMrn+SP58B6ZMz7q/XmzKMrvG8T2VIQixrjwdcAAAAAElFTkSuQmCC
 </value>
   </data>
-  <metadata name="monthOrderDailyComboBox.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  <metadata name="monthDailyOrderComboBox.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
   <metadata name="dayDailyOrderTextBox.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
@@ -170,66 +209,68 @@
   <metadata name="showDailyChartButton.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
-  <metadata name="yearlyButton.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="monthlyButton.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="dailyButton.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
   <metadata name="searchMonthlyPanel.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
-  <metadata name="guna2ComboBox2.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  <metadata name="yearMonthlyOrderTextBox.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
-  <metadata name="bunifuTextBox1.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  <metadata name="ShowMonthlyChartButton.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
-  <data name="bunifuTextBox1.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <metadata name="monthMonthlyOrderComboBox.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="yearMonthlyOrderTextBox.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="yearMonthlyOrderTextBox.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAK8AAAAjCAYAAADi4FrWAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAI8SURBVHhe7Zwxa1NxFEczOrq0zZuS0alTBz+C3Zz6GaRL
-        WlFwsXZzEiehW5y6iUMHF6EZhHSQujgIFRwqaEFoNsfn/9Wbd3+J14y5Gc6BQ6D3f990eLwUXjoAALAK
-        9HqD21U1OOx2995W1d6PYo24TEt71+XzXdNhVT28Y2kuptvdv1eWCBZXxhLy7/L5xBKNKZXfn19EXBXL
-        jfW5pTrL2tqjbjnQ3nE3N5/WR0fv69Hocz2ZTBCX6tnZl/r4+EO9vf1iJuD19f27lqzTVD09sLV1WF9e
-        /gwvirhsd3ZetfE238MsWacMysPx3wPD4Si8CGKG5+df23iL3yxZx77d3RxoDkcXQcyy33/cBmzJOtNB
-        Y7SMmKn2ack6OoyWETPVPi1ZR4fRMmKm2qcl6+gwWkbMVPu0ZB0dRsuImWqflqyjw2gZMVPt05J1dBgt
-        I2aqfVqyjg6jZcRMtU9L1tFhtIyYqfZpyTo6jJYRM9U+LVlHh9EyYqbapyXr6DBaRsxU+7RkHR1Gy4iZ
-        ap+WrKPDaBkxU+3TknV0GC0jZqp9WrKODqNlxEy1T0vW0WG0jJip9mnJOvZ68c2Q99dw1Vz4JkWJ99N0
-        eHLyMbwAYoYXF9/bcJvX1SxZp/zx5fRA87ZmdBHEDA8O3rTxFk8tWad5H14O1Lu7r3l8wFSvrn7Nh9vc
-        eR9YsrPobzcgZqrPuOLYUv2XXu/ZrXJgOLeAuAqONzYGfUv1/9iP7Z3qfyAQkxwXF//IHgAALIVO5w/r
-        dY+7RhJlRQAAAABJRU5ErkJggg==
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAHkSURBVHhe7dyhSwNRHMDxi0bL9LZybVEMC8KKa9r8AwyC
+        RSx3g4Er4spQGBaTRc40jIKCRoOgQTQqTLBYBoa1tT3vt73JxDeNdz/5/uCD8HZv6cvxFHwew/y7KRTC
+        xfn5cCOfDxtAGnw/2koaXLZJ/j0SbLKpn89HBsgK36/uB8HejM305yQPxeOHS6WGWV8/Ns3mOZCKzc0T
+        Uy43JyO+cwYsr2h5oFismzi+Mb1eD8iEi4sHs7CwOw44tsmORmoeHxXa7VvnFwBpenx8NUFQG0ij8vuY
+        Tdfz5uaqS7JYqRw4NwJZIMcI6VROCTZdOeuGkSxub586NwFZ0Gpd2qND2LDpDuNtyKIckl2bgCyQPokX
+        KhEv1CJeqEW8UIt4oRbxQi3ihVrEC7WIF2oRL9QiXqhFvFCLeKEW8UIt4oVaxAu1iBdqES/UmhJvVJfF
+        nZ0z5yYgC6b9D9uaLK6uHjo3AVkgL1cbb2TT9bxcrubLYhDUzP39i3MjkKZu9+Pr4hHfr67YdEeTLA6v
+        epLrdTqdd+cXAGmQcCfubHj6ceVTEISzyYdv8kCxWB/IK1oOyEBajo6uhz/l3jwbbv/bbTmTY48PV/Ig
+        kCVJuM9ys5NNdfqMrn+SP58B6ZMz7q/XmzKMrvG8T2VIQixrjwdcAAAAAElFTkSuQmCC
 </value>
   </data>
-  <metadata name="guna2GradientButton1.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  <metadata name="ShowMonthlyChartButton.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="monthMonthlyOrderComboBox.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
   <metadata name="searchYearlyPanel.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
-  <metadata name="bunifuTextBox2.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  <metadata name="yearlyYearOrderTextBox.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
-  <data name="bunifuTextBox2.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <metadata name="showYearlyChartButton.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="yearlyYearOrderTextBox.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="yearlyYearOrderTextBox.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAK8AAAAjCAYAAADi4FrWAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAI8SURBVHhe7Zwxa1NxFEczOrq0zZuS0alTBz+C3Zz6GaRL
-        WlFwsXZzEiehW5y6iUMHF6EZhHSQujgIFRwqaEFoNsfn/9Wbd3+J14y5Gc6BQ6D3f990eLwUXjoAALAK
-        9HqD21U1OOx2995W1d6PYo24TEt71+XzXdNhVT28Y2kuptvdv1eWCBZXxhLy7/L5xBKNKZXfn19EXBXL
-        jfW5pTrL2tqjbjnQ3nE3N5/WR0fv69Hocz2ZTBCX6tnZl/r4+EO9vf1iJuD19f27lqzTVD09sLV1WF9e
-        /gwvirhsd3ZetfE238MsWacMysPx3wPD4Si8CGKG5+df23iL3yxZx77d3RxoDkcXQcyy33/cBmzJOtNB
-        Y7SMmKn2ack6OoyWETPVPi1ZR4fRMmKm2qcl6+gwWkbMVPu0ZB0dRsuImWqflqyjw2gZMVPt05J1dBgt
-        I2aqfVqyjg6jZcRMtU9L1tFhtIyYqfZpyTo6jJYRM9U+LVlHh9EyYqbapyXr6DBaRsxU+7RkHR1Gy4iZ
-        ap+WrKPDaBkxU+3TknV0GC0jZqp9WrKODqNlxEy1T0vW0WG0jJip9mnJOvZ68c2Q99dw1Vz4JkWJ99N0
-        eHLyMbwAYoYXF9/bcJvX1SxZp/zx5fRA87ZmdBHEDA8O3rTxFk8tWad5H14O1Lu7r3l8wFSvrn7Nh9vc
-        eR9YsrPobzcgZqrPuOLYUv2XXu/ZrXJgOLeAuAqONzYGfUv1/9iP7Z3qfyAQkxwXF//IHgAALIVO5w/r
-        dY+7RhJlRQAAAABJRU5ErkJggg==
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAHkSURBVHhe7dyhSwNRHMDxi0bL9LZybVEMC8KKa9r8AwyC
+        RSx3g4Er4spQGBaTRc40jIKCRoOgQTQqTLBYBoa1tT3vt73JxDeNdz/5/uCD8HZv6cvxFHwew/y7KRTC
+        xfn5cCOfDxtAGnw/2koaXLZJ/j0SbLKpn89HBsgK36/uB8HejM305yQPxeOHS6WGWV8/Ns3mOZCKzc0T
+        Uy43JyO+cwYsr2h5oFismzi+Mb1eD8iEi4sHs7CwOw44tsmORmoeHxXa7VvnFwBpenx8NUFQG0ij8vuY
+        Tdfz5uaqS7JYqRw4NwJZIMcI6VROCTZdOeuGkSxub586NwFZ0Gpd2qND2LDpDuNtyKIckl2bgCyQPokX
+        KhEv1CJeqEW8UIt4oRbxQi3ihVrEC7WIF2oRL9QiXqhFvFCLeKEW8UIt4oVaxAu1iBdqES/UmhJvVJfF
+        nZ0z5yYgC6b9D9uaLK6uHjo3AVkgL1cbb2TT9bxcrubLYhDUzP39i3MjkKZu9+Pr4hHfr67YdEeTLA6v
+        epLrdTqdd+cXAGmQcCfubHj6ceVTEISzyYdv8kCxWB/IK1oOyEBajo6uhz/l3jwbbv/bbTmTY48PV/Ig
+        kCVJuM9ys5NNdfqMrn+SP58B6ZMz7q/XmzKMrvG8T2VIQixrjwdcAAAAAElFTkSuQmCC
 </value>
   </data>
-  <metadata name="guna2GradientButton2.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  <metadata name="showYearlyChartButton.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
   <metadata name="dailyFinancialReportBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">

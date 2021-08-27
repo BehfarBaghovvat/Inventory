@@ -332,10 +332,10 @@ namespace Inventory_Forms
 			this.nextKilometerTextBox.TextPlaceholder = "کیلومتر بعدی ماشین";
 			this.nextKilometerTextBox.UseSystemPasswordChar = false;
 			this.nextKilometerTextBox.WordWrap = true;
-			this.nextKilometerTextBox.TextChange += new System.EventHandler(this.KilometersCarTextBox_TextChange);
-			this.nextKilometerTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.KilometersCarTextBox_KeyPress);
-			this.nextKilometerTextBox.Enter += new System.EventHandler(this.KilometersCarTextBox_Enter);
-			this.nextKilometerTextBox.Leave += new System.EventHandler(this.KilometersCarTextBox_Leave);
+			this.nextKilometerTextBox.TextChange += new System.EventHandler(this.NextKilometerTextBox_TextChange);
+			this.nextKilometerTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NextKilometerTextBox_KeyPress);
+			this.nextKilometerTextBox.Enter += new System.EventHandler(this.NextKilometerTextBox_Enter);
+			this.nextKilometerTextBox.Leave += new System.EventHandler(this.NextKilometerTextBox_Leave);
 			// 
 			// currerntKilometerTextBox
 			// 
@@ -412,10 +412,10 @@ namespace Inventory_Forms
 			this.currerntKilometerTextBox.TextPlaceholder = "کیلومتر فعلی ماشین";
 			this.currerntKilometerTextBox.UseSystemPasswordChar = false;
 			this.currerntKilometerTextBox.WordWrap = true;
-			this.currerntKilometerTextBox.TextChange += new System.EventHandler(this.KilometersCarTextBox_TextChange);
-			this.currerntKilometerTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.KilometersCarTextBox_KeyPress);
-			this.currerntKilometerTextBox.Enter += new System.EventHandler(this.KilometersCarTextBox_Enter);
-			this.currerntKilometerTextBox.Leave += new System.EventHandler(this.KilometersCarTextBox_Leave);
+			this.currerntKilometerTextBox.TextChange += new System.EventHandler(this.CurrerntKilometerTextBox_TextChange);
+			this.currerntKilometerTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CurrerntKilometerTextBox_KeyPress);
+			this.currerntKilometerTextBox.Enter += new System.EventHandler(this.CurrerntKilometerTextBox_Enter);
+			this.currerntKilometerTextBox.Leave += new System.EventHandler(this.CurrerntKilometerTextBox_Leave);
 			// 
 			// serviceRegisterButton
 			// 
@@ -1335,9 +1335,9 @@ namespace Inventory_Forms
 			this.licensePlateTextBox.TextPlaceholder = "پلاک وسیله نقلیه";
 			this.licensePlateTextBox.UseSystemPasswordChar = false;
 			this.licensePlateTextBox.WordWrap = true;
-			this.licensePlateTextBox.TextChange += new System.EventHandler(this.licensePlateTextBox_TextChange);
-			this.licensePlateTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.licensePlateTextBox_KeyPress);
-			this.licensePlateTextBox.Enter += new System.EventHandler(this.licensePlateTextBox_Enter);
+			this.licensePlateTextBox.TextChange += new System.EventHandler(this.LicensePlateTextBox_TextChange);
+			this.licensePlateTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.LicensePlateTextBox_KeyPress);
+			this.licensePlateTextBox.Enter += new System.EventHandler(this.LicensePlateTextBox_Enter);
 			// 
 			// clientNameTextBox
 			// 

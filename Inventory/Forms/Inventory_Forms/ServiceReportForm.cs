@@ -133,7 +133,7 @@ namespace Inventory_Forms
 
 		//-----------------------------------------------------------------------------------------------     Privat Methods
 
-		#region Founction		
+		#region Founction
 
 		#region GetInvoiced
 		private void GetInvoiced(string _invoiceSerialNumvber)

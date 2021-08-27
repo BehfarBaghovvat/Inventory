@@ -46,6 +46,7 @@
 			this.messageLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
 			this.messageLabel.AutoEllipsis = true;
+			this.messageLabel.BackColor = System.Drawing.Color.Transparent;
 			this.messageLabel.Font = new System.Drawing.Font("IRANSans Light", 12F);
 			this.messageLabel.ForeColor = System.Drawing.Color.White;
 			this.messageLabel.Location = new System.Drawing.Point(12, 37);
@@ -53,6 +54,7 @@
 			this.messageLabel.Size = new System.Drawing.Size(370, 56);
 			this.messageLabel.TabIndex = 8;
 			this.messageLabel.Text = "پیغام";
+			this.messageLabel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MessageLabel_MouseDown);
 			// 
 			// messageBoxDOBFormElipse
 			// 
@@ -118,6 +120,7 @@
 			// 
 			// captionLabel
 			// 
+			this.captionLabel.BackColor = System.Drawing.Color.Transparent;
 			this.captionLabel.Dock = System.Windows.Forms.DockStyle.Top;
 			this.captionLabel.Font = new System.Drawing.Font("IRANSans Light", 7F);
 			this.captionLabel.ForeColor = System.Drawing.Color.White;
@@ -127,6 +130,7 @@
 			this.captionLabel.TabIndex = 15;
 			this.captionLabel.Text = "عنوان";
 			this.captionLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			this.captionLabel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.CaptionLabel_MouseDown);
 			// 
 			// fadeTimer
 			// 

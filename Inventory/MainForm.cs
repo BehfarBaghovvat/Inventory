@@ -855,7 +855,7 @@ namespace Inventory
 		private void DropDownSettingTimer_Tick(object sender, System.EventArgs e)
 		{
 			submenuSettingPanel.Height += 10;
-			if (submenuSettingPanel.Height >= 120)
+			if (submenuSettingPanel.Height >= 85)
 			{
 				dropDownSettingTimer.Stop();
 			}
