@@ -29,7 +29,7 @@ namespace Inventory_Forms
 		/// </summary>
 		private void InitializeComponent()
 		{
-			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BillSaleReportForm));
+			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BillSalePrintForm));
 			this.topPanel = new Mbb.Windows.Forms.Panel();
 			this.minimizeButton = new Guna.UI2.WinForms.Guna2Button();
 			this.closeButton = new Guna.UI2.WinForms.Guna2Button();
@@ -84,6 +84,7 @@ namespace Inventory_Forms
 			this.closeButton.ShadowDecoration.Parent = this.closeButton;
 			this.closeButton.Size = new System.Drawing.Size(50, 30);
 			this.closeButton.TabIndex = 0;
+			this.closeButton.Click += new System.EventHandler(this.CloseButton_Click);
 			// 
 			// billsaleStiRibbonViewerControl
 			// 
@@ -97,7 +98,7 @@ namespace Inventory_Forms
 			this.billsaleStiRibbonViewerControl.Size = new System.Drawing.Size(950, 730);
 			this.billsaleStiRibbonViewerControl.TabIndex = 4;
 			// 
-			// BillSaleReportForm
+			// BillSalePrintForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 17F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -105,7 +106,7 @@ namespace Inventory_Forms
 			this.ClientSize = new System.Drawing.Size(950, 760);
 			this.Controls.Add(this.billsaleStiRibbonViewerControl);
 			this.Controls.Add(this.topPanel);
-			this.Name = "BillSaleReportForm";
+			this.Name = "BillSalePrintForm";
 			this.Text = "BillSaleReportForm";
 			this.topPanel.ResumeLayout(false);
 			this.ResumeLayout(false);

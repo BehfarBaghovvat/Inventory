@@ -19,7 +19,7 @@ namespace Financial_Order
 
 		private void PaymentUC_Load(object sender, System.EventArgs e)
 		{
-
+			GetDataFromJournal();
 		}
 
 
@@ -41,6 +41,7 @@ namespace Financial_Order
 
 				listJournals =
 					dataBaseContext.Journals
+					.Where(current => string.Compare(current.Amount_Paid,"0 تومان") !=0)
 					.OrderBy(current => current.Amount_Paid)
 					.ToList();
 

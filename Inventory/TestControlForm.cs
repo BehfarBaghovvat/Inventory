@@ -21,17 +21,6 @@ namespace Inventory
 			InitializeComponent();
 		}
 
-		private void button1_Click(object sender, EventArgs e)
-		{
-			firstNumber = decimal.Parse(textBox1.Texts);
-
-			sumNumber = firstNumber + secondNumber;
-
-			secondNumber = sumNumber;
-
-			
-			MessageBox.Show($"Sum Number is : {sumNumber}");
-
-		}
+		
 	}
 }

@@ -32,33 +32,35 @@ namespace Financial_Order
 			this.components = new System.ComponentModel.Container();
 			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
 			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
 			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-			this.guna2GradientPanel1 = new Guna.UI2.WinForms.Guna2GradientPanel();
+			this.mainPanel = new Guna.UI2.WinForms.Guna2GradientPanel();
 			this.dispositDataGridView = new Guna.UI2.WinForms.Guna2DataGridView();
 			this.journalBindingSource = new System.Windows.Forms.BindingSource(this.components);
 			this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.agentDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.descriptionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.Amount_Received = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.registrationDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.registrationTimeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.guna2GradientPanel1.SuspendLayout();
+			this.mainPanel.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.dispositDataGridView)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.journalBindingSource)).BeginInit();
 			this.SuspendLayout();
 			// 
-			// guna2GradientPanel1
+			// mainPanel
 			// 
-			this.guna2GradientPanel1.Controls.Add(this.dispositDataGridView);
-			this.guna2GradientPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.guna2GradientPanel1.FillColor2 = System.Drawing.Color.DarkSlateBlue;
-			this.guna2GradientPanel1.Font = new System.Drawing.Font("IRANSansXFaNum", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-			this.guna2GradientPanel1.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical;
-			this.guna2GradientPanel1.Location = new System.Drawing.Point(0, 0);
-			this.guna2GradientPanel1.Name = "guna2GradientPanel1";
-			this.guna2GradientPanel1.ShadowDecoration.Parent = this.guna2GradientPanel1;
-			this.guna2GradientPanel1.Size = new System.Drawing.Size(1125, 460);
-			this.guna2GradientPanel1.TabIndex = 0;
+			this.mainPanel.Controls.Add(this.dispositDataGridView);
+			this.mainPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.mainPanel.FillColor2 = System.Drawing.Color.DarkSlateBlue;
+			this.mainPanel.Font = new System.Drawing.Font("IRANSansXFaNum", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+			this.mainPanel.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical;
+			this.mainPanel.Location = new System.Drawing.Point(0, 0);
+			this.mainPanel.Name = "mainPanel";
+			this.mainPanel.ShadowDecoration.Parent = this.mainPanel;
+			this.mainPanel.Size = new System.Drawing.Size(1125, 470);
+			this.mainPanel.TabIndex = 0;
 			// 
 			// dispositDataGridView
 			// 
@@ -72,7 +74,7 @@ namespace Financial_Order
 			this.dispositDataGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
 			this.dispositDataGridView.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
 			this.dispositDataGridView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-			dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+			dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
 			dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(103)))), ((int)(((byte)(58)))), ((int)(((byte)(183)))));
 			dataGridViewCellStyle2.Font = new System.Drawing.Font("IRANSansXFaNum", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
 			dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
@@ -83,31 +85,40 @@ namespace Financial_Order
 			this.dispositDataGridView.ColumnHeadersHeight = 30;
 			this.dispositDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
 			this.dispositDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-			this.idDataGridViewTextBoxColumn,
-			this.agentDataGridViewTextBoxColumn,
-			this.descriptionDataGridViewTextBoxColumn,
-			this.Amount_Received,
-			this.registrationDateDataGridViewTextBoxColumn,
-			this.registrationTimeDataGridViewTextBoxColumn});
+            this.idDataGridViewTextBoxColumn,
+            this.descriptionDataGridViewTextBoxColumn,
+            this.Amount_Received,
+            this.registrationDateDataGridViewTextBoxColumn,
+            this.registrationTimeDataGridViewTextBoxColumn});
 			this.dispositDataGridView.DataSource = this.journalBindingSource;
-			dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-			dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(215)))), ((int)(((byte)(240)))));
-			dataGridViewCellStyle3.Font = new System.Drawing.Font("IRANSansXFaNum", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-			dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
-			dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(123)))), ((int)(((byte)(207)))));
-			dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
-			dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-			this.dispositDataGridView.DefaultCellStyle = dataGridViewCellStyle3;
+			dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+			dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(215)))), ((int)(((byte)(240)))));
+			dataGridViewCellStyle4.Font = new System.Drawing.Font("IRANSansXFaNum", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+			dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
+			dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(123)))), ((int)(((byte)(207)))));
+			dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Black;
+			dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+			this.dispositDataGridView.DefaultCellStyle = dataGridViewCellStyle4;
 			this.dispositDataGridView.EnableHeadersVisualStyles = false;
 			this.dispositDataGridView.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(193)))), ((int)(((byte)(232)))));
 			this.dispositDataGridView.Location = new System.Drawing.Point(12, 15);
 			this.dispositDataGridView.Name = "dispositDataGridView";
 			this.dispositDataGridView.ReadOnly = true;
 			this.dispositDataGridView.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+			dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+			dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
+			dataGridViewCellStyle5.Font = new System.Drawing.Font("IRANSansXFaNum", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+			dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
+			dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+			dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+			dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+			this.dispositDataGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle5;
 			this.dispositDataGridView.RowHeadersVisible = false;
 			this.dispositDataGridView.RowHeadersWidth = 40;
+			dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+			this.dispositDataGridView.RowsDefaultCellStyle = dataGridViewCellStyle6;
 			this.dispositDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-			this.dispositDataGridView.Size = new System.Drawing.Size(1100, 430);
+			this.dispositDataGridView.Size = new System.Drawing.Size(1100, 440);
 			this.dispositDataGridView.TabIndex = 0;
 			this.dispositDataGridView.Theme = Guna.UI2.WinForms.Enums.DataGridViewPresetThemes.DeepPurple;
 			this.dispositDataGridView.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(196)))), ((int)(((byte)(233)))));
@@ -144,17 +155,11 @@ namespace Financial_Order
 			this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
 			this.idDataGridViewTextBoxColumn.ReadOnly = true;
 			// 
-			// agentDataGridViewTextBoxColumn
-			// 
-			this.agentDataGridViewTextBoxColumn.DataPropertyName = "Agent";
-			this.agentDataGridViewTextBoxColumn.FillWeight = 150F;
-			this.agentDataGridViewTextBoxColumn.HeaderText = "عامل";
-			this.agentDataGridViewTextBoxColumn.Name = "agentDataGridViewTextBoxColumn";
-			this.agentDataGridViewTextBoxColumn.ReadOnly = true;
-			// 
 			// descriptionDataGridViewTextBoxColumn
 			// 
 			this.descriptionDataGridViewTextBoxColumn.DataPropertyName = "Description";
+			dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+			this.descriptionDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle3;
 			this.descriptionDataGridViewTextBoxColumn.FillWeight = 200F;
 			this.descriptionDataGridViewTextBoxColumn.HeaderText = "شرح";
 			this.descriptionDataGridViewTextBoxColumn.Name = "descriptionDataGridViewTextBoxColumn";
@@ -187,11 +192,13 @@ namespace Financial_Order
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.Controls.Add(this.guna2GradientPanel1);
+			this.Controls.Add(this.mainPanel);
+			this.MaximumSize = new System.Drawing.Size(1125, 470);
+			this.MinimumSize = new System.Drawing.Size(1125, 470);
 			this.Name = "DispositUC";
-			this.Size = new System.Drawing.Size(1125, 460);
+			this.Size = new System.Drawing.Size(1125, 470);
 			this.Load += new System.EventHandler(this.DispositUC_Load);
-			this.guna2GradientPanel1.ResumeLayout(false);
+			this.mainPanel.ResumeLayout(false);
 			((System.ComponentModel.ISupportInitialize)(this.dispositDataGridView)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.journalBindingSource)).EndInit();
 			this.ResumeLayout(false);
@@ -200,11 +207,11 @@ namespace Financial_Order
 
 		#endregion
 
-		private Guna.UI2.WinForms.Guna2GradientPanel guna2GradientPanel1;
+		private Guna.UI2.WinForms.Guna2GradientPanel mainPanel;
 		private Guna.UI2.WinForms.Guna2DataGridView dispositDataGridView;
 		private System.Windows.Forms.BindingSource journalBindingSource;
-		private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
 		private System.Windows.Forms.DataGridViewTextBoxColumn agentDataGridViewTextBoxColumn;
+		private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
 		private System.Windows.Forms.DataGridViewTextBoxColumn descriptionDataGridViewTextBoxColumn;
 		private System.Windows.Forms.DataGridViewTextBoxColumn Amount_Received;
 		private System.Windows.Forms.DataGridViewTextBoxColumn registrationDateDataGridViewTextBoxColumn;

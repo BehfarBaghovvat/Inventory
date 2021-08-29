@@ -13,8 +13,15 @@ namespace Inventory_Forms
 		}
 
 
+
 		//-----------------------------------------------------------------------------------------------     Events Controls
 
+		#region CloseButton_Click
+		private void CloseButton_Click(object sender, System.EventArgs e)
+		{
+			this.Close();
+		}
+		#endregion /CloseButton_Click
 
 
 

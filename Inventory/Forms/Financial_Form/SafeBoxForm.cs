@@ -159,15 +159,23 @@ namespace Financial_Form
 		#region AcceptButton_Click
 		private void AcceptButton_Click(object sender, System.EventArgs e)
 		{
-			if (SetInCapitalFund(CapitalFund, OldCash))
+			if (string.IsNullOrWhiteSpace(entryFuneTextBox.Text))
 			{
-				AllClear();
-				Infrastructure.Utility.WindowsNotification(message: "مبلغ واریز شد.", caption: Infrastructure.PopupNotificationForm.Caption.موفقیت);
+				return;
 			}
 			else
 			{
-				Infrastructure.Utility.WindowsNotification(message: $"{Inventory.Properties.Resources.Operation_Defect}", caption: Infrastructure.PopupNotificationForm.Caption.خطا);
+				if (SetInCapitalFund(CapitalFund, OldCash))
+				{
+					AllClear();
+					Infrastructure.Utility.WindowsNotification(message: "مبلغ واریز شد.", caption: Infrastructure.PopupNotificationForm.Caption.موفقیت);
+				}
+				else
+				{
+					Infrastructure.Utility.WindowsNotification(message: $"{Inventory.Properties.Resources.Operation_Defect}", caption: Infrastructure.PopupNotificationForm.Caption.خطا);
+				}
 			}
+			
 		}
 		#endregion /AcceptButton_Click
 

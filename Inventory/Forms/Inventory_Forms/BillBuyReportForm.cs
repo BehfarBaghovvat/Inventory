@@ -89,6 +89,8 @@ namespace Inventory_Forms
 			}
 		}
 
+		public bool Purchase_Operations { get; set; }
+
 		#endregion /Properties
 
 
@@ -108,21 +110,29 @@ namespace Inventory_Forms
 		#region CloseButton_Click
 		private void CloseButton_Click(object sender, System.EventArgs e)
 		{
-			if (productListDataGridView.Rows.Count > 0)
+			if (Purchase_Operations)
 			{
-				if (Mbb.Windows.Forms.MessageBox.Show(text: "آیا رسید جاری حذف گردد؟", caption: "حذف رسید", icon: Mbb.Windows.Forms.MessageBoxIcon.Question, button: Mbb.Windows.Forms.MessageBoxButtons.YesNo) == System.Windows.Forms.DialogResult.Yes)
-				{
-					AllClear();
-					closeFormTimer.Start();
-				}
-				else
-				{
-					closeFormTimer.Start();
-				}
+				AllClear();
+				this.Close();
 			}
 			else
 			{
-				closeFormTimer.Start();
+				if (productListDataGridView.Rows.Count > 0)
+				{
+					if (Mbb.Windows.Forms.MessageBox.Show(text: "آیا رسید جاری حذف گردد؟", caption: "حذف رسید", icon: Mbb.Windows.Forms.MessageBoxIcon.Question, button: Mbb.Windows.Forms.MessageBoxButtons.YesNo) == System.Windows.Forms.DialogResult.Yes)
+					{
+						AllClear();
+						this.Close();
+					}
+					else
+					{
+						this.Close();
+					}
+				}
+				else
+				{
+					this.Close();
+				}
 			}
 		}
 		#endregion /CloseButton_Click
@@ -190,9 +200,11 @@ namespace Inventory_Forms
 				Infrastructure.Utility.WindowsNotification(
 					message: "عملیات ثبت و پرداخت انجام گردید.",
 					caption: Infrastructure.PopupNotificationForm.Caption.موفقیت);
+				Purchase_Operations = true;
 			}
 			else
 			{
+				Purchase_Operations = false;
 				return;
 			}
 		}
@@ -434,6 +446,7 @@ namespace Inventory_Forms
 		/// </summary>
 		private void Initialize()
 		{
+			Purchase_Operations = false;
 			auditItem.Total_Sum_Price = 0;
 			dateOfPrintTextBox.Text = $"{Infrastructure.Utility.PersianCalendar(System.DateTime.Now)} - {Infrastructure.Utility.ShowTime()}";
 			auditItem.Register_Date = $"{Infrastructure.Utility.PersianCalendar(System.DateTime.Now)}";
@@ -560,7 +573,7 @@ namespace Inventory_Forms
 					{
 						Amount_Paid = $"{auditItem.Amount_Paid:#,0} تومان",
 						Amount_Payable = $"{auditItem.Total_Sum_Price:#,0} تومان",
-						Description = $"خرید کالا یا لوازم.",
+						Description = $"خرید کالا یا لوازم",
 						Remaininig_Amount = $"{auditItem.Remaining_Amount:#,0} تومان",
 						Registration_Date = $"{Infrastructure.Utility.PersianCalendar(System.DateTime.Now)}",
 						Registration_Time = $"{Infrastructure.Utility.ShowTime()}",
@@ -737,7 +750,8 @@ namespace Inventory_Forms
 					 new Models.Journal
 					 {
 						 Amount_Paid = $"{auditItem.Amount_Paid:#,0} تومان",
-						 Description = $"خرید کالا یا لوازم.",
+						 Amount_Received = $"0 تومان",
+						 Description = $"خرید کالا یا لوازم",
 						 Invoice_Serial_Numvber = auditItem.InvoiceSerialNumber,
 						 Registration_Date = $"{Infrastructure.Utility.PersianCalendar(System.DateTime.Now)}",
 						 Registration_Time = $"{Infrastructure.Utility.ShowTime()}",

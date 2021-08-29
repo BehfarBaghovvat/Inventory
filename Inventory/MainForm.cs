@@ -152,6 +152,30 @@ namespace Inventory
 			}
 		}
 
+		private Financial_Form.FinancialReportForm _financialReportForm;
+		public Financial_Form.FinancialReportForm FinancialReportForm
+		{
+			get
+			{
+				if (_financialReportForm == null || _financialReportForm.IsDisposed == true)
+				{
+					_financialReportForm =
+						new Financial_Form.FinancialReportForm();
+
+					_financialReportForm.TopLevel = false;
+					_financialReportForm.TopMost = true;
+					_financialReportForm.Dock = System.Windows.Forms.DockStyle.Fill;
+				}
+				return _financialReportForm;
+			}
+			set
+			{
+				_financialReportForm = value;
+			}
+		}
+
+
+
 
 
 		#endregion /--------------------------------------------------------     Layer     --------------------------------------------------------
@@ -417,7 +441,7 @@ namespace Inventory
 				serviceButton.Checked = false;
 
 				ancillaryCostsButton.Checked = false;
-				financialOrderButton.Checked = false;
+				financialReportButton.Checked = false;
 				safeBoxButton.Checked = false;
 			}
 		}
@@ -451,7 +475,7 @@ namespace Inventory
 				serviceButton.Checked = false;
 
 				ancillaryCostsButton.Checked = false;
-				financialOrderButton.Checked = false;
+				financialReportButton.Checked = false;
 				safeBoxButton.Checked = false;
 			}
 		}
@@ -485,7 +509,7 @@ namespace Inventory
 				serviceButton.Checked = false;
 
 				ancillaryCostsButton.Checked = false;
-				financialOrderButton.Checked = false;
+				financialReportButton.Checked = false;
 				safeBoxButton.Checked = false;
 			}
 		}
@@ -519,7 +543,7 @@ namespace Inventory
 				serviceButton.Checked = true;
 
 				ancillaryCostsButton.Checked = false;
-				financialOrderButton.Checked = false;
+				financialReportButton.Checked = false;
 				safeBoxButton.Checked = false;
 			}
 		}
@@ -612,7 +636,7 @@ namespace Inventory
 				serviceButton.Checked = false;
 
 				ancillaryCostsButton.Checked = false;
-				financialOrderButton.Checked = false;
+				financialReportButton.Checked = false;
 				safeBoxButton.Checked = true;
 			}
 		}
@@ -647,7 +671,7 @@ namespace Inventory
 				serviceButton.Checked = false;
 
 				ancillaryCostsButton.Checked = true;
-				financialOrderButton.Checked = false;
+				financialReportButton.Checked = false;
 				safeBoxButton.Checked = false;
 			}
 		}
@@ -656,15 +680,15 @@ namespace Inventory
 		#region FinancialOrderButton_Click
 		private void FinancialOrderButton_Click(object sender, System.EventArgs e)
 		{
-			if (financialOrderButton.Checked)
+			if (financialReportButton.Checked)
 			{
 				return;
 			}
 			else
 			{
 				mainPanel.Controls.Clear();
-				mainPanel.Controls.Add(_financialOrderForm);
-				FinancialOrderForm.Show();
+				mainPanel.Controls.Add(FinancialReportForm);
+				FinancialReportForm.Show();
 
 				ProductBuyForm.Dispose();
 				ProcutSalesForm.Dispose();
@@ -682,7 +706,7 @@ namespace Inventory
 				serviceButton.Checked = false;
 
 				ancillaryCostsButton.Checked = false;
-				financialOrderButton.Checked = true;
+				financialReportButton.Checked = true;
 				safeBoxButton.Checked = false;
 			}
 		}

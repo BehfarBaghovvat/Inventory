@@ -77,8 +77,7 @@ namespace Financial_Order
 		public CapitalTurnoverChartUC()
 		{
 			InitializeComponent();
-
-			
+			Initialize();
 		}
 
 
@@ -90,12 +89,23 @@ namespace Financial_Order
 		#region DailyButton_Click
 		private void DailyButton_Click(object sender, System.EventArgs e)
 		{
-			statisticsDisplayChart.Series.Clear();
-			statisticsDisplayChart.AxisX.Clear();
-			statisticsDisplayChart.AxisY.Clear();
-			searchDailyPanel.BringToFront();
-			searchMonthlyPanel.SendToBack();
-			searchYearlyPanel.SendToBack();
+			if (dailyButton.Checked == true)
+			{
+				return;
+			}
+			else
+			{
+				dailyButton.Checked = true;
+				monthlyButton.Checked = false;
+				yearlyButton.Checked = false;
+				statisticsDisplayChart.Series.Clear();
+				statisticsDisplayChart.AxisX.Clear();
+				statisticsDisplayChart.AxisY.Clear();
+				ViewDailyChart();
+				searchDailyPanel.BringToFront();
+				searchMonthlyPanel.SendToBack();
+				searchYearlyPanel.SendToBack();
+			}
 		}
 		#endregion /DailyButton_Click
 
@@ -200,12 +210,23 @@ namespace Financial_Order
 		#region MonthlyButton_Click
 		private void MonthlyButton_Click(object sender, System.EventArgs e)
 		{
-			statisticsDisplayChart.Series.Clear();
-			statisticsDisplayChart.AxisX.Clear();
-			statisticsDisplayChart.AxisY.Clear();
-			searchMonthlyPanel.BringToFront();
-			searchDailyPanel.SendToBack();
-			searchYearlyPanel.SendToBack();
+			if (monthlyButton.Checked == true)
+			{
+				return;
+			}
+			else
+			{
+				dailyButton.Checked = false;
+				monthlyButton.Checked = true;
+				yearlyButton.Checked = false;
+				statisticsDisplayChart.Series.Clear();
+				statisticsDisplayChart.AxisX.Clear();
+				statisticsDisplayChart.AxisY.Clear();
+				ViewMonthlyChart();
+				searchMonthlyPanel.BringToFront();
+				searchDailyPanel.SendToBack();
+				searchYearlyPanel.SendToBack();
+			}
 		}
 		#endregion /MonthlyButton_Click
 
@@ -281,12 +302,23 @@ namespace Financial_Order
 		#region YearlyButton_Click
 		private void YearlyButton_Click(object sender, System.EventArgs e)
 		{
-			statisticsDisplayChart.Series.Clear();
-			statisticsDisplayChart.AxisX.Clear();
-			statisticsDisplayChart.AxisY.Clear();
-			searchYearlyPanel.BringToFront();
-			searchMonthlyPanel.SendToBack();
-			searchDailyPanel.SendToBack();
+			if (yearlyButton.Checked == true)
+			{
+				return;
+			}
+			else
+			{
+				dailyButton.Checked = false;
+				monthlyButton.Checked = false;
+				yearlyButton.Checked = true;
+				statisticsDisplayChart.Series.Clear();
+				statisticsDisplayChart.AxisX.Clear();
+				statisticsDisplayChart.AxisY.Clear();
+				ViewYearlyChart();
+				searchYearlyPanel.BringToFront();
+				searchMonthlyPanel.SendToBack();
+				searchDailyPanel.SendToBack();
+			}
 		}
 		#endregion /YearlyButton_Click 
 
@@ -416,7 +448,7 @@ namespace Financial_Order
 		}
 		#endregion /CheckValueDateMonth
 
-		#region CheckValueDateMonth
+		#region CheckValueDateYear
 		/// <summary>
 		/// محدوده سال وارد شده توسط کاربر با سال جاری سیستم بررسی میگردد
 		/// </summary>
@@ -444,7 +476,7 @@ namespace Financial_Order
 				return false;
 			}
 		}
-		#endregion /CheckValueDateMonth
+		#endregion /CheckValueDateYear
 
 		#region Initialize
 		/// <summary>
@@ -471,7 +503,7 @@ namespace Financial_Order
 		/// <param name="_dailyFinancialReport"></param>
 		private void ShowDailyStatistics(Models.DailyFinancialReport _dailyFinancialReport)
 		{
-			ViewDailyChart();
+			financialDataGridView.DataSource = null;
 
 			Models.DataBaseContext dataBaseContext = null;
 			try
@@ -505,9 +537,7 @@ namespace Financial_Order
 				}
 				else
 				{
-					financialDataGridView.DataSource = null;
 					financialDataGridView.DataSource = listDailyFinancialReports;
-					
 				}
 
 			}
@@ -591,8 +621,7 @@ namespace Financial_Order
 		#region ShowMonthlyStatistics
 		private void ShowMonthlyStatistics(Models.MonthlyFinancialReport _monthlyFinancialReport)
 		{
-			ViewMonthlyChart();
-
+			financialDataGridView.DataSource = null;
 			Models.DataBaseContext dataBaseContext = null;
 			try
 			{
@@ -627,9 +656,7 @@ namespace Financial_Order
 				}
 				else
 				{
-					financialDataGridView.DataSource = null;
 					financialDataGridView.DataSource = listMonthlyFinancialReports;
-
 				}
 
 			}
@@ -734,7 +761,7 @@ namespace Financial_Order
 		#region ShowYearlyStatistics
 		private void ShowYearlyStatistics(Models.YearlyFinancialReport _yearlyFinancialReport)
 		{
-			ViewYearlyChart();
+			financialDataGridView.DataSource = null;
 
 			Models.DataBaseContext dataBaseContext = null;
 			try
@@ -768,9 +795,7 @@ namespace Financial_Order
 				}
 				else
 				{
-					financialDataGridView.DataSource = null;
 					financialDataGridView.DataSource = listyearlyFinancialReports;
-
 				}
 
 			}

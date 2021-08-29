@@ -51,13 +51,12 @@ namespace Financial_Order
 			// 
 			this.mainPanel.Controls.Add(this.ancillaryCostsDataGridView);
 			this.mainPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.mainPanel.FillColor = System.Drawing.Color.White;
 			this.mainPanel.FillColor2 = System.Drawing.Color.DarkSlateBlue;
 			this.mainPanel.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.Vertical;
 			this.mainPanel.Location = new System.Drawing.Point(0, 0);
 			this.mainPanel.Name = "mainPanel";
 			this.mainPanel.ShadowDecoration.Parent = this.mainPanel;
-			this.mainPanel.Size = new System.Drawing.Size(1125, 460);
+			this.mainPanel.Size = new System.Drawing.Size(1125, 470);
 			this.mainPanel.TabIndex = 0;
 			// 
 			// ancillaryCostsDataGridView
@@ -74,7 +73,7 @@ namespace Financial_Order
 			this.ancillaryCostsDataGridView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
 			dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
 			dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(155)))), ((int)(((byte)(89)))), ((int)(((byte)(182)))));
-			dataGridViewCellStyle2.Font = new System.Drawing.Font("IRANSansXFaNum", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+			dataGridViewCellStyle2.Font = new System.Drawing.Font("IRANSansXFaNum", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
 			dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
 			dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
 			dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
@@ -83,12 +82,12 @@ namespace Financial_Order
 			this.ancillaryCostsDataGridView.ColumnHeadersHeight = 30;
 			this.ancillaryCostsDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
 			this.ancillaryCostsDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-			this.idDataGridViewTextBoxColumn,
-			this.costNameDataGridViewTextBoxColumn,
-			this.namePayerDataGridViewTextBoxColumn,
-			this.amountPaymentDataGridViewTextBoxColumn,
-			this.registrationDateDataGridViewTextBoxColumn,
-			this.registrationTimeDataGridViewTextBoxColumn});
+            this.idDataGridViewTextBoxColumn,
+            this.costNameDataGridViewTextBoxColumn,
+            this.namePayerDataGridViewTextBoxColumn,
+            this.amountPaymentDataGridViewTextBoxColumn,
+            this.registrationDateDataGridViewTextBoxColumn,
+            this.registrationTimeDataGridViewTextBoxColumn});
 			this.ancillaryCostsDataGridView.DataSource = this.ancillaryCostsBindingSource;
 			dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
 			dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(221)))), ((int)(((byte)(240)))));
@@ -106,7 +105,7 @@ namespace Financial_Order
 			this.ancillaryCostsDataGridView.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
 			this.ancillaryCostsDataGridView.RowHeadersVisible = false;
 			this.ancillaryCostsDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-			this.ancillaryCostsDataGridView.Size = new System.Drawing.Size(1100, 430);
+			this.ancillaryCostsDataGridView.Size = new System.Drawing.Size(1100, 440);
 			this.ancillaryCostsDataGridView.TabIndex = 0;
 			this.ancillaryCostsDataGridView.Theme = Guna.UI2.WinForms.Enums.DataGridViewPresetThemes.Amethyst;
 			this.ancillaryCostsDataGridView.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(205)))), ((int)(((byte)(233)))));
@@ -184,10 +183,10 @@ namespace Financial_Order
 			this.Controls.Add(this.mainPanel);
 			this.Font = new System.Drawing.Font("IRANSansXFaNum", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
 			this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-			this.MaximumSize = new System.Drawing.Size(1125, 460);
-			this.MinimumSize = new System.Drawing.Size(1125, 460);
+			this.MaximumSize = new System.Drawing.Size(1125, 470);
+			this.MinimumSize = new System.Drawing.Size(1125, 470);
 			this.Name = "AncillaryCostsUC";
-			this.Size = new System.Drawing.Size(1125, 460);
+			this.Size = new System.Drawing.Size(1125, 470);
 			this.mainPanel.ResumeLayout(false);
 			((System.ComponentModel.ISupportInitialize)(this.ancillaryCostsDataGridView)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.ancillaryCostsBindingSource)).EndInit();

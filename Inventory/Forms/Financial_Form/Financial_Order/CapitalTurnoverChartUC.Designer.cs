@@ -95,7 +95,7 @@ namespace Financial_Order
 			this.mainPanel.Location = new System.Drawing.Point(0, 0);
 			this.mainPanel.Name = "mainPanel";
 			this.mainPanel.ShadowDecoration.Parent = this.mainPanel;
-			this.mainPanel.Size = new System.Drawing.Size(1125, 460);
+			this.mainPanel.Size = new System.Drawing.Size(1125, 470);
 			this.mainPanel.TabIndex = 2;
 			// 
 			// chartAndDataGridViewPanel
@@ -106,18 +106,19 @@ namespace Financial_Order
 			this.chartAndDataGridViewPanel.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.chartAndDataGridViewPanel.Location = new System.Drawing.Point(0, 135);
 			this.chartAndDataGridViewPanel.Name = "chartAndDataGridViewPanel";
-			this.chartAndDataGridViewPanel.Size = new System.Drawing.Size(1125, 325);
+			this.chartAndDataGridViewPanel.Size = new System.Drawing.Size(1125, 335);
 			this.chartAndDataGridViewPanel.TabIndex = 2;
 			// 
 			// statisticsDisplayChart
 			// 
-			this.statisticsDisplayChart.BackColor = System.Drawing.Color.Transparent;
+			this.statisticsDisplayChart.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(0)))), ((int)(((byte)(61)))));
 			this.statisticsDisplayChart.BackColorTransparent = true;
+			this.statisticsDisplayChart.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.statisticsDisplayChart.Font = new System.Drawing.Font("IRANSansXFaNum", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
 			this.statisticsDisplayChart.ForeColor = System.Drawing.Color.White;
 			this.statisticsDisplayChart.Location = new System.Drawing.Point(0, 0);
 			this.statisticsDisplayChart.Name = "statisticsDisplayChart";
-			this.statisticsDisplayChart.Size = new System.Drawing.Size(1125, 325);
+			this.statisticsDisplayChart.Size = new System.Drawing.Size(1125, 335);
 			this.statisticsDisplayChart.TabIndex = 1;
 			// 
 			// financialDataGridView
@@ -753,11 +754,14 @@ namespace Financial_Order
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 20F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+			this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(0)))), ((int)(((byte)(61)))));
 			this.Controls.Add(this.mainPanel);
 			this.Font = new System.Drawing.Font("IRANSansX", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
 			this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+			this.MaximumSize = new System.Drawing.Size(1125, 470);
+			this.MinimumSize = new System.Drawing.Size(1125, 470);
 			this.Name = "CapitalTurnoverChartUC";
-			this.Size = new System.Drawing.Size(1125, 460);
+			this.Size = new System.Drawing.Size(1125, 470);
 			this.mainPanel.ResumeLayout(false);
 			this.chartAndDataGridViewPanel.ResumeLayout(false);
 			((System.ComponentModel.ISupportInitialize)(this.financialDataGridView)).EndInit();

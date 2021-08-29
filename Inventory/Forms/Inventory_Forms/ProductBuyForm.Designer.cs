@@ -411,9 +411,6 @@ namespace Inventory_Forms
 			this.productUnitComboBox.ItemHeight = 25;
 			this.productUnitComboBox.Items.AddRange(new object[] {
             "...واحد کالا",
-            "مثقال",
-            "گرم",
-            "کیلو گرم",
             "تن",
             "بسته",
             "جعبه",

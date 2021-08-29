@@ -47,35 +47,31 @@ namespace Financial_Form
 
 		//------------------------------------------------------------------------------------ Event Controls
 
-		#region CapitalTurnoverButton_Click
-		private void CapitalTurnoverButton_Click(object sender, System.EventArgs e)
+		#region CapitalChartButton_Click
+		private void CapitalChartButton_Click(object sender, System.EventArgs e)
 		{
-			mainPanel.Controls.Clear();
-			bottomPanel.Controls.Add(_capitalTurnoverChartUC);
+			ShowCapitalChartUC();
 		}
-		#endregion /CapitalTurnoverButton_Click
+		#endregion /CapitalChartButton_Click
 
 		#region AncillaryCostsButton_Click
 		private void AncillaryCostsButton_Click(object sender, System.EventArgs e)
 		{
-			mainPanel.Controls.Clear();
-			bottomPanel.Controls.Add(_ancillaryCosts);
+			ShowAncillaryCostsUC();
 		}
 		#endregion /AncillaryCostsButton_Click
 
 		#region CapitalInflowButton_Click
 		private void CapitalInflowButton_Click(object sender, System.EventArgs e)
 		{
-			mainPanel.Controls.Clear();
-			bottomPanel.Controls.Add(_dispositUC);
+			ShowDispositUC();
 		}
 		#endregion /CapitalInflowButton_Click
 
 		#region CapitalOutflowButton_Click
 		private void CapitalOutflowButton_Click(object sender, System.EventArgs e)
 		{
-			mainPanel.Controls.Clear();
-			bottomPanel.Controls.Add(_paymentUC);
+			ShowPaymentUC();
 		}
 		#endregion /CapitalOutflowButton_Click
 
@@ -90,7 +86,6 @@ namespace Financial_Form
 		private void Initialize()
 		{
 			mainPanel.Controls.Clear();
-			bottomPanel.Controls.Add(_capitalTurnoverChartUC);
 
 			capitalFundLabel.Text = GetAmountInCirculation();
 			ancillaryCostsLabel.Text = GetAmountAncillaryCosts();
@@ -183,9 +178,22 @@ namespace Financial_Form
 				}
 				else
 				{
-					for (int count = 1; count < listJournals.Count; count++)
+					for (int count = 0; count < listJournals.Count; count++)
 					{
-						_totalAmountReceived += decimal.Parse(listJournals[count].Amount_Received.Replace("تومان", string.Empty).Replace(",", string.Empty).Trim());
+						if (listJournals[count].Amount_Received.Length <= 9)
+						{
+							_totalAmountReceived += decimal.Parse(listJournals[count].Amount_Received.Replace("تومان", string.Empty).Trim());
+						}
+						else
+						{
+							_totalAmountReceived += decimal.Parse(listJournals[count].Amount_Received.Replace("تومان", string.Empty).Replace(",", string.Empty).Trim());
+
+						}
+
+						if (listJournals[count].Amount_Paid.Length <= 9)
+						{
+							_totalAmountPaid += decimal.Parse(listJournals[count].Amount_Paid.Replace("تومان", string.Empty).Trim());
+						}
 						_totalAmountPaid += decimal.Parse(listJournals[count].Amount_Paid.Replace("تومان", string.Empty).Replace(",", string.Empty).Trim());
 					}
 				}
@@ -314,5 +322,63 @@ namespace Financial_Form
 			}
 		}
 		#endregion /GetTotalAmountRecived
+
+		#region ShowAncillaryCostsUC
+		/// <summary>
+		/// نماش فرم هزینه های 
+		/// </summary>
+		private void ShowAncillaryCostsUC()
+		{
+			mainPanel.Controls.Clear();
+			bottomPanel.Controls.Add(_ancillaryCosts);
+			bottomPanel.Controls.Remove(_capitalTurnoverChartUC);
+			bottomPanel.Controls.Remove(_dispositUC);
+			bottomPanel.Controls.Remove(_paymentUC);
+		}
+		#endregion /ShowAncillaryCostsUC
+
+		#region ShowCapitalChartUC
+		/// <summary>
+		/// نمایش فرم نمودار سرمایه
+		/// </summary>
+		private void ShowCapitalChartUC()
+		{
+			mainPanel.Controls.Clear();
+			bottomPanel.Controls.Add(_capitalTurnoverChartUC);
+			bottomPanel.Controls.Remove(_ancillaryCosts);
+			bottomPanel.Controls.Remove(_dispositUC);
+			bottomPanel.Controls.Remove(_paymentUC);
+		}
+		#endregion /ShowCapitalChartUC
+
+		#region ShowDispositUC
+		/// <summary>
+		/// نمایش فرم ورود سرمایه
+		/// </summary>
+		private void ShowDispositUC()
+		{
+			mainPanel.Controls.Clear();
+			bottomPanel.Controls.Add(_dispositUC);
+			bottomPanel.Controls.Remove(_ancillaryCosts);
+			bottomPanel.Controls.Remove(_capitalTurnoverChartUC);
+			bottomPanel.Controls.Remove(_paymentUC);
+		}
+		#endregion /ShowDispositUC
+
+		#region ShowPaymentUC
+		/// <summary>
+		/// نمایش فرم خروج سرمایه
+		/// </summary>
+		private void ShowPaymentUC()
+		{
+			mainPanel.Controls.Clear();
+			bottomPanel.Controls.Add(_paymentUC);
+			bottomPanel.Controls.Remove(_ancillaryCosts);
+			bottomPanel.Controls.Remove(_dispositUC);
+			bottomPanel.Controls.Remove(_capitalTurnoverChartUC);
+		}
+		#endregion /ShowPaymentUC
+
+		
 	}
 }

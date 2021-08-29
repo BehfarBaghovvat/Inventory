@@ -45,7 +45,7 @@ namespace Inventory
 			this.separator3 = new Mbb.Windows.Forms.Panel();
 			this.submenuFinancialPanel = new Mbb.Windows.Forms.Panel();
 			this.guna2GradientButton1 = new Guna.UI2.WinForms.Guna2GradientButton();
-			this.financialOrderButton = new Guna.UI2.WinForms.Guna2GradientButton();
+			this.financialReportButton = new Guna.UI2.WinForms.Guna2GradientButton();
 			this.safeBoxButton = new Guna.UI2.WinForms.Guna2GradientButton();
 			this.ancillaryCostsButton = new Guna.UI2.WinForms.Guna2GradientButton();
 			this.fainancialButton = new Guna.UI2.WinForms.Guna2GradientButton();
@@ -62,17 +62,6 @@ namespace Inventory
 			this.userImagePictureBox = new Guna.UI2.WinForms.Guna2CirclePictureBox();
 			this.dropDownInventoryTimer = new System.Windows.Forms.Timer(this.components);
 			this.dropUpInventoryTimer = new System.Windows.Forms.Timer(this.components);
-			this.mainPanel = new Guna.UI2.WinForms.Guna2Panel();
-			this.homePanel = new Guna.UI2.WinForms.Guna2Panel();
-			this.gunaPictureBox1 = new Guna.UI.WinForms.GunaPictureBox();
-			this.timePanel = new Guna.UI2.WinForms.Guna2Panel();
-			this.gregorianCalendarLabel = new Mbb.Windows.Forms.Label();
-			this.secondsLabel = new Mbb.Windows.Forms.Label();
-			this.pointLabel2 = new Mbb.Windows.Forms.Label();
-			this.minutesLabel = new Mbb.Windows.Forms.Label();
-			this.pointLabel1 = new Mbb.Windows.Forms.Label();
-			this.hoursLabel = new Mbb.Windows.Forms.Label();
-			this.solarCalenderLabel = new Mbb.Windows.Forms.Label();
 			this.topMainPanel = new Guna.UI2.WinForms.Guna2Panel();
 			this.fundLabel = new Mbb.Windows.Forms.Label();
 			this.fundsNotificationTextBox = new Mbb.Windows.Forms.Label();
@@ -88,6 +77,17 @@ namespace Inventory
 			this.dropUpSettingTimer = new System.Windows.Forms.Timer(this.components);
 			this.dropDownSettingTimer = new System.Windows.Forms.Timer(this.components);
 			this.logOutMainFormTimer = new System.Windows.Forms.Timer(this.components);
+			this.mainPanel = new Guna.UI2.WinForms.Guna2Panel();
+			this.homePanel = new Guna.UI2.WinForms.Guna2Panel();
+			this.timePanel = new Guna.UI2.WinForms.Guna2Panel();
+			this.gregorianCalendarLabel = new Mbb.Windows.Forms.Label();
+			this.secondsLabel = new Mbb.Windows.Forms.Label();
+			this.pointLabel2 = new Mbb.Windows.Forms.Label();
+			this.minutesLabel = new Mbb.Windows.Forms.Label();
+			this.pointLabel1 = new Mbb.Windows.Forms.Label();
+			this.hoursLabel = new Mbb.Windows.Forms.Label();
+			this.solarCalenderLabel = new Mbb.Windows.Forms.Label();
+			this.hologramPictureBox = new Guna.UI.WinForms.GunaPictureBox();
 			this.menuPanel.SuspendLayout();
 			this.submenuSettingPanel.SuspendLayout();
 			this.submenuClientPanel.SuspendLayout();
@@ -95,11 +95,11 @@ namespace Inventory
 			this.submenuInventoryPanel.SuspendLayout();
 			this.logoPanel.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.userImagePictureBox)).BeginInit();
+			this.topMainPanel.SuspendLayout();
 			this.mainPanel.SuspendLayout();
 			this.homePanel.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)(this.gunaPictureBox1)).BeginInit();
 			this.timePanel.SuspendLayout();
-			this.topMainPanel.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.hologramPictureBox)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// menuPanel
@@ -324,7 +324,7 @@ namespace Inventory
 			// submenuFinancialPanel
 			// 
 			this.submenuFinancialPanel.Controls.Add(this.guna2GradientButton1);
-			this.submenuFinancialPanel.Controls.Add(this.financialOrderButton);
+			this.submenuFinancialPanel.Controls.Add(this.financialReportButton);
 			this.submenuFinancialPanel.Controls.Add(this.safeBoxButton);
 			this.submenuFinancialPanel.Controls.Add(this.ancillaryCostsButton);
 			this.submenuFinancialPanel.Dock = System.Windows.Forms.DockStyle.Top;
@@ -358,31 +358,31 @@ namespace Inventory
 			this.guna2GradientButton1.TabIndex = 1;
 			this.guna2GradientButton1.Text = "واحد چک پول";
 			// 
-			// financialOrderButton
+			// financialReportButton
 			// 
-			this.financialOrderButton.Animated = true;
-			this.financialOrderButton.BackColor = System.Drawing.Color.Transparent;
-			this.financialOrderButton.BorderRadius = 5;
-			this.financialOrderButton.CheckedState.FillColor = System.Drawing.Color.Olive;
-			this.financialOrderButton.CheckedState.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(0)))), ((int)(((byte)(61)))));
-			this.financialOrderButton.CheckedState.Parent = this.financialOrderButton;
-			this.financialOrderButton.CustomImages.Parent = this.financialOrderButton;
-			this.financialOrderButton.FillColor = System.Drawing.Color.RoyalBlue;
-			this.financialOrderButton.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(0)))), ((int)(((byte)(61)))));
-			this.financialOrderButton.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-			this.financialOrderButton.ForeColor = System.Drawing.Color.White;
-			this.financialOrderButton.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(0)))), ((int)(((byte)(61)))));
-			this.financialOrderButton.HoverState.FillColor2 = System.Drawing.Color.RoyalBlue;
-			this.financialOrderButton.HoverState.Parent = this.financialOrderButton;
-			this.financialOrderButton.Location = new System.Drawing.Point(16, 80);
-			this.financialOrderButton.Name = "financialOrderButton";
-			this.financialOrderButton.PressedColor = System.Drawing.Color.White;
-			this.financialOrderButton.ShadowDecoration.Enabled = true;
-			this.financialOrderButton.ShadowDecoration.Parent = this.financialOrderButton;
-			this.financialOrderButton.Size = new System.Drawing.Size(150, 30);
-			this.financialOrderButton.TabIndex = 0;
-			this.financialOrderButton.Text = "نمودار مالی";
-			this.financialOrderButton.Click += new System.EventHandler(this.FinancialOrderButton_Click);
+			this.financialReportButton.Animated = true;
+			this.financialReportButton.BackColor = System.Drawing.Color.Transparent;
+			this.financialReportButton.BorderRadius = 5;
+			this.financialReportButton.CheckedState.FillColor = System.Drawing.Color.Olive;
+			this.financialReportButton.CheckedState.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(0)))), ((int)(((byte)(61)))));
+			this.financialReportButton.CheckedState.Parent = this.financialReportButton;
+			this.financialReportButton.CustomImages.Parent = this.financialReportButton;
+			this.financialReportButton.FillColor = System.Drawing.Color.RoyalBlue;
+			this.financialReportButton.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(0)))), ((int)(((byte)(61)))));
+			this.financialReportButton.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+			this.financialReportButton.ForeColor = System.Drawing.Color.White;
+			this.financialReportButton.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(0)))), ((int)(((byte)(61)))));
+			this.financialReportButton.HoverState.FillColor2 = System.Drawing.Color.RoyalBlue;
+			this.financialReportButton.HoverState.Parent = this.financialReportButton;
+			this.financialReportButton.Location = new System.Drawing.Point(16, 80);
+			this.financialReportButton.Name = "financialReportButton";
+			this.financialReportButton.PressedColor = System.Drawing.Color.White;
+			this.financialReportButton.ShadowDecoration.Enabled = true;
+			this.financialReportButton.ShadowDecoration.Parent = this.financialReportButton;
+			this.financialReportButton.Size = new System.Drawing.Size(150, 30);
+			this.financialReportButton.TabIndex = 0;
+			this.financialReportButton.Text = "گزارش مالی";
+			this.financialReportButton.Click += new System.EventHandler(this.FinancialOrderButton_Click);
 			// 
 			// safeBoxButton
 			// 
@@ -670,146 +670,6 @@ namespace Inventory
 			this.dropUpInventoryTimer.Interval = 1;
 			this.dropUpInventoryTimer.Tick += new System.EventHandler(this.DropUpInventoryTimer_Tick);
 			// 
-			// mainPanel
-			// 
-			this.mainPanel.BorderColor = System.Drawing.Color.Indigo;
-			this.mainPanel.BorderRadius = 15;
-			this.mainPanel.BorderThickness = 5;
-			this.mainPanel.Controls.Add(this.homePanel);
-			this.mainPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.mainPanel.Location = new System.Drawing.Point(200, 100);
-			this.mainPanel.Name = "mainPanel";
-			this.mainPanel.ShadowDecoration.Parent = this.mainPanel;
-			this.mainPanel.Size = new System.Drawing.Size(1150, 650);
-			this.mainPanel.TabIndex = 2;
-			// 
-			// homePanel
-			// 
-			this.homePanel.BackColor = System.Drawing.Color.Transparent;
-			this.homePanel.BorderRadius = 25;
-			this.homePanel.Controls.Add(this.gunaPictureBox1);
-			this.homePanel.Controls.Add(this.timePanel);
-			this.homePanel.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(63)))));
-			this.homePanel.Location = new System.Drawing.Point(20, 15);
-			this.homePanel.Name = "homePanel";
-			this.homePanel.ShadowDecoration.Parent = this.homePanel;
-			this.homePanel.Size = new System.Drawing.Size(1110, 620);
-			this.homePanel.TabIndex = 0;
-			// 
-			// gunaPictureBox1
-			// 
-			this.gunaPictureBox1.BaseColor = System.Drawing.Color.White;
-			this.gunaPictureBox1.Dock = System.Windows.Forms.DockStyle.Top;
-			this.gunaPictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("gunaPictureBox1.Image")));
-			this.gunaPictureBox1.Location = new System.Drawing.Point(0, 0);
-			this.gunaPictureBox1.Name = "gunaPictureBox1";
-			this.gunaPictureBox1.Size = new System.Drawing.Size(1110, 325);
-			this.gunaPictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-			this.gunaPictureBox1.TabIndex = 8;
-			this.gunaPictureBox1.TabStop = false;
-			// 
-			// timePanel
-			// 
-			this.timePanel.Controls.Add(this.gregorianCalendarLabel);
-			this.timePanel.Controls.Add(this.secondsLabel);
-			this.timePanel.Controls.Add(this.pointLabel2);
-			this.timePanel.Controls.Add(this.minutesLabel);
-			this.timePanel.Controls.Add(this.pointLabel1);
-			this.timePanel.Controls.Add(this.hoursLabel);
-			this.timePanel.Controls.Add(this.solarCalenderLabel);
-			this.timePanel.Location = new System.Drawing.Point(0, 324);
-			this.timePanel.Name = "timePanel";
-			this.timePanel.ShadowDecoration.Parent = this.timePanel;
-			this.timePanel.Size = new System.Drawing.Size(1110, 298);
-			this.timePanel.TabIndex = 7;
-			// 
-			// gregorianCalendarLabel
-			// 
-			this.gregorianCalendarLabel.AccessibleRole = System.Windows.Forms.AccessibleRole.TitleBar;
-			this.gregorianCalendarLabel.Font = new System.Drawing.Font("Georgia", 40F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.gregorianCalendarLabel.ForeColor = System.Drawing.Color.CornflowerBlue;
-			this.gregorianCalendarLabel.Location = new System.Drawing.Point(3, 112);
-			this.gregorianCalendarLabel.Name = "gregorianCalendarLabel";
-			this.gregorianCalendarLabel.Size = new System.Drawing.Size(1104, 90);
-			this.gregorianCalendarLabel.TabIndex = 4;
-			this.gregorianCalendarLabel.Text = "Gregorian Calendar";
-			this.gregorianCalendarLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-			// 
-			// secondsLabel
-			// 
-			this.secondsLabel.AutoSize = true;
-			this.secondsLabel.Font = new System.Drawing.Font("Bauhaus 93", 72F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.secondsLabel.ForeColor = System.Drawing.Color.White;
-			this.secondsLabel.Location = new System.Drawing.Point(665, -12);
-			this.secondsLabel.Name = "secondsLabel";
-			this.secondsLabel.Size = new System.Drawing.Size(155, 108);
-			this.secondsLabel.TabIndex = 3;
-			this.secondsLabel.Text = "00";
-			this.secondsLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-			// 
-			// pointLabel2
-			// 
-			this.pointLabel2.AutoSize = true;
-			this.pointLabel2.Font = new System.Drawing.Font("Bauhaus 93", 72F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.pointLabel2.ForeColor = System.Drawing.Color.White;
-			this.pointLabel2.Location = new System.Drawing.Point(618, -28);
-			this.pointLabel2.Name = "pointLabel2";
-			this.pointLabel2.Size = new System.Drawing.Size(81, 108);
-			this.pointLabel2.TabIndex = 3;
-			this.pointLabel2.Text = ":";
-			this.pointLabel2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-			// 
-			// minutesLabel
-			// 
-			this.minutesLabel.AutoSize = true;
-			this.minutesLabel.Font = new System.Drawing.Font("Bauhaus 93", 72F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.minutesLabel.ForeColor = System.Drawing.Color.White;
-			this.minutesLabel.Location = new System.Drawing.Point(461, -12);
-			this.minutesLabel.Name = "minutesLabel";
-			this.minutesLabel.Size = new System.Drawing.Size(155, 108);
-			this.minutesLabel.TabIndex = 2;
-			this.minutesLabel.Text = "00";
-			this.minutesLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-			// 
-			// pointLabel1
-			// 
-			this.pointLabel1.AutoSize = true;
-			this.pointLabel1.Font = new System.Drawing.Font("Bauhaus 93", 72F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.pointLabel1.ForeColor = System.Drawing.Color.White;
-			this.pointLabel1.Location = new System.Drawing.Point(413, -28);
-			this.pointLabel1.Name = "pointLabel1";
-			this.pointLabel1.Size = new System.Drawing.Size(81, 108);
-			this.pointLabel1.TabIndex = 1;
-			this.pointLabel1.Text = ":";
-			this.pointLabel1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-			// 
-			// hoursLabel
-			// 
-			this.hoursLabel.AutoSize = true;
-			this.hoursLabel.Font = new System.Drawing.Font("Bauhaus 93", 72F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.hoursLabel.ForeColor = System.Drawing.Color.White;
-			this.hoursLabel.Location = new System.Drawing.Point(255, -12);
-			this.hoursLabel.Name = "hoursLabel";
-			this.hoursLabel.Size = new System.Drawing.Size(155, 108);
-			this.hoursLabel.TabIndex = 0;
-			this.hoursLabel.Text = "00";
-			this.hoursLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-			// 
-			// solarCalenderLabel
-			// 
-			this.solarCalenderLabel.AccessibleRole = System.Windows.Forms.AccessibleRole.TitleBar;
-			this.solarCalenderLabel.Font = new System.Drawing.Font("B Homa", 40F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-			this.solarCalenderLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-			this.solarCalenderLabel.Location = new System.Drawing.Point(3, 194);
-			this.solarCalenderLabel.Name = "solarCalenderLabel";
-			this.solarCalenderLabel.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-			this.solarCalenderLabel.Size = new System.Drawing.Size(1104, 100);
-			this.solarCalenderLabel.TabIndex = 4;
-			this.solarCalenderLabel.Text = "تقویم خورشیدی";
-			this.solarCalenderLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-			this.solarCalenderLabel.UseCompatibleTextRendering = true;
-			this.solarCalenderLabel.UseMnemonic = false;
-			// 
 			// topMainPanel
 			// 
 			this.topMainPanel.Controls.Add(this.fundLabel);
@@ -942,6 +802,147 @@ namespace Inventory
 			this.logOutMainFormTimer.Interval = 10;
 			this.logOutMainFormTimer.Tick += new System.EventHandler(this.LogOutMainFormTimer_Tick);
 			// 
+			// mainPanel
+			// 
+			this.mainPanel.BorderColor = System.Drawing.Color.Indigo;
+			this.mainPanel.BorderRadius = 15;
+			this.mainPanel.BorderThickness = 5;
+			this.mainPanel.Controls.Add(this.homePanel);
+			this.mainPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.mainPanel.Location = new System.Drawing.Point(200, 100);
+			this.mainPanel.Name = "mainPanel";
+			this.mainPanel.ShadowDecoration.Parent = this.mainPanel;
+			this.mainPanel.Size = new System.Drawing.Size(1150, 650);
+			this.mainPanel.TabIndex = 4;
+			// 
+			// homePanel
+			// 
+			this.homePanel.BackColor = System.Drawing.Color.Transparent;
+			this.homePanel.BorderRadius = 25;
+			this.homePanel.Controls.Add(this.hologramPictureBox);
+			this.homePanel.Controls.Add(this.timePanel);
+			this.homePanel.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(63)))));
+			this.homePanel.Location = new System.Drawing.Point(25, 20);
+			this.homePanel.Name = "homePanel";
+			this.homePanel.ShadowDecoration.Parent = this.homePanel;
+			this.homePanel.Size = new System.Drawing.Size(1100, 610);
+			this.homePanel.TabIndex = 0;
+			// 
+			// timePanel
+			// 
+			this.timePanel.Controls.Add(this.solarCalenderLabel);
+			this.timePanel.Controls.Add(this.gregorianCalendarLabel);
+			this.timePanel.Controls.Add(this.secondsLabel);
+			this.timePanel.Controls.Add(this.pointLabel2);
+			this.timePanel.Controls.Add(this.minutesLabel);
+			this.timePanel.Controls.Add(this.pointLabel1);
+			this.timePanel.Controls.Add(this.hoursLabel);
+			this.timePanel.Dock = System.Windows.Forms.DockStyle.Bottom;
+			this.timePanel.Location = new System.Drawing.Point(0, 324);
+			this.timePanel.Name = "timePanel";
+			this.timePanel.ShadowDecoration.Parent = this.timePanel;
+			this.timePanel.Size = new System.Drawing.Size(1100, 286);
+			this.timePanel.TabIndex = 7;
+			// 
+			// gregorianCalendarLabel
+			// 
+			this.gregorianCalendarLabel.AccessibleRole = System.Windows.Forms.AccessibleRole.TitleBar;
+			this.gregorianCalendarLabel.Font = new System.Drawing.Font("Georgia", 40F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.gregorianCalendarLabel.ForeColor = System.Drawing.Color.CornflowerBlue;
+			this.gregorianCalendarLabel.Location = new System.Drawing.Point(5, 185);
+			this.gregorianCalendarLabel.Name = "gregorianCalendarLabel";
+			this.gregorianCalendarLabel.Size = new System.Drawing.Size(1090, 90);
+			this.gregorianCalendarLabel.TabIndex = 4;
+			this.gregorianCalendarLabel.Text = "Gregorian Calendar";
+			this.gregorianCalendarLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			// 
+			// secondsLabel
+			// 
+			this.secondsLabel.AutoSize = true;
+			this.secondsLabel.Font = new System.Drawing.Font("Cooper Black", 72F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.secondsLabel.ForeColor = System.Drawing.Color.White;
+			this.secondsLabel.Location = new System.Drawing.Point(684, -9);
+			this.secondsLabel.Name = "secondsLabel";
+			this.secondsLabel.Size = new System.Drawing.Size(163, 110);
+			this.secondsLabel.TabIndex = 3;
+			this.secondsLabel.Text = "00";
+			this.secondsLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			// 
+			// pointLabel2
+			// 
+			this.pointLabel2.AutoSize = true;
+			this.pointLabel2.Font = new System.Drawing.Font("Cooper Black", 72F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.pointLabel2.ForeColor = System.Drawing.Color.White;
+			this.pointLabel2.Location = new System.Drawing.Point(622, -16);
+			this.pointLabel2.Name = "pointLabel2";
+			this.pointLabel2.Size = new System.Drawing.Size(76, 110);
+			this.pointLabel2.TabIndex = 3;
+			this.pointLabel2.Text = ":";
+			this.pointLabel2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			// 
+			// minutesLabel
+			// 
+			this.minutesLabel.AutoSize = true;
+			this.minutesLabel.Font = new System.Drawing.Font("Cooper Black", 72F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.minutesLabel.ForeColor = System.Drawing.Color.White;
+			this.minutesLabel.Location = new System.Drawing.Point(480, -9);
+			this.minutesLabel.Name = "minutesLabel";
+			this.minutesLabel.Size = new System.Drawing.Size(163, 110);
+			this.minutesLabel.TabIndex = 2;
+			this.minutesLabel.Text = "00";
+			this.minutesLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			// 
+			// pointLabel1
+			// 
+			this.pointLabel1.AutoSize = true;
+			this.pointLabel1.Font = new System.Drawing.Font("Cooper Black", 72F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.pointLabel1.ForeColor = System.Drawing.Color.White;
+			this.pointLabel1.Location = new System.Drawing.Point(417, -16);
+			this.pointLabel1.Name = "pointLabel1";
+			this.pointLabel1.Size = new System.Drawing.Size(76, 110);
+			this.pointLabel1.TabIndex = 1;
+			this.pointLabel1.Text = ":";
+			this.pointLabel1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			// 
+			// hoursLabel
+			// 
+			this.hoursLabel.AutoSize = true;
+			this.hoursLabel.Font = new System.Drawing.Font("Cooper Black", 72F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.hoursLabel.ForeColor = System.Drawing.Color.White;
+			this.hoursLabel.Location = new System.Drawing.Point(274, -9);
+			this.hoursLabel.Name = "hoursLabel";
+			this.hoursLabel.Size = new System.Drawing.Size(163, 110);
+			this.hoursLabel.TabIndex = 0;
+			this.hoursLabel.Text = "00";
+			this.hoursLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			// 
+			// solarCalenderLabel
+			// 
+			this.solarCalenderLabel.AccessibleRole = System.Windows.Forms.AccessibleRole.TitleBar;
+			this.solarCalenderLabel.Font = new System.Drawing.Font("0 Homa", 39.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+			this.solarCalenderLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+			this.solarCalenderLabel.Location = new System.Drawing.Point(5, 89);
+			this.solarCalenderLabel.Name = "solarCalenderLabel";
+			this.solarCalenderLabel.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+			this.solarCalenderLabel.Size = new System.Drawing.Size(1090, 100);
+			this.solarCalenderLabel.TabIndex = 4;
+			this.solarCalenderLabel.Text = "تقویم خورشیدی";
+			this.solarCalenderLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+			this.solarCalenderLabel.UseCompatibleTextRendering = true;
+			this.solarCalenderLabel.UseMnemonic = false;
+			// 
+			// hologramPictureBox
+			// 
+			this.hologramPictureBox.BaseColor = System.Drawing.Color.White;
+			this.hologramPictureBox.Dock = System.Windows.Forms.DockStyle.Top;
+			this.hologramPictureBox.Image = ((System.Drawing.Image)(resources.GetObject("hologramPictureBox.Image")));
+			this.hologramPictureBox.Location = new System.Drawing.Point(0, 0);
+			this.hologramPictureBox.Name = "hologramPictureBox";
+			this.hologramPictureBox.Size = new System.Drawing.Size(1100, 325);
+			this.hologramPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+			this.hologramPictureBox.TabIndex = 9;
+			this.hologramPictureBox.TabStop = false;
+			// 
 			// MainForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 17F);
@@ -972,13 +973,13 @@ namespace Inventory
 			this.submenuInventoryPanel.ResumeLayout(false);
 			this.logoPanel.ResumeLayout(false);
 			((System.ComponentModel.ISupportInitialize)(this.userImagePictureBox)).EndInit();
-			this.mainPanel.ResumeLayout(false);
-			this.homePanel.ResumeLayout(false);
-			((System.ComponentModel.ISupportInitialize)(this.gunaPictureBox1)).EndInit();
-			this.timePanel.ResumeLayout(false);
-			this.timePanel.PerformLayout();
 			this.topMainPanel.ResumeLayout(false);
 			this.topMainPanel.PerformLayout();
+			this.mainPanel.ResumeLayout(false);
+			this.homePanel.ResumeLayout(false);
+			this.timePanel.ResumeLayout(false);
+			this.timePanel.PerformLayout();
+			((System.ComponentModel.ISupportInitialize)(this.hologramPictureBox)).EndInit();
 			this.ResumeLayout(false);
 
 		}
@@ -997,23 +998,12 @@ namespace Inventory
 		private Guna.UI2.WinForms.Guna2GradientButton inventoryholdingButton;
 		private Guna.UI2.WinForms.Guna2GradientButton productSalesButton;
 		private Guna.UI2.WinForms.Guna2GradientButton inventoryEntryButton;
-		private Guna.UI2.WinForms.Guna2Panel mainPanel;
 		private Guna.UI2.WinForms.Guna2CirclePictureBox userImagePictureBox;
 		private Guna.UI2.WinForms.Guna2Panel topMainPanel;
 		private Guna.UI2.WinForms.Guna2CircleButton logoutButton;
 		private Guna.UI2.WinForms.Guna2CircleButton shutDownButton;
 		private System.Windows.Forms.Timer fadeInMainFormTimer;
 		private System.Windows.Forms.Timer clockTimer;
-		private Guna.UI2.WinForms.Guna2Panel homePanel;
-		private Guna.UI.WinForms.GunaPictureBox gunaPictureBox1;
-		private Guna.UI2.WinForms.Guna2Panel timePanel;
-		private Mbb.Windows.Forms.Label gregorianCalendarLabel;
-		private Mbb.Windows.Forms.Label secondsLabel;
-		private Mbb.Windows.Forms.Label pointLabel2;
-		private Mbb.Windows.Forms.Label minutesLabel;
-		private Mbb.Windows.Forms.Label pointLabel1;
-		private Mbb.Windows.Forms.Label hoursLabel;
-		private Mbb.Windows.Forms.Label solarCalenderLabel;
 		public System.Windows.Forms.Timer shutDownMainFormTime;
 		private System.Windows.Forms.Timer dropDownFinancialTimer;
 		private System.Windows.Forms.Timer dropUpFinancialTimer;
@@ -1033,15 +1023,26 @@ namespace Inventory
 		private Guna.UI2.WinForms.Guna2GradientButton clientButton;
 		private Mbb.Windows.Forms.Panel separator3;
 		private Mbb.Windows.Forms.Panel submenuFinancialPanel;
-		private Guna.UI2.WinForms.Guna2GradientButton financialOrderButton;
-		private Guna.UI2.WinForms.Guna2GradientButton safeBoxButton;
-		private Guna.UI2.WinForms.Guna2GradientButton ancillaryCostsButton;
 		private Guna.UI2.WinForms.Guna2GradientButton fainancialButton;
 		public System.Windows.Forms.Timer logOutMainFormTimer;
 		private Guna.UI2.WinForms.Guna2GradientButton serviceButton;
-		private Guna.UI2.WinForms.Guna2GradientButton guna2GradientButton1;
 		public Mbb.Windows.Forms.Label fundsNotificationTextBox;
 		public Mbb.Windows.Forms.Label fundLabel;
+		private Guna.UI2.WinForms.Guna2Panel mainPanel;
+		private Guna.UI2.WinForms.Guna2Panel homePanel;
+		private Guna.UI2.WinForms.Guna2Panel timePanel;
+		private Mbb.Windows.Forms.Label gregorianCalendarLabel;
+		private Mbb.Windows.Forms.Label secondsLabel;
+		private Mbb.Windows.Forms.Label pointLabel2;
+		private Mbb.Windows.Forms.Label minutesLabel;
+		private Mbb.Windows.Forms.Label pointLabel1;
+		private Mbb.Windows.Forms.Label hoursLabel;
+		private Mbb.Windows.Forms.Label solarCalenderLabel;
+		private Guna.UI2.WinForms.Guna2GradientButton guna2GradientButton1;
+		private Guna.UI2.WinForms.Guna2GradientButton financialReportButton;
+		private Guna.UI2.WinForms.Guna2GradientButton safeBoxButton;
+		private Guna.UI2.WinForms.Guna2GradientButton ancillaryCostsButton;
+		private Guna.UI.WinForms.GunaPictureBox hologramPictureBox;
 	}
 }
 

@@ -43,6 +43,7 @@ namespace Financial_Order
 
 				listJournals =
 					dataBaseContext.Journals
+					.Where(current => string.Compare(current.Amount_Received, "0 تومان") != 0)
 					.OrderBy(current => current.Amount_Received)
 					.ToList();
 
