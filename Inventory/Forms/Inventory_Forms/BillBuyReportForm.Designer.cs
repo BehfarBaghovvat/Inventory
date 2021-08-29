@@ -644,7 +644,6 @@ namespace Inventory_Forms
 		private System.Windows.Forms.DataGridViewTextBoxColumn Total_Amount;
 		private Guna.UI2.WinForms.Guna2GradientButton paymentButton;
 		private Mbb.Windows.Forms.Label carrierNameLabel;
-		private Mbb.Windows.Forms.Label recipientNameTextBox;
 		private Mbb.Windows.Forms.Label recipientNameLabel;
 		private Mbb.Windows.Forms.Label senderNameLabel;
 		private System.Windows.Forms.Label amountPaidLabel;
@@ -652,5 +651,6 @@ namespace Inventory_Forms
 		private Mbb.Windows.Forms.Label invoiceSerialNumbeLabel;
 		public Mbb.Windows.Forms.Label carrierNameTextBox;
 		public Mbb.Windows.Forms.Label senderNameTextBox;
+		public Mbb.Windows.Forms.Label recipientNameTextBox;
 	}
 }

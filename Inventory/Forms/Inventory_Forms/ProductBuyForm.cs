@@ -42,6 +42,13 @@ namespace Inventory_Forms
 
 		public System.Collections.Generic.List<Bill> billList = new System.Collections.Generic.List<Bill>();
 
+		public int? Price { get; set; }
+		public int TotalSumPrice { get; set; }
+		public decimal TotalPurchaseAmount { get; set; }
+		public decimal CapitalInventory { get; set; }
+
+		decimal _sumAmount, _firstAmount, _secondAmount = 0;
+
 		private Models.EventLog _eventLog;
 		public Models.EventLog EventLog
 		{
@@ -103,8 +110,7 @@ namespace Inventory_Forms
 			set { _productReceived_Selected = value; }
 		}
 
-		public int? Price { get; set; }
-		public int TotalSumPrice { get; set; }
+		
 
 		#endregion /Properties
 
@@ -115,8 +121,7 @@ namespace Inventory_Forms
 		public ProductBuyForm()
 		{
 			InitializeComponent();
-			AllClear();
-			RefrashData();
+			Initialize();
 		}
 
 
@@ -461,11 +466,11 @@ namespace Inventory_Forms
 			}
 			else
 			{
+				BillBuyReportForm.senderNameTextBox.Text = senderNameTextBox.Text;
+				BillBuyReportForm.carrierNameTextBox.Text = carrierNameTextBox.Text;
 				BillBuyReportForm.MyProductBuyForm = this;
 				BillBuyReportForm.SetBillInDataGridView(billList);
 				BillBuyReportForm.CalculatePurchaseAmount();
-				BillBuyReportForm.senderNameTextBox.Text = senderNameTextBox.Text;
-				BillBuyReportForm.auditItem.Carrier_Name = carrierNameTextBox.Text;
 				BillBuyReportForm.ShowDialog();
 			}
 		}
@@ -502,44 +507,68 @@ namespace Inventory_Forms
 		#region SaveBottom_Click
 		private void SaveBottom_Click(object sender, System.EventArgs e)
 		{
-			if (!ValidationData(ProductReceived_New))
+			if (ProductReceived_New.Product_Purchase_Price.Length <= 9)
+			{
+				_firstAmount = decimal.Parse(ProductReceived_New.Product_Purchase_Price.Replace("تومان", string.Empty).Trim());
+
+				_sumAmount = _firstAmount + _secondAmount;
+				_secondAmount = _sumAmount;
+			}
+			else
+			{
+				_firstAmount = decimal.Parse(ProductReceived_New.Product_Purchase_Price.Replace("تومان", string.Empty).Replace(",", string.Empty).Trim());
+
+				_sumAmount = _firstAmount + _secondAmount;
+				_secondAmount = _sumAmount;
+			}
+
+
+		
+			if (!CheckFundBalance(_amount: _sumAmount))
 			{
 				return;
 			}
 			else
 			{
-				if (string.Compare(saveBottom.Text,"ثبت کالا")==0)
+				if (!ValidationData(ProductReceived_New))
 				{
-					NumberPurchases ++;
-					SetReceiptDataGridView(ProductReceived_New);
-					if (SaveProductReceived(ProductReceived_New) && SaveInventoryHolding(InventoryHolding_New))
-					{
-						Infrastructure.Utility.WindowsNotification(message: "عملیات ثبت انجام شد", caption: Infrastructure.PopupNotificationForm.Caption.موفقیت);
-						RefrashData();
-						DeleteToGetNew();
-						return;
-					}
-					else
-					{
-						Infrastructure.Utility.WindowsNotification(message: "عملیات ثبت انجام نگیردید", caption: Infrastructure.PopupNotificationForm.Caption.خطا);
-						AllClear();
-						return;
-					}
+					return;
 				}
-				else if (string.Compare(saveBottom.Text, "ویرایش کالا") == 0)
+				else
 				{
-					if (SaveProductReceived(ProductReceived_New) && SaveInventoryHolding(InventoryHolding_New))
+					if (string.Compare(saveBottom.Text, "ثبت کالا") == 0)
 					{
-						Infrastructure.Utility.WindowsNotification(message: "عملیات ویرایش انجام شد", caption: Infrastructure.PopupNotificationForm.Caption.موفقیت);
-						RefrashData();
-						AllClear();
-						return;
+						NumberPurchases++;
+						SetReceiptDataGridView(ProductReceived_New);
+						if (SaveProductReceived(ProductReceived_New) && SaveInventoryHolding(InventoryHolding_New))
+						{
+							Infrastructure.Utility.WindowsNotification(message: "عملیات ثبت انجام شد", caption: Infrastructure.PopupNotificationForm.Caption.موفقیت);
+							RefrashData();
+							DeleteToGetNew();
+							return;
+						}
+						else
+						{
+							Infrastructure.Utility.WindowsNotification(message: "عملیات ثبت انجام نگیردید", caption: Infrastructure.PopupNotificationForm.Caption.خطا);
+							AllClear();
+							return;
+						}
 					}
-					else
+					else if (string.Compare(saveBottom.Text, "ویرایش کالا") == 0)
 					{
-						Infrastructure.Utility.WindowsNotification(message: "عملیات ثبت انجام نگیردید", caption: Infrastructure.PopupNotificationForm.Caption.خطا);
-						AllClear();
-						return;
+						if (SaveProductReceived(ProductReceived_New) && SaveInventoryHolding(InventoryHolding_New))
+						{
+							Infrastructure.Utility.WindowsNotification(message: "عملیات ویرایش انجام شد", caption: Infrastructure.PopupNotificationForm.Caption.موفقیت);
+							RefrashData();
+							AllClear();
+							return;
+						}
+						else
+						{
+							Infrastructure.Utility.WindowsNotification(message: "عملیات ثبت انجام نگیردید", caption: Infrastructure.PopupNotificationForm.Caption.خطا);
+							AllClear();
+							return;
+						}
 					}
 				}
 			}
@@ -793,16 +822,34 @@ namespace Inventory_Forms
 		}
 		#endregion /DeleteToGetNew
 
-		#region RemoveBill
+		#region CheckFundBalance
 		/// <summary>
-		/// حذف اطلاعات صورت حساب
+		/// این تابع به کمک میکند تا میزان خرید را
+		/// با میزان موجودی صندوق بررسی کنیم.
+		/// در صورتی که مقدار True برگردانده شود
+		/// یعنی مجاز به خرید کالا هستیم
+		/// در غیر این صورت امکان خرید بیش از حد امکان ندارد.
 		/// </summary>
-		public void RemoveBill()
+		/// <param name="_amount"></param>
+		/// <returns></returns>
+		private bool CheckFundBalance(decimal _amount)
 		{
-			NumberPurchases = 0;
-			billList.Clear();
+			if (CapitalInventory <= _amount)
+			{
+				Mbb.Windows.Forms.MessageBox.Show(
+					text: "مبلغ خرید شما از موجودی بیشتر است",
+					caption: "خطای موجودی",
+					icon: Mbb.Windows.Forms.MessageBoxIcon.Error,
+					button: Mbb.Windows.Forms.MessageBoxButtons.Ok);
+
+				return false;
+			}
+			else
+			{
+				return true;
+			}
 		}
-		#endregion /RemoveBill
+		#endregion /CheckFundBalance
 
 		#region ClearForEdit
 		private void ClearForEdit()
@@ -819,6 +866,79 @@ namespace Inventory_Forms
 			InventoryHolding_New = null;
 		}
 		#endregion /ClearForEdit
+
+		#region GetCapitalInventory
+		/// <summary>
+		/// موجودی صندوق را در متغییر decimal ذخیره کرده و بر می گرداند.
+		/// </summary>
+		/// <returns>_capitalInventory</returns>
+		private decimal GetCapitalInventory()
+		{
+			decimal _capitalInventory;
+
+			Models.DataBaseContext dataBaseContext = null;
+			try
+			{
+				dataBaseContext =
+					new Models.DataBaseContext();
+
+				Models.CapitalFund capitalFund =
+					dataBaseContext.CapitalFunds
+					.FirstOrDefault();
+
+				if (capitalFund == null)
+				{
+					_capitalInventory = 0;
+
+					Mbb.Windows.Forms.MessageBox.Show(
+						text: "موجودی صندوق 0 می باشد. \nلطفا موجودی صندوق را بررسی نمایید.",
+						caption: "خطای موجودی",
+						icon: Mbb.Windows.Forms.MessageBoxIcon.Error,
+						button: Mbb.Windows.Forms.MessageBoxButtons.Ok);
+				}
+				else
+				{
+					if (capitalFund.Capital_Fund.Length <= 9)
+					{
+						_capitalInventory = decimal.Parse(capitalFund.Capital_Fund.Replace("تومان", string.Empty).Trim());
+					}
+					else
+					{
+						_capitalInventory = decimal.Parse(capitalFund.Capital_Fund.Replace("تومان", string.Empty).Replace(",", string.Empty).Trim());
+					}
+				}
+
+				return _capitalInventory;
+
+			}
+			catch (System.Exception ex)
+			{
+				Infrastructure.Utility.ExceptionShow(ex);
+				return 0;
+			}
+			finally
+			{
+				if (dataBaseContext != null)
+				{
+					dataBaseContext.Dispose();
+					dataBaseContext = null;
+				}
+			}
+		}
+		#endregion /GetCapitalInventory
+
+		#region Initialize
+		/// <summary>
+		/// تنظیمات ورودی اولیه
+		/// </summary>
+		private void Initialize()
+		{
+			CapitalInventory = GetCapitalInventory();
+
+			AllClear();
+			RefrashData();
+		}
+		#endregion /Initialize
 
 		#region RefrashData
 		private void RefrashData()
@@ -936,6 +1056,17 @@ namespace Inventory_Forms
 			}
 		}
 		#endregion /LogInformationEditingEvents
+
+		#region RemoveBill
+		/// <summary>
+		/// حذف اطلاعات صورت حساب
+		/// </summary>
+		public void RemoveBill()
+		{
+			NumberPurchases = 0;
+			billList.Clear();
+		}
+		#endregion /RemoveBill
 
 		#region SetReceiptDataGridView
 		/// <summary>
@@ -1172,6 +1303,12 @@ namespace Inventory_Forms
 		#endregion /TransferName
 
 		#region ValidationData
+		/// <summary>
+		/// این تابع بررسی می کند که آیا اطلاعات به طور کامل
+		/// وارد شده است یا خیر
+		/// </summary>
+		/// <param name="productReceivedNew"></param>
+		/// <returns>true or false</returns>
 		private bool ValidationData(Models.ProductReceived productReceivedNew)
 		{
 			string errorMessage = null;

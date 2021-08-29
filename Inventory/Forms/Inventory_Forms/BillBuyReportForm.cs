@@ -161,8 +161,8 @@ namespace Inventory_Forms
 
 				(reportReceip.GetComponentByName("dateOfPrintTextBox") as Stimulsoft.Report.Components.StiText).Text = receipDate;
 				(reportReceip.GetComponentByName("transferNameTextBox") as Stimulsoft.Report.Components.StiText).Text = Inventory.Program.UserAuthentication.Full_Name;
-				(reportReceip.GetComponentByName("senderNameTextBox") as Stimulsoft.Report.Components.StiText).Text = auditItem.Sender_Name;
-				(reportReceip.GetComponentByName("carrierNameTextBox") as Stimulsoft.Report.Components.StiText).Text = auditItem.Carrier_Name;
+				(reportReceip.GetComponentByName("senderNameTextBox") as Stimulsoft.Report.Components.StiText).Text = senderNameTextBox.Text;
+				(reportReceip.GetComponentByName("carrierNameTextBox") as Stimulsoft.Report.Components.StiText).Text = carrierNameTextBox.Text;
 				(reportReceip.GetComponentByName("totalSumPriceTextBox") as Stimulsoft.Report.Components.StiText).Text = totalSumPriceTextBox.Text;
 				(reportReceip.GetComponentByName("amountPaymentTextBox") as Stimulsoft.Report.Components.StiText).Text = amountPaidTextBox.Text;
 				(reportReceip.GetComponentByName("remainingAmountTextBox") as Stimulsoft.Report.Components.StiText).Text = remainingAmountTextBox.Text;
@@ -181,7 +181,7 @@ namespace Inventory_Forms
 		#region PaymentButton_Click
 		private void PaymentButton_Click(object sender, System.EventArgs e)
 		{
-			if (Harvest(auditItem) && SetAccountPayable(auditItem) && GetPurchaseProduct(auditItem))
+			if (Harvest(auditItem) && SetAccountPayable(auditItem) && SetPurchaseProduct(auditItem) && SetJournal(auditItem))
 			{
 				SetDailyFinancialReport(auditItem);
 				MyProductBuyForm.RemoveBill();
@@ -202,7 +202,15 @@ namespace Inventory_Forms
 		private void TotalSumPriceTextBox_TextChanged(object sender, System.EventArgs e)
 		{
 			remainingAmountTextBox.Text = totalSumPriceTextBox.Text;
-			auditItem.Total_Sum_Price = int.Parse(totalSumPriceTextBox.Text.Replace("تومان", string.Empty).Replace(",", string.Empty).Trim());
+			if (totalSumPriceTextBox.Text.Length <= 9)
+			{
+				auditItem.Total_Sum_Price = int.Parse(totalSumPriceTextBox.Text.Replace("تومان", string.Empty).Trim());
+			}
+			else
+			{
+				auditItem.Total_Sum_Price = int.Parse(totalSumPriceTextBox.Text.Replace("تومان", string.Empty).Replace(",", string.Empty).Trim());
+			}
+
 		}
 		#endregion /TotalSumPriceTextBox_TextChanged
 
@@ -340,79 +348,7 @@ namespace Inventory_Forms
 				return;
 			}
 		}
-		#endregion /CalculatePurchaseAmount
-
-		#region GetPurchaseProduct
-		/// <summary>
-		/// ثبت خرید کالا
-		/// </summary>
-		/// <param name="auditItem"></param>
-		/// <returns>true or false</returns>
-		private bool GetPurchaseProduct(AuditItem auditItem)
-		{
-			Models.DataBaseContext dataBaseContext = null;
-
-			try
-			{
-				dataBaseContext =
-					new Models.DataBaseContext();
-
-				//---- ثبت در جدول فاکتور خرید کالا
-				#region PurchaseInvoice
-
-				Models.PurchaseInvoice purchaseInvoice =
-					new Models.PurchaseInvoice
-					{
-						Carrier_Name = auditItem.Carrier_Name,
-						Invoice_Serial_Numvber = auditItem.InvoiceSerialNumber,
-						Recipient_Name = auditItem.Recipient_Name,
-						Purchase_Date = auditItem.Register_Date,
-						Purchase_Time = auditItem.Register_Time,
-						Sender_Name = auditItem.Sender_Name,
-						Total_Sum_Price = $"{auditItem.Total_Sum_Price:#,0} تومان",
-					};
-				dataBaseContext.PurchaseInvoices.Add(purchaseInvoice);
-				dataBaseContext.SaveChanges();
-
-				#endregion /PurchaseInvoice
-
-				//---- ثبت در جدول خرید کالا
-				#region ListPurchaseProduct
-
-				Models.ListPurchaseProduct listPurchaseProduct =
-					new Models.ListPurchaseProduct();
-
-				foreach (System.Windows.Forms.DataGridViewRow row in productListDataGridView.Rows)
-				{
-					listPurchaseProduct.Invoice_Serial_Numvber = auditItem.InvoiceSerialNumber;
-					listPurchaseProduct.Product_Name = row.Cells[0].Value.ToString();
-					listPurchaseProduct.Product_Price = row.Cells[1].Value.ToString();
-					listPurchaseProduct.Product_Quantity = int.Parse(row.Cells[2].Value.ToString());
-					listPurchaseProduct.Product_Unit = row.Cells[3].Value.ToString();
-				}
-
-				dataBaseContext.ListPurchaseProducts.Add(listPurchaseProduct);
-				dataBaseContext.SaveChanges();
-
-				#endregion /ListPurchaseProduct
-
-				return true;
-			}
-			catch (System.Exception ex)
-			{
-				Infrastructure.Utility.ExceptionShow(ex);
-				return false;
-			}
-			finally
-			{
-				if (dataBaseContext != null)
-				{
-					dataBaseContext.Dispose();
-					dataBaseContext = null;
-				}
-			}
-		}
-		#endregion /GetPurchaseProduct
+		#endregion /CalculatePurchaseAmount	
 
 		#region Harvest
 		/// <summary>
@@ -458,9 +394,18 @@ namespace Inventory_Forms
 					EventLog.Full_Name = Inventory.Program.UserAuthentication.Full_Name;
 					EventLog.Event_Date = $"{Infrastructure.Utility.PersianCalendar(System.DateTime.Now)}";
 					EventLog.Event_Time = $"{Infrastructure.Utility.ShowTime()}";
-					EventLog.Description =
+					if (auditItem.Remaining_Amount < 1000)
+					{
+						EventLog.Description =
+						$"پرداخت هزینه به مبلغ {auditItem.Amount_Paid: #,0}" +
+						$" تومان و باقیمانده {auditItem.Remaining_Amount} تومان";
+					}
+					else
+					{
+						EventLog.Description =
 						$"پرداخت هزینه به مبلغ {auditItem.Amount_Paid: #,0}" +
 						$" تومان و باقیمانده {auditItem.Remaining_Amount:#,0} تومان";
+					}
 					Infrastructure.Utility.EventLog(EventLog);
 				}
 				#endregion /-----------------------------------------     Save Event Log     -----------------------------------------
@@ -490,23 +435,70 @@ namespace Inventory_Forms
 		private void Initialize()
 		{
 			auditItem.Total_Sum_Price = 0;
-			showGunaAnimateWindow.Interval = 200;
-			showGunaAnimateWindow.AnimationType = Guna.UI.WinForms.GunaAnimateWindow.AnimateWindowType.AW_CENTER;
-			showGunaAnimateWindow.Start();
 			dateOfPrintTextBox.Text = $"{Infrastructure.Utility.PersianCalendar(System.DateTime.Now)} - {Infrastructure.Utility.ShowTime()}";
-			auditItem.Register_Date = $"{Infrastructure.Utility.PersianCalendar(System.DateTime.Now)} - {Infrastructure.Utility.ShowTime()}";
-
+			auditItem.Register_Date = $"{Infrastructure.Utility.PersianCalendar(System.DateTime.Now)}";
+			auditItem.Register_Time = $"{Infrastructure.Utility.ShowTime()}";
 			auditItem.Capital_Fund = LoadingCapitalFund();
-
-			senderNameTextBox.Text = auditItem.Sender_Name;
+			
 			recipientNameTextBox.Text = Inventory.Program.UserAuthentication.Full_Name;
 			auditItem.Recipient_Name = Inventory.Program.UserAuthentication.Full_Name;
-			carrierNameTextBox.Text = auditItem.Carrier_Name;
+			invoiceSerialNumberTextBox.Text = auditItem.InvoiceSerialNumber = GetInvoiceSerialNumber();
 
-			invoiceSerialNumberTextBox.Text = SetInvoiceSerialNumber();
-			auditItem.InvoiceSerialNumber = SetInvoiceSerialNumber();
+			auditItem.Carrier_Name = carrierNameTextBox.Text;
+			auditItem.Sender_Name = senderNameTextBox.Text;
 		}
 		#endregion /Initialize
+
+		#region GetInvoiceSerialNumber
+		/// <summary>
+		/// ساخت شماره فاکتور
+		/// </summary>
+		/// <returns></returns>
+		private string GetInvoiceSerialNumber()
+		{
+			string getSerial = null,
+				serialNumber = null;
+			Models.DataBaseContext dataBaseContext = null;
+			try
+			{
+				do
+				{
+					serialNumber = Infrastructure.Utility.GeneratInvoiceSerialNumber(int.Parse("2"));
+					dataBaseContext =
+					new Models.DataBaseContext();
+
+					Models.ServiceInvoice invoiceSerialNumber =
+						dataBaseContext.ServiceInvoices
+						.Where(current => string.Compare(current.Invoice_Serial_Numvber, serialNumber) == 0)
+						.FirstOrDefault();
+					if (invoiceSerialNumber == null)
+					{
+						getSerial = serialNumber;
+					}
+					else
+					{
+						serialNumber = null;
+					}
+				} while (string.IsNullOrEmpty(serialNumber));
+
+				return getSerial;
+			}
+			catch (System.Exception ex)
+			{
+				Infrastructure.Utility.ExceptionShow(ex);
+				return null;
+			}
+			finally
+			{
+				if (dataBaseContext != null)
+				{
+					dataBaseContext.Dispose();
+
+					dataBaseContext = null;
+				}
+			}
+		}
+		#endregion /GetInvoiceSerialNumber
 
 		#region LoadingCapitalFund
 		/// <summary>
@@ -525,12 +517,12 @@ namespace Inventory_Forms
 				Models.CapitalFund capitalFund =
 					dataBaseContext.CapitalFunds
 					.FirstOrDefault();
-				
+
 				capital_Fund = long.Parse(capitalFund.Capital_Fund.Replace("تومان", string.Empty).Replace(",", string.Empty).Trim());
 				MainForm.fundsNotificationTextBox.Text = $"{capital_Fund:#,0} تومان";
 
 				return capital_Fund;
-				
+
 			}
 			catch (System.Exception ex)
 			{
@@ -551,7 +543,7 @@ namespace Inventory_Forms
 
 		#region SetAccountPayable
 		/// <summary>
-		/// ثبت در دفتر معین برداشت از صندوق
+		/// ثبت در دفتر معین
 		/// </summary>
 		/// <param name="auditItem"></param>
 		/// <returns></returns>
@@ -568,7 +560,7 @@ namespace Inventory_Forms
 					{
 						Amount_Paid = $"{auditItem.Amount_Paid:#,0} تومان",
 						Amount_Payable = $"{auditItem.Total_Sum_Price:#,0} تومان",
-						Description = string.Empty,
+						Description = $"خرید کالا یا لوازم.",
 						Remaininig_Amount = $"{auditItem.Remaining_Amount:#,0} تومان",
 						Registration_Date = $"{Infrastructure.Utility.PersianCalendar(System.DateTime.Now)}",
 						Registration_Time = $"{Infrastructure.Utility.ShowTime()}",
@@ -657,56 +649,122 @@ namespace Inventory_Forms
 		}
 		#endregion SetDailyFinancialReport
 
-		#region SetInvoiceSerialNumber
+		#region SetPurchaseProduct
 		/// <summary>
-		/// ساخت شماره فاکتور
+		/// ثبت خرید کالا
 		/// </summary>
-		/// <returns></returns>
-		private string SetInvoiceSerialNumber()
+		/// <param name="auditItem"></param>
+		/// <returns>true or false</returns>
+		private bool SetPurchaseProduct(AuditItem auditItem)
 		{
-			string getSerial = null,
-				serialNumber = null;
 			Models.DataBaseContext dataBaseContext = null;
+
 			try
 			{
-				do
-				{
-					serialNumber = Infrastructure.Utility.GeneratInvoiceSerialNumber(int.Parse("2"));
-					dataBaseContext =
+				dataBaseContext =
 					new Models.DataBaseContext();
 
-					Models.ServiceInvoice invoiceSerialNumber =
-						dataBaseContext.ServiceInvoices
-						.Where(current => string.Compare(current.Invoice_Serial_Numvber, serialNumber) == 0)
-						.FirstOrDefault();
-					if (invoiceSerialNumber == null)
+				//---- ثبت در جدول فاکتور خرید کالا
+				#region PurchaseInvoice
+				Models.PurchaseInvoice purchaseInvoice =
+					new Models.PurchaseInvoice
 					{
-						getSerial = serialNumber;
-					}
-					else
-					{
-						serialNumber = null;
-					}
-				} while (string.IsNullOrEmpty(serialNumber));
+						Carrier_Name = auditItem.Carrier_Name,
+						Invoice_Serial_Numvber = auditItem.InvoiceSerialNumber,
+						Recipient_Name = auditItem.Recipient_Name,
+						Purchase_Date = auditItem.Register_Date,
+						Purchase_Time = auditItem.Register_Time,
+						Sender_Name = auditItem.Sender_Name,
+						Total_Sum_Price = $"{auditItem.Total_Sum_Price:#,0} تومان",
+					};
+				dataBaseContext.PurchaseInvoices.Add(purchaseInvoice);
+				dataBaseContext.SaveChanges();
+				#endregion /SetPurchaseProduct
 
-				return getSerial;
+				//---- ثبت در جدول خرید کالا
+				#region ListPurchaseProduct
+
+
+
+				foreach (System.Windows.Forms.DataGridViewRow row in productListDataGridView.Rows)
+				{
+					Models.ListPurchaseProduct listPurchaseProduct =
+					new Models.ListPurchaseProduct()
+					{
+						Invoice_Serial_Numvber = auditItem.InvoiceSerialNumber,
+						Product_Name = row.Cells[0].Value.ToString(),
+						Product_Price = row.Cells[1].Value.ToString(),
+						Product_Quantity = int.Parse(row.Cells[2].Value.ToString()),
+						Product_Unit = row.Cells[3].Value.ToString(),
+					};
+					dataBaseContext.ListPurchaseProducts.Add(listPurchaseProduct);
+					dataBaseContext.SaveChanges();
+				}
+				#endregion /ListPurchaseProduct
+
+				return true;
 			}
 			catch (System.Exception ex)
 			{
 				Infrastructure.Utility.ExceptionShow(ex);
-				return null;
+				return false;
 			}
 			finally
 			{
 				if (dataBaseContext != null)
 				{
 					dataBaseContext.Dispose();
-
 					dataBaseContext = null;
 				}
 			}
 		}
-		#endregion /SetInvoiceSerialNumber
+		#endregion /GetPurchaseProduct
+
+		#region SetJournal
+		/// <summary>
+		/// ثبت اطلاعات در دفتر روزنامه
+		/// </summary>
+		/// <param name="_auditItem"></param>
+		/// <returns>true or false</returns>
+		private bool SetJournal(AuditItem _auditItem)
+		{
+			Models.DataBaseContext dataBaseContext = null;
+			try
+			{
+				dataBaseContext =
+					new Models.DataBaseContext();
+				Models.Journal journal =
+					 new Models.Journal
+					 {
+						 Amount_Paid = $"{auditItem.Amount_Paid:#,0} تومان",
+						 Description = $"خرید کالا یا لوازم.",
+						 Invoice_Serial_Numvber = auditItem.InvoiceSerialNumber,
+						 Registration_Date = $"{Infrastructure.Utility.PersianCalendar(System.DateTime.Now)}",
+						 Registration_Time = $"{Infrastructure.Utility.ShowTime()}",
+					 };
+
+				dataBaseContext.Journals.Add(journal);
+				dataBaseContext.SaveChanges();
+
+
+				return true;
+			}
+			catch (System.Exception ex)
+			{
+				Infrastructure.Utility.ExceptionShow(ex);
+				return false;
+			}
+			finally
+			{
+				if (dataBaseContext != null)
+				{
+					dataBaseContext.Dispose();
+					dataBaseContext = null;
+				}
+			}
+		}
+		#endregion /SetJournal
+
 
 		#endregion /Function
 	}

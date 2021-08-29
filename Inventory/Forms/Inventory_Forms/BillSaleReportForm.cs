@@ -1089,10 +1089,9 @@ namespace Inventory_Forms
 				dataBaseContext =
 					new Models.DataBaseContext();
 
-				Models.GeneralJournal dailyOffice =
-				new Models.GeneralJournal
+				Models.Journal dailyOffice =
+				new Models.Journal
 				{
-					Agent = auditItem.Client_Name,
 					Amount_Received = $"{auditItem.Amount_Paid: #,0} تومان",
 					Amount_Paid = "0 تومان",
 					Description = $"فروش لوازم یدکی",

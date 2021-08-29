@@ -51,8 +51,8 @@ namespace Financial_Form
 
 
 
-		public long? Amount { get; set; }
-		public long? OldCash { get; set; }
+		public decimal? Amount { get; set; }
+		public decimal? OldCash { get; set; }
 		#endregion /Properties
 
 
@@ -186,7 +186,6 @@ namespace Financial_Form
 			Amount = null;
 			CapitalFund = null;
 			EventLog = null;
-			OldCash = null;
 			entryFuneTextBox.Clear();
 		}
 		#endregion /AllClear
@@ -260,10 +259,10 @@ namespace Financial_Form
 		/// <param name="_capitalFund"></param>
 		/// <param name="_oldCahsh"></param>
 		/// <returns></returns>
-		private bool SetInCapitalFund(Models.CapitalFund _capitalFund, long? _oldCahsh)
+		private bool SetInCapitalFund(Models.CapitalFund _capitalFund, decimal? _oldCahsh)
 		{
-			long? _newCahsh;
-			long _amount = long.Parse(_capitalFund.Capital_Fund
+			decimal? _newCahsh;
+			decimal _amount = long.Parse(_capitalFund.Capital_Fund
 				.Replace("تومان", string.Empty)
 				.Replace(",", string.Empty)
 				.Trim());
@@ -279,10 +278,19 @@ namespace Financial_Form
 				Models.CapitalFund capitalFund =
 					dataBaseContext.CapitalFunds
 					.FirstOrDefault();
-
-				capitalFund.Capital_Fund = $"{_newCahsh:#,0} تومان";
+				if (capitalFund == null)
+				{
+					_newCahsh = 0;
+					capitalFund.Capital_Fund = $"{_newCahsh} تومان";
+				}
+				else
+				{
+					capitalFund.Capital_Fund = $"{_newCahsh:#,0} تومان";
+				}
+				
 				dataBaseContext.SaveChanges();
 
+				OldCash = _newCahsh;
 				funeLabel.Text =  $"{_newCahsh:#,0} تومان";
 				Inventory.Program.MainForm.fundsNotificationTextBox.Text = $"{_newCahsh:#,0} تومان";
 

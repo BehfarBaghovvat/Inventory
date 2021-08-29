@@ -138,6 +138,7 @@ namespace Inventory
 				{
 					_financialOrderForm = 
 						new Financial_Form.FinancialOrderForm();
+
 					_financialOrderForm.TopLevel = false;
 					_financialOrderForm.TopMost = true;
 					_financialOrderForm.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -662,7 +663,7 @@ namespace Inventory
 			else
 			{
 				mainPanel.Controls.Clear();
-				mainPanel.Controls.Add(FinancialOrderForm);
+				mainPanel.Controls.Add(_financialOrderForm);
 				FinancialOrderForm.Show();
 
 				ProductBuyForm.Dispose();

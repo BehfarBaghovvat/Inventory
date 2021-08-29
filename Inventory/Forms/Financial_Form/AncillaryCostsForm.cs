@@ -67,7 +67,7 @@ namespace Financial_Form
 		#endregion /Layers
 
 		public int? AmountPayment { get; set; }
-		public long Capital_Fund { get; set; }
+		public decimal? Capital_Fund { get; set; }
 		#endregion /Properties
 
 
@@ -270,7 +270,7 @@ namespace Financial_Form
 		/// </summary>
 		/// <param name="_amountPayment"></param>
 		/// <param name="_capitalFund"></param>
-		private void PaymentCost(int? _amountPayment, long? _capitalFund)
+		private void PaymentCost(int? _amountPayment, decimal? _capitalFund)
 		{
 			_capitalFund -= _amountPayment;
 			Models.DataBaseContext dataBaseContext = null;
@@ -311,9 +311,9 @@ namespace Financial_Form
 		/// به روز رسانی صندوق
 		/// </summary>
 		/// <returns></returns>
-		private long LoadingCapitalFund()
+		private decimal LoadingCapitalFund()
 		{
-			long capital_Fund;
+			decimal capital_Fund;
 			Models.DataBaseContext dataBaseContext = null;
 			try
 			{
@@ -324,9 +324,16 @@ namespace Financial_Form
 					dataBaseContext.CapitalFunds
 					.FirstOrDefault();
 
-				capital_Fund = long.Parse(capitalFund.Capital_Fund.Replace("تومان", string.Empty).Replace(",", string.Empty).Trim());
-				MainForm.fundsNotificationTextBox.Text = $"{capital_Fund:#,0} تومان";
-
+				if (capitalFund == null)
+				{
+					capital_Fund = 0;
+					MainForm.fundsNotificationTextBox.Text = $"{capital_Fund} تومان";
+				}
+				else
+				{
+					capital_Fund = decimal.Parse(capitalFund.Capital_Fund.Replace("تومان", string.Empty).Replace(",", string.Empty).Trim());
+					MainForm.fundsNotificationTextBox.Text = $"{capital_Fund:#,0} تومان";
+				}
 				return capital_Fund;
 
 			}

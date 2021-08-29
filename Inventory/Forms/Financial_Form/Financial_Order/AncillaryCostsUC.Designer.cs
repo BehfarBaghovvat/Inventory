@@ -1,5 +1,5 @@
 ﻿
-namespace Inventory.Forms.Financial_Form.Financial_Order
+namespace Financial_Order
 {
 	partial class AncillaryCostsUC
 	{
@@ -35,13 +35,13 @@ namespace Inventory.Forms.Financial_Form.Financial_Order
 			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
 			this.mainPanel = new Guna.UI2.WinForms.Guna2GradientPanel();
 			this.ancillaryCostsDataGridView = new Guna.UI2.WinForms.Guna2DataGridView();
-			this.ancillaryCostsBindingSource = new System.Windows.Forms.BindingSource(this.components);
 			this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.costNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.namePayerDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.amountPaymentDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.registrationDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.registrationTimeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.ancillaryCostsBindingSource = new System.Windows.Forms.BindingSource(this.components);
 			this.mainPanel.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.ancillaryCostsDataGridView)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.ancillaryCostsBindingSource)).BeginInit();
@@ -74,7 +74,7 @@ namespace Inventory.Forms.Financial_Form.Financial_Order
 			this.ancillaryCostsDataGridView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
 			dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
 			dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(155)))), ((int)(((byte)(89)))), ((int)(((byte)(182)))));
-			dataGridViewCellStyle2.Font = new System.Drawing.Font("IRANSansXFaNum", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+			dataGridViewCellStyle2.Font = new System.Drawing.Font("IRANSansXFaNum", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
 			dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
 			dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
 			dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
@@ -83,12 +83,12 @@ namespace Inventory.Forms.Financial_Form.Financial_Order
 			this.ancillaryCostsDataGridView.ColumnHeadersHeight = 30;
 			this.ancillaryCostsDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
 			this.ancillaryCostsDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.idDataGridViewTextBoxColumn,
-            this.costNameDataGridViewTextBoxColumn,
-            this.namePayerDataGridViewTextBoxColumn,
-            this.amountPaymentDataGridViewTextBoxColumn,
-            this.registrationDateDataGridViewTextBoxColumn,
-            this.registrationTimeDataGridViewTextBoxColumn});
+			this.idDataGridViewTextBoxColumn,
+			this.costNameDataGridViewTextBoxColumn,
+			this.namePayerDataGridViewTextBoxColumn,
+			this.amountPaymentDataGridViewTextBoxColumn,
+			this.registrationDateDataGridViewTextBoxColumn,
+			this.registrationTimeDataGridViewTextBoxColumn});
 			this.ancillaryCostsDataGridView.DataSource = this.ancillaryCostsBindingSource;
 			dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
 			dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(221)))), ((int)(((byte)(240)))));
@@ -100,13 +100,13 @@ namespace Inventory.Forms.Financial_Form.Financial_Order
 			this.ancillaryCostsDataGridView.DefaultCellStyle = dataGridViewCellStyle3;
 			this.ancillaryCostsDataGridView.EnableHeadersVisualStyles = false;
 			this.ancillaryCostsDataGridView.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(201)))), ((int)(((byte)(231)))));
-			this.ancillaryCostsDataGridView.Location = new System.Drawing.Point(15, 15);
+			this.ancillaryCostsDataGridView.Location = new System.Drawing.Point(12, 15);
 			this.ancillaryCostsDataGridView.Name = "ancillaryCostsDataGridView";
 			this.ancillaryCostsDataGridView.ReadOnly = true;
 			this.ancillaryCostsDataGridView.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
 			this.ancillaryCostsDataGridView.RowHeadersVisible = false;
 			this.ancillaryCostsDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-			this.ancillaryCostsDataGridView.Size = new System.Drawing.Size(1095, 430);
+			this.ancillaryCostsDataGridView.Size = new System.Drawing.Size(1100, 430);
 			this.ancillaryCostsDataGridView.TabIndex = 0;
 			this.ancillaryCostsDataGridView.Theme = Guna.UI2.WinForms.Enums.DataGridViewPresetThemes.Amethyst;
 			this.ancillaryCostsDataGridView.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(225)))), ((int)(((byte)(205)))), ((int)(((byte)(233)))));
@@ -130,10 +130,6 @@ namespace Inventory.Forms.Financial_Form.Financial_Order
 			this.ancillaryCostsDataGridView.ThemeStyle.RowsStyle.Height = 22;
 			this.ancillaryCostsDataGridView.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(188)))), ((int)(((byte)(144)))), ((int)(((byte)(206)))));
 			this.ancillaryCostsDataGridView.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.Black;
-			// 
-			// ancillaryCostsBindingSource
-			// 
-			this.ancillaryCostsBindingSource.DataSource = typeof(Models.AncillaryCosts);
 			// 
 			// idDataGridViewTextBoxColumn
 			// 
@@ -176,6 +172,10 @@ namespace Inventory.Forms.Financial_Form.Financial_Order
 			this.registrationTimeDataGridViewTextBoxColumn.HeaderText = "زمان ثبت";
 			this.registrationTimeDataGridViewTextBoxColumn.Name = "registrationTimeDataGridViewTextBoxColumn";
 			this.registrationTimeDataGridViewTextBoxColumn.ReadOnly = true;
+			// 
+			// ancillaryCostsBindingSource
+			// 
+			this.ancillaryCostsBindingSource.DataSource = typeof(Models.AncillaryCosts);
 			// 
 			// AncillaryCostsUC
 			// 

@@ -11,18 +11,6 @@
 		}
 
 		/// <summary>
-		/// عامل
-		/// </summary>
-		#region Agent
-		//-----DisplayName field for Description
-		[System.ComponentModel.DisplayName(displayName: "عامل")]
-		//--Lenght Description
-		[System.ComponentModel.DataAnnotations.StringLength
-			(maximumLength: 30)]
-		public string Agent { get; set; }
-		#endregion /Agent
-
-		/// <summary>
 		/// مبلغ پرداختی
 		/// </summary>
 		#region Amount_Paid

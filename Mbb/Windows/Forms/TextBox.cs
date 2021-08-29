@@ -52,8 +52,6 @@ namespace Mbb.Windows.Forms
 
 		private int _borderRadius = 0;
 
-
-
 		private System.Windows.Forms.HorizontalAlignment _textAling = HorizontalAlignment.Left;
 
 		private System.Drawing.Image _iconLeft;

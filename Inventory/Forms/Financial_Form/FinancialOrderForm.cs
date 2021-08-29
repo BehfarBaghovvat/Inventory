@@ -8,6 +8,8 @@ namespace Financial_Form
 	{
 		//------------------------------------------------------------------------------------ Fields And Properties
 
+		#region Properties
+
 		#region Layer
 		/// <summary>
 		/// کلاس گردش مالی
@@ -24,11 +26,21 @@ namespace Financial_Form
 
 		private FinancialCirculation financialCirculation = new FinancialCirculation();
 
+		private Financial_Order.AncillaryCostsUC _ancillaryCosts = new Financial_Order.AncillaryCostsUC();
+		private Financial_Order.CapitalTurnoverChartUC _capitalTurnoverChartUC = new Financial_Order.CapitalTurnoverChartUC();
+		private Financial_Order.DispositUC _dispositUC = new Financial_Order.DispositUC();
+		private Financial_Order.PaymentUC _paymentUC = new Financial_Order.PaymentUC();
+
+		#endregion /Properties
+
+
+
 		//------------------------------------------------------------------------------------ Constracture
 
 		public FinancialOrderForm()
 		{
 			InitializeComponent();
+			Initialize();
 		}
 
 
@@ -38,28 +50,32 @@ namespace Financial_Form
 		#region CapitalTurnoverButton_Click
 		private void CapitalTurnoverButton_Click(object sender, System.EventArgs e)
 		{
-
+			mainPanel.Controls.Clear();
+			bottomPanel.Controls.Add(_capitalTurnoverChartUC);
 		}
 		#endregion /CapitalTurnoverButton_Click
 
 		#region AncillaryCostsButton_Click
 		private void AncillaryCostsButton_Click(object sender, System.EventArgs e)
 		{
-
+			mainPanel.Controls.Clear();
+			bottomPanel.Controls.Add(_ancillaryCosts);
 		}
 		#endregion /AncillaryCostsButton_Click
 
 		#region CapitalInflowButton_Click
 		private void CapitalInflowButton_Click(object sender, System.EventArgs e)
 		{
-
+			mainPanel.Controls.Clear();
+			bottomPanel.Controls.Add(_dispositUC);
 		}
 		#endregion /CapitalInflowButton_Click
 
 		#region CapitalOutflowButton_Click
 		private void CapitalOutflowButton_Click(object sender, System.EventArgs e)
 		{
-
+			mainPanel.Controls.Clear();
+			bottomPanel.Controls.Add(_paymentUC);
 		}
 		#endregion /CapitalOutflowButton_Click
 
@@ -68,9 +84,18 @@ namespace Financial_Form
 		//------------------------------------------------------------------------------------ Private Methods
 
 		#region Initialize
+		/// <summary>
+		/// تنظیمات اولیه ورودی
+		/// </summary>
 		private void Initialize()
 		{
+			mainPanel.Controls.Clear();
+			bottomPanel.Controls.Add(_capitalTurnoverChartUC);
 
+			capitalFundLabel.Text = GetAmountInCirculation();
+			ancillaryCostsLabel.Text = GetAmountAncillaryCosts();
+			capitalInflowLabel.Text = GetTotalAmountRecived();
+			capitalOutflowLabel.Text = GetTotalAmountPaid();
 		}
 		#endregion /Initialize
 
@@ -185,6 +210,10 @@ namespace Financial_Form
 		#endregion /GetAmountInCirculation
 
 		#region GetTotalAmountPaid
+		/// <summary>
+		/// کل مبالغ دریافتی را بر میگرداند
+		/// </summary>
+		/// <returns></returns>
 		private string GetTotalAmountPaid()
 		{
 			string _sumTotalPaid = "0 تومان";
@@ -234,6 +263,10 @@ namespace Financial_Form
 		#endregion /GetTotalAmountPaid
 
 		#region GetTotalAmountRecived
+		/// <summary>
+		/// کل مبالغ پرداختی را بر میگرداند
+		/// </summary>
+		/// <returns></returns>
 		private string GetTotalAmountRecived()
 		{
 			string _sumTotalCirculation = "0 تومان";
@@ -281,8 +314,5 @@ namespace Financial_Form
 			}
 		}
 		#endregion /GetTotalAmountRecived
-
-
-
 	}
 }

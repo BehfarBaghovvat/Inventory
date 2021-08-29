@@ -1,5 +1,5 @@
 ﻿using System.Linq;
-namespace Inventory.Forms.Financial_Form.Financial_Order
+namespace Financial_Order
 {
 	public partial class AncillaryCostsUC : System.Windows.Forms.UserControl
 	{

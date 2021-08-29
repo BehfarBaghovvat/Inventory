@@ -1637,19 +1637,18 @@ namespace Inventory_Forms
 				dataBaseContext =
 					new Models.DataBaseContext();
 
-				Models.GeneralJournal dailyOffice =
-				new Models.GeneralJournal
+				Models.Journal journal =
+				new Models.Journal
 				{
-					Agent = auditItem.Client_Name,
 					Amount_Received = $"{auditItem.Amount_Paid: #,0} تومان",
 					Amount_Paid = "0 تومان",
-					Description = $"انجام خدمات خودرویی",
+					Description = $"سرویس خودرو",
 					Invoice_Serial_Numvber = auditItem.Invoice_Serial_Number,
 					Registration_Date = auditItem.Register_Date,
 					Registration_Time = auditItem.Register_Time,
 				};
 
-				dataBaseContext.Journals.Add(dailyOffice);
+				dataBaseContext.Journals.Add(journal);
 				dataBaseContext.SaveChanges();
 
 				return true;

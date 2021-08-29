@@ -150,6 +150,18 @@
     <Compile Include="Forms\Financial_Form\Financial_Order\CapitalTurnoverChartUC.Designer.cs">
       <DependentUpon>CapitalTurnoverChartUC.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Financial_Form\Financial_Order\DispositUC.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\Financial_Form\Financial_Order\DispositUC.Designer.cs">
+      <DependentUpon>DispositUC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Financial_Form\Financial_Order\PaymentUC.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\Financial_Form\Financial_Order\PaymentUC.Designer.cs">
+      <DependentUpon>PaymentUC.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Financial_Form\SafeBoxForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -297,6 +309,12 @@
     <EmbeddedResource Include="Forms\Financial_Form\Financial_Order\CapitalTurnoverChartUC.resx">
       <DependentUpon>CapitalTurnoverChartUC.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Financial_Form\Financial_Order\DispositUC.resx">
+      <DependentUpon>DispositUC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Financial_Form\Financial_Order\PaymentUC.resx">
+      <DependentUpon>PaymentUC.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Financial_Form\SafeBoxForm.resx">
       <DependentUpon>SafeBoxForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -374,10 +392,12 @@
       <DependentUpon>TestControlForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\Models.AccountsReceivable.datasource" />
     <None Include="Properties\DataSources\Models.AncillaryCosts.datasource" />
     <None Include="Properties\DataSources\Models.DailyFinancialReport.datasource" />
     <None Include="Properties\DataSources\Models.InventoryHolding.datasource" />
     <None Include="Properties\DataSources\Models.InventoryOutput.datasource" />
+    <None Include="Properties\DataSources\Models.Journal.datasource" />
     <None Include="Properties\DataSources\Models.ListService.datasource" />
     <None Include="Properties\DataSources\Models.MonthlyFinancialReport.datasource" />
     <None Include="Properties\DataSources\Models.ProductReceived.datasource" />
