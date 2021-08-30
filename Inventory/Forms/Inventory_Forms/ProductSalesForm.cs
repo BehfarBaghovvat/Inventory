@@ -104,13 +104,19 @@ namespace Inventory_Forms
 		public ProcutSalesForm()
 		{
 			InitializeComponent();
-
 			
 		}
 
 
 
 		//-----------------------------------------------------------------------------------------------     Events Controls
+
+		#region ProcutSalesForm_Load
+		private void ProcutSalesForm_Load(object sender, System.EventArgs e)
+		{
+			Initialize();
+		}
+		#endregion /ProcutSalesForm_Load
 
 		#region ProductQuantityTextBox_Enter
 		private void ProductQuantityTextBox_Enter(object sender, System.EventArgs e)
@@ -840,5 +846,7 @@ namespace Inventory_Forms
 		#endregion /WarehouseOutput
 
 		#endregion /Founction
+
+		
 	}
 }

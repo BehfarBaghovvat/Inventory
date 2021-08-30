@@ -72,6 +72,8 @@
 		#region Product_Unit
 		//--DisplayName field for Product_Unit
 		[System.ComponentModel.DisplayName(displayName: "واحد کالا")]
+		[System.ComponentModel.DataAnnotations.StringLength
+			(maximumLength: 15)]
 		public string Product_Unit { get; set; }
 		#endregion /Product_Unit
 	}

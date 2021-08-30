@@ -153,6 +153,7 @@ namespace Financial_Order
 			this.topPanel.Controls.Add(this.monthlyButton);
 			this.topPanel.Controls.Add(this.dailyButton);
 			this.topPanel.Dock = System.Windows.Forms.DockStyle.Top;
+			this.topPanel.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(0)))), ((int)(((byte)(61)))));
 			this.topPanel.Location = new System.Drawing.Point(0, 0);
 			this.topPanel.Name = "topPanel";
 			this.topPanel.ShadowDecoration.Parent = this.topPanel;
@@ -235,6 +236,7 @@ namespace Financial_Order
 			this.searchDailyPanel.Controls.Add(this.monthDailyOrderComboBox);
 			this.searchDailyPanel.Controls.Add(this.dayDailyOrderTextBox);
 			this.searchDailyPanel.Controls.Add(this.showDailyChartButton);
+			this.searchDailyPanel.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(0)))), ((int)(((byte)(61)))));
 			this.searchDailyPanel.Location = new System.Drawing.Point(0, 45);
 			this.searchDailyPanel.Name = "searchDailyPanel";
 			this.searchDailyPanel.ShadowDecoration.Parent = this.searchDailyPanel;
@@ -473,6 +475,7 @@ namespace Financial_Order
 			this.searchMonthlyPanel.Controls.Add(this.yearMonthlyOrderTextBox);
 			this.searchMonthlyPanel.Controls.Add(this.ShowMonthlyChartButton);
 			this.searchMonthlyPanel.Controls.Add(this.monthMonthlyOrderComboBox);
+			this.searchMonthlyPanel.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(0)))), ((int)(((byte)(61)))));
 			this.searchMonthlyPanel.Location = new System.Drawing.Point(0, 45);
 			this.searchMonthlyPanel.Name = "searchMonthlyPanel";
 			this.searchMonthlyPanel.ShadowDecoration.Parent = this.searchMonthlyPanel;
@@ -632,6 +635,7 @@ namespace Financial_Order
 			// 
 			this.searchYearlyPanel.Controls.Add(this.yearlyYearOrderTextBox);
 			this.searchYearlyPanel.Controls.Add(this.showYearlyChartButton);
+			this.searchYearlyPanel.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(0)))), ((int)(((byte)(61)))));
 			this.searchYearlyPanel.Location = new System.Drawing.Point(0, 45);
 			this.searchYearlyPanel.Name = "searchYearlyPanel";
 			this.searchYearlyPanel.ShadowDecoration.Parent = this.searchYearlyPanel;

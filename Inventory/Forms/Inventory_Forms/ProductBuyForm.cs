@@ -121,7 +121,6 @@ namespace Inventory_Forms
 		public ProductBuyForm()
 		{
 			InitializeComponent();
-			Initialize();
 		}
 
 
@@ -131,7 +130,7 @@ namespace Inventory_Forms
 		#region InventoryEntranceForm_Load
 		private void InventoryEntranceForm_Load(object sender, System.EventArgs e)
 		{
-
+			Initialize();
 		}
 		#endregion /InventoryEntranceForm_Load
 

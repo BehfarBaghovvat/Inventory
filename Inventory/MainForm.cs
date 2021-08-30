@@ -426,13 +426,13 @@ namespace Inventory
 				mainPanel.Controls.Add(ProductBuyForm);
 				ProductBuyForm.Show();
 
-				ProcutSalesForm.Dispose();
-				InventoryForm.Dispose();
-				ServiceForm.Dispose();
+				ProcutSalesForm.Hide();
+				InventoryForm.Hide();
+				ServiceForm.Hide();
 
-				AncillaryCostsForm.Dispose();
-				FinancialOrderForm.Dispose();
-				SafeBoxForm.Dispose();
+				AncillaryCostsForm.Hide();
+				FinancialOrderForm.Hide();
+				SafeBoxForm.Hide();
 
 				homeButton.Checked = false;
 				inventoryEntryButton.Checked = true;
@@ -460,13 +460,13 @@ namespace Inventory
 				mainPanel.Controls.Add(ProcutSalesForm);
 				ProcutSalesForm.Show();
 
-				ProductBuyForm.Dispose();
-				InventoryForm.Dispose();
-				ServiceForm.Dispose();
+				ProductBuyForm.Hide();
+				InventoryForm.Hide();
+				ServiceForm.Hide();
 
-				AncillaryCostsForm.Dispose();
-				FinancialOrderForm.Dispose();
-				SafeBoxForm.Dispose();
+				AncillaryCostsForm.Hide();
+				FinancialOrderForm.Hide();
+				SafeBoxForm.Hide();
 
 				homeButton.Checked = false;
 				inventoryEntryButton.Checked = false;
@@ -494,13 +494,13 @@ namespace Inventory
 				mainPanel.Controls.Add(InventoryForm);
 				InventoryForm.Show();
 
-				ProductBuyForm.Dispose();
-				ProcutSalesForm.Dispose();
-				ServiceForm.Dispose();
+				ProductBuyForm.Hide();
+				ProcutSalesForm.Hide();
+				ServiceForm.Hide();
 
-				AncillaryCostsForm.Dispose();
-				FinancialOrderForm.Dispose();
-				SafeBoxForm.Dispose();
+				AncillaryCostsForm.Hide();
+				FinancialOrderForm.Hide();
+				SafeBoxForm.Hide();
 
 				homeButton.Checked = false;
 				inventoryEntryButton.Checked = false;
@@ -528,13 +528,13 @@ namespace Inventory
 				mainPanel.Controls.Add(ServiceForm);
 				ServiceForm.Show();
 
-				ProductBuyForm.Dispose();
-				ProcutSalesForm.Dispose();
-				InventoryForm.Dispose();
+				ProductBuyForm.Hide();
+				ProcutSalesForm.Hide();
+				InventoryForm.Hide();
 
-				AncillaryCostsForm.Dispose();
-				FinancialOrderForm.Dispose();
-				SafeBoxForm.Dispose();
+				AncillaryCostsForm.Hide();
+				FinancialOrderForm.Hide();
+				SafeBoxForm.Hide();
 
 				homeButton.Checked = false;
 				inventoryEntryButton.Checked = false;
@@ -620,13 +620,13 @@ namespace Inventory
 				mainPanel.Controls.Add(SafeBoxForm);
 				SafeBoxForm.Show();
 
-				ProductBuyForm.Dispose();
-				ProcutSalesForm.Dispose();
-				InventoryForm.Dispose();
-				ServiceForm.Dispose();
+				ProductBuyForm.Hide();
+				ProcutSalesForm.Hide();
+				InventoryForm.Hide();
+				ServiceForm.Hide();
 
-				AncillaryCostsForm.Dispose();
-				FinancialOrderForm.Dispose();
+				AncillaryCostsForm.Hide();
+				FinancialOrderForm.Hide();
 
 				homeButton.Checked = false;
 
@@ -655,13 +655,13 @@ namespace Inventory
 				mainPanel.Controls.Add(AncillaryCostsForm);
 				AncillaryCostsForm.Show();
 
-				ProductBuyForm.Dispose();
-				ProcutSalesForm.Dispose();
-				InventoryForm.Dispose();
-				ServiceForm.Dispose();
+				ProductBuyForm.Hide();
+				ProcutSalesForm.Hide();
+				InventoryForm.Hide();
+				ServiceForm.Hide();
 				
-				FinancialOrderForm.Dispose();
-				SafeBoxForm.Dispose();
+				FinancialOrderForm.Hide();
+				SafeBoxForm.Hide();
 
 				homeButton.Checked = false;
 
@@ -690,13 +690,13 @@ namespace Inventory
 				mainPanel.Controls.Add(FinancialReportForm);
 				FinancialReportForm.Show();
 
-				ProductBuyForm.Dispose();
-				ProcutSalesForm.Dispose();
-				InventoryForm.Dispose();
-				ServiceForm.Dispose();
+				ProductBuyForm.Hide();
+				ProcutSalesForm.Hide();
+				InventoryForm.Hide();
+				ServiceForm.Hide();
 
-				AncillaryCostsForm.Dispose();
-				SafeBoxForm.Dispose();
+				AncillaryCostsForm.Hide();
+				SafeBoxForm.Hide();
 
 				homeButton.Checked = false;
 

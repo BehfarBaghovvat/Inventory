@@ -29,6 +29,7 @@
 		public System.Data.Entity.DbSet<ListFinancialClient> ListFinancialClients { get; set; }
 		public System.Data.Entity.DbSet<ListIncidentalExpensesName> ListIncidentalExpensesNames { get; set; }
 		public System.Data.Entity.DbSet<ListPurchaseProduct> ListPurchaseProducts { get; set; }
+		public System.Data.Entity.DbSet<ListSalesProduct> ListSalesProducts { get; set; }
 		public System.Data.Entity.DbSet<ListService> ListServices { get; set; }
 		public System.Data.Entity.DbSet<ListServiceName> ListServiceNames { get; set; }
 		public System.Data.Entity.DbSet<LoginHistory> LoginHistories { get; set; }

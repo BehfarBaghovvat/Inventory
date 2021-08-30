@@ -29,6 +29,7 @@ namespace Inventory_Forms
 			public string Seller_Name { get; set; }
 			public int? Tax_Amount { get; set; }
 			public int? Tax_Percent { get; set; }
+			public string Total_Sum_Price { get; set; }
 		}
 		private class BillItems
 		{
@@ -440,19 +441,12 @@ namespace Inventory_Forms
 			AccountsReceivable.Amount_Paid = amountPaidTextBox.Text;
 			AccountsReceivable.Remaininig_Amount = remainingAmountTextBox.Text;
 
-			if (Deposit(auditItem) && AccountRecivedBook(AccountsReceivable) && SetDailyOffice(auditItem))
+			if (Deposit(auditItem) && SetSalesProduct(auditItem) && SetAccountPayable(AccountsReceivable) && SetDailyOffice(auditItem))
 			{
-
 				SetDailyFinancialReport(auditItem);
 				Infrastructure.Utility.WindowsNotification
 					(message: "عملیات با موفقیت انجام گردید.",
 					caption: Infrastructure.PopupNotificationForm.Caption.موفقیت);
-
-				//--- درصورت نیاز به نمایش مبلغ صندوق از کد زیر استفاده گردد.
-				//if (true)
-				//{
-
-				//}
 				return;
 			}
 		}
@@ -773,7 +767,7 @@ namespace Inventory_Forms
 		/// ثبت در دفتر معین واریزی
 		/// </summary>
 		/// <param name="_accountsReceivable"></param>
-		private bool AccountRecivedBook(Models.AccountsReceivable _accountsReceivable)
+		private bool SetAccountPayable(Models.AccountsReceivable _accountsReceivable)
 		{
 			Models.DataBaseContext dataBaseContext = null;
 			try
@@ -1030,7 +1024,7 @@ namespace Inventory_Forms
 
 		#region SetDailyFinancialReport
 		/// <summary>
-		/// تابع ثبت گزارش مالی روزانه
+		/// ثبت گزارش مالی روزانه
 		/// </summary>
 		/// <param name="auditItem"></param>
 		private void SetDailyFinancialReport(AuditItem auditItem)
@@ -1044,6 +1038,7 @@ namespace Inventory_Forms
 				Models.DailyFinancialReport dailyFinancialReport =
 					new Models.DailyFinancialReport()
 					{
+						Amounts_Paid = $"0 تومان",
 						Amounts_Received = $"{auditItem.Amount_Paid:#,0} تومان",
 						Register_Date = $"{auditItem.Register_Date}",
 						Register_Time = $"{auditItem.Register_Time}",
@@ -1185,6 +1180,75 @@ namespace Inventory_Forms
 			}
 		}
 		#endregion /SetInvoiceSerialNumber
+
+		#region SetPurchaseProduct
+		/// <summary>
+		/// ثبت خرید کالا
+		/// </summary>
+		/// <param name="auditItem"></param>
+		/// <returns>true or false</returns>
+		private bool SetSalesProduct(AuditItem auditItem)
+		{
+			Models.DataBaseContext dataBaseContext = null;
+
+			try
+			{
+				dataBaseContext =
+					new Models.DataBaseContext();
+
+				//---- ثبت در جدول فاکتور فروش کالا
+				#region PurchaseInvoice
+				Models.SalesInvoice salesInvoice =
+					new Models.SalesInvoice
+					{
+						Carrier_Name = auditItem.Carrier_Name,
+						Client_Name = auditItem.Client_Name,
+						Invoice_Serial_Numvber = auditItem.InvoiceSerialNumber,
+						
+						Sales_Date = auditItem.Register_Date,
+						Sales_Time = auditItem.Register_Time,
+						Seller_Name = auditItem.Seller_Name,
+						Total_Sum_Price = $"{auditItem.Total_Sum_Price:#,0} تومان",
+					};
+				dataBaseContext.SalesInvoices.Add(salesInvoice);
+				dataBaseContext.SaveChanges();
+				#endregion /SetPurchaseProduct
+
+				//---- ثبت در جدول فروش کالا
+				#region ListPurchaseProduct
+				foreach (System.Windows.Forms.DataGridViewRow row in productsListDataGridView.Rows)
+				{
+					Models.ListSalesProduct listSalesProduct =
+					new Models.ListSalesProduct()
+					{
+						Invoice_Serial_Numvber = auditItem.InvoiceSerialNumber,
+						Product_Name = row.Cells[0].Value.ToString(),
+						Product_Price = row.Cells[1].Value.ToString(),
+						Product_Quantity = int.Parse(row.Cells[2].Value.ToString()),
+						Product_Unit = row.Cells[3].Value.ToString(),
+					};
+					dataBaseContext.ListSalesProducts.Add(listSalesProduct);
+					dataBaseContext.SaveChanges();
+				}
+				#endregion /ListPurchaseProduct
+
+				return true;
+			}
+			catch (System.Exception ex)
+			{
+				Infrastructure.Utility.ExceptionShow(ex);
+				return false;
+			}
+			finally
+			{
+				if (dataBaseContext != null)
+				{
+					dataBaseContext.Dispose();
+					dataBaseContext = null;
+				}
+			}
+		}
+		#endregion /GetPurchaseProduct
 
 		#region Inbox
 		/// <summary>

@@ -632,6 +632,7 @@ namespace Inventory_Forms
 					new Models.DailyFinancialReport()
 					{
 						Amounts_Paid = $"{auditItem.Amount_Paid:#,0} تومان",
+						Amounts_Received = $"0 تومان",
 						Register_Date = $"{auditItem.Register_Date}",
 						Register_Time = $"{auditItem.Register_Time}",
 
