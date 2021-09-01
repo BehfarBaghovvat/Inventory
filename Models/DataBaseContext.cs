@@ -20,6 +20,7 @@
 		public System.Data.Entity.DbSet<AccountsPayable> AccountsPayables { get; set; }
         public System.Data.Entity.DbSet<AncillaryCosts> AncillaryCosts { get; set; }
         public System.Data.Entity.DbSet<CapitalFund> CapitalFunds { get; set; }
+		public System.Data.Entity.DbSet<ChequeSection> ChequeSections { get; set; }
 		public System.Data.Entity.DbSet<Client> Clients { get; set; }
 		public System.Data.Entity.DbSet<DailyFinancialReport> DailyFinancialReports { get; set; }
 		public System.Data.Entity.DbSet<EventLog> EventLogs { get; set; }

@@ -53,7 +53,7 @@
   <ItemGroup>
     <Compile Include="AncillaryCosts.cs" />
     <Compile Include="CapitalFund.cs" />
-    <Compile Include="ChequaSection.cs" />
+    <Compile Include="ChequeSection.cs" />
     <Compile Include="Client.cs" />
     <Compile Include="DailyFinancialReport.cs" />
     <Compile Include="Journal.cs" />
