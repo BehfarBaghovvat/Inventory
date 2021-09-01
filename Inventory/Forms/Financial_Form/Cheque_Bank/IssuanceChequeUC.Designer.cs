@@ -1,5 +1,5 @@
 ﻿
-namespace ChequaBank
+namespace Chequa_Bank
 {
 	partial class IssuanceChequaUC
 	{
@@ -59,7 +59,7 @@ namespace ChequaBank
 			Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties27 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
 			Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties28 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
 			this.numberChequaLabel = new System.Windows.Forms.Label();
-			this.numberChequaTextBox = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox();
+			this.serialChequeTextBox = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox();
 			this.cancelButton = new Guna.UI2.WinForms.Guna2GradientButton();
 			this.saveButton = new Guna.UI2.WinForms.Guna2GradientButton();
 			this.dataReceiptLabel = new System.Windows.Forms.Label();
@@ -74,8 +74,8 @@ namespace ChequaBank
 			this.amountWordsTextBox = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox();
 			this.textLabel1 = new System.Windows.Forms.Label();
 			this.dataReceiptTextBox = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox();
-			this.bunifuTextBox1 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox();
-			this.label1 = new System.Windows.Forms.Label();
+			this.nameAccountHolderTextBox = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox();
+			this.nameAccountHolderLabel = new System.Windows.Forms.Label();
 			this.SuspendLayout();
 			// 
 			// numberChequaLabel
@@ -90,85 +90,85 @@ namespace ChequaBank
 			this.numberChequaLabel.TabIndex = 31;
 			this.numberChequaLabel.Text = "شناسه 16 رقمی صیاد";
 			// 
-			// numberChequaTextBox
+			// serialChequeTextBox
 			// 
-			this.numberChequaTextBox.AcceptsReturn = false;
-			this.numberChequaTextBox.AcceptsTab = false;
-			this.numberChequaTextBox.AnimationSpeed = 200;
-			this.numberChequaTextBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
-			this.numberChequaTextBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
-			this.numberChequaTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(0)))), ((int)(((byte)(61)))));
-			this.numberChequaTextBox.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("numberChequaTextBox.BackgroundImage")));
-			this.numberChequaTextBox.BorderColorActive = System.Drawing.Color.RoyalBlue;
-			this.numberChequaTextBox.BorderColorDisabled = System.Drawing.Color.Empty;
-			this.numberChequaTextBox.BorderColorHover = System.Drawing.Color.BlueViolet;
-			this.numberChequaTextBox.BorderColorIdle = System.Drawing.Color.SlateBlue;
-			this.numberChequaTextBox.BorderRadius = 1;
-			this.numberChequaTextBox.BorderThickness = 3;
-			this.numberChequaTextBox.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
-			this.numberChequaTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
-			this.numberChequaTextBox.DefaultFont = new System.Drawing.Font("IRANSansXFaNum", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-			this.numberChequaTextBox.DefaultText = "";
-			this.numberChequaTextBox.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(0)))), ((int)(((byte)(61)))));
-			this.numberChequaTextBox.ForeColor = System.Drawing.Color.White;
-			this.numberChequaTextBox.HideSelection = true;
-			this.numberChequaTextBox.IconLeft = null;
-			this.numberChequaTextBox.IconLeftCursor = System.Windows.Forms.Cursors.IBeam;
-			this.numberChequaTextBox.IconPadding = 10;
-			this.numberChequaTextBox.IconRight = null;
-			this.numberChequaTextBox.IconRightCursor = System.Windows.Forms.Cursors.IBeam;
-			this.numberChequaTextBox.Lines = new string[0];
-			this.numberChequaTextBox.Location = new System.Drawing.Point(29, 28);
-			this.numberChequaTextBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-			this.numberChequaTextBox.MaximumSize = new System.Drawing.Size(220, 35);
-			this.numberChequaTextBox.MaxLength = 32767;
-			this.numberChequaTextBox.MinimumSize = new System.Drawing.Size(220, 35);
-			this.numberChequaTextBox.Modified = false;
-			this.numberChequaTextBox.Multiline = false;
-			this.numberChequaTextBox.Name = "numberChequaTextBox";
+			this.serialChequeTextBox.AcceptsReturn = false;
+			this.serialChequeTextBox.AcceptsTab = false;
+			this.serialChequeTextBox.AnimationSpeed = 200;
+			this.serialChequeTextBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
+			this.serialChequeTextBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
+			this.serialChequeTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(0)))), ((int)(((byte)(61)))));
+			this.serialChequeTextBox.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("serialChequeTextBox.BackgroundImage")));
+			this.serialChequeTextBox.BorderColorActive = System.Drawing.Color.RoyalBlue;
+			this.serialChequeTextBox.BorderColorDisabled = System.Drawing.Color.Empty;
+			this.serialChequeTextBox.BorderColorHover = System.Drawing.Color.BlueViolet;
+			this.serialChequeTextBox.BorderColorIdle = System.Drawing.Color.SlateBlue;
+			this.serialChequeTextBox.BorderRadius = 1;
+			this.serialChequeTextBox.BorderThickness = 3;
+			this.serialChequeTextBox.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
+			this.serialChequeTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
+			this.serialChequeTextBox.DefaultFont = new System.Drawing.Font("IRANSansXFaNum", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+			this.serialChequeTextBox.DefaultText = "";
+			this.serialChequeTextBox.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(0)))), ((int)(((byte)(61)))));
+			this.serialChequeTextBox.ForeColor = System.Drawing.Color.White;
+			this.serialChequeTextBox.HideSelection = true;
+			this.serialChequeTextBox.IconLeft = null;
+			this.serialChequeTextBox.IconLeftCursor = System.Windows.Forms.Cursors.IBeam;
+			this.serialChequeTextBox.IconPadding = 10;
+			this.serialChequeTextBox.IconRight = null;
+			this.serialChequeTextBox.IconRightCursor = System.Windows.Forms.Cursors.IBeam;
+			this.serialChequeTextBox.Lines = new string[0];
+			this.serialChequeTextBox.Location = new System.Drawing.Point(29, 28);
+			this.serialChequeTextBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+			this.serialChequeTextBox.MaximumSize = new System.Drawing.Size(220, 35);
+			this.serialChequeTextBox.MaxLength = 32767;
+			this.serialChequeTextBox.MinimumSize = new System.Drawing.Size(220, 35);
+			this.serialChequeTextBox.Modified = false;
+			this.serialChequeTextBox.Multiline = false;
+			this.serialChequeTextBox.Name = "serialChequeTextBox";
 			stateProperties1.BorderColor = System.Drawing.Color.RoyalBlue;
 			stateProperties1.FillColor = System.Drawing.Color.Empty;
 			stateProperties1.ForeColor = System.Drawing.Color.Empty;
 			stateProperties1.PlaceholderForeColor = System.Drawing.Color.Empty;
-			this.numberChequaTextBox.OnActiveState = stateProperties1;
+			this.serialChequeTextBox.OnActiveState = stateProperties1;
 			stateProperties2.BorderColor = System.Drawing.Color.Empty;
 			stateProperties2.FillColor = System.Drawing.Color.White;
 			stateProperties2.ForeColor = System.Drawing.Color.Empty;
 			stateProperties2.PlaceholderForeColor = System.Drawing.Color.Silver;
-			this.numberChequaTextBox.OnDisabledState = stateProperties2;
+			this.serialChequeTextBox.OnDisabledState = stateProperties2;
 			stateProperties3.BorderColor = System.Drawing.Color.BlueViolet;
 			stateProperties3.FillColor = System.Drawing.Color.Empty;
 			stateProperties3.ForeColor = System.Drawing.Color.Empty;
 			stateProperties3.PlaceholderForeColor = System.Drawing.Color.Empty;
-			this.numberChequaTextBox.OnHoverState = stateProperties3;
+			this.serialChequeTextBox.OnHoverState = stateProperties3;
 			stateProperties4.BorderColor = System.Drawing.Color.SlateBlue;
 			stateProperties4.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(0)))), ((int)(((byte)(61)))));
 			stateProperties4.ForeColor = System.Drawing.Color.White;
 			stateProperties4.PlaceholderForeColor = System.Drawing.Color.Empty;
-			this.numberChequaTextBox.OnIdleState = stateProperties4;
-			this.numberChequaTextBox.PasswordChar = '\0';
-			this.numberChequaTextBox.PlaceholderForeColor = System.Drawing.Color.DimGray;
-			this.numberChequaTextBox.PlaceholderText = "1234567890123456";
-			this.numberChequaTextBox.ReadOnly = false;
-			this.numberChequaTextBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-			this.numberChequaTextBox.ScrollBars = System.Windows.Forms.ScrollBars.None;
-			this.numberChequaTextBox.SelectedText = "";
-			this.numberChequaTextBox.SelectionLength = 0;
-			this.numberChequaTextBox.SelectionStart = 0;
-			this.numberChequaTextBox.ShortcutsEnabled = true;
-			this.numberChequaTextBox.Size = new System.Drawing.Size(220, 35);
-			this.numberChequaTextBox.Style = Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox._Style.Material;
-			this.numberChequaTextBox.TabIndex = 30;
-			this.numberChequaTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-			this.numberChequaTextBox.TextMarginBottom = 0;
-			this.numberChequaTextBox.TextMarginLeft = 5;
-			this.numberChequaTextBox.TextMarginTop = 0;
-			this.numberChequaTextBox.TextPlaceholder = "1234567890123456";
-			this.numberChequaTextBox.UseSystemPasswordChar = false;
-			this.numberChequaTextBox.WordWrap = true;
-			this.numberChequaTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NumberChequaTextBox_KeyPress);
-			this.numberChequaTextBox.Enter += new System.EventHandler(this.NumberChequaTextBox_Enter);
-			this.numberChequaTextBox.Leave += new System.EventHandler(this.NumberChequaTextBox_Leave);
+			this.serialChequeTextBox.OnIdleState = stateProperties4;
+			this.serialChequeTextBox.PasswordChar = '\0';
+			this.serialChequeTextBox.PlaceholderForeColor = System.Drawing.Color.DimGray;
+			this.serialChequeTextBox.PlaceholderText = "1234567890123456";
+			this.serialChequeTextBox.ReadOnly = false;
+			this.serialChequeTextBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+			this.serialChequeTextBox.ScrollBars = System.Windows.Forms.ScrollBars.None;
+			this.serialChequeTextBox.SelectedText = "";
+			this.serialChequeTextBox.SelectionLength = 0;
+			this.serialChequeTextBox.SelectionStart = 0;
+			this.serialChequeTextBox.ShortcutsEnabled = true;
+			this.serialChequeTextBox.Size = new System.Drawing.Size(220, 35);
+			this.serialChequeTextBox.Style = Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox._Style.Material;
+			this.serialChequeTextBox.TabIndex = 30;
+			this.serialChequeTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+			this.serialChequeTextBox.TextMarginBottom = 0;
+			this.serialChequeTextBox.TextMarginLeft = 5;
+			this.serialChequeTextBox.TextMarginTop = 0;
+			this.serialChequeTextBox.TextPlaceholder = "1234567890123456";
+			this.serialChequeTextBox.UseSystemPasswordChar = false;
+			this.serialChequeTextBox.WordWrap = true;
+			this.serialChequeTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.SerialChequeTextBox_KeyPress);
+			this.serialChequeTextBox.Enter += new System.EventHandler(this.SerialChequeTextBox_Enter);
+			this.serialChequeTextBox.Leave += new System.EventHandler(this.SerialChequeTextBox_Leave);
 			// 
 			// cancelButton
 			// 
@@ -190,6 +190,7 @@ namespace ChequaBank
 			this.cancelButton.Size = new System.Drawing.Size(180, 40);
 			this.cancelButton.TabIndex = 29;
 			this.cancelButton.Text = "انصراف";
+			this.cancelButton.Click += new System.EventHandler(this.CancelButton_Click);
 			// 
 			// saveButton
 			// 
@@ -211,6 +212,7 @@ namespace ChequaBank
 			this.saveButton.Size = new System.Drawing.Size(180, 40);
 			this.saveButton.TabIndex = 28;
 			this.saveButton.Text = "ثبت چک";
+			this.saveButton.Click += new System.EventHandler(this.SaveButton_Click);
 			// 
 			// dataReceiptLabel
 			// 
@@ -300,7 +302,6 @@ namespace ChequaBank
 			this.amountNumberTextBox.TextPlaceholder = "20,000,000 تومان ";
 			this.amountNumberTextBox.UseSystemPasswordChar = false;
 			this.amountNumberTextBox.WordWrap = true;
-			this.amountNumberTextBox.TextChange += new System.EventHandler(this.AmountNumberTextBox_TextChange);
 			this.amountNumberTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.AmountNumberTextBox_KeyPress);
 			this.amountNumberTextBox.Enter += new System.EventHandler(this.AmountNumberTextBox_Enter);
 			this.amountNumberTextBox.Leave += new System.EventHandler(this.AmountNumberTextBox_Leave);
@@ -699,105 +700,105 @@ namespace ChequaBank
 			this.dataReceiptTextBox.Enter += new System.EventHandler(this.DataReceiptTextBox_Enter);
 			this.dataReceiptTextBox.Leave += new System.EventHandler(this.DataReceiptTextBox_Leave);
 			// 
-			// bunifuTextBox1
+			// nameAccountHolderTextBox
 			// 
-			this.bunifuTextBox1.AcceptsReturn = false;
-			this.bunifuTextBox1.AcceptsTab = false;
-			this.bunifuTextBox1.AnimationSpeed = 200;
-			this.bunifuTextBox1.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
-			this.bunifuTextBox1.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
-			this.bunifuTextBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(0)))), ((int)(((byte)(61)))));
-			this.bunifuTextBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bunifuTextBox1.BackgroundImage")));
-			this.bunifuTextBox1.BorderColorActive = System.Drawing.Color.RoyalBlue;
-			this.bunifuTextBox1.BorderColorDisabled = System.Drawing.Color.Empty;
-			this.bunifuTextBox1.BorderColorHover = System.Drawing.Color.BlueViolet;
-			this.bunifuTextBox1.BorderColorIdle = System.Drawing.Color.Maroon;
-			this.bunifuTextBox1.BorderRadius = 1;
-			this.bunifuTextBox1.BorderThickness = 3;
-			this.bunifuTextBox1.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
-			this.bunifuTextBox1.Cursor = System.Windows.Forms.Cursors.IBeam;
-			this.bunifuTextBox1.DefaultFont = new System.Drawing.Font("IRANSansXFaNum", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-			this.bunifuTextBox1.DefaultText = "مرتضی موسی خانی";
-			this.bunifuTextBox1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(0)))), ((int)(((byte)(61)))));
-			this.bunifuTextBox1.ForeColor = System.Drawing.Color.White;
-			this.bunifuTextBox1.HideSelection = true;
-			this.bunifuTextBox1.IconLeft = null;
-			this.bunifuTextBox1.IconLeftCursor = System.Windows.Forms.Cursors.IBeam;
-			this.bunifuTextBox1.IconPadding = 10;
-			this.bunifuTextBox1.IconRight = null;
-			this.bunifuTextBox1.IconRightCursor = System.Windows.Forms.Cursors.IBeam;
-			this.bunifuTextBox1.Lines = new string[] {
+			this.nameAccountHolderTextBox.AcceptsReturn = false;
+			this.nameAccountHolderTextBox.AcceptsTab = false;
+			this.nameAccountHolderTextBox.AnimationSpeed = 200;
+			this.nameAccountHolderTextBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
+			this.nameAccountHolderTextBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
+			this.nameAccountHolderTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(0)))), ((int)(((byte)(61)))));
+			this.nameAccountHolderTextBox.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("nameAccountHolderTextBox.BackgroundImage")));
+			this.nameAccountHolderTextBox.BorderColorActive = System.Drawing.Color.RoyalBlue;
+			this.nameAccountHolderTextBox.BorderColorDisabled = System.Drawing.Color.Empty;
+			this.nameAccountHolderTextBox.BorderColorHover = System.Drawing.Color.BlueViolet;
+			this.nameAccountHolderTextBox.BorderColorIdle = System.Drawing.Color.Maroon;
+			this.nameAccountHolderTextBox.BorderRadius = 1;
+			this.nameAccountHolderTextBox.BorderThickness = 3;
+			this.nameAccountHolderTextBox.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
+			this.nameAccountHolderTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
+			this.nameAccountHolderTextBox.DefaultFont = new System.Drawing.Font("IRANSansXFaNum", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+			this.nameAccountHolderTextBox.DefaultText = "مرتضی موسی خانی";
+			this.nameAccountHolderTextBox.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(0)))), ((int)(((byte)(61)))));
+			this.nameAccountHolderTextBox.ForeColor = System.Drawing.Color.White;
+			this.nameAccountHolderTextBox.HideSelection = true;
+			this.nameAccountHolderTextBox.IconLeft = null;
+			this.nameAccountHolderTextBox.IconLeftCursor = System.Windows.Forms.Cursors.IBeam;
+			this.nameAccountHolderTextBox.IconPadding = 10;
+			this.nameAccountHolderTextBox.IconRight = null;
+			this.nameAccountHolderTextBox.IconRightCursor = System.Windows.Forms.Cursors.IBeam;
+			this.nameAccountHolderTextBox.Lines = new string[] {
         "مرتضی موسی خانی"};
-			this.bunifuTextBox1.Location = new System.Drawing.Point(794, 361);
-			this.bunifuTextBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-			this.bunifuTextBox1.MaximumSize = new System.Drawing.Size(200, 35);
-			this.bunifuTextBox1.MaxLength = 32767;
-			this.bunifuTextBox1.MinimumSize = new System.Drawing.Size(200, 35);
-			this.bunifuTextBox1.Modified = false;
-			this.bunifuTextBox1.Multiline = false;
-			this.bunifuTextBox1.Name = "bunifuTextBox1";
+			this.nameAccountHolderTextBox.Location = new System.Drawing.Point(794, 361);
+			this.nameAccountHolderTextBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+			this.nameAccountHolderTextBox.MaximumSize = new System.Drawing.Size(200, 35);
+			this.nameAccountHolderTextBox.MaxLength = 32767;
+			this.nameAccountHolderTextBox.MinimumSize = new System.Drawing.Size(200, 35);
+			this.nameAccountHolderTextBox.Modified = false;
+			this.nameAccountHolderTextBox.Multiline = false;
+			this.nameAccountHolderTextBox.Name = "nameAccountHolderTextBox";
 			stateProperties25.BorderColor = System.Drawing.Color.RoyalBlue;
 			stateProperties25.FillColor = System.Drawing.Color.Empty;
 			stateProperties25.ForeColor = System.Drawing.Color.Empty;
 			stateProperties25.PlaceholderForeColor = System.Drawing.Color.Empty;
-			this.bunifuTextBox1.OnActiveState = stateProperties25;
+			this.nameAccountHolderTextBox.OnActiveState = stateProperties25;
 			stateProperties26.BorderColor = System.Drawing.Color.Empty;
 			stateProperties26.FillColor = System.Drawing.Color.White;
 			stateProperties26.ForeColor = System.Drawing.Color.Empty;
 			stateProperties26.PlaceholderForeColor = System.Drawing.Color.Silver;
-			this.bunifuTextBox1.OnDisabledState = stateProperties26;
+			this.nameAccountHolderTextBox.OnDisabledState = stateProperties26;
 			stateProperties27.BorderColor = System.Drawing.Color.BlueViolet;
 			stateProperties27.FillColor = System.Drawing.Color.Empty;
 			stateProperties27.ForeColor = System.Drawing.Color.Empty;
 			stateProperties27.PlaceholderForeColor = System.Drawing.Color.Empty;
-			this.bunifuTextBox1.OnHoverState = stateProperties27;
+			this.nameAccountHolderTextBox.OnHoverState = stateProperties27;
 			stateProperties28.BorderColor = System.Drawing.Color.Maroon;
 			stateProperties28.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(0)))), ((int)(((byte)(61)))));
 			stateProperties28.ForeColor = System.Drawing.Color.White;
 			stateProperties28.PlaceholderForeColor = System.Drawing.Color.Empty;
-			this.bunifuTextBox1.OnIdleState = stateProperties28;
-			this.bunifuTextBox1.PasswordChar = '\0';
-			this.bunifuTextBox1.PlaceholderForeColor = System.Drawing.Color.DimGray;
-			this.bunifuTextBox1.PlaceholderText = "";
-			this.bunifuTextBox1.ReadOnly = true;
-			this.bunifuTextBox1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-			this.bunifuTextBox1.ScrollBars = System.Windows.Forms.ScrollBars.None;
-			this.bunifuTextBox1.SelectedText = "";
-			this.bunifuTextBox1.SelectionLength = 0;
-			this.bunifuTextBox1.SelectionStart = 15;
-			this.bunifuTextBox1.ShortcutsEnabled = true;
-			this.bunifuTextBox1.Size = new System.Drawing.Size(200, 35);
-			this.bunifuTextBox1.Style = Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox._Style.Material;
-			this.bunifuTextBox1.TabIndex = 33;
-			this.bunifuTextBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-			this.bunifuTextBox1.TextMarginBottom = 0;
-			this.bunifuTextBox1.TextMarginLeft = 5;
-			this.bunifuTextBox1.TextMarginTop = 0;
-			this.bunifuTextBox1.TextPlaceholder = "";
-			this.bunifuTextBox1.UseSystemPasswordChar = false;
-			this.bunifuTextBox1.WordWrap = true;
+			this.nameAccountHolderTextBox.OnIdleState = stateProperties28;
+			this.nameAccountHolderTextBox.PasswordChar = '\0';
+			this.nameAccountHolderTextBox.PlaceholderForeColor = System.Drawing.Color.DimGray;
+			this.nameAccountHolderTextBox.PlaceholderText = "";
+			this.nameAccountHolderTextBox.ReadOnly = true;
+			this.nameAccountHolderTextBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+			this.nameAccountHolderTextBox.ScrollBars = System.Windows.Forms.ScrollBars.None;
+			this.nameAccountHolderTextBox.SelectedText = "";
+			this.nameAccountHolderTextBox.SelectionLength = 0;
+			this.nameAccountHolderTextBox.SelectionStart = 15;
+			this.nameAccountHolderTextBox.ShortcutsEnabled = true;
+			this.nameAccountHolderTextBox.Size = new System.Drawing.Size(200, 35);
+			this.nameAccountHolderTextBox.Style = Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox._Style.Material;
+			this.nameAccountHolderTextBox.TabIndex = 33;
+			this.nameAccountHolderTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+			this.nameAccountHolderTextBox.TextMarginBottom = 0;
+			this.nameAccountHolderTextBox.TextMarginLeft = 5;
+			this.nameAccountHolderTextBox.TextMarginTop = 0;
+			this.nameAccountHolderTextBox.TextPlaceholder = "";
+			this.nameAccountHolderTextBox.UseSystemPasswordChar = false;
+			this.nameAccountHolderTextBox.WordWrap = true;
 			// 
-			// label1
+			// nameAccountHolderLabel
 			// 
-			this.label1.AutoSize = true;
-			this.label1.Font = new System.Drawing.Font("IranNastaliq", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-			this.label1.ForeColor = System.Drawing.Color.White;
-			this.label1.Location = new System.Drawing.Point(1000, 355);
-			this.label1.Name = "label1";
-			this.label1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-			this.label1.Size = new System.Drawing.Size(94, 46);
-			this.label1.TabIndex = 32;
-			this.label1.Text = "صادر کننده چک";
+			this.nameAccountHolderLabel.AutoSize = true;
+			this.nameAccountHolderLabel.Font = new System.Drawing.Font("IranNastaliq", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+			this.nameAccountHolderLabel.ForeColor = System.Drawing.Color.White;
+			this.nameAccountHolderLabel.Location = new System.Drawing.Point(1000, 355);
+			this.nameAccountHolderLabel.Name = "nameAccountHolderLabel";
+			this.nameAccountHolderLabel.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+			this.nameAccountHolderLabel.Size = new System.Drawing.Size(94, 46);
+			this.nameAccountHolderLabel.TabIndex = 32;
+			this.nameAccountHolderLabel.Text = "صادر کننده چک";
 			// 
 			// IssuanceChequaUC
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 17F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(0)))), ((int)(((byte)(61)))));
-			this.Controls.Add(this.bunifuTextBox1);
-			this.Controls.Add(this.label1);
+			this.Controls.Add(this.nameAccountHolderTextBox);
+			this.Controls.Add(this.nameAccountHolderLabel);
 			this.Controls.Add(this.numberChequaLabel);
-			this.Controls.Add(this.numberChequaTextBox);
+			this.Controls.Add(this.serialChequeTextBox);
 			this.Controls.Add(this.cancelButton);
 			this.Controls.Add(this.saveButton);
 			this.Controls.Add(this.dataReceiptLabel);
@@ -824,7 +825,7 @@ namespace ChequaBank
 		#endregion
 
 		private System.Windows.Forms.Label numberChequaLabel;
-		private Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox numberChequaTextBox;
+		private Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox serialChequeTextBox;
 		private Guna.UI2.WinForms.Guna2GradientButton cancelButton;
 		private Guna.UI2.WinForms.Guna2GradientButton saveButton;
 		private System.Windows.Forms.Label dataReceiptLabel;
@@ -839,7 +840,7 @@ namespace ChequaBank
 		private Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox amountWordsTextBox;
 		private System.Windows.Forms.Label textLabel1;
 		private Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox dataReceiptTextBox;
-		private Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox bunifuTextBox1;
-		private System.Windows.Forms.Label label1;
+		private Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox nameAccountHolderTextBox;
+		private System.Windows.Forms.Label nameAccountHolderLabel;
 	}
 }

@@ -125,7 +125,7 @@ namespace Financial_Form
 			}
 			else
 			{
-				Amount = long.Parse(entryFuneTextBox.Text.Replace("تومان", string.Empty).Replace(",", string.Empty).Trim());
+				Amount = decimal.Parse(entryFuneTextBox.Text.Replace("تومان", string.Empty).Replace(",", string.Empty).Trim());
 				entryFuneTextBox.Text = $"{Amount:#,0} تومان";
 				CapitalFund.Capital_Fund = $"{Amount:#,0} تومان";
 			}

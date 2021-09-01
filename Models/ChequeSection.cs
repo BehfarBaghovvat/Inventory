@@ -22,15 +22,6 @@
 		public string Amount_Number_Paid { get; set; }
 		#endregion /Amount_Number_Paid
 
-		#region Amount_Words_Paid
-		//-----DisplayName field for FullName
-		[System.ComponentModel.DisplayName(displayName: "مبلغ پرداختی به حروف")]
-		//--Lenght FullName
-		[System.ComponentModel.DataAnnotations.StringLength
-			(maximumLength: 1000)]
-		public string Amount_Words_Paid { get; set; }
-		#endregion /Amount_Words_Paid
-
 		#region Amount_Words_Received
 		//-----DisplayName field for FullName
 		[System.ComponentModel.DisplayName(displayName: "مبلغ دریافتی به حروف")]
@@ -39,6 +30,15 @@
 			(maximumLength: 1000)]
 		public string Amount_Words_Received { get; set; }
 		#endregion /Amount_Words_Received
+
+		#region Amount_Words_Paid
+		//-----DisplayName field for FullName
+		[System.ComponentModel.DisplayName(displayName: "مبلغ پرداختی به حروف")]
+		//--Lenght FullName
+		[System.ComponentModel.DataAnnotations.StringLength
+			(maximumLength: 1000)]
+		public string Amount_Words_Paid { get; set; }
+		#endregion /Amount_Words_Paid
 
 		#region Amount_Number_Received
 		//-----DisplayName field for FullName
@@ -82,15 +82,6 @@
 		public string National_Code { get; set; }
 		#endregion /National_Code
 
-		#region Number_Chequa
-		//-----DisplayName field for FullName
-		[System.ComponentModel.DisplayName(displayName: "شماره صیاد چک")]
-		//--Lenght FullName
-		[System.ComponentModel.DataAnnotations.StringLength
-			(maximumLength: 25)]
-		public string Number_Chequa { get; set; }
-		#endregion /Number_Chequa
-
 		#region Pay_To
 		//-----DisplayName field for FullName
 		[System.ComponentModel.DisplayName(displayName: "در وجه")]
@@ -99,6 +90,15 @@
 			(maximumLength: 60)]
 		public string Pay_To { get; set; }
 		#endregion /Pay_To
+
+		#region Serial_Cheque
+		//-----DisplayName field for FullName
+		[System.ComponentModel.DisplayName(displayName: "شماره صیاد چک")]
+		//--Lenght FullName
+		[System.ComponentModel.DataAnnotations.StringLength
+			(maximumLength: 25)]
+		public string Serial_Cheque { get; set; }
+		#endregion /Serial_Cheque
 
 		#region Status_Chequa
 		//-----DisplayName field for FullName

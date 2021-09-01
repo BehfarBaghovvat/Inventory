@@ -137,22 +137,22 @@
     <Compile Include="Forms\Financial_Form\AncillaryCostsForm.Designer.cs">
       <DependentUpon>AncillaryCostsForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Financial_Form\ChequeBank\GetChequeUC.cs">
+    <Compile Include="Forms\Financial_Form\Cheque_Bank\GetChequeUC.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Forms\Financial_Form\ChequeBank\GetChequeUC.Designer.cs">
+    <Compile Include="Forms\Financial_Form\Cheque_Bank\GetChequeUC.Designer.cs">
       <DependentUpon>GetChequeUC.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Financial_Form\ChequeBank\IssuanceChequeUC.cs">
+    <Compile Include="Forms\Financial_Form\Cheque_Bank\IssuanceChequeUC.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Forms\Financial_Form\ChequeBank\IssuanceChequeUC.Designer.cs">
+    <Compile Include="Forms\Financial_Form\Cheque_Bank\IssuanceChequeUC.Designer.cs">
       <DependentUpon>IssuanceChequeUC.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Financial_Form\ChequeBank\ListChequesBankUC.cs">
+    <Compile Include="Forms\Financial_Form\Cheque_Bank\ListChequesBankUC.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Forms\Financial_Form\ChequeBank\ListChequesBankUC.Designer.cs">
+    <Compile Include="Forms\Financial_Form\Cheque_Bank\ListChequesBankUC.Designer.cs">
       <DependentUpon>ListChequesBankUC.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Financial_Form\FinancialReportForm.cs">
@@ -329,13 +329,13 @@
     <EmbeddedResource Include="Forms\Financial_Form\AncillaryCostsForm.resx">
       <DependentUpon>AncillaryCostsForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Financial_Form\ChequeBank\GetChequeUC.resx">
+    <EmbeddedResource Include="Forms\Financial_Form\Cheque_Bank\GetChequeUC.resx">
       <DependentUpon>GetChequeUC.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Financial_Form\ChequeBank\IssuanceChequeUC.resx">
+    <EmbeddedResource Include="Forms\Financial_Form\Cheque_Bank\IssuanceChequeUC.resx">
       <DependentUpon>IssuanceChequeUC.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Financial_Form\ChequeBank\ListChequesBankUC.resx">
+    <EmbeddedResource Include="Forms\Financial_Form\Cheque_Bank\ListChequesBankUC.resx">
       <DependentUpon>ListChequesBankUC.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Financial_Form\FinancialReportForm.resx">
