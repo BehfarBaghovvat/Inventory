@@ -10,22 +10,30 @@ namespace Inventory_Forms
 
 		public string SearchItem { get; set; }
 
+
+
 		//-----------------------------------------------------------------------------------------------     Constracture
 
 		public ServiceReportForm()
 		{
 			InitializeComponent();
-			LoadingService();
 		}
 
 
 
 		//-----------------------------------------------------------------------------------------------     Events Controls
 
+		#region ServiceReportForm_Load
+		private void ServiceReportForm_Load(object sender, System.EventArgs e)
+		{
+			Initialize();
+		}
+		#endregion /ServiceReportForm_Load
+
 		#region CloseButton_Click
 		private void CloseButton_Click(object sender, System.EventArgs e)
 		{
-			this.Close();
+			closeFadeTimer.Start();
 		}
 		#endregion /CloseButton_Click
 
@@ -125,9 +133,67 @@ namespace Inventory_Forms
 		#region SearchButton_Click
 		private void SearchButton_Click(object sender, System.EventArgs e)
 		{
+			if (index == 0)
+			{
+				Mbb.Windows.Forms.MessageBox.Show(
+					"لطفا نوع جستجو را انتخاب نمایید",
+					"خطای ورودی",
+					Mbb.Windows.Forms.MessageBoxIcon.Error,
+					Mbb.Windows.Forms.MessageBoxButtons.Ok);
+				selectSearchComboBox.Focus();
+				return;
+			}
+			else if (index == 1)
+			{
+				GetInvoiced(SearchItem);
+				return;
+			}
+			else if (index == 2)
+			{
+				GetLicensePlate(SearchItem);
+				return;
+			}
+			else if (index == 3)
+			{
+				GetPhoneNumber(SearchItem);
+				return;
+			}
+			else
+			{
+				Mbb.Windows.Forms.MessageBox.Show(
+					"لطفا نوع جستجو را انتخاب نمایید",
+					"خطای ورودی",
+					Mbb.Windows.Forms.MessageBoxIcon.Error,
+					Mbb.Windows.Forms.MessageBoxButtons.Ok);
+				selectSearchComboBox.Focus();
+				return;
+			}
 
 		}
 		#endregion /SearchButton_Click
+
+		#region ShowFadeTimer_Tick
+		private void ShowFadeTimer_Tick(object sender, System.EventArgs e)
+		{
+			this.Opacity += 0.5;
+			if (this.Opacity >= 10)
+			{
+				showFadeTimer.Stop();
+			}
+		}
+		#endregion /ShowFadeTimer_Tick
+
+		#region CloseFadeTimer_Tick
+		private void CloseFadeTimer_Tick(object sender, System.EventArgs e)
+		{
+			this.Opacity -= 0.5;
+			if (this.Opacity <= 0)
+			{
+				closeFadeTimer.Stop();
+				this.Dispose();
+			}
+		}
+		#endregion /CloseFadeTimer_Tick
 
 
 
@@ -136,6 +202,10 @@ namespace Inventory_Forms
 		#region Founction
 
 		#region GetInvoiced
+		/// <summary>
+		/// برگرداندن فاکتور سرویس ها
+		/// </summary>
+		/// <param name="_invoiceSerialNumvber"></param>
 		private void GetInvoiced(string _invoiceSerialNumvber)
 		{
 			Models.DataBaseContext dataBaseContext = null;
@@ -195,20 +265,155 @@ namespace Inventory_Forms
 					dataBaseContext = null;
 				}
 			}
-
-
 		}
 		#endregion /GetInvoiced
 
-		private void GetLicensePlate(string searchItem)
+		#region GetLicensePlate
+		/// <summary>
+		/// جستجو بر اساس شماره پلاک وسیله نقلیه
+		/// </summary>
+		/// <param name="searchItem"></param>
+		private void GetLicensePlate(string _licensePlate)
 		{
+			Models.DataBaseContext dataBaseContext = null;
+			try
+			{
+				dataBaseContext =
+					new Models.DataBaseContext();
 
+				System.Collections.Generic.List<Models.ListService> listService = null;
+
+				Models.ServiceInvoice invoiceSerialNumber =
+					dataBaseContext.ServiceInvoices
+					.Where(current => string.Compare(current.License_Plate, _licensePlate) == 0)
+					.FirstOrDefault();
+
+				if (invoiceSerialNumber == null)
+				{
+					Mbb.Windows.Forms.MessageBox.Show(
+						text: "شماره پلاک وسیله نقلیه مورد نظر در سیستم یافت نگردید. \n لطفا مجدد تلاش نمیادد."
+						, caption: "جستجوی ناموفق"
+						, icon: Mbb.Windows.Forms.MessageBoxIcon.Error
+						, button: Mbb.Windows.Forms.MessageBoxButtons.Ok);
+
+					searchTextBox.Focus();
+				}
+				else
+				{
+					listService =
+					dataBaseContext.ListServices
+					.Where(current => current.Invoice_Serial_Numvber.Contains(invoiceSerialNumber.Invoice_Serial_Numvber))
+					.OrderByDescending(current => current.Service_Name)
+					.ToList();
+				}
+
+				serviceListDataGridView.DataSource = listService;
+
+				invoiceSerialNumberTextBox.Text = invoiceSerialNumber.Invoice_Serial_Numvber;
+				serviceDateTextBox.Text = invoiceSerialNumber.Service_Date;
+				serviceTimeTextBox.Text = invoiceSerialNumber.Service_Time;
+				currentKilometersTextBox.Text = invoiceSerialNumber.Current_Kilometer;
+				clientNameTextBox.Text = invoiceSerialNumber.Client_Name;
+				licensePlateTextBox.Text = invoiceSerialNumber.License_Plate;
+				phonNumberTextBox.Text = invoiceSerialNumber.Phone_Number;
+				nextKilometersTextBox.Text = invoiceSerialNumber.Next_Kilometer;
+
+			}
+			catch (System.Exception ex)
+			{
+
+				Infrastructure.Utility.ExceptionShow(ex);
+			}
+			finally
+			{
+				if (dataBaseContext != null)
+				{
+					dataBaseContext.Dispose();
+					dataBaseContext = null;
+				}
+			}
 		}
+		#endregion /GetLicensePlate
 
-		private void GetPhoneNumber(string searchItem)
+		#region GetPhoneNumber
+		/// <summary>
+		/// جستجو بر اساس شماره تماس
+		/// </summary>
+		/// <param name="searchItem"></param>
+		private void GetPhoneNumber(string _phoneNumber)
 		{
+			Models.DataBaseContext dataBaseContext = null;
+			try
+			{
+				dataBaseContext =
+					new Models.DataBaseContext();
 
+				System.Collections.Generic.List<Models.ListService> listService = null;
+
+				Models.ServiceInvoice invoiceSerialNumber =
+					dataBaseContext.ServiceInvoices
+					.Where(current => string.Compare(current.Phone_Number, _phoneNumber) == 0)
+					.FirstOrDefault();
+
+				if (invoiceSerialNumber == null)
+				{
+					Mbb.Windows.Forms.MessageBox.Show(
+						text: "شماره تماس مورد نظر در سیستم یافت نگردید. \n لطفا مجدد تلاش نمیادد."
+						, caption: "جستجوی ناموفق"
+						, icon: Mbb.Windows.Forms.MessageBoxIcon.Error
+						, button: Mbb.Windows.Forms.MessageBoxButtons.Ok);
+
+					searchTextBox.Focus();
+				}
+				else
+				{
+					listService =
+					dataBaseContext.ListServices
+					.Where(current => current.Invoice_Serial_Numvber.Contains(invoiceSerialNumber.Invoice_Serial_Numvber))
+					.OrderByDescending(current => current.Service_Name)
+					.ToList();
+				}
+
+				serviceListDataGridView.DataSource = listService;
+
+				invoiceSerialNumberTextBox.Text = invoiceSerialNumber.Invoice_Serial_Numvber;
+				serviceDateTextBox.Text = invoiceSerialNumber.Service_Date;
+				serviceTimeTextBox.Text = invoiceSerialNumber.Service_Time;
+				currentKilometersTextBox.Text = invoiceSerialNumber.Current_Kilometer;
+				clientNameTextBox.Text = invoiceSerialNumber.Client_Name;
+				licensePlateTextBox.Text = invoiceSerialNumber.License_Plate;
+				phonNumberTextBox.Text = invoiceSerialNumber.Phone_Number;
+				nextKilometersTextBox.Text = invoiceSerialNumber.Next_Kilometer;
+
+			}
+			catch (System.Exception ex)
+			{
+
+				Infrastructure.Utility.ExceptionShow(ex);
+			}
+			finally
+			{
+				if (dataBaseContext != null)
+				{
+					dataBaseContext.Dispose();
+					dataBaseContext = null;
+				}
+			}
 		}
+		#endregion /GetPhoneNumber
+
+		#region Initialize
+		/// <summary>
+		/// تنظیمات ورود اولیه
+		/// </summary>
+		private void Initialize()
+		{
+			this.Opacity = 0.0;
+
+			showFadeTimer.Start();
+			LoadingService();
+		}
+		#endregion /Initialize
 
 		#region LoadingService
 		private void LoadingService()
@@ -252,10 +457,10 @@ namespace Inventory_Forms
 		}
 
 
+
+
 		#endregion /LoadingService
 
 		#endregion /Founction
-
-		
 	}
 }

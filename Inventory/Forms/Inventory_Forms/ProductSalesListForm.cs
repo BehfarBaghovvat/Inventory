@@ -2,7 +2,7 @@
 
 namespace Inventory_Forms
 {
-	public partial class InventoryOutputForm : Infrastructure.EmptyForm
+	public partial class ProductSalesListForm : Infrastructure.EmptyForm
 	{
 		//-----------------------------------------------------------------------------------------------     Fields, Properties, Layers
 
@@ -16,7 +16,7 @@ namespace Inventory_Forms
 
 		//-----------------------------------------------------------------------------------------------     Constracture
 
-		public InventoryOutputForm()
+		public ProductSalesListForm()
 		{
 			InitializeComponent();
 		}
@@ -24,6 +24,13 @@ namespace Inventory_Forms
 
 
 		//-----------------------------------------------------------------------------------------------     Events Controls
+
+		#region InventoryOutputForm_Load
+		private void InventoryOutputForm_Load(object sender, System.EventArgs e)
+		{
+			Initialize();
+		}
+		#endregion /InventoryOutputForm_Load
 
 		#region CloseButton_Click
 		private void CloseButton_Click(object sender, System.EventArgs e)
@@ -160,6 +167,10 @@ namespace Inventory_Forms
 		#region Founction
 
 		#region CarrierNameSearch
+		/// <summary>
+		/// جستجو بر اساس نام حامل کالا
+		/// </summary>
+		/// <param name="carrierName"></param>
 		private void CarrierNameSearch(string carrierName)
 		{
 			Models.DataBaseContext dataBaseContext = null;
@@ -204,6 +215,10 @@ namespace Inventory_Forms
 		#endregion /CarrierNameSearch
 
 		#region ClientNameSearch
+		/// <summary>
+		/// جستجو بر اساس نام مشتری
+		/// </summary>
+		/// <param name="clientName"></param>
 		private void ClientNameSearch(string clientName)
 		{
 			Models.DataBaseContext dataBaseContext = null;
@@ -248,6 +263,10 @@ namespace Inventory_Forms
 		#endregion /ClientNameSearch
 
 		#region DateSearch
+		/// <summary>
+		/// جستجو بر اساس تاریخ
+		/// </summary>
+		/// <param name="dateSearch"></param>
 		private void DateSearch(string dateSearch)
 		{
 			Models.DataBaseContext dataBaseContext = null;
@@ -291,7 +310,20 @@ namespace Inventory_Forms
 		}
 		#endregion /DateSearch
 
+		#region Initialize
+		/// <summary>
+		/// تنظیمات ورود اولیه
+		/// </summary>
+		private void Initialize()
+		{
+			LoadingInventoryOutput();
+		}
+		#endregion /Initialize
+
 		#region LoadingInventoryOutput
+		/// <summary>
+		/// بار گزاری خروجی کالا
+		/// </summary>
 		private void LoadingInventoryOutput()
 		{
 			Models.DataBaseContext dataBaseContext = null;
@@ -335,6 +367,10 @@ namespace Inventory_Forms
 		#endregion /LoadingInventoryOutput
 
 		#region ProductNameSearch
+		/// <summary>
+		/// جستجو بر اساس نام کالا
+		/// </summary>
+		/// <param name="productName"></param>
 		private void ProductNameSearch(string productName)
 		{
 			Models.DataBaseContext dataBaseContext = null;
@@ -379,6 +415,10 @@ namespace Inventory_Forms
 		#endregion /ProductNameSearch
 
 		#region SellerNameSearch
+		/// <summary>
+		/// جستجو بر اساس نام فروشنده
+		/// </summary>
+		/// <param name="sellerName"></param>
 		private void SellerNameSearch(string sellerName)
 		{
 			Models.DataBaseContext dataBaseContext = null;
@@ -423,5 +463,7 @@ namespace Inventory_Forms
 		#endregion /SellerNameSearch
 
 		#endregion /Founction
+
+		
 	}
 }

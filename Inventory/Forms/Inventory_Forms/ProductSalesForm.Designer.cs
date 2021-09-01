@@ -164,7 +164,7 @@ namespace Inventory_Forms
 			this.inventoryHoldingDataGridView.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
 			this.inventoryHoldingDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
 			this.inventoryHoldingDataGridView.Size = new System.Drawing.Size(1124, 395);
-			this.inventoryHoldingDataGridView.TabIndex = 13;
+			this.inventoryHoldingDataGridView.TabIndex = 0;
 			this.inventoryHoldingDataGridView.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.InventoryHoldingDataGridView_CellDoubleClick);
 			// 
 			// idDataGridViewTextBoxColumn
@@ -319,7 +319,7 @@ namespace Inventory_Forms
 			this.carrierNameTextBox.ShortcutsEnabled = true;
 			this.carrierNameTextBox.Size = new System.Drawing.Size(200, 35);
 			this.carrierNameTextBox.Style = Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox._Style.Material;
-			this.carrierNameTextBox.TabIndex = 6;
+			this.carrierNameTextBox.TabIndex = 7;
 			this.carrierNameTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
 			this.carrierNameTextBox.TextMarginBottom = 0;
 			this.carrierNameTextBox.TextMarginLeft = 5;
@@ -398,7 +398,7 @@ namespace Inventory_Forms
 			this.productPriceTextBox.ShortcutsEnabled = true;
 			this.productPriceTextBox.Size = new System.Drawing.Size(200, 35);
 			this.productPriceTextBox.Style = Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox._Style.Material;
-			this.productPriceTextBox.TabIndex = 3;
+			this.productPriceTextBox.TabIndex = 4;
 			this.productPriceTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
 			this.productPriceTextBox.TextMarginBottom = 0;
 			this.productPriceTextBox.TextMarginLeft = 5;
@@ -477,7 +477,7 @@ namespace Inventory_Forms
 			this.clientNameTextBox.ShortcutsEnabled = true;
 			this.clientNameTextBox.Size = new System.Drawing.Size(200, 35);
 			this.clientNameTextBox.Style = Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox._Style.Material;
-			this.clientNameTextBox.TabIndex = 5;
+			this.clientNameTextBox.TabIndex = 6;
 			this.clientNameTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
 			this.clientNameTextBox.TextMarginBottom = 0;
 			this.clientNameTextBox.TextMarginLeft = 5;
@@ -555,7 +555,7 @@ namespace Inventory_Forms
 			this.productUnitTextBox.ShortcutsEnabled = true;
 			this.productUnitTextBox.Size = new System.Drawing.Size(150, 35);
 			this.productUnitTextBox.Style = Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox._Style.Material;
-			this.productUnitTextBox.TabIndex = 2;
+			this.productUnitTextBox.TabIndex = 3;
 			this.productUnitTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
 			this.productUnitTextBox.TextMarginBottom = 0;
 			this.productUnitTextBox.TextMarginLeft = 5;
@@ -630,7 +630,7 @@ namespace Inventory_Forms
 			this.productQuantityTextBox.ShortcutsEnabled = true;
 			this.productQuantityTextBox.Size = new System.Drawing.Size(100, 35);
 			this.productQuantityTextBox.Style = Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox._Style.Material;
-			this.productQuantityTextBox.TabIndex = 1;
+			this.productQuantityTextBox.TabIndex = 2;
 			this.productQuantityTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
 			this.productQuantityTextBox.TextMarginBottom = 0;
 			this.productQuantityTextBox.TextMarginLeft = 5;
@@ -708,7 +708,7 @@ namespace Inventory_Forms
 			this.sellerNameTextBox.ShortcutsEnabled = true;
 			this.sellerNameTextBox.Size = new System.Drawing.Size(200, 35);
 			this.sellerNameTextBox.Style = Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox._Style.Material;
-			this.sellerNameTextBox.TabIndex = 4;
+			this.sellerNameTextBox.TabIndex = 5;
 			this.sellerNameTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
 			this.sellerNameTextBox.TextMarginBottom = 0;
 			this.sellerNameTextBox.TextMarginLeft = 5;
@@ -783,7 +783,7 @@ namespace Inventory_Forms
 			this.productNameTextBox.ShortcutsEnabled = true;
 			this.productNameTextBox.Size = new System.Drawing.Size(200, 35);
 			this.productNameTextBox.Style = Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox._Style.Material;
-			this.productNameTextBox.TabIndex = 0;
+			this.productNameTextBox.TabIndex = 1;
 			this.productNameTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
 			this.productNameTextBox.TextMarginBottom = 0;
 			this.productNameTextBox.TextMarginLeft = 5;
@@ -814,7 +814,7 @@ namespace Inventory_Forms
 			this.addOrderButton.PressedColor = System.Drawing.Color.White;
 			this.addOrderButton.ShadowDecoration.Parent = this.addOrderButton;
 			this.addOrderButton.Size = new System.Drawing.Size(150, 35);
-			this.addOrderButton.TabIndex = 7;
+			this.addOrderButton.TabIndex = 9;
 			this.addOrderButton.Text = "ثبت سفارش";
 			this.addOrderButton.Click += new System.EventHandler(this.AddOrderButton_Click);
 			// 
@@ -838,7 +838,7 @@ namespace Inventory_Forms
 			this.resetButton.PressedColor = System.Drawing.Color.White;
 			this.resetButton.ShadowDecoration.Parent = this.resetButton;
 			this.resetButton.Size = new System.Drawing.Size(150, 35);
-			this.resetButton.TabIndex = 8;
+			this.resetButton.TabIndex = 10;
 			this.resetButton.Text = "حالت اولیه";
 			this.resetButton.TextOffset = new System.Drawing.Point(-5, 0);
 			this.resetButton.Click += new System.EventHandler(this.ResetButton_Click);
@@ -861,7 +861,7 @@ namespace Inventory_Forms
 			this.inventoryOutputButton.PressedColor = System.Drawing.Color.White;
 			this.inventoryOutputButton.ShadowDecoration.Parent = this.inventoryOutputButton;
 			this.inventoryOutputButton.Size = new System.Drawing.Size(130, 75);
-			this.inventoryOutputButton.TabIndex = 10;
+			this.inventoryOutputButton.TabIndex = 12;
 			this.inventoryOutputButton.Text = "لیست خروجی انبار";
 			this.inventoryOutputButton.TextOffset = new System.Drawing.Point(-16, 25);
 			this.inventoryOutputButton.Click += new System.EventHandler(this.InventoryOutputButton_Click);
@@ -884,7 +884,7 @@ namespace Inventory_Forms
 			this.billButton.PressedColor = System.Drawing.Color.White;
 			this.billButton.ShadowDecoration.Parent = this.billButton;
 			this.billButton.Size = new System.Drawing.Size(130, 75);
-			this.billButton.TabIndex = 9;
+			this.billButton.TabIndex = 11;
 			this.billButton.Text = "صورت حساب";
 			this.billButton.TextOffset = new System.Drawing.Point(-10, 25);
 			this.billButton.Click += new System.EventHandler(this.BillButton_Click);
@@ -953,7 +953,7 @@ namespace Inventory_Forms
 			this.productSearchTextBox.ShortcutsEnabled = true;
 			this.productSearchTextBox.Size = new System.Drawing.Size(467, 37);
 			this.productSearchTextBox.Style = Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox._Style.Bunifu;
-			this.productSearchTextBox.TabIndex = 11;
+			this.productSearchTextBox.TabIndex = 8;
 			this.productSearchTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
 			this.productSearchTextBox.TextMarginBottom = 0;
 			this.productSearchTextBox.TextMarginLeft = 5;
@@ -974,7 +974,6 @@ namespace Inventory_Forms
 			this.Controls.Add(this.mainPanel);
 			this.Name = "ProcutSalesForm";
 			this.Text = "InventoryOutputForm";
-			this.Load += new System.EventHandler(this.ProcutSalesForm_Load);
 			((System.ComponentModel.ISupportInitialize)(this.inventoryHoldingDataGridView)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.inventoryHoldingBindingSource)).EndInit();
 			this.mainPanel.ResumeLayout(false);

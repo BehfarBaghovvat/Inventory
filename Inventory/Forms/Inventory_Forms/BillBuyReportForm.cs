@@ -16,7 +16,7 @@ namespace Inventory_Forms
 		{
 			public int Amount { get; set; }
 			public int Amount_Paid { get; set; }
-			public long Capital_Fund { get; set; }
+			public decimal Capital_Fund { get; set; }
 			public string Carrier_Name { get; set; }
 			public string InvoiceSerialNumber { get; set; }
 			public int Total_Sum_Price { get; set; }
@@ -101,11 +101,19 @@ namespace Inventory_Forms
 		{
 			InitializeComponent();
 			Initialize();
+			
 		}
 
 
 
 		//-----------------------------------------------------------------------------------------------     Events Controls
+
+		#region BillBuyReportForm_Load
+		private void BillBuyReportForm_Load(object sender, System.EventArgs e)
+		{
+			//Initialize();
+		}
+		#endregion /BillBuyReportForm_Load
 
 		#region CloseButton_Click
 		private void CloseButton_Click(object sender, System.EventArgs e)
@@ -113,25 +121,29 @@ namespace Inventory_Forms
 			if (Purchase_Operations)
 			{
 				AllClear();
-				this.Close();
+				closeFormTimer.Start();
 			}
 			else
 			{
 				if (productListDataGridView.Rows.Count > 0)
 				{
-					if (Mbb.Windows.Forms.MessageBox.Show(text: "آیا رسید جاری حذف گردد؟", caption: "حذف رسید", icon: Mbb.Windows.Forms.MessageBoxIcon.Question, button: Mbb.Windows.Forms.MessageBoxButtons.YesNo) == System.Windows.Forms.DialogResult.Yes)
+					if (Mbb.Windows.Forms.MessageBox.Show(
+						text: "آیا رسید جاری حذف گردد؟",
+						caption: "حذف رسید",
+						icon: Mbb.Windows.Forms.MessageBoxIcon.Question,
+						button: Mbb.Windows.Forms.MessageBoxButtons.YesNo) == System.Windows.Forms.DialogResult.Yes)
 					{
 						AllClear();
-						this.Close();
+						closeFormTimer.Start();
 					}
 					else
 					{
-						this.Close();
+						closeFormTimer.Start();
 					}
 				}
 				else
 				{
-					this.Close();
+					closeFormTimer.Start();
 				}
 			}
 		}
@@ -209,22 +221,6 @@ namespace Inventory_Forms
 			}
 		}
 		#endregion /PaymentButton_Click
-
-		#region TotalSumPriceTextBox_TextChanged
-		private void TotalSumPriceTextBox_TextChanged(object sender, System.EventArgs e)
-		{
-			remainingAmountTextBox.Text = totalSumPriceTextBox.Text;
-			if (totalSumPriceTextBox.Text.Length <= 9)
-			{
-				auditItem.Total_Sum_Price = int.Parse(totalSumPriceTextBox.Text.Replace("تومان", string.Empty).Trim());
-			}
-			else
-			{
-				auditItem.Total_Sum_Price = int.Parse(totalSumPriceTextBox.Text.Replace("تومان", string.Empty).Replace(",", string.Empty).Trim());
-			}
-
-		}
-		#endregion /TotalSumPriceTextBox_TextChanged
 
 		#region AmountPaidTextBox_Enter
 		private void AmountPaidTextBox_Enter(object sender, System.EventArgs e)
@@ -327,12 +323,11 @@ namespace Inventory_Forms
 		private void AllClear()
 		{
 			MyProductBuyForm.RemoveBill();
-			auditItem = null;
-
 			totalSumPriceTextBox.Text = "0 تومان";
 			amountPaidTextBox.Clear();
 			remainingAmountTextBox.Text = "0 تومان";
 			productListDataGridView.Rows.Clear();
+			auditItem = null;
 		}
 		#endregion /AllClear
 
@@ -353,6 +348,7 @@ namespace Inventory_Forms
 						.Trim());
 
 					totalSumPriceTextBox.Text = $"{auditItem.Total_Sum_Price:#,0} تومان";
+					remainingAmountTextBox.Text = $"{auditItem.Total_Sum_Price:#,0} تومان";
 				}
 			}
 			else
@@ -515,12 +511,12 @@ namespace Inventory_Forms
 
 		#region LoadingCapitalFund
 		/// <summary>
-		/// به روز رسانی صندوق
+		/// به روز رسانی و بارگزاری صندوق سرمایه
 		/// </summary>
 		/// <returns></returns>
-		private long LoadingCapitalFund()
+		private decimal LoadingCapitalFund()
 		{
-			long capital_Fund;
+			decimal capital_Fund;
 			Models.DataBaseContext dataBaseContext = null;
 			try
 			{
@@ -531,7 +527,7 @@ namespace Inventory_Forms
 					dataBaseContext.CapitalFunds
 					.FirstOrDefault();
 
-				capital_Fund = long.Parse(capitalFund.Capital_Fund.Replace("تومان", string.Empty).Replace(",", string.Empty).Trim());
+				capital_Fund = decimal.Parse(capitalFund.Capital_Fund.Replace("تومان", string.Empty).Replace(",", string.Empty).Trim());
 				MainForm.fundsNotificationTextBox.Text = $"{capital_Fund:#,0} تومان";
 
 				return capital_Fund;
@@ -780,7 +776,8 @@ namespace Inventory_Forms
 		}
 		#endregion /SetJournal
 
-
 		#endregion /Function
+
+		
 	}
 }

@@ -137,11 +137,17 @@
     <Compile Include="Forms\Financial_Form\AncillaryCostsForm.Designer.cs">
       <DependentUpon>AncillaryCostsForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Financial_Form\FinancialOrderForm.cs">
-      <SubType>Form</SubType>
+    <Compile Include="Forms\Financial_Form\ChequaBank\GetChequaUC.cs">
+      <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Forms\Financial_Form\FinancialOrderForm.Designer.cs">
-      <DependentUpon>FinancialOrderForm.cs</DependentUpon>
+    <Compile Include="Forms\Financial_Form\ChequaBank\GetChequaUC.Designer.cs">
+      <DependentUpon>GetChequaUC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Financial_Form\ChequaBank\IssuanceChequaUC.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\Financial_Form\ChequaBank\IssuanceChequaUC.Designer.cs">
+      <DependentUpon>IssuanceChequaUC.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Financial_Form\FinancialReportForm.cs">
       <SubType>Form</SubType>
@@ -172,6 +178,12 @@
     </Compile>
     <Compile Include="Forms\Financial_Form\Financial_Order\PaymentUC.Designer.cs">
       <DependentUpon>PaymentUC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Financial_Form\Financial_Order\SectionChequeBankForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Financial_Form\Financial_Order\SectionChequeBankForm.Designer.cs">
+      <DependentUpon>SectionChequeBankForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Financial_Form\SafeBoxForm.cs">
       <SubType>Form</SubType>
@@ -311,8 +323,11 @@
     <EmbeddedResource Include="Forms\Financial_Form\AncillaryCostsForm.resx">
       <DependentUpon>AncillaryCostsForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Financial_Form\FinancialOrderForm.resx">
-      <DependentUpon>FinancialOrderForm.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\Financial_Form\ChequaBank\GetChequaUC.resx">
+      <DependentUpon>GetChequaUC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Financial_Form\ChequaBank\IssuanceChequaUC.resx">
+      <DependentUpon>IssuanceChequaUC.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Financial_Form\FinancialReportForm.resx">
       <DependentUpon>FinancialReportForm.cs</DependentUpon>
@@ -328,6 +343,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Financial_Form\Financial_Order\PaymentUC.resx">
       <DependentUpon>PaymentUC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Financial_Form\Financial_Order\SectionChequeBankForm.resx">
+      <DependentUpon>SectionChequeBankForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Financial_Form\SafeBoxForm.resx">
       <DependentUpon>SafeBoxForm.cs</DependentUpon>

@@ -19,6 +19,13 @@ namespace Inventory_Forms
 			public string Total_Price { get; set; }
 		}
 
+		public class TransactionFactorsItems
+		{
+			public string Seller_Name { get; set; }
+			public string Client_Name { get; set; }
+			public string Carrier_Name { get; set; }
+		}
+
 		private BillSaleReportForm _billSaleReportForm;
 		public BillSaleReportForm BillSaleReportForm
 		{
@@ -33,26 +40,17 @@ namespace Inventory_Forms
 			}
 		}
 
-		public class TransactionFactorsItems
-		{
-			public string Seller_Name { get; set; }
-			public string Client_Name { get; set; }
-			public string Carrier_Name { get; set; }
-		}
-
-		private TransactionFactorsItems _transactionFactorsItems = null;
-
-		private InventoryOutputForm _inventoryOutputForm;
-		public InventoryOutputForm InventoryOutputForm
+		private ProductSalesListForm _productSalesListForm;
+		public ProductSalesListForm ProductSalesListForm
 		{
 			get
 			{
-				if (_inventoryOutputForm == null || _inventoryOutputForm.IsDisposed == true)
+				if (_productSalesListForm == null || _productSalesListForm.IsDisposed == true)
 				{
-					_inventoryOutputForm =
-						new InventoryOutputForm();
+					_productSalesListForm =
+						new ProductSalesListForm();
 				}
-				return _inventoryOutputForm;
+				return _productSalesListForm;
 			}
 		}
 
@@ -95,6 +93,7 @@ namespace Inventory_Forms
 		public int? OldQuantity { get; set; }
 
 		public int? NewQuantity { get; set; }
+
 		#endregion/Properties
 
 
@@ -104,19 +103,11 @@ namespace Inventory_Forms
 		public ProcutSalesForm()
 		{
 			InitializeComponent();
-			
 		}
 
 
 
 		//-----------------------------------------------------------------------------------------------     Events Controls
-
-		#region ProcutSalesForm_Load
-		private void ProcutSalesForm_Load(object sender, System.EventArgs e)
-		{
-			Initialize();
-		}
-		#endregion /ProcutSalesForm_Load
 
 		#region ProductQuantityTextBox_Enter
 		private void ProductQuantityTextBox_Enter(object sender, System.EventArgs e)
@@ -351,7 +342,7 @@ namespace Inventory_Forms
 		#region InventoryOutputButton_Click
 		private void InventoryOutputButton_Click(object sender, System.EventArgs e)
 		{
-			InventoryOutputForm.ShowDialog();
+			ProductSalesListForm.ShowDialog();
 		}
 		#endregion /InventoryOutputButton_Click
 
@@ -379,7 +370,7 @@ namespace Inventory_Forms
 		#region ResetButton_Click
 		private void ResetButton_Click(object sender, System.EventArgs e)
 		{
-			ResetOrder();
+			AllClear();
 		}
 		#endregion /ResetButton_Click
 
@@ -418,6 +409,41 @@ namespace Inventory_Forms
 
 		#region Founction
 
+		#region AllClear
+		/// <summary>
+		/// برگشت به حالت اولیه سفارش
+		/// </summary>
+		private void AllClear()
+		{
+			InventoryOutput = null;
+
+			billSaleReportsList.Clear();
+			transactionFactorsItems = null;
+			productNameTextBox.Clear();
+			productQuantityTextBox.Clear();
+			productUnitTextBox.Clear();
+			productPriceTextBox.Clear();
+			sellerNameTextBox.Clear();
+			clientNameTextBox.Clear();
+			carrierNameTextBox.Clear();
+		}
+		#endregion /AllClear
+
+		#region AddNewOrder
+		private void AddNewOrder()
+		{
+			productNameTextBox.Clear();
+			productQuantityTextBox.Clear();
+			productUnitTextBox.Clear();
+			productPriceTextBox.Clear();
+
+			InventoryOutput.Product_Name = null;
+			InventoryOutput.Product_Quantity = null;
+			InventoryOutput.Product_Unit = null;
+			InventoryOutput.Product_Price = null;
+		}
+		#endregion /AddNewOrder
+
 		#region AddOrder
 		/// <summary>
 		/// افزودن سفارش
@@ -449,25 +475,29 @@ namespace Inventory_Forms
 				dataBaseContext.InventoryOutputs.Add(inventoryOutput);
 				dataBaseContext.SaveChanges();
 
-				#region EventLog
-				//EventLog.Username = Inventory.Program.UserAuthentication.Username;
-				//EventLog.Full_Name = Inventory.Program.UserAuthentication.Full_Name;
-				//EventLog.Event_Date = $"{Infrastructure.Utility.PersianCalendar(System.DateTime.Now)}";
-				//EventLog.Event_Time = $"{Infrastructure.Utility.ShowTime()}";
-				//EventLog.Description =
-				//	$"{inputInventoryOutput.Product_Name} توسط" +
-				//	$" {inputInventoryOutput.Seller_Name} به قیمت" +
-				//	$" {inputInventoryOutput.Product_Price} به تعداد" +
-				//	$" {inputInventoryOutput.Product_Quantity}" +
-				//	$" {inputInventoryOutput.Product_Unit} توسط " +
-				//	$"{inputInventoryOutput.Carrier_Name} به آقا/خانم " +
-				//	$"{inputInventoryOutput.Client_Name} تحویل و در سیستم ثبت گردید.";
+				#region -----------------------------------------     Save Event Log     -----------------------------------------
+				if (string.Compare(Inventory.Program.UserAuthentication.Username, "admin") != 0)
+				{
+					EventLog.Username = Inventory.Program.UserAuthentication.Username;
+					EventLog.Full_Name = Inventory.Program.UserAuthentication.Full_Name;
+					EventLog.Event_Date = $"{Infrastructure.Utility.PersianCalendar(System.DateTime.Now)}";
+					EventLog.Event_Time = $"{Infrastructure.Utility.ShowTime()}";
+					EventLog.Description =
+						$"{inputInventoryOutput.Product_Name} توسط" +
+						$" {inputInventoryOutput.Seller_Name} به قیمت" +
+						$" {inputInventoryOutput.Product_Price} به تعداد" +
+						$" {inputInventoryOutput.Product_Quantity}" +
+						$" {inputInventoryOutput.Product_Unit} توسط " +
+						$"{inputInventoryOutput.Carrier_Name} به آقا/خانم " +
+						$"{inputInventoryOutput.Client_Name} تحویل و در سیستم ثبت گردید.";
 
-				//Infrastructure.Utility.EventLog(EventLog);
-				#endregion /EventLog
+					Infrastructure.Utility.EventLog(EventLog);
+				}
+				#endregion /-----------------------------------------     Save Event Log     -----------------------------------------
 
 				WarehouseOutput(NewQuantity, inputInventoryOutput.Product_Name);
 				ProductReceived(NewQuantity, inputInventoryOutput.Product_Name);
+				AddNewOrder();
 
 				Infrastructure.Utility.WindowsNotification(message: $"{inputInventoryOutput.Product_Name} به فاکتور اضافه گردید.", caption: Infrastructure.PopupNotificationForm.Caption.موفقیت);
 
@@ -568,8 +598,10 @@ namespace Inventory_Forms
 		/// <summary>
 		/// مقداردهی اولیه
 		/// </summary>
-		private void Initialize()
+		public void Initialize()
 		{
+			this.Focus();
+
 			if (Inventory.Program.UserAuthentication == null)
 			{
 				sellerNameTextBox.Text = "حالت استفاده بدون کاربر";
@@ -579,6 +611,7 @@ namespace Inventory_Forms
 				sellerNameTextBox.Text = Inventory.Program.UserAuthentication.Full_Name;
 			}
 
+			AllClear();
 			LoadedProduction();
 		}
 		#endregion /Initialize
@@ -785,24 +818,6 @@ namespace Inventory_Forms
 			}
 		}
 		#endregion /ProductSearch
-
-		#region ResetOrder
-		/// <summary>
-		/// برگشت به حالت اولیه سفارش
-		/// </summary>
-		private void ResetOrder()
-		{
-			InventoryOutput = null;
-
-			billSaleReportsList.Clear();
-			transactionFactorsItems = null;
-
-			productNameTextBox.Clear();
-			productQuantityTextBox.Clear();
-			productUnitTextBox.Clear();
-			productPriceTextBox.Clear();
-		}
-		#endregion /ResetOrder
 
 		#region WarehouseOutput
 		/// <summary>

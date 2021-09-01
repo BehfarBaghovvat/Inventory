@@ -4,6 +4,8 @@ namespace Inventory
 {
 	public partial class MainForm : Infrastructure.BaseForm
 	{
+		//-----------------------------------------------------------------------------------------------     Fields, Properties, Layers
+
 		#region --------------------------------------------------------     Properties     --------------------------------------------------------
 
 		#region --------------------------------------------------------     Layer     --------------------------------------------------------
@@ -129,29 +131,6 @@ namespace Inventory
 			}
 		}
 
-		private Financial_Form.FinancialOrderForm _financialOrderForm;
-		public Financial_Form.FinancialOrderForm FinancialOrderForm
-		{
-			get
-			{
-				if (_financialOrderForm == null || _financialOrderForm.IsDisposed == true)
-				{
-					_financialOrderForm = 
-						new Financial_Form.FinancialOrderForm();
-
-					_financialOrderForm.TopLevel = false;
-					_financialOrderForm.TopMost = true;
-					_financialOrderForm.Dock = System.Windows.Forms.DockStyle.Fill;
-
-				}
-				return _financialOrderForm;
-			}
-			set
-			{
-				_financialOrderForm = value;
-			}
-		}
-
 		private Financial_Form.FinancialReportForm _financialReportForm;
 		public Financial_Form.FinancialReportForm FinancialReportForm
 		{
@@ -204,17 +183,27 @@ namespace Inventory
 		}
 		#endregion /--------------------------------------------------------     Properties     --------------------------------------------------------
 
+
+
+		//-----------------------------------------------------------------------------------------------     Constracture
+
 		public MainForm()
 		{
 			InitializeComponent();
-			ResetSubmenu();
-			LoadingFund();
-
 		}
 
-		//----------Beginning of the code!----------
+
+
+		//-----------------------------------------------------------------------------------------------     Events Controls
 
 		#region          -------------------------------     MainForm     -------------------------------
+
+		#region MainForm_Load
+		private void MainForm_Load(object sender, System.EventArgs e)
+		{
+			Initialize();
+		}
+		#endregion /MainForm_Load
 
 		#region MainForm_FormClosing
 		private void MainForm_FormClosing(object sender, System.Windows.Forms.FormClosingEventArgs e)
@@ -229,31 +218,6 @@ namespace Inventory
 			}
 		}
 		#endregion /MainForm_FormClosing
-
-		#region MainForm_Load
-		private void MainForm_Load(object sender, System.EventArgs e)
-		{
-			AccountLoaded();
-
-			solarCalenderLabel.Text = Infrastructure.Utility.PersianCalendar();
-			gregorianCalendarLabel.Text = Infrastructure.Utility.ADCalendar();
-
-			secondsLabel.Text =
-				System.DateTime.Now.Second.ToString().PadLeft(2, '0');
-
-			minutesLabel.Text =
-				System.DateTime.Now.Minute.ToString().PadLeft(2, '0');
-
-			hoursLabel.Text =
-				System.DateTime.Now.Hour.ToString().PadLeft(2, '0');
-
-			clockTimer.Start();
-
-			this.Opacity = 0.0;
-
-			fadeInMainFormTimer.Start();
-		}
-		#endregion /MainForm_Load
 
 		#region FadeInMainFormTimer_Tick
 		private void FadeInMainFormTimer_Tick(object sender, System.EventArgs e)
@@ -424,14 +388,16 @@ namespace Inventory
 			{
 				mainPanel.Controls.Clear();
 				mainPanel.Controls.Add(ProductBuyForm);
+				ProductBuyForm.Initialize();
 				ProductBuyForm.Show();
+
 
 				ProcutSalesForm.Hide();
 				InventoryForm.Hide();
 				ServiceForm.Hide();
 
 				AncillaryCostsForm.Hide();
-				FinancialOrderForm.Hide();
+				FinancialReportForm.Hide();
 				SafeBoxForm.Hide();
 
 				homeButton.Checked = false;
@@ -458,6 +424,7 @@ namespace Inventory
 			{
 				mainPanel.Controls.Clear();
 				mainPanel.Controls.Add(ProcutSalesForm);
+				ProcutSalesForm.Initialize();
 				ProcutSalesForm.Show();
 
 				ProductBuyForm.Hide();
@@ -465,7 +432,7 @@ namespace Inventory
 				ServiceForm.Hide();
 
 				AncillaryCostsForm.Hide();
-				FinancialOrderForm.Hide();
+				FinancialReportForm.Hide();
 				SafeBoxForm.Hide();
 
 				homeButton.Checked = false;
@@ -492,6 +459,7 @@ namespace Inventory
 			{
 				mainPanel.Controls.Clear();
 				mainPanel.Controls.Add(InventoryForm);
+				InventoryForm.Initialize();
 				InventoryForm.Show();
 
 				ProductBuyForm.Hide();
@@ -499,7 +467,7 @@ namespace Inventory
 				ServiceForm.Hide();
 
 				AncillaryCostsForm.Hide();
-				FinancialOrderForm.Hide();
+				FinancialReportForm.Hide();
 				SafeBoxForm.Hide();
 
 				homeButton.Checked = false;
@@ -526,6 +494,7 @@ namespace Inventory
 			{
 				mainPanel.Controls.Clear();
 				mainPanel.Controls.Add(ServiceForm);
+				ServiceForm.Initialize();
 				ServiceForm.Show();
 
 				ProductBuyForm.Hide();
@@ -533,7 +502,7 @@ namespace Inventory
 				InventoryForm.Hide();
 
 				AncillaryCostsForm.Hide();
-				FinancialOrderForm.Hide();
+				FinancialReportForm.Hide();
 				SafeBoxForm.Hide();
 
 				homeButton.Checked = false;
@@ -626,7 +595,7 @@ namespace Inventory
 				ServiceForm.Hide();
 
 				AncillaryCostsForm.Hide();
-				FinancialOrderForm.Hide();
+				FinancialReportForm.Hide();
 
 				homeButton.Checked = false;
 
@@ -659,8 +628,8 @@ namespace Inventory
 				ProcutSalesForm.Hide();
 				InventoryForm.Hide();
 				ServiceForm.Hide();
-				
-				FinancialOrderForm.Hide();
+
+				FinancialReportForm.Hide();
 				SafeBoxForm.Hide();
 
 				homeButton.Checked = false;
@@ -950,7 +919,7 @@ namespace Inventory
 		}
 		#endregion /ClockTimer_Tick
 
-		//----------End of code!----------
+		//-----------------------------------------------------------------------------------------------     Privat Methods
 
 		#region Founcitons
 
@@ -1020,6 +989,36 @@ namespace Inventory
 			}
 		}
 		#endregion /AccountLoaded
+
+		#region Initialize
+		/// <summary>
+		/// تنظمیات ورود اولیه
+		/// </summary>
+		private void Initialize()
+		{
+			AccountLoaded();
+			ResetSubmenu();
+			LoadingFund();
+
+			solarCalenderLabel.Text = Infrastructure.Utility.PersianCalendar();
+			gregorianCalendarLabel.Text = Infrastructure.Utility.ADCalendar();
+
+			secondsLabel.Text =
+				System.DateTime.Now.Second.ToString().PadLeft(2, '0');
+
+			minutesLabel.Text =
+				System.DateTime.Now.Minute.ToString().PadLeft(2, '0');
+
+			hoursLabel.Text =
+				System.DateTime.Now.Hour.ToString().PadLeft(2, '0');
+
+			clockTimer.Start();
+
+			this.Opacity = 0.0;
+
+			fadeInMainFormTimer.Start();
+		}
+		#endregion /Initialize
 
 		#region LoadingFund
 		/// <summary>
@@ -1168,7 +1167,5 @@ namespace Inventory
 		#endregion /SaveLoginHistory
 
 		#endregion /Founcitons
-
-		
 	}
 }

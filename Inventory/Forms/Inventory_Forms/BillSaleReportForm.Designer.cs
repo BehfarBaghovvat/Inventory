@@ -1044,6 +1044,7 @@ namespace Inventory_Forms
 			this.Font = new System.Drawing.Font("IRANSansX", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
 			this.Name = "BillSaleReportForm";
 			this.Text = "";
+			this.Load += new System.EventHandler(this.BillSaleReportForm_Load);
 			((System.ComponentModel.ISupportInitialize)(this.productsListDataGridView)).EndInit();
 			this.contextMenuStrip.ResumeLayout(false);
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

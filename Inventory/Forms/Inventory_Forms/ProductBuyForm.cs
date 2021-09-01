@@ -110,7 +110,7 @@ namespace Inventory_Forms
 			set { _productReceived_Selected = value; }
 		}
 
-		
+
 
 		#endregion /Properties
 
@@ -126,13 +126,6 @@ namespace Inventory_Forms
 
 
 		//-----------------------------------------------------------------------------------------------     Events Controls
-
-		#region InventoryEntranceForm_Load
-		private void InventoryEntranceForm_Load(object sender, System.EventArgs e)
-		{
-			Initialize();
-		}
-		#endregion /InventoryEntranceForm_Load
 
 		#region ProductNameTextBox_Enter
 		private void ProductNameTextBox_Enter(object sender, System.EventArgs e)
@@ -176,7 +169,7 @@ namespace Inventory_Forms
 			else
 			{
 				checkProductNamePictureBox.Visible = true;
-				if (string.Compare(saveBottom.Text,"ثبت کالا")==0)
+				if (string.Compare(saveBottom.Text, "ثبت کالا") == 0)
 				{
 					if (SearchProduct(productNameTextBox.Text))
 					{
@@ -506,34 +499,33 @@ namespace Inventory_Forms
 		#region SaveBottom_Click
 		private void SaveBottom_Click(object sender, System.EventArgs e)
 		{
-			if (ProductReceived_New.Product_Purchase_Price.Length <= 9)
-			{
-				_firstAmount = decimal.Parse(ProductReceived_New.Product_Purchase_Price.Replace("تومان", string.Empty).Trim());
 
-				_sumAmount = _firstAmount + _secondAmount;
-				_secondAmount = _sumAmount;
-			}
-			else
-			{
-				_firstAmount = decimal.Parse(ProductReceived_New.Product_Purchase_Price.Replace("تومان", string.Empty).Replace(",", string.Empty).Trim());
-
-				_sumAmount = _firstAmount + _secondAmount;
-				_secondAmount = _sumAmount;
-			}
-
-
-		
-			if (!CheckFundBalance(_amount: _sumAmount))
+			if (!ValidationData(ProductReceived_New))
 			{
 				return;
 			}
 			else
 			{
-				if (!ValidationData(ProductReceived_New))
+				if (ProductReceived_New.Product_Purchase_Price.Length <= 9)
+				{
+					_firstAmount = decimal.Parse(ProductReceived_New.Product_Purchase_Price.Replace("تومان", string.Empty).Trim());
+
+					_sumAmount = _firstAmount + _secondAmount;
+					_secondAmount = _sumAmount;
+				}
+				else
+				{
+					_firstAmount = decimal.Parse(ProductReceived_New.Product_Purchase_Price.Replace("تومان", string.Empty).Replace(",", string.Empty).Trim());
+
+					_sumAmount = _firstAmount + _secondAmount;
+					_secondAmount = _sumAmount;
+				}
+				if (!CheckFundBalance(_amount: _sumAmount))
 				{
 					return;
 				}
 				else
+
 				{
 					if (string.Compare(saveBottom.Text, "ثبت کالا") == 0)
 					{
@@ -699,7 +691,7 @@ namespace Inventory_Forms
 			ClearForEdit();
 
 			saveBottom.Text = "ویرایش کالا";
-			
+
 			ProductReceived_New.Product_Name = productRecivedDataGridView.CurrentRow.Cells[1].Value.ToString();
 			InventoryHolding_New.Product_Name = productRecivedDataGridView.CurrentRow.Cells[1].Value.ToString();
 			ProductReceived_Selected.Product_Name = productRecivedDataGridView.CurrentRow.Cells[1].Value.ToString();
@@ -765,17 +757,8 @@ namespace Inventory_Forms
 		private void AllClear()
 		{
 			NumberPurchases = 0;
-			productNameTextBox.Clear();
 
-			if (Inventory.Program.UserAuthentication == null)
-			{
-				recipientNameTextBox.Text = "حالت استفاده بدون کاربر";
-			}
-			else
-			{
-				recipientNameTextBox.Text = Inventory.Program.UserAuthentication.Full_Name;
-			}
-			
+			productNameTextBox.Clear();
 			checkProductNamePictureBox.Image = Inventory.Properties.Resources.Tik_True;
 			checkProductNamePictureBox.Visible = false;
 			productPriceTextBox.Clear();
@@ -930,10 +913,20 @@ namespace Inventory_Forms
 		/// <summary>
 		/// تنظیمات ورودی اولیه
 		/// </summary>
-		private void Initialize()
+		public void Initialize()
 		{
-			CapitalInventory = GetCapitalInventory();
+			this.Focus();
 
+			if (Inventory.Program.UserAuthentication == null)
+			{
+				recipientNameTextBox.Text = "حالت استفاده بدون کاربر";
+			}
+			else
+			{
+				recipientNameTextBox.Text = Inventory.Program.UserAuthentication.Full_Name;
+			}
+
+			CapitalInventory = GetCapitalInventory();
 			AllClear();
 			RefrashData();
 		}
@@ -1211,7 +1204,7 @@ namespace Inventory_Forms
 					productReceived.Number_Edit = inputProductReceived.Number_Edit + 1;
 					productReceived.Last_Edited_Date = Infrastructure.Utility.PersianCalendar(System.DateTime.Now);
 					productReceived.Last_Edited_Time = Infrastructure.Utility.ShowTime();
-				
+
 					dataBaseContext.SaveChanges();
 
 					#region  -----------------------------------------    LogInformationEditingEvents     -----------------------------------------
@@ -1278,6 +1271,8 @@ namespace Inventory_Forms
 				}
 			}
 		}
+
+		
 		#endregion /SearchProduct
 
 		#region TransferName

@@ -248,7 +248,7 @@ namespace Inventory_Forms
 			this.serviceTimeTextBox.ShortcutsEnabled = true;
 			this.serviceTimeTextBox.Size = new System.Drawing.Size(200, 35);
 			this.serviceTimeTextBox.Style = Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox._Style.Material;
-			this.serviceTimeTextBox.TabIndex = 1;
+			this.serviceTimeTextBox.TabIndex = 28;
 			this.serviceTimeTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
 			this.serviceTimeTextBox.TextMarginBottom = 0;
 			this.serviceTimeTextBox.TextMarginLeft = 5;
@@ -324,7 +324,7 @@ namespace Inventory_Forms
 			this.nextKilometerTextBox.ShortcutsEnabled = true;
 			this.nextKilometerTextBox.Size = new System.Drawing.Size(200, 35);
 			this.nextKilometerTextBox.Style = Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox._Style.Material;
-			this.nextKilometerTextBox.TabIndex = 11;
+			this.nextKilometerTextBox.TabIndex = 9;
 			this.nextKilometerTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
 			this.nextKilometerTextBox.TextMarginBottom = 0;
 			this.nextKilometerTextBox.TextMarginLeft = 5;
@@ -404,7 +404,7 @@ namespace Inventory_Forms
 			this.currerntKilometerTextBox.ShortcutsEnabled = true;
 			this.currerntKilometerTextBox.Size = new System.Drawing.Size(200, 35);
 			this.currerntKilometerTextBox.Style = Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox._Style.Material;
-			this.currerntKilometerTextBox.TabIndex = 10;
+			this.currerntKilometerTextBox.TabIndex = 8;
 			this.currerntKilometerTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
 			this.currerntKilometerTextBox.TextMarginBottom = 0;
 			this.currerntKilometerTextBox.TextMarginLeft = 5;
@@ -442,7 +442,7 @@ namespace Inventory_Forms
 			this.serviceRegisterButton.PressedDepth = 60;
 			this.serviceRegisterButton.ShadowDecoration.Parent = this.serviceRegisterButton;
 			this.serviceRegisterButton.Size = new System.Drawing.Size(175, 35);
-			this.serviceRegisterButton.TabIndex = 14;
+			this.serviceRegisterButton.TabIndex = 12;
 			this.serviceRegisterButton.Text = "ثبت سرویس";
 			this.serviceRegisterButton.TextOffset = new System.Drawing.Point(0, -1);
 			this.serviceRegisterButton.Click += new System.EventHandler(this.ServiceRegisterButton_Click);
@@ -476,7 +476,7 @@ namespace Inventory_Forms
 			this.serviceNameComboBox.Size = new System.Drawing.Size(275, 31);
 			this.serviceNameComboBox.StartIndex = 0;
 			this.serviceNameComboBox.Style = Guna.UI2.WinForms.Enums.TextBoxStyle.Material;
-			this.serviceNameComboBox.TabIndex = 5;
+			this.serviceNameComboBox.TabIndex = 3;
 			this.serviceNameComboBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
 			this.serviceNameComboBox.TextRenderingHint = System.Drawing.Text.TextRenderingHint.AntiAlias;
 			this.serviceNameComboBox.SelectionChangeCommitted += new System.EventHandler(this.ServiceNameComboBox_SelectionChangeCommitted);
@@ -530,7 +530,7 @@ namespace Inventory_Forms
 			this.newServiceButton.PressedColor = System.Drawing.Color.White;
 			this.newServiceButton.ShadowDecoration.Parent = this.newServiceButton;
 			this.newServiceButton.Size = new System.Drawing.Size(160, 35);
-			this.newServiceButton.TabIndex = 16;
+			this.newServiceButton.TabIndex = 14;
 			this.newServiceButton.Text = "سرویس جدید";
 			this.newServiceButton.TextOffset = new System.Drawing.Point(0, -1);
 			this.newServiceButton.Click += new System.EventHandler(this.NewServiceButton_Click);
@@ -550,7 +550,7 @@ namespace Inventory_Forms
 			this.serviceInvoiceButton.PressedColor = System.Drawing.Color.White;
 			this.serviceInvoiceButton.ShadowDecoration.Parent = this.serviceInvoiceButton;
 			this.serviceInvoiceButton.Size = new System.Drawing.Size(50, 50);
-			this.serviceInvoiceButton.TabIndex = 17;
+			this.serviceInvoiceButton.TabIndex = 13;
 			this.serviceInvoiceButton.Click += new System.EventHandler(this.ServiceInvoiceButton_Click);
 			// 
 			// reductionServiceButton
@@ -575,7 +575,7 @@ namespace Inventory_Forms
 			this.reductionServiceButton.PressedColor = System.Drawing.Color.White;
 			this.reductionServiceButton.ShadowDecoration.Parent = this.reductionServiceButton;
 			this.reductionServiceButton.Size = new System.Drawing.Size(160, 35);
-			this.reductionServiceButton.TabIndex = 13;
+			this.reductionServiceButton.TabIndex = 11;
 			this.reductionServiceButton.Text = "کاهش سرویس";
 			this.reductionServiceButton.TextOffset = new System.Drawing.Point(0, -1);
 			this.reductionServiceButton.Click += new System.EventHandler(this.ReductionServiceButton_Click);
@@ -588,7 +588,7 @@ namespace Inventory_Forms
 			this.remainingTextBox.Name = "remainingTextBox";
 			this.remainingTextBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
 			this.remainingTextBox.Size = new System.Drawing.Size(360, 25);
-			this.remainingTextBox.TabIndex = 28;
+			this.remainingTextBox.TabIndex = 26;
 			this.remainingTextBox.Text = "0 تومان";
 			this.remainingTextBox.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
 			// 
@@ -601,7 +601,7 @@ namespace Inventory_Forms
 			this.remainingLabel.Name = "remainingLabel";
 			this.remainingLabel.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
 			this.remainingLabel.Size = new System.Drawing.Size(112, 22);
-			this.remainingLabel.TabIndex = 27;
+			this.remainingLabel.TabIndex = 25;
 			this.remainingLabel.Text = "باقی مانده حساب:";
 			// 
 			// plusMarkLabel
@@ -613,7 +613,7 @@ namespace Inventory_Forms
 			this.plusMarkLabel.Name = "plusMarkLabel";
 			this.plusMarkLabel.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
 			this.plusMarkLabel.Size = new System.Drawing.Size(25, 31);
-			this.plusMarkLabel.TabIndex = 20;
+			this.plusMarkLabel.TabIndex = 18;
 			this.plusMarkLabel.Text = "+";
 			// 
 			// posPaymentTextBox
@@ -683,7 +683,7 @@ namespace Inventory_Forms
 			this.posPaymentTextBox.ShortcutsEnabled = true;
 			this.posPaymentTextBox.Size = new System.Drawing.Size(200, 35);
 			this.posPaymentTextBox.Style = Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox._Style.Material;
-			this.posPaymentTextBox.TabIndex = 21;
+			this.posPaymentTextBox.TabIndex = 17;
 			this.posPaymentTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
 			this.posPaymentTextBox.TextMarginBottom = 0;
 			this.posPaymentTextBox.TextMarginLeft = 5;
@@ -763,7 +763,7 @@ namespace Inventory_Forms
 			this.cashPaymentTextBox.ShortcutsEnabled = true;
 			this.cashPaymentTextBox.Size = new System.Drawing.Size(200, 35);
 			this.cashPaymentTextBox.Style = Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox._Style.Material;
-			this.cashPaymentTextBox.TabIndex = 19;
+			this.cashPaymentTextBox.TabIndex = 16;
 			this.cashPaymentTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
 			this.cashPaymentTextBox.TextMarginBottom = 0;
 			this.cashPaymentTextBox.TextMarginLeft = 5;
@@ -782,7 +782,7 @@ namespace Inventory_Forms
 			this.separatorPanel.Location = new System.Drawing.Point(36, 586);
 			this.separatorPanel.Name = "separatorPanel";
 			this.separatorPanel.Size = new System.Drawing.Size(495, 3);
-			this.separatorPanel.TabIndex = 26;
+			this.separatorPanel.TabIndex = 24;
 			// 
 			// paymentTypeGroupBox
 			// 
@@ -804,7 +804,7 @@ namespace Inventory_Forms
 			this.paymentTypeGroupBox.Name = "paymentTypeGroupBox";
 			this.paymentTypeGroupBox.ShadowDecoration.Parent = this.paymentTypeGroupBox;
 			this.paymentTypeGroupBox.Size = new System.Drawing.Size(436, 89);
-			this.paymentTypeGroupBox.TabIndex = 29;
+			this.paymentTypeGroupBox.TabIndex = 19;
 			this.paymentTypeGroupBox.Text = "نوع پرداخت";
 			this.paymentTypeGroupBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
 			this.paymentTypeGroupBox.TextOffset = new System.Drawing.Point(-10, -6);
@@ -959,7 +959,7 @@ namespace Inventory_Forms
 			this.amountPaidTextBox.Name = "amountPaidTextBox";
 			this.amountPaidTextBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
 			this.amountPaidTextBox.Size = new System.Drawing.Size(360, 25);
-			this.amountPaidTextBox.TabIndex = 25;
+			this.amountPaidTextBox.TabIndex = 23;
 			this.amountPaidTextBox.Text = "0 تومان";
 			this.amountPaidTextBox.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
 			this.amountPaidTextBox.TextChanged += new System.EventHandler(this.AmountPaidTextBox_TextChanged);
@@ -973,7 +973,7 @@ namespace Inventory_Forms
 			this.amountPaidLabel.Name = "amountPaidLabel";
 			this.amountPaidLabel.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
 			this.amountPaidLabel.Size = new System.Drawing.Size(86, 22);
-			this.amountPaidLabel.TabIndex = 24;
+			this.amountPaidLabel.TabIndex = 22;
 			this.amountPaidLabel.Text = "مبلغ پرداختی:";
 			// 
 			// sumPriceTextBox
@@ -984,7 +984,7 @@ namespace Inventory_Forms
 			this.sumPriceTextBox.Name = "sumPriceTextBox";
 			this.sumPriceTextBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
 			this.sumPriceTextBox.Size = new System.Drawing.Size(360, 25);
-			this.sumPriceTextBox.TabIndex = 23;
+			this.sumPriceTextBox.TabIndex = 21;
 			this.sumPriceTextBox.Text = "0 تومان";
 			this.sumPriceTextBox.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
 			this.sumPriceTextBox.TextChanged += new System.EventHandler(this.SumPriceTextBox_TextChanged);
@@ -998,7 +998,7 @@ namespace Inventory_Forms
 			this.sumPriceLabel.Name = "sumPriceLabel";
 			this.sumPriceLabel.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
 			this.sumPriceLabel.Size = new System.Drawing.Size(80, 22);
-			this.sumPriceLabel.TabIndex = 22;
+			this.sumPriceLabel.TabIndex = 20;
 			this.sumPriceLabel.Text = "جمع حساب:";
 			// 
 			// addServiceButton
@@ -1022,7 +1022,7 @@ namespace Inventory_Forms
 			this.addServiceButton.PressedColor = System.Drawing.Color.White;
 			this.addServiceButton.ShadowDecoration.Parent = this.addServiceButton;
 			this.addServiceButton.Size = new System.Drawing.Size(160, 35);
-			this.addServiceButton.TabIndex = 12;
+			this.addServiceButton.TabIndex = 10;
 			this.addServiceButton.Text = "افزودن سرویس";
 			this.addServiceButton.TextOffset = new System.Drawing.Point(0, -1);
 			this.addServiceButton.Click += new System.EventHandler(this.AddServiceButton_Click);
@@ -1093,7 +1093,7 @@ namespace Inventory_Forms
 			this.serviceNumberTextBox.ShortcutsEnabled = true;
 			this.serviceNumberTextBox.Size = new System.Drawing.Size(100, 35);
 			this.serviceNumberTextBox.Style = Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox._Style.Material;
-			this.serviceNumberTextBox.TabIndex = 7;
+			this.serviceNumberTextBox.TabIndex = 5;
 			this.serviceNumberTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
 			this.serviceNumberTextBox.TextMarginBottom = 0;
 			this.serviceNumberTextBox.TextMarginLeft = 5;
@@ -1171,7 +1171,7 @@ namespace Inventory_Forms
 			this.descriptionTextBox.ShortcutsEnabled = true;
 			this.descriptionTextBox.Size = new System.Drawing.Size(680, 35);
 			this.descriptionTextBox.Style = Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox._Style.Material;
-			this.descriptionTextBox.TabIndex = 9;
+			this.descriptionTextBox.TabIndex = 7;
 			this.descriptionTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
 			this.descriptionTextBox.TextMarginBottom = 0;
 			this.descriptionTextBox.TextMarginLeft = 0;
@@ -1249,7 +1249,7 @@ namespace Inventory_Forms
 			this.repairmanNameTextBox.ShortcutsEnabled = true;
 			this.repairmanNameTextBox.Size = new System.Drawing.Size(200, 35);
 			this.repairmanNameTextBox.Style = Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox._Style.Material;
-			this.repairmanNameTextBox.TabIndex = 8;
+			this.repairmanNameTextBox.TabIndex = 6;
 			this.repairmanNameTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
 			this.repairmanNameTextBox.TextMarginBottom = 0;
 			this.repairmanNameTextBox.TextMarginLeft = 5;
@@ -1327,7 +1327,7 @@ namespace Inventory_Forms
 			this.licensePlateTextBox.ShortcutsEnabled = true;
 			this.licensePlateTextBox.Size = new System.Drawing.Size(200, 35);
 			this.licensePlateTextBox.Style = Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox._Style.Material;
-			this.licensePlateTextBox.TabIndex = 4;
+			this.licensePlateTextBox.TabIndex = 2;
 			this.licensePlateTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
 			this.licensePlateTextBox.TextMarginBottom = 0;
 			this.licensePlateTextBox.TextMarginLeft = 5;
@@ -1405,7 +1405,7 @@ namespace Inventory_Forms
 			this.clientNameTextBox.ShortcutsEnabled = true;
 			this.clientNameTextBox.Size = new System.Drawing.Size(200, 35);
 			this.clientNameTextBox.Style = Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox._Style.Material;
-			this.clientNameTextBox.TabIndex = 3;
+			this.clientNameTextBox.TabIndex = 1;
 			this.clientNameTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
 			this.clientNameTextBox.TextMarginBottom = 0;
 			this.clientNameTextBox.TextMarginLeft = 5;
@@ -1484,7 +1484,7 @@ namespace Inventory_Forms
 			this.servicePriceTextBox.ShortcutsEnabled = true;
 			this.servicePriceTextBox.Size = new System.Drawing.Size(200, 35);
 			this.servicePriceTextBox.Style = Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox._Style.Material;
-			this.servicePriceTextBox.TabIndex = 6;
+			this.servicePriceTextBox.TabIndex = 4;
 			this.servicePriceTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
 			this.servicePriceTextBox.TextMarginBottom = 0;
 			this.servicePriceTextBox.TextMarginLeft = 5;
@@ -1562,7 +1562,7 @@ namespace Inventory_Forms
 			this.inventorySerialNumberTextBox.ShortcutsEnabled = true;
 			this.inventorySerialNumberTextBox.Size = new System.Drawing.Size(200, 35);
 			this.inventorySerialNumberTextBox.Style = Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox._Style.Material;
-			this.inventorySerialNumberTextBox.TabIndex = 2;
+			this.inventorySerialNumberTextBox.TabIndex = 29;
 			this.inventorySerialNumberTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
 			this.inventorySerialNumberTextBox.TextMarginBottom = 0;
 			this.inventorySerialNumberTextBox.TextMarginLeft = 5;
@@ -1637,7 +1637,7 @@ namespace Inventory_Forms
 			this.serviceDateTextBox.ShortcutsEnabled = true;
 			this.serviceDateTextBox.Size = new System.Drawing.Size(200, 35);
 			this.serviceDateTextBox.Style = Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox._Style.Material;
-			this.serviceDateTextBox.TabIndex = 0;
+			this.serviceDateTextBox.TabIndex = 27;
 			this.serviceDateTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
 			this.serviceDateTextBox.TextMarginBottom = 0;
 			this.serviceDateTextBox.TextMarginLeft = 5;
@@ -1708,7 +1708,7 @@ namespace Inventory_Forms
 			this.listServiceDataGridView.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
 			this.listServiceDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
 			this.listServiceDataGridView.Size = new System.Drawing.Size(1125, 271);
-			this.listServiceDataGridView.TabIndex = 18;
+			this.listServiceDataGridView.TabIndex = 0;
 			this.listServiceDataGridView.Theme = Guna.UI.WinForms.GunaDataGridViewPresetThemes.Turquoise;
 			this.listServiceDataGridView.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(223)))), ((int)(((byte)(179)))), ((int)(((byte)(241)))));
 			this.listServiceDataGridView.ThemeStyle.AlternatingRowsStyle.Font = null;

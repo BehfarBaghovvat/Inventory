@@ -144,12 +144,12 @@ namespace Financial_Order
 			if (monthDailyOrderComboBox.SelectedIndex < 1)
 			{
 				DailyFinancialReport.Month = null;
-				monthDailyOrderComboBox.ForeColor = System.Drawing.Color.Gray;
+				monthDailyOrderComboBox.ForeColor = System.Drawing.Color.Silver;
 				return;
 			}
 			else
 			{
-				monthDailyOrderComboBox.ForeColor = System.Drawing.Color.White;
+				monthDailyOrderComboBox.ForeColor = System.Drawing.Color.Black;
 				DailyFinancialReport.Month = monthDailyOrderComboBox.SelectedIndex ;
 			}
 		}
@@ -568,11 +568,11 @@ namespace Financial_Order
 
 			foreach (var day in days)
 			{
-				System.Collections.Generic.List<int> values = new System.Collections.Generic.List<int>();
+				System.Collections.Generic.List<decimal> values = new System.Collections.Generic.List<decimal>();
 
 				for (int hour = 00; hour <= 23; hour++)
 				{
-					int amountsPaid = 0;
+					decimal amountsPaid = 0;
 
 					var data = from o in financialDataGridView.DataSource as System.Collections.Generic.List<Models.DailyFinancialReport>
 							   where o.Day.Equals(day.Day) && o.Day.Equals(hour)
@@ -580,12 +580,12 @@ namespace Financial_Order
 							   select new { o.Amounts_Paid, o.Hour, o.Minute };
 					if (data.SingleOrDefault() != null)
 					{
-						amountsPaid = int.Parse(data.FirstOrDefault().Amounts_Paid);
+						amountsPaid = decimal.Parse(data.FirstOrDefault().Amounts_Paid.Replace("تومان",string.Empty).Replace(",",string.Empty).Trim());
 					}
 					values.Add(amountsPaid);
 
 				}
-				seriesViews.Add(new LiveCharts.Wpf.LineSeries() { Title = "مبالغ پرداختی", Values = new LiveCharts.ChartValues<int>(values)});
+				seriesViews.Add(new LiveCharts.Wpf.LineSeries() { Title = "مبالغ پرداختی", Values = new LiveCharts.ChartValues<decimal>(values)});
 				statisticsDisplayChart.Series = seriesViews;
 			}
 			#endregion /Amounts Paid
@@ -605,11 +605,11 @@ namespace Financial_Order
 							   select new { o.Amounts_Received, o.Hour, o.Minute};
 					if (data.SingleOrDefault() != null)
 					{
-						amountsReceived = int.Parse(data.FirstOrDefault().Amounts_Received);
+						amountsReceived = int.Parse(data.FirstOrDefault().Amounts_Received.Replace("تومان", string.Empty).Replace(",", string.Empty).Trim());
 					}
 					values.Add(amountsReceived);
 				}
-				seriesViews.Add(new LiveCharts.Wpf.LineSeries() { Title = "مبالغ دریافتی", Values = new LiveCharts.ChartValues<int>(values) });
+				seriesViews.Add(new LiveCharts.Wpf.LineSeries() { Title = "مبالغ دریافتی", Values = new LiveCharts.ChartValues<int>(values)});
 				statisticsDisplayChart.Series = seriesViews;
 			}
 			#endregion /Amounts Received
@@ -683,11 +683,11 @@ namespace Financial_Order
 			#region Sum Total Price Of Day
 			foreach (var month in months)
 			{
-				System.Collections.Generic.List<int> values = new System.Collections.Generic.List<int>();
+				System.Collections.Generic.List<decimal> values = new System.Collections.Generic.List<decimal>();
 
 				for (int day = 1; day <= 31; day++)
 				{
-					int totalPrice = 0;
+					decimal totalPrice = 0;
 
 					var data = from o in financialDataGridView.DataSource as System.Collections.Generic.List<Models.MonthlyFinancialReport>
 							   where o.Month.Equals(month.Month) && o.Day.Equals(day)
@@ -695,11 +695,12 @@ namespace Financial_Order
 							   select new { o.Sum_Total_Price_Of_Day, o.Day };
 					if (data.SingleOrDefault() != null)
 					{
-						totalPrice = int.Parse(data.FirstOrDefault().Sum_Total_Price_Of_Day);
+						totalPrice = 
+							decimal.Parse(data.FirstOrDefault().Sum_Total_Price_Of_Day.Replace("تومان", string.Empty).Replace(",", string.Empty).Trim());
 					}
 					values.Add(totalPrice);
 				}
-				series.Add(new LiveCharts.Wpf.LineSeries() { Title = $"جمع کل حساب روز", Values = new LiveCharts.ChartValues<int>(values) });
+				series.Add(new LiveCharts.Wpf.LineSeries() { Title = $"جمع کل حساب روز", Values = new LiveCharts.ChartValues<decimal>(values) });
 				statisticsDisplayChart.Series = series;
 			}
 			#endregion /Sum Total Price Of Day
@@ -707,11 +708,11 @@ namespace Financial_Order
 			#region Sum Payment Amount Of Day
 			foreach (var month in months)
 			{
-				System.Collections.Generic.List<int> values = new System.Collections.Generic.List<int>();
+				System.Collections.Generic.List<decimal> values = new System.Collections.Generic.List<decimal>();
 
 				for (int day = 1; day <= 31; day++)
 				{
-					int paymentAmount = 0;
+					decimal paymentAmount = 0;
 
 					var data = from o in financialDataGridView.DataSource as System.Collections.Generic.List<Models.MonthlyFinancialReport>
 							   where o.Month.Equals(month.Month) && o.Day.Equals(day)
@@ -719,12 +720,13 @@ namespace Financial_Order
 							   select new { o.Sum_Payment_Amount_Of_Day, o.Day };
 					if (data.SingleOrDefault() != null)
 					{
-						paymentAmount = int.Parse(data.FirstOrDefault().Sum_Payment_Amount_Of_Day);
+						paymentAmount = 
+							decimal.Parse(data.FirstOrDefault().Sum_Payment_Amount_Of_Day.Replace("تومان", string.Empty).Replace(",", string.Empty).Trim());
 					}
 					values.Add(paymentAmount);
 
 				}
-				series.Add(new LiveCharts.Wpf.LineSeries() { Title = "جمع کل پرداختی روز", Values = new LiveCharts.ChartValues<int>(values) });
+				series.Add(new LiveCharts.Wpf.LineSeries() { Title = "جمع کل پرداختی روز", Values = new LiveCharts.ChartValues<decimal>(values) });
 				statisticsDisplayChart.Series = series;
 			}
 			#endregion /Sum Payment Amount Of Day
@@ -732,11 +734,11 @@ namespace Financial_Order
 			#region Sum Remaining Amount Of Day
 			foreach (var month in months)
 			{
-				System.Collections.Generic.List<int> values = new System.Collections.Generic.List<int>();
+				System.Collections.Generic.List<decimal> values = new System.Collections.Generic.List<decimal>();
 
 				for (int day = 1; day <= 31; day++)
 				{
-					int remainingAmount = 0;
+					decimal remainingAmount = 0;
 
 					var data = from o in financialDataGridView.DataSource as System.Collections.Generic.List<Models.MonthlyFinancialReport>
 							   where o.Month.Equals(month.Month) && o.Day.Equals(day)
@@ -744,12 +746,13 @@ namespace Financial_Order
 							   select new { o.Sum_Remaining_Amount_Of_Day, o.Day };
 					if (data.SingleOrDefault() != null)
 					{
-						remainingAmount = int.Parse(data.FirstOrDefault().Sum_Remaining_Amount_Of_Day);
+						remainingAmount =
+							decimal.Parse(data.FirstOrDefault().Sum_Remaining_Amount_Of_Day.Replace("تومان", string.Empty).Replace(",", string.Empty).Trim());
 					}
 					values.Add(remainingAmount);
 
 				}
-				series.Add(new LiveCharts.Wpf.LineSeries() { Title = "جمع کل بدهی روز", Values = new LiveCharts.ChartValues<int>(values) });
+				series.Add(new LiveCharts.Wpf.LineSeries() { Title = "جمع کل بدهی روز", Values = new LiveCharts.ChartValues<decimal>(values) });
 				statisticsDisplayChart.Series = series;
 			}
 			#endregion /Sum Remaining Amount Of Day
@@ -822,11 +825,11 @@ namespace Financial_Order
 			#region Sum Total Price Of Day
 			foreach (var year in years)
 			{
-				System.Collections.Generic.List<int> values = new System.Collections.Generic.List<int>();
+				System.Collections.Generic.List<decimal> values = new System.Collections.Generic.List<decimal>();
 
 				for (int month = 1; month <= 12; month++)
 				{
-					int totalPrice = 0;
+					decimal totalPrice = 0;
 
 					var data = from o in financialDataGridView.DataSource as System.Collections.Generic.List<Models.YearlyFinancialReport>
 							   where o.Year.Equals(year.Year) && o.Month.Equals(month)
@@ -834,11 +837,12 @@ namespace Financial_Order
 							   select new { o.Sum_Total_Price_Of_Month, o.Month };
 					if (data.SingleOrDefault() != null)
 					{
-						totalPrice = int.Parse(data.FirstOrDefault().Sum_Total_Price_Of_Month);
+						totalPrice =
+							decimal.Parse(data.FirstOrDefault().Sum_Total_Price_Of_Month.Replace("تومان", string.Empty).Replace(",", string.Empty).Trim());
 					}
 					values.Add(totalPrice);
 				}
-				series.Add(new LiveCharts.Wpf.LineSeries() { Title = $"جمع کل حساب ماه", Values = new LiveCharts.ChartValues<int>(values) });
+				series.Add(new LiveCharts.Wpf.LineSeries() { Title = $"جمع کل حساب ماه", Values = new LiveCharts.ChartValues<decimal>(values)});
 				statisticsDisplayChart.Series = series;
 			}
 			#endregion /Sum Total Price Of Day
@@ -846,11 +850,11 @@ namespace Financial_Order
 			#region Sum_Payment_Amount_Of_Month
 			foreach (var year in years)
 			{
-				System.Collections.Generic.List<int> values = new System.Collections.Generic.List<int>();
+				System.Collections.Generic.List<decimal> values = new System.Collections.Generic.List<decimal>();
 
 				for (int month = 1; month <= 12; month++)
 				{
-					int paymentAmount = 0;
+					decimal paymentAmount = 0;
 
 					var data = from o in financialDataGridView.DataSource as System.Collections.Generic.List<Models.YearlyFinancialReport>
 							   where o.Year.Equals(year.Year) && o.Month.Equals(month)
@@ -858,12 +862,12 @@ namespace Financial_Order
 							   select new { o.Sum_Payment_Amount_Of_Month, o.Month };
 					if (data.SingleOrDefault() != null)
 					{
-						paymentAmount = int.Parse(data.FirstOrDefault().Sum_Payment_Amount_Of_Month);
+						paymentAmount = decimal.Parse(data.FirstOrDefault().Sum_Payment_Amount_Of_Month.Replace("تومان", string.Empty).Replace(",", string.Empty).Trim());
 					}
 					values.Add(paymentAmount);
 
 				}
-				series.Add(new LiveCharts.Wpf.LineSeries() { Title = "جمع کل پرداختی ماه", Values = new LiveCharts.ChartValues<int>(values) });
+				series.Add(new LiveCharts.Wpf.LineSeries() { Title = "جمع کل پرداختی ماه", Values = new LiveCharts.ChartValues<decimal>(values) });
 				statisticsDisplayChart.Series = series;
 			}
 			#endregion /Sum_Payment_Amount_Of_Month
@@ -871,11 +875,11 @@ namespace Financial_Order
 			#region Sum_Remaining_Amount_Of_Month
 			foreach (var year in years)
 			{
-				System.Collections.Generic.List<int> values = new System.Collections.Generic.List<int>();
+				System.Collections.Generic.List<decimal> values = new System.Collections.Generic.List<decimal>();
 
 				for (int month = 1; month <= 12; month++)
 				{
-					int remainingAmount = 0;
+					decimal remainingAmount = 0;
 
 					var data = from o in financialDataGridView.DataSource as System.Collections.Generic.List<Models.YearlyFinancialReport>
 							   where o.Year.Equals(year.Year) && o.Month.Equals(month)
@@ -883,12 +887,13 @@ namespace Financial_Order
 							   select new { o.Sum_Remaining_Amount_Of_Month, o.Month };
 					if (data.SingleOrDefault() != null)
 					{
-						remainingAmount = int.Parse(data.FirstOrDefault().Sum_Remaining_Amount_Of_Month);
+						remainingAmount = 
+							int.Parse(data.FirstOrDefault().Sum_Remaining_Amount_Of_Month.Replace("تومان", string.Empty).Replace(",", string.Empty).Trim());
 					}
 					values.Add(remainingAmount);
 
 				}
-				series.Add(new LiveCharts.Wpf.LineSeries() { Title = "جمع کل بدهی ماه", Values = new LiveCharts.ChartValues<int>(values) });
+				series.Add(new LiveCharts.Wpf.LineSeries() { Title = "جمع کل بدهی ماه", Values = new LiveCharts.ChartValues<decimal>(values) });
 				statisticsDisplayChart.Series = series;
 			}
 			#endregion /Sum Remaining Amount Of Day

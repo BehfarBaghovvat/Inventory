@@ -16,7 +16,7 @@ namespace Inventory_Forms
 			public int? Amount { get; set; }
 			public int? Amount_Payable { get; set; }
 			public int? Amount_Paid { get; set; }
-			public long? Capital_Fund { get; set; }
+			public decimal? Capital_Fund { get; set; }
 			public string Client_Name { get; set; }
 			public string Carrier_Name { get; set; }
 			public int? Cash_Payment_Amount { get; set; }
@@ -150,12 +150,19 @@ namespace Inventory_Forms
 		public BillSaleReportForm()
 		{
 			InitializeComponent();
-			Initialize();
+			
 		}
 
 
 
 		//-----------------------------------------------------------------------------------------------     Events Controls
+
+		#region BillSaleReportForm_Load
+		private void BillSaleReportForm_Load(object sender, System.EventArgs e)
+		{
+			Initialize();
+		}
+		#endregion /BillSaleReportForm_Load
 
 		#region CloseButton_Click
 		private void CloseButton_Click(object sender, System.EventArgs e)
@@ -830,28 +837,7 @@ namespace Inventory_Forms
 				return;
 			}
 		}
-		#endregion /CalculatePurchaseAmount
-
-		#region Initialize
-		/// <summary>
-		/// مقدار دهی اولیه
-		/// </summary>
-		private void Initialize()
-		{
-			auditItem.Capital_Fund = LoadingCapitalFund();
-			auditItem.InvoiceSerialNumber = SetInvoiceSerialNumber();
-			invoiceSerialNumberTextBox.Text = auditItem.InvoiceSerialNumber;
-			showFormAnimateWindow.Interval = 200;
-			showFormAnimateWindow.AnimationType = Guna.UI.WinForms.GunaAnimateWindow.AnimateWindowType.AW_CENTER;
-			showFormAnimateWindow.Start();
-			auditItem.Tax_Amount = 0;
-			auditItem.Amount_Payable = 0;
-			auditItem.Amount_Paid = 0;
-			auditItem.Register_Date = Infrastructure.Utility.PersianCalendar(System.DateTime.Now);
-			auditItem.Register_Time = Infrastructure.Utility.ShowTime();
-			dateSetInvoiceTextBox.Text = $"{auditItem.Register_Date} - {auditItem.Register_Time}";
-		}
-		#endregion /Initialize
+		#endregion /CalculatePurchaseAmount		
 
 		#region Deposit
 		/// <summary>
@@ -932,6 +918,69 @@ namespace Inventory_Forms
 		}
 		#endregion /EditBill
 
+		#region Initialize
+		/// <summary>
+		/// تنظیمات ورود اولیه
+		/// </summary>
+		private void Initialize()
+		{
+			auditItem.Capital_Fund = GetCapitalFund();
+			auditItem.InvoiceSerialNumber = SetInvoiceSerialNumber();
+			invoiceSerialNumberTextBox.Text = auditItem.InvoiceSerialNumber;
+			showFormAnimateWindow.Interval = 200;
+			showFormAnimateWindow.AnimationType = Guna.UI.WinForms.GunaAnimateWindow.AnimateWindowType.AW_CENTER;
+			showFormAnimateWindow.Start();
+			auditItem.Tax_Amount = 0;
+			auditItem.Amount_Payable = 0;
+			auditItem.Amount_Paid = 0;
+			auditItem.Register_Date = Infrastructure.Utility.PersianCalendar(System.DateTime.Now);
+			auditItem.Register_Time = Infrastructure.Utility.ShowTime();
+			dateSetInvoiceTextBox.Text = $"{auditItem.Register_Date} - {auditItem.Register_Time}";
+		}
+		#endregion /Initialize
+
+		#region GetCapitalFund
+		/// <summary>
+		/// به روز رسانی صندوق
+		/// </summary>
+		/// <returns></returns>
+		private decimal? GetCapitalFund()
+		{
+			decimal? capital_Fund;
+			Models.DataBaseContext dataBaseContext = null;
+			try
+			{
+				dataBaseContext =
+					new Models.DataBaseContext();
+
+				Models.CapitalFund capitalFund =
+					dataBaseContext.CapitalFunds
+					.FirstOrDefault();
+
+				capital_Fund = decimal.Parse(capitalFund.Capital_Fund.Replace("تومان", string.Empty).Replace(",", string.Empty).Trim());
+
+				MainForm.fundsNotificationTextBox.Text = $"{capital_Fund:#,0} تومان";
+
+				return capital_Fund;
+
+			}
+			catch (System.Exception ex)
+			{
+				Infrastructure.Utility.ExceptionShow(ex);
+
+				return null;
+			}
+			finally
+			{
+				if (dataBaseContext != null)
+				{
+					dataBaseContext.Dispose();
+					dataBaseContext = null;
+				}
+			}
+		}
+		#endregion /GetCapitalFund
+
 		#region RefreshCalculator
 		private void RefreshCalculator()
 		{
@@ -976,51 +1025,6 @@ namespace Inventory_Forms
 			debtorRadioButton.Checked = false;
 		}
 		#endregion ResetAllControl
-
-		#region LoadingCapitalFund
-		/// <summary>
-		/// به روز رسانی صندوق
-		/// </summary>
-		/// <returns></returns>
-		private long LoadingCapitalFund()
-		{
-			long capital_Fund;
-			Models.DataBaseContext dataBaseContext = null;
-			try
-			{
-				dataBaseContext =
-					new Models.DataBaseContext();
-
-				Models.CapitalFund capitalFund =
-					dataBaseContext.CapitalFunds
-					.FirstOrDefault();
-
-				capital_Fund = long.Parse(capitalFund.Capital_Fund
-					.Replace("تومان", string.Empty)
-					.Replace(",", string.Empty)
-					.Trim());
-
-				MainForm.fundsNotificationTextBox.Text = $"{capital_Fund:#,0} تومان";
-
-				return capital_Fund;
-
-			}
-			catch (System.Exception ex)
-			{
-				Infrastructure.Utility.ExceptionShow(ex);
-
-				return 0;
-			}
-			finally
-			{
-				if (dataBaseContext != null)
-				{
-					dataBaseContext.Dispose();
-					dataBaseContext = null;
-				}
-			}
-		}
-		#endregion /LoadingCapitalFund
 
 		#region SetDailyFinancialReport
 		/// <summary>
@@ -1259,10 +1263,9 @@ namespace Inventory_Forms
 		{
 
 		}
+
 		#endregion /Inbox
 
 		#endregion /Function
-
-
 	}
 }

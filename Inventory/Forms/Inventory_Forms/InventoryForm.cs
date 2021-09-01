@@ -13,8 +13,6 @@ namespace Inventory_Forms
 		public InventoryForm()
 		{
 			InitializeComponent();
-
-			LoadedProduction();
 		}
 
 
@@ -55,7 +53,22 @@ namespace Inventory_Forms
 
 		#region Function
 
+		#region Initialize
+		/// <summary>
+		/// تنظیمات ورود اولیه
+		/// </summary>
+		public void Initialize()
+		{
+			this.Focus();
+			productNameSearchTextBox.Clear();
+			LoadedProduction();
+		}
+		#endregion /Initialize
+
 		#region LoadedProduction
+		/// <summary>
+		/// بارگزاری کالاها
+		/// </summary>
 		private void LoadedProduction()
 		{
 			Models.DataBaseContext dataBaseContext = null;
@@ -83,6 +96,10 @@ namespace Inventory_Forms
 		#endregion /LoadedProduction
 
 		#region ProductNameSearch
+		/// <summary>
+		/// جستجوی کالا بر اساس نام
+		/// </summary>
+		/// <param name="productNameSearch"></param>
 		private void ProductNameSearch(string productNameSearch)
 		{
 			Models.DataBaseContext dataBaseContext = null;
@@ -128,5 +145,7 @@ namespace Inventory_Forms
 		#endregion /ProductNameSearch
 
 		#endregion /Function
+
+		
 	}
 }

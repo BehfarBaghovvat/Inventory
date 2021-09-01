@@ -41,9 +41,6 @@ namespace Inventory_Forms
 			Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties4 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
 			this.mainPanel = new Guna.UI2.WinForms.Guna2Panel();
 			this.inventoryHoldingDataGridView = new System.Windows.Forms.DataGridView();
-			this.inventoryHoldingBindingSource = new System.Windows.Forms.BindingSource(this.components);
-			this.productNameSearchTextBox = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox();
-			this.inventoryHoldingDataGridViewElipse = new Guna.UI2.WinForms.Guna2Elipse(this.components);
 			this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.productNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.productQuantityDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -51,6 +48,9 @@ namespace Inventory_Forms
 			this.productPurchasePriceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.registrationDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.registrationTimeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.inventoryHoldingBindingSource = new System.Windows.Forms.BindingSource(this.components);
+			this.productNameSearchTextBox = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox();
+			this.inventoryHoldingDataGridViewElipse = new Guna.UI2.WinForms.Guna2Elipse(this.components);
 			this.mainPanel.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.inventoryHoldingDataGridView)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.inventoryHoldingBindingSource)).BeginInit();
@@ -71,7 +71,7 @@ namespace Inventory_Forms
 			this.mainPanel.Name = "mainPanel";
 			this.mainPanel.ShadowDecoration.Parent = this.mainPanel;
 			this.mainPanel.Size = new System.Drawing.Size(1150, 650);
-			this.mainPanel.TabIndex = 1;
+			this.mainPanel.TabIndex = 0;
 			this.mainPanel.UseTransparentBackground = true;
 			// 
 			// inventoryHoldingDataGridView
@@ -142,7 +142,60 @@ namespace Inventory_Forms
 			this.inventoryHoldingDataGridView.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
 			this.inventoryHoldingDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
 			this.inventoryHoldingDataGridView.Size = new System.Drawing.Size(1124, 587);
-			this.inventoryHoldingDataGridView.TabIndex = 13;
+			this.inventoryHoldingDataGridView.TabIndex = 0;
+			// 
+			// idDataGridViewTextBoxColumn
+			// 
+			this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
+			this.idDataGridViewTextBoxColumn.FillWeight = 50F;
+			this.idDataGridViewTextBoxColumn.HeaderText = "ردیف";
+			this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
+			this.idDataGridViewTextBoxColumn.ReadOnly = true;
+			// 
+			// productNameDataGridViewTextBoxColumn
+			// 
+			this.productNameDataGridViewTextBoxColumn.DataPropertyName = "Product_Name";
+			this.productNameDataGridViewTextBoxColumn.FillWeight = 200F;
+			this.productNameDataGridViewTextBoxColumn.HeaderText = "نام کالا";
+			this.productNameDataGridViewTextBoxColumn.Name = "productNameDataGridViewTextBoxColumn";
+			this.productNameDataGridViewTextBoxColumn.ReadOnly = true;
+			// 
+			// productQuantityDataGridViewTextBoxColumn
+			// 
+			this.productQuantityDataGridViewTextBoxColumn.DataPropertyName = "Product_Quantity";
+			this.productQuantityDataGridViewTextBoxColumn.FillWeight = 50F;
+			this.productQuantityDataGridViewTextBoxColumn.HeaderText = "تعداد کالا";
+			this.productQuantityDataGridViewTextBoxColumn.Name = "productQuantityDataGridViewTextBoxColumn";
+			this.productQuantityDataGridViewTextBoxColumn.ReadOnly = true;
+			// 
+			// productUnitDataGridViewTextBoxColumn
+			// 
+			this.productUnitDataGridViewTextBoxColumn.DataPropertyName = "Product_Unit";
+			this.productUnitDataGridViewTextBoxColumn.FillWeight = 50F;
+			this.productUnitDataGridViewTextBoxColumn.HeaderText = "واحد کالا";
+			this.productUnitDataGridViewTextBoxColumn.Name = "productUnitDataGridViewTextBoxColumn";
+			this.productUnitDataGridViewTextBoxColumn.ReadOnly = true;
+			// 
+			// productPurchasePriceDataGridViewTextBoxColumn
+			// 
+			this.productPurchasePriceDataGridViewTextBoxColumn.DataPropertyName = "Product_Purchase_Price";
+			this.productPurchasePriceDataGridViewTextBoxColumn.HeaderText = "قیمت خرید کالا";
+			this.productPurchasePriceDataGridViewTextBoxColumn.Name = "productPurchasePriceDataGridViewTextBoxColumn";
+			this.productPurchasePriceDataGridViewTextBoxColumn.ReadOnly = true;
+			// 
+			// registrationDateDataGridViewTextBoxColumn
+			// 
+			this.registrationDateDataGridViewTextBoxColumn.DataPropertyName = "Registration_Date";
+			this.registrationDateDataGridViewTextBoxColumn.HeaderText = "تاریخ ثبت";
+			this.registrationDateDataGridViewTextBoxColumn.Name = "registrationDateDataGridViewTextBoxColumn";
+			this.registrationDateDataGridViewTextBoxColumn.ReadOnly = true;
+			// 
+			// registrationTimeDataGridViewTextBoxColumn
+			// 
+			this.registrationTimeDataGridViewTextBoxColumn.DataPropertyName = "Registration_Time";
+			this.registrationTimeDataGridViewTextBoxColumn.HeaderText = "زمان ثبت";
+			this.registrationTimeDataGridViewTextBoxColumn.Name = "registrationTimeDataGridViewTextBoxColumn";
+			this.registrationTimeDataGridViewTextBoxColumn.ReadOnly = true;
 			// 
 			// inventoryHoldingBindingSource
 			// 
@@ -213,7 +266,7 @@ namespace Inventory_Forms
 			this.productNameSearchTextBox.ShortcutsEnabled = true;
 			this.productNameSearchTextBox.Size = new System.Drawing.Size(1124, 35);
 			this.productNameSearchTextBox.Style = Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox._Style.Bunifu;
-			this.productNameSearchTextBox.TabIndex = 15;
+			this.productNameSearchTextBox.TabIndex = 1;
 			this.productNameSearchTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
 			this.productNameSearchTextBox.TextMarginBottom = 0;
 			this.productNameSearchTextBox.TextMarginLeft = 5;
@@ -229,59 +282,6 @@ namespace Inventory_Forms
 			// 
 			this.inventoryHoldingDataGridViewElipse.BorderRadius = 20;
 			this.inventoryHoldingDataGridViewElipse.TargetControl = this.inventoryHoldingDataGridView;
-			// 
-			// idDataGridViewTextBoxColumn
-			// 
-			this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
-			this.idDataGridViewTextBoxColumn.FillWeight = 50F;
-			this.idDataGridViewTextBoxColumn.HeaderText = "ردیف";
-			this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
-			this.idDataGridViewTextBoxColumn.ReadOnly = true;
-			// 
-			// productNameDataGridViewTextBoxColumn
-			// 
-			this.productNameDataGridViewTextBoxColumn.DataPropertyName = "Product_Name";
-			this.productNameDataGridViewTextBoxColumn.FillWeight = 200F;
-			this.productNameDataGridViewTextBoxColumn.HeaderText = "نام کالا";
-			this.productNameDataGridViewTextBoxColumn.Name = "productNameDataGridViewTextBoxColumn";
-			this.productNameDataGridViewTextBoxColumn.ReadOnly = true;
-			// 
-			// productQuantityDataGridViewTextBoxColumn
-			// 
-			this.productQuantityDataGridViewTextBoxColumn.DataPropertyName = "Product_Quantity";
-			this.productQuantityDataGridViewTextBoxColumn.FillWeight = 50F;
-			this.productQuantityDataGridViewTextBoxColumn.HeaderText = "تعداد کالا";
-			this.productQuantityDataGridViewTextBoxColumn.Name = "productQuantityDataGridViewTextBoxColumn";
-			this.productQuantityDataGridViewTextBoxColumn.ReadOnly = true;
-			// 
-			// productUnitDataGridViewTextBoxColumn
-			// 
-			this.productUnitDataGridViewTextBoxColumn.DataPropertyName = "Product_Unit";
-			this.productUnitDataGridViewTextBoxColumn.FillWeight = 50F;
-			this.productUnitDataGridViewTextBoxColumn.HeaderText = "واحد کالا";
-			this.productUnitDataGridViewTextBoxColumn.Name = "productUnitDataGridViewTextBoxColumn";
-			this.productUnitDataGridViewTextBoxColumn.ReadOnly = true;
-			// 
-			// productPurchasePriceDataGridViewTextBoxColumn
-			// 
-			this.productPurchasePriceDataGridViewTextBoxColumn.DataPropertyName = "Product_Purchase_Price";
-			this.productPurchasePriceDataGridViewTextBoxColumn.HeaderText = "قیمت خرید کالا";
-			this.productPurchasePriceDataGridViewTextBoxColumn.Name = "productPurchasePriceDataGridViewTextBoxColumn";
-			this.productPurchasePriceDataGridViewTextBoxColumn.ReadOnly = true;
-			// 
-			// registrationDateDataGridViewTextBoxColumn
-			// 
-			this.registrationDateDataGridViewTextBoxColumn.DataPropertyName = "Registration_Date";
-			this.registrationDateDataGridViewTextBoxColumn.HeaderText = "تاریخ ثبت";
-			this.registrationDateDataGridViewTextBoxColumn.Name = "registrationDateDataGridViewTextBoxColumn";
-			this.registrationDateDataGridViewTextBoxColumn.ReadOnly = true;
-			// 
-			// registrationTimeDataGridViewTextBoxColumn
-			// 
-			this.registrationTimeDataGridViewTextBoxColumn.DataPropertyName = "Registration_Time";
-			this.registrationTimeDataGridViewTextBoxColumn.HeaderText = "زمان ثبت";
-			this.registrationTimeDataGridViewTextBoxColumn.Name = "registrationTimeDataGridViewTextBoxColumn";
-			this.registrationTimeDataGridViewTextBoxColumn.ReadOnly = true;
 			// 
 			// InventoryForm
 			// 

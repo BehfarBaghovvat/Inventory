@@ -203,7 +203,6 @@ namespace Inventory_Forms
 			this.totalSumPriceTextBox.TabIndex = 9;
 			this.totalSumPriceTextBox.Text = "0 تومان";
 			this.totalSumPriceTextBox.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-			this.totalSumPriceTextBox.TextChanged += new System.EventHandler(this.TotalSumPriceTextBox_TextChanged);
 			// 
 			// remainingAmountTextBox
 			// 
@@ -610,6 +609,7 @@ namespace Inventory_Forms
 			this.Controls.Add(this.topPanel);
 			this.Name = "BillBuyReportForm";
 			this.Text = "BillBuyForm";
+			this.Load += new System.EventHandler(this.BillBuyReportForm_Load);
 			((System.ComponentModel.ISupportInitialize)(this.productListDataGridView)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.logoPictureBox)).EndInit();
 			this.topPanel.ResumeLayout(false);

@@ -1,7 +1,7 @@
 ﻿
 namespace Inventory_Forms
 {
-	partial class InventoryOutputForm
+	partial class ProductSalesListForm
 	{
 		/// <summary>
 		/// Required designer variable.
@@ -33,7 +33,7 @@ namespace Inventory_Forms
 			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
 			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
 			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(InventoryOutputForm));
+			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ProductSalesListForm));
 			Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties1 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
 			Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties2 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
 			Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties3 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
@@ -430,6 +430,7 @@ namespace Inventory_Forms
 			this.Controls.Add(this.inventoryOutputDataGridView);
 			this.Name = "InventoryOutputForm";
 			this.Text = "InventoryOutputForm";
+			this.Load += new System.EventHandler(this.InventoryOutputForm_Load);
 			((System.ComponentModel.ISupportInitialize)(this.inventoryOutputDataGridView)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.inventoryOutputBindingSource)).EndInit();
 			this.topPanel.ResumeLayout(false);
