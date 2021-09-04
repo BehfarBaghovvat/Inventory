@@ -1,16 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-
-namespace Inventory.Forms.Client_Forms
+﻿namespace Client_Forms
 {
-	public partial class ClientFinancialSituationForm : Form
+	public partial class ClientFinancialSituationForm : Infrastructure.EmptyForm
 	{
 		public ClientFinancialSituationForm()
 		{

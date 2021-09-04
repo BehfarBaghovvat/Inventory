@@ -117,6 +117,9 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <metadata name="dataReceiptTextBox.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="dataReceiptTextBox.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -126,6 +129,12 @@
         AAAAAElFTkSuQmCC
 </value>
   </data>
+  <metadata name="textLabel1.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="amountWordsTextBox.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
   <data name="amountWordsTextBox.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAu4AAAAjCAYAAADL9I+JAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
@@ -135,37 +144,83 @@
         DzMAAEBdERuxTYbKGlvk1AAAAABJRU5ErkJggg==
 </value>
   </data>
+  <metadata name="rialLabel.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="payToLabel.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="payToTextBox.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
   <data name="payToTextBox.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
-        iVBORw0KGgoAAAANSUhEUgAAASwAAAAzCAYAAAAtijWPAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABzSURBVHhe7dcxDQAgDEXB6kQCWkEDUoCBEQGF3CVv6v6T
-        BgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHykljZq
-        6VOSsrcH636QpGwZLEnPdB5DgOwiFr0lAqeLAkxrAAAAAElFTkSuQmCC
+        iVBORw0KGgoAAAANSUhEUgAAASwAAAAjCAYAAAAuXDcUAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABdSURBVHhe7dc7CgAgDETBPbo39Sh+wNLSIsIMvCr9QgIA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPBYS/pqSFL19mBdD5JULYMl6ZvOYwhQXTIB
+        jxBCqMaUjHMAAAAASUVORK5CYII=
 </value>
   </data>
+  <metadata name="nationalCodeTextBox.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
   <data name="nationalCodeTextBox.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
-        iVBORw0KGgoAAAANSUhEUgAAAWgAAAAzCAYAAAC625JVAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAB/SURBVHhe7dihEQAgDATB1JkSqBVqoBRAIPFE7M6cin+R
-        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-        AAAAAACAAlr22XIsSVKtzkC/D5KkvxloSSrafXQAUEvEBn/nz/Y2mvNdAAAAAElFTkSuQmCC
+        iVBORw0KGgoAAAANSUhEUgAAAWgAAAAjCAYAAAC5DZDOAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABpSURBVHhe7dihEQAgDATB1EkJ1Ao1UAogkAgcEbszp+Jf
+        JAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB4UksbtfQpScrVHuj7QZL0
+        NwMtSUk7jw4AcolYJdfP9h73uhwAAAAASUVORK5CYII=
 </value>
   </data>
+  <metadata name="nantionalCodeLabel.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="textLabel2.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="amountNumberTextBox.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
   <data name="amountNumberTextBox.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
-        iVBORw0KGgoAAAANSUhEUgAAAY8AAAA5CAYAAADOfqc7AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACRSURBVHhe7djBDQAQEEXBrVMJaqUGpeDghoT7TPJOW8BP
-        NgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA2OZWWU+2SJL02x+N8kCTplvGQJH23nlcA8CpiAOMH+9Xy0yOM
-        AAAAAElFTkSuQmCC
+        iVBORw0KGgoAAAANSUhEUgAAAZAAAAAoCAYAAADQUaxgAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAB4SURBVHhe7dixCQAgDEXBzOkIzqozOIpaWIqghdUdvCoD
+        fEgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAH/k
+        VFpOtUuSdNMckP1BkqRTBkSS9NR6ZAHAjYgBhKcDlLxoakAAAAAASUVORK5CYII=
 </value>
   </data>
-  <data name="numberChequaTextBox.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <metadata name="dataReceiptLabel.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="saveButton.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="cancelButton.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="numberChequaLabel.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="serialChequeTextBox.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="serialChequeTextBox.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAANwAAAAjCAYAAAD/nmRNAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
         YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABVSURBVHhe7daxDQAQEIbRm9MIZmUGo6BQKlHIe8lXXf0n
         FwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAfC2n0nKqXdL95uD2B0nnMzjpYeuxBO6LGOTZm3pd2q1T
         AAAAAElFTkSuQmCC
+</value>
+  </data>
+  <metadata name="nameAccountHolderTextBox.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="nameAccountHolderTextBox.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAAMgAAAAjCAYAAADR20XfAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABQSURBVHhe7dahDQAgDEXBztkRmBVmYBRA4CAY7F3yVPVP
+        GgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAJ9K1l6yDUlnayD3gyQDkZ7tRws4RUy6wQG69QfVeAAAAABJ
+        RU5ErkJggg==
 </value>
   </data>
   <metadata name="$this.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">

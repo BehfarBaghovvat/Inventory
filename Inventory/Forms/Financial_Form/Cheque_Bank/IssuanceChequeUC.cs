@@ -216,11 +216,7 @@
 
 			amountNumberTextBox.Select(0, amountNumberTextBox.Text.Length - 6);
 
-			if (string.IsNullOrWhiteSpace(amountNumberTextBox.Text))
-			{
-
-			}
-			else if (amountNumberTextBox.Text.Contains("تومان"))
+			if (amountNumberTextBox.Text.Contains("تومان"))
 			{
 				return;
 			}
@@ -362,7 +358,6 @@
 				errorMessage += $".لطفا مبلغ چک را به عدد وارد نمایید";
 			}
 
-
 			if (!string.IsNullOrEmpty(errorMessage))
 			{
 				if (string.IsNullOrEmpty(_chequeSection.Data_Receipt))
@@ -406,6 +401,11 @@
 		#endregion /ValidationData
 
 		#region SetDataToChequeBank
+		/// <summary>
+		/// ثبت در جدول چکهای بانکی
+		/// </summary>
+		/// <param name="_chequeSection"></param>
+		/// <returns>true or false</returns>
 		private bool SetDataToChequeBank(Models.ChequeSection _chequeSection)
 		{
 			Models.DataBaseContext dataBaseContext = null;

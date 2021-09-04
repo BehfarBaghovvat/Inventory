@@ -284,7 +284,7 @@ namespace Chequa_Bank
 			this.amountNumberTextBox.OnIdleState = stateProperties8;
 			this.amountNumberTextBox.PasswordChar = '\0';
 			this.amountNumberTextBox.PlaceholderForeColor = System.Drawing.Color.DimGray;
-			this.amountNumberTextBox.PlaceholderText = "20,000,000 تومان ";
+			this.amountNumberTextBox.PlaceholderText = "20,000,000 تومان";
 			this.amountNumberTextBox.ReadOnly = false;
 			this.amountNumberTextBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
 			this.amountNumberTextBox.ScrollBars = System.Windows.Forms.ScrollBars.None;
@@ -299,7 +299,7 @@ namespace Chequa_Bank
 			this.amountNumberTextBox.TextMarginBottom = 0;
 			this.amountNumberTextBox.TextMarginLeft = 5;
 			this.amountNumberTextBox.TextMarginTop = 0;
-			this.amountNumberTextBox.TextPlaceholder = "20,000,000 تومان ";
+			this.amountNumberTextBox.TextPlaceholder = "20,000,000 تومان";
 			this.amountNumberTextBox.UseSystemPasswordChar = false;
 			this.amountNumberTextBox.WordWrap = true;
 			this.amountNumberTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.AmountNumberTextBox_KeyPress);
@@ -718,7 +718,7 @@ namespace Chequa_Bank
 			this.nameAccountHolderTextBox.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
 			this.nameAccountHolderTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
 			this.nameAccountHolderTextBox.DefaultFont = new System.Drawing.Font("IRANSansXFaNum", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-			this.nameAccountHolderTextBox.DefaultText = "مرتضی موسی خانی";
+			this.nameAccountHolderTextBox.DefaultText = "حساب کارفرما";
 			this.nameAccountHolderTextBox.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(0)))), ((int)(((byte)(61)))));
 			this.nameAccountHolderTextBox.ForeColor = System.Drawing.Color.White;
 			this.nameAccountHolderTextBox.HideSelection = true;
@@ -728,8 +728,8 @@ namespace Chequa_Bank
 			this.nameAccountHolderTextBox.IconRight = null;
 			this.nameAccountHolderTextBox.IconRightCursor = System.Windows.Forms.Cursors.IBeam;
 			this.nameAccountHolderTextBox.Lines = new string[] {
-        "مرتضی موسی خانی"};
-			this.nameAccountHolderTextBox.Location = new System.Drawing.Point(794, 361);
+        "حساب کارفرما"};
+			this.nameAccountHolderTextBox.Location = new System.Drawing.Point(782, 358);
 			this.nameAccountHolderTextBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
 			this.nameAccountHolderTextBox.MaximumSize = new System.Drawing.Size(200, 35);
 			this.nameAccountHolderTextBox.MaxLength = 32767;
@@ -765,7 +765,7 @@ namespace Chequa_Bank
 			this.nameAccountHolderTextBox.ScrollBars = System.Windows.Forms.ScrollBars.None;
 			this.nameAccountHolderTextBox.SelectedText = "";
 			this.nameAccountHolderTextBox.SelectionLength = 0;
-			this.nameAccountHolderTextBox.SelectionStart = 15;
+			this.nameAccountHolderTextBox.SelectionStart = 0;
 			this.nameAccountHolderTextBox.ShortcutsEnabled = true;
 			this.nameAccountHolderTextBox.Size = new System.Drawing.Size(200, 35);
 			this.nameAccountHolderTextBox.Style = Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox._Style.Material;
@@ -783,12 +783,12 @@ namespace Chequa_Bank
 			this.nameAccountHolderLabel.AutoSize = true;
 			this.nameAccountHolderLabel.Font = new System.Drawing.Font("IranNastaliq", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
 			this.nameAccountHolderLabel.ForeColor = System.Drawing.Color.White;
-			this.nameAccountHolderLabel.Location = new System.Drawing.Point(1000, 355);
+			this.nameAccountHolderLabel.Location = new System.Drawing.Point(988, 352);
 			this.nameAccountHolderLabel.Name = "nameAccountHolderLabel";
 			this.nameAccountHolderLabel.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-			this.nameAccountHolderLabel.Size = new System.Drawing.Size(94, 46);
+			this.nameAccountHolderLabel.Size = new System.Drawing.Size(97, 46);
 			this.nameAccountHolderLabel.TabIndex = 32;
-			this.nameAccountHolderLabel.Text = "صادر کننده چک";
+			this.nameAccountHolderLabel.Text = "صاحب حساب";
 			// 
 			// IssuanceChequaUC
 			// 

@@ -51,8 +51,32 @@
 		[System.ComponentModel.DisplayName(displayName: "شماره تماس")]
 		//--Lenght Phone_Number
 		[System.ComponentModel.DataAnnotations.StringLength
-			(maximumLength: 10)]
+			(maximumLength: 11)]
 		public string Phone_Number { get; set; }
 		#endregion /Phone_Number
+
+		/// <summary>
+		/// تایخ ثبت
+		/// </summary>
+		#region Registration_Date
+		//-----DisplayName field for RegistrationDate
+		[System.ComponentModel.DisplayName(displayName: "تاریخ ثبت")]
+		//--Lenght RegistrationTime
+		[System.ComponentModel.DataAnnotations.StringLength
+			(maximumLength: 10)]
+		public string Registration_Date { get; set; }
+		#endregion /Registration_Date
+
+		/// <summary>
+		/// زمان ثبت
+		/// </summary>
+		#region Registration_Time
+		//-----DisplayName field for RegistrationTime
+		[System.ComponentModel.DisplayName(displayName: "زمان ثبت")]
+		//--Lenght RegistrationTime
+		[System.ComponentModel.DataAnnotations.StringLength
+			(maximumLength: 8)]
+		public string Registration_Time { get; set; }
+		#endregion /Registration_Time
 	}
 }

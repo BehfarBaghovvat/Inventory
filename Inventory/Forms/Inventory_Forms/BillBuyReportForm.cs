@@ -5,6 +5,7 @@ namespace Inventory_Forms
 	public partial class BillBuyReportForm : Infrastructure.EmptyForm
 	{
 		//-----------------------------------------------------------------------------------------------     Fields, Properties, Layers
+
 		#region Properties
 
 		#region Layer

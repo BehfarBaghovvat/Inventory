@@ -30,5 +30,24 @@
 		public int Id { get; set; }
 		#endregion /Id
 
+		/// <summary>
+		/// فاصله زمانی
+		/// </summary>
+		#region Interval
+		//-----DisplayName field for Interval
+		[System.ComponentModel.DisplayName(displayName: "فاصله زمانی")]
+		public double Interval { get; set; }
+		#endregion /Interval
+
+
+		/// <summary>
+		/// تنظیم بازیه زمانی
+		/// </summary>
+		#region Interval
+		//-----DisplayName field for Interval_Check
+		[System.ComponentModel.DisplayName(displayName: "تنظیم بازیه زمانی")]
+		public bool Interval_Check { get; set; }
+		#endregion /Interval
+
 	}
 }

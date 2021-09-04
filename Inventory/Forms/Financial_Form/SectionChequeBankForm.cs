@@ -6,9 +6,9 @@
 
 		#region Properties
 
-		private ChequaBank.IssuanceChequaUC _issuanceChequaUC = new ChequaBank.IssuanceChequaUC();
-		private ChequaBank.GetChequaUC _getChequaUC = new ChequaBank.GetChequaUC();
-		private ChequaBank.ListChequasBankUC _listChequasBankUC = new ChequaBank.ListChequasBankUC();
+		private Chequa_Bank.IssuanceChequaUC _issuanceChequaUC = new Chequa_Bank.IssuanceChequaUC();
+		private Chequa_Bank.GetChequaUC _getChequaUC = new Chequa_Bank.GetChequaUC();
+		private Chequa_Bank.ListChequasBankUC _listChequasBankUC = new Chequa_Bank.ListChequasBankUC();
 
 		#endregion / Properties
 

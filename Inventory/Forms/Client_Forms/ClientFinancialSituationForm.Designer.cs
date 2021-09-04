@@ -1,5 +1,5 @@
 ﻿
-namespace Inventory.Forms.Client_Forms
+namespace Client_Forms
 {
 	partial class ClientFinancialSituationForm
 	{
@@ -29,10 +29,18 @@ namespace Inventory.Forms.Client_Forms
 		/// </summary>
 		private void InitializeComponent()
 		{
-			this.components = new System.ComponentModel.Container();
+			this.SuspendLayout();
+			// 
+			// ClientFinancialSituationForm
+			// 
+			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 17F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(800, 450);
+			this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(0)))), ((int)(((byte)(61)))));
+			this.ClientSize = new System.Drawing.Size(1150, 650);
+			this.Name = "ClientFinancialSituationForm";
 			this.Text = "ClientFinancialSituationForm";
+			this.ResumeLayout(false);
+
 		}
 
 		#endregion

@@ -5,6 +5,17 @@ namespace Infrastructure
 	public class Utility
 	{
 		#region Properties
+
+		#region Layers
+		private class NextDate
+		{
+			public double Interval { get; set; }
+			public string Next_Date { get; set; }
+		}
+		#endregion /Layers
+
+
+
 		//====================
 
 		private static string[] formatEmail1 = new string[4];
@@ -13,6 +24,9 @@ namespace Infrastructure
 		private static string registerTime;
 		private static bool Status { get; set; }
 		private static bool TrueStatus { get; set; }
+
+		
+
 		//====================
 		#endregion /Properties
 

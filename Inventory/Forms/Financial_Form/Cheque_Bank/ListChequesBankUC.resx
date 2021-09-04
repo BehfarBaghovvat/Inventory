@@ -126,33 +126,33 @@
   <metadata name="chequaSectionBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
-  <metadata name="bunifuTextBox1.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  <metadata name="searchSerialChequeTextBox.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="bunifuTextBox1.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="searchSerialChequeTextBox.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
-        iVBORw0KGgoAAAANSUhEUgAAA2EAAAAjCAYAAAAddALFAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAOaSURBVHhe7d0xa1tXGAZgDxk8dPDQwRQCGgI1pYFAAjUh
-        IS5OiTFNEUlohXGDg1vsNg11STDGOJH+QX5Cx4wZO3bs6DFjx6zd2qnq912dW8nNjbBUYwJ+XngQuvec
-        o/nl3Hs0IyIiIiIiIu9wut3ubFgqegAAAGfQSshONFeq0skmFp4PO71e7zD0AQAA+Ner8Dw600KpUNMn
-        y1dZ7K/6B54ePOtvbfxYad980L+9dB8AAOBMqTvR/t7BfwvZi+hPrVKpJktMXAx/1IttdB72ry7c6Z8/
-        d6P/wcx1AAAAwuXWF/2vPv+22rDK7pSbWKFTqtXxEhPaOTEXyHZ3cX618ccAAAAY+HDus2rzqt7Iik7V
-        KxVrfGJg7oBVBWytvWXnCwAAYAK3FtdGi9h2qVrNiQF5AEf1CGIWsKYFAQAAGG/5Smf00cTFUrneTAx6
-        ngPzEUQ7YAAAANO7u7JZ74gdlsp1NNHOWtnScpB3wAAAAP6f3NjafbJf74i1S/UaJi7GvcEpiE0LAAAA
-        MJmR98N+KdVrmLiYfzBWHa/YNBkAAIDJXHhvuS5hf3a73dlSvwYHcuSN/KMx74IBAACcnDxzI/vWkUcS
-        48tSXsybTZMAAACYTn1AR/Su4XH18WUjLzqWHgAA4GStXluvS9jwz5vzS15s33zQOAkAAIDpjC1ht5fu
-        N04CAABgOtmzlDAAAIBTooQBAACcIiUMAADgFL2thG3nRacjAgAAnKzlK53GEraSFzfXHzVOAgAAYDoj
-        O2E7pYJVJWwhL+78sNs4CQAAgOlsdB7WJaxTKtggcfF13vjo/VuNEwEAAJjM+XM3+k8PntUlrFXq1yBx
-        8ee84XAOAACAk3F14U5VwMJvpXoNU78Xtvtkv9+a/bRxAQAAAI7v0fbjN98HG03c/DUH3F3ZbFwAAACA
-        47n+8b16F+x1lLDZUruOJm5cKoOqbbOmhQAAABgvz9oYeRdsu1Su5sSAvRyYExQxAACAyWQBe7yzV++C
-        vSxVa3xiYHVIR1q9tt64MAAAAEflI4j7ewd/lz51+NbHEJsSg2POoIhli1u69GV1vGLTDwEAAJxln1xo
-        97//5qd69yu9jE41V+rV8ROT2jH593qhfETx63vfVcfYZynLTwAAgLMmd7zyc629lTtfo+UrD+FoPglx
-        ksQiG7HY4cjCAAAADL2K3rQ31e7XuMSC82E79AAAAOjuhIVSmUREREREROTdyszMP/LJNIx7N8GNAAAA
-        AElFTkSuQmCC
+        iVBORw0KGgoAAAANSUhEUgAAA2EAAAAoCAYAAAB3s/IGAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAO9SURBVHhe7d0xa1tXGAZgDxk8dPDQwRQCHgI1pYFAAjUh
+        IS5OiTFNEUlohXGDg1vsNg11STDGOJH+QX5Cx4wZO3bs6DFjx6zd2qnq912dW8nNjbBUIwJ+XngQuvec
+        o/nl3Hs0IyIiIiIiIu9wOp3ObFguugAAAGfQashONFeq0ukmFp4Pu91u9yj0AAAA+Ner8Dw602KpUJMn
+        y1dZ7K/6B54ePuttb/5Yad180Lu9fB8AAOBMqTvRwf7hfwvZi+hPC6VSjZeYuBT+qBfbbD/sXV280zt/
+        7kbvg5nrAAAAhMsLX/S++vzbasMqu1NuYoV2qVYnS0xo5cRcINvdxfm1xh8DAACg78O5z6rNq3ojKzpV
+        t1Ss0YmBuQNWFbD11radLwAAgDHcWlofLmI7pWo1JwbkARzVI4hZwJoWBAAAYLSVK+3hRxOXSuV6MzHo
+        eQ7MRxDtgAEAAEzu7upWvSN2VCrX8UQ7W8iWloO8AwYAAPD/5MbW3pODekesVarXIHEx7vVPQWxaAAAA
+        gPEMvR/2S6leg8TF/IOx6njFpskAAACM58J7K3UJ+7PT6cyW+tU/kCNv5B+NeRcMAADg9OSZG9m3jj2S
+        GF+W82LebJoEAADAZOoDOqJ3DY6rjy+bedGx9AAAAKdr7dpGXcIGf96cX/Ji6+aDxkkAAABMZmQJu718
+        v3ESAAAAk8mepYQBAABMiRIGAAAwRUoYAADAFClhAAAAU6SEAQAATJESBgAAMEVKGAAAwBQpYQAAAFP0
+        thK2kxfXW9uNkwAAAJjMypV2YwlbzYtbG48aJwEAADCZoZ2w3VLBqhK2mBd3f9hrnAQAAMBkNtsP6xLW
+        LhWsn7j4Om989P6txokAAACM5/y5G72nh8/qErZQ6lc/cfHnvOFwDgAAgNNxdfFOVcDCb6V6DVK/F7b3
+        5KC3MPtp4wIAAACc3KOdx2++DzacuPlrDri7utW4AAAAACdz/eN79S7Y6yhhs6V2HU/cuFQGVdtmTQsB
+        AAAwWp61MfQu2E6pXM2JAfs5MCcoYgAAAOPJAvZ4d7/eBXtZqtboxMDqkI60dm2jcWEAAACOy0cQD/YP
+        /y596uitjyE2JQbHnH4Ryxa3fOnL6njFph8CAAA4yz650Op9/81P9e5Xehmdaq7Uq5MnJrVi8u/1QvmI
+        4tf3vquOsc9Slp8AAABnTe545ed6azt3vobLVx7C0XwS4jiJRTZjsaOhhQEAABh4Fb1pf6Ldr1GJBefD
+        TugCAADQ2Q2LpTKJiIiIiIjIu5WZmX8A557SUGKSmKUAAAAASUVORK5CYII=
 </value>
   </data>
-  <data name="bunifuTextBox1.IconRight" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="searchSerialChequeTextBox.IconRight" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAgAAAAIACAYAAAD0eNT6AAAABGdBTUEAALGPC/xhBQAAJ+JJREFUeF7t
         3QnYdfd4LvBmHk0hCCIEIUiEVFViqPFUW2ruZKrptD2ndVBDlCNOgkipo+ahtAilSotqS9GWGlrz1KKm
@@ -328,7 +328,7 @@
         T/w/tOxIyMuhLdAAAAAASUVORK5CYII=
 </value>
   </data>
-  <metadata name="ChequaPaymentButton.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  <metadata name="chequePaymentButton.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
   <metadata name="$this.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
