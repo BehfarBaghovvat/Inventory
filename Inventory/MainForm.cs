@@ -209,6 +209,43 @@ namespace Inventory
 			}
 		}
 
+		//------------------------------------------------------------------------- Setting
+
+		private Setting_Forms.ManagementSettingForm _managementSettingForm;
+		public Setting_Forms.ManagementSettingForm ManagementSettingForm
+		{
+			get 
+			{
+				if (_managementSettingForm == null || _managementSettingForm.IsDisposed == true)
+				{
+					_managementSettingForm =
+						new Setting_Forms.ManagementSettingForm();
+				}
+				return _managementSettingForm;
+			}
+			set 
+			{ 
+				_managementSettingForm = value;
+			}
+		}
+
+		private Setting_Forms.BackupSettingForm _backupSettingForm;
+		public Setting_Forms.BackupSettingForm BackupSettingForm
+		{
+			get
+			{
+				if (_backupSettingForm == null || _backupSettingForm.IsDisposed == true)
+				{
+					_backupSettingForm =
+						new Setting_Forms.BackupSettingForm();
+				}
+				return _backupSettingForm;
+			}
+			set
+			{
+				_backupSettingForm = value;
+			}
+		}
 
 		#endregion /--------------------------------------------------------     Layer     --------------------------------------------------------
 
@@ -372,11 +409,12 @@ namespace Inventory
 
 				//-------------------------------------------- Inventory
 
-				ProductBuyForm.Dispose();
-				ProcutSalesForm.Dispose();
-				InventoryForm.Dispose();
-				ServiceForm.Dispose();
+				
 				inventoryButton.Checked = false;
+				ProductBuyForm.Hide();
+				ProcutSalesForm.Hide();
+				InventoryForm.Hide();
+				ServiceForm.Hide();
 				inventoryEntryButton.Checked = false;
 				productSalesButton.Checked = false;
 				inventoryholdingButton.Checked = false;
@@ -385,14 +423,28 @@ namespace Inventory
 				//-------------------------------------------- Financial
 
 				fainancialButton.Checked = false;
+				FinancialReportForm.Hide();
+				AncillaryCostsForm.Hide();
+				SafeBoxForm.Hide();
+				ancillaryCostsButton.Checked = false;
+				financialReportButton.Checked = false;
+				safeBoxButton.Checked = false;
+				sectionChequeBankButton.Checked = false;
 
 				//-------------------------------------------- Client
 
 				clientButton.Checked = false;
+				RegisterClientForm.Hide();
+				ClientFinancialSituationForm.Hide();
+				registerClientButton.Checked = false;
+				clientFinancialSituationButton.Checked = false;
 
 				//-------------------------------------------- Setting
 
 				settingButton.Checked = false;
+
+				managementSettingsButton.Checked = false;
+				backupSettingsButton.Checked = false;
 			}
 		}
 		#endregion /HomeButton_Click
@@ -468,7 +520,10 @@ namespace Inventory
 				sectionChequeBankButton.Checked = false;
 
 				registerClientButton.Checked = false;
-				clientFinancialSituationGradientButton.Checked = false;
+				clientFinancialSituationButton.Checked = false;
+
+				managementSettingsButton.Checked = false;
+				backupSettingsButton.Checked = false;
 			}
 		}
 		#endregion /InventoryEntryButton_Click
@@ -511,7 +566,10 @@ namespace Inventory
 				sectionChequeBankButton.Checked = false;
 
 				registerClientButton.Checked = false;
-				clientFinancialSituationGradientButton.Checked = false;
+				clientFinancialSituationButton.Checked = false;
+
+				managementSettingsButton.Checked = false;
+				backupSettingsButton.Checked = false;
 			}
 		}
 		#endregion /ProductSalesButton_Click
@@ -554,7 +612,10 @@ namespace Inventory
 				sectionChequeBankButton.Checked = false;
 
 				registerClientButton.Checked = false;
-				clientFinancialSituationGradientButton.Checked = false;
+				clientFinancialSituationButton.Checked = false;
+
+				managementSettingsButton.Checked = false;
+				backupSettingsButton.Checked = false;
 			}
 		}
 		#endregion /InventoryholdingButton_Click
@@ -597,7 +658,10 @@ namespace Inventory
 				sectionChequeBankButton.Checked = false;
 
 				registerClientButton.Checked = false;
-				clientFinancialSituationGradientButton.Checked = false;
+				clientFinancialSituationButton.Checked = false;
+
+				managementSettingsButton.Checked = false;
+				backupSettingsButton.Checked = false;
 			}
 		}
 		#endregion /ServiceButton_Click
@@ -654,6 +718,8 @@ namespace Inventory
 				inventoryButton.Checked = false;
 				clientButton.Checked = false;
 				settingButton.Checked = false;
+
+
 			}
 		}
 		#endregion /FainancialButton_Click 
@@ -698,7 +764,10 @@ namespace Inventory
 				sectionChequeBankButton.Checked = false;
 
 				registerClientButton.Checked = false;
-				clientFinancialSituationGradientButton.Checked = false;
+				clientFinancialSituationButton.Checked = false;
+
+				managementSettingsButton.Checked = false;
+				backupSettingsButton.Checked = false;
 			}
 		}
 		#endregion /SafeBoxButton_Click
@@ -741,7 +810,10 @@ namespace Inventory
 				sectionChequeBankButton.Checked = false;
 
 				registerClientButton.Checked = false;
-				clientFinancialSituationGradientButton.Checked = false;
+				clientFinancialSituationButton.Checked = false;
+
+				managementSettingsButton.Checked = false;
+				backupSettingsButton.Checked = false;
 			}
 		}
 		#endregion /AncillaryCostsButton_Click
@@ -784,7 +856,10 @@ namespace Inventory
 				sectionChequeBankButton.Checked = false;
 
 				registerClientButton.Checked = false;
-				clientFinancialSituationGradientButton.Checked = false;
+				clientFinancialSituationButton.Checked = false;
+
+				managementSettingsButton.Checked = false;
+				backupSettingsButton.Checked = false;
 			}
 		}
 		#endregion /FinancialOrderButton_Click
@@ -827,7 +902,10 @@ namespace Inventory
 				sectionChequeBankButton.Checked = true;
 
 				registerClientButton.Checked = false;
-				clientFinancialSituationGradientButton.Checked = false;
+				clientFinancialSituationButton.Checked = false;
+
+				managementSettingsButton.Checked = false;
+				backupSettingsButton.Checked = false;
 			}
 		}
 		#endregion /SectionChequeBankButton_Click
@@ -927,30 +1005,59 @@ namespace Inventory
 				sectionChequeBankButton.Checked = false;
 
 				registerClientButton.Checked = true;
-				clientFinancialSituationGradientButton.Checked = false;
+				clientFinancialSituationButton.Checked = false;
+
+				managementSettingsButton.Checked = false;
+				backupSettingsButton.Checked = false;
 			}
 		}
 		#endregion /RegisterClientButton_Click
 
 		#region ClientFinancialSituationGradientButton_Click
-		private void ClientFinancialSituationGradientButton_Click(object sender, System.EventArgs e)
+		private void ClientFinancialSituationButton_Click(object sender, System.EventArgs e)
 		{
+			if (clientFinancialSituationButton.Checked)
+			{
+				return;
+			}
+			else
+			{
+				mainPanel.Controls.Clear();
+				mainPanel.Controls.Add(ClientFinancialSituationForm);
+				ClientFinancialSituationForm.Show();
 
+				ProductBuyForm.Hide();
+				ProcutSalesForm.Hide();
+				InventoryForm.Hide();
+				ServiceForm.Hide();
+
+				FinancialReportForm.Hide();
+				AncillaryCostsForm.Hide();
+				SafeBoxForm.Hide();
+
+				RegisterClientForm.Hide();
+				ClientFinancialSituationForm.Hide();
+
+				homeButton.Checked = false;
+
+				inventoryEntryButton.Checked = false;
+				productSalesButton.Checked = false;
+				inventoryholdingButton.Checked = false;
+				serviceButton.Checked = false;
+
+				ancillaryCostsButton.Checked = false;
+				financialReportButton.Checked = false;
+				safeBoxButton.Checked = false;
+				sectionChequeBankButton.Checked = false;
+
+				registerClientButton.Checked = false;
+				clientFinancialSituationButton.Checked = true;
+
+				managementSettingsButton.Checked = false;
+				backupSettingsButton.Checked = false;
+			}
 		}
 		#endregion /ClientFinancialSituationGradientButton_Click
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 		#endregion /SubmenuClient
 
@@ -1010,25 +1117,97 @@ namespace Inventory
 
 		#region SubmenuSetting
 
+		#region ManagementSettingsButton_Click
+		private void ManagementSettingsButton_Click(object sender, System.EventArgs e)
+		{
+			if (managementSettingsButton.Checked)
+			{
+				return;
+			}
+			else
+			{
+				mainPanel.Controls.Clear();
+				mainPanel.Controls.Add(ManagementSettingForm);
+				ManagementSettingForm.Show();
 
+				ProductBuyForm.Hide();
+				ProcutSalesForm.Hide();
+				InventoryForm.Hide();
+				ServiceForm.Hide();
 
+				FinancialReportForm.Hide();
+				AncillaryCostsForm.Hide();
+				SafeBoxForm.Hide();
 
+				RegisterClientForm.Hide();
+				ClientFinancialSituationForm.Hide();
 
+				homeButton.Checked = false;
 
+				inventoryEntryButton.Checked = false;
+				productSalesButton.Checked = false;
+				inventoryholdingButton.Checked = false;
+				serviceButton.Checked = false;
 
+				ancillaryCostsButton.Checked = false;
+				financialReportButton.Checked = false;
+				safeBoxButton.Checked = false;
+				sectionChequeBankButton.Checked = false;
 
+				registerClientButton.Checked = false;
+				clientFinancialSituationButton.Checked = false;
 
+				managementSettingsButton.Checked = true;
+				backupSettingsButton.Checked = false;
+			}
+		}
+		#endregion /ManagementSettingsButton_Click
 
+		#region BackupSettingsButton_Click
+		private void BackupSettingsButton_Click(object sender, System.EventArgs e)
+		{
+			if (backupSettingsButton.Checked)
+			{
+				return;
+			}
+			else
+			{
+				mainPanel.Controls.Clear();
+				mainPanel.Controls.Add(BackupSettingForm);
+				BackupSettingForm.Show();
 
+				ProductBuyForm.Hide();
+				ProcutSalesForm.Hide();
+				InventoryForm.Hide();
+				ServiceForm.Hide();
 
+				FinancialReportForm.Hide();
+				AncillaryCostsForm.Hide();
+				SafeBoxForm.Hide();
 
+				RegisterClientForm.Hide();
+				ClientFinancialSituationForm.Hide();
 
+				homeButton.Checked = false;
 
+				inventoryEntryButton.Checked = false;
+				productSalesButton.Checked = false;
+				inventoryholdingButton.Checked = false;
+				serviceButton.Checked = false;
 
+				ancillaryCostsButton.Checked = false;
+				financialReportButton.Checked = false;
+				safeBoxButton.Checked = false;
+				sectionChequeBankButton.Checked = false;
 
+				registerClientButton.Checked = false;
+				clientFinancialSituationButton.Checked = false;
 
-
-
+				managementSettingsButton.Checked = false;
+				backupSettingsButton.Checked = true;
+			}
+		}
+		#endregion /BackupSettingsButton_Click
 
 		#endregion /SubmenuSetting
 
@@ -1350,6 +1529,7 @@ namespace Inventory
 				dataBaseContext = null;
 			}
 		}
+
 
 
 

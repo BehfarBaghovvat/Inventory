@@ -312,6 +312,18 @@
     <Compile Include="Forms\Inventory_Forms\ProductSalesForm.Designer.cs">
       <DependentUpon>ProductSalesForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Setting_Forms\BackupSettingForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Setting_Forms\BackupSettingForm.Designer.cs">
+      <DependentUpon>BackupSettingForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Setting_Forms\ManagementSettingForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Setting_Forms\ManagementSettingForm.Designer.cs">
+      <DependentUpon>ManagementSettingForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -422,6 +434,12 @@
     <EmbeddedResource Include="Forms\Inventory_Forms\ProductBuyForm.resx">
       <DependentUpon>ProductBuyForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Setting_Forms\BackupSettingForm.resx">
+      <DependentUpon>BackupSettingForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Setting_Forms\ManagementSettingForm.resx">
+      <DependentUpon>ManagementSettingForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -447,6 +465,7 @@
     <None Include="Properties\DataSources\Models.InventoryHolding.datasource" />
     <None Include="Properties\DataSources\Models.InventoryOutput.datasource" />
     <None Include="Properties\DataSources\Models.Journal.datasource" />
+    <None Include="Properties\DataSources\Models.ListFinancialClient.datasource" />
     <None Include="Properties\DataSources\Models.ListService.datasource" />
     <None Include="Properties\DataSources\Models.MonthlyFinancialReport.datasource" />
     <None Include="Properties\DataSources\Models.ProductReceived.datasource" />

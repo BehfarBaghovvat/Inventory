@@ -34,13 +34,13 @@ namespace Inventory
 			this.menuPanel = new Mbb.Windows.Forms.Panel();
 			this.separator5 = new Mbb.Windows.Forms.Panel();
 			this.submenuSettingPanel = new Mbb.Windows.Forms.Panel();
-			this.guna2GradientButton10 = new Guna.UI2.WinForms.Guna2GradientButton();
-			this.guna2GradientButton11 = new Guna.UI2.WinForms.Guna2GradientButton();
+			this.managementSettingsButton = new Guna.UI2.WinForms.Guna2GradientButton();
+			this.backupSettingsButton = new Guna.UI2.WinForms.Guna2GradientButton();
 			this.settingButton = new Guna.UI2.WinForms.Guna2GradientButton();
 			this.separator4 = new Mbb.Windows.Forms.Panel();
 			this.submenuClientPanel = new Mbb.Windows.Forms.Panel();
 			this.registerClientButton = new Guna.UI2.WinForms.Guna2GradientButton();
-			this.clientFinancialSituationGradientButton = new Guna.UI2.WinForms.Guna2GradientButton();
+			this.clientFinancialSituationButton = new Guna.UI2.WinForms.Guna2GradientButton();
 			this.clientButton = new Guna.UI2.WinForms.Guna2GradientButton();
 			this.separator3 = new Mbb.Windows.Forms.Panel();
 			this.submenuFinancialPanel = new Mbb.Windows.Forms.Panel();
@@ -139,63 +139,65 @@ namespace Inventory
 			// 
 			// submenuSettingPanel
 			// 
-			this.submenuSettingPanel.Controls.Add(this.guna2GradientButton10);
-			this.submenuSettingPanel.Controls.Add(this.guna2GradientButton11);
+			this.submenuSettingPanel.Controls.Add(this.managementSettingsButton);
+			this.submenuSettingPanel.Controls.Add(this.backupSettingsButton);
 			this.submenuSettingPanel.Dock = System.Windows.Forms.DockStyle.Top;
 			this.submenuSettingPanel.Location = new System.Drawing.Point(0, 790);
 			this.submenuSettingPanel.Name = "submenuSettingPanel";
 			this.submenuSettingPanel.Size = new System.Drawing.Size(183, 85);
 			this.submenuSettingPanel.TabIndex = 31;
 			// 
-			// guna2GradientButton10
+			// managementSettingsButton
 			// 
-			this.guna2GradientButton10.Animated = true;
-			this.guna2GradientButton10.BackColor = System.Drawing.Color.Transparent;
-			this.guna2GradientButton10.BorderRadius = 5;
-			this.guna2GradientButton10.CheckedState.FillColor = System.Drawing.Color.Olive;
-			this.guna2GradientButton10.CheckedState.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(0)))), ((int)(((byte)(61)))));
-			this.guna2GradientButton10.CheckedState.Parent = this.guna2GradientButton10;
-			this.guna2GradientButton10.CustomImages.Parent = this.guna2GradientButton10;
-			this.guna2GradientButton10.FillColor = System.Drawing.Color.RoyalBlue;
-			this.guna2GradientButton10.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(0)))), ((int)(((byte)(61)))));
-			this.guna2GradientButton10.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-			this.guna2GradientButton10.ForeColor = System.Drawing.Color.White;
-			this.guna2GradientButton10.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(0)))), ((int)(((byte)(61)))));
-			this.guna2GradientButton10.HoverState.FillColor2 = System.Drawing.Color.RoyalBlue;
-			this.guna2GradientButton10.HoverState.Parent = this.guna2GradientButton10;
-			this.guna2GradientButton10.Location = new System.Drawing.Point(16, 9);
-			this.guna2GradientButton10.Name = "guna2GradientButton10";
-			this.guna2GradientButton10.PressedColor = System.Drawing.Color.White;
-			this.guna2GradientButton10.ShadowDecoration.Enabled = true;
-			this.guna2GradientButton10.ShadowDecoration.Parent = this.guna2GradientButton10;
-			this.guna2GradientButton10.Size = new System.Drawing.Size(150, 30);
-			this.guna2GradientButton10.TabIndex = 0;
-			this.guna2GradientButton10.Text = "تنظیمات مدیریتی";
+			this.managementSettingsButton.Animated = true;
+			this.managementSettingsButton.BackColor = System.Drawing.Color.Transparent;
+			this.managementSettingsButton.BorderRadius = 5;
+			this.managementSettingsButton.CheckedState.FillColor = System.Drawing.Color.Olive;
+			this.managementSettingsButton.CheckedState.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(0)))), ((int)(((byte)(61)))));
+			this.managementSettingsButton.CheckedState.Parent = this.managementSettingsButton;
+			this.managementSettingsButton.CustomImages.Parent = this.managementSettingsButton;
+			this.managementSettingsButton.FillColor = System.Drawing.Color.RoyalBlue;
+			this.managementSettingsButton.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(0)))), ((int)(((byte)(61)))));
+			this.managementSettingsButton.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+			this.managementSettingsButton.ForeColor = System.Drawing.Color.White;
+			this.managementSettingsButton.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(0)))), ((int)(((byte)(61)))));
+			this.managementSettingsButton.HoverState.FillColor2 = System.Drawing.Color.RoyalBlue;
+			this.managementSettingsButton.HoverState.Parent = this.managementSettingsButton;
+			this.managementSettingsButton.Location = new System.Drawing.Point(16, 9);
+			this.managementSettingsButton.Name = "managementSettingsButton";
+			this.managementSettingsButton.PressedColor = System.Drawing.Color.White;
+			this.managementSettingsButton.ShadowDecoration.Enabled = true;
+			this.managementSettingsButton.ShadowDecoration.Parent = this.managementSettingsButton;
+			this.managementSettingsButton.Size = new System.Drawing.Size(150, 30);
+			this.managementSettingsButton.TabIndex = 0;
+			this.managementSettingsButton.Text = "تنظیمات مدیریتی";
+			this.managementSettingsButton.Click += new System.EventHandler(this.ManagementSettingsButton_Click);
 			// 
-			// guna2GradientButton11
+			// backupSettingsButton
 			// 
-			this.guna2GradientButton11.Animated = true;
-			this.guna2GradientButton11.BackColor = System.Drawing.Color.Transparent;
-			this.guna2GradientButton11.BorderRadius = 5;
-			this.guna2GradientButton11.CheckedState.FillColor = System.Drawing.Color.Olive;
-			this.guna2GradientButton11.CheckedState.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(0)))), ((int)(((byte)(61)))));
-			this.guna2GradientButton11.CheckedState.Parent = this.guna2GradientButton11;
-			this.guna2GradientButton11.CustomImages.Parent = this.guna2GradientButton11;
-			this.guna2GradientButton11.FillColor = System.Drawing.Color.RoyalBlue;
-			this.guna2GradientButton11.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(0)))), ((int)(((byte)(61)))));
-			this.guna2GradientButton11.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-			this.guna2GradientButton11.ForeColor = System.Drawing.Color.White;
-			this.guna2GradientButton11.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(0)))), ((int)(((byte)(61)))));
-			this.guna2GradientButton11.HoverState.FillColor2 = System.Drawing.Color.RoyalBlue;
-			this.guna2GradientButton11.HoverState.Parent = this.guna2GradientButton11;
-			this.guna2GradientButton11.Location = new System.Drawing.Point(16, 45);
-			this.guna2GradientButton11.Name = "guna2GradientButton11";
-			this.guna2GradientButton11.PressedColor = System.Drawing.Color.White;
-			this.guna2GradientButton11.ShadowDecoration.Enabled = true;
-			this.guna2GradientButton11.ShadowDecoration.Parent = this.guna2GradientButton11;
-			this.guna2GradientButton11.Size = new System.Drawing.Size(150, 30);
-			this.guna2GradientButton11.TabIndex = 0;
-			this.guna2GradientButton11.Text = "تنظیمات پشتیبان گیری";
+			this.backupSettingsButton.Animated = true;
+			this.backupSettingsButton.BackColor = System.Drawing.Color.Transparent;
+			this.backupSettingsButton.BorderRadius = 5;
+			this.backupSettingsButton.CheckedState.FillColor = System.Drawing.Color.Olive;
+			this.backupSettingsButton.CheckedState.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(0)))), ((int)(((byte)(61)))));
+			this.backupSettingsButton.CheckedState.Parent = this.backupSettingsButton;
+			this.backupSettingsButton.CustomImages.Parent = this.backupSettingsButton;
+			this.backupSettingsButton.FillColor = System.Drawing.Color.RoyalBlue;
+			this.backupSettingsButton.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(0)))), ((int)(((byte)(61)))));
+			this.backupSettingsButton.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+			this.backupSettingsButton.ForeColor = System.Drawing.Color.White;
+			this.backupSettingsButton.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(0)))), ((int)(((byte)(61)))));
+			this.backupSettingsButton.HoverState.FillColor2 = System.Drawing.Color.RoyalBlue;
+			this.backupSettingsButton.HoverState.Parent = this.backupSettingsButton;
+			this.backupSettingsButton.Location = new System.Drawing.Point(16, 45);
+			this.backupSettingsButton.Name = "backupSettingsButton";
+			this.backupSettingsButton.PressedColor = System.Drawing.Color.White;
+			this.backupSettingsButton.ShadowDecoration.Enabled = true;
+			this.backupSettingsButton.ShadowDecoration.Parent = this.backupSettingsButton;
+			this.backupSettingsButton.Size = new System.Drawing.Size(150, 30);
+			this.backupSettingsButton.TabIndex = 0;
+			this.backupSettingsButton.Text = "تنظیمات پشتیبان گیری";
+			this.backupSettingsButton.Click += new System.EventHandler(this.BackupSettingsButton_Click);
 			// 
 			// settingButton
 			// 
@@ -232,7 +234,7 @@ namespace Inventory
 			// submenuClientPanel
 			// 
 			this.submenuClientPanel.Controls.Add(this.registerClientButton);
-			this.submenuClientPanel.Controls.Add(this.clientFinancialSituationGradientButton);
+			this.submenuClientPanel.Controls.Add(this.clientFinancialSituationButton);
 			this.submenuClientPanel.Dock = System.Windows.Forms.DockStyle.Top;
 			this.submenuClientPanel.Location = new System.Drawing.Point(0, 655);
 			this.submenuClientPanel.Name = "submenuClientPanel";
@@ -265,31 +267,31 @@ namespace Inventory
 			this.registerClientButton.Text = "ثبت مشتری";
 			this.registerClientButton.Click += new System.EventHandler(this.RegisterClientButton_Click);
 			// 
-			// clientFinancialSituationGradientButton
+			// clientFinancialSituationButton
 			// 
-			this.clientFinancialSituationGradientButton.Animated = true;
-			this.clientFinancialSituationGradientButton.BackColor = System.Drawing.Color.Transparent;
-			this.clientFinancialSituationGradientButton.BorderRadius = 5;
-			this.clientFinancialSituationGradientButton.CheckedState.FillColor = System.Drawing.Color.Olive;
-			this.clientFinancialSituationGradientButton.CheckedState.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(0)))), ((int)(((byte)(61)))));
-			this.clientFinancialSituationGradientButton.CheckedState.Parent = this.clientFinancialSituationGradientButton;
-			this.clientFinancialSituationGradientButton.CustomImages.Parent = this.clientFinancialSituationGradientButton;
-			this.clientFinancialSituationGradientButton.FillColor = System.Drawing.Color.RoyalBlue;
-			this.clientFinancialSituationGradientButton.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(0)))), ((int)(((byte)(61)))));
-			this.clientFinancialSituationGradientButton.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-			this.clientFinancialSituationGradientButton.ForeColor = System.Drawing.Color.White;
-			this.clientFinancialSituationGradientButton.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(0)))), ((int)(((byte)(61)))));
-			this.clientFinancialSituationGradientButton.HoverState.FillColor2 = System.Drawing.Color.RoyalBlue;
-			this.clientFinancialSituationGradientButton.HoverState.Parent = this.clientFinancialSituationGradientButton;
-			this.clientFinancialSituationGradientButton.Location = new System.Drawing.Point(16, 45);
-			this.clientFinancialSituationGradientButton.Name = "clientFinancialSituationGradientButton";
-			this.clientFinancialSituationGradientButton.PressedColor = System.Drawing.Color.White;
-			this.clientFinancialSituationGradientButton.ShadowDecoration.Enabled = true;
-			this.clientFinancialSituationGradientButton.ShadowDecoration.Parent = this.clientFinancialSituationGradientButton;
-			this.clientFinancialSituationGradientButton.Size = new System.Drawing.Size(150, 30);
-			this.clientFinancialSituationGradientButton.TabIndex = 0;
-			this.clientFinancialSituationGradientButton.Text = "وضعیت مالی مشتریان";
-			this.clientFinancialSituationGradientButton.Click += new System.EventHandler(this.ClientFinancialSituationGradientButton_Click);
+			this.clientFinancialSituationButton.Animated = true;
+			this.clientFinancialSituationButton.BackColor = System.Drawing.Color.Transparent;
+			this.clientFinancialSituationButton.BorderRadius = 5;
+			this.clientFinancialSituationButton.CheckedState.FillColor = System.Drawing.Color.Olive;
+			this.clientFinancialSituationButton.CheckedState.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(0)))), ((int)(((byte)(61)))));
+			this.clientFinancialSituationButton.CheckedState.Parent = this.clientFinancialSituationButton;
+			this.clientFinancialSituationButton.CustomImages.Parent = this.clientFinancialSituationButton;
+			this.clientFinancialSituationButton.FillColor = System.Drawing.Color.RoyalBlue;
+			this.clientFinancialSituationButton.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(0)))), ((int)(((byte)(61)))));
+			this.clientFinancialSituationButton.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+			this.clientFinancialSituationButton.ForeColor = System.Drawing.Color.White;
+			this.clientFinancialSituationButton.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(0)))), ((int)(((byte)(61)))));
+			this.clientFinancialSituationButton.HoverState.FillColor2 = System.Drawing.Color.RoyalBlue;
+			this.clientFinancialSituationButton.HoverState.Parent = this.clientFinancialSituationButton;
+			this.clientFinancialSituationButton.Location = new System.Drawing.Point(16, 45);
+			this.clientFinancialSituationButton.Name = "clientFinancialSituationButton";
+			this.clientFinancialSituationButton.PressedColor = System.Drawing.Color.White;
+			this.clientFinancialSituationButton.ShadowDecoration.Enabled = true;
+			this.clientFinancialSituationButton.ShadowDecoration.Parent = this.clientFinancialSituationButton;
+			this.clientFinancialSituationButton.Size = new System.Drawing.Size(150, 30);
+			this.clientFinancialSituationButton.TabIndex = 0;
+			this.clientFinancialSituationButton.Text = "وضعیت مالی مشتریان";
+			this.clientFinancialSituationButton.Click += new System.EventHandler(this.ClientFinancialSituationButton_Click);
 			// 
 			// clientButton
 			// 
@@ -1016,13 +1018,13 @@ namespace Inventory
 		private System.Windows.Forms.Timer dropDownSettingTimer;
 		private Mbb.Windows.Forms.Panel separator5;
 		private Mbb.Windows.Forms.Panel submenuSettingPanel;
-		private Guna.UI2.WinForms.Guna2GradientButton guna2GradientButton10;
-		private Guna.UI2.WinForms.Guna2GradientButton guna2GradientButton11;
+		private Guna.UI2.WinForms.Guna2GradientButton managementSettingsButton;
+		private Guna.UI2.WinForms.Guna2GradientButton backupSettingsButton;
 		private Guna.UI2.WinForms.Guna2GradientButton settingButton;
 		private Mbb.Windows.Forms.Panel separator4;
 		private Mbb.Windows.Forms.Panel submenuClientPanel;
 		private Guna.UI2.WinForms.Guna2GradientButton registerClientButton;
-		private Guna.UI2.WinForms.Guna2GradientButton clientFinancialSituationGradientButton;
+		private Guna.UI2.WinForms.Guna2GradientButton clientFinancialSituationButton;
 		private Guna.UI2.WinForms.Guna2GradientButton clientButton;
 		private Mbb.Windows.Forms.Panel separator3;
 		private Mbb.Windows.Forms.Panel submenuFinancialPanel;
