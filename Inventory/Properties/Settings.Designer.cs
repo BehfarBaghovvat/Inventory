@@ -25,5 +25,21 @@ namespace Inventory.Properties
 				return defaultInstance;
 			}
 		}
+
+		[global::System.Configuration.ApplicationScopedSettingAttribute()]
+		[global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+		[global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+		[global::System.Configuration.DefaultSettingValueAttribute("Data Source=.;Initial Catalog=INVENTORY;Integrated Security=True")]
+		public string INVENTORYConnectionString
+		{
+			get
+			{
+				return ((string)(this["INVENTORYConnectionString"]));
+			}
+		}
+
+		public string databaseConnectionString { get; internal set; }
+
+
 	}
 }

@@ -77,7 +77,6 @@ namespace Financial_Form
 		public AncillaryCostsForm()
 		{
 			InitializeComponent();
-
 			Initialize();
 		}
 

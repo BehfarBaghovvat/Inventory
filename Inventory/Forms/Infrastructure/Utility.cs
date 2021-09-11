@@ -759,6 +759,20 @@ namespace Infrastructure
 		}
 		#endregion /IranSansFont
 
+		#region IRANSansXFaNumFont
+		/// <summary>
+		/// A function that returns the Persian font of Iran Sanse XFaNum.
+		/// </summary>
+		/// <param name="emSize"></param>
+		/// <returns>IranSans Font</returns>
+		public static System.Drawing.Font IRANSansXFaNumFont(float emSize)
+		{
+			System.Drawing.Font font = new System.Drawing.Font(familyName: "IRANSansXFaNum", emSize: emSize);
+
+			return font;
+		}
+		#endregion /IRANSansXFaNumFont
+
 		#region LimeColor
 		/// <summary>
 		/// This function returns a color.

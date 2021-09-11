@@ -324,6 +324,36 @@
     <Compile Include="Forms\Setting_Forms\ManagementSettingForm.Designer.cs">
       <DependentUpon>ManagementSettingForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Setting_Forms\Manegment_Setting\EventLogUS.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\Setting_Forms\Manegment_Setting\EventLogUS.Designer.cs">
+      <DependentUpon>EventLogUS.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Setting_Forms\Manegment_Setting\LoginControlUC.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\Setting_Forms\Manegment_Setting\LoginControlUC.Designer.cs">
+      <DependentUpon>LoginControlUC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Setting_Forms\Manegment_Setting\ProgramSettingUC.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\Setting_Forms\Manegment_Setting\ProgramSettingUC.Designer.cs">
+      <DependentUpon>ProgramSettingUC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Setting_Forms\Manegment_Setting\UserSettingUC.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Forms\Setting_Forms\Manegment_Setting\UserSettingUC.Designer.cs">
+      <DependentUpon>UserSettingUC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Setting_Forms\Manegment_Setting\PrintLogHistoryForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Setting_Forms\Manegment_Setting\PrintLogHistoryForm.Designer.cs">
+      <DependentUpon>PrintLogHistoryForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -440,6 +470,21 @@
     <EmbeddedResource Include="Forms\Setting_Forms\ManagementSettingForm.resx">
       <DependentUpon>ManagementSettingForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Setting_Forms\Manegment_Setting\EventLogUS.resx">
+      <DependentUpon>EventLogUS.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Setting_Forms\Manegment_Setting\LoginControlUC.resx">
+      <DependentUpon>LoginControlUC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Setting_Forms\Manegment_Setting\ProgramSettingUC.resx">
+      <DependentUpon>ProgramSettingUC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Setting_Forms\Manegment_Setting\UserSettingUC.resx">
+      <DependentUpon>UserSettingUC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Setting_Forms\Manegment_Setting\PrintLogHistoryForm.resx">
+      <DependentUpon>PrintLogHistoryForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -462,11 +507,13 @@
     <None Include="Properties\DataSources\Models.ChequaSection.datasource" />
     <None Include="Properties\DataSources\Models.Client.datasource" />
     <None Include="Properties\DataSources\Models.DailyFinancialReport.datasource" />
+    <None Include="Properties\DataSources\Models.EventLog.datasource" />
     <None Include="Properties\DataSources\Models.InventoryHolding.datasource" />
     <None Include="Properties\DataSources\Models.InventoryOutput.datasource" />
     <None Include="Properties\DataSources\Models.Journal.datasource" />
     <None Include="Properties\DataSources\Models.ListFinancialClient.datasource" />
     <None Include="Properties\DataSources\Models.ListService.datasource" />
+    <None Include="Properties\DataSources\Models.LoginHistory.datasource" />
     <None Include="Properties\DataSources\Models.MonthlyFinancialReport.datasource" />
     <None Include="Properties\DataSources\Models.ProductReceived.datasource" />
     <None Include="Properties\DataSources\Models.Service1.datasource" />

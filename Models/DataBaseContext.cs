@@ -19,6 +19,7 @@
 		public System.Data.Entity.DbSet<AccountsReceivable> AccountsReceivables { get; set; }
 		public System.Data.Entity.DbSet<AccountsPayable> AccountsPayables { get; set; }
         public System.Data.Entity.DbSet<AncillaryCosts> AncillaryCosts { get; set; }
+		public System.Data.Entity.DbSet<BackupSetting> BackupSettings { get; set; }
         public System.Data.Entity.DbSet<CapitalFund> CapitalFunds { get; set; }
 		public System.Data.Entity.DbSet<ChequeSection> ChequeSections { get; set; }
 		public System.Data.Entity.DbSet<Client> Clients { get; set; }
