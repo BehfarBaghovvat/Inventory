@@ -9,14 +9,12 @@ namespace Client_Forms
 		#region Properties
 
 		#region Layers
-
 		public enum FinantialSituation
 		{
 			بستانکار,
 			تسویه,
 			بدهکار,
 		}
-
 
 		private Inventory.MainForm _mainForm;
 		public Inventory.MainForm MainForm
@@ -45,8 +43,6 @@ namespace Client_Forms
 		public string Search_Client { get; set; }
 		public int? Situation { get; set; }
 		public decimal? Sum_Amount { get; set; }
-
-
 		#endregion /Properties
 
 
@@ -314,8 +310,6 @@ namespace Client_Forms
 		}
 		#endregion GetListFinantialClient
 
-		
-
 		#region SearchClient
 		/// <summary>
 		/// جستجوی مشتری بر اساس 
@@ -413,7 +407,6 @@ namespace Client_Forms
 						}
 					}
 
-
 					return true;
 				}
 				catch (System.Exception ex)
@@ -463,6 +456,10 @@ namespace Client_Forms
 
 
 
+
+
+
+
 					paymentButton.Enabled = false;
 
 					return true;
@@ -495,7 +492,5 @@ namespace Client_Forms
 		#endregion /SetAmountInCapitalFund
 
 		#endregion /Function
-
-
 	}
 }

@@ -242,7 +242,6 @@ namespace Manegment_Setting
 			this.userSearchTextBox.UseSystemPasswordChar = false;
 			this.userSearchTextBox.WordWrap = true;
 			this.userSearchTextBox.TextChange += new System.EventHandler(this.UserSearchTextBox_TextChange);
-			this.userSearchTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.UserSearchTextBox_KeyPress);
 			this.userSearchTextBox.Enter += new System.EventHandler(this.UserSearchTextBox_Enter);
 			// 
 			// printButton
