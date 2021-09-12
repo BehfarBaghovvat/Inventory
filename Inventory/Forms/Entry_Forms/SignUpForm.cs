@@ -12,12 +12,10 @@ namespace Entry_Forms
 			مدیریت,
 			معاونت,
 			کارمند,
-			نیروی_خدماتی,
 			کاربر_ساده,
 		}
 
 		private Models.User _userAccount = null;
-
 		public Models.User UserAccount
 		{
 			get 
@@ -42,8 +40,8 @@ namespace Entry_Forms
 		public SingUpForm()
 		{
 			InitializeComponent();
-
-			RefreshData();
+			Initialize();
+			
 		}
 
 
@@ -414,29 +412,6 @@ namespace Entry_Forms
 
 		#endregion /AllClear
 
-		#region UsernameConfirmation
-		private bool UsernameConfirmation(string username)
-		{
-			Models.DataBaseContext dataBaseContext = null;
-			dataBaseContext =
-					new Models.DataBaseContext();
-
-			Models.User user =
-				dataBaseContext.Users
-				.Where(current => string.Compare(current.Username, username) == 0)
-				.FirstOrDefault();
-
-			if (user == null)
-			{
-				return true;
-			}
-			else
-			{
-				return false;
-			}
-		}
-		#endregion /UsernameConfirmation
-
 		#region EditAccount
 		public void EditAccount(Models.User userAccount)
 		{
@@ -475,6 +450,20 @@ namespace Entry_Forms
 			}
 		}
 		#endregion /EditAccount
+
+		#region Initialize
+		/// <summary>
+		/// تنظیمات ورود اولیه
+		/// </summary>
+		private void Initialize()
+		{
+			this.Opacity = 0.0;
+
+			fadeInFormTimer.Start();
+
+			RefreshData();
+		}
+		#endregion /Initialize
 
 		#region RefreshData
 		public void RefreshData()
@@ -547,6 +536,29 @@ namespace Entry_Forms
 			}
 		}
 		#endregion /SaveAccount
+
+		#region UsernameConfirmation
+		private bool UsernameConfirmation(string username)
+		{
+			Models.DataBaseContext dataBaseContext = null;
+			dataBaseContext =
+					new Models.DataBaseContext();
+
+			Models.User user =
+				dataBaseContext.Users
+				.Where(current => string.Compare(current.Username, username) == 0)
+				.FirstOrDefault();
+
+			if (user == null)
+			{
+				return true;
+			}
+			else
+			{
+				return false;
+			}
+		}
+		#endregion /UsernameConfirmation
 
 		#region UserVlidation
 		private bool UserVlidation(Models.User userAccount)

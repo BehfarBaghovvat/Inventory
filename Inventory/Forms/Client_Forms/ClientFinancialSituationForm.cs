@@ -228,7 +228,18 @@ namespace Client_Forms
 				}
 				else
 				{
-					amount = decimal.Parse( capitalFund.Capital_Fund.Replace("توان",string.Empty).Replace(",",string.Empty).Trim());
+					if (string.IsNullOrEmpty(capitalFund.Capital_Fund))
+					{
+						amount = 0;
+					}
+					else if (capitalFund.Capital_Fund.Length < 9)
+					{
+						amount = decimal.Parse(capitalFund.Capital_Fund.Replace("توان", string.Empty).Trim());
+					}
+					else
+					{
+						amount = decimal.Parse(capitalFund.Capital_Fund.Replace("توان", string.Empty).Replace(",", string.Empty).Trim());
+					}
 				}
 
 				MainForm.fundLabel.Text = $"{amount:#,0} تومان";

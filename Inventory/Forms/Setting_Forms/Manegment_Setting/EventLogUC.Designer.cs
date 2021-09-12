@@ -1,7 +1,7 @@
 ﻿
 namespace Manegment_Setting
 {
-	partial class EventLogUS
+	partial class EventLogUC
 	{
 		/// <summary> 
 		/// Required designer variable.
@@ -30,7 +30,7 @@ namespace Manegment_Setting
 		private void InitializeComponent()
 		{
 			this.components = new System.ComponentModel.Container();
-			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EventLogUS));
+			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EventLogUC));
 			Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties1 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
 			Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties2 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
 			Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties3 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
@@ -175,12 +175,12 @@ namespace Manegment_Setting
 			this.listEventLogDataGridView.ColumnHeadersHeight = 35;
 			this.listEventLogDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
 			this.listEventLogDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.idDataGridViewTextBoxColumn,
-            this.usernameDataGridViewTextBoxColumn,
-            this.fullNameDataGridViewTextBoxColumn,
-            this.descriptionDataGridViewTextBoxColumn,
-            this.eventDateDataGridViewTextBoxColumn,
-            this.eventTimeDataGridViewTextBoxColumn});
+			this.idDataGridViewTextBoxColumn,
+			this.usernameDataGridViewTextBoxColumn,
+			this.fullNameDataGridViewTextBoxColumn,
+			this.descriptionDataGridViewTextBoxColumn,
+			this.eventDateDataGridViewTextBoxColumn,
+			this.eventTimeDataGridViewTextBoxColumn});
 			this.listEventLogDataGridView.DataSource = this.eventLogBindingSource;
 			dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
 			dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(220)))), ((int)(((byte)(239)))));

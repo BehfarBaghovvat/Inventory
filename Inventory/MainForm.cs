@@ -280,6 +280,7 @@ namespace Inventory
 		public MainForm()
 		{
 			InitializeComponent();
+			Initialize();
 		}
 
 
@@ -291,7 +292,7 @@ namespace Inventory
 		#region MainForm_Load
 		private void MainForm_Load(object sender, System.EventArgs e)
 		{
-			Initialize();
+			
 		}
 		#endregion /MainForm_Load
 
@@ -442,7 +443,8 @@ namespace Inventory
 				//-------------------------------------------- Setting
 
 				settingButton.Checked = false;
-
+				ManagementSettingForm.Hide();
+				BackupSettingForm.Hide();
 				managementSettingsButton.Checked = false;
 				backupSettingsButton.Checked = false;
 			}
@@ -1339,11 +1341,6 @@ namespace Inventory
 						inventoryButton.Enabled = true;
 						break;
 
-						case Models.User.AccessLeve.نیروی_خدماتی:
-						homeButton.Enabled = true;
-						inventoryButton.Enabled = true;
-						break;
-
 						case Models.User.AccessLeve.کاربر_ساده:
 						homeButton.Enabled = true;
 						inventoryButton.Enabled = true;
@@ -1358,6 +1355,65 @@ namespace Inventory
 		}
 		#endregion /AccountLoaded
 
+		#region GetCapitalFund
+		/// <summary>
+		/// بارگزاری موجودی صندوق
+		/// </summary>
+		/// <returns></returns>
+		private void GetCapitalFund()
+		{
+			decimal capital_Fund;
+			Models.DataBaseContext dataBaseContext = null;
+
+			try
+			{
+				dataBaseContext =
+					new Models.DataBaseContext();
+
+				Models.CapitalFund capitalFund =
+					dataBaseContext.CapitalFunds
+					.FirstOrDefault();
+
+				if (capitalFund == null)
+				{
+					capital_Fund = 0;
+				}
+				else
+				{
+					if (string.IsNullOrEmpty(capitalFund.Capital_Fund))
+					{
+						capital_Fund = 0;
+					}
+					else if (capitalFund.Capital_Fund.Length < 9)
+					{
+						capital_Fund = decimal.Parse(capitalFund.Capital_Fund.Replace("توان", string.Empty).Trim());
+						fundsNotificationTextBox.Text = $"{capital_Fund} تومان";
+					}
+					else
+					{
+						capital_Fund = decimal.Parse(capitalFund.Capital_Fund.Replace("توان", string.Empty).Replace(",", string.Empty).Trim());
+						fundsNotificationTextBox.Text = $"{capital_Fund:#,0} تومان";
+					}
+				}
+
+				
+			}
+			catch (System.Exception ex)
+			{
+				Infrastructure.Utility.ExceptionShow(ex);
+
+			}
+			finally
+			{
+				if (dataBaseContext != null)
+				{
+					dataBaseContext.Dispose();
+					dataBaseContext = null;
+				}
+			}
+		}
+		#endregion /GetCapitalFund
+
 		#region Initialize
 		/// <summary>
 		/// تنظمیات ورود اولیه
@@ -1366,7 +1422,7 @@ namespace Inventory
 		{
 			AccountLoaded();
 			ResetSubmenu();
-			LoadingFund();
+			GetCapitalFund();
 
 			solarCalenderLabel.Text = Infrastructure.Utility.PersianCalendar();
 			gregorianCalendarLabel.Text = Infrastructure.Utility.ADCalendar();
@@ -1387,55 +1443,6 @@ namespace Inventory
 			fadeInMainFormTimer.Start();
 		}
 		#endregion /Initialize
-
-		#region LoadingFund
-		/// <summary>
-		/// بارگزاری موجودی صندوق
-		/// </summary>
-		/// <returns></returns>
-		private void LoadingFund()
-		{
-			long fund;
-			Models.DataBaseContext dataBaseContext = null;
-
-			try
-			{
-				dataBaseContext =
-					new Models.DataBaseContext();
-
-				Models.CapitalFund capitalFund =
-					dataBaseContext.CapitalFunds
-					.FirstOrDefault();
-
-				if (capitalFund == null)
-				{
-					fund = 0;
-				}
-				else
-				{
-					fund = long.Parse(capitalFund.Capital_Fund
-						.Replace("تومان", string.Empty)
-						.Replace(",", string.Empty)
-						.Trim());
-				}
-
-				fundsNotificationTextBox.Text = $"{fund:#,0} تومان";
-			}
-			catch (System.Exception ex)
-			{
-				Infrastructure.Utility.ExceptionShow(ex);
-				
-			}
-			finally
-			{
-				if (dataBaseContext != null)
-				{
-					dataBaseContext.Dispose();
-					dataBaseContext = null;
-				}
-			}
-		}
-		#endregion /LoadingFund
 
 		#region ResetSubmenu
 		/// <summary>
@@ -1529,15 +1536,8 @@ namespace Inventory
 				dataBaseContext = null;
 			}
 		}
-
-
-
-
-
 		#endregion /SaveLoginHistory
 
 		#endregion /Founcitons
-
-		
 	}
 }

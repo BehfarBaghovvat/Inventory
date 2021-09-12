@@ -324,11 +324,11 @@
     <Compile Include="Forms\Setting_Forms\ManagementSettingForm.Designer.cs">
       <DependentUpon>ManagementSettingForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Setting_Forms\Manegment_Setting\EventLogUS.cs">
+    <Compile Include="Forms\Setting_Forms\Manegment_Setting\EventLogUC.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Forms\Setting_Forms\Manegment_Setting\EventLogUS.Designer.cs">
-      <DependentUpon>EventLogUS.cs</DependentUpon>
+    <Compile Include="Forms\Setting_Forms\Manegment_Setting\EventLogUC.Designer.cs">
+      <DependentUpon>EventLogUC.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Setting_Forms\Manegment_Setting\LoginControlUC.cs">
       <SubType>UserControl</SubType>
@@ -470,8 +470,8 @@
     <EmbeddedResource Include="Forms\Setting_Forms\ManagementSettingForm.resx">
       <DependentUpon>ManagementSettingForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Setting_Forms\Manegment_Setting\EventLogUS.resx">
-      <DependentUpon>EventLogUS.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\Setting_Forms\Manegment_Setting\EventLogUC.resx">
+      <DependentUpon>EventLogUC.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Setting_Forms\Manegment_Setting\LoginControlUC.resx">
       <DependentUpon>LoginControlUC.cs</DependentUpon>

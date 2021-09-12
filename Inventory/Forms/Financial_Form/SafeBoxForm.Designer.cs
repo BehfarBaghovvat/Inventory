@@ -60,7 +60,7 @@ namespace Financial_Form
 			// 
 			this.acceptButton.Animated = true;
 			this.acceptButton.BackColor = System.Drawing.Color.Transparent;
-			this.acceptButton.BorderRadius = 20;
+			this.acceptButton.BorderRadius = 5;
 			this.acceptButton.CheckedState.Parent = this.acceptButton;
 			this.acceptButton.CustomImages.Parent = this.acceptButton;
 			this.acceptButton.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(0)))), ((int)(((byte)(61)))));

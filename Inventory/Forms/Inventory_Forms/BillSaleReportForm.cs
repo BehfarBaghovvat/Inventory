@@ -957,9 +957,29 @@ namespace Inventory_Forms
 					dataBaseContext.CapitalFunds
 					.FirstOrDefault();
 
-				capital_Fund = decimal.Parse(capitalFund.Capital_Fund.Replace("تومان", string.Empty).Replace(",", string.Empty).Trim());
+				if (capitalFund == null)
+				{
+					capital_Fund = 0;
+				}
+				else
+				{
+					if (string.IsNullOrEmpty(capitalFund.Capital_Fund))
+					{
+						capital_Fund = 0;
+					}
+					else if (capitalFund.Capital_Fund.Length <= 9)
+					{
+						capital_Fund = decimal.Parse(capitalFund.Capital_Fund.Replace("توان", string.Empty).Trim());
 
-				MainForm.fundsNotificationTextBox.Text = $"{capital_Fund:#,0} تومان";
+						Inventory.Program.MainForm.fundsNotificationTextBox.Text = $"{capital_Fund} تومان ";
+					}
+					else
+					{
+						capital_Fund = decimal.Parse(capitalFund.Capital_Fund.Replace("توان", string.Empty).Replace(",", string.Empty).Trim());
+
+						Inventory.Program.MainForm.fundsNotificationTextBox.Text = $"{capital_Fund:#,0} تومان ";
+					}
+				}
 
 				return capital_Fund;
 

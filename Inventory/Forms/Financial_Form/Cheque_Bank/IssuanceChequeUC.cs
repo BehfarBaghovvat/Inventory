@@ -15,8 +15,7 @@
 		public IssuanceChequaUC()
 		{
 			InitializeComponent();
-
-			ChequeSection.Name_Account_Holder = nameAccountHolderTextBox.Text;
+			Initialize();
 		}
 
 
@@ -297,6 +296,16 @@
 			amountNumberTextBox.Clear();
 		}
 		#endregion /AllClear
+
+		#region Initialize
+		/// <summary>
+		/// تنظیمات ورود اولیه
+		/// </summary>
+		private void Initialize()
+		{
+			ChequeSection.Name_Account_Holder = nameAccountHolderTextBox.Text;
+		}
+		#endregion /Initialize
 
 		#region ValidationData
 		/// <summary>

@@ -211,46 +211,56 @@ namespace Financial_Form
 
 		//--------------------------------------------------------------------------------------------------    Private Methods
 
-		#region Initialize
-		/// <summary>
-		/// مقداردهی اولیه
-		/// </summary>
-		private void Initialize()
-		{
-			Capital_Fund = LoadingCapitalFund();
-			LoadListIncidentalExpenses();
-		}
-		#endregion /Initialize
+		#region Function
 
-		#region SetEventLog
-		private void SetEventLog(Models.AncillaryCosts _ancillaryCosts)
+		#region GetCapitalFund
+		/// <summary>
+		/// به روز رسانی صندوق
+		/// </summary>
+		/// <returns></returns>
+		private decimal GetCapitalFund()
 		{
+			decimal capital_Fund;
 			Models.DataBaseContext dataBaseContext = null;
 			try
 			{
 				dataBaseContext =
 					new Models.DataBaseContext();
 
-				Models.EventLog eventLog =
-					dataBaseContext.EventLogs
+				Models.CapitalFund capitalFund =
+					dataBaseContext.CapitalFunds
 					.FirstOrDefault();
 
-				eventLog =
-					new Models.EventLog()
-					{
-						Event_Date = $"{Infrastructure.Utility.PersianCalendar(System.DateTime.Now)}",
-						Event_Time = $"{Infrastructure.Utility.ShowTime()}",
-						Description = $"مبلغ {_ancillaryCosts.Amount_Payment} بابت  {_ancillaryCosts.Cost_Name} پرداخت گردید",
-						Full_Name = Inventory.Program.UserAuthentication.Full_Name,
-						Username = Inventory.Program.UserAuthentication.Username,
-					};
+				if (capitalFund == null)
+				{
+					capital_Fund = 0;
 
-				dataBaseContext.EventLogs.Add(eventLog);
-				dataBaseContext.SaveChanges();
+				}
+				else
+				{
+					if (string.IsNullOrEmpty(capitalFund.Capital_Fund))
+					{
+						capital_Fund = 0;
+					}
+					else if (capitalFund.Capital_Fund.Length <= 9)
+					{
+						capital_Fund = decimal.Parse(capitalFund.Capital_Fund.Replace("توان", string.Empty).Trim());
+						MainForm.fundsNotificationTextBox.Text = $"{capital_Fund} تومان";
+					}
+					else
+					{
+						capital_Fund = decimal.Parse(capitalFund.Capital_Fund.Replace("توان", string.Empty).Replace(",", string.Empty).Trim());
+						MainForm.fundsNotificationTextBox.Text = $"{capital_Fund:#,0} تومان";
+					}
+				}
+
+				return capital_Fund;
 			}
 			catch (System.Exception ex)
 			{
 				Infrastructure.Utility.ExceptionShow(ex);
+
+				return 0;
 			}
 			finally
 			{
@@ -261,7 +271,56 @@ namespace Financial_Form
 				}
 			}
 		}
-		#endregion /SetEventLog
+		#endregion /GetCapitalFund
+
+		#region GetListIncidentalExpenses
+		/// <summary>
+		/// بارگذاری لیست اسامی هزینه ها از دیتابیس به داخل برنامه
+		/// </summary>
+		private void GetListIncidentalExpenses()
+		{
+			listExpensesComboBox.Items.Add("...انتخاب هزینه");
+			listExpensesComboBox.StartIndex = 0;
+
+			Models.DataBaseContext dataBaseContext = null;
+			try
+			{
+				dataBaseContext =
+					 new Models.DataBaseContext();
+
+				System.Collections.Generic.List<Models.ListIncidentalExpensesName> listIncidentalExpenses = new System.Collections.Generic.List<Models.ListIncidentalExpensesName>();
+
+				listIncidentalExpenses =
+					dataBaseContext.ListIncidentalExpensesNames
+					.OrderBy(current => current.Id)
+					.ToList();
+
+
+				for (int i = 0; i < listIncidentalExpenses.Count; i++)
+				{
+					listExpensesComboBox.Items.Add(listIncidentalExpenses.ElementAt(i));
+					listExpensesComboBox.ValueMember = "Id";
+					listExpensesComboBox.DisplayMember = "List_Cost_Name";
+				}
+			}
+			catch (System.Exception ex)
+			{
+
+				Infrastructure.Utility.ExceptionShow(ex);
+			}
+		}
+		#endregion /GetListIncidentalExpenses
+
+		#region Initialize
+		/// <summary>
+		/// مقداردهی اولیه
+		/// </summary>
+		private void Initialize()
+		{
+			Capital_Fund = GetCapitalFund();
+			GetListIncidentalExpenses();
+		}
+		#endregion /Initialize
 
 		#region PaymentCost
 		/// <summary>
@@ -303,44 +362,37 @@ namespace Financial_Form
 				}
 			}
 		}
-		#endregion /PaymentCost
+		#endregion /PaymentCost		
 
-		#region LoadingCapitalFund
-		/// <summary>
-		/// به روز رسانی صندوق
-		/// </summary>
-		/// <returns></returns>
-		private decimal LoadingCapitalFund()
+		#region SetEventLog
+		private void SetEventLog(Models.AncillaryCosts _ancillaryCosts)
 		{
-			decimal capital_Fund;
 			Models.DataBaseContext dataBaseContext = null;
 			try
 			{
 				dataBaseContext =
 					new Models.DataBaseContext();
 
-				Models.CapitalFund capitalFund =
-					dataBaseContext.CapitalFunds
+				Models.EventLog eventLog =
+					dataBaseContext.EventLogs
 					.FirstOrDefault();
 
-				if (capitalFund == null)
-				{
-					capital_Fund = 0;
-					MainForm.fundsNotificationTextBox.Text = $"{capital_Fund} تومان";
-				}
-				else
-				{
-					capital_Fund = decimal.Parse(capitalFund.Capital_Fund.Replace("تومان", string.Empty).Replace(",", string.Empty).Trim());
-					MainForm.fundsNotificationTextBox.Text = $"{capital_Fund:#,0} تومان";
-				}
-				return capital_Fund;
+				eventLog =
+					new Models.EventLog()
+					{
+						Event_Date = $"{Infrastructure.Utility.PersianCalendar(System.DateTime.Now)}",
+						Event_Time = $"{Infrastructure.Utility.ShowTime()}",
+						Description = $"مبلغ {_ancillaryCosts.Amount_Payment} بابت  {_ancillaryCosts.Cost_Name} پرداخت گردید",
+						Full_Name = Inventory.Program.UserAuthentication.Full_Name,
+						Username = Inventory.Program.UserAuthentication.Username,
+					};
 
+				dataBaseContext.EventLogs.Add(eventLog);
+				dataBaseContext.SaveChanges();
 			}
 			catch (System.Exception ex)
 			{
 				Infrastructure.Utility.ExceptionShow(ex);
-
-				return 0;
 			}
 			finally
 			{
@@ -351,45 +403,7 @@ namespace Financial_Form
 				}
 			}
 		}
-		#endregion /LoadingCapitalFund
-
-		#region LoadListIncidentalExpenses
-		/// <summary>
-		/// بارگذاری لیست اسامی هزینه ها از دیتابیس به داخل برنامه
-		/// </summary>
-		private void LoadListIncidentalExpenses()
-		{
-			listExpensesComboBox.Items.Add("...انتخاب هزینه");
-			listExpensesComboBox.StartIndex = 0;
-
-			Models.DataBaseContext dataBaseContext = null;
-			try
-			{
-				dataBaseContext =
-					 new Models.DataBaseContext();
-
-				System.Collections.Generic.List<Models.ListIncidentalExpensesName> listIncidentalExpenses = new System.Collections.Generic.List<Models.ListIncidentalExpensesName>();
-
-				listIncidentalExpenses =
-					dataBaseContext.ListIncidentalExpensesNames
-					.OrderBy(current => current.Id)
-					.ToList();
-
-
-				for (int i = 0; i < listIncidentalExpenses.Count; i++)
-				{
-					listExpensesComboBox.Items.Add(listIncidentalExpenses.ElementAt(i));
-					listExpensesComboBox.ValueMember = "Id";
-					listExpensesComboBox.DisplayMember = "List_Cost_Name";
-				}
-			}
-			catch (System.Exception ex)
-			{
-
-				Infrastructure.Utility.ExceptionShow(ex);
-			}
-		}
-		#endregion /LoadListIncidentalExpenses
+		#endregion /SetEventLog
 
 		#region SetToAncillaryCosts
 		/// <summary>
@@ -479,6 +493,8 @@ namespace Financial_Form
 				return true;
 			}
 		}
-		#endregion /ValidationData
+		#endregion /ValidationData 
+
+		#endregion /Function
 	}
 }

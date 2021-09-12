@@ -121,6 +121,7 @@ namespace Inventory_Forms
 		public ProductBuyForm()
 		{
 			InitializeComponent();
+			Initialize();
 		}
 
 
@@ -754,6 +755,10 @@ namespace Inventory_Forms
 		#region Function
 
 		#region AllClear
+		/// <summary>
+		/// پاک کردن تمام کنترل ها
+		/// و برگشت به حالت اولیه
+		/// </summary>
 		private void AllClear()
 		{
 			NumberPurchases = 0;
@@ -834,6 +839,10 @@ namespace Inventory_Forms
 		#endregion /CheckFundBalance
 
 		#region ClearForEdit
+		/// <summary>
+		/// پاک کردن کنترلها
+		/// برای انجام ویرایش
+		/// </summary>
 		private void ClearForEdit()
 		{
 			productNameTextBox.Clear();
@@ -856,7 +865,7 @@ namespace Inventory_Forms
 		/// <returns>_capitalInventory</returns>
 		private decimal GetCapitalInventory()
 		{
-			decimal _capitalInventory;
+			decimal capital_Fund;
 
 			Models.DataBaseContext dataBaseContext = null;
 			try
@@ -870,7 +879,7 @@ namespace Inventory_Forms
 
 				if (capitalFund == null)
 				{
-					_capitalInventory = 0;
+					capital_Fund = 0;
 
 					Mbb.Windows.Forms.MessageBox.Show(
 						text: "موجودی صندوق 0 می باشد. \nلطفا موجودی صندوق را بررسی نمایید.",
@@ -882,15 +891,18 @@ namespace Inventory_Forms
 				{
 					if (capitalFund.Capital_Fund.Length <= 9)
 					{
-						_capitalInventory = decimal.Parse(capitalFund.Capital_Fund.Replace("تومان", string.Empty).Trim());
+						capital_Fund = decimal.Parse(capitalFund.Capital_Fund.Replace("تومان", string.Empty).Trim());
+						Inventory.Program.MainForm.fundsNotificationTextBox.Text = $"{capital_Fund} تومان ";
+
 					}
 					else
 					{
-						_capitalInventory = decimal.Parse(capitalFund.Capital_Fund.Replace("تومان", string.Empty).Replace(",", string.Empty).Trim());
+						capital_Fund = decimal.Parse(capitalFund.Capital_Fund.Replace("تومان", string.Empty).Replace(",", string.Empty).Trim());
+						Inventory.Program.MainForm.fundsNotificationTextBox.Text = $"{capital_Fund:#,0} تومان ";
 					}
 				}
 
-				return _capitalInventory;
+				return capital_Fund;
 
 			}
 			catch (System.Exception ex)
@@ -917,15 +929,7 @@ namespace Inventory_Forms
 		{
 			this.Focus();
 
-			if (Inventory.Program.UserAuthentication == null)
-			{
-				recipientNameTextBox.Text = "حالت استفاده بدون کاربر";
-			}
-			else
-			{
-				recipientNameTextBox.Text = Inventory.Program.UserAuthentication.Full_Name;
-			}
-
+			RecipientName();
 			CapitalInventory = GetCapitalInventory();
 			AllClear();
 			RefrashData();
@@ -933,6 +937,9 @@ namespace Inventory_Forms
 		#endregion /Initialize
 
 		#region RefrashData
+		/// <summary>
+		/// تازه سازی اطلاعات
+		/// </summary>
 		private void RefrashData()
 		{
 			Models.DataBaseContext dataBaseContext = null;
@@ -967,17 +974,20 @@ namespace Inventory_Forms
 		#endregion /RefrashData
 
 		#region LogInformationEditingEvents
+		/// <summary>
+		/// ثبت تمام فعالیت های کاربر
+		/// </summary>
 		private void LogInformationEditingEvents()
 		{
 			string descriptionLog = null;
 
-			if (string.Compare(ProductReceived_Selected.Product_Name, ProductReceived_New.Product_Name) == 0)
+			if (string.Compare(ProductReceived_Selected.Product_Name, ProductReceived_New.Product_Name) != 0)
 			{
 				descriptionLog =
 					$"تغییر نام کالا از {ProductReceived_Selected.Product_Name} به {ProductReceived_New.Product_Name}";
 			}
 
-			if (string.Compare(ProductReceived_Selected.Product_Purchase_Price, ProductReceived_New.Product_Purchase_Price) == 0)
+			if (string.Compare(ProductReceived_Selected.Product_Purchase_Price, ProductReceived_New.Product_Purchase_Price) != 0)
 			{
 				if (descriptionLog != null)
 				{
@@ -988,7 +998,7 @@ namespace Inventory_Forms
 					$"تغییر قیمت کالا از {ProductReceived_Selected.Product_Purchase_Price} به {ProductReceived_New.Product_Purchase_Price}";
 			}
 
-			if (string.Compare(ProductReceived_Selected.Product_Quantity.ToString(), ProductReceived_New.Product_Quantity.ToString()) == 0)
+			if (string.Compare(ProductReceived_Selected.Product_Quantity.ToString(), ProductReceived_New.Product_Quantity.ToString()) != 0)
 			{
 				if (descriptionLog != null)
 				{
@@ -999,7 +1009,7 @@ namespace Inventory_Forms
 					$"تغییر تعداد کالا از {ProductReceived_Selected.Product_Quantity} به {ProductReceived_New.Product_Quantity}";
 			}
 
-			if (string.Compare(ProductReceived_Selected.Product_Unit, ProductReceived_New.Product_Unit) == 0)
+			if (string.Compare(ProductReceived_Selected.Product_Unit, ProductReceived_New.Product_Unit) != 0)
 			{
 				if (descriptionLog != null)
 				{
@@ -1010,7 +1020,7 @@ namespace Inventory_Forms
 					$"تغییر واحد کالا از {ProductReceived_Selected.Product_Unit} به {ProductReceived_New.Product_Unit}";
 			}
 
-			if (string.Compare(ProductReceived_Selected.Sender_Name, ProductReceived_New.Sender_Name) == 0)
+			if (string.Compare(ProductReceived_Selected.Sender_Name, ProductReceived_New.Sender_Name) != 0)
 			{
 				if (descriptionLog != null)
 				{
@@ -1021,7 +1031,7 @@ namespace Inventory_Forms
 					$"تغییر نام فرستنده کالا از {ProductReceived_Selected.Sender_Name} به {ProductReceived_New.Sender_Name}";
 			}
 
-			if (string.Compare(ProductReceived_Selected.Carrier_Name, ProductReceived_New.Carrier_Name) == 0)
+			if (string.Compare(ProductReceived_Selected.Carrier_Name, ProductReceived_New.Carrier_Name) != 0)
 			{
 				if (descriptionLog != null)
 				{
@@ -1085,6 +1095,11 @@ namespace Inventory_Forms
 		#endregion /SetReceiptDataGridView
 
 		#region SaveInventoryHolding
+		/// <summary>
+		/// ثبت اطلاعات در جدول انبار کالا
+		/// </summary>
+		/// <param name="inputInventoryHolding"></param>
+		/// <returns></returns>
 		private bool SaveInventoryHolding(Models.InventoryHolding inputInventoryHolding)
 		{
 			Models.DataBaseContext dataBaseContext = null;
@@ -1145,6 +1160,11 @@ namespace Inventory_Forms
 		#endregion /SaveInventoryHolding
 
 		#region SaveProductReceived
+		/// <summary>
+		/// ثبت کالاهای جدید در جدول کالاها
+		/// </summary>
+		/// <param name="inputProductReceived"></param>
+		/// <returns></returns>
 		private bool SaveProductReceived(Models.ProductReceived inputProductReceived)
 		{
 			Models.DataBaseContext dataBaseContext = null;
@@ -1235,6 +1255,11 @@ namespace Inventory_Forms
 		#endregion /SaveProductReceived
 
 		#region SearchProduct
+		/// <summary>
+		/// جستجوی کالا
+		/// </summary>
+		/// <param name="_productName"></param>
+		/// <returns></returns>
 		private bool SearchProduct(string _productName)
 		{
 			Models.DataBaseContext dataBaseContext = null;
@@ -1272,17 +1297,20 @@ namespace Inventory_Forms
 			}
 		}
 
-		
+
 		#endregion /SearchProduct
 
-		#region TransferName
-		private void TransferName()
+		#region RecipientName
+		/// <summary>
+		/// نمایش نام تحویل گیرنده کالاها
+		/// </summary>
+		private void RecipientName()
 		{
 			try
 			{
 				if (string.Compare(Inventory.Program.UserAuthentication.Username, "admin") == 0 || Inventory.Program.UserAuthentication == null)
 				{
-					return;
+					recipientNameTextBox.Text = "Administrator";
 				}
 				else
 				{
@@ -1294,7 +1322,7 @@ namespace Inventory_Forms
 				Infrastructure.Utility.ExceptionShow(ex);
 			}
 		}
-		#endregion /TransferName
+		#endregion /RecipientName
 
 		#region ValidationData
 		/// <summary>

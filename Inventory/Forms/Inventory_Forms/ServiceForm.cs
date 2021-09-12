@@ -170,6 +170,7 @@ namespace Inventory_Forms
 		public ServiceForm()
 		{
 			InitializeComponent();
+			Initialize();
 		}
 
 
@@ -1195,12 +1196,12 @@ namespace Inventory_Forms
 		}
 		#endregion
 
-		#region LoadingCapitalFund
+		#region GetCapitalFund
 		/// <summary>
 		/// به روز رسانی و بارگزاری صندوق سرمایه
 		/// </summary>
 		/// <returns></returns>
-		private decimal? LoadingCapitalFund()
+		private decimal? GetCapitalFund()
 		{
 			decimal? capital_Fund;
 			Models.DataBaseContext dataBaseContext = null;
@@ -1213,12 +1214,29 @@ namespace Inventory_Forms
 					dataBaseContext.CapitalFunds
 					.FirstOrDefault();
 
-				capital_Fund = decimal.Parse(capitalFund.Capital_Fund.Replace("تومان", string.Empty).Replace(",", string.Empty).Trim());
-
-				MainForm.fundsNotificationTextBox.Text = $"{capital_Fund:#,0} تومان";
+				if (capitalFund == null)
+				{
+					capital_Fund = 0;
+				}
+				else
+				{
+					if (string.IsNullOrEmpty(capitalFund.Capital_Fund))
+					{
+						capital_Fund = 0;
+					}
+					else if (capitalFund.Capital_Fund.Length <= 9)
+					{
+						capital_Fund = decimal.Parse(capitalFund.Capital_Fund.Replace("توان", string.Empty).Trim());
+						Inventory.Program.MainForm.fundsNotificationTextBox.Text = $"{capital_Fund} تومان ";
+					}
+					else
+					{
+						capital_Fund = decimal.Parse(capitalFund.Capital_Fund.Replace("توان", string.Empty).Replace(",", string.Empty).Trim());
+						Inventory.Program.MainForm.fundsNotificationTextBox.Text = $"{capital_Fund:#,0} تومان ";
+					}
+				}
 
 				return capital_Fund;
-
 			}
 			catch (System.Exception ex)
 			{
@@ -1235,7 +1253,7 @@ namespace Inventory_Forms
 				}
 			}
 		}
-		#endregion /LoadingCapitalFund
+		#endregion /GetCapitalFund
 
 		#region GetServiceName
 		/// <summary>
@@ -1286,7 +1304,7 @@ namespace Inventory_Forms
 			AllClear();
 			GetServiceName();
 
-			_auditItem.Capital_Fund = LoadingCapitalFund();
+			_auditItem.Capital_Fund = GetCapitalFund();
 			inventorySerialNumberTextBox.Text = ListService.Invoice_Serial_Numvber = _auditItem.Invoice_Serial_Number = SetInvoiceSerialNumber();
 			_auditItem.Register_Date = ListService.Service_Date =
 				Infrastructure.Utility.PersianCalendar(System.DateTime.Now);

@@ -21,17 +21,13 @@ namespace Entry_Forms
 		public SingInForm()
 		{
 			InitializeComponent();
+
+			Initialize();
 		}
 
 		//-----------------------------------------------------------------------------------------------     Events Controls
 
-		#region SingInForm_Load
-		private void SingInForm_Load(object sender, System.EventArgs e)
-		{
-			this.Opacity = 0.0;
-			fadeInSingInFormTimer.Start();
-		}
-		#endregion /SingInForm_Load
+		
 
 		#region CloseButton_Click
 		private void CloseButton_Click(object sender, System.EventArgs e)
@@ -365,6 +361,14 @@ namespace Entry_Forms
 			}
 		}
 		#endregion /GetUserByUsername
+
+		#region Initialize
+		private void Initialize()
+		{
+			this.Opacity = 0.0;
+			fadeInSingInFormTimer.Start();
+		}
+		#endregion /Initialize
 
 		#region SaveLoginHistory
 		private void SaveLoginHistory(Models.User user)

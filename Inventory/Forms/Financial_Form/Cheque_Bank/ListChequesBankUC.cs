@@ -10,7 +10,6 @@ namespace Chequa_Bank
 		#region Layer
 
 		private Inventory.MainForm _mainForm;
-
 		public Inventory.MainForm MainForm
 		{
 			get
@@ -55,6 +54,7 @@ namespace Chequa_Bank
 		public ListChequasBankUC()
 		{
 			InitializeComponent();
+			Initialize();
 		}
 
 
@@ -91,6 +91,7 @@ namespace Chequa_Bank
 		}
 		#endregion /SearchSerialChequeTextBox_TextChange
 
+		#region ChequePaymentButton_Click
 		private void ChequePaymentButton_Click(object sender, System.EventArgs e)
 		{
 			if (ChequePayment())
@@ -102,6 +103,7 @@ namespace Chequa_Bank
 				Infrastructure.Utility.WindowsNotification(message: ".خطا در انجام عملیات", caption: Infrastructure.PopupNotificationForm.Caption.خطا);
 			}
 		}
+		#endregion /ChequePaymentButton_Click
 
 
 
@@ -194,8 +196,29 @@ namespace Chequa_Bank
 					dataBaseContext.CapitalFunds
 					.FirstOrDefault();
 
-				capital_Fund = decimal.Parse(capitalFund.Capital_Fund.Replace("تومان", string.Empty).Replace(",", string.Empty).Trim());
-				MainForm.fundsNotificationTextBox.Text = $"{capital_Fund:#,0} تومان";
+				if (capitalFund == null)
+				{
+					capital_Fund = 0;
+				}
+				else
+				{
+					if (string.IsNullOrEmpty(capitalFund.Capital_Fund))
+					{
+						capital_Fund = 0;
+					}
+					else if (capitalFund.Capital_Fund.Length <= 9)
+					{
+						capital_Fund = decimal.Parse(capitalFund.Capital_Fund.Replace("توان", string.Empty).Trim());
+						MainForm.fundsNotificationTextBox.Text = $"{capital_Fund} تومان";
+					}
+					else
+					{
+						capital_Fund = decimal.Parse(capitalFund.Capital_Fund.Replace("توان", string.Empty).Replace(",", string.Empty).Trim());
+						MainForm.fundsNotificationTextBox.Text = $"{capital_Fund:#,0} تومان";
+					}
+				}
+
+				
 				return capital_Fund;
 			}
 			catch (System.Exception ex)
@@ -365,6 +388,5 @@ namespace Chequa_Bank
 		#endregion /SearchSerialCheque
 
 		#endregion /Function
-
 	}
 }

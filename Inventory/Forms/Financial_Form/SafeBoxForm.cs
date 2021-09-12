@@ -9,7 +9,7 @@ namespace Financial_Form
 
 		#region Properties
 
-		#region Layers		
+		#region Layers
 
 		private Models.CapitalFund _capitalFund;
 		public Models.CapitalFund CapitalFund
@@ -49,8 +49,6 @@ namespace Financial_Form
 
 		#endregion /Layers
 
-
-
 		public decimal? Amount { get; set; }
 		public decimal? OldCash { get; set; }
 		#endregion /Properties
@@ -72,7 +70,7 @@ namespace Financial_Form
 		#region SafeBoxForm_Load
 		private void SafeBoxForm_Load(object sender, System.EventArgs e)
 		{
-			LoadingFund();
+			
 		}
 		#endregion /SafeBoxForm_Load
 
@@ -198,27 +196,15 @@ namespace Financial_Form
 		}
 		#endregion /AllClear
 
-		#region Initialize
+		#region GetCapitalFund
 		/// <summary>
-		/// مقدار دهی اولیه
-		/// </summary>
-		private void Initialize()
-		{
-			OldCash = LoadingFund();
-			funeLabel.Text = $"{OldCash:#,0} تومان";
-		}
-		#endregion /Initialize
-
-		#region LoadingFund
-		/// <summary>
-		/// بارگزاری موجودی صندوق
+		/// به روز رسانی صندوق
 		/// </summary>
 		/// <returns></returns>
-		private long LoadingFund()
+		private decimal GetCapitalFund()
 		{
-			long fund;
+			decimal capital_Fund;
 			Models.DataBaseContext dataBaseContext = null;
-
 			try
 			{
 				dataBaseContext =
@@ -230,23 +216,32 @@ namespace Financial_Form
 
 				if (capitalFund == null)
 				{
-					fund = 0;
+					capital_Fund = 0;
 
-					return fund;
 				}
 				else
 				{
-					fund = long.Parse(capitalFund.Capital_Fund
-						.Replace("تومان", string.Empty)
-						.Replace(",", string.Empty)
-						.Trim());
-
-					return fund;
+					if (string.IsNullOrEmpty(capitalFund.Capital_Fund))
+					{
+						capital_Fund = 0;
+					}
+					else if (capitalFund.Capital_Fund.Length <= 9)
+					{
+						capital_Fund = decimal.Parse(capitalFund.Capital_Fund.Replace("توان", string.Empty).Trim());
+						Inventory.Program.MainForm.fundsNotificationTextBox.Text = $"{capital_Fund} تومان ";
+					}
+					else
+					{
+						capital_Fund = decimal.Parse(capitalFund.Capital_Fund.Replace("توان", string.Empty).Replace(",", string.Empty).Trim());
+						Inventory.Program.MainForm.fundsNotificationTextBox.Text = $"{capital_Fund:#,0} تومان ";
+					}
 				}
+				return capital_Fund;
 			}
 			catch (System.Exception ex)
 			{
 				Infrastructure.Utility.ExceptionShow(ex);
+
 				return 0;
 			}
 			finally
@@ -258,7 +253,18 @@ namespace Financial_Form
 				}
 			}
 		}
-		#endregion /LoadingFund
+		#endregion /GetCapitalFund
+
+		#region Initialize
+		/// <summary>
+		/// مقدار دهی اولیه
+		/// </summary>
+		private void Initialize()
+		{
+			OldCash = GetCapitalFund();
+			funeLabel.Text = $"{OldCash:#,0} تومان";
+		}
+		#endregion /Initialize
 
 		#region SetInCapitalFund
 		/// <summary>

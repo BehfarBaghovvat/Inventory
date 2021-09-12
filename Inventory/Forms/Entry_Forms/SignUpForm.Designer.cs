@@ -87,7 +87,7 @@ namespace Entry_Forms
 			// 
 			this.guna2Panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
 			this.guna2Panel1.BackColor = System.Drawing.Color.Transparent;
-			this.guna2Panel1.BorderColor = System.Drawing.Color.Purple;
+			this.guna2Panel1.BorderColor = System.Drawing.Color.Indigo;
 			this.guna2Panel1.BorderRadius = 15;
 			this.guna2Panel1.BorderThickness = 3;
 			this.guna2Panel1.Controls.Add(this.visiblePictureBox2);
@@ -153,7 +153,7 @@ namespace Entry_Forms
 			this.fullNameTextBox.AnimationSpeed = 200;
 			this.fullNameTextBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
 			this.fullNameTextBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
-			this.fullNameTextBox.BackColor = System.Drawing.Color.DarkSlateBlue;
+			this.fullNameTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(0)))), ((int)(((byte)(61)))));
 			this.fullNameTextBox.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("fullNameTextBox.BackgroundImage")));
 			this.fullNameTextBox.BorderColorActive = System.Drawing.Color.White;
 			this.fullNameTextBox.BorderColorDisabled = System.Drawing.Color.FromArgb(((int)(((byte)(161)))), ((int)(((byte)(161)))), ((int)(((byte)(161)))));
@@ -165,7 +165,7 @@ namespace Entry_Forms
 			this.fullNameTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
 			this.fullNameTextBox.DefaultFont = new System.Drawing.Font("Segoe UI", 10F);
 			this.fullNameTextBox.DefaultText = "";
-			this.fullNameTextBox.FillColor = System.Drawing.Color.DarkSlateBlue;
+			this.fullNameTextBox.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(0)))), ((int)(((byte)(61)))));
 			this.fullNameTextBox.ForeColor = System.Drawing.Color.White;
 			this.fullNameTextBox.HideSelection = true;
 			this.fullNameTextBox.IconLeft = null;
@@ -196,7 +196,7 @@ namespace Entry_Forms
 			stateProperties3.PlaceholderForeColor = System.Drawing.Color.Empty;
 			this.fullNameTextBox.OnHoverState = stateProperties3;
 			stateProperties4.BorderColor = System.Drawing.Color.DimGray;
-			stateProperties4.FillColor = System.Drawing.Color.DarkSlateBlue;
+			stateProperties4.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(0)))), ((int)(((byte)(61)))));
 			stateProperties4.ForeColor = System.Drawing.Color.White;
 			stateProperties4.PlaceholderForeColor = System.Drawing.Color.Empty;
 			this.fullNameTextBox.OnIdleState = stateProperties4;
@@ -230,7 +230,7 @@ namespace Entry_Forms
 			this.confirmPasswordTextBox.AnimationSpeed = 200;
 			this.confirmPasswordTextBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
 			this.confirmPasswordTextBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
-			this.confirmPasswordTextBox.BackColor = System.Drawing.Color.DarkSlateBlue;
+			this.confirmPasswordTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(0)))), ((int)(((byte)(61)))));
 			this.confirmPasswordTextBox.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("confirmPasswordTextBox.BackgroundImage")));
 			this.confirmPasswordTextBox.BorderColorActive = System.Drawing.Color.White;
 			this.confirmPasswordTextBox.BorderColorDisabled = System.Drawing.Color.FromArgb(((int)(((byte)(161)))), ((int)(((byte)(161)))), ((int)(((byte)(161)))));
@@ -242,7 +242,7 @@ namespace Entry_Forms
 			this.confirmPasswordTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
 			this.confirmPasswordTextBox.DefaultFont = new System.Drawing.Font("Segoe UI", 10F);
 			this.confirmPasswordTextBox.DefaultText = "";
-			this.confirmPasswordTextBox.FillColor = System.Drawing.Color.DarkSlateBlue;
+			this.confirmPasswordTextBox.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(0)))), ((int)(((byte)(61)))));
 			this.confirmPasswordTextBox.ForeColor = System.Drawing.Color.White;
 			this.confirmPasswordTextBox.HideSelection = true;
 			this.confirmPasswordTextBox.IconLeft = null;
@@ -273,7 +273,7 @@ namespace Entry_Forms
 			stateProperties7.PlaceholderForeColor = System.Drawing.Color.Empty;
 			this.confirmPasswordTextBox.OnHoverState = stateProperties7;
 			stateProperties8.BorderColor = System.Drawing.Color.DimGray;
-			stateProperties8.FillColor = System.Drawing.Color.DarkSlateBlue;
+			stateProperties8.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(0)))), ((int)(((byte)(61)))));
 			stateProperties8.ForeColor = System.Drawing.Color.White;
 			stateProperties8.PlaceholderForeColor = System.Drawing.Color.Empty;
 			this.confirmPasswordTextBox.OnIdleState = stateProperties8;
@@ -306,7 +306,7 @@ namespace Entry_Forms
 			this.passwordTextBox.AnimationSpeed = 200;
 			this.passwordTextBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
 			this.passwordTextBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
-			this.passwordTextBox.BackColor = System.Drawing.Color.DarkSlateBlue;
+			this.passwordTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(0)))), ((int)(((byte)(61)))));
 			this.passwordTextBox.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("passwordTextBox.BackgroundImage")));
 			this.passwordTextBox.BorderColorActive = System.Drawing.Color.White;
 			this.passwordTextBox.BorderColorDisabled = System.Drawing.Color.FromArgb(((int)(((byte)(161)))), ((int)(((byte)(161)))), ((int)(((byte)(161)))));
@@ -318,7 +318,7 @@ namespace Entry_Forms
 			this.passwordTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
 			this.passwordTextBox.DefaultFont = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.passwordTextBox.DefaultText = "";
-			this.passwordTextBox.FillColor = System.Drawing.Color.DarkSlateBlue;
+			this.passwordTextBox.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(0)))), ((int)(((byte)(61)))));
 			this.passwordTextBox.ForeColor = System.Drawing.Color.White;
 			this.passwordTextBox.HideSelection = true;
 			this.passwordTextBox.IconLeft = null;
@@ -349,7 +349,7 @@ namespace Entry_Forms
 			stateProperties11.PlaceholderForeColor = System.Drawing.Color.Empty;
 			this.passwordTextBox.OnHoverState = stateProperties11;
 			stateProperties12.BorderColor = System.Drawing.Color.DimGray;
-			stateProperties12.FillColor = System.Drawing.Color.DarkSlateBlue;
+			stateProperties12.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(0)))), ((int)(((byte)(61)))));
 			stateProperties12.ForeColor = System.Drawing.Color.White;
 			stateProperties12.PlaceholderForeColor = System.Drawing.Color.Empty;
 			this.passwordTextBox.OnIdleState = stateProperties12;
@@ -382,7 +382,7 @@ namespace Entry_Forms
 			this.usernameTextBox.AnimationSpeed = 200;
 			this.usernameTextBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
 			this.usernameTextBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
-			this.usernameTextBox.BackColor = System.Drawing.Color.DarkSlateBlue;
+			this.usernameTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(0)))), ((int)(((byte)(61)))));
 			this.usernameTextBox.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("usernameTextBox.BackgroundImage")));
 			this.usernameTextBox.BorderColorActive = System.Drawing.Color.White;
 			this.usernameTextBox.BorderColorDisabled = System.Drawing.Color.FromArgb(((int)(((byte)(161)))), ((int)(((byte)(161)))), ((int)(((byte)(161)))));
@@ -394,7 +394,7 @@ namespace Entry_Forms
 			this.usernameTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
 			this.usernameTextBox.DefaultFont = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.usernameTextBox.DefaultText = "";
-			this.usernameTextBox.FillColor = System.Drawing.Color.DarkSlateBlue;
+			this.usernameTextBox.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(0)))), ((int)(((byte)(61)))));
 			this.usernameTextBox.ForeColor = System.Drawing.Color.White;
 			this.usernameTextBox.HideSelection = true;
 			this.usernameTextBox.IconLeft = null;
@@ -425,7 +425,7 @@ namespace Entry_Forms
 			stateProperties15.PlaceholderForeColor = System.Drawing.Color.Empty;
 			this.usernameTextBox.OnHoverState = stateProperties15;
 			stateProperties16.BorderColor = System.Drawing.Color.DimGray;
-			stateProperties16.FillColor = System.Drawing.Color.DarkSlateBlue;
+			stateProperties16.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(0)))), ((int)(((byte)(61)))));
 			stateProperties16.ForeColor = System.Drawing.Color.White;
 			stateProperties16.PlaceholderForeColor = System.Drawing.Color.Empty;
 			this.usernameTextBox.OnIdleState = stateProperties16;
@@ -597,12 +597,12 @@ namespace Entry_Forms
 			this.singinButton.BorderRadius = 10;
 			this.singinButton.CheckedState.Parent = this.singinButton;
 			this.singinButton.CustomImages.Parent = this.singinButton;
-			this.singinButton.FillColor = System.Drawing.Color.DarkViolet;
-			this.singinButton.FillColor2 = System.Drawing.Color.DarkSlateBlue;
-			this.singinButton.Font = new System.Drawing.Font("Segoe UI", 9F);
+			this.singinButton.FillColor = System.Drawing.Color.RoyalBlue;
+			this.singinButton.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(0)))), ((int)(((byte)(61)))));
+			this.singinButton.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.singinButton.ForeColor = System.Drawing.Color.White;
-			this.singinButton.HoverState.FillColor = System.Drawing.Color.DarkSlateBlue;
-			this.singinButton.HoverState.FillColor2 = System.Drawing.Color.DarkMagenta;
+			this.singinButton.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(0)))), ((int)(((byte)(61)))));
+			this.singinButton.HoverState.FillColor2 = System.Drawing.Color.RoyalBlue;
 			this.singinButton.HoverState.Parent = this.singinButton;
 			this.singinButton.Location = new System.Drawing.Point(436, 373);
 			this.singinButton.Name = "singinButton";
@@ -618,12 +618,12 @@ namespace Entry_Forms
 			this.saveButton.BorderRadius = 10;
 			this.saveButton.CheckedState.Parent = this.saveButton;
 			this.saveButton.CustomImages.Parent = this.saveButton;
-			this.saveButton.FillColor = System.Drawing.Color.DarkViolet;
-			this.saveButton.FillColor2 = System.Drawing.Color.DarkViolet;
-			this.saveButton.Font = new System.Drawing.Font("Segoe UI", 9F);
+			this.saveButton.FillColor = System.Drawing.Color.RoyalBlue;
+			this.saveButton.FillColor2 = System.Drawing.Color.RoyalBlue;
+			this.saveButton.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.saveButton.ForeColor = System.Drawing.Color.White;
-			this.saveButton.HoverState.FillColor = System.Drawing.Color.DarkSlateBlue;
-			this.saveButton.HoverState.FillColor2 = System.Drawing.Color.DarkSlateBlue;
+			this.saveButton.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(0)))), ((int)(((byte)(61)))));
+			this.saveButton.HoverState.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(0)))), ((int)(((byte)(61)))));
 			this.saveButton.HoverState.Parent = this.saveButton;
 			this.saveButton.Location = new System.Drawing.Point(280, 373);
 			this.saveButton.Name = "saveButton";
@@ -639,12 +639,12 @@ namespace Entry_Forms
 			this.resetButton.BorderRadius = 10;
 			this.resetButton.CheckedState.Parent = this.resetButton;
 			this.resetButton.CustomImages.Parent = this.resetButton;
-			this.resetButton.FillColor = System.Drawing.Color.DarkSlateBlue;
-			this.resetButton.FillColor2 = System.Drawing.Color.DarkViolet;
-			this.resetButton.Font = new System.Drawing.Font("Segoe UI", 9F);
+			this.resetButton.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(0)))), ((int)(((byte)(61)))));
+			this.resetButton.FillColor2 = System.Drawing.Color.RoyalBlue;
+			this.resetButton.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.resetButton.ForeColor = System.Drawing.Color.White;
-			this.resetButton.HoverState.FillColor = System.Drawing.Color.DarkMagenta;
-			this.resetButton.HoverState.FillColor2 = System.Drawing.Color.DarkSlateBlue;
+			this.resetButton.HoverState.FillColor = System.Drawing.Color.RoyalBlue;
+			this.resetButton.HoverState.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(0)))), ((int)(((byte)(61)))));
 			this.resetButton.HoverState.Parent = this.resetButton;
 			this.resetButton.Location = new System.Drawing.Point(124, 373);
 			this.resetButton.Name = "resetButton";
@@ -689,7 +689,7 @@ namespace Entry_Forms
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 17F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.BackColor = System.Drawing.Color.DarkSlateBlue;
+			this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(0)))), ((int)(((byte)(61)))));
 			this.CaptionForm = "ثبت حساب کاربری";
 			this.CaptionLineColor = System.Drawing.Color.Cyan;
 			this.ClientSize = new System.Drawing.Size(710, 600);
@@ -704,7 +704,7 @@ namespace Entry_Forms
 			this.Name = "SingUpForm";
 			this.Opacity = 0.95D;
 			this.Text = "";
-			this.TopColor = System.Drawing.Color.DarkSlateBlue;
+			this.TopColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(0)))), ((int)(((byte)(61)))));
 			this.Controls.SetChildIndex(this.guna2Panel1, 0);
 			this.Controls.SetChildIndex(this.userImagePictureBox, 0);
 			this.Controls.SetChildIndex(this.userListDataGridView, 0);
@@ -738,7 +738,6 @@ namespace Entry_Forms
 		private Guna.UI2.WinForms.Guna2GradientButton singinButton;
 		private Guna.UI2.WinForms.Guna2GradientButton saveButton;
 		private Guna.UI2.WinForms.Guna2GradientButton resetButton;
-		private System.Windows.Forms.Timer fadeInFormTimer;
 		private System.Windows.Forms.Timer fadeOutTimer;
 		private Guna.UI2.WinForms.Guna2PictureBox visiblePictureBox2;
 		private Guna.UI2.WinForms.Guna2PictureBox visiblePictureBox1;
@@ -750,5 +749,6 @@ namespace Entry_Forms
 		private System.Windows.Forms.DataGridViewTextBoxColumn accessLevelDataGridViewTextBoxColumn;
 		private System.Windows.Forms.DataGridViewTextBoxColumn registrationDateDataGridViewTextBoxColumn;
 		private System.Windows.Forms.DataGridViewTextBoxColumn registrationTimeDataGridViewTextBoxColumn;
+		public System.Windows.Forms.Timer fadeInFormTimer;
 	}
 }

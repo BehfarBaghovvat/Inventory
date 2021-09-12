@@ -2,7 +2,7 @@
 
 namespace Manegment_Setting
 {
-	public partial class EventLogUS : System.Windows.Forms.UserControl
+	public partial class EventLogUC : System.Windows.Forms.UserControl
 	{
 		//-----------------------------------------------------------------------------------------------     Fields, Properties, Layers
 
@@ -66,7 +66,7 @@ namespace Manegment_Setting
 
 		//-----------------------------------------------------------------------------------------------     Events Controls
 
-		public EventLogUS()
+		public EventLogUC()
 		{
 			InitializeComponent();
 			Initialize();

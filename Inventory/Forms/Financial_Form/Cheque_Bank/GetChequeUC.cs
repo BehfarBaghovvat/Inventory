@@ -15,8 +15,8 @@
 		public GetChequaUC()
 		{
 			InitializeComponent();
-
-			ChequeSection.Pay_To = payToTextBox.Text;
+			Initialize();
+			
 		}
 
 
@@ -298,6 +298,16 @@
 			amountNumberTextBox.Clear();
 		}
 		#endregion /AllClear
+
+		#region Initialize
+		/// <summary>
+		/// تنظیمات ورودی اولیه
+		/// </summary>
+		private void Initialize()
+		{
+			ChequeSection.Pay_To = payToTextBox.Text;
+		}
+		#endregion /Initialize
 
 		#region ValidationData
 		/// <summary>

@@ -359,6 +359,119 @@ namespace Inventory_Forms
 		}
 		#endregion /CalculatePurchaseAmount	
 
+		#region GetCapitalFund
+		/// <summary>
+		/// به روز رسانی و بارگزاری صندوق سرمایه
+		/// </summary>
+		/// <returns></returns>
+		private decimal GetCapitalFund()
+		{
+			decimal capital_Fund;
+			Models.DataBaseContext dataBaseContext = null;
+			try
+			{
+				dataBaseContext =
+					new Models.DataBaseContext();
+
+				Models.CapitalFund capitalFund =
+					dataBaseContext.CapitalFunds
+					.FirstOrDefault();
+
+				if (capitalFund == null)
+				{
+					capital_Fund = 0;
+				}
+				else
+				{
+					if (string.IsNullOrEmpty(capitalFund.Capital_Fund))
+					{
+						capital_Fund = 0;
+					}
+					else if (capitalFund.Capital_Fund.Length <= 9)
+					{
+						capital_Fund = decimal.Parse(capitalFund.Capital_Fund.Replace("توان", string.Empty).Trim());
+
+						Inventory.Program.MainForm.fundsNotificationTextBox.Text = $"{capital_Fund} تومان ";
+					}
+					else
+					{
+						capital_Fund = decimal.Parse(capitalFund.Capital_Fund.Replace("توان", string.Empty).Replace(",", string.Empty).Trim());
+
+						Inventory.Program.MainForm.fundsNotificationTextBox.Text = $"{capital_Fund:#,0} تومان ";
+					}
+				}
+
+				return capital_Fund;
+
+			}
+			catch (System.Exception ex)
+			{
+				Infrastructure.Utility.ExceptionShow(ex);
+
+				return 0;
+			}
+			finally
+			{
+				if (dataBaseContext != null)
+				{
+					dataBaseContext.Dispose();
+					dataBaseContext = null;
+				}
+			}
+		}
+		#endregion /GetCapitalFund
+
+		#region GetInvoiceSerialNumber
+		/// <summary>
+		/// ساخت شماره فاکتور
+		/// </summary>
+		/// <returns></returns>
+		private string GetInvoiceSerialNumber()
+		{
+			string getSerial = null,
+				serialNumber = null;
+			Models.DataBaseContext dataBaseContext = null;
+			try
+			{
+				do
+				{
+					serialNumber = Infrastructure.Utility.GeneratInvoiceSerialNumber(int.Parse("2"));
+					dataBaseContext =
+					new Models.DataBaseContext();
+
+					Models.ServiceInvoice invoiceSerialNumber =
+						dataBaseContext.ServiceInvoices
+						.Where(current => string.Compare(current.Invoice_Serial_Numvber, serialNumber) == 0)
+						.FirstOrDefault();
+					if (invoiceSerialNumber == null)
+					{
+						getSerial = serialNumber;
+					}
+					else
+					{
+						serialNumber = null;
+					}
+				} while (string.IsNullOrEmpty(serialNumber));
+
+				return getSerial;
+			}
+			catch (System.Exception ex)
+			{
+				Infrastructure.Utility.ExceptionShow(ex);
+				return null;
+			}
+			finally
+			{
+				if (dataBaseContext != null)
+				{
+					dataBaseContext.Dispose();
+
+					dataBaseContext = null;
+				}
+			}
+		}
+		#endregion /GetInvoiceSerialNumber
+
 		#region Harvest
 		/// <summary>
 		/// برداشت از صندوق
@@ -448,7 +561,7 @@ namespace Inventory_Forms
 			dateOfPrintTextBox.Text = $"{Infrastructure.Utility.PersianCalendar(System.DateTime.Now)} - {Infrastructure.Utility.ShowTime()}";
 			auditItem.Register_Date = $"{Infrastructure.Utility.PersianCalendar(System.DateTime.Now)}";
 			auditItem.Register_Time = $"{Infrastructure.Utility.ShowTime()}";
-			auditItem.Capital_Fund = LoadingCapitalFund();
+			auditItem.Capital_Fund = GetCapitalFund();
 			
 			recipientNameTextBox.Text = Inventory.Program.UserAuthentication.Full_Name;
 			auditItem.Recipient_Name = Inventory.Program.UserAuthentication.Full_Name;
@@ -458,98 +571,6 @@ namespace Inventory_Forms
 			auditItem.Sender_Name = senderNameTextBox.Text;
 		}
 		#endregion /Initialize
-
-		#region GetInvoiceSerialNumber
-		/// <summary>
-		/// ساخت شماره فاکتور
-		/// </summary>
-		/// <returns></returns>
-		private string GetInvoiceSerialNumber()
-		{
-			string getSerial = null,
-				serialNumber = null;
-			Models.DataBaseContext dataBaseContext = null;
-			try
-			{
-				do
-				{
-					serialNumber = Infrastructure.Utility.GeneratInvoiceSerialNumber(int.Parse("2"));
-					dataBaseContext =
-					new Models.DataBaseContext();
-
-					Models.ServiceInvoice invoiceSerialNumber =
-						dataBaseContext.ServiceInvoices
-						.Where(current => string.Compare(current.Invoice_Serial_Numvber, serialNumber) == 0)
-						.FirstOrDefault();
-					if (invoiceSerialNumber == null)
-					{
-						getSerial = serialNumber;
-					}
-					else
-					{
-						serialNumber = null;
-					}
-				} while (string.IsNullOrEmpty(serialNumber));
-
-				return getSerial;
-			}
-			catch (System.Exception ex)
-			{
-				Infrastructure.Utility.ExceptionShow(ex);
-				return null;
-			}
-			finally
-			{
-				if (dataBaseContext != null)
-				{
-					dataBaseContext.Dispose();
-
-					dataBaseContext = null;
-				}
-			}
-		}
-		#endregion /GetInvoiceSerialNumber
-
-		#region LoadingCapitalFund
-		/// <summary>
-		/// به روز رسانی و بارگزاری صندوق سرمایه
-		/// </summary>
-		/// <returns></returns>
-		private decimal LoadingCapitalFund()
-		{
-			decimal capital_Fund;
-			Models.DataBaseContext dataBaseContext = null;
-			try
-			{
-				dataBaseContext =
-					new Models.DataBaseContext();
-
-				Models.CapitalFund capitalFund =
-					dataBaseContext.CapitalFunds
-					.FirstOrDefault();
-
-				capital_Fund = decimal.Parse(capitalFund.Capital_Fund.Replace("تومان", string.Empty).Replace(",", string.Empty).Trim());
-				MainForm.fundsNotificationTextBox.Text = $"{capital_Fund:#,0} تومان";
-
-				return capital_Fund;
-
-			}
-			catch (System.Exception ex)
-			{
-				Infrastructure.Utility.ExceptionShow(ex);
-
-				return 0;
-			}
-			finally
-			{
-				if (dataBaseContext != null)
-				{
-					dataBaseContext.Dispose();
-					dataBaseContext = null;
-				}
-			}
-		}
-		#endregion /LoadingCapitalFund
 
 		#region SetAccountPayable
 		/// <summary>
