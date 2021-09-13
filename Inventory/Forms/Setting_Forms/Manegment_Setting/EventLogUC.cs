@@ -23,21 +23,21 @@ namespace Manegment_Setting
 		}
 
 
-		private Manegment_Setting.PrintLogHistoryForm _printLogHistoryForm;
-		public Manegment_Setting.PrintLogHistoryForm PrintLogHistoryForm
+		private Manegment_Setting.PrintReportForm _printReportForm;
+		public Manegment_Setting.PrintReportForm PrintReportForm
 		{
 			get
 			{
-				if (_printLogHistoryForm == null || _printLogHistoryForm.IsDisposed == true)
+				if (_printReportForm == null || _printReportForm.IsDisposed == true)
 				{
-					_printLogHistoryForm =
-						new PrintLogHistoryForm();
+					_printReportForm =
+						new PrintReportForm();
 				}
-				return _printLogHistoryForm;
+				return _printReportForm;
 			}
 			set
 			{
-				_printLogHistoryForm = value;
+				_printReportForm = value;
 			}
 		}
 
@@ -69,12 +69,18 @@ namespace Manegment_Setting
 		public EventLogUC()
 		{
 			InitializeComponent();
-			Initialize();
 		}
 
 
 
 		//-----------------------------------------------------------------------------------------------     Events Controls
+
+		#region EventLogUC_Load
+		private void EventLogUC_Load(object sender, System.EventArgs e)
+		{
+			Initialize();
+		}
+		#endregion /EventLogUC_Load
 
 		#region UserSearchTextBox_Enter
 		private void UserSearchTextBox_Enter(object sender, System.EventArgs e)
@@ -244,7 +250,7 @@ namespace Manegment_Setting
 		/// <summary>
 		/// تنظمیات ورود اولیه
 		/// </summary>
-		private void Initialize()
+		public void Initialize()
 		{
 			GetEventLog();
 		}
@@ -256,40 +262,80 @@ namespace Manegment_Setting
 		/// </summary>
 		private void PrintEventLog()
 		{
-			try
+			if (string.IsNullOrWhiteSpace(userSearchTextBox.Text))
 			{
-				System.Collections.Generic.List<EventItem> listEventReportItems = new System.Collections.Generic.List<EventItem>();
-
-				foreach (System.Windows.Forms.DataGridViewRow rows in listEventLogDataGridView.Rows)
+				try
 				{
-					EventItem _eventItemReportItems = new EventItem
+					System.Collections.Generic.List<EventItem> listEventReportItems = new System.Collections.Generic.List<EventItem>();
+
+					foreach (System.Windows.Forms.DataGridViewRow rows in listEventLogDataGridView.Rows)
 					{
-						Id = int.Parse(rows.Cells[0].Value.ToString()),
-						Full_Name = rows.Cells[1].Value.ToString(),
-						Description = rows.Cells[2].Value.ToString(),
-						Event_Date = rows.Cells[3].Value.ToString(),
-						Event_Time = rows.Cells[4].Value.ToString(),
-					};
-					listEventReportItems.Add(_eventItemReportItems);
+						EventItem _eventItemReportItems = new EventItem
+						{
+							Id = int.Parse(rows.Cells[0].Value.ToString()),
+							Full_Name = rows.Cells[1].Value.ToString(),
+							Description = rows.Cells[2].Value.ToString(),
+							Event_Date = rows.Cells[3].Value.ToString(),
+							Event_Time = rows.Cells[4].Value.ToString(),
+						};
+						listEventReportItems.Add(_eventItemReportItems);
+					}
+
+					Stimulsoft.Report.StiReport printInvoice = new Stimulsoft.Report.StiReport();
+
+					printInvoice.Load(System.Windows.Forms.Application.StartupPath + "\\Reports\\AllEventLogReport.mrt");
+					printInvoice.RegBusinessObject("EventLog", listEventReportItems);
+
+					(printInvoice.GetComponentByName("dateOfPrintTextBox") as Stimulsoft.Report.Components.StiText).Text = $"{Infrastructure.Utility.PersianCalendar(System.DateTime.Now)} - {Infrastructure.Utility.ShowTime()}";
+					(printInvoice.GetComponentByName("usernameTextBox") as Stimulsoft.Report.Components.StiText).Text = string.Empty;
+					(printInvoice.GetComponentByName("fullNameTextBox") as Stimulsoft.Report.Components.StiText).Text = string.Empty;
+
+					printInvoice.Render(true);
+					PrintReportForm.printReportStiRibbonViewerControl.Report = printInvoice;
+					PrintReportForm.ShowDialog();
 				}
-
-				Stimulsoft.Report.StiReport printInvoice = new Stimulsoft.Report.StiReport();
-
-				printInvoice.Load(System.Windows.Forms.Application.StartupPath + "\\Reports\\EventLogReport.mrt");
-				printInvoice.RegBusinessObject("BillSale", listEventReportItems);
-
-				(printInvoice.GetComponentByName("dateOfPrintTextBox") as Stimulsoft.Report.Components.StiText).Text = $"{Infrastructure.Utility.PersianCalendar(System.DateTime.Now)} - {Infrastructure.Utility.ShowTime()}";
-				(printInvoice.GetComponentByName("usernameTextBox") as Stimulsoft.Report.Components.StiText).Text = userSearchTextBox.Text;
-				(printInvoice.GetComponentByName("fullNameTextBox") as Stimulsoft.Report.Components.StiText).Text = listEventLogDataGridView.Rows[0].Cells[2].Value.ToString();
-
-				printInvoice.Render(true);
-				PrintLogHistoryForm.listLogHistoryStiRibbonViewerControl.Report = printInvoice;
-				PrintLogHistoryForm.ShowDialog();
+				catch (System.Exception ex)
+				{
+					Infrastructure.Utility.ExceptionShow(ex);
+				}
 			}
-			catch (System.Exception ex)
+			else
 			{
-				Infrastructure.Utility.ExceptionShow(ex);
+				try
+				{
+					System.Collections.Generic.List<EventItem> listEventReportItems = new System.Collections.Generic.List<EventItem>();
+
+					foreach (System.Windows.Forms.DataGridViewRow rows in listEventLogDataGridView.Rows)
+					{
+						EventItem _eventItemReportItems = new EventItem
+						{
+							Id = int.Parse(rows.Cells[0].Value.ToString()),
+							Description = rows.Cells[2].Value.ToString(),
+							Event_Date = rows.Cells[3].Value.ToString(),
+							Event_Time = rows.Cells[4].Value.ToString(),
+						};
+						listEventReportItems.Add(_eventItemReportItems);
+					}
+
+					Stimulsoft.Report.StiReport printInvoice = new Stimulsoft.Report.StiReport();
+
+					printInvoice.Load(System.Windows.Forms.Application.StartupPath + "\\Reports\\EventLogReport.mrt");
+					printInvoice.RegBusinessObject("EventLog", listEventReportItems);
+
+					(printInvoice.GetComponentByName("dateOfPrintTextBox") as Stimulsoft.Report.Components.StiText).Text = $"{Infrastructure.Utility.PersianCalendar(System.DateTime.Now)} - {Infrastructure.Utility.ShowTime()}";
+					(printInvoice.GetComponentByName("usernameTextBox") as Stimulsoft.Report.Components.StiText).Text = listEventLogDataGridView.Rows[0].Cells[1].Value.ToString();
+					(printInvoice.GetComponentByName("fullNameTextBox") as Stimulsoft.Report.Components.StiText).Text = listEventLogDataGridView.Rows[0].Cells[2].Value.ToString();
+
+					printInvoice.Render(true);
+					PrintReportForm.printReportStiRibbonViewerControl.Report = printInvoice;
+					PrintReportForm.ShowDialog();
+				}
+				catch (System.Exception ex)
+				{
+					Infrastructure.Utility.ExceptionShow(ex);
+				}
 			}
+			
 		}
 		#endregion /PrintEventLog
 

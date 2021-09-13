@@ -16,26 +16,26 @@ namespace Manegment_Setting
 		private class LogItem
 		{
 			public int Id { get; set; }
+			public string Full_Name { get; set; }
 			public string Login_Time { get; set; }
 			public string Logout_Time { get; set; }
 		}
 
-
-		private Manegment_Setting.PrintLogHistoryForm _printLogHistoryForm;
-		public Manegment_Setting.PrintLogHistoryForm PrintLogHistoryForm
+		private Manegment_Setting.PrintReportForm _printReportForm;
+		public Manegment_Setting.PrintReportForm PrintReportForm
 		{
 			get
 			{
-				if (_printLogHistoryForm == null || _printLogHistoryForm.IsDisposed == true)
+				if (_printReportForm == null || _printReportForm.IsDisposed == true)
 				{
-					_printLogHistoryForm =
-						new PrintLogHistoryForm();
+					_printReportForm =
+						new PrintReportForm();
 				}
-				return _printLogHistoryForm;
+				return _printReportForm;
 			}
 			set
 			{
-				_printLogHistoryForm = value;
+				_printReportForm = value;
 			}
 		}
 
@@ -66,12 +66,18 @@ namespace Manegment_Setting
 		public LoginControlUC()
 		{
 			InitializeComponent();
-			Initialize();
 		}
 
 
 
 		//-----------------------------------------------------------------------------------------------     Events Controls
+		
+		#region LoginControlUC_Load
+		private void LoginControlUC_Load(object sender, System.EventArgs e)
+		{
+			Initialize();
+		}
+		#endregion /LoginControlUC_Load
 
 		#region UserSearchTextBox_Enter
 		private void UserSearchTextBox_Enter(object sender, System.EventArgs e)
@@ -241,7 +247,7 @@ namespace Manegment_Setting
 		/// <summary>
 		/// تنظمیات ورود اولیه
 		/// </summary>
-		private void Initialize()
+		public void Initialize()
 		{
 			GetLogHistory();
 		}
@@ -257,37 +263,76 @@ namespace Manegment_Setting
 		/// </summary>
 		private void PrintLogHistory()
 		{
-			try
+			if (string.IsNullOrWhiteSpace(userSearchTextBox.Text))
 			{
-				System.Collections.Generic.List<LogItem> listLogReportItems = new System.Collections.Generic.List<LogItem>();
-
-				foreach (System.Windows.Forms.DataGridViewRow rows in listLogHistoryDataGridView.Rows)
+				try
 				{
-					LogItem _logItemReportItems = new LogItem
+					System.Collections.Generic.List<LogItem> listLogReportItems = new System.Collections.Generic.List<LogItem>();
+
+					foreach (System.Windows.Forms.DataGridViewRow rows in listLogHistoryDataGridView.Rows)
 					{
-						Id = int.Parse(rows.Cells[0].Value.ToString()),
-						Login_Time = rows.Cells[1].Value.ToString(),
-						Logout_Time = (rows.Cells[2].Value.ToString()),
-					};
-					listLogReportItems.Add(_logItemReportItems);
+						LogItem _logItemReportItems = new LogItem
+						{
+							Id = int.Parse(rows.Cells[0].Value.ToString()),
+							Full_Name = rows.Cells[2].Value.ToString(),
+							Login_Time = rows.Cells[3].Value.ToString(),
+							Logout_Time = (rows.Cells[4].Value.ToString()),
+						};
+						listLogReportItems.Add(_logItemReportItems);
+					}
+
+					Stimulsoft.Report.StiReport printInvoice = new Stimulsoft.Report.StiReport();
+
+					printInvoice.Load(System.Windows.Forms.Application.StartupPath + "\\Reports\\AllLogHistoryReport.mrt");
+					printInvoice.RegBusinessObject("LogHistory", listLogReportItems);
+
+					(printInvoice.GetComponentByName("dateOfPrintTextBox") as Stimulsoft.Report.Components.StiText).Text = $"{Infrastructure.Utility.PersianCalendar(System.DateTime.Now)} - {Infrastructure.Utility.ShowTime()}";
+					(printInvoice.GetComponentByName("usernameTextBox") as Stimulsoft.Report.Components.StiText).Text = string.Empty;
+					(printInvoice.GetComponentByName("fullNameTextBox") as Stimulsoft.Report.Components.StiText).Text = string.Empty;
+
+					printInvoice.Render(true);
+					PrintReportForm.printReportStiRibbonViewerControl.Report = printInvoice;
+					PrintReportForm.ShowDialog();
 				}
-
-				Stimulsoft.Report.StiReport printInvoice = new Stimulsoft.Report.StiReport();
-
-				printInvoice.Load(System.Windows.Forms.Application.StartupPath + "\\Reports\\LogHistoryReport.mrt");
-				printInvoice.RegBusinessObject("BillSale", listLogReportItems);
-
-				(printInvoice.GetComponentByName("dateOfPrintTextBox") as Stimulsoft.Report.Components.StiText).Text = $"{Infrastructure.Utility.PersianCalendar(System.DateTime.Now)} - {Infrastructure.Utility.ShowTime()}";
-				(printInvoice.GetComponentByName("usernameTextBox") as Stimulsoft.Report.Components.StiText).Text = userSearchTextBox.Text;
-				(printInvoice.GetComponentByName("fullNameTextBox") as Stimulsoft.Report.Components.StiText).Text = listLogHistoryDataGridView.Rows[0].Cells[2].Value.ToString();
-
-				printInvoice.Render(true);
-				PrintLogHistoryForm.listLogHistoryStiRibbonViewerControl.Report = printInvoice;
-				PrintLogHistoryForm.ShowDialog();
+				catch (System.Exception ex)
+				{
+					Infrastructure.Utility.ExceptionShow(ex);
+				}
 			}
-			catch (System.Exception ex)
+			else
 			{
-				Infrastructure.Utility.ExceptionShow(ex);
+				try
+				{
+					System.Collections.Generic.List<LogItem> listLogReportItems = new System.Collections.Generic.List<LogItem>();
+
+					foreach (System.Windows.Forms.DataGridViewRow rows in listLogHistoryDataGridView.Rows)
+					{
+						LogItem _logItemReportItems = new LogItem
+						{
+							Id = int.Parse(rows.Cells[0].Value.ToString()),
+							Login_Time = rows.Cells[3].Value.ToString(),
+							Logout_Time = (rows.Cells[4].Value.ToString()),
+						};
+						listLogReportItems.Add(_logItemReportItems);
+					}
+
+					Stimulsoft.Report.StiReport printInvoice = new Stimulsoft.Report.StiReport();
+
+					printInvoice.Load(System.Windows.Forms.Application.StartupPath + "\\Reports\\LogHistoryReport.mrt");
+					printInvoice.RegBusinessObject("LogHistory", listLogReportItems);
+
+					(printInvoice.GetComponentByName("dateOfPrintTextBox") as Stimulsoft.Report.Components.StiText).Text = $"{Infrastructure.Utility.PersianCalendar(System.DateTime.Now)} - {Infrastructure.Utility.ShowTime()}";
+					(printInvoice.GetComponentByName("usernameTextBox") as Stimulsoft.Report.Components.StiText).Text = listLogHistoryDataGridView.Rows[0].Cells[1].Value.ToString();
+					(printInvoice.GetComponentByName("fullNameTextBox") as Stimulsoft.Report.Components.StiText).Text = listLogHistoryDataGridView.Rows[0].Cells[2].Value.ToString();
+
+					printInvoice.Render(true);
+					PrintReportForm.printReportStiRibbonViewerControl.Report = printInvoice;
+					PrintReportForm.ShowDialog();
+				}
+				catch (System.Exception ex)
+				{
+					Infrastructure.Utility.ExceptionShow(ex);
+				}
 			}
 		}
 		#endregion /PrintLogHistory

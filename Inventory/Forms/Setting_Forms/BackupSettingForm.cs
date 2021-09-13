@@ -42,12 +42,18 @@ namespace Setting_Forms
 		public BackupSettingForm()
 		{
 			InitializeComponent();
-			Initialize();
 		}
 
 
 
 		//-----------------------------------------------------------------------------------------------     Events Controls
+
+		#region BackupSettingForm_Load
+		private void BackupSettingForm_Load(object sender, System.EventArgs e)
+		{
+			Initialize();
+		}
+		#endregion /BackupSettingForm_Load
 
 		#region AutoBackupCheckBox_CheckedChanged
 		private void AutoBackupCheckBox_CheckedChanged(object sender, System.EventArgs e)
@@ -411,7 +417,7 @@ namespace Setting_Forms
 		/// <summary>
 		/// تنظمیات ورود اولیه
 		/// </summary>
-		private void Initialize()
+		public void Initialize()
 		{
 			check = false;
 			saveButton.Enabled = false;
@@ -527,10 +533,11 @@ namespace Setting_Forms
 				}
 			}
 		}
+
 		#endregion /SetDataBackupSetting
 
 		#endregion /Founcitons
 
-
+	
 	}
 }

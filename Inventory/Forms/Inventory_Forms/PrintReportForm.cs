@@ -1,6 +1,6 @@
 ﻿namespace Inventory_Forms
 {
-	public partial class BillBuyPrintForm : Infrastructure.EmptyForm
+	public partial class PrintReportForm : Infrastructure.EmptyForm
 	{
 		//-----------------------------------------------------------------------------------------------     Fields, Properties, Layers
 
@@ -15,7 +15,7 @@
 
 		//-----------------------------------------------------------------------------------------------     Constracture
 
-		public BillBuyPrintForm()
+		public PrintReportForm()
 		{
 			InitializeComponent();
 		}

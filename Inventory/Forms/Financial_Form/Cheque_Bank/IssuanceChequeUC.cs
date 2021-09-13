@@ -15,12 +15,18 @@
 		public IssuanceChequaUC()
 		{
 			InitializeComponent();
-			Initialize();
 		}
 
 
 
 		//-----------------------------------------------------------------------------------------------     Events Controls
+
+		#region IssuanceChequaUC_Load
+		private void IssuanceChequaUC_Load(object sender, System.EventArgs e)
+		{
+			Initialize();
+		}
+		#endregion /IssuanceChequaUC_Load
 
 		#region DataReceiptTextBox_Enter
 		private void DataReceiptTextBox_Enter(object sender, System.EventArgs e)

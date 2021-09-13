@@ -302,7 +302,7 @@ namespace Chequa_Bank
 			this.payToTextBox.IconRight = null;
 			this.payToTextBox.IconRightCursor = System.Windows.Forms.Cursors.IBeam;
 			this.payToTextBox.Lines = new string[] {
-		"حساب کارفرما"};
+        "حساب کارفرما"};
 			this.payToTextBox.Location = new System.Drawing.Point(742, 217);
 			this.payToTextBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
 			this.payToTextBox.MaximumSize = new System.Drawing.Size(300, 35);
@@ -443,7 +443,7 @@ namespace Chequa_Bank
 			this.nantionalCodeLabel.Size = new System.Drawing.Size(81, 115);
 			this.nantionalCodeLabel.TabIndex = 6;
 			this.nantionalCodeLabel.Text = "به شماره ملی\r\n_______________\r\nبه شناسه ملی\r\n_______________\r\nبه شماره اختصاصی ات" +
-	"باع خارجی";
+    "باع خارجی";
 			this.nantionalCodeLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
 			// 
 			// textLabel2
@@ -817,6 +817,7 @@ namespace Chequa_Bank
 			this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
 			this.Name = "GetChequaUC";
 			this.Size = new System.Drawing.Size(1110, 520);
+			this.Load += new System.EventHandler(this.GetChequaUC_Load);
 			this.ResumeLayout(false);
 			this.PerformLayout();
 

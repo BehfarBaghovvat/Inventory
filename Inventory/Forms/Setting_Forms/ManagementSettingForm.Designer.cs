@@ -216,6 +216,7 @@ namespace Setting_Forms
 			this.Controls.Add(this.mainPanel);
 			this.Name = "ManagementSettingForm";
 			this.Text = "ManagementSettingForm";
+			this.Load += new System.EventHandler(this.ManagementSettingForm_Load);
 			this.mainPanel.ResumeLayout(false);
 			this.menuPanel.ResumeLayout(false);
 			this.ResumeLayout(false);

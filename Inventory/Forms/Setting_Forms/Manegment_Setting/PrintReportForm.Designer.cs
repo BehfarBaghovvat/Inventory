@@ -1,7 +1,7 @@
 ﻿
-namespace Inventory_Forms
+namespace Manegment_Setting
 {
-	partial class BillSalePrintForm
+	partial class PrintReportForm
 	{
 		/// <summary>
 		/// Required designer variable.
@@ -29,11 +29,11 @@ namespace Inventory_Forms
 		/// </summary>
 		private void InitializeComponent()
 		{
-			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BillSalePrintForm));
+			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PrintReportForm));
 			this.topPanel = new Mbb.Windows.Forms.Panel();
 			this.minimizeButton = new Guna.UI2.WinForms.Guna2Button();
 			this.closeButton = new Guna.UI2.WinForms.Guna2Button();
-			this.billsaleStiRibbonViewerControl = new Stimulsoft.Report.Viewer.StiRibbonViewerControl();
+			this.printReportStiRibbonViewerControl = new Stimulsoft.Report.Viewer.StiRibbonViewerControl();
 			this.topPanel.SuspendLayout();
 			this.SuspendLayout();
 			// 
@@ -45,7 +45,7 @@ namespace Inventory_Forms
 			this.topPanel.Location = new System.Drawing.Point(0, 0);
 			this.topPanel.Name = "topPanel";
 			this.topPanel.Size = new System.Drawing.Size(950, 30);
-			this.topPanel.TabIndex = 3;
+			this.topPanel.TabIndex = 4;
 			// 
 			// minimizeButton
 			// 
@@ -64,6 +64,7 @@ namespace Inventory_Forms
 			this.minimizeButton.ShadowDecoration.Parent = this.minimizeButton;
 			this.minimizeButton.Size = new System.Drawing.Size(50, 30);
 			this.minimizeButton.TabIndex = 1;
+			this.minimizeButton.Click += new System.EventHandler(this.MinimizeButton_Click);
 			// 
 			// closeButton
 			// 
@@ -86,37 +87,38 @@ namespace Inventory_Forms
 			this.closeButton.TabIndex = 0;
 			this.closeButton.Click += new System.EventHandler(this.CloseButton_Click);
 			// 
-			// billsaleStiRibbonViewerControl
+			// printReportStiRibbonViewerControl
 			// 
-			this.billsaleStiRibbonViewerControl.AllowDrop = true;
-			this.billsaleStiRibbonViewerControl.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.billsaleStiRibbonViewerControl.Location = new System.Drawing.Point(0, 30);
-			this.billsaleStiRibbonViewerControl.Name = "billsaleStiRibbonViewerControl";
-			this.billsaleStiRibbonViewerControl.Report = null;
-			this.billsaleStiRibbonViewerControl.RightToLeft = System.Windows.Forms.RightToLeft.No;
-			this.billsaleStiRibbonViewerControl.ShowZoom = true;
-			this.billsaleStiRibbonViewerControl.Size = new System.Drawing.Size(950, 730);
-			this.billsaleStiRibbonViewerControl.TabIndex = 4;
+			this.printReportStiRibbonViewerControl.AllowDrop = true;
+			this.printReportStiRibbonViewerControl.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.printReportStiRibbonViewerControl.Location = new System.Drawing.Point(0, 30);
+			this.printReportStiRibbonViewerControl.Name = "printReportStiRibbonViewerControl";
+			this.printReportStiRibbonViewerControl.Report = null;
+			this.printReportStiRibbonViewerControl.RightToLeft = System.Windows.Forms.RightToLeft.No;
+			this.printReportStiRibbonViewerControl.ShowZoom = true;
+			this.printReportStiRibbonViewerControl.Size = new System.Drawing.Size(950, 730);
+			this.printReportStiRibbonViewerControl.TabIndex = 5;
 			// 
-			// BillSalePrintForm
+			// PrintReportForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 17F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.BackColor = System.Drawing.SystemColors.ControlDarkDark;
 			this.ClientSize = new System.Drawing.Size(950, 760);
-			this.Controls.Add(this.billsaleStiRibbonViewerControl);
+			this.Controls.Add(this.printReportStiRibbonViewerControl);
 			this.Controls.Add(this.topPanel);
-			this.Name = "BillSalePrintForm";
-			this.Text = "BillSaleReportForm";
+			this.Name = "PrintReportForm";
+			this.Text = "PrintLogHistoryForm";
 			this.topPanel.ResumeLayout(false);
 			this.ResumeLayout(false);
 
 		}
 
 		#endregion
+
 		private Mbb.Windows.Forms.Panel topPanel;
 		private Guna.UI2.WinForms.Guna2Button minimizeButton;
 		private Guna.UI2.WinForms.Guna2Button closeButton;
-		public Stimulsoft.Report.Viewer.StiRibbonViewerControl billsaleStiRibbonViewerControl;
+		public Stimulsoft.Report.Viewer.StiRibbonViewerControl printReportStiRibbonViewerControl;
 	}
 }

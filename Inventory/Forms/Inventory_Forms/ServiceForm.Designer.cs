@@ -544,12 +544,13 @@ namespace Inventory_Forms
 			this.serviceInvoiceButton.ForeColor = System.Drawing.Color.White;
 			this.serviceInvoiceButton.HoverState.Parent = this.serviceInvoiceButton;
 			this.serviceInvoiceButton.Image = ((System.Drawing.Image)(resources.GetObject("serviceInvoiceButton.Image")));
-			this.serviceInvoiceButton.ImageSize = new System.Drawing.Size(40, 40);
-			this.serviceInvoiceButton.Location = new System.Drawing.Point(33, 155);
+			this.serviceInvoiceButton.ImageOffset = new System.Drawing.Point(1, 0);
+			this.serviceInvoiceButton.ImageSize = new System.Drawing.Size(25, 25);
+			this.serviceInvoiceButton.Location = new System.Drawing.Point(19, 175);
 			this.serviceInvoiceButton.Name = "serviceInvoiceButton";
 			this.serviceInvoiceButton.PressedColor = System.Drawing.Color.White;
 			this.serviceInvoiceButton.ShadowDecoration.Parent = this.serviceInvoiceButton;
-			this.serviceInvoiceButton.Size = new System.Drawing.Size(50, 50);
+			this.serviceInvoiceButton.Size = new System.Drawing.Size(30, 30);
 			this.serviceInvoiceButton.TabIndex = 13;
 			this.serviceInvoiceButton.Click += new System.EventHandler(this.ServiceInvoiceButton_Click);
 			// 

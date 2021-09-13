@@ -175,12 +175,12 @@ namespace Manegment_Setting
 			this.listEventLogDataGridView.ColumnHeadersHeight = 35;
 			this.listEventLogDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
 			this.listEventLogDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-			this.idDataGridViewTextBoxColumn,
-			this.usernameDataGridViewTextBoxColumn,
-			this.fullNameDataGridViewTextBoxColumn,
-			this.descriptionDataGridViewTextBoxColumn,
-			this.eventDateDataGridViewTextBoxColumn,
-			this.eventTimeDataGridViewTextBoxColumn});
+            this.idDataGridViewTextBoxColumn,
+            this.usernameDataGridViewTextBoxColumn,
+            this.fullNameDataGridViewTextBoxColumn,
+            this.descriptionDataGridViewTextBoxColumn,
+            this.eventDateDataGridViewTextBoxColumn,
+            this.eventTimeDataGridViewTextBoxColumn});
 			this.listEventLogDataGridView.DataSource = this.eventLogBindingSource;
 			dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
 			dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(220)))), ((int)(((byte)(239)))));
@@ -275,7 +275,7 @@ namespace Manegment_Setting
 			// 
 			this.eventLogBindingSource.DataSource = typeof(Models.EventLog);
 			// 
-			// EventLogUS
+			// EventLogUC
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 17F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -287,8 +287,9 @@ namespace Manegment_Setting
 			this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
 			this.MaximumSize = new System.Drawing.Size(1125, 570);
 			this.MinimumSize = new System.Drawing.Size(1125, 570);
-			this.Name = "EventLogUS";
+			this.Name = "EventLogUC";
 			this.Size = new System.Drawing.Size(1125, 570);
+			this.Load += new System.EventHandler(this.EventLogUC_Load);
 			((System.ComponentModel.ISupportInitialize)(this.listEventLogDataGridView)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.eventLogBindingSource)).EndInit();
 			this.ResumeLayout(false);

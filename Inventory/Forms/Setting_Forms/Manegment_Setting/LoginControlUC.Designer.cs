@@ -33,6 +33,7 @@ namespace Manegment_Setting
 			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
 			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
 			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LoginControlUC));
 			Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties1 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
 			Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties2 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
@@ -95,6 +96,8 @@ namespace Manegment_Setting
 			this.listLogHistoryDataGridView.ReadOnly = true;
 			this.listLogHistoryDataGridView.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
 			this.listLogHistoryDataGridView.RowHeadersVisible = false;
+			dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+			this.listLogHistoryDataGridView.RowsDefaultCellStyle = dataGridViewCellStyle4;
 			this.listLogHistoryDataGridView.RowTemplate.Height = 20;
 			this.listLogHistoryDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
 			this.listLogHistoryDataGridView.Size = new System.Drawing.Size(1100, 502);
@@ -279,6 +282,7 @@ namespace Manegment_Setting
 			this.MinimumSize = new System.Drawing.Size(1125, 570);
 			this.Name = "LoginControlUC";
 			this.Size = new System.Drawing.Size(1125, 570);
+			this.Load += new System.EventHandler(this.LoginControlUC_Load);
 			((System.ComponentModel.ISupportInitialize)(this.listLogHistoryDataGridView)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.loginHistoryBindingSource)).EndInit();
 			this.ResumeLayout(false);

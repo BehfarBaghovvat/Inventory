@@ -95,10 +95,28 @@ namespace Manegment_Setting
 
 		//-----------------------------------------------------------------------------------------------     Events Controls
 
+		#region UserSettingUC_Load
+		private void UserSettingUC_Load(object sender, System.EventArgs e)
+		{
+			Initialize();
+		}
+		#endregion /UserSettingUC_Load
+
 		#region UserListDataGridView_CellDoubleClick
 		private void UserListDataGridView_CellDoubleClick(object sender, System.Windows.Forms.DataGridViewCellEventArgs e)
 		{
-			User_FirstLoading.Username = userListDataGridView.CurrentRow.Cells[0].Value.ToString();
+			if (e.RowIndex <= -1)
+			{
+				return;
+			}
+
+			if (e.ColumnIndex <= -1)
+			{
+				return;
+			}
+
+
+			User_FirstLoading.Username = userListDataGridView.CurrentRow.Cells[2].Value.ToString();
 
 			if (string.Compare(User_FirstLoading.Username, "administrator") == 0 || string.Compare(User_FirstLoading.Username, Inventory.Program.UserAuthentication.Username) == 0)
 			{
@@ -119,12 +137,15 @@ namespace Manegment_Setting
 			{
 				usernameLabel.RightToLeft = System.Windows.Forms.RightToLeft.No;
 				usernameLabel.Font = Infrastructure.Utility.CenturyGothicFont(emSize: 8);
+				User_NewData.Username = usernameLabel.Text;
+				
 			}
 			else
 			{
 				usernameLabel.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
 				usernameLabel.Font = Infrastructure.Utility.IranSansFont(emSize: 8);
 				usernameLabel.Text = "شناسه کاربری";
+				User_NewData.Username = null;
 			}
 		}
 		#endregion /UsenameLabel_TextChanged
@@ -209,15 +230,17 @@ namespace Manegment_Setting
 		#region UpdateButton_Click
 		private void UpdateButton_Click(object sender, System.EventArgs e)
 		{
-			if(UpdateUserAccess(User_FirstLoading, User_GetData))
+			if (UpdateUserAccess(User_FirstLoading, User_GetData))
 			{
-				Infrastructure.Utility.WindowsNotification(message:"",caption: Infrastructure.PopupNotificationForm.Caption.موفقیت);
+				Infrastructure.Utility.WindowsNotification(message: $"وضعیت {usernameLabel.Text} به روز رسانی گردید!", caption: Infrastructure.PopupNotificationForm.Caption.موفقیت);
 				updateButton.Enabled = false;
+				AllClear();
 			}
 			else
 			{
-				Infrastructure.Utility.WindowsNotification(message:"", caption: Infrastructure.PopupNotificationForm.Caption.خطا);
+				Infrastructure.Utility.WindowsNotification(message: "", caption: Infrastructure.PopupNotificationForm.Caption.خطا);
 				updateButton.Enabled = false;
+				AllClear();
 			}
 		}
 		#endregion /UpdateButton_Click
@@ -225,6 +248,29 @@ namespace Manegment_Setting
 		//-----------------------------------------------------------------------------------------------     Privat Methods
 
 		#region Founctions
+
+		#region AllClear
+		/// <summary>
+		/// حالت اولیه کنترل ها
+		/// </summary>
+		private void AllClear()
+		{
+			User_FirstLoading = null;
+			User_GetData = null;
+			User_NewData = null;
+
+			userImagePictureBox.Image = null;
+			usernameLabel.Text = "شناسه کاربری";
+			usernameLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+
+			activationUserCheckBox.Checked = false;
+			administratorRadioButton.Checked = false;
+			assistanceRadioButton.Checked = false;
+			employeedRadioButton.Checked = false;
+			simpleUserRadioButton.Checked = false;
+			updateButton.Enabled = false;
+		}
+		#endregion /AllClear
 
 		#region GetUserList
 		/// <summary>
@@ -268,8 +314,9 @@ namespace Manegment_Setting
 		/// <summary>
 		/// تنظمیمات ورودی اولیه
 		/// </summary>
-		private void Initialize()
+		public void Initialize()
 		{
+			AllClear();
 			GetUserList();
 		}
 		#endregion /Initialize
@@ -293,7 +340,7 @@ namespace Manegment_Setting
 				}
 				descriptionLog +=
 					$"فعال بودن کاربر از {User_FirstLoading.Is_Active} به {User_GetData.Is_Active} تغییر یافت";
-			}			
+			}
 
 			if (descriptionLog == null)
 			{
@@ -333,35 +380,52 @@ namespace Manegment_Setting
 
 				if (User_FirstLoading.Is_Active != User_GetData.Is_Active)
 				{
-					User_NewData.Is_Active = User_FirstLoading.Is_Active;
+					User_NewData.Is_Active = User_GetData.Is_Active;
 				}
-
 
 				if ((User_FirstLoading.Access_Level == User_GetData.Access_Level) && (User_FirstLoading.Is_Active == User_GetData.Is_Active))
 				{
+					Models.User user =
+					new Models.User();
+
+					user.Is_Active = User_NewData.Is_Active;
+					user.Access_Level = User_NewData.Access_Level;
+
+					dataBaseContext.SaveChanges();
+					GetUserList();
+
 					return false;
 				}
 				else
 				{
+					Models.User user = dataBaseContext.Users
+					.Where(current => string.Compare(current.Username, User_NewData.Username) == 0)
+					.FirstOrDefault();
+
+					if (user == null)
+					{
+						return false;
+					}
+					else
+					{
+						user.Is_Active = User_NewData.Is_Active;
+						user.Access_Level = User_NewData.Access_Level;
+					}
+
+					
+
+					dataBaseContext.SaveChanges();
+					GetUserList();
+
+					#region  -----------------------------------------    SetEventLog     -----------------------------------------
+					if (string.Compare(Inventory.Program.UserAuthentication.Username, "admin") != 0)
+					{
+						SetEventLog();
+					}
+					#endregion / -----------------------------------------     SetEventLog     -----------------------------------------
+
 					return true;
 				}
-
-				Models.User user =
-					new Models.User();
-				
-					user.Is_Active = User_NewData.Is_Active;
-					user.Access_Level = User_NewData.Access_Level;
-				
-				dataBaseContext.SaveChanges();
-
-				#region  -----------------------------------------    SetEventLog     -----------------------------------------
-				if (string.Compare(Inventory.Program.UserAuthentication.Username, "admin") != 0)
-				{
-					SetEventLog();
-				}
-				#endregion / -----------------------------------------     SetEventLog     -----------------------------------------
-
-				GetUserList();
 			}
 			catch (System.Exception ex)
 			{
@@ -450,7 +514,7 @@ namespace Manegment_Setting
 							var byteImage = user.User_Image;
 							using (System.IO.MemoryStream ms = new System.IO.MemoryStream(byteImage))
 							{
-								userImagePictureBox.BackgroundImage = System.Drawing.Image.FromStream(ms);
+								userImagePictureBox.Image = System.Drawing.Image.FromStream(ms);
 							}
 						}
 
@@ -472,10 +536,9 @@ namespace Manegment_Setting
 			}
 		}
 
+
 		#endregion /ShowInformations
 
 		#endregion /Founctions
-
-		
 	}
 }

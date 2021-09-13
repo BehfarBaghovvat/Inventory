@@ -203,12 +203,6 @@
     <Compile Include="Forms\Inventory_Forms\BillBuyReportForm.Designer.cs">
       <DependentUpon>BillBuyReportForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Inventory_Forms\BillSalePrintForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\Inventory_Forms\BillSalePrintForm.Designer.cs">
-      <DependentUpon>BillSalePrintForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="Forms\Inventory_Forms\ProductSalesListForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -221,23 +215,17 @@
     <Compile Include="Forms\Inventory_Forms\BillSaleReportForm.Designer.cs">
       <DependentUpon>BillSaleReportForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Inventory_Forms\BillBuyPrintForm.cs">
+    <Compile Include="Forms\Inventory_Forms\PrintReportForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Inventory_Forms\BillBuyPrintForm.Designer.cs">
-      <DependentUpon>BillBuyPrintForm.cs</DependentUpon>
+    <Compile Include="Forms\Inventory_Forms\PrintReportForm.Designer.cs">
+      <DependentUpon>PrintReportForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Inventory_Forms\ServiceForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\Inventory_Forms\ServiceForm.Designer.cs">
       <DependentUpon>ServiceForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\Inventory_Forms\BillServicePrintForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\Inventory_Forms\BillServicePrintForm.Designer.cs">
-      <DependentUpon>BillServicePrintForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\Inventory_Forms\ServiceReportForm.cs">
       <SubType>Form</SubType>
@@ -348,11 +336,11 @@
     <Compile Include="Forms\Setting_Forms\Manegment_Setting\UserSettingUC.Designer.cs">
       <DependentUpon>UserSettingUC.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Setting_Forms\Manegment_Setting\PrintLogHistoryForm.cs">
+    <Compile Include="Forms\Setting_Forms\Manegment_Setting\PrintReportForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Setting_Forms\Manegment_Setting\PrintLogHistoryForm.Designer.cs">
-      <DependentUpon>PrintLogHistoryForm.cs</DependentUpon>
+    <Compile Include="Forms\Setting_Forms\Manegment_Setting\PrintReportForm.Designer.cs">
+      <DependentUpon>PrintReportForm.cs</DependentUpon>
     </Compile>
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
@@ -410,9 +398,6 @@
     <EmbeddedResource Include="Forms\Inventory_Forms\BillBuyReportForm.resx">
       <DependentUpon>BillBuyReportForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Inventory_Forms\BillSalePrintForm.resx">
-      <DependentUpon>BillSalePrintForm.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Inventory_Forms\InventoryForm.resx">
       <DependentUpon>InventoryForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -425,14 +410,11 @@
     <EmbeddedResource Include="Forms\Inventory_Forms\ProductSalesForm.resx">
       <DependentUpon>ProductSalesForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Inventory_Forms\BillBuyPrintForm.resx">
-      <DependentUpon>BillBuyPrintForm.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\Inventory_Forms\PrintReportForm.resx">
+      <DependentUpon>PrintReportForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Inventory_Forms\ServiceForm.resx">
       <DependentUpon>ServiceForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Inventory_Forms\BillServicePrintForm.resx">
-      <DependentUpon>BillServicePrintForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Inventory_Forms\ServiceReportForm.resx">
       <DependentUpon>ServiceReportForm.cs</DependentUpon>
@@ -482,8 +464,8 @@
     <EmbeddedResource Include="Forms\Setting_Forms\Manegment_Setting\UserSettingUC.resx">
       <DependentUpon>UserSettingUC.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Setting_Forms\Manegment_Setting\PrintLogHistoryForm.resx">
-      <DependentUpon>PrintLogHistoryForm.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\Setting_Forms\Manegment_Setting\PrintReportForm.resx">
+      <DependentUpon>PrintReportForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>

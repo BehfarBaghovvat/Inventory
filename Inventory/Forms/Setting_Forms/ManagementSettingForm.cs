@@ -4,11 +4,13 @@
 	{
 		//-----------------------------------------------------------------------------------------------     Fields, Properties, Layers
 
+		#region Properites
+
 		private Manegment_Setting.UserSettingUC _userSettingUC = new Manegment_Setting.UserSettingUC();
 		private Manegment_Setting.EventLogUC _eventLogUC = new Manegment_Setting.EventLogUC();
-		private Manegment_Setting.LoginControlUC _loginControlUC = new Manegment_Setting.LoginControlUC();
+		private Manegment_Setting.LoginControlUC _loginControlUC = new Manegment_Setting.LoginControlUC(); 
 
-
+		#endregion /Properties
 
 
 
@@ -21,15 +23,20 @@
 
 
 
-
 		//-----------------------------------------------------------------------------------------------     Events Controls
+
+		#region ManagementSettingForm_Load
+		private void ManagementSettingForm_Load(object sender, System.EventArgs e)
+		{
+			Initialize();
+		}
+		#endregion /ManagementSettingForm_Load
 
 		#region UserSettingButton_Click
 		private void UserSettingButton_Click(object sender, System.EventArgs e)
 		{
 			controlPanel.Controls.Clear();
 			controlPanel.Controls.Add(_userSettingUC);
-			_userSettingUC.Dock = System.Windows.Forms.DockStyle.Fill;
 		}
 		#endregion /UserSettingButton_Click
 
@@ -38,7 +45,6 @@
 		{
 			controlPanel.Controls.Clear();
 			controlPanel.Controls.Add(_eventLogUC);
-			_eventLogUC.Dock = System.Windows.Forms.DockStyle.Fill;
 		}
 		#endregion /EventLogButton_Click
 
@@ -47,7 +53,6 @@
 		{
 			controlPanel.Controls.Clear();
 			controlPanel.Controls.Add(_loginControlUC);
-			_loginControlUC.Dock = System.Windows.Forms.DockStyle.Fill;
 		}
 		#endregion /CheckInCheckOutButton_Click
 
@@ -57,7 +62,15 @@
 
 		#region Founcitons
 
-
+		#region Initialize
+		/// <summary>
+		/// تنظیمات ورودی اولیه
+		/// </summary>
+		public void Initialize()
+		{
+			controlPanel.Controls.Clear();
+		}
+		#endregion Initialize
 
 		#endregion /Founcitons
 	}

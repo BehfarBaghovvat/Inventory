@@ -15,13 +15,18 @@
 		public GetChequaUC()
 		{
 			InitializeComponent();
-			Initialize();
-			
 		}
 
 
 
 		//-----------------------------------------------------------------------------------------------     Events Controls
+
+		#region GetChequaUC_Load
+		private void GetChequaUC_Load(object sender, System.EventArgs e)
+		{
+			Initialize();
+		}
+		#endregion /GetChequaUC_Load
 
 		#region DataReceiptTextBox_Enter
 		private void DataReceiptTextBox_Enter(object sender, System.EventArgs e)
@@ -462,5 +467,7 @@
 		#endregion /SetDataToChequeBank
 
 		#endregion /Function
+
+		
 	}
 }

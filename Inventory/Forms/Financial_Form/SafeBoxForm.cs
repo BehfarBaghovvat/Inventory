@@ -227,12 +227,12 @@ namespace Financial_Form
 					}
 					else if (capitalFund.Capital_Fund.Length <= 9)
 					{
-						capital_Fund = decimal.Parse(capitalFund.Capital_Fund.Replace("توان", string.Empty).Trim());
+						capital_Fund = decimal.Parse(capitalFund.Capital_Fund.Replace("تومان", string.Empty).Trim());
 						Inventory.Program.MainForm.fundsNotificationTextBox.Text = $"{capital_Fund} تومان ";
 					}
 					else
 					{
-						capital_Fund = decimal.Parse(capitalFund.Capital_Fund.Replace("توان", string.Empty).Replace(",", string.Empty).Trim());
+						capital_Fund = decimal.Parse(capitalFund.Capital_Fund.Replace("تومان", string.Empty).Replace(",", string.Empty).Trim());
 						Inventory.Program.MainForm.fundsNotificationTextBox.Text = $"{capital_Fund:#,0} تومان ";
 					}
 				}

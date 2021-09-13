@@ -817,6 +817,7 @@ namespace Chequa_Bank
 			this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
 			this.Name = "IssuanceChequaUC";
 			this.Size = new System.Drawing.Size(1110, 520);
+			this.Load += new System.EventHandler(this.IssuanceChequaUC_Load);
 			this.ResumeLayout(false);
 			this.PerformLayout();
 

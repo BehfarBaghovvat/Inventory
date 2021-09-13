@@ -1,7 +1,7 @@
 ﻿
 namespace Inventory_Forms
 {
-	partial class BillServicePrintForm
+	partial class PrintReportForm
 	{
 		/// <summary>
 		/// Required designer variable.
@@ -29,11 +29,14 @@ namespace Inventory_Forms
 		/// </summary>
 		private void InitializeComponent()
 		{
-			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BillServicePrintForm));
+			this.components = new System.ComponentModel.Container();
+			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PrintReportForm));
 			this.topPanel = new Mbb.Windows.Forms.Panel();
 			this.minimizeButton = new Guna.UI2.WinForms.Guna2Button();
 			this.closeButton = new Guna.UI2.WinForms.Guna2Button();
-			this.serviceStiViewerControl = new Stimulsoft.Report.Viewer.StiRibbonViewerControl();
+			this.printReportStiViewerControl = new Stimulsoft.Report.Viewer.StiRibbonViewerControl();
+			this.showFormAnimateWindow = new Guna.UI.WinForms.GunaAnimateWindow(this.components);
+			this.closeFadeFormTimer = new System.Windows.Forms.Timer(this.components);
 			this.topPanel.SuspendLayout();
 			this.SuspendLayout();
 			// 
@@ -44,8 +47,8 @@ namespace Inventory_Forms
 			this.topPanel.Dock = System.Windows.Forms.DockStyle.Top;
 			this.topPanel.Location = new System.Drawing.Point(0, 0);
 			this.topPanel.Name = "topPanel";
-			this.topPanel.Size = new System.Drawing.Size(1300, 30);
-			this.topPanel.TabIndex = 3;
+			this.topPanel.Size = new System.Drawing.Size(950, 30);
+			this.topPanel.TabIndex = 1;
 			// 
 			// minimizeButton
 			// 
@@ -87,37 +90,52 @@ namespace Inventory_Forms
 			this.closeButton.TabIndex = 0;
 			this.closeButton.Click += new System.EventHandler(this.CloseButton_Click);
 			// 
-			// serviceStiViewerControl
+			// printReportStiViewerControl
 			// 
-			this.serviceStiViewerControl.AllowDrop = true;
-			this.serviceStiViewerControl.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.serviceStiViewerControl.Location = new System.Drawing.Point(0, 30);
-			this.serviceStiViewerControl.Name = "serviceStiViewerControl";
-			this.serviceStiViewerControl.Report = null;
-			this.serviceStiViewerControl.RightToLeft = System.Windows.Forms.RightToLeft.No;
-			this.serviceStiViewerControl.ShowZoom = true;
-			this.serviceStiViewerControl.Size = new System.Drawing.Size(1300, 730);
-			this.serviceStiViewerControl.TabIndex = 4;
+			this.printReportStiViewerControl.AllowDrop = true;
+			this.printReportStiViewerControl.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.printReportStiViewerControl.Location = new System.Drawing.Point(0, 30);
+			this.printReportStiViewerControl.Name = "printReportStiViewerControl";
+			this.printReportStiViewerControl.Report = null;
+			this.printReportStiViewerControl.RightToLeft = System.Windows.Forms.RightToLeft.No;
+			this.printReportStiViewerControl.ShowZoom = true;
+			this.printReportStiViewerControl.Size = new System.Drawing.Size(950, 730);
+			this.printReportStiViewerControl.TabIndex = 2;
 			// 
-			// ServiceInvoiceForm
+			// showFormAnimateWindow
+			// 
+			this.showFormAnimateWindow.AnimationType = Guna.UI.WinForms.GunaAnimateWindow.AnimateWindowType.AW_CENTER;
+			this.showFormAnimateWindow.Interval = 250;
+			this.showFormAnimateWindow.TargetControl = this;
+			// 
+			// closeFadeFormTimer
+			// 
+			this.closeFadeFormTimer.Interval = 5;
+			this.closeFadeFormTimer.Tick += new System.EventHandler(this.CloseFadeFormTimer_Tick);
+			// 
+			// PrintReportForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 17F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-			this.ClientSize = new System.Drawing.Size(1300, 760);
-			this.Controls.Add(this.serviceStiViewerControl);
+			this.ClientSize = new System.Drawing.Size(950, 760);
+			this.Controls.Add(this.printReportStiViewerControl);
 			this.Controls.Add(this.topPanel);
-			this.Name = "ServiceInvoiceForm";
-			this.Text = "ServiceInvoiceForm";
+			this.MaximumSize = new System.Drawing.Size(950, 760);
+			this.MinimumSize = new System.Drawing.Size(950, 726);
+			this.Name = "PrintReportForm";
+			this.Text = "ReceiptForm";
 			this.topPanel.ResumeLayout(false);
 			this.ResumeLayout(false);
 
 		}
 
 		#endregion
-		private Guna.UI2.WinForms.Guna2Button minimizeButton;
-		private Guna.UI2.WinForms.Guna2Button closeButton;
 		private Mbb.Windows.Forms.Panel topPanel;
-		public Stimulsoft.Report.Viewer.StiRibbonViewerControl serviceStiViewerControl;
+		private Guna.UI2.WinForms.Guna2Button closeButton;
+		private Guna.UI2.WinForms.Guna2Button minimizeButton;
+		public Stimulsoft.Report.Viewer.StiRibbonViewerControl printReportStiViewerControl;
+		public Guna.UI.WinForms.GunaAnimateWindow showFormAnimateWindow;
+		private System.Windows.Forms.Timer closeFadeFormTimer;
 	}
 }

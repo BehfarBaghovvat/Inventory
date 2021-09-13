@@ -43,20 +43,6 @@ namespace Inventory_Forms
 			public string TotalPrice { get; set; }
 		}		
 
-		private BillServicePrintForm _billServicePrintForm;
-		public BillServicePrintForm BillServicePrintForm
-		{
-			get
-			{
-				if (_billServicePrintForm == null || _billServicePrintForm.IsDisposed == true)
-				{
-					_billServicePrintForm =
-						new BillServicePrintForm();
-				}
-				return _billServicePrintForm;
-			}
-		}
-
 		private Inventory.MainForm _mainForm;
 		public Inventory.MainForm MainForm
 		{
@@ -126,6 +112,20 @@ namespace Inventory_Forms
 				return _eventLog;
 			}
 			set { _eventLog = value; }
+		}
+
+		private PrintReportForm _printReportForm;
+		public PrintReportForm PrintReportForm
+		{
+			get
+			{
+				if (_printReportForm == null || _printReportForm.IsDisposed == true)
+				{
+					_printReportForm =
+						new PrintReportForm();
+				}
+				return _printReportForm;
+			}
 		}
 
 		private Models.ServiceInvoice _serviceInvoice = null;
@@ -632,8 +632,8 @@ namespace Inventory_Forms
 				(serviceReport.GetComponentByName("remainingTexBox") as Stimulsoft.Report.Components.StiText).Text = remainingTextBox.Text;
 
 				serviceReport.Render(true);
-				BillServicePrintForm.serviceStiViewerControl.Report = serviceReport;
-				BillServicePrintForm.ShowDialog();
+				PrintReportForm.printReportStiViewerControl.Report = serviceReport;
+				PrintReportForm.ShowDialog();
 			}
 			else
 			{
@@ -1226,12 +1226,12 @@ namespace Inventory_Forms
 					}
 					else if (capitalFund.Capital_Fund.Length <= 9)
 					{
-						capital_Fund = decimal.Parse(capitalFund.Capital_Fund.Replace("توان", string.Empty).Trim());
+						capital_Fund = decimal.Parse(capitalFund.Capital_Fund.Replace("تومان", string.Empty).Trim());
 						Inventory.Program.MainForm.fundsNotificationTextBox.Text = $"{capital_Fund} تومان ";
 					}
 					else
 					{
-						capital_Fund = decimal.Parse(capitalFund.Capital_Fund.Replace("توان", string.Empty).Replace(",", string.Empty).Trim());
+						capital_Fund = decimal.Parse(capitalFund.Capital_Fund.Replace("تومان", string.Empty).Replace(",", string.Empty).Trim());
 						Inventory.Program.MainForm.fundsNotificationTextBox.Text = $"{capital_Fund:#,0} تومان ";
 					}
 				}

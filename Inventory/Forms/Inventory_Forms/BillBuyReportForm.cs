@@ -38,21 +38,7 @@ namespace Inventory_Forms
 			public string Product_Unit { get; set; }
 			public string Product_Price { get; set; }
 			public string Total_Amount { get; set; }
-		}
-
-		private BillBuyPrintForm _billBuyPrintForm;
-		public BillBuyPrintForm BillBuyPrintForm
-		{
-			get
-			{
-				if (_billBuyPrintForm == null || _billBuyPrintForm.IsDisposed == true)
-				{
-					_billBuyPrintForm =
-						new BillBuyPrintForm();
-				}
-				return _billBuyPrintForm;
-			}
-		}
+		}		
 
 		private Inventory.MainForm _mainForm;
 		public Inventory.MainForm MainForm
@@ -71,10 +57,25 @@ namespace Inventory_Forms
 				_mainForm = value;
 			}
 		}
-		#endregion /Layer
 
 		public static AuditItem auditItem = new AuditItem();
 		public ProductBuyForm MyProductBuyForm { get; set; }
+
+		private PrintReportForm _printReportForm;
+		public PrintReportForm PrintReportForm
+		{
+			get
+			{
+				if (_printReportForm == null || _printReportForm.IsDisposed == true)
+				{
+					_printReportForm =
+						new PrintReportForm();
+				}
+				return _printReportForm;
+			}
+		}
+
+		#endregion /Layer
 
 		private Models.EventLog _eventLog;
 		public Models.EventLog EventLog
@@ -101,8 +102,6 @@ namespace Inventory_Forms
 		public BillBuyReportForm()
 		{
 			InitializeComponent();
-			Initialize();
-			
 		}
 
 
@@ -112,7 +111,7 @@ namespace Inventory_Forms
 		#region BillBuyReportForm_Load
 		private void BillBuyReportForm_Load(object sender, System.EventArgs e)
 		{
-			//Initialize();
+			Initialize();
 		}
 		#endregion /BillBuyReportForm_Load
 
@@ -191,8 +190,8 @@ namespace Inventory_Forms
 				(reportReceip.GetComponentByName("remainingAmountTextBox") as Stimulsoft.Report.Components.StiText).Text = remainingAmountTextBox.Text;
 
 				reportReceip.Render();
-				BillBuyPrintForm.receiptStiViewerControl.Report = reportReceip;
-				BillBuyPrintForm.ShowDialog();
+				PrintReportForm.printReportStiViewerControl.Report = reportReceip;
+				PrintReportForm.ShowDialog();
 			}
 			catch (System.Exception ex)
 			{
@@ -389,13 +388,13 @@ namespace Inventory_Forms
 					}
 					else if (capitalFund.Capital_Fund.Length <= 9)
 					{
-						capital_Fund = decimal.Parse(capitalFund.Capital_Fund.Replace("توان", string.Empty).Trim());
+						capital_Fund = decimal.Parse(capitalFund.Capital_Fund.Replace("تومان", string.Empty).Trim());
 
 						Inventory.Program.MainForm.fundsNotificationTextBox.Text = $"{capital_Fund} تومان ";
 					}
 					else
 					{
-						capital_Fund = decimal.Parse(capitalFund.Capital_Fund.Replace("توان", string.Empty).Replace(",", string.Empty).Trim());
+						capital_Fund = decimal.Parse(capitalFund.Capital_Fund.Replace("تومان", string.Empty).Replace(",", string.Empty).Trim());
 
 						Inventory.Program.MainForm.fundsNotificationTextBox.Text = $"{capital_Fund:#,0} تومان ";
 					}

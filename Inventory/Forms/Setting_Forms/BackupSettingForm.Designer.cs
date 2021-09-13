@@ -758,6 +758,7 @@ namespace Setting_Forms
 			this.Controls.Add(this.mainPanel);
 			this.Name = "BackupSettingForm";
 			this.Text = "BackupSettingForm";
+			this.Load += new System.EventHandler(this.BackupSettingForm_Load);
 			this.mainPanel.ResumeLayout(false);
 			this.backupSettengGroupBox.ResumeLayout(false);
 			this.backupSettengGroupBox.PerformLayout();

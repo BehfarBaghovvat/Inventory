@@ -162,6 +162,10 @@ namespace Inventory
 				{
 					_sectionChequeBankForm =
 						new Financial_Form.SectionChequeBankForm();
+
+					_sectionChequeBankForm.TopLevel = false;
+					_sectionChequeBankForm.TopMost = true;
+					_sectionChequeBankForm.Dock = System.Windows.Forms.DockStyle.Fill;
 				}
 				return _sectionChequeBankForm;
 			}
@@ -182,6 +186,10 @@ namespace Inventory
 				{
 					_registerClientForm =
 						new Client_Forms.RegisterClientForm();
+
+					_registerClientForm.TopLevel = false;
+					_registerClientForm.TopMost = true;
+					_registerClientForm.Dock = System.Windows.Forms.DockStyle.Fill;
 				}
 				return _registerClientForm;
 			}
@@ -200,6 +208,10 @@ namespace Inventory
 				{
 					_clientFinancialSituationForm =
 						new Client_Forms.ClientFinancialSituationForm();
+
+					_clientFinancialSituationForm.TopLevel = false;
+					_clientFinancialSituationForm.TopMost = true;
+					_clientFinancialSituationForm.Dock = System.Windows.Forms.DockStyle.Fill;
 				}
 				return _clientFinancialSituationForm;
 			}
@@ -220,6 +232,10 @@ namespace Inventory
 				{
 					_managementSettingForm =
 						new Setting_Forms.ManagementSettingForm();
+
+					_managementSettingForm.TopLevel = false;
+					_managementSettingForm.TopMost = true;
+					_managementSettingForm.Dock = System.Windows.Forms.DockStyle.Fill;
 				}
 				return _managementSettingForm;
 			}
@@ -238,6 +254,10 @@ namespace Inventory
 				{
 					_backupSettingForm =
 						new Setting_Forms.BackupSettingForm();
+
+					_backupSettingForm.TopLevel = false;
+					_backupSettingForm.TopMost = true;
+					_backupSettingForm.Dock = System.Windows.Forms.DockStyle.Fill;
 				}
 				return _backupSettingForm;
 			}
@@ -280,7 +300,7 @@ namespace Inventory
 		public MainForm()
 		{
 			InitializeComponent();
-			Initialize();
+			
 		}
 
 
@@ -292,7 +312,7 @@ namespace Inventory
 		#region MainForm_Load
 		private void MainForm_Load(object sender, System.EventArgs e)
 		{
-			
+			Initialize();
 		}
 		#endregion /MainForm_Load
 
@@ -1130,6 +1150,7 @@ namespace Inventory
 			{
 				mainPanel.Controls.Clear();
 				mainPanel.Controls.Add(ManagementSettingForm);
+				ManagementSettingForm.Initialize();
 				ManagementSettingForm.Show();
 
 				ProductBuyForm.Hide();
@@ -1176,6 +1197,7 @@ namespace Inventory
 			{
 				mainPanel.Controls.Clear();
 				mainPanel.Controls.Add(BackupSettingForm);
+				BackupSettingForm.Initialize();
 				BackupSettingForm.Show();
 
 				ProductBuyForm.Hide();
@@ -1324,36 +1346,106 @@ namespace Inventory
 				}
 				else
 				{
-					switch (Program.UserAuthentication.Access_Level)
-					{
-						case Models.User.AccessLeve.مدیریت:
-						homeButton.Enabled = true;
-						inventoryButton.Enabled = true;
-						break;
-
-						case Models.User.AccessLeve.معاونت:
-						homeButton.Enabled = true;
-						inventoryButton.Enabled = true;
-						break;
-
-						case Models.User.AccessLeve.کارمند:
-						homeButton.Enabled = true;
-						inventoryButton.Enabled = true;
-						break;
-
-						case Models.User.AccessLeve.کاربر_ساده:
-						homeButton.Enabled = true;
-						inventoryButton.Enabled = true;
-						break;
-
-						default:
-						break;
-					}
+					CheckAccessLevel(Inventory.Program.UserAuthentication.Access_Level);
 					SaveLoginHistory(Program.UserAuthentication);
 				}
 			}
 		}
 		#endregion /AccountLoaded
+
+		#region CheckAccessLevel
+		/// <summary>
+		/// بررسی سطح دسترسی کاربر
+		/// </summary>
+		/// <param name="_accessLeve"></param>
+		private void CheckAccessLevel(Models.User.AccessLeve _accessLeve)
+		{
+			switch (_accessLeve)
+			{
+				case Models.User.AccessLeve.مدیریت:
+
+				inventoryEntryButton.Enabled = true;
+				productSalesButton.Enabled = true;
+				inventoryholdingButton.Enabled = true;
+				serviceButton.Enabled = true;
+
+				ancillaryCostsButton.Enabled = true;
+				financialReportButton.Enabled = true;
+				safeBoxButton.Enabled = true;
+				sectionChequeBankButton.Enabled = true;
+
+				clientFinancialSituationButton.Enabled = true;
+				registerClientButton.Enabled = true;
+
+				backupSettingsButton.Enabled = true;
+				managementSettingsButton.Enabled = true;
+				break;
+
+				case Models.User.AccessLeve.معاونت:
+
+				inventoryEntryButton.Enabled = true;
+				productSalesButton.Enabled = true;
+				inventoryholdingButton.Enabled = true;
+				serviceButton.Enabled = true;
+
+				ancillaryCostsButton.Enabled = true;
+				financialReportButton.Enabled = true;
+				safeBoxButton.Enabled = true;
+				sectionChequeBankButton.Enabled = true;
+
+				clientFinancialSituationButton.Enabled = true;
+				registerClientButton.Enabled = true;
+
+				backupSettingsButton.Enabled = true;
+				managementSettingsButton.Enabled = false;
+
+				break;
+
+				case Models.User.AccessLeve.کارمند:
+
+				inventoryEntryButton.Enabled = true;
+				productSalesButton.Enabled = true;
+				inventoryholdingButton.Enabled = true;
+				serviceButton.Enabled = true;
+
+				safeBoxButton.Enabled = true;
+				ancillaryCostsButton.Enabled = true;
+				financialReportButton.Enabled = false;
+				sectionChequeBankButton.Enabled = true;
+
+				registerClientButton.Enabled = true;
+				clientFinancialSituationButton.Enabled = false;
+
+				backupSettingsButton.Enabled = true;
+				managementSettingsButton.Enabled = false;
+
+				break;
+
+				case Models.User.AccessLeve.کاربر_ساده:
+
+				inventoryEntryButton.Enabled = true;
+				productSalesButton.Enabled = true;
+				inventoryholdingButton.Enabled = true;
+				serviceButton.Enabled = true;
+
+				safeBoxButton.Enabled = false;
+				ancillaryCostsButton.Enabled = true;
+				financialReportButton.Enabled = false;
+				sectionChequeBankButton.Enabled = true;
+
+				registerClientButton.Enabled = true;
+				clientFinancialSituationButton.Enabled = false;
+
+				backupSettingsButton.Enabled = false;
+				managementSettingsButton.Enabled = false;
+
+				break;
+
+				default:
+				break;
+			}
+		}
+		#endregion /CheckAccessLevel
 
 		#region GetCapitalFund
 		/// <summary>
@@ -1384,19 +1476,17 @@ namespace Inventory
 					{
 						capital_Fund = 0;
 					}
-					else if (capitalFund.Capital_Fund.Length < 9)
+					else if (capitalFund.Capital_Fund.Length <= 9)
 					{
-						capital_Fund = decimal.Parse(capitalFund.Capital_Fund.Replace("توان", string.Empty).Trim());
+						capital_Fund = decimal.Parse(capitalFund.Capital_Fund.Replace("تومان", string.Empty).Trim());
 						fundsNotificationTextBox.Text = $"{capital_Fund} تومان";
 					}
 					else
 					{
-						capital_Fund = decimal.Parse(capitalFund.Capital_Fund.Replace("توان", string.Empty).Replace(",", string.Empty).Trim());
+						capital_Fund = decimal.Parse(capitalFund.Capital_Fund.Replace("تومان", string.Empty).Replace(",", string.Empty).Trim());
 						fundsNotificationTextBox.Text = $"{capital_Fund:#,0} تومان";
 					}
 				}
-
-				
 			}
 			catch (System.Exception ex)
 			{
@@ -1423,6 +1513,8 @@ namespace Inventory
 			AccountLoaded();
 			ResetSubmenu();
 			GetCapitalFund();
+
+			homeButton.Checked = true;
 
 			solarCalenderLabel.Text = Infrastructure.Utility.PersianCalendar();
 			gregorianCalendarLabel.Text = Infrastructure.Utility.ADCalendar();
@@ -1457,10 +1549,11 @@ namespace Inventory
 
 			//-------------------------------------------- Inventory
 
-			ProductBuyForm.Dispose();
+			ProductBuyForm.Hide();
 			ProcutSalesForm.Dispose();
 			InventoryForm.Dispose();
 			ServiceForm.Dispose();
+
 			inventoryButton.Checked = false;
 			inventoryEntryButton.Checked = false;
 			productSalesButton.Checked = false;
@@ -1469,15 +1562,34 @@ namespace Inventory
 
 			//-------------------------------------------- Financial
 
+			AncillaryCostsForm.Hide();
+			FinancialReportForm.Hide();
+			SafeBoxForm.Hide();
+			SectionChequeBankForm.Hide();
+
 			fainancialButton.Checked = false;
+			ancillaryCostsButton.Checked = false;
+			financialReportButton.Checked = false;
+			safeBoxButton.Checked = false;
+			sectionChequeBankButton.Checked = false;
 
 			//-------------------------------------------- Client
 
+			ClientFinancialSituationForm.Hide();
+			RegisterClientForm.Hide();
+
 			clientButton.Checked = false;
+			clientFinancialSituationButton.Checked = false;
+			registerClientButton.Checked = false;
 
 			//-------------------------------------------- Setting
 
+			BackupSettingForm.Hide();
+			ManagementSettingForm.Hide();
+
 			settingButton.Checked = false;
+			backupSettingsButton.Checked = false;
+			managementSettingsButton.Checked = false;
 		}
 		#endregion /ResetSubmenu
 
