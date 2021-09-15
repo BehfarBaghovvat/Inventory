@@ -563,6 +563,7 @@ namespace Setting_Forms
 			this.loadPathTextBox.DefaultFont = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.loadPathTextBox.DefaultText = "";
 			this.loadPathTextBox.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(0)))), ((int)(((byte)(61)))));
+			this.loadPathTextBox.ForeColor = System.Drawing.Color.White;
 			this.loadPathTextBox.HideSelection = true;
 			this.loadPathTextBox.IconLeft = ((System.Drawing.Image)(resources.GetObject("loadPathTextBox.IconLeft")));
 			this.loadPathTextBox.IconLeftCursor = System.Windows.Forms.Cursors.IBeam;
@@ -594,11 +595,11 @@ namespace Setting_Forms
 			this.loadPathTextBox.OnHoverState = stateProperties3;
 			stateProperties4.BorderColor = System.Drawing.Color.Silver;
 			stateProperties4.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(0)))), ((int)(((byte)(61)))));
-			stateProperties4.ForeColor = System.Drawing.Color.Empty;
+			stateProperties4.ForeColor = System.Drawing.Color.White;
 			stateProperties4.PlaceholderForeColor = System.Drawing.Color.Empty;
 			this.loadPathTextBox.OnIdleState = stateProperties4;
 			this.loadPathTextBox.PasswordChar = '\0';
-			this.loadPathTextBox.PlaceholderForeColor = System.Drawing.Color.LightGray;
+			this.loadPathTextBox.PlaceholderForeColor = System.Drawing.Color.Gray;
 			this.loadPathTextBox.PlaceholderText = "Load Path";
 			this.loadPathTextBox.ReadOnly = true;
 			this.loadPathTextBox.ScrollBars = System.Windows.Forms.ScrollBars.None;
@@ -695,6 +696,7 @@ namespace Setting_Forms
 			this.savePathTextBox.DefaultFont = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.savePathTextBox.DefaultText = "";
 			this.savePathTextBox.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(0)))), ((int)(((byte)(61)))));
+			this.savePathTextBox.ForeColor = System.Drawing.Color.White;
 			this.savePathTextBox.HideSelection = true;
 			this.savePathTextBox.IconLeft = ((System.Drawing.Image)(resources.GetObject("savePathTextBox.IconLeft")));
 			this.savePathTextBox.IconLeftCursor = System.Windows.Forms.Cursors.IBeam;
@@ -726,11 +728,11 @@ namespace Setting_Forms
 			this.savePathTextBox.OnHoverState = stateProperties7;
 			stateProperties8.BorderColor = System.Drawing.Color.Silver;
 			stateProperties8.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(0)))), ((int)(((byte)(61)))));
-			stateProperties8.ForeColor = System.Drawing.Color.Empty;
+			stateProperties8.ForeColor = System.Drawing.Color.White;
 			stateProperties8.PlaceholderForeColor = System.Drawing.Color.Empty;
 			this.savePathTextBox.OnIdleState = stateProperties8;
 			this.savePathTextBox.PasswordChar = '\0';
-			this.savePathTextBox.PlaceholderForeColor = System.Drawing.Color.LightGray;
+			this.savePathTextBox.PlaceholderForeColor = System.Drawing.Color.Gray;
 			this.savePathTextBox.PlaceholderText = "Save Path";
 			this.savePathTextBox.ReadOnly = true;
 			this.savePathTextBox.ScrollBars = System.Windows.Forms.ScrollBars.None;

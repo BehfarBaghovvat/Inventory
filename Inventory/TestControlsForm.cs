@@ -28,8 +28,22 @@
 
 		private void button1_Click(object sender, System.EventArgs e)
 		{
-			System.Windows.Forms.MessageBox.Show($"{DaysOfWeek.شنبه}");
+			string[] drive = System.Environment.GetLogicalDrives();
 
+			if (drive.Length <=1)
+			{
+				System.Windows.Forms.MessageBox.Show($"تعداد پارتیش {drive.Length} می باشد.");
+			}
+			else
+			{
+				System.Windows.Forms.MessageBox.Show($"تعداد پارتیش {drive.Length} می باشد.");
+			}
+
+		}
+
+		private void button2_Click(object sender, System.EventArgs e)
+		{
+			System.IO.Directory.CreateDirectory("E:\\NewDirectory");
 		}
 	}
 }

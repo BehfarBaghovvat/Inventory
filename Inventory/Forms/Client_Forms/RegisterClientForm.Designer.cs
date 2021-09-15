@@ -62,8 +62,9 @@ namespace Client_Forms
 			this.phoneNumberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.licensePlateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.contextMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
-			this.ویرایشمشتریToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.حذفمشتریToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.clientEditToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.clientDeleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.allClientsDeleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.clientBindingSource = new System.Windows.Forms.BindingSource(this.components);
 			this.mainPanel.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.listClientDataGridView)).BeginInit();
@@ -531,23 +532,36 @@ namespace Client_Forms
 			// 
 			this.contextMenuStrip.Font = new System.Drawing.Font("IRANSansXFaNum", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
 			this.contextMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.ویرایشمشتریToolStripMenuItem,
-            this.حذفمشتریToolStripMenuItem});
+            this.clientEditToolStripMenuItem,
+            this.clientDeleteToolStripMenuItem,
+            this.allClientsDeleteToolStripMenuItem});
 			this.contextMenuStrip.Name = "contextMenuStrip";
 			this.contextMenuStrip.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-			this.contextMenuStrip.Size = new System.Drawing.Size(145, 48);
+			this.contextMenuStrip.Size = new System.Drawing.Size(212, 70);
 			// 
-			// ویرایشمشتریToolStripMenuItem
+			// clientEditToolStripMenuItem
 			// 
-			this.ویرایشمشتریToolStripMenuItem.Name = "ویرایشمشتریToolStripMenuItem";
-			this.ویرایشمشتریToolStripMenuItem.Size = new System.Drawing.Size(144, 22);
-			this.ویرایشمشتریToolStripMenuItem.Text = "ویرایش مشتری";
+			this.clientEditToolStripMenuItem.Name = "clientEditToolStripMenuItem";
+			this.clientEditToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.E)));
+			this.clientEditToolStripMenuItem.Size = new System.Drawing.Size(211, 22);
+			this.clientEditToolStripMenuItem.Text = "ویرایش مشتری";
+			this.clientEditToolStripMenuItem.Click += new System.EventHandler(this.ClientEditToolStripMenuItem_Click);
 			// 
-			// حذفمشتریToolStripMenuItem
+			// clientDeleteToolStripMenuItem
 			// 
-			this.حذفمشتریToolStripMenuItem.Name = "حذفمشتریToolStripMenuItem";
-			this.حذفمشتریToolStripMenuItem.Size = new System.Drawing.Size(144, 22);
-			this.حذفمشتریToolStripMenuItem.Text = "حذف مشتری";
+			this.clientDeleteToolStripMenuItem.Name = "clientDeleteToolStripMenuItem";
+			this.clientDeleteToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.Delete;
+			this.clientDeleteToolStripMenuItem.Size = new System.Drawing.Size(211, 22);
+			this.clientDeleteToolStripMenuItem.Text = "حذف مشتری";
+			this.clientDeleteToolStripMenuItem.Click += new System.EventHandler(this.ClientDeleteToolStripMenuItem_Click);
+			// 
+			// allClientsDeleteToolStripMenuItem
+			// 
+			this.allClientsDeleteToolStripMenuItem.Name = "allClientsDeleteToolStripMenuItem";
+			this.allClientsDeleteToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Delete)));
+			this.allClientsDeleteToolStripMenuItem.Size = new System.Drawing.Size(211, 22);
+			this.allClientsDeleteToolStripMenuItem.Text = "حذف همه مشتریان";
+			this.allClientsDeleteToolStripMenuItem.Click += new System.EventHandler(this.AllClientsDeleteToolStripMenuItem_Click);
 			// 
 			// clientBindingSource
 			// 
@@ -586,7 +600,8 @@ namespace Client_Forms
 		private System.Windows.Forms.DataGridViewTextBoxColumn phoneNumberDataGridViewTextBoxColumn;
 		private System.Windows.Forms.DataGridViewTextBoxColumn licensePlateDataGridViewTextBoxColumn;
 		private System.Windows.Forms.ContextMenuStrip contextMenuStrip;
-		private System.Windows.Forms.ToolStripMenuItem ویرایشمشتریToolStripMenuItem;
-		private System.Windows.Forms.ToolStripMenuItem حذفمشتریToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem clientEditToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem clientDeleteToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem allClientsDeleteToolStripMenuItem;
 	}
 }

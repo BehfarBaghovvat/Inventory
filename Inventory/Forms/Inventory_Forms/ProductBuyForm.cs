@@ -12,7 +12,7 @@ namespace Inventory_Forms
 		/// <summary>
 		/// کلاس صورت حساب
 		/// </summary>
-		public class Bill
+		public class BillBuyReportItems
 		{
 			//نکته: به یاد داشته باشید که نام پراپرتیز ها باید هم نام با عناصر داخل گزارش باشد
 			// در غیر این صورت داده ها انتقال پیدا نمیکند.
@@ -40,7 +40,7 @@ namespace Inventory_Forms
 
 		#endregion /Layer
 
-		public System.Collections.Generic.List<Bill> billList = new System.Collections.Generic.List<Bill>();
+		public System.Collections.Generic.List<BillBuyReportItems> listBillBuyReportItems = new System.Collections.Generic.List<BillBuyReportItems>();
 
 		public int? Price { get; set; }
 		public int TotalSumPrice { get; set; }
@@ -449,7 +449,7 @@ namespace Inventory_Forms
 		#region BillButton_Click
 		private void BillButton_Click(object sender, System.EventArgs e)
 		{
-			if (NumberPurchases == 0 && billList.Count == 0)
+			if (NumberPurchases == 0 && listBillBuyReportItems.Count == 0)
 			{
 				Mbb.Windows.Forms.MessageBox.Show
 					(text: Inventory.Properties.Resources.Purchase_Error,
@@ -462,7 +462,7 @@ namespace Inventory_Forms
 				BillBuyReportForm.senderNameTextBox.Text = senderNameTextBox.Text;
 				BillBuyReportForm.carrierNameTextBox.Text = carrierNameTextBox.Text;
 				BillBuyReportForm.MyProductBuyForm = this;
-				BillBuyReportForm.SetBillInDataGridView(billList);
+				BillBuyReportForm.SetBillInDataGridView(listBillBuyReportItems);
 				BillBuyReportForm.CalculatePurchaseAmount();
 				BillBuyReportForm.ShowDialog();
 			}
@@ -1066,7 +1066,7 @@ namespace Inventory_Forms
 		public void RemoveBill()
 		{
 			NumberPurchases = 0;
-			billList.Clear();
+			listBillBuyReportItems.Clear();
 		}
 		#endregion /RemoveBill
 
@@ -1082,7 +1082,7 @@ namespace Inventory_Forms
 			price = int.Parse(productReceived.Product_Purchase_Price.Replace("تومان", string.Empty).Replace(",", string.Empty).Trim());
 			totalPrice = (price * productReceived.Product_Quantity);
 
-			Bill bill = new Bill()
+			BillBuyReportItems bill = new BillBuyReportItems()
 			{
 				Product_Name = productReceived.Product_Name,
 				Product_Price = productReceived.Product_Purchase_Price,
@@ -1090,7 +1090,7 @@ namespace Inventory_Forms
 				Product_Unit = productReceived.Product_Unit,
 				Total_Price = $"{totalPrice:#,0} تومان",
 			};
-			billList.Add(bill);
+			listBillBuyReportItems.Add(bill);
 		}
 		#endregion /SetReceiptDataGridView
 
@@ -1188,8 +1188,7 @@ namespace Inventory_Forms
 						Product_Purchase_Price = inputProductReceived.Product_Purchase_Price,
 						Product_Quantity = inputProductReceived.Product_Quantity,
 						Product_Unit = inputProductReceived.Product_Unit,
-						//Recipient_Name = Inventory.Program.UserAuthentication.Full_Name,
-						Recipient_Name = "Adminestrator",
+						Recipient_Name = Inventory.Program.UserAuthentication.Full_Name,
 						Sender_Name = inputProductReceived.Sender_Name,
 						Carrier_Name = inputProductReceived.Carrier_Name,
 						Number_Edit = 0,

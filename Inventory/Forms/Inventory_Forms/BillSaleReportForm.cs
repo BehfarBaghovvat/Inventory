@@ -13,21 +13,23 @@ namespace Inventory_Forms
 		#region Layer
 		private class AuditItem
 		{
-			public int? Amount { get; set; }
-			public int? Amount_Payable { get; set; }
-			public int? Amount_Paid { get; set; }
+			public decimal? Amount { get; set; }
+			public decimal? Amount_Payable { get; set; }
+			public decimal? Amount_Paid { get; set; }
 			public decimal? Capital_Fund { get; set; }
 			public string Client_Name { get; set; }
 			public string Carrier_Name { get; set; }
-			public int? Cash_Payment_Amount { get; set; }
+			public decimal? Cash_Payment_Amount { get; set; }
 			public string InvoiceSerialNumber { get; set; }
-			public int Product_Price { get; set; }
-			public int? Pose_Payment_Amount { get; set; }
+			public Models.SalesInvoice.SalesPaymentType Sales_Payment_Type { get; set; }
+			public Models.SalesInvoice.PaymentCachType Payment_Cach_Type { get; set; }
+			public decimal Product_Price { get; set; }
+			public decimal? Pose_Payment_Amount { get; set; }
 			public string Register_Date { get; set; }
 			public string Register_Time { get; set; }
-			public int? Remaining_Amount { get; set; }
+			public decimal? Remaining_Amount { get; set; }
 			public string Seller_Name { get; set; }
-			public int? Tax_Amount { get; set; }
+			public decimal? Tax_Amount { get; set; }
 			public int? Tax_Percent { get; set; }
 			public string Total_Sum_Price { get; set; }
 		}
@@ -141,6 +143,8 @@ namespace Inventory_Forms
 
 		private AuditItem auditItem = new AuditItem();
 
+		public bool Purchase_Operations { get; set; }
+
 		#endregion /Properties
 
 
@@ -167,9 +171,18 @@ namespace Inventory_Forms
 		#region CloseButton_Click
 		private void CloseButton_Click(object sender, System.EventArgs e)
 		{
+			if (Purchase_Operations)
+			{
+				ResetAllControl();
+				closeFormTimer.Start();
+			}
 			if (productsListDataGridView.RowCount >= 1)
 			{
-				if (Mbb.Windows.Forms.MessageBox.Show(text: "آیا فاکتور جاری حذف گردد؟", caption: "حذف فاکتور", icon: Mbb.Windows.Forms.MessageBoxIcon.Question, button: Mbb.Windows.Forms.MessageBoxButtons.YesNo) == System.Windows.Forms.DialogResult.Yes)
+				if (Mbb.Windows.Forms.MessageBox.Show(
+					text: "آیا فاکتور جاری حذف گردد؟",
+					caption: "حذف فاکتور",
+					icon: Mbb.Windows.Forms.MessageBoxIcon.Question,
+					button: Mbb.Windows.Forms.MessageBoxButtons.YesNo) == System.Windows.Forms.DialogResult.Yes)
 				{
 					ResetAllControl();
 					closeFormTimer.Start();
@@ -440,24 +453,44 @@ namespace Inventory_Forms
 		}
 		#endregion /PrintButton_Click
 
-		#region CashRegisterButton_Click
-		private void CashRegisterButton_Click(object sender, System.EventArgs e)
+		#region PaymentButton_Click
+		private void PaymentButton_Click(object sender, System.EventArgs e)
 		{
-			AccountsReceivable.Client_Name = clientNameTextBox.Text;
-			AccountsReceivable.Amount_Payable = amountPayableTextBox.Text;
-			AccountsReceivable.Amount_Paid = amountPaidTextBox.Text;
-			AccountsReceivable.Remaininig_Amount = remainingAmountTextBox.Text;
-
-			if (Deposit(auditItem) && SetSalesProduct(auditItem) && SetAccountPayable(AccountsReceivable) && SetDailyOffice(auditItem))
-			{
-				SetDailyFinancialReport(auditItem);
-				Infrastructure.Utility.WindowsNotification
-					(message: "عملیات با موفقیت انجام گردید.",
-					caption: Infrastructure.PopupNotificationForm.Caption.موفقیت);
-				return;
-			}
+			Payment(auditItem);
 		}
-		#endregion /CashRegisterButton_Click
+		#endregion /PaymentButton_Click
+
+		#region PaymentCachRadioButton_CheckedChanged
+		private void PaymentCachRadioButton_CheckedChanged(object sender, System.EventArgs e)
+		{
+			paymentCachTypeGroupBox.Enabled = true;
+			auditItem.Sales_Payment_Type = Models.SalesInvoice.SalesPaymentType.نقد;
+		}
+		#endregion /PaymentCachRadioButton_CheckedChanged
+
+		#region PaymentCachLabel_Click
+		private void PaymentCachLabel_Click(object sender, System.EventArgs e)
+		{
+			paymentCachRadioButton.Checked = true;
+		}
+		#endregion /PaymentCachLabel_Click
+
+		#region PaymentChequeRadioButton_CheckedChanged
+		private void PaymentChequeRadioButton_CheckedChanged(object sender, System.EventArgs e)
+		{
+			paymentCachTypeGroupBox.Enabled = false;
+			paymentButton.Enabled = true;
+			auditItem.Sales_Payment_Type = Models.SalesInvoice.SalesPaymentType.چک;
+			auditItem.Payment_Cach_Type = Models.SalesInvoice.PaymentCachType.غیرنقد;
+		}
+		#endregion /PaymentChequeRadioButton_CheckedChanged
+
+		#region PaymentChequeLabel_Click
+		private void PaymentChequeLabel_Click(object sender, System.EventArgs e)
+		{
+			paymentChequeRadioButton.Checked = true;
+		}
+		#endregion /PaymentChequeLabel_Click
 
 		#region CashPaymentTextBox_Enter
 		private void CashPaymentTextBox_Enter(object sender, System.EventArgs e)
@@ -774,7 +807,7 @@ namespace Inventory_Forms
 		/// ثبت در دفتر معین واریزی
 		/// </summary>
 		/// <param name="_accountsReceivable"></param>
-		private bool SetAccountPayable(Models.AccountsReceivable _accountsReceivable)
+		private bool SetAccountPayable(AuditItem _auditItem)
 		{
 			Models.DataBaseContext dataBaseContext = null;
 			try
@@ -789,13 +822,13 @@ namespace Inventory_Forms
 				accountsReceivable =
 					new Models.AccountsReceivable
 					{
-						Amount_Paid = _accountsReceivable.Amount_Paid,
-						Amount_Payable = _accountsReceivable.Amount_Payable,
-						Client_Name = _accountsReceivable.Client_Name,
-						Description = _accountsReceivable.Description,
-						Registration_Date = _accountsReceivable.Registration_Date,
-						Registration_Time = _accountsReceivable.Registration_Time,
-						Tax_Percent = _accountsReceivable.Tax_Percent,
+						Amount_Paid = $"{auditItem.Amount_Paid:#,0} تومان",
+						Amount_Payable = $"{auditItem.Total_Sum_Price:#,0} تومان",
+						Client_Name = _auditItem.Client_Name,
+						Description = "فروش کالا",
+						Registration_Date = $"{Infrastructure.Utility.PersianCalendar(System.DateTime.Now)}",
+						Registration_Time = $"{Infrastructure.Utility.ShowTime()}",
+						Tax_Percent = $"{_auditItem.Tax_Percent}%",
 					};
 
 				dataBaseContext.AccountsReceivables.Add(accountsReceivable);
@@ -841,7 +874,7 @@ namespace Inventory_Forms
 
 		#region Deposit
 		/// <summary>
-		/// تابع واریز پول به صندوق مالی
+		/// تابع سپرده گزاری
 		/// </summary>
 		/// <returns></returns>
 		private bool Deposit(AuditItem auditItem)
@@ -873,9 +906,6 @@ namespace Inventory_Forms
 					Infrastructure.Utility.EventLog(EventLog);
 				}
 				#endregion /-----------------------------------------     Save Event Log     -----------------------------------------
-
-
-
 
 				return true;
 			}
@@ -912,9 +942,9 @@ namespace Inventory_Forms
 				};
 				billSaleReportItemsList.Add(billSaleReportItems);
 			}
-			MyProcutSalesForm.billSaleReportsList.Clear();
-			MyProcutSalesForm.billSaleReportsList = billSaleReportItemsList.ToList();
-			MyProcutSalesForm.billSaleReportsList.TrimExcess();
+			MyProcutSalesForm.listBillSaleReports.Clear();
+			MyProcutSalesForm.listBillSaleReports = billSaleReportItemsList.ToList();
+			MyProcutSalesForm.listBillSaleReports.TrimExcess();
 		}
 		#endregion /EditBill
 
@@ -1001,6 +1031,58 @@ namespace Inventory_Forms
 		}
 		#endregion /GetCapitalFund
 
+		#region Payment
+		private void Payment(AuditItem _auditItem)
+		{
+			_auditItem.Client_Name = clientNameTextBox.Text;
+
+			if (_auditItem.Sales_Payment_Type == Models.SalesInvoice.SalesPaymentType.نقد)
+			{
+				if (Deposit(_auditItem) && SetSalesProduct(_auditItem) && SetAccountPayable(_auditItem) && SetDailyOffice(_auditItem))
+				{
+					SetDailyFinancialReport(auditItem);
+
+					Infrastructure.Utility.WindowsNotification
+						(message: "عملیات با موفقیت انجام گردید.",
+						caption: Infrastructure.PopupNotificationForm.Caption.موفقیت);
+
+					Purchase_Operations = true;
+					return;
+				}
+				else
+				{
+					Purchase_Operations = false;
+					return;
+				}
+			}
+			else if(_auditItem.Sales_Payment_Type == Models.SalesInvoice.SalesPaymentType.چک)
+			{
+				if (SetSalesProduct(_auditItem) && SetAccountPayable(_auditItem) && SetDailyOffice(_auditItem))
+				{
+					SetDailyFinancialReport(auditItem);
+
+					Infrastructure.Utility.WindowsNotification
+						(message: "عملیات با موفقیت انجام گردید.",
+						caption: Infrastructure.PopupNotificationForm.Caption.موفقیت);
+
+					Purchase_Operations = true;
+
+					Mbb.Windows.Forms.MessageBox.Show(
+						text: "توجه: \n بعد از انجام خرید حتما به واحد چک \n جهت صدور چک مراجعه نمایید.",
+						caption: "اعلان چک",
+						icon: Mbb.Windows.Forms.MessageBoxIcon.Information, button: Mbb.Windows.Forms.MessageBoxButtons.Ok);
+
+					return;
+				}
+				else
+				{
+					Purchase_Operations = false;
+					return;
+				}
+			}
+		}
+		#endregion /Payment
+
 		#region RefreshCalculator
 		private void RefreshCalculator()
 		{
@@ -1025,8 +1107,7 @@ namespace Inventory_Forms
 		#region ResetAllControl
 		private void ResetAllControl()
 		{
-			MyProcutSalesForm.billSaleReportsList.Clear();
-			MyProcutSalesForm.transactionFactorsItems = null;
+			MyProcutSalesForm.RemoveBill();
 
 			sellerNameTextBox.Text = "نام فروشنده";
 			clientNameTextBox.Text = "نام مشتری";
@@ -1209,9 +1290,9 @@ namespace Inventory_Forms
 		/// <summary>
 		/// ثبت خرید کالا
 		/// </summary>
-		/// <param name="auditItem"></param>
+		/// <param name="_auditItem"></param>
 		/// <returns>true or false</returns>
-		private bool SetSalesProduct(AuditItem auditItem)
+		private bool SetSalesProduct(AuditItem _auditItem)
 		{
 			Models.DataBaseContext dataBaseContext = null;
 
@@ -1225,14 +1306,15 @@ namespace Inventory_Forms
 				Models.SalesInvoice salesInvoice =
 					new Models.SalesInvoice
 					{
-						Carrier_Name = auditItem.Carrier_Name,
-						Client_Name = auditItem.Client_Name,
-						Invoice_Serial_Numvber = auditItem.InvoiceSerialNumber,
-						
-						Sales_Date = auditItem.Register_Date,
-						Sales_Time = auditItem.Register_Time,
-						Seller_Name = auditItem.Seller_Name,
-						Total_Sum_Price = $"{auditItem.Total_Sum_Price:#,0} تومان",
+						Carrier_Name = _auditItem.Carrier_Name,
+						Client_Name = _auditItem.Client_Name,
+						Invoice_Serial_Numvber = _auditItem.InvoiceSerialNumber,
+						Sales_Payment_Type = _auditItem.Sales_Payment_Type,
+						Payment_Cach_Type = _auditItem.Payment_Cach_Type,
+						Sales_Date = _auditItem.Register_Date,
+						Sales_Time = _auditItem.Register_Time,
+						Seller_Name = _auditItem.Seller_Name,
+						Total_Sum_Price = $"{_auditItem.Total_Sum_Price:#,0} تومان",
 					};
 				dataBaseContext.SalesInvoices.Add(salesInvoice);
 				dataBaseContext.SaveChanges();
@@ -1245,7 +1327,7 @@ namespace Inventory_Forms
 					Models.ListSalesProduct listSalesProduct =
 					new Models.ListSalesProduct()
 					{
-						Invoice_Serial_Numvber = auditItem.InvoiceSerialNumber,
+						Invoice_Serial_Numvber = _auditItem.InvoiceSerialNumber,
 						Product_Name = row.Cells[0].Value.ToString(),
 						Product_Price = row.Cells[1].Value.ToString(),
 						Product_Quantity = int.Parse(row.Cells[2].Value.ToString()),
@@ -1274,18 +1356,8 @@ namespace Inventory_Forms
 		}
 		#endregion /GetPurchaseProduct
 
-		#region Inbox
-		/// <summary>
-		/// تمام پرداختی به صندوق سرمایه انتقال می بابد.
-		/// </summary>
-		/// <param name="capitalFund"></param>
-		private void CapitalFundInputFunction(Models.CapitalFund capitalFundEntry)
-		{
-
-		}
-
-		#endregion /Inbox
-
 		#endregion /Function
+
+
 	}
 }

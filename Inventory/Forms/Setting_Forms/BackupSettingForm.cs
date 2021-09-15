@@ -77,7 +77,7 @@ namespace Setting_Forms
 				BackupSetting.Day_Of_Month = null;
 
 
-				BackupSetting.Time_Interval = $"{Models.BackupSetting.TimeInterval.روزانه}";
+				BackupSetting.Time_Interval = Models.BackupSetting.TimeInterval.روزانه;
 			}
 			else if (timeIntervalComboBox.SelectedIndex == 1)
 			{
@@ -89,7 +89,7 @@ namespace Setting_Forms
 				BackupSetting.Houre = null;
 				BackupSetting.Day_Of_Month = null;
 
-				BackupSetting.Time_Interval = $"{Models.BackupSetting.TimeInterval.هفتگی}"; ;
+				BackupSetting.Time_Interval = Models.BackupSetting.TimeInterval.هفتگی;
 			}
 			else if (timeIntervalComboBox.SelectedIndex == 2)
 			{
@@ -101,7 +101,7 @@ namespace Setting_Forms
 				BackupSetting.Houre = null;
 				BackupSetting.Days_Of_Week = null;
 
-				BackupSetting.Time_Interval = $"{Models.BackupSetting.TimeInterval.ماهیانه}";
+				BackupSetting.Time_Interval = Models.BackupSetting.TimeInterval.ماهیانه;
 			}
 		}
 		#endregion /TimeIntervalComboBox_SelectedIndexChanged
@@ -117,7 +117,7 @@ namespace Setting_Forms
 			{
 				_backupSetting.Minutes = int.Parse(minutesNumericUpDown.Value.ToString());
 			}
-			
+
 		}
 		#endregion /MinutesNumericUpDown_ValueChanged
 
@@ -183,13 +183,26 @@ namespace Setting_Forms
 		#region SaveButton_Click
 		private void SaveButton_Click(object sender, System.EventArgs e)
 		{
-		
-			if (SetDataBackupSetting(BackupSetting))
+			if (GetNumberPartitions())
 			{
-				Infrastructure.Utility.WindowsNotification(message: "تنظیمات ثبت گردید", caption: Infrastructure.PopupNotificationForm.Caption.موفقیت); ;
-				check = false;
-				saveButton.Enabled = false;
+				if (SetDataBackupSetting(BackupSetting))
+				{
+					Infrastructure.Utility.WindowsNotification(message: "تنظیمات ثبت گردید", caption: Infrastructure.PopupNotificationForm.Caption.موفقیت); ;
+					check = false;
+					saveButton.Enabled = false;
+				}
 			}
+			else
+			{
+				Mbb.Windows.Forms.MessageBox.Show(
+					text: "امکان فعال سازی پشتیبان گیر خودکار نمیباشد. \n سیستم شما باید حداقل دارای 2 پارتیش باشد.",
+					caption: "خطای داریور",
+					icon: Mbb.Windows.Forms.MessageBoxIcon.Error,
+					button: Mbb.Windows.Forms.MessageBoxButtons.Ok);
+				return;
+			}
+
+
 		}
 		#endregion /SaveButton_Click
 
@@ -212,10 +225,10 @@ namespace Setting_Forms
 				{
 					string command = $"Backup Database [{dataBase}] To Disk='{savePathTextBox.Text}\\Database-{System.DateTime.Now:yyyy-MM-dd--HH-mm-ss}.bak'";
 					this.Cursor = System.Windows.Forms.Cursors.WaitCursor;
-					System.Data.SqlClient.SqlConnection sqlConnection = null;
+					System.Data.SqlClient.SqlConnection sqlConnection = new System.Data.SqlClient.SqlConnection();
 					System.Data.SqlClient.SqlCommand sqlCommand = null;
 
-					sqlConnection = new System.Data.SqlClient.SqlConnection($"Data Source=.;Initial Catalog={dataBase}; Integrated Security=True");
+					sqlConnection.ConnectionString = ($"Data Source=.; Initial Catalog={dataBase}; Integrated Security=True");
 
 					if (sqlConnection.State != System.Data.ConnectionState.Open)
 					{
@@ -225,19 +238,18 @@ namespace Setting_Forms
 					sqlCommand = new System.Data.SqlClient.SqlCommand(command, sqlConnection);
 					sqlCommand.ExecuteNonQuery();
 					this.Cursor = System.Windows.Forms.Cursors.Default;
-					Mbb.Windows.Forms.MessageBox.Show(text: "پشتیبان گیری انجام شد.", caption: "تکمیل عملیات", icon: Mbb.Windows.Forms.MessageBoxIcon.Success, button: Mbb.Windows.Forms.MessageBoxButtons.Ok);
+					Infrastructure.Utility.WindowsNotification(
+						message: $"فایل Database-{System.DateTime.Now:yyyy-MM-dd--HH-mm-ss} ایجاد گردید.",
+						caption: Infrastructure.PopupNotificationForm.Caption.موفقیت);
 					savePathTextBox.Text = "Save Path...";
 					savePathTextBox.ForeColor = Infrastructure.Utility.GrayColor();
 
-					#region EventLog
-					EventLog.Username = Inventory.Program.UserAuthentication.Username;
-					EventLog.Full_Name = $"{Inventory.Program.UserAuthentication.Full_Name}";
-					EventLog.Event_Date = $"{Infrastructure.Utility.PersianCalendar(System.DateTime.Now)}";
-					EventLog.Event_Time = $"{Infrastructure.Utility.ShowTime()}";
-					EventLog.Description = $"تهیه نسخه پشتیبان";
-
-					Infrastructure.Utility.EventLog(EventLog);
-					#endregion /EventLog
+					#region  -----------------------------------------    SetEventLog     -----------------------------------------
+					if (string.Compare(Inventory.Program.UserAuthentication.Username, "admin") != 0)
+					{
+						SetEventLog();
+					}
+					#endregion / -----------------------------------------     SetEventLog     -----------------------------------------
 				}
 			}
 			catch (System.Exception ex)
@@ -394,7 +406,7 @@ namespace Setting_Forms
 					BackupSetting = backupSetting;
 					return true;
 				}
-				
+
 
 			}
 			catch (System.Exception ex)
@@ -412,6 +424,22 @@ namespace Setting_Forms
 			}
 		}
 		#endregion /GetBackupSetting
+
+		#region GetNumberPartitions
+		private bool GetNumberPartitions()
+		{
+			string[] drive = System.Environment.GetLogicalDrives();
+
+			if (drive.Length <= 1)
+			{
+				return false;
+			}
+			else
+			{
+				return true;
+			}
+		}
+		#endregion /GetNumberPartitions
 
 		#region Initialize
 		/// <summary>
@@ -435,7 +463,7 @@ namespace Setting_Forms
 
 					switch (BackupSetting.Time_Interval)
 					{
-						case "روزانه":
+						case  Models.BackupSetting.TimeInterval.روزانه:
 						timeIntervalComboBox.SelectedIndex = timeIntervalComboBox.FindString(BackupSetting.Time_Interval.ToString());
 						setTimeBackupGroupBox.BringToFront();
 						dayOfWeekGroupBox.SendToBack();
@@ -444,15 +472,15 @@ namespace Setting_Forms
 						houreNumericUpDown.Value = decimal.Parse(BackupSetting.Houre.ToString());
 						break;
 
-						case "هفتگی":
-						timeIntervalComboBox.SelectedIndex = timeIntervalComboBox.FindString(BackupSetting.Time_Interval);
+						case  Models.BackupSetting.TimeInterval.هفتگی:
+						timeIntervalComboBox.SelectedIndex = timeIntervalComboBox.FindString(BackupSetting.Time_Interval.ToString());
 						dayOfWeekGroupBox.BringToFront();
 						setTimeBackupGroupBox.SendToBack();
 						dayOfMonthGroupBox.SendToBack();
 						dayOfWeekComboBox.SelectedIndex = dayOfWeekComboBox.FindString(BackupSetting.Days_Of_Week);
 						break;
 
-						case "ماهیانه":
+						case  Models.BackupSetting.TimeInterval.ماهیانه:
 						timeIntervalComboBox.SelectedIndex = timeIntervalComboBox.FindString(BackupSetting.Time_Interval.ToString());
 						dayOfMonthGroupBox.BringToFront();
 						dayOfWeekGroupBox.SendToBack();
@@ -477,7 +505,7 @@ namespace Setting_Forms
 		/// </summary>
 		/// <param name="_backupSetting"></param>
 		/// <returns>tru Or false</returns>
-		private bool SetDataBackupSetting( Models.BackupSetting _backupSetting)
+		private bool SetDataBackupSetting(Models.BackupSetting _backupSetting)
 		{
 			Models.DataBaseContext dataBaseContext = null;
 			try
@@ -517,6 +545,9 @@ namespace Setting_Forms
 
 					dataBaseContext.SaveChanges();
 				}
+
+				System.IO.Directory.CreateDirectory("D:\\BackupDatabase");
+
 				return true;
 			}
 			catch (System.Exception ex)
@@ -536,8 +567,24 @@ namespace Setting_Forms
 
 		#endregion /SetDataBackupSetting
 
+		#region SetEventLog
+		/// <summary>
+		/// ثبت رویدادهای صورت گرفته
+		/// </summary>
+		private void SetEventLog()
+		{
+			EventLog.Username = Inventory.Program.UserAuthentication.Username;
+			EventLog.Full_Name = Inventory.Program.UserAuthentication.Full_Name;
+			EventLog.Description = "تهیه نسخه پشتیبان از بانک اطلاعات";
+			EventLog.Event_Date = Infrastructure.Utility.PersianCalendar(System.DateTime.Now);
+			EventLog.Event_Time = Infrastructure.Utility.ShowTime();
+
+			Infrastructure.Utility.EventLog(EventLog);
+		}
+		#endregion /SetEventLog
+
 		#endregion /Founcitons
 
-	
+
 	}
 }

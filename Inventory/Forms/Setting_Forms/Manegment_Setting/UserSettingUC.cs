@@ -109,12 +109,10 @@ namespace Manegment_Setting
 			{
 				return;
 			}
-
 			if (e.ColumnIndex <= -1)
 			{
 				return;
 			}
-
 
 			User_FirstLoading.Username = userListDataGridView.CurrentRow.Cells[2].Value.ToString();
 
@@ -127,6 +125,10 @@ namespace Manegment_Setting
 				ShowInformations(foundedUsername: User_FirstLoading.Username);
 				updateButton.Enabled = true;
 			}
+
+			ShowInformations(foundedUsername: User_FirstLoading.Username);
+			updateButton.Enabled = true;
+
 		}
 		#endregion /UserListDataGridView_CellDoubleClick
 
@@ -138,7 +140,7 @@ namespace Manegment_Setting
 				usernameLabel.RightToLeft = System.Windows.Forms.RightToLeft.No;
 				usernameLabel.Font = Infrastructure.Utility.CenturyGothicFont(emSize: 8);
 				User_NewData.Username = usernameLabel.Text;
-				
+
 			}
 			else
 			{
@@ -238,7 +240,7 @@ namespace Manegment_Setting
 			}
 			else
 			{
-				Infrastructure.Utility.WindowsNotification(message: "", caption: Infrastructure.PopupNotificationForm.Caption.خطا);
+				Infrastructure.Utility.WindowsNotification(message: "عدم به روز رسانی", caption: Infrastructure.PopupNotificationForm.Caption.خطا);
 				updateButton.Enabled = false;
 				AllClear();
 			}
@@ -373,59 +375,51 @@ namespace Manegment_Setting
 				dataBaseContext =
 					new Models.DataBaseContext();
 
-				if (User_FirstLoading.Access_Level != User_GetData.Access_Level)
+				if (User_FirstLoading.Access_Level == User_GetData.Access_Level)
+				{
+					User_NewData.Access_Level = User_FirstLoading.Access_Level;
+				}
+				else
 				{
 					User_NewData.Access_Level = User_GetData.Access_Level;
 				}
 
-				if (User_FirstLoading.Is_Active != User_GetData.Is_Active)
+				if (User_FirstLoading.Is_Active == User_GetData.Is_Active)
+				{
+					User_NewData.Is_Active = User_FirstLoading.Is_Active;
+				}
+				else
 				{
 					User_NewData.Is_Active = User_GetData.Is_Active;
 				}
 
-				if ((User_FirstLoading.Access_Level == User_GetData.Access_Level) && (User_FirstLoading.Is_Active == User_GetData.Is_Active))
+				Models.User user =
+					dataBaseContext.Users
+					.Where(current => string.Compare(current.Username, User_FirstLoading.Username) == 0)
+					.FirstOrDefault();
+
+				if (user == null)
 				{
-					Models.User user =
-					new Models.User();
-
-					user.Is_Active = User_NewData.Is_Active;
-					user.Access_Level = User_NewData.Access_Level;
-
-					dataBaseContext.SaveChanges();
-					GetUserList();
-
 					return false;
 				}
 				else
 				{
-					Models.User user = dataBaseContext.Users
-					.Where(current => string.Compare(current.Username, User_NewData.Username) == 0)
-					.FirstOrDefault();
-
-					if (user == null)
-					{
-						return false;
-					}
-					else
-					{
-						user.Is_Active = User_NewData.Is_Active;
-						user.Access_Level = User_NewData.Access_Level;
-					}
-
-					
-
-					dataBaseContext.SaveChanges();
-					GetUserList();
-
-					#region  -----------------------------------------    SetEventLog     -----------------------------------------
-					if (string.Compare(Inventory.Program.UserAuthentication.Username, "admin") != 0)
-					{
-						SetEventLog();
-					}
-					#endregion / -----------------------------------------     SetEventLog     -----------------------------------------
-
-					return true;
+					user.Is_Active = User_NewData.Is_Active;
+					user.Access_Level = User_NewData.Access_Level;
 				}
+
+				dataBaseContext.SaveChanges();
+				GetUserList();
+
+				#region  -----------------------------------------    SetEventLog     -----------------------------------------
+				if (string.Compare(Inventory.Program.UserAuthentication.Username, "admin") != 0)
+				{
+					SetEventLog();
+				}
+				#endregion / -----------------------------------------     SetEventLog     -----------------------------------------
+
+				return true;
+
 			}
 			catch (System.Exception ex)
 			{
@@ -463,63 +457,47 @@ namespace Manegment_Setting
 
 				if (user != null)
 				{
-					if (string.Compare(user.Username, "administrator") == 0 || string.Compare(user.Username, Inventory.Program.UserAuthentication.Username) == 0)
+					usernameLabel.Text = user.Username;
+					User_FirstLoading.Username = user.Username;
+					User_FirstLoading.Access_Level = user.Access_Level;
+					User_GetData.Access_Level = user.Access_Level;
+
+					switch (User_FirstLoading.Access_Level)
 					{
-						return;
+						case Models.User.AccessLeve.مدیریت:
+						administratorRadioButton.Checked = true;
+						break;
+
+						case Models.User.AccessLeve.معاونت:
+						assistanceRadioButton.Checked = true;
+						
+						break;
+
+						case Models.User.AccessLeve.کارمند:
+						employeedRadioButton.Checked = true;
+						break;
+
+						case Models.User.AccessLeve.کاربر_ساده:
+						simpleUserRadioButton.Checked = true;
+						break;
+
+						default:
+						break;
 					}
-					else
+
+					User_FirstLoading.Is_Active = user.Is_Active;
+					activationUserCheckBox.Checked = user.Is_Active;
+
+					if (user.User_Image != null)
 					{
-						usernameLabel.Text = user.Username;
-						User_FirstLoading.Access_Level = user.Access_Level;
-
-						switch (User_FirstLoading.Access_Level)
+						var byteImage = user.User_Image;
+						using (System.IO.MemoryStream ms = new System.IO.MemoryStream(byteImage))
 						{
-							case Models.User.AccessLeve.مدیریت:
-							administratorRadioButton.Checked = true;
-							employeedRadioButton.Checked = false;
-							assistanceRadioButton.Checked = false;
-							simpleUserRadioButton.Checked = false;
-							break;
-
-							case Models.User.AccessLeve.معاونت:
-							administratorRadioButton.Checked = false;
-							employeedRadioButton.Checked = true;
-							assistanceRadioButton.Checked = false;
-							simpleUserRadioButton.Checked = false;
-							break;
-
-							case Models.User.AccessLeve.کارمند:
-							administratorRadioButton.Checked = false;
-							employeedRadioButton.Checked = false;
-							assistanceRadioButton.Checked = true;
-							simpleUserRadioButton.Checked = false;
-							break;
-
-							case Models.User.AccessLeve.کاربر_ساده:
-							administratorRadioButton.Checked = false;
-							employeedRadioButton.Checked = false;
-							assistanceRadioButton.Checked = false;
-							simpleUserRadioButton.Checked = true;
-							break;
-
-							default:
-							break;
+							userImagePictureBox.Image = System.Drawing.Image.FromStream(ms);
 						}
-
-						User_FirstLoading.Is_Active = user.Is_Active;
-						activationUserCheckBox.Checked = user.Is_Active;
-
-						if (user.User_Image != null)
-						{
-							var byteImage = user.User_Image;
-							using (System.IO.MemoryStream ms = new System.IO.MemoryStream(byteImage))
-							{
-								userImagePictureBox.Image = System.Drawing.Image.FromStream(ms);
-							}
-						}
-
-						updateButton.Enabled = false;
 					}
+
+					updateButton.Enabled = false;
 				}
 			}
 			catch (System.Exception ex)
@@ -535,8 +513,6 @@ namespace Manegment_Setting
 				}
 			}
 		}
-
-
 		#endregion /ShowInformations
 
 		#endregion /Founctions

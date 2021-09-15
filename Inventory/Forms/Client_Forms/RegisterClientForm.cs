@@ -7,7 +7,9 @@ namespace Client_Forms
 		//-----------------------------------------------------------------------------------------------     Fields, Properties, Layers
 
 		#region Properties
-		public Models.Client Client { get; set; }
+		public Models.Client Client_GetData { get; set; }
+		public Models.Client Client_FirstLoad { get; set; }
+		public Models.Client Client_New { get; set; }
 
 		public string Search_Item { get; set; }
 		#endregion /Properties
@@ -45,12 +47,12 @@ namespace Client_Forms
 		{
 			if (string.IsNullOrWhiteSpace(clientNameTextBox.Text))
 			{
-				Client.Client_Name = null;
+				Client_GetData.Client_Name = null;
 				return;
 			}
 			else
 			{
-				Client.Client_Name = clientNameTextBox.Text;
+				Client_GetData.Client_Name = clientNameTextBox.Text;
 			}
 		}
 		#endregion /ClientNameTextBox_TextChange
@@ -75,14 +77,14 @@ namespace Client_Forms
 		{
 			if (string.IsNullOrWhiteSpace(licensePlateTextBox.Text) || licensePlateTextBox.Text.Length < 7)
 			{
-				Client.License_Plate = null;
+				Client_GetData.License_Plate = null;
 				licensePlateTextBox.Clear();
 				licensePlateTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
 				return;
 			}
 			else
 			{
-				Client.License_Plate = licensePlateTextBox.Text = licensePlateTextBox.Text.Insert(2, " - ").Insert(7, " - ").Insert(8, " ایران ");
+				Client_GetData.License_Plate = licensePlateTextBox.Text = licensePlateTextBox.Text.Insert(2, " - ").Insert(7, " - ").Insert(8, " ایران ");
 			}
 		}
 		#endregion /LicensePlateTextBox_Leave
@@ -108,13 +110,13 @@ namespace Client_Forms
 			if (string.IsNullOrWhiteSpace(phonNumberTextBox.Text) || phonNumberTextBox.Text.Length < 11)
 			{
 				phonNumberTextBox.Clear();
-				Client.Phone_Number = null;
+				Client_GetData.Phone_Number = null;
 				phonNumberTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
 				return;
 			}
 			else
 			{
-				Client.Phone_Number = phonNumberTextBox.Text = phonNumberTextBox.Text.Insert(3, "-");
+				Client_GetData.Phone_Number = phonNumberTextBox.Text = phonNumberTextBox.Text.Insert(3, "-");
 			}
 		}
 		#endregion /PhonNumberTextBox_Leave
@@ -154,7 +156,7 @@ namespace Client_Forms
 		#region SaveButton_Click
 		private void SaveButton_Click(object sender, System.EventArgs e)
 		{
-			if (SetInClient(Client))
+			if (SetInClient(Client_GetData))
 			{
 				Infrastructure.Utility.WindowsNotification(message: "مشتری جدید ثبت گردید", caption: Infrastructure.PopupNotificationForm.Caption.موفقیت);
 				return;
@@ -171,6 +173,53 @@ namespace Client_Forms
 		//-----------------------------------------------------------------------------------------------     Privat Methods
 
 		#region Function
+
+		#region EditClient
+		/// <summary>
+		/// ویرایش اطلاعات مشتری
+		/// </summary>
+		/// <param name="_editClient"></param>
+		/// <returns>true or false</returns>
+		private bool EditClient(Models.Client _editClient)
+		{
+			Models.DataBaseContext dataBaseContext = null;
+			try
+			{
+				dataBaseContext =
+					new Models.DataBaseContext();
+
+				Models.Client client =
+								dataBaseContext.Clients
+								.Where(current => string.Compare(current.License_Plate, Client_FirstLoad.Client_Name) == 0)
+								.FirstOrDefault();
+
+				if (client != null)
+				{
+					client.Client_Name = _editClient.Client_Name;
+					client.License_Plate = _editClient.License_Plate;
+					client.Phone_Number = _editClient.Phone_Number;
+				}
+
+				dataBaseContext.SaveChanges();
+
+				return true;
+
+			}
+			catch (System.Exception ex)
+			{
+				Infrastructure.Utility.ExceptionShow(ex);
+				return false;
+			}
+			finally
+			{
+				if (dataBaseContext != null)
+				{
+					dataBaseContext.Dispose();
+					dataBaseContext = null;
+				}
+			}
+		}
+		#endregion /EditClient
 
 		#region GetDataFromClient
 		/// <summary>
@@ -360,5 +409,37 @@ namespace Client_Forms
 
 		#endregion /Function
 
+		#region ClientEditToolStripMenuItem_Click
+		private void ClientEditToolStripMenuItem_Click(object sender, System.EventArgs e)
+		{
+			saveButton.Text = "ویرایش مشتری";
+
+			Client_FirstLoad.Client_Name = listClientDataGridView.CurrentRow.Cells[0].Value.ToString();
+			clientNameTextBox.Text = listClientDataGridView.CurrentRow.Cells[0].Value.ToString();
+			Client_GetData.Client_Name = listClientDataGridView.CurrentRow.Cells[0].Value.ToString();
+
+			Client_FirstLoad.License_Plate = listClientDataGridView.CurrentRow.Cells[1].Value.ToString();
+			licensePlateTextBox.Text = listClientDataGridView.CurrentRow.Cells[1].Value.ToString();
+			Client_GetData.License_Plate = listClientDataGridView.CurrentRow.Cells[1].Value.ToString();
+
+			Client_FirstLoad.Phone_Number = listClientDataGridView.CurrentRow.Cells[2].Value.ToString();
+			phonNumberTextBox.Text = listClientDataGridView.CurrentRow.Cells[1].Value.ToString();
+			Client_GetData.Phone_Number = listClientDataGridView.CurrentRow.Cells[1].Value.ToString();
+		}
+		#endregion /ClientEditToolStripMenuItem_Click
+
+		#region ClientDeleteToolStripMenuItem_Click
+		private void ClientDeleteToolStripMenuItem_Click(object sender, System.EventArgs e)
+		{
+
+		}
+		#endregion /ClientDeleteToolStripMenuItem_Click
+
+		#region AllClientsDeleteToolStripMenuItem_Click
+		private void AllClientsDeleteToolStripMenuItem_Click(object sender, System.EventArgs e)
+		{
+
+		}
+		#endregion /AllClientsDeleteToolStripMenuItem_Click
 	}
 }

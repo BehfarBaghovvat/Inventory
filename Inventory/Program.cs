@@ -226,7 +226,7 @@ namespace Inventory
 			System.Windows.Forms.Application.SetCompatibleTextRenderingDefault(false);
 			Administrator();
 			InitialAmountCapital();
-			//System.Windows.Forms.Application.Run(new Entry_Forms.StartUpForm());
+			System.Windows.Forms.Application.Run(new Entry_Forms.StartUpForm());
 			//System.Windows.Forms.Application.Run(new TestControlsForm());
 
 			//System.Windows.Forms.Application.Run(new MainForm());
@@ -242,7 +242,7 @@ namespace Inventory
 			//System.Windows.Forms.Application.Run(new Inventory_Forms.ServiceReportForm());
 			//System.Windows.Forms.Application.Run(new Financial_Form.FinancialReportForm());
 			//System.Windows.Forms.Application.Run(new Setting_Forms.BackupSettingForm());
-			System.Windows.Forms.Application.Run(new Setting_Forms.ManagementSettingForm());
+			//System.Windows.Forms.Application.Run(new Setting_Forms.ManagementSettingForm());
 		}
 	}
 }

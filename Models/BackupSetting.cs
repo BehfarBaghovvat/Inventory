@@ -45,7 +45,6 @@
 		#region Days_Of_Week
 		//-----DisplayName field for Days_Of_Week
 		[System.ComponentModel.DisplayName(displayName: "روزهای هفته")]
-
 		public string Days_Of_Week { get; set; }
 		#endregion /Days_Of_Week
 
@@ -93,7 +92,7 @@
 		#region Time_Interval
 		//-----DisplayName field for Tiem_Interval
 		[System.ComponentModel.DisplayName(displayName: "بازه زمانی")]
-		public string Time_Interval { get; set; }
+		public TimeInterval Time_Interval { get; set; }
 		#endregion /Time_Interval
 
 	}

@@ -15,17 +15,18 @@ namespace Inventory_Forms
 		/// </summary>
 		public class AuditItem
 		{
-			public int Amount { get; set; }
-			public int Amount_Paid { get; set; }
+			public decimal Amount { get; set; }
+			public decimal Amount_Paid { get; set; }
 			public decimal Capital_Fund { get; set; }
 			public string Carrier_Name { get; set; }
 			public string InvoiceSerialNumber { get; set; }
-			public int Total_Sum_Price { get; set; }
+			public decimal Total_Sum_Price { get; set; }
 			public string Recipient_Name { get; set; }
 			public string Register_Date { get; set; }
 			public string Register_Time { get; set; }
-			public int Remaining_Amount { get; set; }
+			public decimal Remaining_Amount { get; set; }
 			public string Sender_Name { get; set; }
+			public Models.PurchaseInvoice.PurchasePaymentType Purchase_Payment_Type { get; set; }
 		}
 
 		/// <summary>
@@ -38,7 +39,7 @@ namespace Inventory_Forms
 			public string Product_Unit { get; set; }
 			public string Product_Price { get; set; }
 			public string Total_Amount { get; set; }
-		}		
+		}
 
 		private Inventory.MainForm _mainForm;
 		public Inventory.MainForm MainForm
@@ -128,8 +129,8 @@ namespace Inventory_Forms
 				if (productListDataGridView.Rows.Count > 0)
 				{
 					if (Mbb.Windows.Forms.MessageBox.Show(
-						text: "آیا رسید جاری حذف گردد؟",
-						caption: "حذف رسید",
+						text: "آیا فاکتور جاری حذف گردد؟",
+						caption: "حذف فاکتور",
 						icon: Mbb.Windows.Forms.MessageBoxIcon.Question,
 						button: Mbb.Windows.Forms.MessageBoxButtons.YesNo) == System.Windows.Forms.DialogResult.Yes)
 					{
@@ -155,6 +156,38 @@ namespace Inventory_Forms
 			this.WindowState = System.Windows.Forms.FormWindowState.Minimized;
 		}
 		#endregion /MinimizeButton_Click
+
+		#region PaymentCashLabel_Click
+		private void PaymentCashLabel_Click(object sender, System.EventArgs e)
+		{
+			paymentCashRadioButton.Checked = true;
+		}
+		#endregion /PaymentCashLabel_Click
+
+		#region PaymentCashRadioButton_CheckedChanged
+		private void PaymentCashRadioButton_CheckedChanged(object sender, System.EventArgs e)
+		{
+			amountPaidTextBox.Enabled = true;
+			paymentButton.Enabled = true;
+			auditItem.Purchase_Payment_Type = Models.PurchaseInvoice.PurchasePaymentType.نقد;
+		}
+		#endregion /PaymentCashRadioButton_CheckedChanged
+
+		#region PaymentChequeLabel_Click
+		private void PaymentChequeLabel_Click(object sender, System.EventArgs e)
+		{
+			paymentChequeRadioButton.Checked = true;
+		}
+		#endregion /PaymentChequeLabel_Click
+
+		#region PaymentChequeRadioButton_CheckedChanged
+		private void PaymentChequeRadioButton_CheckedChanged(object sender, System.EventArgs e)
+		{
+			amountPaidTextBox.Enabled = false;
+			paymentButton.Enabled = true;
+			auditItem.Purchase_Payment_Type = Models.PurchaseInvoice.PurchasePaymentType.چک;
+		}
+		#endregion /PaymentChequeRadioButton_CheckedChanged 
 
 		#region PrintButton_Click
 		private void PrintButton_Click(object sender, System.EventArgs e)
@@ -203,24 +236,28 @@ namespace Inventory_Forms
 		#region PaymentButton_Click
 		private void PaymentButton_Click(object sender, System.EventArgs e)
 		{
-			if (Harvest(auditItem) && SetAccountPayable(auditItem) && SetPurchaseProduct(auditItem) && SetJournal(auditItem))
-			{
-				SetDailyFinancialReport(auditItem);
-				MyProductBuyForm.RemoveBill();
-				paymentButton.Enabled = false;
+			Payment(auditItem);
+		}
+		#endregion /PaymentButton_Click
 
-				Infrastructure.Utility.WindowsNotification(
-					message: "عملیات ثبت و پرداخت انجام گردید.",
-					caption: Infrastructure.PopupNotificationForm.Caption.موفقیت);
-				Purchase_Operations = true;
+		#region TotalSumPriceTextBox_TextChanged
+		private void TotalSumPriceTextBox_TextChanged(object sender, System.EventArgs e)
+		{
+			if (string.Compare(totalSumPriceLable.Text, "0 تومان") == 0)
+			{
+				auditItem.Total_Sum_Price = 0;
+				auditItem.Remaining_Amount = 0;
+				remainingAmountTextBox.Text = $"{auditItem.Remaining_Amount:#,0} تومان";
+				return;
 			}
 			else
 			{
-				Purchase_Operations = false;
-				return;
+				auditItem.Total_Sum_Price = decimal.Parse(totalSumPriceTextBox.Text.Replace("تومان", string.Empty).Replace(",", string.Empty).Trim());
+				auditItem.Remaining_Amount = auditItem.Amount_Paid - auditItem.Total_Sum_Price;
+				remainingAmountTextBox.Text = $"{auditItem.Remaining_Amount:#,0} تومان";
 			}
 		}
-		#endregion /PaymentButton_Click
+		#endregion /TotalSumPriceTextBox_TextChanged
 
 		#region AmountPaidTextBox_Enter
 		private void AmountPaidTextBox_Enter(object sender, System.EventArgs e)
@@ -272,18 +309,11 @@ namespace Inventory_Forms
 		#region AmountPaidTextBox_TextChange
 		private void AmountPaidTextBox_TextChange(object sender, System.EventArgs e)
 		{
-			if (string.IsNullOrWhiteSpace(amountPaidTextBox.Text) ||
-				string.Compare(amountPaidTextBox.Text, "0 تومان") == 0 ||
-				string.Compare(amountPaidTextBox.Text, " تومان") == 0 ||
-				string.Compare(amountPaidTextBox.Text, "تومان") == 0 ||
-				string.Compare(amountPaidTextBox.Text, "توما") == 0 ||
-				string.Compare(amountPaidTextBox.Text, "توم") == 0 ||
-				string.Compare(amountPaidTextBox.Text, "تو") == 0 ||
-				string.Compare(amountPaidTextBox.Text, "ت") == 0)
+			if (string.IsNullOrWhiteSpace(amountPaidTextBox.Text) || amountPaidTextBox.Text.Length <= 7)
 			{
 				paymentButton.Enabled = false;
 				auditItem.Amount_Paid = 0;
-				auditItem.Remaining_Amount = auditItem.Total_Sum_Price - auditItem.Amount_Paid;
+				auditItem.Remaining_Amount = auditItem.Amount_Paid - auditItem.Total_Sum_Price;
 				remainingAmountTextBox.Text = $"{auditItem.Remaining_Amount:#,0} تومان";
 				return;
 			}
@@ -295,7 +325,7 @@ namespace Inventory_Forms
 					.Replace(",", string.Empty)
 					.Trim());
 
-				auditItem.Remaining_Amount = auditItem.Total_Sum_Price - auditItem.Amount_Paid;
+				auditItem.Remaining_Amount = auditItem.Amount_Paid - auditItem.Total_Sum_Price;
 				remainingAmountTextBox.Text = $"{auditItem.Remaining_Amount:#,0} تومان";
 			}
 		}
@@ -475,77 +505,77 @@ namespace Inventory_Forms
 		/// <summary>
 		/// برداشت از صندوق
 		/// </summary>
-		/// <param name="auditItem"></param>
+		/// <param name="_auditItem"></param>
 		/// <returns></returns>
-		private bool Harvest(AuditItem auditItem)
+		private bool Harvest(AuditItem _auditItem)
 		{
-			#region Validation
-			if (auditItem.Capital_Fund < auditItem.Amount_Paid)
-			{
-				Mbb.Windows.Forms.MessageBox.Show
-					(text: Inventory.Properties.Resources.Financial_Error,
-					caption: "خطای موجودی",
-					icon: Mbb.Windows.Forms.MessageBoxIcon.Warning,
-					button: Mbb.Windows.Forms.MessageBoxButtons.Ok);
-				return false;
-			}
-			else
-			{
-				auditItem.Capital_Fund -= auditItem.Amount_Paid;
-			}
-			#endregion /Validation
-
-			Models.DataBaseContext dataBaseContext = null;
-			try
-			{
-				dataBaseContext =
-					new Models.DataBaseContext();
-
-				Models.CapitalFund capitalFund =
-					dataBaseContext.CapitalFunds
-					.FirstOrDefault();
-
-				capitalFund.Capital_Fund = $"{auditItem.Capital_Fund: #,0} تومان";
-				dataBaseContext.SaveChanges();
-
-				#region -----------------------------------------     Save Event Log     -----------------------------------------
-				if (string.Compare(Inventory.Program.UserAuthentication.Username, "admin") != 0)
+				#region Validation
+				if (_auditItem.Capital_Fund < _auditItem.Amount_Paid)
 				{
-					EventLog.Username = Inventory.Program.UserAuthentication.Username;
-					EventLog.Full_Name = Inventory.Program.UserAuthentication.Full_Name;
-					EventLog.Event_Date = $"{Infrastructure.Utility.PersianCalendar(System.DateTime.Now)}";
-					EventLog.Event_Time = $"{Infrastructure.Utility.ShowTime()}";
-					if (auditItem.Remaining_Amount < 1000)
-					{
-						EventLog.Description =
-						$"پرداخت هزینه به مبلغ {auditItem.Amount_Paid: #,0}" +
-						$" تومان و باقیمانده {auditItem.Remaining_Amount} تومان";
-					}
-					else
-					{
-						EventLog.Description =
-						$"پرداخت هزینه به مبلغ {auditItem.Amount_Paid: #,0}" +
-						$" تومان و باقیمانده {auditItem.Remaining_Amount:#,0} تومان";
-					}
-					Infrastructure.Utility.EventLog(EventLog);
+					Mbb.Windows.Forms.MessageBox.Show
+						(text: Inventory.Properties.Resources.Financial_Error,
+						caption: "خطای موجودی",
+						icon: Mbb.Windows.Forms.MessageBoxIcon.Warning,
+						button: Mbb.Windows.Forms.MessageBoxButtons.Ok);
+					return false;
 				}
-				#endregion /-----------------------------------------     Save Event Log     -----------------------------------------
-
-				return true;
-			}
-			catch (System.Exception ex)
-			{
-				Infrastructure.Utility.ExceptionShow(ex);
-				return false;
-			}
-			finally
-			{
-				if (dataBaseContext != null)
+				else
 				{
-					dataBaseContext.Dispose();
-					dataBaseContext = null;
+					_auditItem.Capital_Fund -= _auditItem.Amount_Paid;
 				}
-			}
+				#endregion /Validation
+
+				Models.DataBaseContext dataBaseContext = null;
+				try
+				{
+					dataBaseContext =
+						new Models.DataBaseContext();
+
+					Models.CapitalFund capitalFund =
+						dataBaseContext.CapitalFunds
+						.FirstOrDefault();
+
+					capitalFund.Capital_Fund = $"{_auditItem.Capital_Fund: #,0} تومان";
+					dataBaseContext.SaveChanges();
+
+					#region -----------------------------------------     Save Event Log     -----------------------------------------
+					if (string.Compare(Inventory.Program.UserAuthentication.Username, "admin") != 0)
+					{
+						EventLog.Username = Inventory.Program.UserAuthentication.Username;
+						EventLog.Full_Name = Inventory.Program.UserAuthentication.Full_Name;
+						EventLog.Event_Date = $"{Infrastructure.Utility.PersianCalendar(System.DateTime.Now)}";
+						EventLog.Event_Time = $"{Infrastructure.Utility.ShowTime()}";
+						if (_auditItem.Remaining_Amount < 1000)
+						{
+							EventLog.Description =
+							$"پرداخت هزینه به مبلغ {_auditItem.Amount_Paid: #,0}" +
+							$" تومان و باقیمانده {_auditItem.Remaining_Amount} تومان";
+						}
+						else
+						{
+							EventLog.Description =
+							$"پرداخت هزینه به مبلغ {_auditItem.Amount_Paid: #,0}" +
+							$" تومان و باقیمانده {_auditItem.Remaining_Amount:#,0} تومان";
+						}
+						Infrastructure.Utility.EventLog(EventLog);
+					}
+					#endregion /-----------------------------------------     Save Event Log     -----------------------------------------
+
+					return true;
+				}
+				catch (System.Exception ex)
+				{
+					Infrastructure.Utility.ExceptionShow(ex);
+					return false;
+				}
+				finally
+				{
+					if (dataBaseContext != null)
+					{
+						dataBaseContext.Dispose();
+						dataBaseContext = null;
+					}
+				}
 		}
 		#endregion /Harvest
 
@@ -561,7 +591,7 @@ namespace Inventory_Forms
 			auditItem.Register_Date = $"{Infrastructure.Utility.PersianCalendar(System.DateTime.Now)}";
 			auditItem.Register_Time = $"{Infrastructure.Utility.ShowTime()}";
 			auditItem.Capital_Fund = GetCapitalFund();
-			
+
 			recipientNameTextBox.Text = Inventory.Program.UserAuthentication.Full_Name;
 			auditItem.Recipient_Name = Inventory.Program.UserAuthentication.Full_Name;
 			invoiceSerialNumberTextBox.Text = auditItem.InvoiceSerialNumber = GetInvoiceSerialNumber();
@@ -570,6 +600,59 @@ namespace Inventory_Forms
 			auditItem.Sender_Name = senderNameTextBox.Text;
 		}
 		#endregion /Initialize
+
+		#region Payment
+		/// <summary>
+		///پرداخت
+		/// </summary>
+		/// <param name="_auditItem"></param>
+		private void Payment(AuditItem _auditItem)
+		{
+			if (_auditItem.Purchase_Payment_Type == Models.PurchaseInvoice.PurchasePaymentType.نقد)
+			{
+				if (Harvest(auditItem) && SetAccountPayable(auditItem) && SetPurchaseProduct(auditItem) && SetJournal(auditItem))
+				{
+					SetDailyFinancialReport(auditItem);
+					MyProductBuyForm.RemoveBill();
+					paymentButton.Enabled = false;
+
+					Infrastructure.Utility.WindowsNotification(
+						message: "عملیات ثبت و پرداخت انجام گردید.",
+						caption: Infrastructure.PopupNotificationForm.Caption.موفقیت);
+					Purchase_Operations = true;
+				}
+				else
+				{
+					Purchase_Operations = false;
+					return;
+				} 
+			}
+			else if (_auditItem.Purchase_Payment_Type == Models.PurchaseInvoice.PurchasePaymentType.چک)
+			{
+				if (SetAccountPayable(auditItem) && SetPurchaseProduct(auditItem) && SetJournal(auditItem))
+				{
+					SetDailyFinancialReport(auditItem);
+					MyProductBuyForm.RemoveBill();
+					paymentButton.Enabled = false;
+
+					Infrastructure.Utility.WindowsNotification(
+						message: "عملیات ثبت و پرداخت انجام گردید.",
+						caption: Infrastructure.PopupNotificationForm.Caption.موفقیت);
+					Purchase_Operations = true;
+
+					Mbb.Windows.Forms.MessageBox.Show(
+						text: "توجه: \n بعد از انجام خرید حتما به واحد چک \n جهت صدور چک مراجعه نمایید.",
+						caption: "اعلان چک",
+						icon: Mbb.Windows.Forms.MessageBoxIcon.Information, button: Mbb.Windows.Forms.MessageBoxButtons.Ok);
+				}
+				else
+				{
+					Purchase_Operations = false;
+					return;
+				}
+			}
+		}
+		#endregion Payment
 
 		#region SetAccountPayable
 		/// <summary>
@@ -618,7 +701,7 @@ namespace Inventory_Forms
 		#endregion /SetAccountPayable
 
 		#region SetBillInDataGridView
-		public void SetBillInDataGridView(System.Collections.Generic.List<ProductBuyForm.Bill> billList)
+		public void SetBillInDataGridView(System.Collections.Generic.List<ProductBuyForm.BillBuyReportItems> billList)
 		{
 			foreach (var item in billList)
 			{
@@ -702,6 +785,7 @@ namespace Inventory_Forms
 					{
 						Carrier_Name = auditItem.Carrier_Name,
 						Invoice_Serial_Numvber = auditItem.InvoiceSerialNumber,
+						Purchase_Payment_Type = auditItem.Purchase_Payment_Type,
 						Recipient_Name = auditItem.Recipient_Name,
 						Purchase_Date = auditItem.Register_Date,
 						Purchase_Time = auditItem.Register_Time,
@@ -714,9 +798,6 @@ namespace Inventory_Forms
 
 				//---- ثبت در جدول خرید کالا
 				#region ListPurchaseProduct
-
-
-
 				foreach (System.Windows.Forms.DataGridViewRow row in productListDataGridView.Rows)
 				{
 					Models.ListPurchaseProduct listPurchaseProduct =
@@ -795,10 +876,15 @@ namespace Inventory_Forms
 				}
 			}
 		}
+
 		#endregion /SetJournal
 
 		#endregion /Function
 
-		
+
+
+
+
+
 	}
 }

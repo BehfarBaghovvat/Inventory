@@ -5,6 +5,12 @@
 	/// </summary>
 	public class PurchaseInvoice
 	{
+		public enum PurchasePaymentType
+		{
+			نقد,
+			چک,
+		}
+
 		public PurchaseInvoice()
 		{
 
@@ -68,6 +74,15 @@
 			(maximumLength: 10)]
 		public string Purchase_Date { get; set; }
 		#endregion /Purchase_Date
+
+		/// <summary>
+		/// نوع پرداخت پرداخت
+		/// </summary>
+		#region Purchase_Payment_Type
+		//--DisplayName field for Paymetn_Type
+		[System.ComponentModel.DisplayName(displayName: "نوع پرداخت خرید")]
+		public PurchasePaymentType Purchase_Payment_Type { get; set; }
+		#endregion /Purchase_Payment_Type
 
 		/// <summary>
 		/// زمان خرید

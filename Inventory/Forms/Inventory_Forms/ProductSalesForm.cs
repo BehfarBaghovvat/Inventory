@@ -56,7 +56,7 @@ namespace Inventory_Forms
 
 		#endregion /Layer
 
-		public System.Collections.Generic.List<BillSaleReportItems> billSaleReportsList = new System.Collections.Generic.List<BillSaleReportItems>();
+		public System.Collections.Generic.List<BillSaleReportItems> listBillSaleReports = new System.Collections.Generic.List<BillSaleReportItems>();
 
 		public TransactionFactorsItems transactionFactorsItems;
 
@@ -93,6 +93,8 @@ namespace Inventory_Forms
 		public int? OldQuantity { get; set; }
 
 		public int? NewQuantity { get; set; }
+
+		public int NumberPurchases { get; set; }
 
 		#endregion/Properties
 
@@ -322,7 +324,7 @@ namespace Inventory_Forms
 		#region BillButton_Click
 		private void BillButton_Click(object sender, System.EventArgs e)
 		{
-			if (billSaleReportsList.Count == 0 || transactionFactorsItems == null)
+			if ((listBillSaleReports.Count == 0 && NumberPurchases == 0) || transactionFactorsItems == null)
 			{
 				Mbb.Windows.Forms.MessageBox.Show(text: "برای دریافت صورت حساب لطفا سفارش جدید دریافت کنید.",
 					caption: "عدم صدور صورت حساب", icon: Mbb.Windows.Forms.MessageBoxIcon.Error, button: Mbb.Windows.Forms.MessageBoxButtons.Ok);
@@ -332,7 +334,7 @@ namespace Inventory_Forms
 			else
 			{
 				BillSaleReportForm.MyProcutSalesForm = this;
-				BillSaleReportForm.SetItemsBillSale(billSaleReportsList, transactionFactorsItems);
+				BillSaleReportForm.SetItemsBillSale(listBillSaleReports, transactionFactorsItems);
 				BillSaleReportForm.CalculatePurchaseAmount();
 				BillSaleReportForm.ShowDialog();
 			}
@@ -416,8 +418,8 @@ namespace Inventory_Forms
 		private void AllClear()
 		{
 			InventoryOutput = null;
-
-			billSaleReportsList.Clear();
+			NumberPurchases = 0;
+			listBillSaleReports.Clear();
 			transactionFactorsItems = null;
 			productNameTextBox.Clear();
 			productQuantityTextBox.Clear();
@@ -474,6 +476,8 @@ namespace Inventory_Forms
 					};
 				dataBaseContext.InventoryOutputs.Add(inventoryOutput);
 				dataBaseContext.SaveChanges();
+
+				NumberPurchases++;
 
 				#region -----------------------------------------     Save Event Log     -----------------------------------------
 				if (string.Compare(Inventory.Program.UserAuthentication.Username, "admin") != 0)
@@ -753,8 +757,8 @@ namespace Inventory_Forms
 				Total_Price = $"{totalPrice:#,0} تومان",
 			};
 
-			billSaleReportsList.Add(billSaleReport);
-			billSaleReportsList.TrimExcess();
+			listBillSaleReports.Add(billSaleReport);
+			listBillSaleReports.TrimExcess();
 
 			if (transactionFactorsItems == null)
 			{
@@ -818,6 +822,18 @@ namespace Inventory_Forms
 			}
 		}
 		#endregion /ProductSearch
+
+		#region RemoveBill
+		/// <summary>
+		/// حذف اطلاعات صورت حساب
+		/// </summary>
+		public void RemoveBill()
+		{
+			NumberPurchases = 0;
+			listBillSaleReports.Clear();
+			transactionFactorsItems = null;
+		}
+		#endregion /RemoveBill
 
 		#region WarehouseOutput
 		/// <summary>

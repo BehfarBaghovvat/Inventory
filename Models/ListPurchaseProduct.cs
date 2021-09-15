@@ -74,7 +74,5 @@
 		[System.ComponentModel.DisplayName(displayName: "واحد کالا")]
 		public string Product_Unit { get; set; }
 		#endregion /Product_Unit
-
-
 	}
 }

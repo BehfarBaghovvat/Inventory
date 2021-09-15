@@ -5,6 +5,20 @@
 	/// </summary>
 	public class SalesInvoice
 	{
+		public enum SalesPaymentType
+		{
+			نقد,
+			چک,
+		}
+
+		public enum PaymentCachType
+		{
+			غیرنقد,
+			نقد,
+			کارتخوان,
+			نقد_کارتخوان
+		}
+
 		public SalesInvoice()
 		{
 
@@ -56,6 +70,24 @@
 			(maximumLength: 60)]
 		public string Invoice_Serial_Numvber { get; set; }
 		#endregion /Invoice_Serial_Numvber
+
+		/// <summary>
+		/// نوع پرداخت
+		/// </summary>
+		#region Payment_Type
+		//--DisplayName field for Invoice_Serial_Numvber
+		[System.ComponentModel.DisplayName(displayName: "نوع پرداخت")]
+		public SalesPaymentType Sales_Payment_Type { get; set; }
+		#endregion /Payment_Type
+
+		/// <summary>
+		/// نوع پرداخت نقد
+		/// </summary>
+		#region Payment_Cach_Type
+		//--DisplayName field for Invoice_Serial_Numvber
+		[System.ComponentModel.DisplayName(displayName: "نوع پرداخت نقد")]
+		public PaymentCachType Payment_Cach_Type { get; set; }
+		#endregion /Payment_Cach_Type
 
 		/// <summary>
 		/// تایخ فروش

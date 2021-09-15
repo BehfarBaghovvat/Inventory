@@ -10,6 +10,24 @@ namespace Inventory
 
 		#region --------------------------------------------------------     Layer     --------------------------------------------------------
 
+		/// <summary>
+		/// کلاس مربوط به تاریخ و زمان سیستم
+		/// </summary>
+		private class DateTimeSystem
+		{
+			string second, minute, hour;
+			public int Hour { get; set; }
+			public int Minute { get; set; }
+			public int Second { get; set; }
+
+			public int Day { get; set; }
+			public int Month { get; set; }
+			public int Year { get; set; }
+		}
+
+		
+
+
 		//------------------------------------------------------------------------- Inventory
 
 		private Inventory_Forms.ProductBuyForm _productBuyForm;
@@ -282,6 +300,9 @@ namespace Inventory
 				return _logHistory;
 			}
 		}
+
+		private DateTimeSystem _dateTimeSystem = new DateTimeSystem();
+
 
 		public enum AccessLeve
 		{
@@ -1264,14 +1285,17 @@ namespace Inventory
 		{
 			string second, minute, hour;
 			string finalSecond, finalMinute, finalHour;
-			int month, day;
+			
 
+			_dateTimeSystem.Second = System.DateTime.Now.Second;
 			second = System.DateTime.Now.Second.ToString().PadLeft(2, '0');
 			secondsLabel.Text = second;
 
+			_dateTimeSystem.Minute = System.DateTime.Now.Minute;
 			minute = System.DateTime.Now.Minute.ToString().PadLeft(2, '0');
 			minutesLabel.Text = minute;
 
+			_dateTimeSystem.Hour = System.DateTime.Now.Hour;
 			hour = System.DateTime.Now.Hour.ToString().PadLeft(2, '0');
 			hoursLabel.Text = hour;
 
@@ -1281,8 +1305,24 @@ namespace Inventory
 
 			System.Globalization.PersianCalendar persianCalendar = new System.Globalization.PersianCalendar();
 
-			month = persianCalendar.GetMonth(System.DateTime.Now);
-			day = persianCalendar.GetDayOfMonth(System.DateTime.Now);
+			_dateTimeSystem.Day = persianCalendar.GetDayOfMonth(System.DateTime.Now);
+			_dateTimeSystem.Month = persianCalendar.GetMonth(System.DateTime.Now);
+			_dateTimeSystem.Year = persianCalendar.GetYear(System.DateTime.Now);
+
+
+			if (GetAutomaticBackupStatus())
+			{
+				CreateAutomaticBackupDatabase(_dateTimeSystem);
+			}
+			else
+			{
+				return;
+			}
+
+
+
+
+
 
 			//#region MonthlyFinancialCalculation
 			//if (string.Compare(finalHour, "23") == 0 && string.Compare(finalMinute, "55") == 0 && string.Compare(finalSecond, "00") == 0)
@@ -1447,6 +1487,97 @@ namespace Inventory
 		}
 		#endregion /CheckAccessLevel
 
+		#region CreateAutomaticBackupDatabase
+		private void CreateAutomaticBackupDatabase(DateTimeSystem _dateTimeSystem)
+		{
+			Models.DataBaseContext dataBaseContext = null;
+			try
+			{
+				dataBaseContext =
+					new Models.DataBaseContext();
+
+				Models.BackupSetting backupSetting =
+					new Models.BackupSetting();
+
+				if (backupSetting.Time_Interval == Models.BackupSetting.TimeInterval.روزانه)
+				{
+
+				}
+				else if (backupSetting.Time_Interval == Models.BackupSetting.TimeInterval.هفتگی)
+				{
+
+				}
+				else if (backupSetting.Time_Interval == Models.BackupSetting.TimeInterval.ماهیانه)
+				{
+
+				}
+
+			}
+			catch (System.Exception ex)
+			{
+				Infrastructure.Utility.ExceptionShow(ex);
+			}
+			finally
+			{
+				if (dataBaseContext != null)
+				{
+					dataBaseContext.Dispose();
+					dataBaseContext = null;
+				}
+			}
+		}
+		#endregion /CreateAutomaticBackupDatabase
+
+		#region GetAutomaticBackupStatus
+		/// <summary>
+		/// دریافت وضعیت پشتیبان گیری خودکار
+		/// </summary>
+		/// <returns>true Or false</returns>
+		private bool GetAutomaticBackupStatus()
+		{
+			Models.DataBaseContext dataBaseContext = null;
+			try
+			{
+				dataBaseContext =
+					new Models.DataBaseContext();
+
+				Models.BackupSetting backupSetting =
+					dataBaseContext.BackupSettings
+					.Where(current => current.Id == 1)
+					.FirstOrDefault();
+
+				if (backupSetting == null)
+				{
+					return false;
+				}
+				else
+				{
+					if (backupSetting.Auto_Backup)
+					{
+						return true;
+					}
+					else
+					{
+						return false;
+					}
+				}
+			}
+			catch (System.Exception ex)
+			{
+				Infrastructure.Utility.ExceptionShow(ex);
+				return false;
+			}
+			finally
+			{
+				if (dataBaseContext != null)
+				{
+					dataBaseContext.Dispose();
+					dataBaseContext = null;
+				}
+			}
+		}
+		#endregion /GetAutomaticBackupStatus
+
 		#region GetCapitalFund
 		/// <summary>
 		/// بارگزاری موجودی صندوق
@@ -1513,6 +1644,12 @@ namespace Inventory
 			AccountLoaded();
 			ResetSubmenu();
 			GetCapitalFund();
+
+
+
+
+
+
 
 			homeButton.Checked = true;
 
