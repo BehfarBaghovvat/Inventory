@@ -89,7 +89,7 @@ namespace Inventory_Forms
 			this.topPanel.Dock = System.Windows.Forms.DockStyle.Top;
 			this.topPanel.Location = new System.Drawing.Point(0, 0);
 			this.topPanel.Name = "topPanel";
-			this.topPanel.Size = new System.Drawing.Size(600, 30);
+			this.topPanel.Size = new System.Drawing.Size(770, 30);
 			this.topPanel.TabIndex = 4;
 			// 
 			// productImagePictureBox
@@ -99,7 +99,7 @@ namespace Inventory_Forms
 			this.productImagePictureBox.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.productImagePictureBox.Location = new System.Drawing.Point(0, 30);
 			this.productImagePictureBox.Name = "productImagePictureBox";
-			this.productImagePictureBox.Size = new System.Drawing.Size(600, 400);
+			this.productImagePictureBox.Size = new System.Drawing.Size(770, 770);
 			this.productImagePictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
 			this.productImagePictureBox.TabIndex = 5;
 			this.productImagePictureBox.TabStop = false;
@@ -124,7 +124,7 @@ namespace Inventory_Forms
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 17F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(600, 430);
+			this.ClientSize = new System.Drawing.Size(770, 800);
 			this.Controls.Add(this.productImagePictureBox);
 			this.Controls.Add(this.topPanel);
 			this.Name = "ViewProducrImageForm";

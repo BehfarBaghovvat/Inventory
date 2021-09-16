@@ -45,5 +45,41 @@
 		{
 			System.IO.Directory.CreateDirectory("E:\\NewDirectory");
 		}
+
+		private void button3_Click(object sender, System.EventArgs e)
+		{
+			System.Globalization.PersianCalendar persianCalendar = new System.Globalization.PersianCalendar();
+			//dayOfWeekComboBox.SelectedIndex = dayOfWeekComboBox.FindString($"{persianCalendar.GetDayOfWeek(System.DateTime.Now)}");
+			System.DayOfWeek dayOfWeek = persianCalendar.GetDayOfWeek(System.DateTime.Now);
+
+			switch (dayOfWeek)
+			{
+				case System.DayOfWeek.Saturday:
+				dayOfWeekComboBox.SelectedIndex = 0;
+				break;
+				case System.DayOfWeek.Sunday:
+				dayOfWeekComboBox.SelectedIndex = 1;
+				break;
+				case System.DayOfWeek.Monday:
+				dayOfWeekComboBox.SelectedIndex = 2;
+				break;
+				case System.DayOfWeek.Tuesday:
+				dayOfWeekComboBox.SelectedIndex = 3;
+				break;
+				case System.DayOfWeek.Wednesday:
+				dayOfWeekComboBox.SelectedIndex = 4;
+				break;
+				case System.DayOfWeek.Thursday:
+				dayOfWeekComboBox.SelectedIndex = 5;
+				break;
+				case System.DayOfWeek.Friday:
+				dayOfWeekComboBox.SelectedIndex = 6;
+				break;
+				default:
+				break;
+			}
+
+
+		}
 	}
 }

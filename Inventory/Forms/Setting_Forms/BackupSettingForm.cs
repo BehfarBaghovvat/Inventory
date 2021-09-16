@@ -73,7 +73,7 @@ namespace Setting_Forms
 				dayOfWeekGroupBox.SendToBack();
 				dayOfMonthGroupBox.SendToBack();
 
-				BackupSetting.Days_Of_Week = null;
+				BackupSetting.Days_Of_Week = 0;
 				BackupSetting.Day_Of_Month = null;
 
 
@@ -86,7 +86,7 @@ namespace Setting_Forms
 				dayOfMonthGroupBox.SendToBack();
 
 				BackupSetting.Minutes = null;
-				BackupSetting.Houre = null;
+				BackupSetting.Hour = null;
 				BackupSetting.Day_Of_Month = null;
 
 				BackupSetting.Time_Interval = Models.BackupSetting.TimeInterval.هفتگی;
@@ -98,8 +98,8 @@ namespace Setting_Forms
 				setTimeBackupGroupBox.SendToBack();
 
 				BackupSetting.Minutes = null;
-				BackupSetting.Houre = null;
-				BackupSetting.Days_Of_Week = null;
+				BackupSetting.Hour = null;
+				BackupSetting.Days_Of_Week = 0;
 
 				BackupSetting.Time_Interval = Models.BackupSetting.TimeInterval.ماهیانه;
 			}
@@ -130,7 +130,7 @@ namespace Setting_Forms
 			}
 			else
 			{
-				_backupSetting.Houre = int.Parse(houreNumericUpDown.Value.ToString());
+				_backupSetting.Hour = int.Parse(houreNumericUpDown.Value.ToString());
 			}
 		}
 		#endregion /HoureNumericUpDown_ValueChanged
@@ -142,25 +142,25 @@ namespace Setting_Forms
 			switch (index)
 			{
 				case 0:
-				_backupSetting.Days_Of_Week = $"{ Models.BackupSetting.DaysOfWeek.شنبه}";
+				_backupSetting.Days_Of_Week = System.DayOfWeek.Saturday;
 				break;
 				case 1:
-				_backupSetting.Days_Of_Week = $"{ Models.BackupSetting.DaysOfWeek.یکشنبه}";
+				_backupSetting.Days_Of_Week = System.DayOfWeek.Sunday;
 				break;
 				case 2:
-				_backupSetting.Days_Of_Week = $"{ Models.BackupSetting.DaysOfWeek.دوشنبه}";
+				_backupSetting.Days_Of_Week = System.DayOfWeek.Monday;
 				break;
 				case 3:
-				_backupSetting.Days_Of_Week = $"{ Models.BackupSetting.DaysOfWeek.سه_شنبه}";
+				_backupSetting.Days_Of_Week = System.DayOfWeek.Tuesday;
 				break;
 				case 4:
-				_backupSetting.Days_Of_Week = $"{ Models.BackupSetting.DaysOfWeek.چهارشنبه}";
+				_backupSetting.Days_Of_Week = System.DayOfWeek.Wednesday;
 				break;
 				case 5:
-				_backupSetting.Days_Of_Week = $"{ Models.BackupSetting.DaysOfWeek.پنج_شنبه}";
+				_backupSetting.Days_Of_Week = System.DayOfWeek.Thursday;
 				break;
 				case 6:
-				_backupSetting.Days_Of_Week = $"{ Models.BackupSetting.DaysOfWeek.جمعه}";
+				_backupSetting.Days_Of_Week = System.DayOfWeek.Friday;
 				break;
 			}
 		}
@@ -469,7 +469,7 @@ namespace Setting_Forms
 						dayOfWeekGroupBox.SendToBack();
 						dayOfMonthGroupBox.SendToBack();
 						minutesNumericUpDown.Value = decimal.Parse(BackupSetting.Minutes.ToString());
-						houreNumericUpDown.Value = decimal.Parse(BackupSetting.Houre.ToString());
+						houreNumericUpDown.Value = decimal.Parse(BackupSetting.Hour.ToString());
 						break;
 
 						case  Models.BackupSetting.TimeInterval.هفتگی:
@@ -477,7 +477,34 @@ namespace Setting_Forms
 						dayOfWeekGroupBox.BringToFront();
 						setTimeBackupGroupBox.SendToBack();
 						dayOfMonthGroupBox.SendToBack();
-						dayOfWeekComboBox.SelectedIndex = dayOfWeekComboBox.FindString(BackupSetting.Days_Of_Week);
+						System.DayOfWeek dayOfWeek = BackupSetting.Days_Of_Week;
+
+						switch (dayOfWeek)
+						{
+							case System.DayOfWeek.Saturday:
+							dayOfWeekComboBox.SelectedIndex = 0;
+							break;
+							case System.DayOfWeek.Sunday:
+							dayOfWeekComboBox.SelectedIndex = 1;
+							break;
+							case System.DayOfWeek.Monday:
+							dayOfWeekComboBox.SelectedIndex = 2;
+							break;
+							case System.DayOfWeek.Tuesday:
+							dayOfWeekComboBox.SelectedIndex = 3;
+							break;
+							case System.DayOfWeek.Wednesday:
+							dayOfWeekComboBox.SelectedIndex = 4;
+							break;
+							case System.DayOfWeek.Thursday:
+							dayOfWeekComboBox.SelectedIndex = 5;
+							break;
+							case System.DayOfWeek.Friday:
+							dayOfWeekComboBox.SelectedIndex = 6;
+							break;
+							default:
+							break;
+						}
 						break;
 
 						case  Models.BackupSetting.TimeInterval.ماهیانه:
@@ -526,7 +553,7 @@ namespace Setting_Forms
 							Auto_Backup = _backupSetting.Auto_Backup,
 							Days_Of_Week = _backupSetting.Days_Of_Week,
 							Day_Of_Month = _backupSetting.Day_Of_Month,
-							Houre = _backupSetting.Houre,
+							Hour = _backupSetting.Hour,
 							Minutes = _backupSetting.Minutes,
 							Time_Interval = _backupSetting.Time_Interval,
 						};
@@ -539,7 +566,7 @@ namespace Setting_Forms
 					backupSetting.Auto_Backup = _backupSetting.Auto_Backup;
 					backupSetting.Days_Of_Week = _backupSetting.Days_Of_Week;
 					backupSetting.Day_Of_Month = _backupSetting.Day_Of_Month;
-					backupSetting.Houre = _backupSetting.Houre;
+					backupSetting.Hour = _backupSetting.Hour;
 					backupSetting.Minutes = _backupSetting.Minutes;
 					backupSetting.Time_Interval = _backupSetting.Time_Interval;
 
@@ -584,7 +611,5 @@ namespace Setting_Forms
 		#endregion /SetEventLog
 
 		#endregion /Founcitons
-
-
 	}
 }

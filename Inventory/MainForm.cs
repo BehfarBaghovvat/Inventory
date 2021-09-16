@@ -20,13 +20,12 @@ namespace Inventory
 			public int Minute { get; set; }
 			public int Second { get; set; }
 
-			public int Day { get; set; }
+			public int Day_Year { get; set; }
+			public System.DayOfWeek Day_Week { get; set; }
+			public int Day_Month { get; set; }
 			public int Month { get; set; }
 			public int Year { get; set; }
 		}
-
-		
-
 
 		//------------------------------------------------------------------------- Inventory
 
@@ -244,7 +243,7 @@ namespace Inventory
 		private Setting_Forms.ManagementSettingForm _managementSettingForm;
 		public Setting_Forms.ManagementSettingForm ManagementSettingForm
 		{
-			get 
+			get
 			{
 				if (_managementSettingForm == null || _managementSettingForm.IsDisposed == true)
 				{
@@ -257,8 +256,8 @@ namespace Inventory
 				}
 				return _managementSettingForm;
 			}
-			set 
-			{ 
+			set
+			{
 				_managementSettingForm = value;
 			}
 		}
@@ -286,6 +285,16 @@ namespace Inventory
 		}
 
 		#endregion /--------------------------------------------------------     Layer     --------------------------------------------------------
+		public enum AccessLeve
+		{
+			مدیریت,
+			معاونت,
+			کارمند,
+			نیروی_خدماتی,
+			کاربر_ساده,
+		}
+
+		public Models.EventLog EventLog { get; set; }
 
 		private Models.LoginHistory _logHistory;
 		public Models.LoginHistory LogHistory
@@ -301,17 +310,12 @@ namespace Inventory
 			}
 		}
 
-		private DateTimeSystem _dateTimeSystem = new DateTimeSystem();
+		private DateTimeSystem _dateTimeSystem = 
+			new DateTimeSystem();
 
+		System.Data.SqlClient.SqlConnection sqlConnection =
+			new System.Data.SqlClient.SqlConnection(Inventory.Properties.Settings.Default.INVENTORYConnectionString);
 
-		public enum AccessLeve
-		{
-			مدیریت,
-			معاونت,
-			کارمند,
-			نیروی_خدماتی,
-			کاربر_ساده,
-		}
 		#endregion /--------------------------------------------------------     Properties     --------------------------------------------------------
 
 
@@ -321,7 +325,7 @@ namespace Inventory
 		public MainForm()
 		{
 			InitializeComponent();
-			
+
 		}
 
 
@@ -409,7 +413,7 @@ namespace Inventory
 		#region LogoutButton_Click
 		private void LogoutButton_Click(object sender, System.EventArgs e)
 		{
-			if (string.Compare(Inventory.Program.UserAuthentication.Username,"admin")==0)
+			if (string.Compare(Inventory.Program.UserAuthentication.Username, "admin") == 0)
 			{
 				logOutMainFormTimer.Start();
 			}
@@ -451,7 +455,7 @@ namespace Inventory
 
 				//-------------------------------------------- Inventory
 
-				
+
 				inventoryButton.Checked = false;
 				ProductBuyForm.Hide();
 				ProcutSalesForm.Hide();
@@ -1285,7 +1289,7 @@ namespace Inventory
 		{
 			string second, minute, hour;
 			string finalSecond, finalMinute, finalHour;
-			
+
 
 			_dateTimeSystem.Second = System.DateTime.Now.Second;
 			second = System.DateTime.Now.Second.ToString().PadLeft(2, '0');
@@ -1305,14 +1309,16 @@ namespace Inventory
 
 			System.Globalization.PersianCalendar persianCalendar = new System.Globalization.PersianCalendar();
 
-			_dateTimeSystem.Day = persianCalendar.GetDayOfMonth(System.DateTime.Now);
+			_dateTimeSystem.Day_Month = persianCalendar.GetDayOfMonth(System.DateTime.Now);
+			_dateTimeSystem.Day_Year = persianCalendar.GetDayOfYear(System.DateTime.Now);
+			_dateTimeSystem.Day_Week = persianCalendar.GetDayOfWeek(System.DateTime.Now);
 			_dateTimeSystem.Month = persianCalendar.GetMonth(System.DateTime.Now);
 			_dateTimeSystem.Year = persianCalendar.GetYear(System.DateTime.Now);
 
 
 			if (GetAutomaticBackupStatus())
 			{
-				CreateAutomaticBackupDatabase(_dateTimeSystem);
+				GetBackupTime(_dateTimeSystem);
 			}
 			else
 			{
@@ -1464,14 +1470,14 @@ namespace Inventory
 				case Models.User.AccessLeve.کاربر_ساده:
 
 				inventoryEntryButton.Enabled = true;
-				productSalesButton.Enabled = true;
+				productSalesButton.Enabled = false ;
 				inventoryholdingButton.Enabled = true;
-				serviceButton.Enabled = true;
+				serviceButton.Enabled = false;
 
 				safeBoxButton.Enabled = false;
-				ancillaryCostsButton.Enabled = true;
+				ancillaryCostsButton.Enabled = false ;
 				financialReportButton.Enabled = false;
-				sectionChequeBankButton.Enabled = true;
+				sectionChequeBankButton.Enabled = false ;
 
 				registerClientButton.Enabled = true;
 				clientFinancialSituationButton.Enabled = false;
@@ -1487,46 +1493,46 @@ namespace Inventory
 		}
 		#endregion /CheckAccessLevel
 
-		#region CreateAutomaticBackupDatabase
-		private void CreateAutomaticBackupDatabase(DateTimeSystem _dateTimeSystem)
+		#region DatabaseBackup
+		/// <summary>
+		/// تهیه نسخه پشتیبان از بانک اطلاعاتی 
+		/// بر اساس زمان بندی تعیین شده
+		/// </summary>
+		private void DatabaseBackup()
 		{
-			Models.DataBaseContext dataBaseContext = null;
+			string dataBase = sqlConnection.Database.ToString();
 			try
 			{
-				dataBaseContext =
-					new Models.DataBaseContext();
+					string command = $"Backup Database [{dataBase}] To Disk='D:\\BackupDatabase\\Database-{System.DateTime.Now:yyyy-MM-dd--HH-mm-ss}.bak'";
+					this.Cursor = System.Windows.Forms.Cursors.WaitCursor;
+					System.Data.SqlClient.SqlConnection sqlConnection = new System.Data.SqlClient.SqlConnection();
+					System.Data.SqlClient.SqlCommand sqlCommand = null;
 
-				Models.BackupSetting backupSetting =
-					new Models.BackupSetting();
+					sqlConnection.ConnectionString = ($"Data Source=.; Initial Catalog={dataBase}; Integrated Security=True");
 
-				if (backupSetting.Time_Interval == Models.BackupSetting.TimeInterval.روزانه)
-				{
+					if (sqlConnection.State != System.Data.ConnectionState.Open)
+					{
+						sqlConnection.Open();
+					}
 
-				}
-				else if (backupSetting.Time_Interval == Models.BackupSetting.TimeInterval.هفتگی)
-				{
+					sqlCommand = new System.Data.SqlClient.SqlCommand(command, sqlConnection);
+					sqlCommand.ExecuteNonQuery();
+					this.Cursor = System.Windows.Forms.Cursors.Default;
+					Infrastructure.Utility.WindowsNotification(
+						message: $"فایل Database-{System.DateTime.Now:yyyy-MM-dd--HH-mm-ss} ایجاد گردید.",
+						caption: Infrastructure.PopupNotificationForm.Caption.موفقیت);
 
-				}
-				else if (backupSetting.Time_Interval == Models.BackupSetting.TimeInterval.ماهیانه)
-				{
-
-				}
-
+					#region  -----------------------------------------    SetEventLog     -----------------------------------------
+						SetEventLog();
+					#endregion / -----------------------------------------     SetEventLog     -----------------------------------------
+				
 			}
 			catch (System.Exception ex)
 			{
 				Infrastructure.Utility.ExceptionShow(ex);
 			}
-			finally
-			{
-				if (dataBaseContext != null)
-				{
-					dataBaseContext.Dispose();
-					dataBaseContext = null;
-				}
-			}
 		}
-		#endregion /CreateAutomaticBackupDatabase
+		#endregion DatabaseBackup
 
 		#region GetAutomaticBackupStatus
 		/// <summary>
@@ -1577,6 +1583,62 @@ namespace Inventory
 			}
 		}
 		#endregion /GetAutomaticBackupStatus
+
+		#region GetBackupTime
+		/// <summary>
+		/// دریافت زمان پشتیبان گیری خودکار
+		/// </summary>
+		/// <param name="_dateTimeSystem"></param>
+		private void GetBackupTime(DateTimeSystem _dateTimeSystem)
+		{
+			Models.DataBaseContext dataBaseContext = null;
+			try
+			{
+				dataBaseContext =
+					new Models.DataBaseContext();
+
+				Models.BackupSetting backupSetting =
+					new Models.BackupSetting();
+
+				if (backupSetting.Time_Interval == Models.BackupSetting.TimeInterval.روزانه)
+				{
+					if ((_dateTimeSystem.Hour == backupSetting.Hour) && (_dateTimeSystem.Minute == backupSetting.Minutes))
+					{
+						DatabaseBackup();
+					}
+					return;
+				}
+				else if (backupSetting.Time_Interval == Models.BackupSetting.TimeInterval.هفتگی)
+				{
+					if ((_dateTimeSystem.Day_Week == backupSetting.Days_Of_Week))
+					{
+						DatabaseBackup();
+					}
+					return;
+				}
+				else if (backupSetting.Time_Interval == Models.BackupSetting.TimeInterval.ماهیانه)
+				{
+					if ((_dateTimeSystem.Day_Month == backupSetting.Day_Of_Month))
+					{
+						DatabaseBackup();
+					}
+					return;
+				}
+			}
+			catch (System.Exception ex)
+			{
+				Infrastructure.Utility.ExceptionShow(ex);
+			}
+			finally
+			{
+				if (dataBaseContext != null)
+				{
+					dataBaseContext.Dispose();
+					dataBaseContext = null;
+				}
+			}
+		}
+		#endregion /GetBackupTime
 
 		#region GetCapitalFund
 		/// <summary>
@@ -1644,12 +1706,6 @@ namespace Inventory
 			AccountLoaded();
 			ResetSubmenu();
 			GetCapitalFund();
-
-
-
-
-
-
 
 			homeButton.Checked = true;
 
@@ -1786,6 +1842,22 @@ namespace Inventory
 			}
 		}
 		#endregion /SaveLoginHistory
+
+		#region SetEventLog
+		/// <summary>
+		/// ثبت رویدادهای صورت گرفته
+		/// </summary>
+		private void SetEventLog()
+		{
+			EventLog.Username = string.Empty;
+			EventLog.Full_Name = "سیستم خودکار";
+			EventLog.Description = "تهیه نسخه پشتیبان از بانک اطلاعات";
+			EventLog.Event_Date = Infrastructure.Utility.PersianCalendar(System.DateTime.Now);
+			EventLog.Event_Time = Infrastructure.Utility.ShowTime();
+
+			Infrastructure.Utility.EventLog(EventLog);
+		}
+		#endregion /SetEventLog
 
 		#endregion /Founcitons
 	}

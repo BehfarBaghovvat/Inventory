@@ -5,20 +5,6 @@
 	/// </summary>
 	public class BackupSetting
 	{
-		/// <summary>
-		/// روزهای هفته
-		/// </summary>
-		public enum DaysOfWeek
-		{
-			شنبه ,
-			یکشنبه,
-			 دوشنبه,
-			سه_شنبه,
-			چهارشنبه,
-			پنج_شنبه,
-			جمعه,
-		}
-
 		public enum TimeInterval
 		{
 			روزانه,
@@ -45,7 +31,7 @@
 		#region Days_Of_Week
 		//-----DisplayName field for Days_Of_Week
 		[System.ComponentModel.DisplayName(displayName: "روزهای هفته")]
-		public string Days_Of_Week { get; set; }
+		public System.DayOfWeek Days_Of_Week { get; set; }
 		#endregion /Days_Of_Week
 
 		/// <summary>
@@ -60,11 +46,11 @@
 		/// <summary>
 		/// ساعت روز
 		/// </summary>
-		#region Houre
-		//-----DisplayName field for Houre
+		#region Hour
+		//-----DisplayName field for Hour
 		[System.ComponentModel.DisplayName(displayName: "ساعت روز")]
-		public int? Houre { get; set; }
-		#endregion /Houre
+		public int? Hour { get; set; }
+		#endregion /Hour
 
 		/// <summary>
 		/// ردیف

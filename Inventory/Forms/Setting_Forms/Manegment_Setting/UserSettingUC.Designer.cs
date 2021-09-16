@@ -30,11 +30,11 @@ namespace Manegment_Setting
 		private void InitializeComponent()
 		{
 			this.components = new System.ComponentModel.Container();
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UserSettingUC));
-			this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
+			this.dataGridViewPanel = new Guna.UI2.WinForms.Guna2Panel();
 			this.userListDataGridView = new Guna.UI2.WinForms.Guna2DataGridView();
 			this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.isActiveDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
@@ -64,43 +64,47 @@ namespace Manegment_Setting
 			this.administratorLabel = new Mbb.Windows.Forms.Label();
 			this.administratorRadioButton = new Guna.UI2.WinForms.Guna2CustomRadioButton();
 			this.updateButton = new Guna.UI2.WinForms.Guna2GradientButton();
-			this.guna2Panel1.SuspendLayout();
+			this.userListDataGridViewElipse = new Guna.UI2.WinForms.Guna2Elipse(this.components);
+			this.contextMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
+			this.deleteUserToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.dataGridViewPanel.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.userListDataGridView)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.userBindingSource)).BeginInit();
 			this.userSettingGroupBox.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.userImagePictureBox)).BeginInit();
 			this.accessLevelGroupBox.SuspendLayout();
+			this.contextMenuStrip.SuspendLayout();
 			this.SuspendLayout();
 			// 
-			// guna2Panel1
+			// dataGridViewPanel
 			// 
-			this.guna2Panel1.Controls.Add(this.userListDataGridView);
-			this.guna2Panel1.Location = new System.Drawing.Point(10, 10);
-			this.guna2Panel1.Name = "guna2Panel1";
-			this.guna2Panel1.ShadowDecoration.Parent = this.guna2Panel1;
-			this.guna2Panel1.Size = new System.Drawing.Size(780, 550);
-			this.guna2Panel1.TabIndex = 0;
+			this.dataGridViewPanel.Controls.Add(this.userListDataGridView);
+			this.dataGridViewPanel.Location = new System.Drawing.Point(10, 10);
+			this.dataGridViewPanel.Name = "dataGridViewPanel";
+			this.dataGridViewPanel.ShadowDecoration.Parent = this.dataGridViewPanel;
+			this.dataGridViewPanel.Size = new System.Drawing.Size(780, 550);
+			this.dataGridViewPanel.TabIndex = 0;
 			// 
 			// userListDataGridView
 			// 
 			this.userListDataGridView.AllowUserToAddRows = false;
 			this.userListDataGridView.AllowUserToDeleteRows = false;
-			dataGridViewCellStyle13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(203)))), ((int)(((byte)(232)))));
-			this.userListDataGridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle13;
+			dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(203)))), ((int)(((byte)(232)))));
+			this.userListDataGridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
 			this.userListDataGridView.AutoGenerateColumns = false;
 			this.userListDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
 			this.userListDataGridView.BackgroundColor = System.Drawing.Color.White;
 			this.userListDataGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
 			this.userListDataGridView.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
 			this.userListDataGridView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-			dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-			dataGridViewCellStyle14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(81)))), ((int)(((byte)(181)))));
-			dataGridViewCellStyle14.Font = new System.Drawing.Font("IRANSansXFaNum", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-			dataGridViewCellStyle14.ForeColor = System.Drawing.Color.White;
-			dataGridViewCellStyle14.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-			dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-			dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-			this.userListDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle14;
+			dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+			dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(81)))), ((int)(((byte)(181)))));
+			dataGridViewCellStyle2.Font = new System.Drawing.Font("IRANSansXFaNum", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+			dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+			dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+			dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+			dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+			this.userListDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
 			this.userListDataGridView.ColumnHeadersHeight = 40;
 			this.userListDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
 			this.userListDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -115,15 +119,16 @@ namespace Manegment_Setting
             this.registrationDateDataGridViewTextBoxColumn,
             this.registrationTimeDataGridViewTextBoxColumn,
             this.userImageDataGridViewImageColumn});
+			this.userListDataGridView.ContextMenuStrip = this.contextMenuStrip;
 			this.userListDataGridView.DataSource = this.userBindingSource;
-			dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-			dataGridViewCellStyle15.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(220)))), ((int)(((byte)(239)))));
-			dataGridViewCellStyle15.Font = new System.Drawing.Font("IRANSansXFaNum", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-			dataGridViewCellStyle15.ForeColor = System.Drawing.Color.Black;
-			dataGridViewCellStyle15.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(139)))), ((int)(((byte)(205)))));
-			dataGridViewCellStyle15.SelectionForeColor = System.Drawing.Color.Black;
-			dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-			this.userListDataGridView.DefaultCellStyle = dataGridViewCellStyle15;
+			dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+			dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(220)))), ((int)(((byte)(239)))));
+			dataGridViewCellStyle3.Font = new System.Drawing.Font("IRANSansXFaNum", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+			dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
+			dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(139)))), ((int)(((byte)(205)))));
+			dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
+			dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+			this.userListDataGridView.DefaultCellStyle = dataGridViewCellStyle3;
 			this.userListDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.userListDataGridView.EnableHeadersVisualStyles = false;
 			this.userListDataGridView.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(201)))), ((int)(((byte)(231)))));
@@ -527,13 +532,36 @@ namespace Manegment_Setting
 			this.updateButton.Text = "به روز رسانی";
 			this.updateButton.Click += new System.EventHandler(this.UpdateButton_Click);
 			// 
+			// userListDataGridViewElipse
+			// 
+			this.userListDataGridViewElipse.BorderRadius = 20;
+			this.userListDataGridViewElipse.TargetControl = this.userListDataGridView;
+			// 
+			// contextMenuStrip
+			// 
+			this.contextMenuStrip.Font = new System.Drawing.Font("IRANSansX", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+			this.contextMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.deleteUserToolStripMenuItem});
+			this.contextMenuStrip.Name = "contextMenuStrip1";
+			this.contextMenuStrip.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+			this.contextMenuStrip.Size = new System.Drawing.Size(146, 26);
+			// 
+			// deleteUserToolStripMenuItem
+			// 
+			this.deleteUserToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("deleteUserToolStripMenuItem.Image")));
+			this.deleteUserToolStripMenuItem.Name = "deleteUserToolStripMenuItem";
+			this.deleteUserToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.Delete;
+			this.deleteUserToolStripMenuItem.Size = new System.Drawing.Size(145, 22);
+			this.deleteUserToolStripMenuItem.Text = "حذف کاربر";
+			this.deleteUserToolStripMenuItem.Click += new System.EventHandler(this.DeleteUserToolStripMenuItem_Click);
+			// 
 			// UserSettingUC
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 17F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(0)))), ((int)(((byte)(61)))));
 			this.Controls.Add(this.userSettingGroupBox);
-			this.Controls.Add(this.guna2Panel1);
+			this.Controls.Add(this.dataGridViewPanel);
 			this.Font = new System.Drawing.Font("IRANSansXFaNum", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
 			this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
 			this.MaximumSize = new System.Drawing.Size(1125, 570);
@@ -541,7 +569,7 @@ namespace Manegment_Setting
 			this.Name = "UserSettingUC";
 			this.Size = new System.Drawing.Size(1125, 570);
 			this.Load += new System.EventHandler(this.UserSettingUC_Load);
-			this.guna2Panel1.ResumeLayout(false);
+			this.dataGridViewPanel.ResumeLayout(false);
 			((System.ComponentModel.ISupportInitialize)(this.userListDataGridView)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.userBindingSource)).EndInit();
 			this.userSettingGroupBox.ResumeLayout(false);
@@ -549,13 +577,14 @@ namespace Manegment_Setting
 			((System.ComponentModel.ISupportInitialize)(this.userImagePictureBox)).EndInit();
 			this.accessLevelGroupBox.ResumeLayout(false);
 			this.accessLevelGroupBox.PerformLayout();
+			this.contextMenuStrip.ResumeLayout(false);
 			this.ResumeLayout(false);
 
 		}
 
 		#endregion
 
-		private Guna.UI2.WinForms.Guna2Panel guna2Panel1;
+		private Guna.UI2.WinForms.Guna2Panel dataGridViewPanel;
 		private Guna.UI2.WinForms.Guna2DataGridView userListDataGridView;
 		private System.Windows.Forms.BindingSource userBindingSource;
 		private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
@@ -585,5 +614,8 @@ namespace Manegment_Setting
 		private Mbb.Windows.Forms.Label administratorLabel;
 		private Guna.UI2.WinForms.Guna2CustomRadioButton administratorRadioButton;
 		private Guna.UI2.WinForms.Guna2GradientButton updateButton;
+		private Guna.UI2.WinForms.Guna2Elipse userListDataGridViewElipse;
+		private System.Windows.Forms.ContextMenuStrip contextMenuStrip;
+		private System.Windows.Forms.ToolStripMenuItem deleteUserToolStripMenuItem;
 	}
 }

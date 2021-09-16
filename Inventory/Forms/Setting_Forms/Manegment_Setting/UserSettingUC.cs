@@ -247,6 +247,15 @@ namespace Manegment_Setting
 		}
 		#endregion /UpdateButton_Click
 
+		#region DeleteUserToolStripMenuItem_Click
+		private void DeleteUserToolStripMenuItem_Click(object sender, System.EventArgs e)
+		{
+			User_FirstLoading.Username = userListDataGridView.CurrentRow.Cells[2].Value.ToString();
+
+			DeleteUser(User_FirstLoading);
+		}
+		#endregion /DeleteUserToolStripMenuItem_Click
+
 		//-----------------------------------------------------------------------------------------------     Privat Methods
 
 		#region Founctions
@@ -273,6 +282,90 @@ namespace Manegment_Setting
 			updateButton.Enabled = false;
 		}
 		#endregion /AllClear
+
+		#region DeleteUser
+		/// <summary>
+		/// حذف کاربر از سیستم
+		/// </summary>
+		/// <param name="_user"></param>
+		private void DeleteUser(Models.User _user)
+		{
+			if (string.Compare(_user.Username, "admin") == 0 || string.Compare(_user.Username, Inventory.Program.UserAuthentication.Username) == 0)
+			{
+				return;
+			}
+			else
+			{
+				if (userListDataGridView.Rows.Count >= 1)
+				{
+					System.Windows.Forms.DialogResult dialogResult =
+						Mbb.Windows.Forms.MessageBox.Show
+						(text: $"{_user.Username} حذف گردد؟!",
+						caption: "هشدار",
+						icon: Mbb.Windows.Forms.MessageBoxIcon.Warning,
+						button: Mbb.Windows.Forms.MessageBoxButtons.YesNo);
+
+					if (dialogResult == System.Windows.Forms.DialogResult.Yes)//----جهت حذف کاربر
+					{
+						if (string.IsNullOrEmpty(_user.Username))
+						{
+							return;
+						}
+						else
+						{
+							using (Models.DataBaseContext dataBaseContext = new Models.DataBaseContext())
+							{
+								Models.User user =
+									dataBaseContext.Users
+									.Where(current => string.Compare(current.Username, _user.Username) == 0)
+									.FirstOrDefault();
+								if (user != null)
+								{
+									var entry = dataBaseContext.Entry(user);
+
+									if (entry.State == System.Data.Entity.EntityState.Detached)
+									{
+										dataBaseContext.Users.Attach(user);
+									}
+								}
+
+								#region  -----------------------------------------    SetEventLog     -----------------------------------------
+								if (string.Compare(Inventory.Program.UserAuthentication.Username, "admin") != 0)
+								{
+									EventLog.Username = $"{Inventory.Program.UserAuthentication.Username}";
+									EventLog.Full_Name = $"{ Inventory.Program.UserAuthentication.Full_Name}";
+									EventLog.Event_Date = $"{Infrastructure.Utility.PersianCalendar(System.DateTime.Now)}";
+									EventLog.Event_Time = $"{Infrastructure.Utility.ShowTime()}";
+									EventLog.Description = $"{_user.Username} حذف گردید.";
+
+									Infrastructure.Utility.EventLog(EventLog);
+								}
+								#endregion / -----------------------------------------     SetEventLog     -----------------------------------------
+
+								dataBaseContext.Users.Remove(user);
+								dataBaseContext.SaveChanges();
+								AllClear();
+								GetUserList();
+							}
+
+							Infrastructure.Utility.WindowsNotification
+								(message: $"{_user.Username} حذف گردید.",
+								caption: Infrastructure.PopupNotificationForm.Caption.موفقیت);
+						}
+					}
+				}
+				else
+				{
+					Mbb.Windows.Forms.MessageBox.Show
+						(text: $"موردی برای حذف وجود ندارد!",
+						caption: "اطلاع",
+						icon: Mbb.Windows.Forms.MessageBoxIcon.Information,
+						button: Mbb.Windows.Forms.MessageBoxButtons.Ok);
+					return;
+				}
+			}
+		}
+		#endregion DeleteUser
 
 		#region GetUserList
 		/// <summary>

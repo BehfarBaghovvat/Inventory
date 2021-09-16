@@ -104,9 +104,9 @@ namespace Setting_Forms
 			this.backupSettengGroupBox.Controls.Add(this.timeIntervalComboBox);
 			this.backupSettengGroupBox.Controls.Add(this.autoBackupLabel);
 			this.backupSettengGroupBox.Controls.Add(this.autoBackupCheckBox);
-			this.backupSettengGroupBox.Controls.Add(this.setTimeBackupGroupBox);
 			this.backupSettengGroupBox.Controls.Add(this.dayOfWeekGroupBox);
 			this.backupSettengGroupBox.Controls.Add(this.dayOfMonthGroupBox);
+			this.backupSettengGroupBox.Controls.Add(this.setTimeBackupGroupBox);
 			this.backupSettengGroupBox.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
 			this.backupSettengGroupBox.Font = new System.Drawing.Font("IRANSans", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.backupSettengGroupBox.ForeColor = System.Drawing.Color.White;
