@@ -25,7 +25,7 @@ namespace Inventory_Forms
 			public string Register_Date { get; set; }
 			public string Register_Time { get; set; }
 			public int? Remaining_Amount { get; set; }
-			public int? Sum_Pirice { get; set; }
+			public int? Total_Sum_Price { get; set; }
 		}
 
 		/// <summary>
@@ -667,7 +667,7 @@ namespace Inventory_Forms
 		#region SumPriceTextBox_TextChanged
 		private void SumPriceTextBox_TextChanged(object sender, System.EventArgs e)
 		{
-			_auditItem.Sum_Pirice = int.Parse(sumPriceTextBox.Text.Replace("تومان", string.Empty).Replace(",", string.Empty).Trim());
+			_auditItem.Total_Sum_Price = int.Parse(sumPriceTextBox.Text.Replace("تومان", string.Empty).Replace(",", string.Empty).Trim());
 			remainingTextBox.Text = sumPriceTextBox.Text;
 		}
 		#endregion /SumPriceTextBox_TextChanged
@@ -675,7 +675,7 @@ namespace Inventory_Forms
 		#region AmountPaidTextBox_TextChanged
 		private void AmountPaidTextBox_TextChanged(object sender, System.EventArgs e)
 		{
-			_auditItem.Remaining_Amount = _auditItem.Sum_Pirice - _auditItem.Amount_Paid;
+			_auditItem.Remaining_Amount = _auditItem.Total_Sum_Price - _auditItem.Amount_Paid;
 
 			remainingTextBox.Text = $"{_auditItem.Remaining_Amount:#,0} تومان";
 		}
@@ -1645,7 +1645,10 @@ namespace Inventory_Forms
 				Models.DailyFinancialReport dailyFinancialReport =
 					new Models.DailyFinancialReport()
 					{
+						Amounts_Paid = $"0 تومان",
+						Amounts_Payment = $"{auditItem.Total_Sum_Price} تومان",
 						Amounts_Received = $"{auditItem.Amount_Paid:#,0} تومان",
+						Amounts_Remaining = $"{auditItem.Remaining_Amount} تومان",
 						Register_Date = $"{auditItem.Register_Date}",
 						Register_Time = $"{auditItem.Register_Time}",
 

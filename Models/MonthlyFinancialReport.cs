@@ -19,50 +19,63 @@
 		#endregion /Id
 
 		/// <summary>
-		/// جمع کل حساب روز
-		/// </summary>
-		#region Sum_Total_Price_Of_Day
-		//----- Display Name TotalPrice
-		[System.ComponentModel.DisplayName(displayName: "جمع کل حساب روز")]
-		//-----Allow Empty TotalPrice
-		[System.ComponentModel.DataAnnotations.Required
-			(AllowEmptyStrings = false)]
-		//-----StringLength TotalPrice
-		[System.ComponentModel.DataAnnotations.StringLength
-			(maximumLength: 45)]
-		public string Sum_Total_Price_Of_Day { get; set; }
-		#endregion /Sum_Total_Price_Of_Day
-
-		/// <summary>
 		/// جمع مبلغ پرداختی روز
 		/// </summary>
-		#region Sum_Payment_Amount_Of_Day
-		//----- Display Name Payment
+		#region Sum_Amount_Paid_Of_Day
+		//----- Display Name Sum_Amount_Paid_Of_Day
 		[System.ComponentModel.DisplayName(displayName: "جمع مبلغ پرداختی روز")]
+		//-----Allow Empty Sum_Amount_Paid_Of_Day
+		[System.ComponentModel.DataAnnotations.Required
+			(AllowEmptyStrings = false)]
+		//-----StringLength Sum_Amount_Paid_Of_Day
+		[System.ComponentModel.DataAnnotations.StringLength
+			(maximumLength: 150)]
+		public string Sum_Amount_Paid_Of_Day { get; set; }
+		//-----
+		#endregion /Sum_Amount_Paid_Of_Day
+
+		/// <summary>
+		/// جمع مبلغ قابل پرداخت روز
+		/// </summary>
+		#region Sum_Amount_Payment_Of_Day
+		//----- Display Name Payment
+		[System.ComponentModel.DisplayName(displayName: "جمع مبلغ قابل پرداخت روز")]
 		//-----Allow Empty Payment
 		[System.ComponentModel.DataAnnotations.Required
 			(AllowEmptyStrings = false)]
 		//-----StringLength Payment
 		[System.ComponentModel.DataAnnotations.StringLength
-			(maximumLength: 45)]
-		public string Sum_Payment_Amount_Of_Day { get; set; }
+			(maximumLength: 150)]
+		public string Sum_Amount_Payment_Of_Day { get; set; }
 		//-----
-		#endregion /Sum_Payment_Amount_Of_Day
+		#endregion /Sum_Amount_Payment_Of_Day
+
+		/// <summary>
+		/// جمع مبلغ دریافتی روز
+		/// </summary>
+		#region Sum_Amounts_Received_Of_Day
+		//----- Display Name Amounts_Received
+		[System.ComponentModel.DisplayName(displayName: "جمع مبلغ دریافتی روز")]
+		//-----StringLength Amounts_Received
+		[System.ComponentModel.DataAnnotations.StringLength
+			(maximumLength: 150)]
+		public string Sum_Amounts_Received_Of_Day { get; set; }
+		#endregion /Sum_Amounts_Received_Of_Day
 
 		/// <summary>
 		/// جمع مبلغ بدهی روز
 		/// </summary>
-		#region Sum_Remaining_Amount_Of_Day
-		//----- Display Name Remaining Amount
+		#region Sum_Amounts_Remaining_Of_Day
+		//----- Display Name Sum_Amounts_Remaining_Of_Day
 		[System.ComponentModel.DisplayName(displayName: "جمع مبلغ بدهی روز")]
-		//-----Allow Empty Remaining Amount
+		//-----Allow Empty Sum_Amounts_Remaining_Of_Day
 		[System.ComponentModel.DataAnnotations.Required
 			(AllowEmptyStrings = false)]
-		//-----StringLength Remaining Amount
+		//-----StringLength Sum_Amounts_Remaining_Of_Day
 		[System.ComponentModel.DataAnnotations.StringLength
-			(maximumLength: 55)]
-		public string Sum_Remaining_Amount_Of_Day { get; set; }
-		#endregion /Sum_Remaining_Amount_Of_Day
+			(maximumLength: 150)]
+		public string Sum_Amounts_Remaining_Of_Day { get; set; }
+		#endregion /Sum_Amounts_Remaining_Of_Day
 
 		/// <summary>
 		/// زمان ثبت 

@@ -732,7 +732,9 @@ namespace Inventory_Forms
 					new Models.DailyFinancialReport()
 					{
 						Amounts_Paid = $"{auditItem.Amount_Paid:#,0} تومان",
+						Amounts_Payment = $"{auditItem.Total_Sum_Price} تومان",
 						Amounts_Received = $"0 تومان",
+						Amounts_Remaining = $"{auditItem.Remaining_Amount} تومان",
 						Register_Date = $"{auditItem.Register_Date}",
 						Register_Time = $"{auditItem.Register_Time}",
 
@@ -880,11 +882,5 @@ namespace Inventory_Forms
 		#endregion /SetJournal
 
 		#endregion /Function
-
-
-
-
-
-
 	}
 }

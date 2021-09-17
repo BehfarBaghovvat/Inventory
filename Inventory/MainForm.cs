@@ -310,7 +310,7 @@ namespace Inventory
 			}
 		}
 
-		private DateTimeSystem _dateTimeSystem = 
+		private DateTimeSystem _dateTimeSystem =
 			new DateTimeSystem();
 
 		System.Data.SqlClient.SqlConnection sqlConnection =
@@ -1289,7 +1289,7 @@ namespace Inventory
 		{
 			string second, minute, hour;
 			string finalSecond, finalMinute, finalHour;
-
+			int month, day;
 
 			_dateTimeSystem.Second = System.DateTime.Now.Second;
 			second = System.DateTime.Now.Second.ToString().PadLeft(2, '0');
@@ -1325,33 +1325,27 @@ namespace Inventory
 				return;
 			}
 
+			#region MonthlyFinancialCalculation
+			if (string.Compare(finalHour, "23") == 0 && string.Compare(finalMinute, "55") == 0 && string.Compare(finalSecond, "00") == 0)
+			{
+				MonthlyFinancialCalculation();
+			}
+			#endregion /MonthlyFinancialCalculation
 
-
-
-
-
-			//#region MonthlyFinancialCalculation
-			//if (string.Compare(finalHour, "23") == 0 && string.Compare(finalMinute, "55") == 0 && string.Compare(finalSecond, "00") == 0)
-			//{
-
-			//	return;
-			//}
-			//#endregion /MonthlyFinancialCalculation
-
-			//#region AnnualFinancialCalculation
-			//if (((month >= 1 || month <= 6) && day == 31) && (string.Compare(finalHour, "23") == 0 && string.Compare(finalMinute, "55") == 0 && string.Compare(finalSecond, "00") == 0))
-			//{
-
-			//}
-			//else if (((month >= 7 || month <= 11) && day == 30) && (string.Compare(finalHour, "23") == 0 && string.Compare(finalMinute, "55") == 0 && string.Compare(finalSecond, "00") == 0))
-			//{
-			//	AnnualFinancialCalculation();
-			//}
-			//else if ((month == 12 && day == 29) && (string.Compare(finalHour, "23") == 0 && string.Compare(finalMinute, "55") == 0 && string.Compare(finalSecond, "00") == 0))
-			//{
-			//	AnnualFinancialCalculation();
-			//}
-			//#endregion /AnnualFinancialCalculation
+			#region AnnualFinancialCalculation
+			if (((_dateTimeSystem.Month >= 1 || _dateTimeSystem.Month <= 6) && _dateTimeSystem.Day_Month == 31) && (string.Compare(finalHour, "23") == 0 && string.Compare(finalMinute, "55") == 0 && string.Compare(finalSecond, "00") == 0))
+			{
+				AnnualFinancialCalculation();
+			}
+			else if (((_dateTimeSystem.Month >= 7 || _dateTimeSystem.Month <= 11) && _dateTimeSystem.Day_Month == 30) && (string.Compare(finalHour, "23") == 0 && string.Compare(finalMinute, "55") == 0 && string.Compare(finalSecond, "00") == 0))
+			{
+				AnnualFinancialCalculation();
+			}
+			else if ((month == 12 && day == 29) && (string.Compare(finalHour, "23") == 0 && string.Compare(finalMinute, "55") == 0 && string.Compare(finalSecond, "00") == 0))
+			{
+				AnnualFinancialCalculation();
+			}
+			#endregion /AnnualFinancialCalculation
 		}
 		#endregion /ClockTimer_Tick
 
@@ -1470,14 +1464,14 @@ namespace Inventory
 				case Models.User.AccessLeve.کاربر_ساده:
 
 				inventoryEntryButton.Enabled = true;
-				productSalesButton.Enabled = false ;
+				productSalesButton.Enabled = false;
 				inventoryholdingButton.Enabled = true;
 				serviceButton.Enabled = false;
 
 				safeBoxButton.Enabled = false;
-				ancillaryCostsButton.Enabled = false ;
+				ancillaryCostsButton.Enabled = false;
 				financialReportButton.Enabled = false;
-				sectionChequeBankButton.Enabled = false ;
+				sectionChequeBankButton.Enabled = false;
 
 				registerClientButton.Enabled = true;
 				clientFinancialSituationButton.Enabled = false;
@@ -1503,29 +1497,29 @@ namespace Inventory
 			string dataBase = sqlConnection.Database.ToString();
 			try
 			{
-					string command = $"Backup Database [{dataBase}] To Disk='D:\\BackupDatabase\\Database-{System.DateTime.Now:yyyy-MM-dd--HH-mm-ss}.bak'";
-					this.Cursor = System.Windows.Forms.Cursors.WaitCursor;
-					System.Data.SqlClient.SqlConnection sqlConnection = new System.Data.SqlClient.SqlConnection();
-					System.Data.SqlClient.SqlCommand sqlCommand = null;
+				string command = $"Backup Database [{dataBase}] To Disk='D:\\BackupDatabase\\Database-{System.DateTime.Now:yyyy-MM-dd--HH-mm-ss}.bak'";
+				this.Cursor = System.Windows.Forms.Cursors.WaitCursor;
+				System.Data.SqlClient.SqlConnection sqlConnection = new System.Data.SqlClient.SqlConnection();
+				System.Data.SqlClient.SqlCommand sqlCommand = null;
 
-					sqlConnection.ConnectionString = ($"Data Source=.; Initial Catalog={dataBase}; Integrated Security=True");
+				sqlConnection.ConnectionString = ($"Data Source=.; Initial Catalog={dataBase}; Integrated Security=True");
 
-					if (sqlConnection.State != System.Data.ConnectionState.Open)
-					{
-						sqlConnection.Open();
-					}
+				if (sqlConnection.State != System.Data.ConnectionState.Open)
+				{
+					sqlConnection.Open();
+				}
 
-					sqlCommand = new System.Data.SqlClient.SqlCommand(command, sqlConnection);
-					sqlCommand.ExecuteNonQuery();
-					this.Cursor = System.Windows.Forms.Cursors.Default;
-					Infrastructure.Utility.WindowsNotification(
-						message: $"فایل Database-{System.DateTime.Now:yyyy-MM-dd--HH-mm-ss} ایجاد گردید.",
-						caption: Infrastructure.PopupNotificationForm.Caption.موفقیت);
+				sqlCommand = new System.Data.SqlClient.SqlCommand(command, sqlConnection);
+				sqlCommand.ExecuteNonQuery();
+				this.Cursor = System.Windows.Forms.Cursors.Default;
+				Infrastructure.Utility.WindowsNotification(
+					message: $"فایل Database-{System.DateTime.Now:yyyy-MM-dd--HH-mm-ss} ایجاد گردید.",
+					caption: Infrastructure.PopupNotificationForm.Caption.موفقیت);
 
-					#region  -----------------------------------------    SetEventLog     -----------------------------------------
-						SetEventLog();
-					#endregion / -----------------------------------------     SetEventLog     -----------------------------------------
-				
+				#region  -----------------------------------------    SetEventLog     -----------------------------------------
+				SetEventLog();
+				#endregion / -----------------------------------------     SetEventLog     -----------------------------------------
+
 			}
 			catch (System.Exception ex)
 			{
@@ -1728,6 +1722,125 @@ namespace Inventory
 			fadeInMainFormTimer.Start();
 		}
 		#endregion /Initialize
+
+		#region MonthlyFinancialCalculation
+		private void MonthlyFinancialCalculation()
+		{
+			System.Globalization.PersianCalendar persianCalendar = new System.Globalization.PersianCalendar();
+
+			int year = persianCalendar.GetYear(System.DateTime.Now);
+			int month = persianCalendar.GetMonth(System.DateTime.Now);
+			int day = persianCalendar.GetDayOfMonth(System.DateTime.Now);
+
+			string dateNow =
+				$"{year}/{month.ToString().PadLeft(2, '0')}/{day.ToString().PadLeft(2, '0')}";
+
+			decimal sumAmountPayment = 0;
+			decimal resultSumAmountPayment = 0;
+			decimal sumAmountPaid = 0;
+			decimal resultSumAmountPaid = 0;
+			decimal sumAmountReceived = 0;
+			decimal resultSumAmountReceived = 0;
+			decimal sumAmountRemaining = 0;
+			decimal resultSumAmountRemaining = 0;
+
+			Models.DataBaseContext dataBaseContext = null;
+
+			try
+			{
+				dataBaseContext =
+					new Models.DataBaseContext();
+				System.Collections.Generic.List<Models.DailyFinancialReport> _dailyFinancialReports =
+					dataBaseContext.DailyFinancialReports
+					.Where(current => current.Register_Date.Contains(dateNow))
+					.OrderBy(current => current.Register_Date)
+					.ToList();
+
+				if (_dailyFinancialReports != null)
+				{
+					foreach (var item in _dailyFinancialReports)
+					{
+						sumAmountPayment = decimal.Parse(item.Amounts_Payment.Replace("تومان", string.Empty).Replace(",", string.Empty).Trim());
+						resultSumAmountPayment += sumAmountPayment;
+
+						sumAmountPaid = decimal.Parse(item.Amounts_Payment.Replace("تومان", string.Empty).Replace(",", string.Empty).Trim());
+						resultSumAmountPaid += sumAmountPaid;
+
+						sumAmountReceived = decimal.Parse(item.Amounts_Received.Replace("تومان", string.Empty).Replace(",", string.Empty).Trim());
+						resultSumAmountReceived += sumAmountReceived;
+
+						sumAmountRemaining = decimal.Parse(item.Amounts_Payment.Replace("تومان", string.Empty).Replace(",", string.Empty).Trim());
+						resultSumAmountRemaining += sumAmountRemaining;
+					}
+				}
+
+				Models.MonthlyFinancialReport monthlyFinancialReport =
+					dataBaseContext.MonthlyFinancialReports
+					.Where(current => string.Compare(current.Register_Date, dateNow) == 0)
+					.FirstOrDefault();
+
+				if (monthlyFinancialReport != null)
+				{
+					monthlyFinancialReport =
+						new Models.MonthlyFinancialReport
+						{
+							Sum_Amount_Payment_Of_Day = resultSumAmountPayment.ToString(),
+							Sum_Amount_Paid_Of_Day = resultSumAmountPaid.ToString(),
+							Sum_Amounts_Remaining_Of_Day = resultSumAmountRemaining.ToString(),
+							Sum_Amounts_Received_Of_Day = resultSumAmountReceived.ToString(),
+							Register_Date = dateNow,
+							Year = year,
+							Month = month,
+							Day = day,
+						};
+					dataBaseContext.SaveChanges();
+
+					Mbb.Windows.Forms.MessageBox.Show
+						(text: "حساب روز محاسبه گردید و بسته شد!",
+						caption: "تکمیل محاسبات",
+						icon: Mbb.Windows.Forms.MessageBoxIcon.Success,
+						button: Mbb.Windows.Forms.MessageBoxButtons.Ok);
+					return;
+				}
+				else if (monthlyFinancialReport == null)
+				{
+					monthlyFinancialReport =
+						new Models.MonthlyFinancialReport
+						{
+							Sum_Amount_Payment_Of_Day = resultSumAmountPayment.ToString(),
+							Sum_Amount_Paid_Of_Day = resultSumAmountPaid.ToString(),
+							Sum_Amounts_Remaining_Of_Day = resultSumAmountRemaining.ToString(),
+							Sum_Amounts_Received_Of_Day = resultSumAmountReceived.ToString(),
+							Register_Date = dateNow,
+							Year = year,
+							Month = month,
+							Day = day,
+						};
+					dataBaseContext.MonthlyFinancialReports.Add(monthlyFinancialReport);
+					dataBaseContext.SaveChanges();
+
+					Mbb.Windows.Forms.MessageBox.Show
+						(text: "حساب روز محاسبه گردید و بسته شد!",
+						caption: "تکمیل محاسبات",
+						icon: Mbb.Windows.Forms.MessageBoxIcon.Success,
+						button: Mbb.Windows.Forms.MessageBoxButtons.Ok);
+					return;
+				}
+			}
+			catch (System.Exception ex)
+			{
+				Infrastructure.Utility.ExceptionShow(ex);
+			}
+			finally
+			{
+				if (dataBaseContext != null)
+				{
+					dataBaseContext.Dispose();
+					dataBaseContext = null;
+				}
+			}
+		}
+		#endregion /MonthlyFinancialCalculation		
 
 		#region ResetSubmenu
 		/// <summary>

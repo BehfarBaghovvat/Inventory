@@ -49,7 +49,6 @@ namespace Manegment_Setting
 			this.userImageDataGridViewImageColumn = new System.Windows.Forms.DataGridViewImageColumn();
 			this.userBindingSource = new System.Windows.Forms.BindingSource(this.components);
 			this.userSettingGroupBox = new Guna.UI2.WinForms.Guna2GroupBox();
-			this.userImagePictureBox = new Mbb.Windows.Forms.CircularPictureBox();
 			this.activationUserLabel = new Mbb.Windows.Forms.Label();
 			this.activationUserCheckBox = new Guna.UI2.WinForms.Guna2CustomCheckBox();
 			this.usenamePanel = new Mbb.Windows.Forms.Panel();
@@ -67,13 +66,14 @@ namespace Manegment_Setting
 			this.userListDataGridViewElipse = new Guna.UI2.WinForms.Guna2Elipse(this.components);
 			this.contextMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
 			this.deleteUserToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.userImagePictureBox = new Mbb.Windows.Forms.CircularPictureBox();
 			this.dataGridViewPanel.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.userListDataGridView)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.userBindingSource)).BeginInit();
 			this.userSettingGroupBox.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)(this.userImagePictureBox)).BeginInit();
 			this.accessLevelGroupBox.SuspendLayout();
 			this.contextMenuStrip.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.userImagePictureBox)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// dataGridViewPanel
@@ -278,23 +278,6 @@ namespace Manegment_Setting
 			this.userSettingGroupBox.TabIndex = 19;
 			this.userSettingGroupBox.UseTransparentBackground = true;
 			// 
-			// userImagePictureBox
-			// 
-			this.userImagePictureBox.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("userImagePictureBox.BackgroundImage")));
-			this.userImagePictureBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-			this.userImagePictureBox.BorderCapStyle = System.Drawing.Drawing2D.DashCap.Flat;
-			this.userImagePictureBox.BorderColor1 = System.Drawing.Color.RoyalBlue;
-			this.userImagePictureBox.BorderColor2 = System.Drawing.Color.HotPink;
-			this.userImagePictureBox.BorderLineStyle = System.Drawing.Drawing2D.DashStyle.Solid;
-			this.userImagePictureBox.BordrSize = 2;
-			this.userImagePictureBox.GradiantAngle = 50F;
-			this.userImagePictureBox.Location = new System.Drawing.Point(96, 10);
-			this.userImagePictureBox.Name = "userImagePictureBox";
-			this.userImagePictureBox.Size = new System.Drawing.Size(100, 100);
-			this.userImagePictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-			this.userImagePictureBox.TabIndex = 25;
-			this.userImagePictureBox.TabStop = false;
-			// 
 			// activationUserLabel
 			// 
 			this.activationUserLabel.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
@@ -333,6 +316,7 @@ namespace Manegment_Setting
 			// 
 			this.usenamePanel.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
 			this.usenamePanel.BackColor = System.Drawing.Color.Black;
+			this.usenamePanel.ForeColor = System.Drawing.Color.DimGray;
 			this.usenamePanel.Location = new System.Drawing.Point(44, 151);
 			this.usenamePanel.Name = "usenamePanel";
 			this.usenamePanel.Size = new System.Drawing.Size(205, 3);
@@ -555,6 +539,23 @@ namespace Manegment_Setting
 			this.deleteUserToolStripMenuItem.Text = "حذف کاربر";
 			this.deleteUserToolStripMenuItem.Click += new System.EventHandler(this.DeleteUserToolStripMenuItem_Click);
 			// 
+			// userImagePictureBox
+			// 
+			this.userImagePictureBox.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("userImagePictureBox.BackgroundImage")));
+			this.userImagePictureBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+			this.userImagePictureBox.BorderCapStyle = System.Drawing.Drawing2D.DashCap.Flat;
+			this.userImagePictureBox.BorderColor1 = System.Drawing.Color.RoyalBlue;
+			this.userImagePictureBox.BorderColor2 = System.Drawing.Color.HotPink;
+			this.userImagePictureBox.BorderLineStyle = System.Drawing.Drawing2D.DashStyle.Solid;
+			this.userImagePictureBox.BordrSize = 2;
+			this.userImagePictureBox.GradiantAngle = 50F;
+			this.userImagePictureBox.Location = new System.Drawing.Point(96, 10);
+			this.userImagePictureBox.Name = "userImagePictureBox";
+			this.userImagePictureBox.Size = new System.Drawing.Size(100, 100);
+			this.userImagePictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+			this.userImagePictureBox.TabIndex = 1;
+			this.userImagePictureBox.TabStop = false;
+			// 
 			// UserSettingUC
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 17F);
@@ -574,10 +575,10 @@ namespace Manegment_Setting
 			((System.ComponentModel.ISupportInitialize)(this.userBindingSource)).EndInit();
 			this.userSettingGroupBox.ResumeLayout(false);
 			this.userSettingGroupBox.PerformLayout();
-			((System.ComponentModel.ISupportInitialize)(this.userImagePictureBox)).EndInit();
 			this.accessLevelGroupBox.ResumeLayout(false);
 			this.accessLevelGroupBox.PerformLayout();
 			this.contextMenuStrip.ResumeLayout(false);
+			((System.ComponentModel.ISupportInitialize)(this.userImagePictureBox)).EndInit();
 			this.ResumeLayout(false);
 
 		}
@@ -599,7 +600,6 @@ namespace Manegment_Setting
 		private System.Windows.Forms.DataGridViewTextBoxColumn registrationTimeDataGridViewTextBoxColumn;
 		private System.Windows.Forms.DataGridViewImageColumn userImageDataGridViewImageColumn;
 		private Guna.UI2.WinForms.Guna2GroupBox userSettingGroupBox;
-		private Mbb.Windows.Forms.CircularPictureBox userImagePictureBox;
 		private Mbb.Windows.Forms.Label activationUserLabel;
 		private Guna.UI2.WinForms.Guna2CustomCheckBox activationUserCheckBox;
 		private Mbb.Windows.Forms.Panel usenamePanel;
@@ -617,5 +617,6 @@ namespace Manegment_Setting
 		private Guna.UI2.WinForms.Guna2Elipse userListDataGridViewElipse;
 		private System.Windows.Forms.ContextMenuStrip contextMenuStrip;
 		private System.Windows.Forms.ToolStripMenuItem deleteUserToolStripMenuItem;
+		private Mbb.Windows.Forms.CircularPictureBox userImagePictureBox;
 	}
 }

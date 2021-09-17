@@ -18,9 +18,21 @@
 		[System.ComponentModel.DisplayName(displayName: "مبالغ پرداختی")]
 		//-----StringLength Amounts_Paid
 		[System.ComponentModel.DataAnnotations.StringLength
-			(maximumLength: 60)]
+			(maximumLength: 150)]
 		public string Amounts_Paid { get; set; }
 		#endregion /Amounts_Paid
+
+		/// <summary>
+		/// مبالغ قابل پرداخت
+		/// </summary>
+		#region Amounts_Payment
+		//----- Display Name Amounts_Payment
+		[System.ComponentModel.DisplayName(displayName: "مبالغ قابل پرداخت")]
+		//-----StringLength Amounts_Payment
+		[System.ComponentModel.DataAnnotations.StringLength
+			(maximumLength: 150)]
+		public string Amounts_Payment { get; set; }
+		#endregion /Amounts_Payment
 
 		/// <summary>
 		/// مبالغ دریافتی
@@ -30,9 +42,21 @@
 		[System.ComponentModel.DisplayName(displayName: "مبالغ دریافتی")]
 		//-----StringLength Amounts_Received
 		[System.ComponentModel.DataAnnotations.StringLength
-			(maximumLength: 60)]
+			(maximumLength: 150)]
 		public string Amounts_Received { get; set; }
 		#endregion /Amounts_Received
+
+		/// <summary>
+		/// مبالغ باقیمانده
+		/// </summary>
+		#region Amounts_Remaining
+		//----- Display Name Amounts_Remaining
+		[System.ComponentModel.DisplayName(displayName: "مبالغ باقیمانده")]
+		//-----StringLength Amounts_Remaining
+		[System.ComponentModel.DataAnnotations.StringLength
+			(maximumLength: 150)]
+		public string Amounts_Remaining { get; set; }
+		#endregion /Amounts_Remaining
 
 		/// <summary>
 		/// ردیف

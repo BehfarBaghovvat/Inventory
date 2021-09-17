@@ -37,7 +37,7 @@ namespace Inventory
 			// 
 			// button1
 			// 
-			this.button1.Location = new System.Drawing.Point(305, 301);
+			this.button1.Location = new System.Drawing.Point(611, 146);
 			this.button1.Name = "button1";
 			this.button1.Size = new System.Drawing.Size(150, 44);
 			this.button1.TabIndex = 0;
@@ -47,7 +47,7 @@ namespace Inventory
 			// 
 			// button2
 			// 
-			this.button2.Location = new System.Drawing.Point(305, 203);
+			this.button2.Location = new System.Drawing.Point(611, 96);
 			this.button2.Name = "button2";
 			this.button2.Size = new System.Drawing.Size(150, 44);
 			this.button2.TabIndex = 1;
@@ -57,7 +57,7 @@ namespace Inventory
 			// 
 			// button3
 			// 
-			this.button3.Location = new System.Drawing.Point(357, 119);
+			this.button3.Location = new System.Drawing.Point(686, 67);
 			this.button3.Name = "button3";
 			this.button3.Size = new System.Drawing.Size(75, 23);
 			this.button3.TabIndex = 2;
@@ -93,7 +93,7 @@ namespace Inventory
 			this.dayOfWeekComboBox.ItemsAppearance.Parent = this.dayOfWeekComboBox;
 			this.dayOfWeekComboBox.ItemsAppearance.SelectedBackColor = System.Drawing.Color.Gray;
 			this.dayOfWeekComboBox.ItemsAppearance.SelectedForeColor = System.Drawing.Color.White;
-			this.dayOfWeekComboBox.Location = new System.Drawing.Point(331, 61);
+			this.dayOfWeekComboBox.Location = new System.Drawing.Point(600, 33);
 			this.dayOfWeekComboBox.Name = "dayOfWeekComboBox";
 			this.dayOfWeekComboBox.ShadowDecoration.Parent = this.dayOfWeekComboBox;
 			this.dayOfWeekComboBox.Size = new System.Drawing.Size(161, 28);
