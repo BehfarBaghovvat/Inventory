@@ -63,11 +63,11 @@
 		#endregion /Sum_Amounts_Received_Of_Day
 
 		/// <summary>
-		/// جمع مبلغ بدهی روز
+		/// جمع مبلغ باقیمانده روز
 		/// </summary>
 		#region Sum_Amounts_Remaining_Of_Day
 		//----- Display Name Sum_Amounts_Remaining_Of_Day
-		[System.ComponentModel.DisplayName(displayName: "جمع مبلغ بدهی روز")]
+		[System.ComponentModel.DisplayName(displayName: "جمع مبلغ باقیمانده روز")]
 		//-----Allow Empty Sum_Amounts_Remaining_Of_Day
 		[System.ComponentModel.DataAnnotations.Required
 			(AllowEmptyStrings = false)]

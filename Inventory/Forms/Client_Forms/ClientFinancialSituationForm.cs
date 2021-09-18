@@ -1,4 +1,5 @@
 ﻿using System.Linq;
+using System;
 
 namespace Client_Forms
 {
@@ -148,7 +149,7 @@ namespace Client_Forms
 		#region PaymentButton_Click
 		private void PaymentButton_Click(object sender, System.EventArgs e)
 		{
-			if (SetAmountInCapitalFund(CheckSituation(Sum_Amount), Sum_Amount))
+			if (SetAmountInCapitalFund(CheckSituation(Sum_Amount), Sum_Amount) && (UpdateListFinancialClient()))
 			{
 				Infrastructure.Utility.WindowsNotification(message: "عملیات تسویه انجام گردید.", caption: Infrastructure.PopupNotificationForm.Caption.اطلاع);
 			}
@@ -292,15 +293,15 @@ namespace Client_Forms
 
 				foreach (System.Windows.Forms.DataGridViewRow row in listFinantioalClientDataGridView.Rows)
 				{
-					if (string.Compare(row.Cells[7].Value.ToString(),FinantialSituation.بدهکار.ToString()) == 0)
+					if (string.Compare(row.Cells[6].Value.ToString(),FinantialSituation.بدهکار.ToString()) == 0)
 					{
 						row.DefaultCellStyle.BackColor = System.Drawing.Color.LightPink;
 					}
-					if (string.Compare(row.Cells[7].Value.ToString(), FinantialSituation.تسویه.ToString()) == 0)
+					if (string.Compare(row.Cells[6].Value.ToString(), FinantialSituation.تسویه.ToString()) == 0)
 					{
 						row.DefaultCellStyle.BackColor = System.Drawing.Color.LightGreen;
 					}
-					if (string.Compare(row.Cells[7].Value.ToString(), FinantialSituation.بستانکار.ToString()) == 0)
+					if (string.Compare(row.Cells[6].Value.ToString(), FinantialSituation.بستانکار.ToString()) == 0)
 					{
 						row.DefaultCellStyle.BackColor = System.Drawing.Color.LightGreen;
 					}
@@ -387,6 +388,8 @@ namespace Client_Forms
 		/// <param name="_amount"></param>
 		private bool SetAmountInCapitalFund(int? _situation, decimal? _amount)
 		{
+			decimal amountPaid, amountRemaining;
+
 			if (_situation == 1)
 			{
 				Capital_Fund += _amount;
@@ -411,13 +414,19 @@ namespace Client_Forms
 					{
 						if (row.Cells[1].Value != null || (bool)row.Cells[1].Value == true)
 						{
-							row.Cells[1].Value = false;
-							row.Cells[0].Value = $"0 تومان";
-							row.Cells[7].Value = $"{FinantialSituation.تسویه}";
+							//مبلغ پرداخت شده را در یک متغییر قرار دادیم
+							amountPaid = decimal.Parse(row.Cells[3].Value.ToString().Replace("تومان", string.Empty).Replace(",", string.Empty).Trim());
+							//مبلغ باقیمانده حساب را هم در یک متغییر قرار دادیم
+							amountRemaining = decimal.Parse(row.Cells[5].Value.ToString().Replace("تومان",string.Empty).Replace(",",string.Empty).Trim());							
+							//در دو متغییر را با هم جمع در متغییر مبلغ پرداخت شده قرار دادیم
+							amountPaid += amountRemaining;
+
+							row.Cells[2].Value = $"{amountPaid:#,0} تومان";
+							row.Cells[4].Value = "0 تومان";
+							row.Cells[6].Value = $"{FinantialSituation.تسویه}";
 							row.DefaultCellStyle.BackColor = System.Drawing.Color.LightGreen;
 						}
 					}
-
 					return true;
 				}
 				catch (System.Exception ex)
@@ -458,19 +467,19 @@ namespace Client_Forms
 					{
 						if (row.Cells[1].Value != null || (bool)row.Cells[1].Value == true)
 						{
-							row.Cells[1].Value = false;
-							row.Cells[0].Value = $"0 تومان";
-							row.Cells[7].Value = $"{FinantialSituation.تسویه}";
+							//مبلغ پرداخت شده را در یک متغییر قرار دادیم
+							amountPaid = decimal.Parse(row.Cells[3].Value.ToString().Replace("تومان", string.Empty).Replace(",", string.Empty).Trim());
+							//مبلغ باقیمانده حساب را هم در یک متغییر قرار دادیم
+							amountRemaining = decimal.Parse(row.Cells[5].Value.ToString().Replace("تومان", string.Empty).Replace(",", string.Empty).Trim());
+							//در دو متغییر را با هم جمع در متغییر مبلغ پرداخت شده قرار دادیم
+							amountPaid -= amountRemaining;
+
+							row.Cells[2].Value = $"{amountPaid:#,0} تومان";
+							row.Cells[4].Value = $"0 تومان";
+							row.Cells[6].Value = $"{FinantialSituation.تسویه}";
 							row.DefaultCellStyle.BackColor = System.Drawing.Color.LightGreen;
 						}
 					}
-
-
-
-
-
-
-
 					paymentButton.Enabled = false;
 
 					return true;
@@ -501,6 +510,59 @@ namespace Client_Forms
 
 		}
 		#endregion /SetAmountInCapitalFund
+
+		#region UpdateListFinancialClient
+		private bool UpdateListFinancialClient()
+		{
+			Models.DataBaseContext dataBaseContext = null;
+			try
+			{
+				dataBaseContext =
+					new Models.DataBaseContext();
+
+				foreach (System.Windows.Forms.DataGridViewRow row in listFinantioalClientDataGridView.Rows)
+				{
+					if (row.Cells[1].Value != null || (bool)row.Cells[1].Value == true)
+					{
+						Models.ListFinancialClient listFinancialClient =
+							dataBaseContext.ListFinancialClients
+							.Where(current => current.Id == int.Parse(row.Cells[0].Value.ToString()))
+							.FirstOrDefault();
+
+						if (listFinancialClient != null)
+						{
+							listFinancialClient =
+								new Models.ListFinancialClient();
+
+							listFinancialClient.Amount_Paid = row.Cells[2].Value.ToString();
+							listFinancialClient.Amount_Remaininig = row.Cells[4].Value.ToString();
+
+							if (string.Compare(row.Cells[6].Value.ToString(), FinantialSituation.تسویه.ToString()) == 0)
+							{
+								listFinancialClient.Finantial_Situation = Models.ListFinancialClient.FinantialSituation.تسویه;
+							}
+						}
+						dataBaseContext.SaveChanges();
+					}
+				}
+				GetListFinantialClient();
+				return true;
+			}
+			catch (System.Exception ex)
+			{
+				Infrastructure.Utility.ExceptionShow(ex);
+				return false;
+			}
+			finally
+			{
+				if (dataBaseContext != null)
+				{
+					dataBaseContext.Dispose();
+					dataBaseContext = null;
+				}
+			}
+		}
+		#endregion /UpdateListFinancialClient
 
 		#endregion /Function
 	}

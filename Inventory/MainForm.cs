@@ -1341,7 +1341,7 @@ namespace Inventory
 			{
 				AnnualFinancialCalculation();
 			}
-			else if ((month == 12 && day == 29) && (string.Compare(finalHour, "23") == 0 && string.Compare(finalMinute, "55") == 0 && string.Compare(finalSecond, "00") == 0))
+			else if ((_dateTimeSystem.Month == 12 && _dateTimeSystem.Day_Month == 29) && (string.Compare(finalHour, "23") == 0 && string.Compare(finalMinute, "55") == 0 && string.Compare(finalSecond, "00") == 0))
 			{
 				AnnualFinancialCalculation();
 			}
@@ -1392,6 +1392,87 @@ namespace Inventory
 			}
 		}
 		#endregion /AccountLoaded
+
+		#region AnnualFinancialCalculation
+		/// <summary>
+		/// تهیه نمودار مالی برای هر سال
+		/// </summary>
+		private void AnnualFinancialCalculation()
+		{
+			System.Globalization.PersianCalendar persianCalendar = new System.Globalization.PersianCalendar();
+
+			int year = persianCalendar.GetYear(System.DateTime.Now);
+			int month = persianCalendar.GetMonth(System.DateTime.Now);
+
+			string dateNow = $"{year}";
+
+			decimal sumAmountPayment = 0;
+			decimal resultSumAmountPayment = 0;
+			decimal sumAmountPaid = 0;
+			decimal resultSumAmountPaid = 0;
+			decimal sumAmountReceived = 0;
+			decimal resultSumAmountReceived = 0;
+			decimal sumAmountRemaining = 0;
+			decimal resultSumAmountRemaining = 0;
+
+			Models.DataBaseContext dataBaseContext = null;
+
+			try
+			{
+				dataBaseContext =
+					new Models.DataBaseContext();
+				System.Collections.Generic.List<Models.MonthlyFinancialReport> listMonthlyFinancialReports =
+					dataBaseContext.MonthlyFinancialReports
+					.Where(current => current.Register_Date.Contains(dateNow))
+					.OrderBy(current => current.Month)
+					.ToList();
+
+				if (listMonthlyFinancialReports != null)
+				{
+					foreach (var item in listMonthlyFinancialReports)
+					{
+						sumAmountPayment = decimal.Parse(item.Sum_Amount_Payment_Of_Day.Replace("تومان", string.Empty).Replace(",", string.Empty).Trim());
+						resultSumAmountPayment += sumAmountPayment;
+
+						sumAmountPaid = decimal.Parse(item.Sum_Amount_Payment_Of_Day.Replace("تومان", string.Empty).Replace(",", string.Empty).Trim());
+						resultSumAmountPaid += sumAmountPaid;
+
+						sumAmountReceived = decimal.Parse(item.Sum_Amount_Payment_Of_Day.Replace("تومان", string.Empty).Replace(",", string.Empty).Trim());
+						resultSumAmountReceived += sumAmountReceived;
+
+						sumAmountRemaining = decimal.Parse(item.Sum_Amount_Payment_Of_Day.Replace("تومان", string.Empty).Replace(",", string.Empty).Trim());
+						resultSumAmountRemaining += sumAmountRemaining;
+					}
+				}
+
+				Models.YearlyFinancialReport yearlyFinancialReport = new Models.YearlyFinancialReport
+				{
+					Sum_Amount_Paid_Of_Month = sumAmountPaid.ToString(),
+					Sum_Amount_Payment_Of_Month = resultSumAmountPayment.ToString(),
+					Sum_Amounts_Received_Of_Month = resultSumAmountReceived.ToString(),
+					Sum_Amounts_Remaining_Of_Month = resultSumAmountRemaining.ToString(),
+					Register_Date = dateNow,
+					Year = year,
+					Month = month,
+				};
+
+				dataBaseContext.YearlyFinancialReports.Add(yearlyFinancialReport);
+				dataBaseContext.SaveChanges();
+			}
+			catch (System.Exception ex)
+			{
+				Infrastructure.Utility.ExceptionShow(ex);
+			}
+			finally
+			{
+				if (dataBaseContext != null)
+				{
+					dataBaseContext.Dispose();
+					dataBaseContext = null;
+				}
+			}
+		}
+		#endregion /AnnualFinancialCalculation
 
 		#region CheckAccessLevel
 		/// <summary>
@@ -1724,6 +1805,9 @@ namespace Inventory
 		#endregion /Initialize
 
 		#region MonthlyFinancialCalculation
+		/// <summary>
+		/// تهیه یک نمودار مالی برای ماه های سال
+		/// </summary>
 		private void MonthlyFinancialCalculation()
 		{
 			System.Globalization.PersianCalendar persianCalendar = new System.Globalization.PersianCalendar();

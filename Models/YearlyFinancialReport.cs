@@ -21,7 +21,7 @@
 		/// <summary>
 		/// جمع مبلغ پرداختی ماه
 		/// </summary>
-		#region Sum_Total_Price_Of_Month
+		#region Sum_Amount_Paid_Of_Month
 		//----- Display Name Sum_Amount_Paid_Of_Month
 		[System.ComponentModel.DisplayName(displayName: "جمع مبلغ پرداختی ماه")]
 		//-----Allow Empty Sum_Amount_Paid_Of_Month

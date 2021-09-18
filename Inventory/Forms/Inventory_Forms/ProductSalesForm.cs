@@ -24,6 +24,9 @@ namespace Inventory_Forms
 			public string Seller_Name { get; set; }
 			public string Client_Name { get; set; }
 			public string Carrier_Name { get; set; }
+			public string License_Plate { get; set; }
+			public string Phone_Number { get; set; }
+
 		}
 
 		private BillSaleReportForm _billSaleReportForm;
@@ -235,6 +238,35 @@ namespace Inventory_Forms
 		}
 		#endregion /ProductPriceTextBox_TextChange
 
+		#region CarrierNameTextBox_Enter
+		private void CarrierNameTextBox_Enter(object sender, System.EventArgs e)
+		{
+			Infrastructure.Utility.PersianLanguage();
+		}
+		#endregion /CarrierNameTextBox_Enter
+
+		#region CarrierNameTextBox_KeyPress
+		private void CarrierNameTextBox_KeyPress(object sender, System.Windows.Forms.KeyPressEventArgs e)
+		{
+			Infrastructure.Utility.PersianTyping(e);
+		}
+		#endregion /CarrierNameTextBox_KeyPress
+
+		#region CarrierNameTextBox_TextChange
+		private void CarrierNameTextBox_TextChange(object sender, System.EventArgs e)
+		{
+			if (string.IsNullOrWhiteSpace(carrierNameTextBox.Text))
+			{
+				InventoryOutput.Carrier_Name = null;
+				return;
+			}
+			else
+			{
+				InventoryOutput.Carrier_Name = carrierNameTextBox.Text;
+			}
+		}
+		#endregion /CarrierNameTextBox_TextChange
+
 		#region ClientNameTextBox_Enter
 		private void ClientNameTextBox_Enter(object sender, System.EventArgs e)
 		{
@@ -264,34 +296,69 @@ namespace Inventory_Forms
 		}
 		#endregion /ClientNameTextBox_TextChange
 
-		#region CarrierNameTextBox_Enter
-		private void CarrierNameTextBox_Enter(object sender, System.EventArgs e)
+		//#region LicensePlateTextBox_Enter
+		//private void LicensePlateTextBox_Enter(object sender, System.EventArgs e)
+		//{
+		//	Infrastructure.Utility.PersianLanguage();
+		//	licensePlateTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+		//}
+		//#endregion /LicensePlateTextBox_Enter
+
+		//#region LicensePlateTextBox_KeyPress
+		//private void LicensePlateTextBox_KeyPress(object sender, System.Windows.Forms.KeyPressEventArgs e)
+		//{
+		//	Infrastructure.Utility.PersianAndNumberTyping(e);
+		//}
+		//#endregion /LicensePlateTextBox_KeyPress
+
+		//#region LicensePlateTextBox_Leave
+		//private void LicensePlateTextBox_Leave(object sender, System.EventArgs e)
+		//{
+		//	if (string.IsNullOrWhiteSpace(licensePlateTextBox.Text) || licensePlateTextBox.Text.Length < 7)
+		//	{
+		//		transactionFactorsItems.License_Plate = null;
+		//		licensePlateTextBox.Clear();
+		//		licensePlateTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+		//		return;
+		//	}
+		//	else
+		//	{
+		//		transactionFactorsItems.License_Plate = licensePlateTextBox.Text = licensePlateTextBox.Text.Insert(2, " - ").Insert(7, " - ").Insert(8, " ایران ");
+		//	}
+		//}
+		//#endregion /LicensePlateTextBox_Leave
+
+		#region PhoneNumberTextBox_Enter
+		private void PhoneNumberTextBox_Enter(object sender, System.EventArgs e)
 		{
 			Infrastructure.Utility.PersianLanguage();
+			phoneNumberTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
 		}
-		#endregion /CarrierNameTextBox_Enter
+		#endregion /PhoneNumberTextBox_Enter
 
-		#region CarrierNameTextBox_KeyPress
-		private void CarrierNameTextBox_KeyPress(object sender, System.Windows.Forms.KeyPressEventArgs e)
+		#region PhoneNumberTextBox_KeyPress
+		private void PhoneNumberTextBox_KeyPress(object sender, System.Windows.Forms.KeyPressEventArgs e)
 		{
-			Infrastructure.Utility.PersianTyping(e);
+			Infrastructure.Utility.InsertOnlyNumber(e);
 		}
-		#endregion /CarrierNameTextBox_KeyPress
+		#endregion /PhoneNumberTextBox_KeyPress
 
-		#region CarrierNameTextBox_TextChange
-		private void CarrierNameTextBox_TextChange(object sender, System.EventArgs e)
+		#region PhoneNumberTextBox_Leave
+		private void PhoneNumberTextBox_Leave(object sender, System.EventArgs e)
 		{
-			if (string.IsNullOrWhiteSpace(carrierNameTextBox.Text))
+			if (string.IsNullOrWhiteSpace(phoneNumberTextBox.Text) || phoneNumberTextBox.Text.Length < 11)
 			{
-				InventoryOutput.Carrier_Name = null;
+				phoneNumberTextBox.Clear();
+				transactionFactorsItems.Phone_Number = null;
+				phoneNumberTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
 				return;
 			}
 			else
 			{
-				InventoryOutput.Carrier_Name = carrierNameTextBox.Text;
+				transactionFactorsItems.Phone_Number = phoneNumberTextBox.Text = phoneNumberTextBox.Text.Insert(3, "-");
 			}
 		}
-		#endregion /CarrierNameTextBox_TextChange
+		#endregion /PhoneNumberTextBox_Leave
 
 		#region ProductSearchTextBox_Enter
 		private void ProductSearchTextBox_Enter(object sender, System.EventArgs e)
@@ -874,10 +941,75 @@ namespace Inventory_Forms
 				}
 			}
 		}
+
 		#endregion /WarehouseOutput
 
 		#endregion /Founction
 
-		
+		#region LicensePlateTextBox_Enter
+		private void LicensePlateTextBox_Enter(object sender, System.EventArgs e)
+		{
+			Infrastructure.Utility.PersianLanguage();
+			licensePlateTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+		}
+		#endregion /LicensePlateTextBox_Enter
+
+		#region LicensePlateTextBox_KeyPress
+		private void LicensePlateTextBox_KeyPress(object sender, System.Windows.Forms.KeyPressEventArgs e)
+		{
+			Infrastructure.Utility.PersianAndNumberTyping(e);
+		}
+		#endregion /LicensePlateTextBox_KeyPress
+
+		#region LicensePlateTextBox_Leave
+		private void LicensePlateTextBox_Leave(object sender, System.EventArgs e)
+		{
+			if (string.IsNullOrWhiteSpace(licensePlateTextBox.Text) || licensePlateTextBox.Text.Length < 7)
+			{
+				transactionFactorsItems.License_Plate = null;
+				licensePlateTextBox.Clear();
+				licensePlateTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+				return;
+			}
+			else
+			{
+				transactionFactorsItems.License_Plate = licensePlateTextBox.Text = licensePlateTextBox.Text.Insert(2, " - ").Insert(7, " - ").Insert(8, " ایران ");
+			}
+		}
+		#endregion /LicensePlateTextBox_Leave
+
+		#region PhoneNumberTextBox_Enter
+		private void PhoneNumberTextBox_Enter(object sender, System.EventArgs e)
+		{
+			Infrastructure.Utility.PersianLanguage();
+			phoneNumberTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+		}
+		#endregion /PhoneNumberTextBox_Enter
+
+		#region PhoneNumberTextBox_KeyPress
+		private void PhoneNumberTextBox_KeyPress(object sender, System.Windows.Forms.KeyPressEventArgs e)
+		{
+			Infrastructure.Utility.InsertOnlyNumber(e);
+		}
+		#endregion /PhoneNumberTextBox_KeyPress
+
+		#region PhoneNumberTextBox_Leave
+		private void PhoneNumberTextBox_Leave(object sender, System.EventArgs e)
+		{
+			if (string.IsNullOrWhiteSpace(phoneNumberTextBox.Text) || phoneNumberTextBox.Text.Length < 11)
+			{
+				phoneNumberTextBox.Clear();
+				transactionFactorsItems.Phone_Number = null;
+				phoneNumberTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+				return;
+			}
+			else
+			{
+				transactionFactorsItems.Phone_Number = phoneNumberTextBox.Text = phoneNumberTextBox.Text.Insert(3, "-");
+			}
+		}
+		#endregion /PhoneNumberTextBox_Leave
+
+
 	}
 }

@@ -32,14 +32,26 @@ namespace Models
 		/// <summary>
 		/// مبلغ قابل پرداخت
 		/// </summary>
-		#region Amount_Payable
-		//-----DisplayName field for Amount_Payable
+		#region Amounts_Payment
+		//-----DisplayName field for Amounts_Payment
 		[System.ComponentModel.DisplayName(displayName: "مبلغ قابل پرداخت")]
-		//--Lenght Amount_Payable
+		//--Lenght Amounts_Payment
 		[System.ComponentModel.DataAnnotations.StringLength
 			(maximumLength: 160)]
-		public string Amount_Payable { get; set; }
-		#endregion /Amount_Payable
+		public string Amounts_Payment { get; set; }
+		#endregion /Amounts_Payment
+
+		/// <summary>
+		/// مبلغ باقی مانده
+		/// </summary>
+		#region Amount_Remaininig
+		//-----DisplayName field for Amount_Remaininig
+		[System.ComponentModel.DisplayName(displayName: "مبلغ باقیمانده")]
+		//--Lenght Amount_Remaininig
+		[System.ComponentModel.DataAnnotations.StringLength
+			(maximumLength: 150)]
+		public string Amount_Remaininig { get; set; }
+		#endregion /Amount_Remaininig
 
 		/// <summary>
 		/// نام مشتری
@@ -118,17 +130,6 @@ namespace Models
 			(maximumLength: 8)]
 		public string Registration_Time { get; set; }
 		#endregion /Registration_Time
-
-		/// <summary>
-		/// مبلغ باقی مانده
-		/// </summary>
-		#region Remaininig_Amount
-		[System.ComponentModel.DisplayName(displayName: "مبلغ باقیمانده")]
-		//--Lenght Amount_Payable
-		[System.ComponentModel.DataAnnotations.StringLength
-			(maximumLength: 60)]
-		public string Remaininig_Amount { get; set; }
-		#endregion /Remaininig_Amount
 
 		/// <summary>
 		/// درصد مالیات
