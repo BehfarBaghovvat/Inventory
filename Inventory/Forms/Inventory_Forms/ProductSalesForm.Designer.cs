@@ -34,6 +34,11 @@ namespace Inventory_Forms
 			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
 			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
 			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ProcutSalesForm));
+			Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties1 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
+			Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties2 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
+			Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties3 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
+			Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties4 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
 			Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties5 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
 			Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties6 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
 			Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties7 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
@@ -66,11 +71,6 @@ namespace Inventory_Forms
 			Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties34 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
 			Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties35 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
 			Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties36 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
-			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ProcutSalesForm));
-			Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties1 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
-			Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties2 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
-			Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties3 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
-			Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties4 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
 			this.inventoryHoldingDataGridViewElipse = new Guna.UI.WinForms.GunaElipse(this.components);
 			this.inventoryHoldingDataGridView = new System.Windows.Forms.DataGridView();
 			this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -80,6 +80,7 @@ namespace Inventory_Forms
 			this.productPurchasePriceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.inventoryHoldingBindingSource = new System.Windows.Forms.BindingSource(this.components);
 			this.mainPanel = new Guna.UI2.WinForms.Guna2Panel();
+			this.phoneNumberTextBox = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox();
 			this.carrierNameTextBox = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox();
 			this.productPriceTextBox = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox();
 			this.clientNameTextBox = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox();
@@ -92,7 +93,6 @@ namespace Inventory_Forms
 			this.inventoryOutputButton = new Guna.UI2.WinForms.Guna2Button();
 			this.billButton = new Guna.UI2.WinForms.Guna2Button();
 			this.productSearchTextBox = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox();
-			this.phoneNumberTextBox = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox();
 			((System.ComponentModel.ISupportInitialize)(this.inventoryHoldingDataGridView)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.inventoryHoldingBindingSource)).BeginInit();
 			this.mainPanel.SuspendLayout();
@@ -259,6 +259,84 @@ namespace Inventory_Forms
 			this.mainPanel.TabIndex = 0;
 			this.mainPanel.UseTransparentBackground = true;
 			// 
+			// phoneNumberTextBox
+			// 
+			this.phoneNumberTextBox.AcceptsReturn = false;
+			this.phoneNumberTextBox.AcceptsTab = false;
+			this.phoneNumberTextBox.AnimationSpeed = 200;
+			this.phoneNumberTextBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
+			this.phoneNumberTextBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
+			this.phoneNumberTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(0)))), ((int)(((byte)(61)))));
+			this.phoneNumberTextBox.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("phoneNumberTextBox.BackgroundImage")));
+			this.phoneNumberTextBox.BorderColorActive = System.Drawing.Color.Aqua;
+			this.phoneNumberTextBox.BorderColorDisabled = System.Drawing.Color.FromArgb(((int)(((byte)(161)))), ((int)(((byte)(161)))), ((int)(((byte)(161)))));
+			this.phoneNumberTextBox.BorderColorHover = System.Drawing.Color.Magenta;
+			this.phoneNumberTextBox.BorderColorIdle = System.Drawing.Color.Gray;
+			this.phoneNumberTextBox.BorderRadius = 1;
+			this.phoneNumberTextBox.BorderThickness = 3;
+			this.phoneNumberTextBox.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
+			this.phoneNumberTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
+			this.phoneNumberTextBox.DefaultFont = new System.Drawing.Font("IRANSansXFaNum", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+			this.phoneNumberTextBox.DefaultText = "";
+			this.phoneNumberTextBox.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(0)))), ((int)(((byte)(61)))));
+			this.phoneNumberTextBox.ForeColor = System.Drawing.Color.White;
+			this.phoneNumberTextBox.HideSelection = true;
+			this.phoneNumberTextBox.IconLeft = null;
+			this.phoneNumberTextBox.IconLeftCursor = System.Windows.Forms.Cursors.IBeam;
+			this.phoneNumberTextBox.IconPadding = 10;
+			this.phoneNumberTextBox.IconRight = null;
+			this.phoneNumberTextBox.IconRightCursor = System.Windows.Forms.Cursors.IBeam;
+			this.phoneNumberTextBox.Lines = new string[0];
+			this.phoneNumberTextBox.Location = new System.Drawing.Point(693, 133);
+			this.phoneNumberTextBox.MaximumSize = new System.Drawing.Size(200, 35);
+			this.phoneNumberTextBox.MaxLength = 32767;
+			this.phoneNumberTextBox.MinimumSize = new System.Drawing.Size(100, 35);
+			this.phoneNumberTextBox.Modified = false;
+			this.phoneNumberTextBox.Multiline = false;
+			this.phoneNumberTextBox.Name = "phoneNumberTextBox";
+			stateProperties1.BorderColor = System.Drawing.Color.Aqua;
+			stateProperties1.FillColor = System.Drawing.Color.Empty;
+			stateProperties1.ForeColor = System.Drawing.Color.Empty;
+			stateProperties1.PlaceholderForeColor = System.Drawing.Color.Empty;
+			this.phoneNumberTextBox.OnActiveState = stateProperties1;
+			stateProperties2.BorderColor = System.Drawing.Color.Empty;
+			stateProperties2.FillColor = System.Drawing.Color.White;
+			stateProperties2.ForeColor = System.Drawing.Color.Empty;
+			stateProperties2.PlaceholderForeColor = System.Drawing.Color.Silver;
+			this.phoneNumberTextBox.OnDisabledState = stateProperties2;
+			stateProperties3.BorderColor = System.Drawing.Color.Magenta;
+			stateProperties3.FillColor = System.Drawing.Color.Empty;
+			stateProperties3.ForeColor = System.Drawing.Color.Empty;
+			stateProperties3.PlaceholderForeColor = System.Drawing.Color.Empty;
+			this.phoneNumberTextBox.OnHoverState = stateProperties3;
+			stateProperties4.BorderColor = System.Drawing.Color.Gray;
+			stateProperties4.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(0)))), ((int)(((byte)(61)))));
+			stateProperties4.ForeColor = System.Drawing.Color.White;
+			stateProperties4.PlaceholderForeColor = System.Drawing.Color.Empty;
+			this.phoneNumberTextBox.OnIdleState = stateProperties4;
+			this.phoneNumberTextBox.PasswordChar = '\0';
+			this.phoneNumberTextBox.PlaceholderForeColor = System.Drawing.Color.Silver;
+			this.phoneNumberTextBox.PlaceholderText = "شماره همراه";
+			this.phoneNumberTextBox.ReadOnly = false;
+			this.phoneNumberTextBox.ScrollBars = System.Windows.Forms.ScrollBars.None;
+			this.phoneNumberTextBox.SelectedText = "";
+			this.phoneNumberTextBox.SelectionLength = 0;
+			this.phoneNumberTextBox.SelectionStart = 0;
+			this.phoneNumberTextBox.ShortcutsEnabled = true;
+			this.phoneNumberTextBox.Size = new System.Drawing.Size(200, 35);
+			this.phoneNumberTextBox.Style = Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox._Style.Material;
+			this.phoneNumberTextBox.TabIndex = 8;
+			this.phoneNumberTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+			this.phoneNumberTextBox.TextMarginBottom = 0;
+			this.phoneNumberTextBox.TextMarginLeft = 5;
+			this.phoneNumberTextBox.TextMarginTop = 0;
+			this.phoneNumberTextBox.TextPlaceholder = "شماره همراه";
+			this.phoneNumberTextBox.UseSystemPasswordChar = false;
+			this.phoneNumberTextBox.WordWrap = true;
+			this.phoneNumberTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.PhoneNumberTextBox_KeyPress);
+			this.phoneNumberTextBox.Enter += new System.EventHandler(this.PhoneNumberTextBox_Enter);
+			this.phoneNumberTextBox.Leave += new System.EventHandler(this.PhoneNumberTextBox_Leave);
+			// 
 			// carrierNameTextBox
 			// 
 			this.carrierNameTextBox.AcceptsReturn = false;
@@ -276,7 +354,7 @@ namespace Inventory_Forms
 			this.carrierNameTextBox.BorderThickness = 3;
 			this.carrierNameTextBox.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
 			this.carrierNameTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
-			this.carrierNameTextBox.DefaultFont = new System.Drawing.Font("IRANSans", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.carrierNameTextBox.DefaultFont = new System.Drawing.Font("IRANSansXFaNum", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
 			this.carrierNameTextBox.DefaultText = "";
 			this.carrierNameTextBox.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(0)))), ((int)(((byte)(61)))));
 			this.carrierNameTextBox.ForeColor = System.Drawing.Color.White;
@@ -325,7 +403,7 @@ namespace Inventory_Forms
 			this.carrierNameTextBox.ShortcutsEnabled = true;
 			this.carrierNameTextBox.Size = new System.Drawing.Size(200, 35);
 			this.carrierNameTextBox.Style = Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox._Style.Material;
-			this.carrierNameTextBox.TabIndex = 7;
+			this.carrierNameTextBox.TabIndex = 6;
 			this.carrierNameTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
 			this.carrierNameTextBox.TextMarginBottom = 0;
 			this.carrierNameTextBox.TextMarginLeft = 5;
@@ -354,7 +432,7 @@ namespace Inventory_Forms
 			this.productPriceTextBox.BorderThickness = 3;
 			this.productPriceTextBox.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
 			this.productPriceTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
-			this.productPriceTextBox.DefaultFont = new System.Drawing.Font("IRANSansFaNum", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.productPriceTextBox.DefaultFont = new System.Drawing.Font("IRANSansXFaNum", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
 			this.productPriceTextBox.DefaultText = "";
 			this.productPriceTextBox.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(0)))), ((int)(((byte)(61)))));
 			this.productPriceTextBox.ForeColor = System.Drawing.Color.White;
@@ -434,7 +512,7 @@ namespace Inventory_Forms
 			this.clientNameTextBox.BorderThickness = 3;
 			this.clientNameTextBox.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
 			this.clientNameTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
-			this.clientNameTextBox.DefaultFont = new System.Drawing.Font("IRANSans", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.clientNameTextBox.DefaultFont = new System.Drawing.Font("IRANSansXFaNum", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
 			this.clientNameTextBox.DefaultText = "";
 			this.clientNameTextBox.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(0)))), ((int)(((byte)(61)))));
 			this.clientNameTextBox.ForeColor = System.Drawing.Color.White;
@@ -483,7 +561,7 @@ namespace Inventory_Forms
 			this.clientNameTextBox.ShortcutsEnabled = true;
 			this.clientNameTextBox.Size = new System.Drawing.Size(200, 35);
 			this.clientNameTextBox.Style = Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox._Style.Material;
-			this.clientNameTextBox.TabIndex = 6;
+			this.clientNameTextBox.TabIndex = 7;
 			this.clientNameTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
 			this.clientNameTextBox.TextMarginBottom = 0;
 			this.clientNameTextBox.TextMarginLeft = 5;
@@ -512,7 +590,7 @@ namespace Inventory_Forms
 			this.productUnitTextBox.BorderThickness = 3;
 			this.productUnitTextBox.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
 			this.productUnitTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
-			this.productUnitTextBox.DefaultFont = new System.Drawing.Font("IRANSans", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.productUnitTextBox.DefaultFont = new System.Drawing.Font("IRANSansXFaNum", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
 			this.productUnitTextBox.DefaultText = "";
 			this.productUnitTextBox.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(0)))), ((int)(((byte)(61)))));
 			this.productUnitTextBox.ForeColor = System.Drawing.Color.White;
@@ -587,7 +665,7 @@ namespace Inventory_Forms
 			this.productQuantityTextBox.BorderThickness = 3;
 			this.productQuantityTextBox.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
 			this.productQuantityTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
-			this.productQuantityTextBox.DefaultFont = new System.Drawing.Font("IRANSansFaNum", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.productQuantityTextBox.DefaultFont = new System.Drawing.Font("IRANSansXFaNum", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
 			this.productQuantityTextBox.DefaultText = "";
 			this.productQuantityTextBox.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(0)))), ((int)(((byte)(61)))));
 			this.productQuantityTextBox.ForeColor = System.Drawing.Color.White;
@@ -665,7 +743,7 @@ namespace Inventory_Forms
 			this.sellerNameTextBox.BorderThickness = 3;
 			this.sellerNameTextBox.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
 			this.sellerNameTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
-			this.sellerNameTextBox.DefaultFont = new System.Drawing.Font("IRANSans", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.sellerNameTextBox.DefaultFont = new System.Drawing.Font("IRANSansXFaNum", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
 			this.sellerNameTextBox.DefaultText = "";
 			this.sellerNameTextBox.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(0)))), ((int)(((byte)(61)))));
 			this.sellerNameTextBox.ForeColor = System.Drawing.Color.White;
@@ -740,7 +818,7 @@ namespace Inventory_Forms
 			this.productNameTextBox.BorderThickness = 3;
 			this.productNameTextBox.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
 			this.productNameTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
-			this.productNameTextBox.DefaultFont = new System.Drawing.Font("IRANSans", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.productNameTextBox.DefaultFont = new System.Drawing.Font("IRANSansXFaNum", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
 			this.productNameTextBox.DefaultText = "";
 			this.productNameTextBox.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(0)))), ((int)(((byte)(61)))));
 			this.productNameTextBox.ForeColor = System.Drawing.Color.White;
@@ -820,7 +898,7 @@ namespace Inventory_Forms
 			this.addOrderButton.PressedColor = System.Drawing.Color.White;
 			this.addOrderButton.ShadowDecoration.Parent = this.addOrderButton;
 			this.addOrderButton.Size = new System.Drawing.Size(150, 35);
-			this.addOrderButton.TabIndex = 9;
+			this.addOrderButton.TabIndex = 11;
 			this.addOrderButton.Text = "ثبت سفارش";
 			this.addOrderButton.Click += new System.EventHandler(this.AddOrderButton_Click);
 			// 
@@ -890,7 +968,7 @@ namespace Inventory_Forms
 			this.billButton.PressedColor = System.Drawing.Color.White;
 			this.billButton.ShadowDecoration.Parent = this.billButton;
 			this.billButton.Size = new System.Drawing.Size(130, 75);
-			this.billButton.TabIndex = 11;
+			this.billButton.TabIndex = 13;
 			this.billButton.Text = "صورت حساب";
 			this.billButton.TextOffset = new System.Drawing.Point(-10, 25);
 			this.billButton.Click += new System.EventHandler(this.BillButton_Click);
@@ -959,7 +1037,7 @@ namespace Inventory_Forms
 			this.productSearchTextBox.ShortcutsEnabled = true;
 			this.productSearchTextBox.Size = new System.Drawing.Size(467, 37);
 			this.productSearchTextBox.Style = Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox._Style.Bunifu;
-			this.productSearchTextBox.TabIndex = 8;
+			this.productSearchTextBox.TabIndex = 9;
 			this.productSearchTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
 			this.productSearchTextBox.TextMarginBottom = 0;
 			this.productSearchTextBox.TextMarginLeft = 5;
@@ -970,81 +1048,6 @@ namespace Inventory_Forms
 			this.productSearchTextBox.TextChange += new System.EventHandler(this.ProductSearchTextBox_TextChange);
 			this.productSearchTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ProductSearchTextBox_KeyPress);
 			this.productSearchTextBox.Enter += new System.EventHandler(this.ProductSearchTextBox_Enter);
-			// 
-			// phoneNumberTextBox
-			// 
-			this.phoneNumberTextBox.AcceptsReturn = false;
-			this.phoneNumberTextBox.AcceptsTab = false;
-			this.phoneNumberTextBox.AnimationSpeed = 200;
-			this.phoneNumberTextBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
-			this.phoneNumberTextBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
-			this.phoneNumberTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(0)))), ((int)(((byte)(61)))));
-			this.phoneNumberTextBox.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("phoneNumberTextBox.BackgroundImage")));
-			this.phoneNumberTextBox.BorderColorActive = System.Drawing.Color.Aqua;
-			this.phoneNumberTextBox.BorderColorDisabled = System.Drawing.Color.FromArgb(((int)(((byte)(161)))), ((int)(((byte)(161)))), ((int)(((byte)(161)))));
-			this.phoneNumberTextBox.BorderColorHover = System.Drawing.Color.Magenta;
-			this.phoneNumberTextBox.BorderColorIdle = System.Drawing.Color.Gray;
-			this.phoneNumberTextBox.BorderRadius = 1;
-			this.phoneNumberTextBox.BorderThickness = 3;
-			this.phoneNumberTextBox.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
-			this.phoneNumberTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
-			this.phoneNumberTextBox.DefaultFont = new System.Drawing.Font("IRANSans", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.phoneNumberTextBox.DefaultText = "";
-			this.phoneNumberTextBox.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(0)))), ((int)(((byte)(61)))));
-			this.phoneNumberTextBox.ForeColor = System.Drawing.Color.White;
-			this.phoneNumberTextBox.HideSelection = true;
-			this.phoneNumberTextBox.IconLeft = null;
-			this.phoneNumberTextBox.IconLeftCursor = System.Windows.Forms.Cursors.IBeam;
-			this.phoneNumberTextBox.IconPadding = 10;
-			this.phoneNumberTextBox.IconRight = null;
-			this.phoneNumberTextBox.IconRightCursor = System.Windows.Forms.Cursors.IBeam;
-			this.phoneNumberTextBox.Lines = new string[0];
-			this.phoneNumberTextBox.Location = new System.Drawing.Point(693, 133);
-			this.phoneNumberTextBox.MaximumSize = new System.Drawing.Size(200, 35);
-			this.phoneNumberTextBox.MaxLength = 32767;
-			this.phoneNumberTextBox.MinimumSize = new System.Drawing.Size(100, 35);
-			this.phoneNumberTextBox.Modified = false;
-			this.phoneNumberTextBox.Multiline = false;
-			this.phoneNumberTextBox.Name = "phoneNumberTextBox";
-			stateProperties1.BorderColor = System.Drawing.Color.Aqua;
-			stateProperties1.FillColor = System.Drawing.Color.Empty;
-			stateProperties1.ForeColor = System.Drawing.Color.Empty;
-			stateProperties1.PlaceholderForeColor = System.Drawing.Color.Empty;
-			this.phoneNumberTextBox.OnActiveState = stateProperties1;
-			stateProperties2.BorderColor = System.Drawing.Color.Empty;
-			stateProperties2.FillColor = System.Drawing.Color.White;
-			stateProperties2.ForeColor = System.Drawing.Color.Empty;
-			stateProperties2.PlaceholderForeColor = System.Drawing.Color.Silver;
-			this.phoneNumberTextBox.OnDisabledState = stateProperties2;
-			stateProperties3.BorderColor = System.Drawing.Color.Magenta;
-			stateProperties3.FillColor = System.Drawing.Color.Empty;
-			stateProperties3.ForeColor = System.Drawing.Color.Empty;
-			stateProperties3.PlaceholderForeColor = System.Drawing.Color.Empty;
-			this.phoneNumberTextBox.OnHoverState = stateProperties3;
-			stateProperties4.BorderColor = System.Drawing.Color.Gray;
-			stateProperties4.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(0)))), ((int)(((byte)(61)))));
-			stateProperties4.ForeColor = System.Drawing.Color.White;
-			stateProperties4.PlaceholderForeColor = System.Drawing.Color.Empty;
-			this.phoneNumberTextBox.OnIdleState = stateProperties4;
-			this.phoneNumberTextBox.PasswordChar = '\0';
-			this.phoneNumberTextBox.PlaceholderForeColor = System.Drawing.Color.Silver;
-			this.phoneNumberTextBox.PlaceholderText = "شماره همراه";
-			this.phoneNumberTextBox.ReadOnly = false;
-			this.phoneNumberTextBox.ScrollBars = System.Windows.Forms.ScrollBars.None;
-			this.phoneNumberTextBox.SelectedText = "";
-			this.phoneNumberTextBox.SelectionLength = 0;
-			this.phoneNumberTextBox.SelectionStart = 0;
-			this.phoneNumberTextBox.ShortcutsEnabled = true;
-			this.phoneNumberTextBox.Size = new System.Drawing.Size(200, 35);
-			this.phoneNumberTextBox.Style = Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox._Style.Material;
-			this.phoneNumberTextBox.TabIndex = 14;
-			this.phoneNumberTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-			this.phoneNumberTextBox.TextMarginBottom = 0;
-			this.phoneNumberTextBox.TextMarginLeft = 5;
-			this.phoneNumberTextBox.TextMarginTop = 0;
-			this.phoneNumberTextBox.TextPlaceholder = "شماره همراه";
-			this.phoneNumberTextBox.UseSystemPasswordChar = false;
-			this.phoneNumberTextBox.WordWrap = true;
 			// 
 			// ProcutSalesForm
 			// 

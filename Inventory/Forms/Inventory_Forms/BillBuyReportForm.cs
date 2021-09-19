@@ -59,7 +59,8 @@ namespace Inventory_Forms
 			}
 		}
 
-		public static AuditItem auditItem = new AuditItem();
+		private static AuditItem auditItem;
+
 		public ProductBuyForm MyProductBuyForm { get; set; }
 
 		private PrintReportForm _printReportForm;
@@ -285,14 +286,7 @@ namespace Inventory_Forms
 		#region AmountPaidTextBox_Leave
 		private void AmountPaidTextBox_Leave(object sender, System.EventArgs e)
 		{
-			if (string.IsNullOrWhiteSpace(amountPaidTextBox.Text) ||
-			   string.Compare(amountPaidTextBox.Text, "0 تومان") == 0 ||
-			   string.Compare(amountPaidTextBox.Text, " تومان") == 0 ||
-			   string.Compare(amountPaidTextBox.Text, "تومان") == 0 ||
-			   string.Compare(amountPaidTextBox.Text, "توما") == 0 ||
-			   string.Compare(amountPaidTextBox.Text, "توم") == 0 ||
-			   string.Compare(amountPaidTextBox.Text, "تو") == 0 ||
-			   string.Compare(amountPaidTextBox.Text, "ت") == 0)
+			if (string.IsNullOrWhiteSpace(amountPaidTextBox.Text) || amountPaidTextBox.Text.Length <= 7)
 			{
 				amountPaidTextBox.Text = "0 تومان";
 				auditItem.Amount_Paid = 0;
@@ -300,7 +294,7 @@ namespace Inventory_Forms
 			}
 			else
 			{
-				auditItem.Amount_Paid = int.Parse(amountPaidTextBox.Text.Replace("تومان", string.Empty).Replace(",", string.Empty).Trim());
+				auditItem.Amount_Paid = decimal.Parse(amountPaidTextBox.Text.Replace("تومان", string.Empty).Replace(",", string.Empty).Trim());
 				amountPaidTextBox.Text = $"{auditItem.Amount_Paid:#,0} تومان";
 			}
 		}
@@ -309,7 +303,7 @@ namespace Inventory_Forms
 		#region AmountPaidTextBox_TextChange
 		private void AmountPaidTextBox_TextChange(object sender, System.EventArgs e)
 		{
-			if (string.IsNullOrWhiteSpace(amountPaidTextBox.Text) || amountPaidTextBox.Text.Length <= 7)
+			if (string.IsNullOrWhiteSpace(amountPaidTextBox.Text))
 			{
 				paymentButton.Enabled = false;
 				auditItem.Amount_Paid = 0;
@@ -317,16 +311,48 @@ namespace Inventory_Forms
 				remainingAmountTextBox.Text = $"{auditItem.Remaining_Amount:#,0} تومان";
 				return;
 			}
+			else if (amountPaidTextBox.Text.Length <= 7)
+			{
+				paymentButton.Enabled = false;
+				auditItem.Amount_Paid = 0;
+				auditItem.Remaining_Amount = auditItem.Amount_Paid - auditItem.Total_Sum_Price;
+				remainingAmountTextBox.Text = $"{auditItem.Remaining_Amount:#,0} تومان";
+
+				if (auditItem.Total_Sum_Price == 0)
+				{
+					remainingAmountTextBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+					remainingAmountTextBox.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+					remainingAmountTextBox.Text = $"0 تومان";
+					return;
+				}
+				else
+				{
+					remainingAmountTextBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+					remainingAmountTextBox.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+					remainingAmountTextBox.Text = $"{auditItem.Remaining_Amount:#,0} تومان";
+				}
+				return;
+			}
 			else
 			{
 				paymentButton.Enabled = true;
-				auditItem.Amount_Paid = int.Parse(amountPaidTextBox.Text
-					.Replace("تومان", string.Empty)
-					.Replace(",", string.Empty)
-					.Trim());
+				auditItem.Amount_Paid =
+					decimal.Parse(amountPaidTextBox.Text.Replace("تومان", string.Empty).Replace(",", string.Empty).Trim());
 
 				auditItem.Remaining_Amount = auditItem.Amount_Paid - auditItem.Total_Sum_Price;
-				remainingAmountTextBox.Text = $"{auditItem.Remaining_Amount:#,0} تومان";
+				if (auditItem.Total_Sum_Price == 0)
+				{
+					remainingAmountTextBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+					remainingAmountTextBox.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+					remainingAmountTextBox.Text = $"0 تومان";
+					return;
+				}
+				else
+				{
+					remainingAmountTextBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+					remainingAmountTextBox.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+					remainingAmountTextBox.Text = $"{auditItem.Remaining_Amount:#,0} تومان";
+				}
 			}
 		}
 		#endregion /AmountPaidTextBox_TextChange
@@ -358,6 +384,7 @@ namespace Inventory_Forms
 			remainingAmountTextBox.Text = "0 تومان";
 			productListDataGridView.Rows.Clear();
 			auditItem = null;
+
 		}
 		#endregion /AllClear
 
@@ -585,19 +612,22 @@ namespace Inventory_Forms
 		/// </summary>
 		private void Initialize()
 		{
+			auditItem =
+				new AuditItem();
 			Purchase_Operations = false;
-			auditItem.Total_Sum_Price = 0;
 			dateOfPrintTextBox.Text = $"{Infrastructure.Utility.PersianCalendar(System.DateTime.Now)} - {Infrastructure.Utility.ShowTime()}";
 			auditItem.Register_Date = $"{Infrastructure.Utility.PersianCalendar(System.DateTime.Now)}";
 			auditItem.Register_Time = $"{Infrastructure.Utility.ShowTime()}";
 			auditItem.Capital_Fund = GetCapitalFund();
-
+			
 			recipientNameTextBox.Text = Inventory.Program.UserAuthentication.Full_Name;
 			auditItem.Recipient_Name = Inventory.Program.UserAuthentication.Full_Name;
 			invoiceSerialNumberTextBox.Text = auditItem.InvoiceSerialNumber = GetInvoiceSerialNumber();
 
 			auditItem.Carrier_Name = carrierNameTextBox.Text;
 			auditItem.Sender_Name = senderNameTextBox.Text;
+
+			CalculatePurchaseAmount();
 		}
 		#endregion /Initialize
 
@@ -614,6 +644,7 @@ namespace Inventory_Forms
 				{
 					SetDailyFinancialReport(auditItem);
 					MyProductBuyForm.RemoveBill();
+					
 					paymentButton.Enabled = false;
 
 					Infrastructure.Utility.WindowsNotification(
@@ -633,6 +664,7 @@ namespace Inventory_Forms
 				{
 					SetDailyFinancialReport(auditItem);
 					MyProductBuyForm.RemoveBill();
+					
 					paymentButton.Enabled = false;
 
 					Infrastructure.Utility.WindowsNotification(

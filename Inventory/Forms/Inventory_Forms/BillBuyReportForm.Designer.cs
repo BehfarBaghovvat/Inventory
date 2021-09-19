@@ -42,11 +42,6 @@ namespace Inventory_Forms
 			this.closeFormTimer = new System.Windows.Forms.Timer(this.components);
 			this.receiptDataGridViewElipse = new Guna.UI2.WinForms.Guna2Elipse(this.components);
 			this.productListDataGridView = new System.Windows.Forms.DataGridView();
-			this.Product_Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.Product_Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.Product_Quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.Product_Unit = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.Total_Amount = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.titleLabel = new System.Windows.Forms.Label();
 			this.totalSumPriceTextBox = new System.Windows.Forms.Label();
 			this.remainingAmountTextBox = new System.Windows.Forms.Label();
@@ -76,6 +71,11 @@ namespace Inventory_Forms
 			this.paymentCashLabel = new System.Windows.Forms.Label();
 			this.paymentChequeRadioButton = new Guna.UI2.WinForms.Guna2CustomRadioButton();
 			this.paymentCashRadioButton = new Guna.UI2.WinForms.Guna2CustomRadioButton();
+			this.Product_Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.Product_Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.Product_Quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.Product_Unit = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.Total_Amount = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			((System.ComponentModel.ISupportInitialize)(this.productListDataGridView)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.logoPictureBox)).BeginInit();
 			this.topPanel.SuspendLayout();
@@ -109,19 +109,20 @@ namespace Inventory_Forms
 			dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(143)))), ((int)(((byte)(255)))));
 			dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Black;
 			this.productListDataGridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+			this.productListDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
 			this.productListDataGridView.BackgroundColor = System.Drawing.Color.White;
 			this.productListDataGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
 			this.productListDataGridView.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
 			this.productListDataGridView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
 			dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
 			dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-			dataGridViewCellStyle2.Font = new System.Drawing.Font("IRANSans", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+			dataGridViewCellStyle2.Font = new System.Drawing.Font("IRANSansXFaNum", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
 			dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
 			dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
 			dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
 			dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
 			this.productListDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
-			this.productListDataGridView.ColumnHeadersHeight = 40;
+			this.productListDataGridView.ColumnHeadersHeight = 35;
 			this.productListDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
 			this.productListDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Product_Name,
@@ -149,41 +150,6 @@ namespace Inventory_Forms
 			this.productListDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
 			this.productListDataGridView.Size = new System.Drawing.Size(886, 160);
 			this.productListDataGridView.TabIndex = 7;
-			// 
-			// Product_Name
-			// 
-			this.Product_Name.HeaderText = "نام کالا";
-			this.Product_Name.Name = "Product_Name";
-			this.Product_Name.ReadOnly = true;
-			this.Product_Name.Width = 177;
-			// 
-			// Product_Price
-			// 
-			this.Product_Price.HeaderText = "قیمت خرید کالا";
-			this.Product_Price.Name = "Product_Price";
-			this.Product_Price.ReadOnly = true;
-			this.Product_Price.Width = 177;
-			// 
-			// Product_Quantity
-			// 
-			this.Product_Quantity.HeaderText = "تعداد کالا";
-			this.Product_Quantity.Name = "Product_Quantity";
-			this.Product_Quantity.ReadOnly = true;
-			this.Product_Quantity.Width = 178;
-			// 
-			// Product_Unit
-			// 
-			this.Product_Unit.HeaderText = "واحد کالا";
-			this.Product_Unit.Name = "Product_Unit";
-			this.Product_Unit.ReadOnly = true;
-			this.Product_Unit.Width = 177;
-			// 
-			// Total_Amount
-			// 
-			this.Total_Amount.HeaderText = "جمع مبلغ";
-			this.Total_Amount.Name = "Total_Amount";
-			this.Total_Amount.ReadOnly = true;
-			this.Total_Amount.Width = 177;
 			// 
 			// titleLabel
 			// 
@@ -254,6 +220,7 @@ namespace Inventory_Forms
 			this.amountPaidTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
 			this.amountPaidTextBox.DefaultFont = new System.Drawing.Font("IRANSansXFaNum", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
 			this.amountPaidTextBox.DefaultText = "0 تومان";
+			this.amountPaidTextBox.Enabled = false;
 			this.amountPaidTextBox.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
 			this.amountPaidTextBox.ForeColor = System.Drawing.Color.White;
 			this.amountPaidTextBox.HideSelection = true;
@@ -677,6 +644,39 @@ namespace Inventory_Forms
 			this.paymentCashRadioButton.UncheckedState.Parent = this.paymentCashRadioButton;
 			this.paymentCashRadioButton.CheckedChanged += new System.EventHandler(this.PaymentCashRadioButton_CheckedChanged);
 			// 
+			// Product_Name
+			// 
+			this.Product_Name.FillWeight = 200F;
+			this.Product_Name.HeaderText = "نام کالا";
+			this.Product_Name.Name = "Product_Name";
+			this.Product_Name.ReadOnly = true;
+			// 
+			// Product_Price
+			// 
+			this.Product_Price.HeaderText = "قیمت خرید";
+			this.Product_Price.Name = "Product_Price";
+			this.Product_Price.ReadOnly = true;
+			// 
+			// Product_Quantity
+			// 
+			this.Product_Quantity.FillWeight = 50F;
+			this.Product_Quantity.HeaderText = "تعداد";
+			this.Product_Quantity.Name = "Product_Quantity";
+			this.Product_Quantity.ReadOnly = true;
+			// 
+			// Product_Unit
+			// 
+			this.Product_Unit.FillWeight = 50F;
+			this.Product_Unit.HeaderText = "واحد";
+			this.Product_Unit.Name = "Product_Unit";
+			this.Product_Unit.ReadOnly = true;
+			// 
+			// Total_Amount
+			// 
+			this.Total_Amount.HeaderText = "جمع مبلغ";
+			this.Total_Amount.Name = "Total_Amount";
+			this.Total_Amount.ReadOnly = true;
+			// 
 			// BillBuyReportForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 17F);
@@ -738,11 +738,6 @@ namespace Inventory_Forms
 		private System.Windows.Forms.Label dateOfPrintTextBox;
 		private Guna.UI2.WinForms.Guna2GradientButton printButton;
 		public System.Windows.Forms.DataGridView productListDataGridView;
-		private System.Windows.Forms.DataGridViewTextBoxColumn Product_Name;
-		private System.Windows.Forms.DataGridViewTextBoxColumn Product_Price;
-		private System.Windows.Forms.DataGridViewTextBoxColumn Product_Quantity;
-		private System.Windows.Forms.DataGridViewTextBoxColumn Product_Unit;
-		private System.Windows.Forms.DataGridViewTextBoxColumn Total_Amount;
 		private Guna.UI2.WinForms.Guna2GradientButton paymentButton;
 		private Mbb.Windows.Forms.Label carrierNameLabel;
 		private Mbb.Windows.Forms.Label recipientNameLabel;
@@ -758,5 +753,10 @@ namespace Inventory_Forms
 		private Guna.UI2.WinForms.Guna2CustomRadioButton paymentCashRadioButton;
 		private System.Windows.Forms.Label paymentChequeLabel;
 		private System.Windows.Forms.Label paymentCashLabel;
+		private System.Windows.Forms.DataGridViewTextBoxColumn Product_Name;
+		private System.Windows.Forms.DataGridViewTextBoxColumn Product_Price;
+		private System.Windows.Forms.DataGridViewTextBoxColumn Product_Quantity;
+		private System.Windows.Forms.DataGridViewTextBoxColumn Product_Unit;
+		private System.Windows.Forms.DataGridViewTextBoxColumn Total_Amount;
 	}
 }

@@ -463,7 +463,7 @@ namespace Inventory_Forms
 				BillBuyReportForm.carrierNameTextBox.Text = carrierNameTextBox.Text;
 				BillBuyReportForm.MyProductBuyForm = this;
 				BillBuyReportForm.SetBillInDataGridView(listBillBuyReportItems);
-				BillBuyReportForm.CalculatePurchaseAmount();
+				//BillBuyReportForm.CalculatePurchaseAmount();
 				BillBuyReportForm.ShowDialog();
 			}
 		}
@@ -577,7 +577,7 @@ namespace Inventory_Forms
 		#region ViewProductToolStripMenuItem_Click
 		private void ViewProductToolStripMenuItem_Click(object sender, System.EventArgs e)
 		{
-			byte[] product_Image = (byte[])productRecivedDataGridView.CurrentRow.Cells[8].Value;
+			byte[] product_Image = (byte[])productRecivedDataGridView.CurrentRow.Cells[7].Value;
 
 			System.IO.MemoryStream ms = new System.IO.MemoryStream(product_Image);
 
@@ -614,7 +614,7 @@ namespace Inventory_Forms
 
 					if (dialogResult == System.Windows.Forms.DialogResult.Yes)
 					{
-						string productName = productRecivedDataGridView.CurrentRow.Cells[0].Value.ToString();
+						string productName = productRecivedDataGridView.CurrentRow.Cells[1].Value.ToString();
 
 						using (Models.DataBaseContext dataBaseContext = new Models.DataBaseContext())
 						{
@@ -1065,6 +1065,7 @@ namespace Inventory_Forms
 		/// </summary>
 		public void RemoveBill()
 		{
+			AllClear();
 			NumberPurchases = 0;
 			listBillBuyReportItems.Clear();
 		}

@@ -87,6 +87,8 @@ namespace Inventory_Forms
 			this.productPriceTextBox = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox();
 			this.recipientNameTextBox = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox();
 			this.productRecivedDataGridView = new System.Windows.Forms.DataGridView();
+			this.productReceivedBindingSource = new System.Windows.Forms.BindingSource(this.components);
+			this.DataGridViewElipse = new Guna.UI2.WinForms.Guna2Elipse(this.components);
 			this.idDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.productNameDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.senderNameDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -100,8 +102,6 @@ namespace Inventory_Forms
 			this.numberEditDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.lastEditedDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.lastEditedTimeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.productReceivedBindingSource = new System.Windows.Forms.BindingSource(this.components);
-			this.DataGridViewElipse = new Guna.UI2.WinForms.Guna2Elipse(this.components);
 			this.contextMenuStrip.SuspendLayout();
 			this.controlsPanel.SuspendLayout();
 			this.borderPicturePanel.SuspendLayout();
@@ -1026,6 +1026,15 @@ namespace Inventory_Forms
 			this.productRecivedDataGridView.Size = new System.Drawing.Size(1125, 358);
 			this.productRecivedDataGridView.TabIndex = 15;
 			// 
+			// productReceivedBindingSource
+			// 
+			this.productReceivedBindingSource.DataSource = typeof(Models.ProductReceived);
+			// 
+			// DataGridViewElipse
+			// 
+			this.DataGridViewElipse.BorderRadius = 25;
+			this.DataGridViewElipse.TargetControl = this.productRecivedDataGridView;
+			// 
 			// idDataGridViewTextBoxColumn1
 			// 
 			this.idDataGridViewTextBoxColumn1.DataPropertyName = "Id";
@@ -1037,7 +1046,7 @@ namespace Inventory_Forms
 			// productNameDataGridViewTextBoxColumn1
 			// 
 			this.productNameDataGridViewTextBoxColumn1.DataPropertyName = "Product_Name";
-			this.productNameDataGridViewTextBoxColumn1.FillWeight = 175F;
+			this.productNameDataGridViewTextBoxColumn1.FillWeight = 200F;
 			this.productNameDataGridViewTextBoxColumn1.HeaderText = "نام کالا";
 			this.productNameDataGridViewTextBoxColumn1.Name = "productNameDataGridViewTextBoxColumn1";
 			this.productNameDataGridViewTextBoxColumn1.ReadOnly = true;
@@ -1068,15 +1077,16 @@ namespace Inventory_Forms
 			// productQuantityDataGridViewTextBoxColumn1
 			// 
 			this.productQuantityDataGridViewTextBoxColumn1.DataPropertyName = "Product_Quantity";
-			this.productQuantityDataGridViewTextBoxColumn1.FillWeight = 75F;
-			this.productQuantityDataGridViewTextBoxColumn1.HeaderText = "تعداد کالا";
+			this.productQuantityDataGridViewTextBoxColumn1.FillWeight = 50F;
+			this.productQuantityDataGridViewTextBoxColumn1.HeaderText = "تعداد";
 			this.productQuantityDataGridViewTextBoxColumn1.Name = "productQuantityDataGridViewTextBoxColumn1";
 			this.productQuantityDataGridViewTextBoxColumn1.ReadOnly = true;
 			// 
 			// productUnitDataGridViewTextBoxColumn1
 			// 
 			this.productUnitDataGridViewTextBoxColumn1.DataPropertyName = "Product_Unit";
-			this.productUnitDataGridViewTextBoxColumn1.HeaderText = "واحد کالا";
+			this.productUnitDataGridViewTextBoxColumn1.FillWeight = 50F;
+			this.productUnitDataGridViewTextBoxColumn1.HeaderText = "واحد";
 			this.productUnitDataGridViewTextBoxColumn1.Name = "productUnitDataGridViewTextBoxColumn1";
 			this.productUnitDataGridViewTextBoxColumn1.ReadOnly = true;
 			// 
@@ -1091,6 +1101,7 @@ namespace Inventory_Forms
 			// registrationDateDataGridViewTextBoxColumn1
 			// 
 			this.registrationDateDataGridViewTextBoxColumn1.DataPropertyName = "Registration_Date";
+			this.registrationDateDataGridViewTextBoxColumn1.FillWeight = 75F;
 			this.registrationDateDataGridViewTextBoxColumn1.HeaderText = "تاریخ ثبت";
 			this.registrationDateDataGridViewTextBoxColumn1.Name = "registrationDateDataGridViewTextBoxColumn1";
 			this.registrationDateDataGridViewTextBoxColumn1.ReadOnly = true;
@@ -1098,6 +1109,7 @@ namespace Inventory_Forms
 			// registrationTimeDataGridViewTextBoxColumn1
 			// 
 			this.registrationTimeDataGridViewTextBoxColumn1.DataPropertyName = "Registration_Time";
+			this.registrationTimeDataGridViewTextBoxColumn1.FillWeight = 75F;
 			this.registrationTimeDataGridViewTextBoxColumn1.HeaderText = "زمان ثبت";
 			this.registrationTimeDataGridViewTextBoxColumn1.Name = "registrationTimeDataGridViewTextBoxColumn1";
 			this.registrationTimeDataGridViewTextBoxColumn1.ReadOnly = true;
@@ -1105,14 +1117,15 @@ namespace Inventory_Forms
 			// numberEditDataGridViewTextBoxColumn
 			// 
 			this.numberEditDataGridViewTextBoxColumn.DataPropertyName = "Number_Edit";
-			this.numberEditDataGridViewTextBoxColumn.FillWeight = 75F;
-			this.numberEditDataGridViewTextBoxColumn.HeaderText = "تعداد ویرایش";
+			this.numberEditDataGridViewTextBoxColumn.FillWeight = 50F;
+			this.numberEditDataGridViewTextBoxColumn.HeaderText = "ویرایش";
 			this.numberEditDataGridViewTextBoxColumn.Name = "numberEditDataGridViewTextBoxColumn";
 			this.numberEditDataGridViewTextBoxColumn.ReadOnly = true;
 			// 
 			// lastEditedDateDataGridViewTextBoxColumn
 			// 
 			this.lastEditedDateDataGridViewTextBoxColumn.DataPropertyName = "Last_Edited_Date";
+			this.lastEditedDateDataGridViewTextBoxColumn.FillWeight = 75F;
 			this.lastEditedDateDataGridViewTextBoxColumn.HeaderText = "تاریخ ویرایش";
 			this.lastEditedDateDataGridViewTextBoxColumn.Name = "lastEditedDateDataGridViewTextBoxColumn";
 			this.lastEditedDateDataGridViewTextBoxColumn.ReadOnly = true;
@@ -1120,18 +1133,10 @@ namespace Inventory_Forms
 			// lastEditedTimeDataGridViewTextBoxColumn
 			// 
 			this.lastEditedTimeDataGridViewTextBoxColumn.DataPropertyName = "Last_Edited_Time";
+			this.lastEditedTimeDataGridViewTextBoxColumn.FillWeight = 75F;
 			this.lastEditedTimeDataGridViewTextBoxColumn.HeaderText = "زمان  ویرایش";
 			this.lastEditedTimeDataGridViewTextBoxColumn.Name = "lastEditedTimeDataGridViewTextBoxColumn";
 			this.lastEditedTimeDataGridViewTextBoxColumn.ReadOnly = true;
-			// 
-			// productReceivedBindingSource
-			// 
-			this.productReceivedBindingSource.DataSource = typeof(Models.ProductReceived);
-			// 
-			// DataGridViewElipse
-			// 
-			this.DataGridViewElipse.BorderRadius = 25;
-			this.DataGridViewElipse.TargetControl = this.productRecivedDataGridView;
 			// 
 			// ProductBuyForm
 			// 
@@ -1177,9 +1182,14 @@ namespace Inventory_Forms
 		private System.Windows.Forms.DataGridView productRecivedDataGridView;
 		private Guna.UI2.WinForms.Guna2Elipse DataGridViewElipse;
 		public Guna.UI2.WinForms.Guna2Button billButton;
+		private System.Windows.Forms.DataGridViewTextBoxColumn transferNameDataGridViewTextBoxColumn1;
+		public Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox senderNameTextBox;
+		public Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox carrierNameTextBox;
+		private System.Windows.Forms.PictureBox checkProductNamePictureBox;
+		private System.Windows.Forms.PictureBox productImagePictureBox;
+		private Guna.UI2.WinForms.Guna2Panel borderPicturePanel;
 		private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn1;
 		private System.Windows.Forms.DataGridViewTextBoxColumn productNameDataGridViewTextBoxColumn1;
-		private System.Windows.Forms.DataGridViewTextBoxColumn transferNameDataGridViewTextBoxColumn1;
 		private System.Windows.Forms.DataGridViewTextBoxColumn senderNameDataGridViewTextBoxColumn1;
 		private System.Windows.Forms.DataGridViewTextBoxColumn carrierNameDataGridViewTextBoxColumn1;
 		private System.Windows.Forms.DataGridViewTextBoxColumn productPurchasePriceDataGridViewTextBoxColumn1;
@@ -1191,10 +1201,5 @@ namespace Inventory_Forms
 		private System.Windows.Forms.DataGridViewTextBoxColumn numberEditDataGridViewTextBoxColumn;
 		private System.Windows.Forms.DataGridViewTextBoxColumn lastEditedDateDataGridViewTextBoxColumn;
 		private System.Windows.Forms.DataGridViewTextBoxColumn lastEditedTimeDataGridViewTextBoxColumn;
-		public Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox senderNameTextBox;
-		public Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox carrierNameTextBox;
-		private System.Windows.Forms.PictureBox checkProductNamePictureBox;
-		private System.Windows.Forms.PictureBox productImagePictureBox;
-		private Guna.UI2.WinForms.Guna2Panel borderPicturePanel;
 	}
 }
