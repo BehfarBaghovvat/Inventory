@@ -241,8 +241,9 @@ namespace Entry_Forms
 			if (this.Opacity <= 0.0)
 			{
 				fadeOutSingInFormTimer.Stop();
-				this.Dispose();
 				Inventory.Program.SingUpLoaded();
+				this.Dispose();
+				
 			}
 		}
 		#endregion /FadeOutForSingUpTimer_Tick

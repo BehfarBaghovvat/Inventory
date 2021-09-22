@@ -333,6 +333,7 @@ namespace Inventory_Forms
 			this.phoneNumberTextBox.TextPlaceholder = "شماره همراه";
 			this.phoneNumberTextBox.UseSystemPasswordChar = false;
 			this.phoneNumberTextBox.WordWrap = true;
+			this.phoneNumberTextBox.TextChange += new System.EventHandler(this.PhoneNumberTextBox_TextChange);
 			this.phoneNumberTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.PhoneNumberTextBox_KeyPress);
 			this.phoneNumberTextBox.Enter += new System.EventHandler(this.PhoneNumberTextBox_Enter);
 			this.phoneNumberTextBox.Leave += new System.EventHandler(this.PhoneNumberTextBox_Leave);
@@ -1058,6 +1059,7 @@ namespace Inventory_Forms
 			this.Controls.Add(this.mainPanel);
 			this.Name = "ProcutSalesForm";
 			this.Text = "InventoryOutputForm";
+			this.Load += new System.EventHandler(this.ProcutSalesForm_Load);
 			((System.ComponentModel.ISupportInitialize)(this.inventoryHoldingDataGridView)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.inventoryHoldingBindingSource)).EndInit();
 			this.mainPanel.ResumeLayout(false);

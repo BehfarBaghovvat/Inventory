@@ -61,7 +61,24 @@ namespace Inventory_Forms
 
 		public System.Collections.Generic.List<BillSaleReportItems> listBillSaleReports = new System.Collections.Generic.List<BillSaleReportItems>();
 
-		public TransactionFactorsItems transactionFactorsItems;
+		private TransactionFactorsItems _transactionFactorsItems;
+		public TransactionFactorsItems Transaction_Factors_Items
+		{
+			get
+			{
+				if (_transactionFactorsItems == null)
+				{
+					_transactionFactorsItems =
+						new TransactionFactorsItems();
+				}
+				return _transactionFactorsItems;
+			}
+			set
+			{
+				_transactionFactorsItems = value;
+			}
+		}
+
 
 		private Models.EventLog _eventLog;
 		public Models.EventLog EventLog
@@ -113,6 +130,13 @@ namespace Inventory_Forms
 
 
 		//-----------------------------------------------------------------------------------------------     Events Controls
+
+		#region ProcutSalesForm_Load
+		private void ProcutSalesForm_Load(object sender, System.EventArgs e)
+		{
+			Initialize();
+		}
+		#endregion  /ProcutSalesForm_Load
 
 		#region ProductQuantityTextBox_Enter
 		private void ProductQuantityTextBox_Enter(object sender, System.EventArgs e)
@@ -300,7 +324,7 @@ namespace Inventory_Forms
 		private void PhoneNumberTextBox_Enter(object sender, System.EventArgs e)
 		{
 			Infrastructure.Utility.PersianLanguage();
-			phoneNumberTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+			
 		}
 		#endregion /PhoneNumberTextBox_Enter
 
@@ -317,17 +341,39 @@ namespace Inventory_Forms
 			if (string.IsNullOrWhiteSpace(phoneNumberTextBox.Text) || phoneNumberTextBox.Text.Length < 11)
 			{
 				phoneNumberTextBox.Clear();
-				transactionFactorsItems.Phone_Number = null;
-				phoneNumberTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+				Transaction_Factors_Items.Phone_Number = null;
+				phoneNumberTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
 				return;
 			}
 			else
 			{
-				phoneNumberTextBox.Text = phoneNumberTextBox.Text.Insert(4, "-");
-				transactionFactorsItems.Phone_Number = phoneNumberTextBox.Text;
+				if (phoneNumberTextBox.Text.Length >= 12)
+				{
+					return;
+				}
+				else
+				{
+					Transaction_Factors_Items.Phone_Number = phoneNumberTextBox.Text = phoneNumberTextBox.Text.Insert(4, "-");
+				}
 			}
 		}
 		#endregion /PhoneNumberTextBox_Leave
+
+		#region PhoneNumberTextBox_TextChange
+		private void PhoneNumberTextBox_TextChange(object sender, System.EventArgs e)
+		{
+			if (string.IsNullOrWhiteSpace(phoneNumberTextBox.Text))
+			{
+				phoneNumberTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+			}
+			else
+			{
+				phoneNumberTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+				
+
+			}
+		}
+		#endregion /PhoneNumberTextBox_TextChange
 
 		#region ProductSearchTextBox_Enter
 		private void ProductSearchTextBox_Enter(object sender, System.EventArgs e)
@@ -360,7 +406,7 @@ namespace Inventory_Forms
 		#region BillButton_Click
 		private void BillButton_Click(object sender, System.EventArgs e)
 		{
-			if ((listBillSaleReports.Count == 0 && NumberPurchases == 0) || transactionFactorsItems == null)
+			if ((listBillSaleReports.Count == 0 && NumberPurchases == 0) || Transaction_Factors_Items == null)
 			{
 				Mbb.Windows.Forms.MessageBox.Show(text: "برای دریافت صورت حساب لطفا سفارش جدید دریافت کنید.",
 					caption: "عدم صدور صورت حساب", icon: Mbb.Windows.Forms.MessageBoxIcon.Error, button: Mbb.Windows.Forms.MessageBoxButtons.Ok);
@@ -370,8 +416,7 @@ namespace Inventory_Forms
 			else
 			{
 				BillSaleReportForm.MyProcutSalesForm = this;
-				BillSaleReportForm.SetItemsBillSale(listBillSaleReports, transactionFactorsItems);
-				BillSaleReportForm.CalculatePurchaseAmount();
+				BillSaleReportForm.SetItemsBillSale(listBillSaleReports, Transaction_Factors_Items);
 				BillSaleReportForm.ShowDialog();
 			}
 		}
@@ -456,7 +501,7 @@ namespace Inventory_Forms
 			InventoryOutput = null;
 			NumberPurchases = 0;
 			listBillSaleReports.Clear();
-			transactionFactorsItems = null;
+			Transaction_Factors_Items = null;
 			productNameTextBox.Clear();
 			productQuantityTextBox.Clear();
 			productUnitTextBox.Clear();
@@ -796,15 +841,10 @@ namespace Inventory_Forms
 			listBillSaleReports.Add(billSaleReport);
 			listBillSaleReports.TrimExcess();
 
-			if (transactionFactorsItems == null)
-			{
-				transactionFactorsItems =
-					new TransactionFactorsItems();
-			}
-
-			transactionFactorsItems.Carrier_Name = inventoryOutput.Carrier_Name;
-			transactionFactorsItems.Seller_Name = Inventory.Program.UserAuthentication.Full_Name;
-			transactionFactorsItems.Client_Name = inventoryOutput.Client_Name;
+			Transaction_Factors_Items.Carrier_Name = inventoryOutput.Carrier_Name;
+			Transaction_Factors_Items.Seller_Name = null;
+			Transaction_Factors_Items.Seller_Name = Inventory.Program.UserAuthentication.Full_Name;
+			Transaction_Factors_Items.Client_Name = inventoryOutput.Client_Name;
 
 		}
 		#endregion PrintInvoiceWare
@@ -867,7 +907,7 @@ namespace Inventory_Forms
 		{
 			NumberPurchases = 0;
 			listBillSaleReports.Clear();
-			transactionFactorsItems = null;
+			Transaction_Factors_Items = null;
 		}
 		#endregion /RemoveBill
 
@@ -911,12 +951,11 @@ namespace Inventory_Forms
 			}
 		}
 
+
 		#endregion /WarehouseOutput
 
 		#endregion /Founction
 
 		
-
-
 	}
 }

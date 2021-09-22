@@ -253,7 +253,9 @@ namespace Inventory_Forms
 			}
 			else
 			{
-				auditItem.Total_Sum_Price = decimal.Parse(totalSumPriceTextBox.Text.Replace("تومان", string.Empty).Replace(",", string.Empty).Trim());
+				auditItem.Total_Sum_Price = 
+					decimal.Parse(totalSumPriceTextBox.Text.Replace("تومان", string.Empty).Replace(",", string.Empty).Trim());
+
 				auditItem.Remaining_Amount = auditItem.Amount_Paid - auditItem.Total_Sum_Price;
 				remainingAmountTextBox.Text = $"{auditItem.Remaining_Amount:#,0} تومان";
 			}
@@ -633,7 +635,7 @@ namespace Inventory_Forms
 
 		#region Payment
 		/// <summary>
-		///پرداخت
+		/// پرداخت فاکتور خرید کالا
 		/// </summary>
 		/// <param name="_auditItem"></param>
 		private void Payment(AuditItem _auditItem)

@@ -586,7 +586,7 @@ namespace Inventory
 			{
 				mainPanel.Controls.Clear();
 				mainPanel.Controls.Add(ProcutSalesForm);
-				ProcutSalesForm.Initialize();
+				//ProcutSalesForm.Initialize();
 				ProcutSalesForm.Show();
 
 				ProductBuyForm.Hide();

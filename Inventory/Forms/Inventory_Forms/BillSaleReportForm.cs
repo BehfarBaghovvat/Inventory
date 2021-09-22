@@ -21,13 +21,16 @@ namespace Inventory_Forms
 			public string Client_Name { get; set; }
 			public string Carrier_Name { get; set; }
 			public decimal? Cash_Payment_Amount { get; set; }
+			public int Final_Quantity { get; set; }
 			public Models.ListFinancialClient.FinantialSituation Finantial_Situation { get; set; }
+			public int First_Quantity { get; set; }
 			public string InvoiceSerialNumber { get; set; }
 			public Models.SalesInvoice.SalesPaymentType Sales_Payment_Type { get; set; }
 			public Models.SalesInvoice.PaymentCachType Payment_Cach_Type { get; set; }
 			public string Phone_Number { get; set; }
 			public decimal Product_Price { get; set; }
 			public decimal? Pose_Payment_Amount { get; set; }
+			public int Second_Quantity { get; set; }
 			public string Register_Date { get; set; }
 			public string Register_Time { get; set; }
 			public string Seller_Name { get; set; }
@@ -156,7 +159,7 @@ namespace Inventory_Forms
 		public BillSaleReportForm()
 		{
 			InitializeComponent();
-			
+
 		}
 
 
@@ -213,6 +216,7 @@ namespace Inventory_Forms
 		{
 			if ((e.ColumnIndex == 1 && e.RowIndex >= 0) || (e.ColumnIndex == 2 && e.RowIndex >= 0))
 			{
+				auditItem.First_Quantity =int.Parse(productsListDataGridView.CurrentRow.Cells[2].Value.ToString());
 				productsListDataGridView.CurrentCell.ReadOnly = false;
 				return;
 			}
@@ -227,39 +231,114 @@ namespace Inventory_Forms
 		#region ProductsListDataGridView_CellValueChanged
 		private void ProductsListDataGridView_CellValueChanged(object sender, System.Windows.Forms.DataGridViewCellEventArgs e)
 		{
-			int _productPrice,
-				_productQuantity,
+			int _productQuantity;
+			decimal _productPrice,
 				_sumPrice,
 				_totalSumPrice = 0;
 
 			if ((e.ColumnIndex == 1 && e.RowIndex >= 0))
 			{
-				_productPrice = int.Parse(productsListDataGridView.CurrentRow.Cells[e.ColumnIndex].Value.ToString().Replace("تومان", string.Empty).Replace(",", string.Empty).Trim());
-				_productQuantity = int.Parse(productsListDataGridView.CurrentRow.Cells[e.ColumnIndex + 1].Value.ToString().Replace("تومان", string.Empty).Replace(",", string.Empty).Trim());
+				_productPrice =
+					decimal.Parse(productsListDataGridView.CurrentRow.Cells[e.ColumnIndex].Value.ToString().Replace("تومان", string.Empty).Replace(",", string.Empty).Trim());
+				
+				_productQuantity =
+					int.Parse(productsListDataGridView.CurrentRow.Cells[e.ColumnIndex + 1].Value.ToString());
+				
 				_sumPrice = (_productPrice * _productQuantity);
 				productsListDataGridView.CurrentRow.Cells[4].Value = $"{_sumPrice:#,0} تومان";
 				productsListDataGridView.CurrentRow.Cells[e.ColumnIndex].Value = $"{_productPrice:#,0} تومان";
 
 				foreach (System.Windows.Forms.DataGridViewRow row in productsListDataGridView.Rows)
 				{
-					_totalSumPrice += int.Parse(row.Cells[4].Value.ToString().Replace("تومان", string.Empty).Replace(",", string.Empty).Trim());
-					amountPayableTextBox.Text = $"{_totalSumPrice:#,0} تومان";
+					_totalSumPrice += 
+						decimal.Parse(row.Cells[4].Value.ToString().Replace("تومان", string.Empty).Replace(",", string.Empty).Trim());
+					
+
+					if (string.IsNullOrWhiteSpace(taxRateTextBox.Text) || string.Compare(taxRateTextBox.Text,"0 %")==0)
+					{
+						amountPayableTextBox.Text = $"{_totalSumPrice:#,0} تومان";
+						amountRemainingTextBox.Text = $"{_totalSumPrice:#,0} تومان";
+					}
+					else
+					{
+						if (auditItem.Amount_Paid == 0 || auditItem.Amount_Paid == null)
+						{
+							auditItem.Amounts_Payment =
+								decimal.Parse(amountPayableTextBox.Text.Replace("تومان", string.Empty).Replace(",", string.Empty).Trim());
+
+							auditItem.Tax_Amount = (auditItem.Amounts_Payment / 100) * auditItem.Tax_Percent;
+							auditItem.Amounts_Payment = (auditItem.Tax_Amount + auditItem.Amounts_Payment);
+							amountRemainingTextBox.Text = $"{auditItem.Amounts_Payment:#,0} تومان";
+							auditItem.Amount_Remaininig = auditItem.Amounts_Payment;
+							taxRateTextBox.Text = $"% {auditItem.Tax_Percent}";
+						}
+						else
+						{
+							auditItem.Tax_Amount = (auditItem.Amounts_Payment / 100) * auditItem.Tax_Percent;
+							auditItem.Amounts_Payment = auditItem.Amount_Paid - (auditItem.Tax_Amount + auditItem.Amounts_Payment);
+							amountRemainingTextBox.Text = $"{auditItem.Amounts_Payment:#,0} تومان";
+							auditItem.Amount_Remaininig = auditItem.Amounts_Payment;
+							taxRateTextBox.Text = $"% {auditItem.Tax_Percent}";
+						}
+					}
 				}
 
 				EditBill();
+
+				
 
 				return;
 			}
 			else if ((e.ColumnIndex == 2 && e.RowIndex >= 0))
 			{
-				_productPrice = int.Parse(productsListDataGridView.CurrentRow.Cells[e.ColumnIndex - 1].Value.ToString().Replace("تومان", string.Empty).Replace(",", string.Empty).Trim());
-				_productQuantity = int.Parse(productsListDataGridView.CurrentRow.Cells[e.ColumnIndex].Value.ToString().Replace("تومان", string.Empty).Replace(",", string.Empty).Trim());
+				_productPrice =
+					decimal.Parse(productsListDataGridView.CurrentRow.Cells[e.ColumnIndex - 1].Value.ToString().Replace("تومان", string.Empty).Replace(",", string.Empty).Trim());
+				
+				_productQuantity =
+					int.Parse(productsListDataGridView.CurrentRow.Cells[e.ColumnIndex].Value.ToString());
+				
+				auditItem.Second_Quantity = _productQuantity;
+
+				auditItem.Final_Quantity = auditItem.First_Quantity - auditItem.Second_Quantity;
+				
 				_sumPrice = (_productPrice * _productQuantity);
 				productsListDataGridView.CurrentRow.Cells[4].Value = $"{_sumPrice:#,0} تومان";
 				foreach (System.Windows.Forms.DataGridViewRow row in productsListDataGridView.Rows)
 				{
-					_totalSumPrice += int.Parse(row.Cells[4].Value.ToString().Replace("تومان", string.Empty).Replace(",", string.Empty).Trim());
-					amountPayableTextBox.Text = $"{_totalSumPrice:#,0} تومان";
+					_totalSumPrice +=
+						decimal.Parse(row.Cells[4].Value.ToString().Replace("تومان", string.Empty).Replace(",", string.Empty).Trim());
+
+					if (string.IsNullOrWhiteSpace(taxRateTextBox.Text) || string.Compare(taxRateTextBox.Text, "0 %") == 0)
+					{
+						amountPayableTextBox.Text = $"{_totalSumPrice:#,0} تومان";
+						amountRemainingTextBox.Text = $"{_totalSumPrice:#,0} تومان";
+					}
+					else
+					{
+						if (auditItem.Amount_Paid == 0 || auditItem.Amount_Paid == null)
+						{
+							amountPayableTextBox.Text = $"{_totalSumPrice:#,0} تومان";
+
+							auditItem.Amounts_Payment =
+								decimal.Parse(amountPayableTextBox.Text.Replace("تومان", string.Empty).Replace(",", string.Empty).Trim());
+
+							auditItem.Tax_Amount = (auditItem.Amounts_Payment / 100) * auditItem.Tax_Percent;
+							auditItem.Amounts_Payment = (auditItem.Tax_Amount + auditItem.Amounts_Payment);
+							amountRemainingTextBox.Text = $"{auditItem.Amounts_Payment:#,0} تومان";
+							auditItem.Amount_Remaininig = auditItem.Amounts_Payment;
+							taxRateTextBox.Text = $"% {auditItem.Tax_Percent}";
+						}
+						else
+						{
+							amountPayableTextBox.Text = $"{_totalSumPrice:#,0} تومان";
+
+							auditItem.Tax_Amount = (auditItem.Amounts_Payment / 100) * auditItem.Tax_Percent;
+							auditItem.Amounts_Payment = auditItem.Amount_Paid - (auditItem.Tax_Amount + auditItem.Amounts_Payment);
+							amountRemainingTextBox.Text = $"{auditItem.Amounts_Payment:#,0} تومان";
+							auditItem.Amount_Remaininig = auditItem.Amounts_Payment;
+							taxRateTextBox.Text = $"% {auditItem.Tax_Percent}";
+						}
+					}
 				}
 
 				EditBill();
@@ -276,28 +355,28 @@ namespace Inventory_Forms
 		#region AmountPayableTextBox_TextAlignChanged
 		private void AmountPayableTextBox_TextAlignChanged(object sender, System.EventArgs e)
 		{
-			//remainingAmountTextBox.Text = amountPayableTextBox.Text;
-
 			if (string.Compare(amountPaidTextBox.Text, "0 تومان") == 0)
 			{
 				auditItem.Amounts_Payment = 0;
 				auditItem.Amount_Remaininig = 0;
-				remainingAmountTextBox.Text = $"{auditItem.Amount_Remaininig:#,0} تومان";
+				amountRemainingTextBox.Text = $"{auditItem.Amount_Remaininig:#,0} تومان";
 				return;
 			}
 			else
 			{
 				if (auditItem.Tax_Percent == 0 || auditItem.Tax_Percent == null)
 				{
-					auditItem.Amounts_Payment = decimal.Parse(amountPaidTextBox.Text.Replace("تومان", string.Empty).Replace(",", string.Empty).Trim());
+					auditItem.Amounts_Payment =
+						decimal.Parse(amountPaidTextBox.Text.Replace("تومان", string.Empty).Replace(",", string.Empty).Trim());
+
 					auditItem.Amount_Remaininig = auditItem.Amount_Paid - auditItem.Amounts_Payment;
-					remainingAmountTextBox.Text = $"{auditItem.Amount_Remaininig:#,0} تومان";
+					amountRemainingTextBox.Text = $"{auditItem.Amount_Remaininig:#,0} تومان";
 				}
 				else
 				{
 					auditItem.Tax_Amount = (auditItem.Amounts_Payment / 100) * auditItem.Tax_Percent;
 					auditItem.Amounts_Payment = (auditItem.Tax_Amount + auditItem.Amounts_Payment);
-					remainingAmountTextBox.Text = $"{auditItem.Amounts_Payment:#,0} تومان";
+					amountRemainingTextBox.Text = $"{auditItem.Amounts_Payment:#,0} تومان";
 					auditItem.Amount_Remaininig = auditItem.Amounts_Payment;
 				}
 			}
@@ -333,95 +412,14 @@ namespace Inventory_Forms
 		#region TaxRateTextBox_TextChange
 		private void TaxRateTextBox_TextChange(object sender, System.EventArgs e)
 		{
-			if (string.IsNullOrWhiteSpace(taxRateTextBox.Text) || taxRateTextBox.Text.Length < 3)
-			{
-				auditItem.Tax_Percent = 0;
-				taxRateTextBox.Clear();
-				return;
-			}
-			else
-			{
-				if (auditItem.Amount_Paid == 0 || auditItem.Amount_Paid == null)
-				{
-					auditItem.Tax_Percent = int.Parse(taxRateTextBox.Text.Replace("%", string.Empty).Trim());
-					if (auditItem.Tax_Percent > 5)
-					{
-						Mbb.Windows.Forms.MessageBox.Show
-						(text: "بیشتر از 5% امکان دریافت مالیات وجود ندارد.",
-						caption: "خطای ورودی",
-						icon: Mbb.Windows.Forms.MessageBoxIcon.Warning,
-						button: Mbb.Windows.Forms.MessageBoxButtons.Ok);
-
-						auditItem.Tax_Percent = 0;
-						taxRateTextBox.Text = "% 0";
-						taxRateTextBox.Select(2, 1);
-						return;
-					}
-					else
-					{
-						auditItem.Tax_Amount = (auditItem.Amounts_Payment / 100) * auditItem.Tax_Percent;
-						auditItem.Amounts_Payment = (auditItem.Tax_Amount + auditItem.Amounts_Payment);
-						remainingAmountTextBox.Text = $"{auditItem.Amounts_Payment:#,0} تومان";
-						auditItem.Amount_Remaininig = auditItem.Amounts_Payment;
-						taxRateTextBox.Text = $"% {auditItem.Tax_Percent}";
-					}
-					return;
-				}
-				else
-				{
-					auditItem.Tax_Percent = int.Parse(taxRateTextBox.Text.Replace("%", string.Empty).Trim());
-					if (auditItem.Tax_Percent > 5)
-					{
-						Mbb.Windows.Forms.MessageBox.Show
-						(text: "بیشتر از 5% امکان دریافت مالیات وجود ندارد.",
-						caption: "خطای ورودی",
-						icon: Mbb.Windows.Forms.MessageBoxIcon.Warning,
-						button: Mbb.Windows.Forms.MessageBoxButtons.Ok);
-
-						auditItem.Tax_Percent = 0;
-						taxRateTextBox.Text = "% 0";
-						taxRateTextBox.Select(2, 1);
-						return;
-					}
-					else
-					{
-						auditItem.Tax_Percent = int.Parse(taxRateTextBox.Text.Replace("%", string.Empty).Trim());
-						auditItem.Tax_Amount = (auditItem.Amounts_Payment / 100) * auditItem.Tax_Percent;
-						auditItem.Amounts_Payment = (auditItem.Tax_Amount + auditItem.Amounts_Payment) - auditItem.Amount_Paid;
-						remainingAmountTextBox.Text = $"{auditItem.Amounts_Payment:#,0} تومان";
-						auditItem.Amount_Remaininig = auditItem.Amounts_Payment;
-						taxRateTextBox.Text = $"% {auditItem.Tax_Percent}";
-					}
-					return;
-				}
-			}
+			EnterTaxPercentage(taxRateTextBox.Text);
 		}
 		#endregion /TaxRateTextBox_TextChange
 
 		#region AmountPaidTextBox_TextChanged
 		private void AmountPaidTextBox_TextChanged(object sender, System.EventArgs e)
 		{
-			if (amountPaidTextBox.Text.Length < 7 || string.IsNullOrWhiteSpace(amountPaidTextBox.Text))
-			{
-				return;
-			}
-			else
-			{
-				if (auditItem.Tax_Amount == 0 || auditItem.Tax_Amount == null)
-				{
-					auditItem.Amounts_Payment = auditItem.Amount_Paid - auditItem.Amounts_Payment;
-					remainingAmountTextBox.Text = $"{auditItem.Amounts_Payment:#,0} تومان";
-					auditItem.Amount_Remaininig = auditItem.Amounts_Payment;
-				}
-				else
-				{
-					auditItem.Tax_Percent = int.Parse(taxRateTextBox.Text.Replace("%", string.Empty).Trim());
-					auditItem.Tax_Amount = (auditItem.Amounts_Payment / 100) * auditItem.Tax_Percent;
-					auditItem.Amounts_Payment = (auditItem.Tax_Amount + auditItem.Amounts_Payment) - auditItem.Amount_Paid;
-					remainingAmountTextBox.Text = $"{auditItem.Amounts_Payment:#,0} تومان";
-					auditItem.Amount_Remaininig = auditItem.Amounts_Payment;
-				}
-			}
+			AmountPaid(amountPaidTextBox.Text);
 		}
 		#endregion /AmountPaidTextBox_TextChanged
 
@@ -457,7 +455,7 @@ namespace Inventory_Forms
 				(printInvoice.GetComponentByName("totalSumPriceTextBox") as Stimulsoft.Report.Components.StiText).Text = amountPayableTextBox.Text;
 				(printInvoice.GetComponentByName("taxRateTextBox") as Stimulsoft.Report.Components.StiText).Text = taxRateTextBox.Text;
 				(printInvoice.GetComponentByName("amountPaymentTextBox") as Stimulsoft.Report.Components.StiText).Text = amountPaidTextBox.Text;
-				(printInvoice.GetComponentByName("remainingAmountTextBox") as Stimulsoft.Report.Components.StiText).Text = remainingAmountTextBox.Text;
+				(printInvoice.GetComponentByName("remainingAmountTextBox") as Stimulsoft.Report.Components.StiText).Text = amountRemainingTextBox.Text;
 
 				printInvoice.Render(true);
 				PrintReportForm.printReportStiViewerControl.Report = printInvoice;
@@ -482,6 +480,10 @@ namespace Inventory_Forms
 		{
 			paymentCachTypeGroupBox.Enabled = true;
 			auditItem.Sales_Payment_Type = Models.SalesInvoice.SalesPaymentType.نقد;
+			auditItem.Pose_Payment_Amount = 0;
+			auditItem.Cash_Payment_Amount = 0;
+			auditItem.Amount_Paid = 0;
+
 		}
 		#endregion /PaymentCachRadioButton_CheckedChanged
 
@@ -519,7 +521,6 @@ namespace Inventory_Forms
 				cashPaymentTextBox.ReadOnly = false;
 				if (string.IsNullOrWhiteSpace(cashPaymentTextBox.Text))
 				{
-					auditItem.Amount = null;
 					cashPaymentTextBox.Text = "0 تومان";
 					cashPaymentTextBox.Select(0, 1);
 
@@ -559,7 +560,7 @@ namespace Inventory_Forms
 				cashPaymentTextBox.Clear();
 				return;
 			}
-			else if (string.Compare(cashPaymentTextBox.Text, " تومان") == 0 || string.Compare(cashPaymentTextBox.Text, "تومان") == 0 || string.Compare(cashPaymentTextBox.Text, "توما") == 0 || string.Compare(cashPaymentTextBox.Text, "توم") == 0 || string.Compare(cashPaymentTextBox.Text, "تو") == 0 || string.Compare(cashPaymentTextBox.Text, "ت") == 0)
+			else if (cashPaymentTextBox.Text.Length < 7)
 			{
 				cashPaymentTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
 				cashPaymentTextBox.Clear();
@@ -578,20 +579,26 @@ namespace Inventory_Forms
 		#region CashPaymentTextBox_TextChange
 		private void CashPaymentTextBox_TextChange(object sender, System.EventArgs e)
 		{
-			if (string.IsNullOrWhiteSpace(cashPaymentTextBox.Text) || string.Compare(cashPaymentTextBox.Text, "0 تومان") == 0 || string.Compare(cashPaymentTextBox.Text, " تومان") == 0 || string.Compare(cashPaymentTextBox.Text, "تومان") == 0 || string.Compare(cashPaymentTextBox.Text, "توما") == 0 || string.Compare(cashPaymentTextBox.Text, "توم") == 0 || string.Compare(cashPaymentTextBox.Text, "تو") == 0 || string.Compare(cashPaymentTextBox.Text, "ت") == 0)
+			if (string.IsNullOrWhiteSpace(cashPaymentTextBox.Text) || cashPaymentTextBox.Text.Length < 7)
 			{
 				auditItem.Cash_Payment_Amount = 0;
 				auditItem.Amount_Paid = auditItem.Cash_Payment_Amount + auditItem.Pose_Payment_Amount;
 				amountPaidTextBox.Text = $"{auditItem.Amount_Paid: #,0} تومان";
 				return;
 			}
+			else if (string.Compare(cashPaymentTextBox.Text, "0 تومان") == 0)
+			{
+				return;
+			}
 			else
 			{
-				auditItem.Cash_Payment_Amount = int.Parse(cashPaymentTextBox.Text.Replace("تومان", string.Empty).Replace(",", string.Empty).Trim());
+				auditItem.Cash_Payment_Amount =
+					decimal.Parse(cashPaymentTextBox.Text.Replace("تومان", string.Empty).Replace(",", string.Empty).Trim());
+
 				if (auditItem.Pose_Payment_Amount == 0 || auditItem.Pose_Payment_Amount == null)
 				{
 					auditItem.Amount_Paid = auditItem.Cash_Payment_Amount;
-					amountPaidTextBox.Text = $"{auditItem.Cash_Payment_Amount: #,0} تومان";
+					amountPaidTextBox.Text = $"{auditItem.Amount_Paid: #,0} تومان";
 				}
 				else
 				{
@@ -606,15 +613,29 @@ namespace Inventory_Forms
 		private void PosPaymentTextBox_Enter(object sender, System.EventArgs e)
 		{
 			Infrastructure.Utility.PersianLanguage();
+
+
+
 			if (posPaymentRadioButton.Checked == true || cachAndPosPaymentRadioButton.Checked == true)
 			{
 				posPaymentTextBox.ReadOnly = false;
+
 				if (string.IsNullOrWhiteSpace(posPaymentTextBox.Text))
 				{
-					auditItem.Amount = null;
 					posPaymentTextBox.Text = "0 تومان";
 					posPaymentTextBox.Select(0, 1);
 					posPaymentTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+
+					if (auditItem.Cash_Payment_Amount == 0 || auditItem.Cash_Payment_Amount == null)
+					{
+						auditItem.Amount_Paid = 0;
+						amountPaidTextBox.Text = $"{auditItem.Amount_Paid: #,0} تومان";
+					}
+					else
+					{
+						auditItem.Amount_Paid = auditItem.Cash_Payment_Amount + 0;
+						amountPaidTextBox.Text = $"{auditItem.Amount_Paid: #,0} تومان";
+					}
 				}
 				else if (posPaymentTextBox.Text.Contains("تومان"))
 				{
@@ -650,7 +671,7 @@ namespace Inventory_Forms
 				posPaymentTextBox.Clear();
 				return;
 			}
-			else if (string.Compare(posPaymentTextBox.Text, " تومان") == 0 || string.Compare(posPaymentTextBox.Text, "تومان") == 0 || string.Compare(posPaymentTextBox.Text, "توما") == 0 || string.Compare(posPaymentTextBox.Text, "توم") == 0 || string.Compare(posPaymentTextBox.Text, "تو") == 0 || string.Compare(posPaymentTextBox.Text, "ت") == 0)
+			else if (posPaymentTextBox.Text.Length < 7)
 			{
 				posPaymentTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
 				posPaymentTextBox.Clear();
@@ -668,20 +689,26 @@ namespace Inventory_Forms
 		#region PosPaymentTextBox_TextChange
 		private void PosPaymentTextBox_TextChange(object sender, System.EventArgs e)
 		{
-			if (string.IsNullOrWhiteSpace(posPaymentTextBox.Text) || string.Compare(posPaymentTextBox.Text, "0 تومان") == 0 || string.Compare(posPaymentTextBox.Text, " تومان") == 0 || string.Compare(posPaymentTextBox.Text, "تومان") == 0 || string.Compare(posPaymentTextBox.Text, "توما") == 0 || string.Compare(posPaymentTextBox.Text, "توم") == 0 || string.Compare(posPaymentTextBox.Text, "تو") == 0 || string.Compare(posPaymentTextBox.Text, "ت") == 0)
+			if (string.IsNullOrWhiteSpace(posPaymentTextBox.Text) || posPaymentTextBox.Text.Length < 7)
 			{
 				auditItem.Pose_Payment_Amount = 0;
 				auditItem.Amount_Paid = auditItem.Cash_Payment_Amount + auditItem.Pose_Payment_Amount;
 				amountPaidTextBox.Text = $"{auditItem.Amount_Paid: #,0} تومان";
 				return;
 			}
+			else if (string.Compare(posPaymentTextBox.Text, "0 تومان") == 0)
+			{
+				return;
+			}
 			else
 			{
-				auditItem.Pose_Payment_Amount = int.Parse(posPaymentTextBox.Text.Replace("تومان", string.Empty).Replace(",", string.Empty).Trim());
+				auditItem.Pose_Payment_Amount =
+					decimal.Parse(posPaymentTextBox.Text.Replace("تومان", string.Empty).Replace(",", string.Empty).Trim());
+
 				if (auditItem.Cash_Payment_Amount == 0 || auditItem.Cash_Payment_Amount == null)
 				{
 					auditItem.Amount_Paid = auditItem.Pose_Payment_Amount;
-					amountPaidTextBox.Text = $"{auditItem.Pose_Payment_Amount: #,0} تومان";
+					amountPaidTextBox.Text = $"{auditItem.Amount_Paid: #,0} تومان";
 				}
 				else
 				{
@@ -696,7 +723,9 @@ namespace Inventory_Forms
 		private void CachPaymentRadioButton_CheckedChanged(object sender, System.EventArgs e)
 		{
 			cashPaymentTextBox.Clear();
+			cashPaymentTextBox.ReadOnly = true;
 			posPaymentTextBox.Clear();
+			posPaymentTextBox.ReadOnly = false;
 
 			auditItem.Cash_Payment_Amount = 0;
 			auditItem.Pose_Payment_Amount = 0;
@@ -717,7 +746,9 @@ namespace Inventory_Forms
 		private void PosPaymentRadioButton_CheckedChanged(object sender, System.EventArgs e)
 		{
 			cashPaymentTextBox.Clear();
+			cashPaymentTextBox.ReadOnly = false;
 			posPaymentTextBox.Clear();
+			posPaymentTextBox.ReadOnly = true;
 
 			auditItem.Cash_Payment_Amount = 0;
 			auditItem.Pose_Payment_Amount = 0;
@@ -738,7 +769,9 @@ namespace Inventory_Forms
 		private void CachAndPosPaymentRadioButton_CheckedChanged(object sender, System.EventArgs e)
 		{
 			cashPaymentTextBox.Clear();
+			cashPaymentTextBox.ReadOnly = true;
 			posPaymentTextBox.Clear();
+			posPaymentTextBox.ReadOnly = true;
 
 			auditItem.Cash_Payment_Amount = 0;
 			auditItem.Pose_Payment_Amount = 0;
@@ -759,7 +792,9 @@ namespace Inventory_Forms
 		private void DebtorRadioButton_CheckedChanged(object sender, System.EventArgs e)
 		{
 			cashPaymentTextBox.Clear();
+			cashPaymentTextBox.ReadOnly = false;
 			posPaymentTextBox.Clear();
+			posPaymentTextBox.ReadOnly = false;
 
 			auditItem.Cash_Payment_Amount = 0;
 			auditItem.Pose_Payment_Amount = 0;
@@ -907,6 +942,68 @@ namespace Inventory_Forms
 		}
 		#endregion /AddNewClient
 
+		#region AmountPaid
+		/// <summary>
+		/// پرداخت مبلغ 
+		/// و محاسبات مربوطه
+		/// </summary>
+		/// <param name="_amountPaid"></param>
+		private void AmountPaid(string _amountPaid)
+		{
+			if (amountPaidTextBox.Text.Length < 7 || string.IsNullOrWhiteSpace(amountPaidTextBox.Text))
+			{
+				paymentButton.Enabled = false;
+				return;
+			}
+			else if (string.Compare(amountPaidTextBox.Text, "0 تومان") == 0 || auditItem.Amount_Paid == 0)
+			{
+				paymentButton.Enabled = false;
+
+				if (auditItem.Tax_Amount == 0 || auditItem.Tax_Amount == null)
+				{
+					auditItem.Amounts_Payment =
+					decimal.Parse(amountPayableTextBox.Text.Replace("تومان", string.Empty).Replace(",", string.Empty).Trim());
+
+					auditItem.Amount_Remaininig = auditItem.Amount_Paid - auditItem.Amounts_Payment;
+					amountRemainingTextBox.Text = $"{auditItem.Amount_Remaininig:#,0} تومان";
+				}
+				else
+				{
+					auditItem.Amounts_Payment =
+					decimal.Parse(amountPayableTextBox.Text.Replace("تومان", string.Empty).Replace(",", string.Empty).Trim());
+
+					auditItem.Tax_Percent = int.Parse(taxRateTextBox.Text.Replace("%", string.Empty).Trim());
+					auditItem.Tax_Amount = (auditItem.Amounts_Payment / 100) * auditItem.Tax_Percent;
+					auditItem.Amount_Remaininig = auditItem.Amount_Paid - (auditItem.Tax_Amount + auditItem.Amounts_Payment);
+					amountRemainingTextBox.Text = $"{auditItem.Amount_Remaininig:#,0} تومان";
+				}
+			}
+			else
+			{
+				paymentButton.Enabled = true;
+
+				if (auditItem.Tax_Amount == 0 || auditItem.Tax_Amount == null)
+				{
+					auditItem.Amounts_Payment =
+					decimal.Parse(amountPayableTextBox.Text.Replace("تومان", string.Empty).Replace(",", string.Empty).Trim());
+
+					auditItem.Amount_Remaininig = auditItem.Amount_Paid - auditItem.Amounts_Payment;
+					amountRemainingTextBox.Text = $"{auditItem.Amount_Remaininig:#,0} تومان";
+				}
+				else
+				{
+					auditItem.Amounts_Payment =
+					decimal.Parse(amountPayableTextBox.Text.Replace("تومان", string.Empty).Replace(",", string.Empty).Trim());
+
+					auditItem.Tax_Percent = int.Parse(taxRateTextBox.Text.Replace("%", string.Empty).Trim());
+					auditItem.Tax_Amount = (auditItem.Amounts_Payment / 100) * auditItem.Tax_Percent;
+					auditItem.Amount_Remaininig = auditItem.Amount_Paid - (auditItem.Tax_Amount + auditItem.Amounts_Payment);
+					amountRemainingTextBox.Text = $"{auditItem.Amount_Remaininig:#,0} تومان";
+				}
+			}
+		}
+		#endregion /AmountPaid
+
 		#region CalculatePurchaseAmount
 		public void CalculatePurchaseAmount()
 		{
@@ -915,9 +1012,12 @@ namespace Inventory_Forms
 				foreach (System.Windows.Forms.DataGridViewRow row in productsListDataGridView.Rows)
 				{
 					auditItem.Amounts_Payment +=
-						int.Parse(row.Cells[4].Value.ToString().Replace("تومان", string.Empty).Replace(",", string.Empty).Trim());
+						decimal.Parse(row.Cells[4].Value.ToString().Replace("تومان", string.Empty).Replace(",", string.Empty).Trim());
+
 					amountPayableTextBox.Text = $"{auditItem.Amounts_Payment:#,0} تومان";
-					remainingAmountTextBox.Text = $"{auditItem.Amounts_Payment:#,0} تومان";
+
+					auditItem.Amount_Remaininig = auditItem.Amount_Paid - auditItem.Amounts_Payment;
+					amountRemainingTextBox.Text = $"{auditItem.Amount_Remaininig:#,0} تومان";
 				}
 			}
 			else
@@ -925,7 +1025,7 @@ namespace Inventory_Forms
 				return;
 			}
 		}
-		#endregion /CalculatePurchaseAmount		
+		#endregion /CalculatePurchaseAmount
 
 		#region Deposit
 		/// <summary>
@@ -1003,6 +1103,138 @@ namespace Inventory_Forms
 		}
 		#endregion /EditBill
 
+		#region EnterTaxPercentage
+		/// <summary>
+		/// وارد کردن درصد مالیات
+		/// و محاسبه مالیات فروش کالا
+		/// </summary>
+		/// <param name="_taxPercentage"></param>
+		private void EnterTaxPercentage(string _taxPercentage)
+		{
+			if (string.IsNullOrWhiteSpace(taxRateTextBox.Text) || taxRateTextBox.Text.Length < 3)
+			{
+				auditItem.Tax_Amount = 0;
+				auditItem.Tax_Percent = 0;
+
+				auditItem.Amounts_Payment =
+					decimal.Parse(amountPayableTextBox.Text.Replace("تومان", string.Empty).Replace(",", string.Empty).Trim());
+
+
+				if (auditItem.Amount_Paid == 0 || auditItem.Amount_Paid == null)
+				{
+					auditItem.Amounts_Payment =
+						decimal.Parse(amountPayableTextBox.Text.Replace("تومان", string.Empty).Replace(",", string.Empty).Trim());
+
+					auditItem.Tax_Amount = (auditItem.Amounts_Payment / 100) * auditItem.Tax_Percent;
+					auditItem.Amounts_Payment = (auditItem.Tax_Amount + auditItem.Amounts_Payment);
+					amountRemainingTextBox.Text = $"{auditItem.Amounts_Payment:#,0} تومان";
+					auditItem.Amount_Remaininig = auditItem.Amounts_Payment;
+					taxRateTextBox.Text = $"% {auditItem.Tax_Percent}";
+				}
+				else
+				{
+					auditItem.Tax_Amount = (auditItem.Amounts_Payment / 100) * auditItem.Tax_Percent;
+					auditItem.Amounts_Payment = auditItem.Amount_Paid - (auditItem.Tax_Amount + auditItem.Amounts_Payment);
+					amountRemainingTextBox.Text = $"{auditItem.Amounts_Payment:#,0} تومان";
+					auditItem.Amount_Remaininig = auditItem.Amounts_Payment;
+					taxRateTextBox.Text = $"% {auditItem.Tax_Percent}";
+				}
+			}
+			else if (string.Compare(taxRateTextBox.Text, "0 %") == 0)
+			{
+				auditItem.Tax_Percent = 0;
+				auditItem.Tax_Amount = 0;
+				auditItem.Amounts_Payment =
+					int.Parse(amountPayableTextBox.Text.Replace("تومان", string.Empty).Replace(",", string.Empty).Trim());
+
+				if (auditItem.Amount_Paid == 0 || auditItem.Amount_Paid == null)
+				{
+					auditItem.Amounts_Payment =
+						decimal.Parse(amountPayableTextBox.Text.Replace("تومان", string.Empty).Replace(",", string.Empty).Trim());
+
+					auditItem.Tax_Amount = (auditItem.Amounts_Payment / 100) * auditItem.Tax_Percent;
+					auditItem.Amounts_Payment = (auditItem.Tax_Amount + auditItem.Amounts_Payment);
+					amountRemainingTextBox.Text = $"{auditItem.Amounts_Payment:#,0} تومان";
+					auditItem.Amount_Remaininig = auditItem.Amounts_Payment;
+					taxRateTextBox.Text = $"% {auditItem.Tax_Percent}";
+				}
+				else
+				{
+					auditItem.Amounts_Payment =
+						decimal.Parse(amountPayableTextBox.Text.Replace("تومان", string.Empty).Replace(",", string.Empty).Trim());
+
+					auditItem.Tax_Amount = (auditItem.Amounts_Payment / 100) * auditItem.Tax_Percent;
+					auditItem.Amounts_Payment = auditItem.Amount_Paid - (auditItem.Tax_Amount + auditItem.Amounts_Payment);
+					amountRemainingTextBox.Text = $"{auditItem.Amounts_Payment:#,0} تومان";
+					auditItem.Amount_Remaininig = auditItem.Amounts_Payment;
+					taxRateTextBox.Text = $"% {auditItem.Tax_Percent}";
+				}
+			}
+			else
+			{
+				if (auditItem.Amount_Paid == 0 || auditItem.Amount_Paid == null)
+				{
+					auditItem.Tax_Percent = int.Parse(taxRateTextBox.Text.Replace("%", string.Empty).Trim());
+					if (auditItem.Tax_Percent > 10)
+					{
+						Mbb.Windows.Forms.MessageBox.Show
+						(text: "بیشتر از 10% امکان دریافت مالیات وجود ندارد.",
+						caption: "خطای ورودی",
+						icon: Mbb.Windows.Forms.MessageBoxIcon.Warning,
+						button: Mbb.Windows.Forms.MessageBoxButtons.Ok);
+
+						auditItem.Tax_Percent = 0;
+						taxRateTextBox.Text = "% 0";
+						taxRateTextBox.Select(2, 1);
+						return;
+					}
+					else
+					{
+						auditItem.Amounts_Payment =
+							decimal.Parse(amountPayableTextBox.Text.Replace("تومان", string.Empty).Replace(",", string.Empty).Trim());
+
+						auditItem.Tax_Amount = (auditItem.Amounts_Payment / 100) * auditItem.Tax_Percent;
+						auditItem.Amounts_Payment = (auditItem.Tax_Amount + auditItem.Amounts_Payment);
+						amountRemainingTextBox.Text = $"{auditItem.Amounts_Payment:#,0} تومان";
+						auditItem.Amount_Remaininig = auditItem.Amounts_Payment;
+						taxRateTextBox.Text = $"% {auditItem.Tax_Percent}";
+					}
+					return;
+				}
+				else
+				{
+					auditItem.Tax_Percent = int.Parse(taxRateTextBox.Text.Replace("%", string.Empty).Trim());
+					if (auditItem.Tax_Percent > 10)
+					{
+						Mbb.Windows.Forms.MessageBox.Show
+						(text: "بیشتر از 10% امکان دریافت مالیات وجود ندارد.",
+						caption: "خطای ورودی",
+						icon: Mbb.Windows.Forms.MessageBoxIcon.Warning,
+						button: Mbb.Windows.Forms.MessageBoxButtons.Ok);
+
+						auditItem.Tax_Percent = 0;
+						taxRateTextBox.Text = "% 0";
+						taxRateTextBox.Select(2, 1);
+						return;
+					}
+					else
+					{
+						auditItem.Amounts_Payment =
+							decimal.Parse(amountPayableTextBox.Text.Replace("تومان", string.Empty).Replace(",", string.Empty).Trim());
+
+						auditItem.Tax_Percent = int.Parse(taxRateTextBox.Text.Replace("%", string.Empty).Trim());
+						auditItem.Tax_Amount = (auditItem.Amounts_Payment / 100) * auditItem.Tax_Percent;
+						auditItem.Amounts_Payment = auditItem.Amount_Paid - (auditItem.Tax_Amount + auditItem.Amounts_Payment);
+						amountRemainingTextBox.Text = $"{auditItem.Amounts_Payment:#,0} تومان";
+						auditItem.Amount_Remaininig = auditItem.Amounts_Payment;
+						taxRateTextBox.Text = $"% {auditItem.Tax_Percent}";
+					}
+					return;
+				}
+			}
+		}
+		#endregion /EnterTaxPercentage
+
 		#region FindClient
 		/// <summary>
 		/// بررسی وجود مشتری در سیستم
@@ -1066,6 +1298,11 @@ namespace Inventory_Forms
 			auditItem.Register_Date = Infrastructure.Utility.PersianCalendar(System.DateTime.Now);
 			auditItem.Register_Time = Infrastructure.Utility.ShowTime();
 			dateSetInvoiceTextBox.Text = $"{auditItem.Register_Date} - {auditItem.Register_Time}";
+
+
+
+
+			CalculatePurchaseAmount();
 
 			if (FindClient(auditItem))
 			{
@@ -1164,7 +1401,7 @@ namespace Inventory_Forms
 					return;
 				}
 			}
-			else if(_auditItem.Sales_Payment_Type == Models.SalesInvoice.SalesPaymentType.چک)
+			else if (_auditItem.Sales_Payment_Type == Models.SalesInvoice.SalesPaymentType.چک)
 			{
 				if (SetSalesProduct(_auditItem) && SetAccountPayable(_auditItem) && SetDailyOffice(_auditItem))
 				{
@@ -1203,7 +1440,7 @@ namespace Inventory_Forms
 					amountPayable +=
 						int.Parse(row.Cells[4].Value.ToString().Replace("تومان", string.Empty).Replace(",", string.Empty).Trim());
 					amountPayableTextBox.Text = $"{amountPayable:#,0} تومان";
-					remainingAmountTextBox.Text = $"{amountPayable:#,0} تومان";
+					amountRemainingTextBox.Text = $"{amountPayable:#,0} تومان";
 				}
 			}
 			else
@@ -1396,7 +1633,6 @@ namespace Inventory_Forms
 					item.Product_Unit,
 					item.Total_Price);
 			}
-
 			sellerNameTextBox.Text = transactionFactorsItems.Seller_Name;
 			auditItem.Seller_Name = transactionFactorsItems.Seller_Name;
 			clientNameTextBox.Text = transactionFactorsItems.Client_Name;

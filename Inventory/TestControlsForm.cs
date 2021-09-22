@@ -43,7 +43,9 @@
 
 		private void button2_Click(object sender, System.EventArgs e)
 		{
-			System.IO.Directory.CreateDirectory("E:\\NewDirectory");
+			//System.IO.Directory.CreateDirectory("E:\\NewDirectory");
+
+			System.Windows.Forms.MessageBox.Show($"{bunifuTextBox4.Text.Insert(7, " - ").Insert(14," - ")}");
 		}
 
 		private void button3_Click(object sender, System.EventArgs e)
@@ -80,6 +82,27 @@
 			}
 
 
+		}
+
+		private void bunifuTextBox4_Leave(object sender, System.EventArgs e)
+		{
+			//System.Windows.Forms.MessageBox.Show($"{bunifuTextBox4.Text.Insert(7, " - ")}");
+			
+		}
+
+		private void button4_Click(object sender, System.EventArgs e)
+		{
+			System.Windows.Forms.MessageBox.Show($"{numTextBox1.Text} - {numTextBox3.Text}{iranLabel.Text} - {numTextBox2.Text}{alphabetComboBox.SelectedItem}");
+		}
+
+		private void guna2Panel1_Leave(object sender, System.EventArgs e)
+		{
+			
+		}
+
+		private void guna2GroupBox1_Leave(object sender, System.EventArgs e)
+		{
+			System.Windows.Forms.MessageBox.Show($"{numTextBox1.Text} - {numTextBox3.Text}{iranLabel.Text} - {numTextBox2.Text}{alphabetComboBox.SelectedItem}");
 		}
 	}
 }

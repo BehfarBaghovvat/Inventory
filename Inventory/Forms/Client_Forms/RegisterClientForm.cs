@@ -7,9 +7,61 @@ namespace Client_Forms
 		//-----------------------------------------------------------------------------------------------     Fields, Properties, Layers
 
 		#region Properties
-		public Models.Client Client_GetData { get; set; }
-		public Models.Client Client_FirstLoad { get; set; }
-		public Models.Client Client_New { get; set; }
+
+		private Models.Client _client_GetData;
+		public Models.Client Client_GetData
+		{
+			get
+			{
+				if (_client_GetData == null)
+				{
+					_client_GetData =
+						new Models.Client();
+				}
+				return _client_GetData;
+			}
+			set
+			{
+				_client_GetData = value;
+			}
+		}
+
+		private Models.Client _client_FirstLoad;
+		public Models.Client Client_FirstLoad
+		{
+			get
+			{
+				if (_client_FirstLoad == null)
+				{
+					_client_FirstLoad =
+						new Models.Client();
+				}
+				return _client_FirstLoad;
+			}
+			set
+			{
+				_client_FirstLoad = value;
+			}
+		}
+
+		private Models.Client _client_New;
+		public Models.Client Client_New
+		{
+			get
+			{
+				if (_client_New == null)
+				{
+					_client_New =
+						new Models.Client();
+				}
+				return _client_New;
+			}
+			set
+			{
+				_client_New = value;
+			}
+		}
+
 		public Models.EventLog EventLog { get; set; }
 		public string Search_Item { get; set; }
 		#endregion /Properties
@@ -63,43 +115,133 @@ namespace Client_Forms
 		}
 		#endregion /ClientNameTextBox_TextChange
 
-		#region LicensePlateTextBox_Enter
-		private void LicensePlateTextBox_Enter(object sender, System.EventArgs e)
+		#region LicensePlateGroupBox_Leave
+		private void LicensePlateGroupBox_Leave(object sender, System.EventArgs e)
 		{
-			Infrastructure.Utility.PersianLanguage();
-			licensePlateTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-		}
-		#endregion /LicensePlateTextBox_Enter
-
-		#region LicensePlateTextBox_KeyPress
-		private void LicensePlateTextBox_KeyPress(object sender, System.Windows.Forms.KeyPressEventArgs e)
-		{
-			Infrastructure.Utility.PersianAndNumberTyping(e);
-		}
-		#endregion /LicensePlateTextBox_KeyPress
-
-		#region LicensePlateTextBox_Leave
-		private void LicensePlateTextBox_Leave(object sender, System.EventArgs e)
-		{
-			if (string.IsNullOrWhiteSpace(licensePlateTextBox.Text) || licensePlateTextBox.Text.Length < 7)
+			if (string.IsNullOrWhiteSpace(numTextBox1.Text) || string.IsNullOrWhiteSpace(numTextBox2.Text) || string.IsNullOrWhiteSpace(numTextBox3.Text))
 			{
 				Client_GetData.License_Plate = null;
-				licensePlateTextBox.Clear();
-				licensePlateTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
 				return;
 			}
 			else
 			{
-				Client_GetData.License_Plate = licensePlateTextBox.Text = licensePlateTextBox.Text.Insert(2, " - ").Insert(7, " - ").Insert(8, " ایران ");
+				Client_GetData.License_Plate =
+					$"{numTextBox3.Text}{iranLabel.Text} - {numTextBox2.Text}{alphabetComboBox.SelectedItem} - {numTextBox1.Text}";
+
+				//Mbb.Windows.Forms.MessageBox.Show(
+				//	text: Client_GetData.License_Plate,
+				//	caption: "اعلان",
+				//	icon: Mbb.Windows.Forms.MessageBoxIcon.Information,
+				//	button: Mbb.Windows.Forms.MessageBoxButtons.Ok);
+
+				if (LicensePlateConfirmation(Client_GetData) == true)
+				{
+					confirmLicensePlatePicturBox.Visible = true;
+					confirmLicensePlatePicturBox.Image = Inventory.Properties.Resources.Tik_True;
+				}
+				else if (LicensePlateConfirmation(Client_GetData) == false)
+				{
+					confirmLicensePlatePicturBox.Visible = true;
+					confirmLicensePlatePicturBox.Image = Inventory.Properties.Resources.Tik_False;
+					Client_GetData.License_Plate = null;
+					numTextBox1.Focus();
+				}
 			}
 		}
-		#endregion /LicensePlateTextBox_Leave
+		#endregion /LicensePlateGroupBox_Leave
+
+		//#region LicensePlateTextBox_Enter
+		//private void LicensePlateTextBox_Enter(object sender, System.EventArgs e)
+		//{
+		//	Infrastructure.Utility.PersianLanguage();
+		//	licensePlateTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+
+
+		//	//if ()
+		//	//{
+
+		//	//}
+		//	licensePlateTextBox.Text = licensePlateTextBox.Text.Replace("-", string.Empty).Trim();
+
+		//}
+		//#endregion /LicensePlateTextBox_Enter
+
+		//#region LicensePlateTextBox_KeyPress
+		//private void LicensePlateTextBox_KeyPress(object sender, System.Windows.Forms.KeyPressEventArgs e)
+		//{
+		//	Infrastructure.Utility.PersianAndNumberTyping(e);
+		//}
+		//#endregion /LicensePlateTextBox_KeyPress
+
+		//#region LicensePlateTextBox_Leave
+		//private void LicensePlateTextBox_Leave(object sender, System.EventArgs e)
+		//{
+		//	if (string.IsNullOrWhiteSpace(licensePlateTextBox.Text) || licensePlateTextBox.Text.Length < 8)
+		//	{
+		//		licensePlateTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+		//		licensePlateTextBox.Clear();
+		//		Client_GetData.License_Plate = null;
+		//	}
+		//	else
+		//	{
+		//		licensePlateTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+		//		if (Client_GetData.License_Plate.Length >= 19)
+		//		{
+
+		//			return;
+		//		}
+		//		else
+		//		{
+		//			licensePlateTextBox.Text = Client_GetData.License_Plate.Insert(7, " - ").Insert(14," - ");
+		//		}
+
+		//	}
+		//}
+		//#endregion /LicensePlateTextBox_Leave
+
+		//#region LicensePlateTextBox_TextChange
+		//private void LicensePlateTextBox_TextChange(object sender, System.EventArgs e)
+		//{
+		//	if (string.IsNullOrWhiteSpace(licensePlateTextBox.Text))
+		//	{
+		//		confirmLicensePlatePicturBox.Visible = false;
+		//		return;
+		//	}
+		//	else
+		//	{
+
+		//		if (licensePlateTextBox.Text.Length < 8)
+		//		{
+		//			confirmLicensePlatePicturBox.Visible = true;
+		//			confirmLicensePlatePicturBox.Image = Inventory.Properties.Resources.Tik_False;
+		//			licensePlateTextBox.Focus();
+		//			Client_GetData.License_Plate = null;
+		//			return;
+		//		}
+		//		else
+		//		{
+		//			Client_GetData.License_Plate = licensePlateTextBox.Text;
+
+		//			if (LicensePlateConfirmation(Client_GetData) == true)
+		//			{
+		//				confirmLicensePlatePicturBox.Visible = true;
+		//				confirmLicensePlatePicturBox.Image = Inventory.Properties.Resources.Tik_True;
+		//			}
+		//			else if (LicensePlateConfirmation(Client_GetData) == false)
+		//			{
+		//				confirmLicensePlatePicturBox.Visible = true;
+		//				confirmLicensePlatePicturBox.Image = Inventory.Properties.Resources.Tik_False;
+		//				Client_GetData.License_Plate = null;
+		//			}
+		//		}
+		//	}
+		//}
+		//#endregion /LicensePlateTextBox_TextChange
 
 		#region PhonNumberTextBox_Enter
 		private void PhonNumberTextBox_Enter(object sender, System.EventArgs e)
 		{
 			Infrastructure.Utility.PersianLanguage();
-			phonNumberTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
 		}
 		#endregion /PhonNumberTextBox_Enter
 
@@ -110,23 +252,70 @@ namespace Client_Forms
 		}
 		#endregion /PhonNumberTextBox_KeyPress
 
-		#region PhonNumberTextBox_Leave
-		private void PhonNumberTextBox_Leave(object sender, System.EventArgs e)
+		#region PhoneNumberTextBox_Leave
+		private void PhoneNumberTextBox_Leave(object sender, System.EventArgs e)
 		{
-			if (string.IsNullOrWhiteSpace(phonNumberTextBox.Text) || phonNumberTextBox.Text.Length < 11)
+			if (string.IsNullOrWhiteSpace(phoneNumberTextBox.Text) || phoneNumberTextBox.Text.Length < 11)
 			{
-				phonNumberTextBox.Clear();
+				phoneNumberTextBox.Clear();
 				Client_GetData.Phone_Number = null;
-				phonNumberTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+				phoneNumberTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
 				return;
 			}
 			else
 			{
-				phonNumberTextBox.Text = phonNumberTextBox.Text.Insert(4, "-");
-				Client_GetData.Phone_Number = phonNumberTextBox.Text;
+				if (Client_GetData.Phone_Number.Length >= 12)
+				{
+					return;
+				}
+				else
+				{
+					phoneNumberTextBox.Text = phoneNumberTextBox.Text.Insert(4, "-");
+				}
 			}
 		}
-		#endregion /PhonNumberTextBox_Leave
+		#endregion /PhoneNumberTextBox_Leave
+
+		#region PhoneNumberTextBox_TextChange
+		private void PhoneNumberTextBox_TextChange(object sender, System.EventArgs e)
+		{
+			if (string.IsNullOrWhiteSpace(phoneNumberTextBox.Text))
+			{
+				confirmTelPicturBox.Visible = false;
+				phoneNumberTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+				return;
+			}
+			else
+			{
+				phoneNumberTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+
+				Client_GetData.Phone_Number = phoneNumberTextBox.Text;
+				if (Client_GetData.Phone_Number.Length < 11)
+				{
+					confirmTelPicturBox.Visible = true;
+					confirmTelPicturBox.Image = Inventory.Properties.Resources.Tik_False;
+					phoneNumberTextBox.Focus();
+					Client_GetData.Phone_Number = null;
+					return;
+				}
+				else
+				{
+					if (TelConfirmation(Client_GetData) == true)
+					{
+						confirmTelPicturBox.Visible = true;
+						confirmTelPicturBox.Image = Inventory.Properties.Resources.Tik_True;
+						Client_GetData.Phone_Number = phoneNumberTextBox.Text;
+					}
+					else if (TelConfirmation(Client_GetData) == false)
+					{
+						confirmTelPicturBox.Visible = true;
+						confirmTelPicturBox.Image = Inventory.Properties.Resources.Tik_False;
+						Client_GetData.Phone_Number = null;
+					}
+				}
+			}
+		}
+		#endregion /PhoneNumberTextBox_TextChange
 
 		#region SearchTextBox_Enter
 		private void SearchTextBox_Enter(object sender, System.EventArgs e)
@@ -148,14 +337,12 @@ namespace Client_Forms
 		{
 			if (string.IsNullOrWhiteSpace(searchTextBox.Text))
 			{
-				Search_Item = null;
+				GetDataFromClient();
 				searchTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
 			}
 			else
 			{
-				Search_Item = searchTextBox.Text;
-
-				SearchClient(Search_Item);
+				SearchClient(searchTextBox.Text);
 			}
 		}
 		#endregion /SearchTextBox_TextChange
@@ -173,7 +360,7 @@ namespace Client_Forms
 				else
 				{
 					Infrastructure.Utility.WindowsNotification(message: "عدم موفقیت در ثبت اطلاعات", caption: Infrastructure.PopupNotificationForm.Caption.خطا);
-				} 
+				}
 			}
 			else if (string.Compare(saveButton.Text, "ویرایش مشتری") == 0)
 			{
@@ -195,17 +382,20 @@ namespace Client_Forms
 		{
 			saveButton.Text = "ویرایش مشتری";
 
-			Client_FirstLoad.Client_Name = listClientDataGridView.CurrentRow.Cells[0].Value.ToString();
-			clientNameTextBox.Text = listClientDataGridView.CurrentRow.Cells[0].Value.ToString();
-			Client_GetData.Client_Name = listClientDataGridView.CurrentRow.Cells[0].Value.ToString();
+			Client_FirstLoad.Client_Name = listClientDataGridView.CurrentRow.Cells[1].Value.ToString();
+			clientNameTextBox.Text = listClientDataGridView.CurrentRow.Cells[1].Value.ToString();
+			Client_GetData.Client_Name = listClientDataGridView.CurrentRow.Cells[1].Value.ToString();
 
-			Client_FirstLoad.License_Plate = listClientDataGridView.CurrentRow.Cells[1].Value.ToString();
-			licensePlateTextBox.Text = listClientDataGridView.CurrentRow.Cells[1].Value.ToString();
-			Client_GetData.License_Plate = listClientDataGridView.CurrentRow.Cells[1].Value.ToString();
+			Client_FirstLoad.License_Plate = listClientDataGridView.CurrentRow.Cells[3].Value.ToString();
+			numTextBox3.Text= Client_FirstLoad.License_Plate.Substring(0,2);
+			alphabetComboBox.SelectedIndex = alphabetComboBox.FindString(Client_FirstLoad.License_Plate.Substring(13, 1));
+			numTextBox2.Text = Client_FirstLoad.License_Plate.Substring(10, 3);
+			numTextBox1.Text = Client_FirstLoad.License_Plate.Substring(17,2);
+			Client_GetData.License_Plate = listClientDataGridView.CurrentRow.Cells[3].Value.ToString();
 
-			Client_FirstLoad.Phone_Number = listClientDataGridView.CurrentRow.Cells[2].Value.ToString();
-			phonNumberTextBox.Text = listClientDataGridView.CurrentRow.Cells[1].Value.ToString();
-			Client_GetData.Phone_Number = listClientDataGridView.CurrentRow.Cells[1].Value.ToString();
+			Client_FirstLoad.Phone_Number = listClientDataGridView.CurrentRow.Cells[2].Value.ToString().Replace("-",string.Empty).Trim();
+			phoneNumberTextBox.Text = listClientDataGridView.CurrentRow.Cells[2].Value.ToString().Replace("-", string.Empty).Trim();
+			Client_GetData.Phone_Number = listClientDataGridView.CurrentRow.Cells[2].Value.ToString().Replace("-", string.Empty).Trim();
 		}
 		#endregion /ClientEditToolStripMenuItem_Click
 
@@ -236,8 +426,12 @@ namespace Client_Forms
 		private void AllClear()
 		{
 			clientNameTextBox.Clear();
-			licensePlateTextBox.Clear();
-			phonNumberTextBox.Clear();
+			numTextBox1.Clear();
+			numTextBox2.Clear();
+			alphabetComboBox.SelectedIndex = 0;
+			numTextBox3.Clear();
+			confirmLicensePlatePicturBox.Visible = false;
+			phoneNumberTextBox.Clear();
 
 			Client_FirstLoad = null;
 			Client_GetData = null;
@@ -455,7 +649,7 @@ namespace Client_Forms
 				{
 					listClients =
 						dataBaseContext.Clients
-						.OrderByDescending(current => current.Registration_Date)
+						.OrderBy(current => current.Id)
 						.ToList();
 				}
 
@@ -488,6 +682,38 @@ namespace Client_Forms
 		}
 		#endregion /Initialize
 
+		#region LicensePlateConfirmation
+		/// <summary>
+		/// بررسی وجود شماره پلاک وسیله نقلیه در بانک اطلاعاتی
+		/// </summary>
+		/// <param name="_client"></param>
+		/// <returns></returns>
+		private static bool LicensePlateConfirmation(Models.Client _client)
+		{
+			bool status;
+
+			Models.DataBaseContext dataBaseContext = null;
+			dataBaseContext =
+					new Models.DataBaseContext();
+
+			Models.Client client =
+				dataBaseContext.Clients
+				.Where(current => string.Compare(current.License_Plate, _client.License_Plate) == 0)
+				.FirstOrDefault();
+
+			if (client == null)
+			{
+				status = true;
+			}
+			else
+			{
+				status = false;
+			}
+
+			return status;
+		}
+		#endregion /LicensePlateConfirmation
+
 		#region SearchClient
 		/// <summary>
 		/// جستجوی مشتری
@@ -495,89 +721,90 @@ namespace Client_Forms
 		/// <param name="_searchItem"></param>
 		private void SearchClient(string _searchItem)
 		{
-			if (_searchItem.StartsWith("09"))
-			{
-				Models.DataBaseContext dataBaseContext = null;
-				try
+				if (_searchItem.StartsWith("09"))
 				{
-					dataBaseContext =
-						new Models.DataBaseContext();
-
-					System.Collections.Generic.List<Models.Client> listClients = null;
-
-					if (string.IsNullOrWhiteSpace(_searchItem))
+					Models.DataBaseContext dataBaseContext = null;
+					try
 					{
-						listClients =
-							dataBaseContext.Clients
-							.OrderBy(current => current.Registration_Date)
-							.ToList();
+						dataBaseContext =
+							new Models.DataBaseContext();
+
+						System.Collections.Generic.List<Models.Client> listClients = null;
+
+						if (string.IsNullOrWhiteSpace(_searchItem))
+						{
+							listClients =
+								dataBaseContext.Clients
+								.OrderBy(current => current.Id)
+								.ToList();
+						}
+						else
+						{
+							listClients =
+								dataBaseContext.Clients
+								.Where(current => current.Phone_Number.Contains(_searchItem))
+								.OrderBy(current => current.Id)
+								.ToList();
+						}
+
+						listClientDataGridView.DataSource = listClients;
+
 					}
-					else
+					catch (System.Exception ex)
 					{
-						listClients =
-							dataBaseContext.Clients
-							.Where(current => current.Phone_Number.Contains(_searchItem))
-							.OrderBy(current => current.Registration_Date)
-							.ToList();
+						Infrastructure.Utility.ExceptionShow(ex);
 					}
-
-					listClientDataGridView.DataSource = listClients;
-
-				}
-				catch (System.Exception ex)
-				{
-					Infrastructure.Utility.ExceptionShow(ex);
-				}
-				finally
-				{
-					if (dataBaseContext != null)
+					finally
 					{
-						dataBaseContext.Dispose();
-						dataBaseContext = null;
-					}
-				}
-			}
-			else
-			{
-				Models.DataBaseContext dataBaseContext = null;
-				try
-				{
-					dataBaseContext =
-						new Models.DataBaseContext();
-
-					System.Collections.Generic.List<Models.Client> listClients = null;
-
-					if (string.IsNullOrWhiteSpace(_searchItem))
-					{
-						listClients =
-							dataBaseContext.Clients
-							.OrderBy(current => current.Registration_Date)
-							.ToList();
-					}
-					else
-					{
-						listClients =
-							dataBaseContext.Clients
-							.Where(current => current.Phone_Number.Contains(_searchItem))
-							.OrderBy(current => current.Registration_Date)
-							.ToList();
-					}
-
-					listClientDataGridView.DataSource = listClients;
-				}
-				catch (System.Exception ex)
-				{
-					Infrastructure.Utility.ExceptionShow(ex);
-				}
-				finally
-				{
-					if (dataBaseContext != null)
-					{
-						dataBaseContext.Dispose();
-						dataBaseContext = null;
+						if (dataBaseContext != null)
+						{
+							dataBaseContext.Dispose();
+							dataBaseContext = null;
+						}
 					}
 				}
-			}
+				else
+				{
+					Models.DataBaseContext dataBaseContext = null;
+					try
+					{
+						dataBaseContext =
+							new Models.DataBaseContext();
+
+						System.Collections.Generic.List<Models.Client> listClients = null;
+
+						if (string.IsNullOrWhiteSpace(_searchItem))
+						{
+							listClients =
+								dataBaseContext.Clients
+								.OrderBy(current => current.Id)
+								.ToList();
+						}
+						else
+						{
+							listClients =
+								dataBaseContext.Clients
+								.Where(current => current.License_Plate.Contains(_searchItem))
+								.OrderBy(current => current.Id)
+								.ToList();
+						}
+
+						listClientDataGridView.DataSource = listClients;
+					}
+					catch (System.Exception ex)
+					{
+						Infrastructure.Utility.ExceptionShow(ex);
+					}
+					finally
+					{
+						if (dataBaseContext != null)
+						{
+							dataBaseContext.Dispose();
+							dataBaseContext = null;
+						}
+					}
+				}
+			
 		}
 		#endregion /SearchClient
 
@@ -607,6 +834,8 @@ namespace Client_Forms
 
 				dataBaseContext.Clients.Add(client);
 				dataBaseContext.SaveChanges();
+
+				AllClear();
 
 				GetDataFromClient();
 
@@ -676,6 +905,40 @@ namespace Client_Forms
 		}
 		#endregion /SetEventLog
 
+		#region TelConfirmation
+		/// <summary>
+		/// بررسی وجود شماره همراه در سیستم
+		/// </summary>
+		/// <param name="tel"></param>
+		/// <returns></returns>
+		private bool TelConfirmation(Models.Client _client)
+		{
+			bool status;
+			Models.DataBaseContext dataBaseContext = null;
+			dataBaseContext =
+					new Models.DataBaseContext();
+
+			Models.Client client =
+				dataBaseContext.Clients
+				.Where(current => string.Compare(current.Phone_Number, _client.Phone_Number) == 0)
+				.FirstOrDefault();
+
+			if (client == null)
+			{
+				status = true;
+			}
+			else
+			{
+				status = false;
+			}
+			return status;
+		}
+
+
+		#endregion /TelConfirmation
+
 		#endregion /Function
+
+
 	}
 }

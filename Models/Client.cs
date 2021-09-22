@@ -51,7 +51,7 @@
 		[System.ComponentModel.DisplayName(displayName: "شماره تماس")]
 		//--Lenght Phone_Number
 		[System.ComponentModel.DataAnnotations.StringLength
-			(maximumLength: 11)]
+			(maximumLength: 12)]
 		public string Phone_Number { get; set; }
 		#endregion /Phone_Number
 
