@@ -6,6 +6,7 @@
 
 		#region Properites
 
+		private Manegment_Setting.ProgramSettingUC _programSetting = new Manegment_Setting.ProgramSettingUC();
 		private Manegment_Setting.UserSettingUC _userSettingUC = new Manegment_Setting.UserSettingUC();
 		private Manegment_Setting.EventLogUC _eventLogUC = new Manegment_Setting.EventLogUC();
 		private Manegment_Setting.LoginControlUC _loginControlUC = new Manegment_Setting.LoginControlUC(); 
@@ -31,6 +32,14 @@
 			Initialize();
 		}
 		#endregion /ManagementSettingForm_Load
+
+		#region ProgramSettingButton_Click
+		private void ProgramSettingButton_Click(object sender, System.EventArgs e)
+		{
+			controlPanel.Controls.Clear();
+			controlPanel.Controls.Add(_programSetting);
+		}
+		#endregion /ProgramSettingButton_Click
 
 		#region UserSettingButton_Click
 		private void UserSettingButton_Click(object sender, System.EventArgs e)
@@ -73,5 +82,7 @@
 		#endregion Initialize
 
 		#endregion /Founcitons
+
+		
 	}
 }

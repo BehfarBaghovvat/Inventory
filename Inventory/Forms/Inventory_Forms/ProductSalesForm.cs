@@ -59,7 +59,8 @@ namespace Inventory_Forms
 
 		#endregion /Layer
 
-		public System.Collections.Generic.List<BillSaleReportItems> listBillSaleReports = new System.Collections.Generic.List<BillSaleReportItems>();
+		public System.Collections.Generic.List<BillSaleReportItems> listBillSaleReports =
+			new System.Collections.Generic.List<BillSaleReportItems>();
 
 		private TransactionFactorsItems _transactionFactorsItems;
 		public TransactionFactorsItems Transaction_Factors_Items
@@ -78,7 +79,6 @@ namespace Inventory_Forms
 				_transactionFactorsItems = value;
 			}
 		}
-
 
 		private Models.EventLog _eventLog;
 		public Models.EventLog EventLog
@@ -111,9 +111,7 @@ namespace Inventory_Forms
 
 		public int Price { get; private set; }
 		public int? OldQuantity { get; set; }
-
 		public int? NewQuantity { get; set; }
-
 		public int NumberPurchases { get; set; }
 
 		#endregion/Properties
@@ -342,6 +340,7 @@ namespace Inventory_Forms
 			{
 				phoneNumberTextBox.Clear();
 				Transaction_Factors_Items.Phone_Number = null;
+				InventoryOutput.Phone_Number = null;
 				phoneNumberTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
 				return;
 			}
@@ -349,11 +348,21 @@ namespace Inventory_Forms
 			{
 				if (phoneNumberTextBox.Text.Length >= 12)
 				{
+					Mbb.Windows.Forms.MessageBox.Show(
+						text: "شماره همراه بیشتر از 11 رقم نمیشود. \n لطفا مجدد شماره را وارد نمایید.",
+						caption:"",
+						icon: Mbb.Windows.Forms.MessageBoxIcon.Information,
+						button: Mbb.Windows.Forms.MessageBoxButtons.Ok);
+
+					phoneNumberTextBox.Focus();
 					return;
 				}
 				else
 				{
-					Transaction_Factors_Items.Phone_Number = phoneNumberTextBox.Text = phoneNumberTextBox.Text.Insert(4, "-");
+					InventoryOutput.Phone_Number = phoneNumberTextBox.Text.Insert(4, "-");
+
+					Transaction_Factors_Items.Phone_Number =
+						phoneNumberTextBox.Text = phoneNumberTextBox.Text.Insert(4, "-");
 				}
 			}
 		}
@@ -370,7 +379,6 @@ namespace Inventory_Forms
 			{
 				phoneNumberTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
 				
-
 			}
 		}
 		#endregion /PhoneNumberTextBox_TextChange
@@ -417,6 +425,7 @@ namespace Inventory_Forms
 			{
 				BillSaleReportForm.MyProcutSalesForm = this;
 				BillSaleReportForm.SetItemsBillSale(listBillSaleReports, Transaction_Factors_Items);
+
 				BillSaleReportForm.ShowDialog();
 			}
 		}
@@ -725,6 +734,15 @@ namespace Inventory_Forms
 				}
 				errorMessage += "لطفا  قیمت کالا را وارد نمایید.";
 			}
+			if (string.IsNullOrEmpty(inventoryOutput.Carrier_Name))
+			{
+				if (!string.IsNullOrEmpty(errorMessage))
+				{
+					errorMessage +=
+						System.Environment.NewLine;
+				}
+				errorMessage += "لطفا نام حامل کالا را وارد نمایید.";
+			}
 			if (string.IsNullOrEmpty(inventoryOutput.Client_Name))
 			{
 				if (!string.IsNullOrEmpty(errorMessage))
@@ -734,14 +752,14 @@ namespace Inventory_Forms
 				}
 				errorMessage += "لطفا نام مشتری را وارد نمایید.";
 			}
-			if (string.IsNullOrEmpty(inventoryOutput.Carrier_Name))
+			if (string.IsNullOrWhiteSpace(inventoryOutput.Phone_Number))
 			{
 				if (!string.IsNullOrEmpty(errorMessage))
 				{
 					errorMessage +=
 						System.Environment.NewLine;
 				}
-				errorMessage += "لطفا نام حامل کالا را وارد نمایید.";
+				errorMessage += "لطفا شماره تماس مشتری را وارد نمایید.";
 			}
 
 			//====================================================================================================================================
@@ -764,8 +782,15 @@ namespace Inventory_Forms
 				{
 					carrierNameTextBox.Focus();
 				}
+				else if (string.IsNullOrEmpty(inventoryOutput.Phone_Number))
+				{
+					phoneNumberTextBox.Focus();
+				}
 
-				Mbb.Windows.Forms.MessageBox.Show(text: errorMessage, caption: "", icon: Mbb.Windows.Forms.MessageBoxIcon.Error, button: Mbb.Windows.Forms.MessageBoxButtons.Ok);
+				Mbb.Windows.Forms.MessageBox.Show(text: errorMessage,
+					caption: "خطای ورودی",
+					icon: Mbb.Windows.Forms.MessageBoxIcon.Error,
+					button: Mbb.Windows.Forms.MessageBoxButtons.Ok);
 
 				return false;
 			}

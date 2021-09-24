@@ -68,6 +68,17 @@
 		#endregion /Id
 
 		/// <summary>
+		/// شماره همراه مشتری
+		/// </summary>
+		#region Phone_Number
+		[System.ComponentModel.DisplayName(displayName: "شماره همراه")]
+
+		[System.ComponentModel.DataAnnotations.StringLength
+			(maximumLength: 12)]
+		public string Phone_Number { get; set; }
+		#endregion /Phone_Number
+
+		/// <summary>
 		/// تصویر کالا
 		/// </summary>
 		#region Product_Image

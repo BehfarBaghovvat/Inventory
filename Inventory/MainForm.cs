@@ -555,6 +555,9 @@ namespace Inventory
 				RegisterClientForm.Hide();
 				ClientFinancialSituationForm.Hide();
 
+				ManagementSettingForm.Hide();
+				BackupSettingForm.Hide();
+
 				homeButton.Checked = false;
 				inventoryEntryButton.Checked = true;
 				productSalesButton.Checked = false;
@@ -586,7 +589,6 @@ namespace Inventory
 			{
 				mainPanel.Controls.Clear();
 				mainPanel.Controls.Add(ProcutSalesForm);
-				//ProcutSalesForm.Initialize();
 				ProcutSalesForm.Show();
 
 				ProductBuyForm.Hide();
@@ -600,6 +602,9 @@ namespace Inventory
 
 				RegisterClientForm.Hide();
 				ClientFinancialSituationForm.Hide();
+
+				ManagementSettingForm.Hide();
+				BackupSettingForm.Hide();
 
 				homeButton.Checked = false;
 				inventoryEntryButton.Checked = false;
@@ -647,6 +652,9 @@ namespace Inventory
 				RegisterClientForm.Hide();
 				ClientFinancialSituationForm.Hide();
 
+				ManagementSettingForm.Hide();
+				BackupSettingForm.Hide();
+
 				homeButton.Checked = false;
 				inventoryEntryButton.Checked = false;
 				productSalesButton.Checked = false;
@@ -692,6 +700,9 @@ namespace Inventory
 
 				RegisterClientForm.Hide();
 				ClientFinancialSituationForm.Hide();
+
+				ManagementSettingForm.Hide();
+				BackupSettingForm.Hide();
 
 				homeButton.Checked = false;
 				inventoryEntryButton.Checked = false;
@@ -798,6 +809,9 @@ namespace Inventory
 				RegisterClientForm.Hide();
 				ClientFinancialSituationForm.Hide();
 
+				ManagementSettingForm.Hide();
+				BackupSettingForm.Hide();
+
 				homeButton.Checked = false;
 
 				inventoryEntryButton.Checked = false;
@@ -843,6 +857,9 @@ namespace Inventory
 
 				RegisterClientForm.Hide();
 				ClientFinancialSituationForm.Hide();
+
+				ManagementSettingForm.Hide();
+				BackupSettingForm.Hide();
 
 				homeButton.Checked = false;
 
@@ -890,6 +907,9 @@ namespace Inventory
 				RegisterClientForm.Hide();
 				ClientFinancialSituationForm.Hide();
 
+				ManagementSettingForm.Hide();
+				BackupSettingForm.Hide();
+
 				homeButton.Checked = false;
 
 				inventoryEntryButton.Checked = false;
@@ -935,6 +955,9 @@ namespace Inventory
 
 				RegisterClientForm.Hide();
 				ClientFinancialSituationForm.Hide();
+
+				ManagementSettingForm.Hide();
+				BackupSettingForm.Hide();
 
 				homeButton.Checked = false;
 
@@ -1039,6 +1062,9 @@ namespace Inventory
 
 				ClientFinancialSituationForm.Hide();
 
+				ManagementSettingForm.Hide();
+				BackupSettingForm.Hide();
+
 				homeButton.Checked = false;
 
 				inventoryEntryButton.Checked = false;
@@ -1083,7 +1109,9 @@ namespace Inventory
 				SafeBoxForm.Hide();
 
 				RegisterClientForm.Hide();
-				ClientFinancialSituationForm.Hide();
+
+				ManagementSettingForm.Hide();
+				BackupSettingForm.Hide();
 
 				homeButton.Checked = false;
 
@@ -1190,6 +1218,8 @@ namespace Inventory
 				RegisterClientForm.Hide();
 				ClientFinancialSituationForm.Hide();
 
+				BackupSettingForm.Hide();
+
 				homeButton.Checked = false;
 
 				inventoryEntryButton.Checked = false;
@@ -1207,6 +1237,8 @@ namespace Inventory
 
 				managementSettingsButton.Checked = true;
 				backupSettingsButton.Checked = false;
+
+
 			}
 		}
 		#endregion /ManagementSettingsButton_Click
@@ -1236,6 +1268,8 @@ namespace Inventory
 
 				RegisterClientForm.Hide();
 				ClientFinancialSituationForm.Hide();
+
+				ManagementSettingForm.Hide();
 
 				homeButton.Checked = false;
 

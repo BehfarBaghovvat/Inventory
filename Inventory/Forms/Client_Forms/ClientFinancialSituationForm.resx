@@ -117,11 +117,75 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <metadata name="bunifuTextBox3.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  <metadata name="licensePlateGroupBox.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="alphabetTextBox.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="bunifuTextBox3.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="alphabetTextBox.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAAC0AAAAjCAYAAAAAEIPqAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAD4SURBVFhH7dgtEsIwEIbhHAOJRHIEJBKJRPXP1SFb0TtU
+        19ZUdIaangduAIqwX7odpjPoZWH2nYlJIp6mUXE/X5ZlqziOd2maFloGmfZkWjNxGS1ukyS50kavcNwJ
+        fmLqFE6YFm7YUJalb9vW933/9dF1na+qaoY/cLBMdo4mDljABo01TRPgdBPOTA5o3J/wZRobhmE+7YLJ
+        bzR+icbgMrREhpbK0FIZWipDS2VoqQwtlaGlMrRUhpbK0FL9FTrBZF3XvE1XH9FRFG14MrwyYZOWMY6j
+        z/P8CRteUJk8hXeyGa5xkO/C1GX4EtqA+61qEPjIxF/NuRdKoD70ldBYUAAAAABJRU5ErkJggg==
+</value>
+  </data>
+  <metadata name="numTextBox3.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="numTextBox3.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACMAAAAjCAYAAAAe2bNZAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAD3SURBVFhH7ZghDoNAEEX3GJWVlT1CZWVlZRUsOFwlCO6A
+        xmIQJMVwnvYGrep2/jKkIWEkmzaZl4zZmeS/zGIW87OkabqJ4/iQJEm+dlHWkbK2HD2Hmntr7Z0GXcB6
+        ktCFFUawEWo8MFAUhWuaxnVdt1q1bevKspyEXlgEqxhDByc0MBCSuq69EN3IlVW8DO7RG4ek7/tpOzmr
+        fGWwwpAgT2WWUBkJlZFQGQmVkVAZCZWRUBkJlZFQGQmVkfgLGYvDqqp4LAyLMlEU7fjQvyoxtHYNw+Cy
+        LHsjE38kWGUE791JKGRR7o0V5sCQBvD9BCkSOXP0r2HMB/a5faGxuI9aAAAAAElFTkSuQmCC
+</value>
+  </data>
+  <metadata name="numTextBox1.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="numTextBox1.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACMAAAAjCAYAAAAe2bNZAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAD3SURBVFhH7ZghDoNAEEX3GJWVlT1CZWVlZRUsOFwlCO6A
+        xmIQJMVwnvYGrep2/jKkIWEkmzaZl4zZmeS/zGIW87OkabqJ4/iQJEm+dlHWkbK2HD2Hmntr7Z0GXcB6
+        ktCFFUawEWo8MFAUhWuaxnVdt1q1bevKspyEXlgEqxhDByc0MBCSuq69EN3IlVW8DO7RG4ek7/tpOzmr
+        fGWwwpAgT2WWUBkJlZFQGQmVkVAZCZWRUBkJlZFQGQmVkfgLGYvDqqp4LAyLMlEU7fjQvyoxtHYNw+Cy
+        LHsjE38kWGUE791JKGRR7o0V5sCQBvD9BCkSOXP0r2HMB/a5faGxuI9aAAAAAElFTkSuQmCC
+</value>
+  </data>
+  <metadata name="separatorLabel1.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="numTextBox2.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="numTextBox2.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAAC0AAAAjCAYAAAAAEIPqAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAD4SURBVFhH7dgtEsIwEIbhHAOJRHIEJBKJRPXP1SFb0TtU
+        19ZUdIaangduAIqwX7odpjPoZWH2nYlJIp6mUXE/X5ZlqziOd2maFloGmfZkWjNxGS1ukyS50kavcNwJ
+        fmLqFE6YFm7YUJalb9vW933/9dF1na+qaoY/cLBMdo4mDljABo01TRPgdBPOTA5o3J/wZRobhmE+7YLJ
+        bzR+icbgMrREhpbK0FIZWipDS2VoqQwtlaGlMrRUhpbK0FL9FTrBZF3XvE1XH9FRFG14MrwyYZOWMY6j
+        z/P8CRteUJk8hXeyGa5xkO/C1GX4EtqA+61qEPjIxF/NuRdKoD70ldBYUAAAAABJRU5ErkJggg==
+</value>
+  </data>
+  <metadata name="separatorLabel2.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="iranLabel.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="phoneNumberTextBox.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="phoneNumberTextBox.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAARMAAAAjCAYAAAC3pO6hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
         YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABZSURBVHhe7dc7CgAgDETBPbo39Sh+wNJGYjkDr0q/kAAA
@@ -129,21 +193,10 @@
         EYQWDwAAAABJRU5ErkJggg==
 </value>
   </data>
-  <metadata name="bunifuTextBox2.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  <metadata name="clientNameTextBox.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
-  <data name="bunifuTextBox2.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAARMAAAAjCAYAAAC3pO6hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABZSURBVHhe7dc7CgAgDETBPbo39Sh+wNJGYjkDr0q/kAAA
-        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHzUkr4aklRpj8n1IEkvGRNJXzrPDkBFMgH4e9Jk
-        EYQWDwAAAABJRU5ErkJggg==
-</value>
-  </data>
-  <metadata name="bunifuTextBox1.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <data name="bunifuTextBox1.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="clientNameTextBox.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAARMAAAAjCAYAAAC3pO6hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
         YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABZSURBVHhe7dc7CgAgDETBPbo39Sh+wNJGYjkDr0q/kAAA
@@ -764,6 +817,9 @@
         T/w/tOxIyMuhLdAAAAAASUVORK5CYII=
 </value>
   </data>
+  <metadata name="listFinantioalClientDataGridView.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
   <metadata name="Select_Item.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>

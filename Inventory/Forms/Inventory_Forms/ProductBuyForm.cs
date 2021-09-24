@@ -23,6 +23,19 @@ namespace Inventory_Forms
 			public string Total_Price { get; set; }
 		}
 
+		/// <summary>
+		/// کلاس مربوط به تعداد کالا
+		/// که در صورت افزایش اختلاف افزایش
+		/// موجودی توسط ایتم های این کلاس
+		/// انجام میگردد.
+		/// </summary>
+		public class UpdateProductQuantity
+		{
+			public int Final_Quantity { get; set; }
+			public int First_Quantity { get; set; }
+			public int Second_Quantity { get; set; }
+		}
+
 		private BillBuyReportForm _billBuyReportForm;
 		public BillBuyReportForm BillBuyReportForm
 		{
@@ -40,7 +53,8 @@ namespace Inventory_Forms
 
 		#endregion /Layer
 
-		public System.Collections.Generic.List<BillBuyReportItems> listBillBuyReportItems = new System.Collections.Generic.List<BillBuyReportItems>();
+		public System.Collections.Generic.List<BillBuyReportItems> listBillBuyReportItems = 
+			new System.Collections.Generic.List<BillBuyReportItems>();
 
 		public int? Price { get; set; }
 		public int TotalSumPrice { get; set; }
@@ -110,6 +124,7 @@ namespace Inventory_Forms
 			set { _productReceived_Selected = value; }
 		}
 
+		private UpdateProductQuantity _updateProductQuantity = null;
 
 
 		#endregion /Properties
@@ -121,12 +136,18 @@ namespace Inventory_Forms
 		public ProductBuyForm()
 		{
 			InitializeComponent();
-			Initialize();
 		}
 
 
 
 		//-----------------------------------------------------------------------------------------------     Events Controls
+
+		#region ProductBuyForm_Load
+		private void ProductBuyForm_Load(object sender, System.EventArgs e)
+		{
+			Initialize();
+		}
+		#endregion /ProductBuyForm_Load
 
 		#region ProductNameTextBox_Enter
 		private void ProductNameTextBox_Enter(object sender, System.EventArgs e)
@@ -391,6 +412,8 @@ namespace Inventory_Forms
 			{
 				ProductReceived_New.Product_Quantity = int.Parse(productQuantityTextBox.Text);
 				InventoryHolding_New.Product_Quantity = int.Parse(productQuantityTextBox.Text);
+
+				_updateProductQuantity.Second_Quantity = int.Parse(productQuantityTextBox.Text);
 			}
 		}
 		#endregion /ProductQuantityTextBox_TextChange
@@ -427,11 +450,13 @@ namespace Inventory_Forms
 				productImagePictureBox.Image =
 				System.Drawing.Image.FromFile(openFileDialog.FileName);
 				ProductReceived_New.Product_Image = System.IO.File.ReadAllBytes(openFileDialog.FileName);
+				InventoryHolding_New.Product_Image = System.IO.File.ReadAllBytes(openFileDialog.FileName);
 				deleteImageButton.Visible = true;
 			}
 			else
 			{
 				ProductReceived_New.Product_Image = null;
+				InventoryHolding_New.Product_Image = null;
 				deleteImageButton.Visible = false;
 			}
 		}
@@ -463,7 +488,6 @@ namespace Inventory_Forms
 				BillBuyReportForm.carrierNameTextBox.Text = carrierNameTextBox.Text;
 				BillBuyReportForm.MyProductBuyForm = this;
 				BillBuyReportForm.SetBillInDataGridView(listBillBuyReportItems);
-				//BillBuyReportForm.CalculatePurchaseAmount();
 				BillBuyReportForm.ShowDialog();
 			}
 		}
@@ -500,70 +524,7 @@ namespace Inventory_Forms
 		#region SaveBottom_Click
 		private void SaveBottom_Click(object sender, System.EventArgs e)
 		{
-
-			if (!ValidationData(ProductReceived_New))
-			{
-				return;
-			}
-			else
-			{
-				if (ProductReceived_New.Product_Purchase_Price.Length <= 9)
-				{
-					_firstAmount = decimal.Parse(ProductReceived_New.Product_Purchase_Price.Replace("تومان", string.Empty).Trim());
-
-					_sumAmount = _firstAmount + _secondAmount;
-					_secondAmount = _sumAmount;
-				}
-				else
-				{
-					_firstAmount = decimal.Parse(ProductReceived_New.Product_Purchase_Price.Replace("تومان", string.Empty).Replace(",", string.Empty).Trim());
-
-					_sumAmount = _firstAmount + _secondAmount;
-					_secondAmount = _sumAmount;
-				}
-				if (!CheckFundBalance(_amount: _sumAmount))
-				{
-					return;
-				}
-				else
-
-				{
-					if (string.Compare(saveBottom.Text, "ثبت کالا") == 0)
-					{
-						NumberPurchases++;
-						SetReceiptDataGridView(ProductReceived_New);
-						if (SaveProductReceived(ProductReceived_New) && SaveInventoryHolding(InventoryHolding_New))
-						{
-							Infrastructure.Utility.WindowsNotification(message: "عملیات ثبت انجام شد", caption: Infrastructure.PopupNotificationForm.Caption.موفقیت);
-							RefrashData();
-							DeleteToGetNew();
-							return;
-						}
-						else
-						{
-							Infrastructure.Utility.WindowsNotification(message: "عملیات ثبت انجام نگیردید", caption: Infrastructure.PopupNotificationForm.Caption.خطا);
-							AllClear();
-							return;
-						}
-					}
-					else if (string.Compare(saveBottom.Text, "ویرایش کالا") == 0)
-					{
-						if (SaveProductReceived(ProductReceived_New) && SaveInventoryHolding(InventoryHolding_New))
-						{
-							Infrastructure.Utility.WindowsNotification(message: "عملیات ویرایش انجام شد", caption: Infrastructure.PopupNotificationForm.Caption.موفقیت);
-							RefrashData();
-							AllClear();
-							return;
-						}
-						else
-						{
-							Infrastructure.Utility.WindowsNotification(message: "عملیات ثبت انجام نگیردید", caption: Infrastructure.PopupNotificationForm.Caption.خطا);
-							AllClear();
-							return;
-						}
-					}
-				}
-			}
+			SetProduct(ProductReceived_New, InventoryHolding_New);
 		}
 		#endregion /SaveBottom_Click
 
@@ -574,20 +535,55 @@ namespace Inventory_Forms
 		}
 		#endregion /ResetBottom_Click
 
-		#region ViewProductToolStripMenuItem_Click
-		private void ViewProductToolStripMenuItem_Click(object sender, System.EventArgs e)
+		#region EditProductToolStripMenuItem_Click
+		private void EditProductToolStripMenuItem_Click(object sender, System.EventArgs e)
 		{
-			byte[] product_Image = (byte[])productRecivedDataGridView.CurrentRow.Cells[7].Value;
+			ClearForEdit();
 
-			System.IO.MemoryStream ms = new System.IO.MemoryStream(product_Image);
+			saveBottom.Text = "ویرایش کالا";
 
-			//----برای بار گزاری تصویر
-			ViewProducrImageForm viewProducrImageForm = new ViewProducrImageForm(System.Drawing.Image.FromStream(ms));
+			ProductReceived_New.Product_Name = productRecivedDataGridView.CurrentRow.Cells[1].Value.ToString();
+			InventoryHolding_New.Product_Name = productRecivedDataGridView.CurrentRow.Cells[1].Value.ToString();
+			ProductReceived_Selected.Product_Name = productRecivedDataGridView.CurrentRow.Cells[1].Value.ToString();
+			productNameTextBox.Text = productRecivedDataGridView.CurrentRow.Cells[1].Value.ToString();
 
-			viewProducrImageForm.ShowDialog();
+			recipientNameTextBox.Text = productRecivedDataGridView.CurrentRow.Cells[2].Value.ToString();
 
+			ProductReceived_Selected.Sender_Name = productRecivedDataGridView.CurrentRow.Cells[3].Value.ToString();
+			ProductReceived_New.Sender_Name = productRecivedDataGridView.CurrentRow.Cells[3].Value.ToString();
+			senderNameTextBox.Text = productRecivedDataGridView.CurrentRow.Cells[3].Value.ToString();
+
+			ProductReceived_Selected.Carrier_Name = productRecivedDataGridView.CurrentRow.Cells[4].Value.ToString();
+			ProductReceived_New.Carrier_Name = productRecivedDataGridView.CurrentRow.Cells[4].Value.ToString();
+			carrierNameTextBox.Text = productRecivedDataGridView.CurrentRow.Cells[4].Value.ToString();
+
+			ProductReceived_Selected.Product_Purchase_Price = productRecivedDataGridView.CurrentRow.Cells[5].Value.ToString();
+			ProductReceived_New.Product_Purchase_Price = productRecivedDataGridView.CurrentRow.Cells[5].Value.ToString();
+			InventoryHolding_New.Product_Purchase_Price = productRecivedDataGridView.CurrentRow.Cells[5].Value.ToString();
+			productPriceTextBox.Text = productRecivedDataGridView.CurrentRow.Cells[5].Value.ToString();
+
+			ProductReceived_Selected.Product_Quantity = int.Parse(productRecivedDataGridView.CurrentRow.Cells[6].Value.ToString());
+			ProductReceived_New.Product_Quantity = int.Parse(productRecivedDataGridView.CurrentRow.Cells[6].Value.ToString());
+			InventoryHolding_New.Product_Quantity = int.Parse(productRecivedDataGridView.CurrentRow.Cells[6].Value.ToString());
+			_updateProductQuantity.First_Quantity = int.Parse(productRecivedDataGridView.CurrentRow.Cells[6].Value.ToString());
+			_updateProductQuantity.Second_Quantity = int.Parse(productRecivedDataGridView.CurrentRow.Cells[6].Value.ToString());
+			productQuantityTextBox.Text = productRecivedDataGridView.CurrentRow.Cells[6].Value.ToString();
+
+			ProductReceived_Selected.Product_Unit = productRecivedDataGridView.CurrentRow.Cells[7].Value.ToString();
+			ProductReceived_New.Product_Unit = productRecivedDataGridView.CurrentRow.Cells[7].Value.ToString();
+			InventoryHolding_New.Product_Unit = productRecivedDataGridView.CurrentRow.Cells[7].Value.ToString();
+			productUnitComboBox.SelectedIndex = productUnitComboBox.FindString(productRecivedDataGridView.CurrentRow.Cells[7].Value.ToString());
+
+			ProductReceived_Selected.Product_Image = (byte[])productRecivedDataGridView.CurrentRow.Cells[8].Value;
+			ProductReceived_New.Product_Image = (byte[])productRecivedDataGridView.CurrentRow.Cells[8].Value;
+			InventoryHolding_New.Product_Image = (byte[])productRecivedDataGridView.CurrentRow.Cells[8].Value;
+
+			using (System.IO.MemoryStream ms = new System.IO.MemoryStream(ProductReceived_Selected.Product_Image))
+			{
+				productImagePictureBox.Image = System.Drawing.Image.FromStream(ms);
+			}
 		}
-		#endregion /ViewProductToolStripMenuItem_Click
+		#endregion /EditProductToolStripMenuItem_Click
 
 		#region DeleteRecordToolStripMenuItem_Click
 		private void DeleteRecordToolStripMenuItem_Click(object sender, System.EventArgs e)
@@ -686,53 +682,20 @@ namespace Inventory_Forms
 		}
 		#endregion /DeleteRecordToolStripMenuItem_Click
 
-		#region EditProductToolStripMenuItem_Click
-		private void EditProductToolStripMenuItem_Click(object sender, System.EventArgs e)
+		#region ViewProductToolStripMenuItem_Click
+		private void ViewProductToolStripMenuItem_Click(object sender, System.EventArgs e)
 		{
-			ClearForEdit();
+			byte[] product_Image = (byte[])productRecivedDataGridView.CurrentRow.Cells[7].Value;
 
-			saveBottom.Text = "ویرایش کالا";
+			System.IO.MemoryStream ms = new System.IO.MemoryStream(product_Image);
 
-			ProductReceived_New.Product_Name = productRecivedDataGridView.CurrentRow.Cells[1].Value.ToString();
-			InventoryHolding_New.Product_Name = productRecivedDataGridView.CurrentRow.Cells[1].Value.ToString();
-			ProductReceived_Selected.Product_Name = productRecivedDataGridView.CurrentRow.Cells[1].Value.ToString();
-			productNameTextBox.Text = productRecivedDataGridView.CurrentRow.Cells[1].Value.ToString();
+			//----برای بار گزاری تصویر
+			ViewProducrImageForm viewProducrImageForm = new ViewProducrImageForm(System.Drawing.Image.FromStream(ms));
 
-			recipientNameTextBox.Text = productRecivedDataGridView.CurrentRow.Cells[2].Value.ToString();
+			viewProducrImageForm.ShowDialog();
 
-			ProductReceived_Selected.Sender_Name = productRecivedDataGridView.CurrentRow.Cells[3].Value.ToString();
-			ProductReceived_New.Sender_Name = productRecivedDataGridView.CurrentRow.Cells[3].Value.ToString();
-			senderNameTextBox.Text = productRecivedDataGridView.CurrentRow.Cells[3].Value.ToString();
-
-			ProductReceived_Selected.Carrier_Name = productRecivedDataGridView.CurrentRow.Cells[4].Value.ToString();
-			ProductReceived_New.Carrier_Name = productRecivedDataGridView.CurrentRow.Cells[4].Value.ToString();
-			carrierNameTextBox.Text = productRecivedDataGridView.CurrentRow.Cells[4].Value.ToString();
-
-			ProductReceived_Selected.Product_Purchase_Price = productRecivedDataGridView.CurrentRow.Cells[5].Value.ToString();
-			ProductReceived_New.Product_Purchase_Price = productRecivedDataGridView.CurrentRow.Cells[5].Value.ToString();
-			InventoryHolding_New.Product_Purchase_Price = productRecivedDataGridView.CurrentRow.Cells[5].Value.ToString();
-			productPriceTextBox.Text = productRecivedDataGridView.CurrentRow.Cells[5].Value.ToString();
-
-			ProductReceived_Selected.Product_Quantity = int.Parse(productRecivedDataGridView.CurrentRow.Cells[6].Value.ToString());
-			ProductReceived_New.Product_Quantity = int.Parse(productRecivedDataGridView.CurrentRow.Cells[6].Value.ToString());
-			InventoryHolding_New.Product_Quantity = int.Parse(productRecivedDataGridView.CurrentRow.Cells[6].Value.ToString());
-			productQuantityTextBox.Text = productRecivedDataGridView.CurrentRow.Cells[6].Value.ToString();
-
-			ProductReceived_Selected.Product_Unit = productRecivedDataGridView.CurrentRow.Cells[7].Value.ToString();
-			ProductReceived_New.Product_Unit = productRecivedDataGridView.CurrentRow.Cells[7].Value.ToString();
-			InventoryHolding_New.Product_Unit = productRecivedDataGridView.CurrentRow.Cells[7].Value.ToString();
-			productUnitComboBox.SelectedIndex = productUnitComboBox.FindString(productRecivedDataGridView.CurrentRow.Cells[7].Value.ToString());
-
-			ProductReceived_Selected.Product_Image = (byte[])productRecivedDataGridView.CurrentRow.Cells[8].Value;
-			ProductReceived_New.Product_Image = (byte[])productRecivedDataGridView.CurrentRow.Cells[8].Value;
-			InventoryHolding_New.Product_Image = (byte[])productRecivedDataGridView.CurrentRow.Cells[8].Value;
-
-			using (System.IO.MemoryStream ms = new System.IO.MemoryStream(ProductReceived_Selected.Product_Image))
-			{
-				productImagePictureBox.Image = System.Drawing.Image.FromStream(ms);
-			}
 		}
-		#endregion /EditProductToolStripMenuItem_Click
+		#endregion /ViewProductToolStripMenuItem_Click
 
 		#region ContextMenuStrip_Opening
 		private void ContextMenuStrip_Opening(object sender, System.ComponentModel.CancelEventArgs e)
@@ -773,6 +736,7 @@ namespace Inventory_Forms
 			carrierNameTextBox.Clear();
 			productImagePictureBox.Image = null;
 			saveBottom.Text = "ثبت کالا";
+			deleteImageButton.Visible = false;
 			ProductReceived_New = null;
 			InventoryHolding_New = null;
 		}
@@ -928,6 +892,9 @@ namespace Inventory_Forms
 		public void Initialize()
 		{
 			this.Focus();
+
+			_updateProductQuantity =
+				new UpdateProductQuantity();
 
 			RecipientName();
 			CapitalInventory = GetCapitalInventory();
@@ -1132,10 +1099,13 @@ namespace Inventory_Forms
 				}
 				else
 				{
+					_updateProductQuantity.Final_Quantity =
+						_updateProductQuantity.First_Quantity + _updateProductQuantity.Second_Quantity;
+
 					inventoryHolding.Product_Name = inputInventoryHolding.Product_Name;
 					inventoryHolding.Product_Image = inputInventoryHolding.Product_Image;
 					inventoryHolding.Product_Purchase_Price = inputInventoryHolding.Product_Purchase_Price;
-					inventoryHolding.Product_Quantity = inputInventoryHolding.Product_Quantity;
+					inventoryHolding.Product_Quantity = _updateProductQuantity.Final_Quantity;
 					inventoryHolding.Product_Unit = inputInventoryHolding.Product_Unit;
 
 					dataBaseContext.SaveChanges();
@@ -1213,10 +1183,13 @@ namespace Inventory_Forms
 				}
 				else
 				{
+					_updateProductQuantity.Final_Quantity = 
+						_updateProductQuantity.First_Quantity + _updateProductQuantity.Second_Quantity;
+
 					productReceived.Product_Name = inputProductReceived.Product_Name;
 					productReceived.Product_Image = inputProductReceived.Product_Image;
 					productReceived.Product_Purchase_Price = inputProductReceived.Product_Purchase_Price;
-					productReceived.Product_Quantity = inputProductReceived.Product_Quantity;
+					productReceived.Product_Quantity = _updateProductQuantity.Final_Quantity;
 					productReceived.Product_Unit = inputProductReceived.Product_Unit;
 					productReceived.Recipient_Name = Inventory.Program.UserAuthentication.Full_Name;
 					productReceived.Sender_Name = inputProductReceived.Sender_Name;
@@ -1299,6 +1272,97 @@ namespace Inventory_Forms
 
 
 		#endregion /SearchProduct
+
+		#region SetProduct
+		/// <summary>
+		/// اجرای عملیات ثبت کالا
+		/// </summary>
+		/// <param name="_productReceived"></param>
+		/// <param name="_inventoryHolding"></param>
+		private void SetProduct(Models.ProductReceived _productReceived, Models.InventoryHolding _inventoryHolding)
+		{
+			if (!ValidationData(_productReceived))
+			{
+				return;
+			}
+			else
+			{
+				if (_productReceived.Product_Purchase_Price.Length <= 9)
+				{
+					_firstAmount = 
+						decimal.Parse(_productReceived.Product_Purchase_Price.Replace("تومان", string.Empty).Trim());
+
+					_sumAmount = _firstAmount + _secondAmount;
+					_secondAmount = _sumAmount;
+				}
+				else
+				{
+					_firstAmount = 
+						decimal.Parse(_productReceived.Product_Purchase_Price.Replace("تومان", string.Empty).Replace(",", string.Empty).Trim());
+
+					_sumAmount = _firstAmount + _secondAmount;
+					_secondAmount = _sumAmount;
+				}
+				if (!CheckFundBalance(_amount: _sumAmount))
+				{
+					return;
+				}
+				else
+
+				{
+					if (string.Compare(saveBottom.Text, "ثبت کالا") == 0)
+					{
+						NumberPurchases++;
+						SetReceiptDataGridView(_productReceived);
+
+						if (SaveProductReceived(_productReceived) && SaveInventoryHolding(_inventoryHolding))
+						{
+							Infrastructure.Utility.WindowsNotification(
+								message: "عملیات ثبت انجام شد",
+								caption: Infrastructure.PopupNotificationForm.Caption.موفقیت);
+
+							RefrashData();
+							DeleteToGetNew();
+							return;
+						}
+						else
+						{
+							Infrastructure.Utility.WindowsNotification(
+								message: "عملیات ثبت انجام نگیردید",
+								caption: Infrastructure.PopupNotificationForm.Caption.خطا);
+
+							AllClear();
+							return;
+						}
+					}
+					else if (string.Compare(saveBottom.Text, "ویرایش کالا") == 0)
+					{
+						NumberPurchases++;
+						SetReceiptDataGridView(_productReceived);
+
+						if (SaveProductReceived(_productReceived) && SaveInventoryHolding(_inventoryHolding))
+						{
+							Infrastructure.Utility.WindowsNotification(
+								message: "عملیات ویرایش انجام شد",
+								caption: Infrastructure.PopupNotificationForm.Caption.موفقیت);
+
+							RefrashData();
+							AllClear();
+							return;
+						}
+						else
+						{
+							Infrastructure.Utility.WindowsNotification(
+								message: "عملیات ثبت انجام نگیردید",
+								caption: Infrastructure.PopupNotificationForm.Caption.خطا);
+							AllClear();
+							return;
+						}
+					}
+				}
+			}
+		}
+		#endregion /SetProduct
 
 		#region RecipientName
 		/// <summary>

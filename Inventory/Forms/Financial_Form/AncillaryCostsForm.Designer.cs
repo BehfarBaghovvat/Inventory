@@ -187,10 +187,10 @@ namespace Financial_Form
 			this.paymentButton.CheckedState.Parent = this.paymentButton;
 			this.paymentButton.CustomImages.Parent = this.paymentButton;
 			this.paymentButton.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(0)))), ((int)(((byte)(61)))));
-			this.paymentButton.FillColor2 = System.Drawing.Color.Fuchsia;
+			this.paymentButton.FillColor2 = System.Drawing.Color.Indigo;
 			this.paymentButton.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
 			this.paymentButton.ForeColor = System.Drawing.Color.White;
-			this.paymentButton.HoverState.FillColor = System.Drawing.Color.Fuchsia;
+			this.paymentButton.HoverState.FillColor = System.Drawing.Color.Indigo;
 			this.paymentButton.HoverState.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(0)))), ((int)(((byte)(61)))));
 			this.paymentButton.HoverState.Parent = this.paymentButton;
 			this.paymentButton.Location = new System.Drawing.Point(342, 26);
@@ -217,26 +217,15 @@ namespace Financial_Form
 			this.listExpensesComboBox.FocusedColor = System.Drawing.Color.Empty;
 			this.listExpensesComboBox.FocusedState.Parent = this.listExpensesComboBox;
 			this.listExpensesComboBox.Font = new System.Drawing.Font("IRANSansX", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-			this.listExpensesComboBox.ForeColor = System.Drawing.Color.Gray;
+			this.listExpensesComboBox.ForeColor = System.Drawing.Color.DimGray;
 			this.listExpensesComboBox.FormattingEnabled = true;
 			this.listExpensesComboBox.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
 			this.listExpensesComboBox.HoverState.Parent = this.listExpensesComboBox;
 			this.listExpensesComboBox.ItemHeight = 30;
 			this.listExpensesComboBox.Items.AddRange(new object[] {
-            "...انتخاب هزینه انجام شده",
-            "آب",
-            "برق",
-            "گاز",
-            "تلفن",
-            "اغذیه (صحانه، نهار و غیره ...)",
-            "تعمیرات برقی",
-            "تعمیرات تاسیساتی",
-            "تعمیرات معماری",
-            "طراحی و دکوراسیون",
-            "تاکسی",
-            "آژانس (اسنپ یا غیره...)"});
-			this.listExpensesComboBox.ItemsAppearance.BackColor = System.Drawing.Color.Teal;
-			this.listExpensesComboBox.ItemsAppearance.ForeColor = System.Drawing.Color.White;
+            "...انتخاب کنید"});
+			this.listExpensesComboBox.ItemsAppearance.BackColor = System.Drawing.Color.White;
+			this.listExpensesComboBox.ItemsAppearance.ForeColor = System.Drawing.Color.Black;
 			this.listExpensesComboBox.ItemsAppearance.Parent = this.listExpensesComboBox;
 			this.listExpensesComboBox.ItemsAppearance.SelectedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
 			this.listExpensesComboBox.ItemsAppearance.SelectedForeColor = System.Drawing.Color.White;
@@ -305,7 +294,7 @@ namespace Financial_Form
 			stateProperties8.PlaceholderForeColor = System.Drawing.Color.Empty;
 			this.amountPaymentTextBox.OnIdleState = stateProperties8;
 			this.amountPaymentTextBox.PasswordChar = '\0';
-			this.amountPaymentTextBox.PlaceholderForeColor = System.Drawing.Color.DimGray;
+			this.amountPaymentTextBox.PlaceholderForeColor = System.Drawing.Color.Gray;
 			this.amountPaymentTextBox.PlaceholderText = "مبلغ هزینه شده";
 			this.amountPaymentTextBox.ReadOnly = false;
 			this.amountPaymentTextBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;

@@ -206,6 +206,7 @@ namespace Setting_Forms
 			this.programSettingButton.Size = new System.Drawing.Size(180, 50);
 			this.programSettingButton.TabIndex = 0;
 			this.programSettingButton.Text = "تنظیمات نرم افزار";
+			this.programSettingButton.Click += new System.EventHandler(this.ProgramSettingButton_Click);
 			// 
 			// ManagementSettingForm
 			// 

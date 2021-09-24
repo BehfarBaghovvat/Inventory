@@ -17,6 +17,18 @@ namespace Models
 		}
 
 		/// <summary>
+		/// لیست اسامی هزینه ها
+		/// </summary>
+		#region Cost_Name
+		//-----DisplayName field for Cost_Name
+		[System.ComponentModel.DisplayName(displayName: "لیست اسامی هزینه")]
+		//--Lenght Cost_Name
+		[System.ComponentModel.DataAnnotations.StringLength
+			(maximumLength: 25)]
+		public string Cost_Name { get; set; }
+		#endregion /Cost_Name
+
+		/// <summary>
 		/// ردیف
 		/// </summary>
 		#region Id
@@ -26,17 +38,5 @@ namespace Models
 		[System.ComponentModel.DataAnnotations.Key]
 		public int Id { get; set; }
 		#endregion /Id
-
-		/// <summary>
-		/// لیست اسامی هزینه ها
-		/// </summary>
-		#region List_Cost_Name
-		//-----DisplayName field for Cost_Name
-		[System.ComponentModel.DisplayName(displayName: "لیست اسامی هزینه")]
-		//--Lenght Cost_Name
-		[System.ComponentModel.DataAnnotations.StringLength
-			(maximumLength: 25)]
-		public string List_Cost_Name { get; set; }
-		#endregion /List_Cost_Name
 	}
 }

@@ -135,10 +135,10 @@
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="phoneNumberTextBox.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
-        iVBORw0KGgoAAAANSUhEUgAAAMgAAAAjCAYAAADR20XfAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABMSURBVHhe7dY7CgAwCERBj+5Nc5R8wM6QJu0MvMp6wQAA
-        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAPiUmWM3JfXOQK4HSQYiPatHC+giFt4J2dQRvJY8AAAAAElFTkSu
-        QmCC
+        iVBORw0KGgoAAAANSUhEUgAAAPoAAAAjCAYAAAC93RfaAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABVSURBVHhe7dY7CgAwCERBj+5Nc5R8wDJlKjMDr7JeMAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB7JzLGbkvp2hn49SOqToUsfVA880FfEAs75UFxixVRC
+        AAAAAElFTkSuQmCC
 </value>
   </data>
   <metadata name="carrierNameTextBox.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
@@ -157,10 +157,10 @@
   </metadata>
   <data name="productPriceTextBox.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
-        iVBORw0KGgoAAAANSUhEUgAAAMgAAAAjCAYAAADR20XfAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABMSURBVHhe7dY7CgAwCERBj+5Nc5R8wM6QJu0MvMp6wQAA
-        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAPiUmWM3JfXOQK4HSQYiPatHC+giFt4J2dQRvJY8AAAAAElFTkSu
-        QmCC
+        iVBORw0KGgoAAAANSUhEUgAAAPoAAAAjCAYAAAC93RfaAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABVSURBVHhe7dY7CgAwCERBj+5Nc5R8wDJlKjMDr7JeMAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB7JzLGbkvp2hn49SOqToUsfVA880FfEAs75UFxixVRC
+        AAAAAElFTkSuQmCC
 </value>
   </data>
   <metadata name="clientNameTextBox.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
@@ -168,10 +168,10 @@
   </metadata>
   <data name="clientNameTextBox.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
-        iVBORw0KGgoAAAANSUhEUgAAAMgAAAAjCAYAAADR20XfAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABMSURBVHhe7dY7CgAwCERBj+5Nc5R8wM6QJu0MvMp6wQAA
-        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAPiUmWM3JfXOQK4HSQYiPatHC+giFt4J2dQRvJY8AAAAAElFTkSu
-        QmCC
+        iVBORw0KGgoAAAANSUhEUgAAAPoAAAAjCAYAAAC93RfaAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABVSURBVHhe7dY7CgAwCERBj+5Nc5R8wDJlKjMDr7JeMAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB7JzLGbkvp2hn49SOqToUsfVA880FfEAs75UFxixVRC
+        AAAAAElFTkSuQmCC
 </value>
   </data>
   <metadata name="productUnitTextBox.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
@@ -199,10 +199,10 @@
   </metadata>
   <data name="sellerNameTextBox.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
-        iVBORw0KGgoAAAANSUhEUgAAAMgAAAAjCAYAAADR20XfAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABMSURBVHhe7dY7CgAgDETBPbo39Sh+wC5iYzsDr0q9kAAA
-        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAHxqSV8NSbU9kOtBkoFIz86jBVTJBG7/gbb+cenFAAAAAElFTkSu
-        QmCC
+        iVBORw0KGgoAAAANSUhEUgAAAPoAAAAjCAYAAAC93RfaAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABUSURBVHhe7dY7CgAgDETBPbo39Sh+wNLSKs7Aq1IvJAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAI+0pK+GpLrtoV8Pkupk6NIHnQceqCuZlk5iL10NmwUA
+        AAAASUVORK5CYII=
 </value>
   </data>
   <metadata name="productNameTextBox.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
@@ -210,10 +210,10 @@
   </metadata>
   <data name="productNameTextBox.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
-        iVBORw0KGgoAAAANSUhEUgAAAMgAAAAjCAYAAADR20XfAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABMSURBVHhe7dY7CgAgDETBPbo39Sh+wC5iYzsDr0q9kAAA
-        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAHxqSV8NSbU9kOtBkoFIz86jBVTJBG7/gbb+cenFAAAAAElFTkSu
-        QmCC
+        iVBORw0KGgoAAAANSUhEUgAAAPoAAAAjCAYAAAC93RfaAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABUSURBVHhe7dY7CgAgDETBPbo39Sh+wNLSKs7Aq1IvJAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAI+0pK+GpLrtoV8Pkupk6NIHnQceqCuZlk5iL10NmwUA
+        AAAASUVORK5CYII=
 </value>
   </data>
   <metadata name="addOrderButton.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">

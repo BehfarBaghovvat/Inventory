@@ -494,7 +494,9 @@
     <None Include="Properties\DataSources\Models.InventoryOutput.datasource" />
     <None Include="Properties\DataSources\Models.Journal.datasource" />
     <None Include="Properties\DataSources\Models.ListFinancialClient.datasource" />
+    <None Include="Properties\DataSources\Models.ListIncidentalExpensesName.datasource" />
     <None Include="Properties\DataSources\Models.ListService.datasource" />
+    <None Include="Properties\DataSources\Models.ListServiceName.datasource" />
     <None Include="Properties\DataSources\Models.LoginHistory.datasource" />
     <None Include="Properties\DataSources\Models.MonthlyFinancialReport.datasource" />
     <None Include="Properties\DataSources\Models.ProductReceived.datasource" />

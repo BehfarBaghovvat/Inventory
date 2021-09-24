@@ -168,7 +168,7 @@ namespace Inventory_Forms
 		#region PaymentCashRadioButton_CheckedChanged
 		private void PaymentCashRadioButton_CheckedChanged(object sender, System.EventArgs e)
 		{
-			amountPaidTextBox.Enabled = true;
+			amountPaidTextBox.ReadOnly = true;
 			paymentButton.Enabled = true;
 			auditItem.Purchase_Payment_Type = Models.PurchaseInvoice.PurchasePaymentType.نقد;
 		}
@@ -184,7 +184,7 @@ namespace Inventory_Forms
 		#region PaymentChequeRadioButton_CheckedChanged
 		private void PaymentChequeRadioButton_CheckedChanged(object sender, System.EventArgs e)
 		{
-			amountPaidTextBox.Enabled = false;
+			amountPaidTextBox.ReadOnly = false;
 			paymentButton.Enabled = true;
 			auditItem.Purchase_Payment_Type = Models.PurchaseInvoice.PurchasePaymentType.چک;
 		}
@@ -567,8 +567,10 @@ namespace Inventory_Forms
 					capitalFund.Capital_Fund = $"{_auditItem.Capital_Fund: #,0} تومان";
 					dataBaseContext.SaveChanges();
 
-					#region -----------------------------------------     Save Event Log     -----------------------------------------
-					if (string.Compare(Inventory.Program.UserAuthentication.Username, "admin") != 0)
+				auditItem.Capital_Fund = GetCapitalFund();
+
+				#region -----------------------------------------     Save Event Log     -----------------------------------------
+				if (string.Compare(Inventory.Program.UserAuthentication.Username, "admin") != 0)
 					{
 						EventLog.Username = Inventory.Program.UserAuthentication.Username;
 						EventLog.Full_Name = Inventory.Program.UserAuthentication.Full_Name;

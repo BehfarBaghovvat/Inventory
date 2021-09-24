@@ -25,6 +25,7 @@ namespace Inventory_Forms
 			public Models.ListFinancialClient.FinantialSituation Finantial_Situation { get; set; }
 			public int First_Quantity { get; set; }
 			public string InvoiceSerialNumber { get; set; }
+			public string License_Plate { get; set; }
 			public Models.SalesInvoice.SalesPaymentType Sales_Payment_Type { get; set; }
 			public Models.SalesInvoice.PaymentCachType Payment_Cach_Type { get; set; }
 			public string Phone_Number { get; set; }
@@ -45,6 +46,13 @@ namespace Inventory_Forms
 			public string Product_Unit { get; set; }
 			public string Product_Price { get; set; }
 			public string Total_Price { get; set; }
+		}
+		public class ClientItem
+		{
+			public string Client_Name { get; set; }
+			public string Phone_Number { get; set; }
+			public string License_Plate { get; set; }
+			public bool Finde_Client { get; set; }
 		}
 
 		private Models.AccountsReceivable _accountsReceivable;
@@ -148,6 +156,24 @@ namespace Inventory_Forms
 
 		private AuditItem auditItem = new AuditItem();
 		public Models.Client Client { get; set; }
+
+		private ClientItem _clientItem;
+		public ClientItem Client_Item
+		{
+			get
+			{
+				if (_clientItem == null)
+				{
+					_clientItem =
+						new ClientItem();
+				}
+				return _clientItem;
+			}
+			set
+			{
+				_clientItem = value;
+			}
+		}
 		public bool Purchase_Operations { get; set; }
 
 		#endregion /Properties
@@ -449,7 +475,7 @@ namespace Inventory_Forms
 				printInvoice.RegBusinessObject("BillSale", billSaleReportItemsList);
 
 				(printInvoice.GetComponentByName("dateOfPrintTextBox") as Stimulsoft.Report.Components.StiText).Text = dateSetInvoiceTextBox.Text;
-				(printInvoice.GetComponentByName("sellerNameTextBox") as Stimulsoft.Report.Components.StiText).Text = "admin"; //Inventory.Program.UserAuthentication.Full_Name;
+				(printInvoice.GetComponentByName("sellerNameTextBox") as Stimulsoft.Report.Components.StiText).Text = Inventory.Program.UserAuthentication.Full_Name;
 				(printInvoice.GetComponentByName("clientNameTextBox") as Stimulsoft.Report.Components.StiText).Text = clientNameTextBox.Text;
 				(printInvoice.GetComponentByName("carrierNameTextBox") as Stimulsoft.Report.Components.StiText).Text = carrierNameTextBox.Text;
 				(printInvoice.GetComponentByName("totalSumPriceTextBox") as Stimulsoft.Report.Components.StiText).Text = amountPayableTextBox.Text;
@@ -458,6 +484,7 @@ namespace Inventory_Forms
 				(printInvoice.GetComponentByName("remainingAmountTextBox") as Stimulsoft.Report.Components.StiText).Text = amountRemainingTextBox.Text;
 
 				printInvoice.Render(true);
+
 				PrintReportForm.printReportStiViewerControl.Report = printInvoice;
 				PrintReportForm.ShowDialog();
 			}
@@ -1241,8 +1268,11 @@ namespace Inventory_Forms
 		/// </summary>
 		/// <param name="_auditItem"></param>
 		/// <returns>true Or false</returns>
-		private bool FindClient(AuditItem _auditItem)
+		private ClientItem FindClient(AuditItem _auditItem)
 		{
+			ClientItem clientItem =
+				new ClientItem();
+
 			Models.DataBaseContext dataBaseContext = null;
 			try
 			{
@@ -1256,11 +1286,16 @@ namespace Inventory_Forms
 
 				if (client == null)
 				{
-					return false;
+					clientItem.Finde_Client = true;
+					clientItem.License_Plate = client.License_Plate;
+
+					return clientItem;
 				}
 				else
 				{
-					return true;
+					clientItem.Finde_Client = false;
+					clientItem.License_Plate = null;
+					return clientItem;
 				}
 
 			}
@@ -1299,19 +1334,9 @@ namespace Inventory_Forms
 			auditItem.Register_Time = Infrastructure.Utility.ShowTime();
 			dateSetInvoiceTextBox.Text = $"{auditItem.Register_Date} - {auditItem.Register_Time}";
 
-
-
-
 			CalculatePurchaseAmount();
 
-			if (FindClient(auditItem))
-			{
-				return;
-			}
-			else
-			{
-				AddNewClient(auditItem);
-			}
+			
 		}
 		#endregion /Initialize
 
@@ -1378,20 +1403,52 @@ namespace Inventory_Forms
 		#endregion /GetCapitalFund
 
 		#region Payment
+		/// <summary>
+		/// عملیات شناسایی مشتری و پرداخت صورت حساب
+		/// </summary>
+		/// <param name="_auditItem"></param>
 		private void Payment(AuditItem _auditItem)
 		{
 			_auditItem.Client_Name = clientNameTextBox.Text;
+
+			//این قسمت وظیفه این را دارد که بررسی نمایید آیا مشتری در سیستم وجود دارد یا خیر
+			Client_Item = FindClient(auditItem);
+
+			// اگر مشتری وجود داشت شماره پلاک وسیله نقیله آن را بر میگرداند.
+			if (Client_Item.Finde_Client)
+			{
+				auditItem.License_Plate = Client_Item.License_Plate;
+				return;
+			}
+			// در غیر این صورت مقدار رشته ای خالی را بر میگرداند. سوالی مبنی بر ثبت مشتری در سیستم پرسیده می شود.
+			else
+			{
+				auditItem.License_Plate = Client_Item.License_Plate;
+
+				if (Mbb.Windows.Forms.MessageBox.Show(
+					text: $"شماره همراه {auditItem.Phone_Number} در لیست مخاطبین موجود نمی باشد. \n آیا تمایل به ذخیره مشترک دارید؟",
+					caption: "اعلان ثبت",
+					icon: Mbb.Windows.Forms.MessageBoxIcon.Information,
+					button: Mbb.Windows.Forms.MessageBoxButtons.YesNo) == System.Windows.Forms.DialogResult.Yes)
+				{
+					AddNewClient(auditItem);
+				}
+			}
+
+			//=====================================================================================================================================
 
 			if (_auditItem.Sales_Payment_Type == Models.SalesInvoice.SalesPaymentType.نقد)
 			{
 				if (Deposit(_auditItem) && SetSalesProduct(_auditItem) && SetAccountPayable(_auditItem) && SetDailyOffice(_auditItem))
 				{
 					SetDailyFinancialReport(auditItem);
+					SetFinancialClient(auditItem);
 
 					Infrastructure.Utility.WindowsNotification
 						(message: "عملیات با موفقیت انجام گردید.",
 						caption: Infrastructure.PopupNotificationForm.Caption.موفقیت);
 
+					paymentButton.Enabled = false;
 					Purchase_Operations = true;
 					return;
 				}
@@ -1406,11 +1463,13 @@ namespace Inventory_Forms
 				if (SetSalesProduct(_auditItem) && SetAccountPayable(_auditItem) && SetDailyOffice(_auditItem))
 				{
 					SetDailyFinancialReport(auditItem);
+					SetFinancialClient(auditItem);
 
 					Infrastructure.Utility.WindowsNotification
 						(message: "عملیات با موفقیت انجام گردید.",
 						caption: Infrastructure.PopupNotificationForm.Caption.موفقیت);
 
+					paymentButton.Enabled = false;
 					Purchase_Operations = true;
 
 					Mbb.Windows.Forms.MessageBox.Show(
@@ -1430,6 +1489,9 @@ namespace Inventory_Forms
 		#endregion /Payment
 
 		#region RefreshCalculator
+		/// <summary>
+		/// تازه سازی عملیات محاسبه
+		/// </summary>
 		private void RefreshCalculator()
 		{
 			int amountPayable = 0;
@@ -1451,6 +1513,9 @@ namespace Inventory_Forms
 		#endregion /RefreshCalculator
 
 		#region ResetAllControl
+		/// <summary>
+		/// حالت اولیه کنترلها
+		/// </summary>
 		private void ResetAllControl()
 		{
 			MyProcutSalesForm.RemoveBill();
@@ -1595,7 +1660,7 @@ namespace Inventory_Forms
 						Amount_Remaininig = $"{ _auditItem.Amount_Remaininig} تومان",
 						Client_Name = _auditItem.Client_Name,
 						Finantial_Situation = auditItem.Finantial_Situation,
-						License_Plate = null,
+						License_Plate = _auditItem.License_Plate,
 						Phone_Number = _auditItem.Phone_Number,
 						Registration_Date = $"{Infrastructure.Utility.PersianCalendar(System.DateTime.Now)}",
 						Registration_Time = $"{Infrastructure.Utility.ShowTime()}",
@@ -1607,8 +1672,7 @@ namespace Inventory_Forms
 			}
 			catch (System.Exception ex)
 			{
-
-				throw;
+				Infrastructure.Utility.ExceptionShow(ex);
 			}
 			finally
 			{
@@ -1622,7 +1686,14 @@ namespace Inventory_Forms
 		#endregion /SetFinancialClient
 
 		#region SetItemsBillSale
-		public void SetItemsBillSale(System.Collections.Generic.List<ProcutSalesForm.BillSaleReportItems> billSaleReportItems, ProcutSalesForm.TransactionFactorsItems transactionFactorsItems)
+		/// <summary>
+		/// ثبت اطلاعات فاکتور جهت صدور 
+		/// فاکتور و صورت حساب
+		/// </summary>
+		/// <param name="billSaleReportItems"></param>
+		/// <param name="transactionFactorsItems"></param>
+		public void SetItemsBillSale(System.Collections.Generic.List<ProcutSalesForm.BillSaleReportItems> billSaleReportItems,
+			ProcutSalesForm.TransactionFactorsItems transactionFactorsItems)
 		{
 			foreach (var item in billSaleReportItems)
 			{

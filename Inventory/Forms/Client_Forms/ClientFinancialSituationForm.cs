@@ -38,12 +38,13 @@ namespace Client_Forms
 		#endregion /Layers
 
 		private decimal? _amounts = 0;
-
 		public decimal? Amount_Paid { get; set; }
 		public decimal? Capital_Fund { get; set; }
 		public string Search_Client { get; set; }
 		public int? Situation { get; set; }
 		public decimal? Sum_Amount { get; set; }
+		public int Select_Count { get; set; }
+
 		#endregion /Properties
 
 
@@ -53,12 +54,18 @@ namespace Client_Forms
 		public ClientFinancialSituationForm()
 		{
 			InitializeComponent();
-			Initialize();
 		}
 
 
 
 		//-----------------------------------------------------------------------------------------------     Events Controls
+
+		#region ClientFinancialSituationForm_Load
+		private void ClientFinancialSituationForm_Load(object sender, EventArgs e)
+		{
+			Initialize();
+		}
+		#endregion /ClientFinancialSituationForm_Load
 
 		#region SearchClientTextBox_Enter
 		private void SearchClientTextBox_Enter(object sender, System.EventArgs e)
@@ -97,22 +104,61 @@ namespace Client_Forms
 		#region ListFinantioalClientDataGridView_CellClick
 		private void ListFinantioalClientDataGridView_CellClick(object sender, System.Windows.Forms.DataGridViewCellEventArgs e)
 		{
+			
 			if (e.RowIndex <= 0 && e.ColumnIndex <= 0)
 			{
 				return;
 			}
 
+			//این بخش از کد، بعد از بررسی کردن کنترل چک باکس
+			// مقادیر نام مشتری، شماره پلاک وسیله نقلیه و شماره همراه را 
+			//به کنترلهای مربوطه انتقال میدهد.
 			if (listFinantioalClientDataGridView.CurrentRow.Cells[1].Value != null && (bool)listFinantioalClientDataGridView.CurrentRow.Cells[1].Value == true)
 			{
-				if (string.Compare(listFinantioalClientDataGridView.CurrentRow.Cells[7].Value.ToString(),FinantialSituation.تسویه.ToString()) == 0 )
+				clientNameTextBox.Text = listFinantioalClientDataGridView.CurrentRow.Cells[7].Value.ToString();
+				numTextBox3.Text = listFinantioalClientDataGridView.CurrentRow.Cells[8].Value.ToString().Substring(0, 2);
+				alphabetTextBox.Text = listFinantioalClientDataGridView.CurrentRow.Cells[8].Value.ToString().Substring(13, 1);
+				numTextBox2.Text = listFinantioalClientDataGridView.CurrentRow.Cells[8].Value.ToString().Substring(10, 3);
+				numTextBox1.Text = listFinantioalClientDataGridView.CurrentRow.Cells[8].Value.ToString().Substring(17, 2);
+				phoneNumberTextBox.Text = listFinantioalClientDataGridView.CurrentRow.Cells[9].Value.ToString();
+
+				//در این قسمت بعد از اینکه اطلاعات مربوطه منتقل گردید، بررسی میکند
+				// ایا مقدار نام مشتری تیک خورده با نام مشتری موجود در کنترل جعبه متن 
+				// یکی می باشد یا خیر. اگر نتیجه درست بود ادامه عملیات
+				// در غیر این صورت از انتخاب ردیف جاری جلو گیری به عمل می آورد.
+				if (string.Compare(listFinantioalClientDataGridView.CurrentRow.Cells[7].Value.ToString(), clientNameTextBox.Text) ==0)
 				{
-					listFinantioalClientDataGridView.CurrentRow.Cells[1].Value = false;
+					if (string.Compare(listFinantioalClientDataGridView.CurrentRow.Cells[5].Value.ToString(), FinantialSituation.تسویه.ToString()) == 0)
+					{
+						listFinantioalClientDataGridView.CurrentRow.Cells[1].Value = false;
+					}
+					else
+					{
+						Select_Count++;
+						_amounts += 
+							decimal.Parse(listFinantioalClientDataGridView.CurrentRow.Cells[5].Value.ToString().Replace("تومان", string.Empty).Replace(",", string.Empty).Trim());
+					}
 				}
 				else
 				{
-					_amounts += decimal.Parse(listFinantioalClientDataGridView.CurrentRow.Cells[5].Value.ToString().Replace("تومان", string.Empty).Replace(",", string.Empty).Trim());
+					listFinantioalClientDataGridView.CurrentRow.Cells[1].Value = false;
+					return;
 				}
-				
+			}
+			else
+			{
+				Select_Count--;
+
+				if (Select_Count <= 0)
+				{
+					clientNameTextBox.Clear();
+					numTextBox3.Clear();
+					alphabetTextBox.Clear();
+					numTextBox2.Clear();
+					numTextBox1.Clear();
+					phoneNumberTextBox.Clear();
+					return;
+				}
 			}
 
 			Sum_Amount = _amounts;
@@ -201,8 +247,10 @@ namespace Client_Forms
 		/// </summary>
 		private void Initialize()
 		{
+			searchClientTextBox.Clear();
 			GetListFinantialClient();
 			Capital_Fund = GetCapitalFund();
+			Select_Count = 0;
 		}
 		#endregion /Initialize
 
