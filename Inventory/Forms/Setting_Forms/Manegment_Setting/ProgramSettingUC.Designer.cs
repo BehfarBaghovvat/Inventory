@@ -33,15 +33,16 @@ namespace Manegment_Setting
 			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
 			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
 			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ProgramSettingUC));
 			Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties1 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
 			Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties2 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
 			Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties3 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
 			Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties4 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
 			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
 			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
 			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
 			Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties5 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
 			Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties6 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
 			Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties7 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
@@ -52,37 +53,37 @@ namespace Manegment_Setting
 			Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties12 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
 			this.listIncidentalExpensesNameGroupBox = new Guna.UI2.WinForms.Guna2GroupBox();
 			this.listIncidentalExpensesNameDataGridView = new Guna.UI2.WinForms.Guna2DataGridView();
-			this.idDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.listCostNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.listIncidentalExpensesNameContextMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
 			this.editCostToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.deleteCostToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.deleteAllCostToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.listIncidentalExpensesNameBindingSource = new System.Windows.Forms.BindingSource(this.components);
 			this.saveCostNameButton = new Guna.UI2.WinForms.Guna2GradientButton();
 			this.costNameTextBox = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox();
 			this.saveServiceNameGroupBox = new Guna.UI2.WinForms.Guna2GroupBox();
 			this.listServiceNameDataGridView = new Guna.UI2.WinForms.Guna2DataGridView();
-			this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.serviceNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.servicePriceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.listServiceNameContextMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
 			this.editServiceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.deleteServiceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.deleteAllServiceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.listServiceNameBindingSource = new System.Windows.Forms.BindingSource(this.components);
 			this.saveServiceNameButton = new Guna.UI2.WinForms.Guna2GradientButton();
 			this.serviceAmountTextBox = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox();
 			this.serviceNameTextBox = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox();
 			this.notificationSettingGroupBox = new Guna.UI2.WinForms.Guna2GroupBox();
+			this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.serviceNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.servicePriceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.listServiceNameBindingSource = new System.Windows.Forms.BindingSource(this.components);
+			this.listIncidentalExpensesNameBindingSource = new System.Windows.Forms.BindingSource(this.components);
+			this.idDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.listIncidentalExpensesNameGroupBox.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.listIncidentalExpensesNameDataGridView)).BeginInit();
 			this.listIncidentalExpensesNameContextMenuStrip.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)(this.listIncidentalExpensesNameBindingSource)).BeginInit();
 			this.saveServiceNameGroupBox.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.listServiceNameDataGridView)).BeginInit();
 			this.listServiceNameContextMenuStrip.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.listServiceNameBindingSource)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.listIncidentalExpensesNameBindingSource)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// listIncidentalExpensesNameGroupBox
@@ -109,6 +110,7 @@ namespace Manegment_Setting
 			// 
 			this.listIncidentalExpensesNameDataGridView.AllowUserToAddRows = false;
 			this.listIncidentalExpensesNameDataGridView.AllowUserToDeleteRows = false;
+			dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
 			dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(196)))), ((int)(((byte)(233)))));
 			this.listIncidentalExpensesNameDataGridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
 			this.listIncidentalExpensesNameDataGridView.AutoGenerateColumns = false;
@@ -119,7 +121,7 @@ namespace Manegment_Setting
 			this.listIncidentalExpensesNameDataGridView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
 			dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
 			dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(103)))), ((int)(((byte)(58)))), ((int)(((byte)(183)))));
-			dataGridViewCellStyle2.Font = new System.Drawing.Font("IRANSansXFaNum", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+			dataGridViewCellStyle2.Font = new System.Drawing.Font("IRANSansXFaNum", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
 			dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
 			dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
 			dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
@@ -129,13 +131,13 @@ namespace Manegment_Setting
 			this.listIncidentalExpensesNameDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
 			this.listIncidentalExpensesNameDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.idDataGridViewTextBoxColumn1,
-            this.listCostNameDataGridViewTextBoxColumn});
+            this.Column1});
 			this.listIncidentalExpensesNameDataGridView.ContextMenuStrip = this.listIncidentalExpensesNameContextMenuStrip;
 			this.listIncidentalExpensesNameDataGridView.DataSource = this.listIncidentalExpensesNameBindingSource;
 			dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
 			dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(215)))), ((int)(((byte)(240)))));
-			dataGridViewCellStyle3.Font = new System.Drawing.Font("IRANSansXFaNum", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-			dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
+			dataGridViewCellStyle3.Font = new System.Drawing.Font("IRANSansXFaNum", 9F);
+			dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
 			dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(123)))), ((int)(((byte)(207)))));
 			dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
 			dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
@@ -145,7 +147,11 @@ namespace Manegment_Setting
 			this.listIncidentalExpensesNameDataGridView.Location = new System.Drawing.Point(13, 83);
 			this.listIncidentalExpensesNameDataGridView.Name = "listIncidentalExpensesNameDataGridView";
 			this.listIncidentalExpensesNameDataGridView.ReadOnly = true;
+			this.listIncidentalExpensesNameDataGridView.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
 			this.listIncidentalExpensesNameDataGridView.RowHeadersVisible = false;
+			this.listIncidentalExpensesNameDataGridView.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+			dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+			this.listIncidentalExpensesNameDataGridView.RowsDefaultCellStyle = dataGridViewCellStyle4;
 			this.listIncidentalExpensesNameDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
 			this.listIncidentalExpensesNameDataGridView.Size = new System.Drawing.Size(545, 150);
 			this.listIncidentalExpensesNameDataGridView.TabIndex = 2;
@@ -159,34 +165,18 @@ namespace Manegment_Setting
 			this.listIncidentalExpensesNameDataGridView.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(193)))), ((int)(((byte)(232)))));
 			this.listIncidentalExpensesNameDataGridView.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(103)))), ((int)(((byte)(58)))), ((int)(((byte)(183)))));
 			this.listIncidentalExpensesNameDataGridView.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-			this.listIncidentalExpensesNameDataGridView.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("IRANSansXFaNum", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+			this.listIncidentalExpensesNameDataGridView.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("IRANSansXFaNum", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
 			this.listIncidentalExpensesNameDataGridView.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White;
 			this.listIncidentalExpensesNameDataGridView.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
 			this.listIncidentalExpensesNameDataGridView.ThemeStyle.HeaderStyle.Height = 30;
 			this.listIncidentalExpensesNameDataGridView.ThemeStyle.ReadOnly = true;
 			this.listIncidentalExpensesNameDataGridView.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(215)))), ((int)(((byte)(240)))));
 			this.listIncidentalExpensesNameDataGridView.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
-			this.listIncidentalExpensesNameDataGridView.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("IRANSansXFaNum", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-			this.listIncidentalExpensesNameDataGridView.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.Black;
+			this.listIncidentalExpensesNameDataGridView.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("IRANSansXFaNum", 9F);
+			this.listIncidentalExpensesNameDataGridView.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.White;
 			this.listIncidentalExpensesNameDataGridView.ThemeStyle.RowsStyle.Height = 22;
 			this.listIncidentalExpensesNameDataGridView.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(123)))), ((int)(((byte)(207)))));
 			this.listIncidentalExpensesNameDataGridView.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.Black;
-			// 
-			// idDataGridViewTextBoxColumn1
-			// 
-			this.idDataGridViewTextBoxColumn1.DataPropertyName = "Id";
-			this.idDataGridViewTextBoxColumn1.FillWeight = 50F;
-			this.idDataGridViewTextBoxColumn1.HeaderText = "ردیف";
-			this.idDataGridViewTextBoxColumn1.Name = "idDataGridViewTextBoxColumn1";
-			this.idDataGridViewTextBoxColumn1.ReadOnly = true;
-			// 
-			// listCostNameDataGridViewTextBoxColumn
-			// 
-			this.listCostNameDataGridViewTextBoxColumn.DataPropertyName = "List_Cost_Name";
-			this.listCostNameDataGridViewTextBoxColumn.FillWeight = 150F;
-			this.listCostNameDataGridViewTextBoxColumn.HeaderText = "لیست اسامی هزینه";
-			this.listCostNameDataGridViewTextBoxColumn.Name = "listCostNameDataGridViewTextBoxColumn";
-			this.listCostNameDataGridViewTextBoxColumn.ReadOnly = true;
 			// 
 			// listIncidentalExpensesNameContextMenuStrip
 			// 
@@ -225,10 +215,6 @@ namespace Manegment_Setting
 			this.deleteAllCostToolStripMenuItem.Size = new System.Drawing.Size(231, 22);
 			this.deleteAllCostToolStripMenuItem.Text = "حذف کامل لیست هزینه";
 			this.deleteAllCostToolStripMenuItem.Click += new System.EventHandler(this.DeleteAllCostToolStripMenuItem_Click);
-			// 
-			// listIncidentalExpensesNameBindingSource
-			// 
-			this.listIncidentalExpensesNameBindingSource.DataSource = typeof(Models.ListIncidentalExpensesName);
 			// 
 			// saveCostNameButton
 			// 
@@ -355,23 +341,23 @@ namespace Manegment_Setting
 			// 
 			this.listServiceNameDataGridView.AllowUserToAddRows = false;
 			this.listServiceNameDataGridView.AllowUserToDeleteRows = false;
-			dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-			dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(196)))), ((int)(((byte)(233)))));
-			this.listServiceNameDataGridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
+			dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+			dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(196)))), ((int)(((byte)(233)))));
+			this.listServiceNameDataGridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
 			this.listServiceNameDataGridView.AutoGenerateColumns = false;
 			this.listServiceNameDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
 			this.listServiceNameDataGridView.BackgroundColor = System.Drawing.Color.White;
 			this.listServiceNameDataGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
 			this.listServiceNameDataGridView.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
 			this.listServiceNameDataGridView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-			dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-			dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(103)))), ((int)(((byte)(58)))), ((int)(((byte)(183)))));
-			dataGridViewCellStyle5.Font = new System.Drawing.Font("IRANSansXFaNum", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-			dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
-			dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-			dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-			dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-			this.listServiceNameDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+			dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+			dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(103)))), ((int)(((byte)(58)))), ((int)(((byte)(183)))));
+			dataGridViewCellStyle6.Font = new System.Drawing.Font("IRANSansXFaNum", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+			dataGridViewCellStyle6.ForeColor = System.Drawing.Color.White;
+			dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+			dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+			dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+			this.listServiceNameDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
 			this.listServiceNameDataGridView.ColumnHeadersHeight = 30;
 			this.listServiceNameDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
 			this.listServiceNameDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -380,22 +366,24 @@ namespace Manegment_Setting
             this.servicePriceDataGridViewTextBoxColumn});
 			this.listServiceNameDataGridView.ContextMenuStrip = this.listServiceNameContextMenuStrip;
 			this.listServiceNameDataGridView.DataSource = this.listServiceNameBindingSource;
-			dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-			dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(215)))), ((int)(((byte)(240)))));
-			dataGridViewCellStyle6.Font = new System.Drawing.Font("IRANSansXFaNum", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-			dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Black;
-			dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(123)))), ((int)(((byte)(207)))));
-			dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.Black;
-			dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-			this.listServiceNameDataGridView.DefaultCellStyle = dataGridViewCellStyle6;
+			dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+			dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(215)))), ((int)(((byte)(240)))));
+			dataGridViewCellStyle7.Font = new System.Drawing.Font("IRANSansXFaNum", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+			dataGridViewCellStyle7.ForeColor = System.Drawing.Color.White;
+			dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(123)))), ((int)(((byte)(207)))));
+			dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.Black;
+			dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+			this.listServiceNameDataGridView.DefaultCellStyle = dataGridViewCellStyle7;
 			this.listServiceNameDataGridView.EnableHeadersVisualStyles = false;
 			this.listServiceNameDataGridView.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(193)))), ((int)(((byte)(232)))));
 			this.listServiceNameDataGridView.Location = new System.Drawing.Point(13, 132);
 			this.listServiceNameDataGridView.Name = "listServiceNameDataGridView";
 			this.listServiceNameDataGridView.ReadOnly = true;
+			this.listServiceNameDataGridView.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
 			this.listServiceNameDataGridView.RowHeadersVisible = false;
-			dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-			this.listServiceNameDataGridView.RowsDefaultCellStyle = dataGridViewCellStyle7;
+			this.listServiceNameDataGridView.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+			dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+			this.listServiceNameDataGridView.RowsDefaultCellStyle = dataGridViewCellStyle8;
 			this.listServiceNameDataGridView.RowTemplate.Height = 25;
 			this.listServiceNameDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
 			this.listServiceNameDataGridView.Size = new System.Drawing.Size(545, 150);
@@ -410,41 +398,18 @@ namespace Manegment_Setting
 			this.listServiceNameDataGridView.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(193)))), ((int)(((byte)(232)))));
 			this.listServiceNameDataGridView.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(103)))), ((int)(((byte)(58)))), ((int)(((byte)(183)))));
 			this.listServiceNameDataGridView.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-			this.listServiceNameDataGridView.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("IRANSansXFaNum", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+			this.listServiceNameDataGridView.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("IRANSansXFaNum", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
 			this.listServiceNameDataGridView.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White;
 			this.listServiceNameDataGridView.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
 			this.listServiceNameDataGridView.ThemeStyle.HeaderStyle.Height = 30;
 			this.listServiceNameDataGridView.ThemeStyle.ReadOnly = true;
 			this.listServiceNameDataGridView.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(215)))), ((int)(((byte)(240)))));
 			this.listServiceNameDataGridView.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
-			this.listServiceNameDataGridView.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("IRANSansXFaNum", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-			this.listServiceNameDataGridView.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.Black;
+			this.listServiceNameDataGridView.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("IRANSansXFaNum", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+			this.listServiceNameDataGridView.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.White;
 			this.listServiceNameDataGridView.ThemeStyle.RowsStyle.Height = 25;
 			this.listServiceNameDataGridView.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(123)))), ((int)(((byte)(207)))));
 			this.listServiceNameDataGridView.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.Black;
-			// 
-			// idDataGridViewTextBoxColumn
-			// 
-			this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
-			this.idDataGridViewTextBoxColumn.FillWeight = 50F;
-			this.idDataGridViewTextBoxColumn.HeaderText = "ردیف";
-			this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
-			this.idDataGridViewTextBoxColumn.ReadOnly = true;
-			// 
-			// serviceNameDataGridViewTextBoxColumn
-			// 
-			this.serviceNameDataGridViewTextBoxColumn.DataPropertyName = "Service_Name";
-			this.serviceNameDataGridViewTextBoxColumn.FillWeight = 150F;
-			this.serviceNameDataGridViewTextBoxColumn.HeaderText = "نام سرویس";
-			this.serviceNameDataGridViewTextBoxColumn.Name = "serviceNameDataGridViewTextBoxColumn";
-			this.serviceNameDataGridViewTextBoxColumn.ReadOnly = true;
-			// 
-			// servicePriceDataGridViewTextBoxColumn
-			// 
-			this.servicePriceDataGridViewTextBoxColumn.DataPropertyName = "Service_Price";
-			this.servicePriceDataGridViewTextBoxColumn.HeaderText = "قیمت ";
-			this.servicePriceDataGridViewTextBoxColumn.Name = "servicePriceDataGridViewTextBoxColumn";
-			this.servicePriceDataGridViewTextBoxColumn.ReadOnly = true;
 			// 
 			// listServiceNameContextMenuStrip
 			// 
@@ -483,10 +448,6 @@ namespace Manegment_Setting
 			this.deleteAllServiceToolStripMenuItem.Size = new System.Drawing.Size(242, 22);
 			this.deleteAllServiceToolStripMenuItem.Text = "حذف کامل لیست سرویس";
 			this.deleteAllServiceToolStripMenuItem.Click += new System.EventHandler(this.DeleteAllServiceToolStripMenuItem_Click);
-			// 
-			// listServiceNameBindingSource
-			// 
-			this.listServiceNameBindingSource.DataSource = typeof(Models.ListServiceName);
 			// 
 			// saveServiceNameButton
 			// 
@@ -684,6 +645,53 @@ namespace Manegment_Setting
 			this.notificationSettingGroupBox.Text = "تنظیمات اعلان";
 			this.notificationSettingGroupBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
 			// 
+			// idDataGridViewTextBoxColumn
+			// 
+			this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
+			this.idDataGridViewTextBoxColumn.FillWeight = 50F;
+			this.idDataGridViewTextBoxColumn.HeaderText = "ردیف";
+			this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
+			this.idDataGridViewTextBoxColumn.ReadOnly = true;
+			// 
+			// serviceNameDataGridViewTextBoxColumn
+			// 
+			this.serviceNameDataGridViewTextBoxColumn.DataPropertyName = "Service_Name";
+			this.serviceNameDataGridViewTextBoxColumn.FillWeight = 150F;
+			this.serviceNameDataGridViewTextBoxColumn.HeaderText = "نام سرویس";
+			this.serviceNameDataGridViewTextBoxColumn.Name = "serviceNameDataGridViewTextBoxColumn";
+			this.serviceNameDataGridViewTextBoxColumn.ReadOnly = true;
+			// 
+			// servicePriceDataGridViewTextBoxColumn
+			// 
+			this.servicePriceDataGridViewTextBoxColumn.DataPropertyName = "Service_Price";
+			this.servicePriceDataGridViewTextBoxColumn.HeaderText = "قیمت ";
+			this.servicePriceDataGridViewTextBoxColumn.Name = "servicePriceDataGridViewTextBoxColumn";
+			this.servicePriceDataGridViewTextBoxColumn.ReadOnly = true;
+			// 
+			// listServiceNameBindingSource
+			// 
+			this.listServiceNameBindingSource.DataSource = typeof(Models.ListServiceName);
+			// 
+			// listIncidentalExpensesNameBindingSource
+			// 
+			this.listIncidentalExpensesNameBindingSource.DataSource = typeof(Models.ListIncidentalExpensesName);
+			// 
+			// idDataGridViewTextBoxColumn1
+			// 
+			this.idDataGridViewTextBoxColumn1.DataPropertyName = "Id";
+			this.idDataGridViewTextBoxColumn1.FillWeight = 50F;
+			this.idDataGridViewTextBoxColumn1.HeaderText = "ردیف";
+			this.idDataGridViewTextBoxColumn1.Name = "idDataGridViewTextBoxColumn1";
+			this.idDataGridViewTextBoxColumn1.ReadOnly = true;
+			// 
+			// Column1
+			// 
+			this.Column1.DataPropertyName = "Cost_Name";
+			this.Column1.FillWeight = 150F;
+			this.Column1.HeaderText = "نام هزینه جانبی";
+			this.Column1.Name = "Column1";
+			this.Column1.ReadOnly = true;
+			// 
 			// ProgramSettingUC
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 17F);
@@ -702,11 +710,11 @@ namespace Manegment_Setting
 			this.listIncidentalExpensesNameGroupBox.ResumeLayout(false);
 			((System.ComponentModel.ISupportInitialize)(this.listIncidentalExpensesNameDataGridView)).EndInit();
 			this.listIncidentalExpensesNameContextMenuStrip.ResumeLayout(false);
-			((System.ComponentModel.ISupportInitialize)(this.listIncidentalExpensesNameBindingSource)).EndInit();
 			this.saveServiceNameGroupBox.ResumeLayout(false);
 			((System.ComponentModel.ISupportInitialize)(this.listServiceNameDataGridView)).EndInit();
 			this.listServiceNameContextMenuStrip.ResumeLayout(false);
 			((System.ComponentModel.ISupportInitialize)(this.listServiceNameBindingSource)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.listIncidentalExpensesNameBindingSource)).EndInit();
 			this.ResumeLayout(false);
 
 		}
@@ -730,13 +738,14 @@ namespace Manegment_Setting
 		private Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox serviceAmountTextBox;
 		private Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox serviceNameTextBox;
 		private Guna.UI2.WinForms.Guna2DataGridView listIncidentalExpensesNameDataGridView;
-		private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn1;
 		private System.Windows.Forms.DataGridViewTextBoxColumn listCostNameDataGridViewTextBoxColumn;
-		private System.Windows.Forms.BindingSource listIncidentalExpensesNameBindingSource;
 		private Guna.UI2.WinForms.Guna2GroupBox notificationSettingGroupBox;
 		private System.Windows.Forms.ContextMenuStrip listIncidentalExpensesNameContextMenuStrip;
 		private System.Windows.Forms.ToolStripMenuItem editCostToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem deleteCostToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem deleteAllCostToolStripMenuItem;
+		private System.Windows.Forms.BindingSource listIncidentalExpensesNameBindingSource;
+		private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn1;
+		private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
 	}
 }

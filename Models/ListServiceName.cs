@@ -26,7 +26,7 @@
 		/// </summary>
 		#region Service_Price
 		[System.ComponentModel.DisplayName(displayName: "قیمت سرویس دهی")]
-		//--Lenght FullName
+		//--Lenght Service_Price
 		[System.ComponentModel.DataAnnotations.StringLength
 			(maximumLength: 150)]
 		public string Service_Price { get; set; }

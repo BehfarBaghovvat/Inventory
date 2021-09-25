@@ -66,7 +66,7 @@ namespace Financial_Form
 
 		#endregion /Layers
 
-		public int? AmountPayment { get; set; }
+		public decimal? AmountPayment { get; set; }
 		public decimal? Capital_Fund { get; set; }
 		#endregion /Properties
 
@@ -169,16 +169,16 @@ namespace Financial_Form
 		#region ListExpensesComboBox_SelectedIndexChanged
 		private void ListExpensesComboBox_SelectedIndexChanged(object sender, System.EventArgs e)
 		{
-			if (listExpensesComboBox.SelectedIndex < 1)
+			if (listExpensesComboBox.SelectedIndex == 0)
 			{
 				AncillaryCosts.Cost_Name = null;
-				listExpensesComboBox.ForeColor = System.Drawing.Color.Gray;
+				listExpensesComboBox.ForeColor = System.Drawing.Color.DimGray;
 				return;
 			}
 			else
 			{
 				listExpensesComboBox.ForeColor = System.Drawing.Color.White;
-				AncillaryCosts.Cost_Name = listExpensesComboBox.SelectedItem.ToString();
+				AncillaryCosts.Cost_Name = $"{listExpensesComboBox.Text}";
 			}
 		}
 		#endregion /ListExpensesComboBox_SelectedIndexChanged
@@ -212,6 +212,54 @@ namespace Financial_Form
 		//--------------------------------------------------------------------------------------------------    Private Methods
 
 		#region Function
+
+		#region AllClear
+		private void AllClear()
+		{
+			amountPaymentTextBox.Clear();
+			amountPaymentTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+			listExpensesComboBox.SelectedIndex = 0;
+			AncillaryCosts = null;
+		}
+		#endregion /AllClear
+
+		#region GetAncillaryCosts
+		/// <summary>
+		/// لیت کامل هزینه های صورت گرفته را بر میگرداند
+		/// </summary>
+		private void GetListAncillaryCosts()
+		{
+			Models.DataBaseContext dataBaseContext = null;
+			try
+			{
+				dataBaseContext =
+					new Models.DataBaseContext();
+
+				System.Collections.Generic.List<Models.AncillaryCosts> listAncillaryCosts =
+					new System.Collections.Generic.List<Models.AncillaryCosts>();
+
+				listAncillaryCosts =
+					dataBaseContext.AncillaryCosts
+					.OrderBy(current => current.Id)
+					.ToList();
+
+				ancillaryCostsDataGridView.DataSource = listAncillaryCosts;
+				
+			}
+			catch (System.Exception ex)
+			{
+				Infrastructure.Utility.ExceptionShow(ex);
+			}
+			finally
+			{
+				if (dataBaseContext != null)
+				{
+					dataBaseContext.Dispose();
+					dataBaseContext = null;
+				}
+			}
+		}
+		#endregion /GetAncillaryCosts
 
 		#region GetCapitalFund
 		/// <summary>
@@ -280,7 +328,6 @@ namespace Financial_Form
 		private void GetListIncidentalExpenses()
 		{
 			listExpensesComboBox.Items.Add("...انتخاب هزینه");
-			listExpensesComboBox.StartIndex = 0;
 
 			Models.DataBaseContext dataBaseContext = null;
 			try
@@ -288,24 +335,23 @@ namespace Financial_Form
 				dataBaseContext =
 					 new Models.DataBaseContext();
 
-				System.Collections.Generic.List<Models.ListIncidentalExpensesName> listIncidentalExpenses = new System.Collections.Generic.List<Models.ListIncidentalExpensesName>();
+				System.Collections.Generic.List<Models.ListIncidentalExpensesName> listIncidentalExpenses =
+					new System.Collections.Generic.List<Models.ListIncidentalExpensesName>();
 
 				listIncidentalExpenses =
 					dataBaseContext.ListIncidentalExpensesNames
 					.OrderBy(current => current.Id)
 					.ToList();
 
-
 				for (int i = 0; i < listIncidentalExpenses.Count; i++)
 				{
 					listExpensesComboBox.Items.Add(listIncidentalExpenses.ElementAt(i));
 					listExpensesComboBox.ValueMember = "Id";
-					listExpensesComboBox.DisplayMember = "List_Cost_Name";
+					listExpensesComboBox.DisplayMember = "Cost_Name";
 				}
 			}
 			catch (System.Exception ex)
 			{
-
 				Infrastructure.Utility.ExceptionShow(ex);
 			}
 		}
@@ -317,8 +363,12 @@ namespace Financial_Form
 		/// </summary>
 		private void Initialize()
 		{
+			this.Focus();
 			Capital_Fund = GetCapitalFund();
 			GetListIncidentalExpenses();
+			GetListAncillaryCosts();
+
+			listExpensesComboBox.SelectedIndex = 0;
 		}
 		#endregion /Initialize
 
@@ -328,7 +378,7 @@ namespace Financial_Form
 		/// </summary>
 		/// <param name="_amountPayment"></param>
 		/// <param name="_capitalFund"></param>
-		private void PaymentCost(int? _amountPayment, decimal? _capitalFund)
+		private void PaymentCost(decimal? _amountPayment, decimal? _capitalFund)
 		{
 			_capitalFund -= _amountPayment;
 			Models.DataBaseContext dataBaseContext = null;
@@ -338,16 +388,13 @@ namespace Financial_Form
 					new Models.DataBaseContext();
 
 				Models.CapitalFund capitalFund =
-					dataBaseContext.CapitalFunds
-					.FirstOrDefault();
+					new Models.CapitalFund();
 
-				capitalFund =
-					new Models.CapitalFund()
-					{
-						Capital_Fund = $"{_capitalFund:#,0} تومان",
-					};
+				capitalFund.Capital_Fund = $"{_capitalFund:#,0} تومان";
 
 				dataBaseContext.SaveChanges();
+
+				RefreshCapitalFund();
 			}
 			catch (System.Exception ex)
 			{
@@ -363,6 +410,62 @@ namespace Financial_Form
 			}
 		}
 		#endregion /PaymentCost		
+
+		#region RefreshCapitalFund
+		/// <summary>
+		/// تازه سازی صندوق سرمایه
+		/// </summary>
+		private void RefreshCapitalFund()
+		{
+			decimal capital_Fund;
+			Models.DataBaseContext dataBaseContext = null;
+			try
+			{
+				dataBaseContext =
+					new Models.DataBaseContext();
+
+				Models.CapitalFund capitalFund =
+					dataBaseContext.CapitalFunds
+					.FirstOrDefault();
+
+				if (capitalFund == null)
+				{
+					capital_Fund = 0;
+				}
+				else
+				{
+					if (string.IsNullOrEmpty(capitalFund.Capital_Fund))
+					{
+						capital_Fund = 0;
+					}
+					else if (capitalFund.Capital_Fund.Length <= 9)
+					{
+						capital_Fund = decimal.Parse(capitalFund.Capital_Fund.Replace("تومان", string.Empty).Trim());
+
+						Inventory.Program.MainForm.fundsNotificationTextBox.Text = $"{capital_Fund} تومان ";
+					}
+					else
+					{
+						capital_Fund = decimal.Parse(capitalFund.Capital_Fund.Replace("تومان", string.Empty).Replace(",", string.Empty).Trim());
+
+						Inventory.Program.MainForm.fundsNotificationTextBox.Text = $"{capital_Fund:#,0} تومان ";
+					}
+				}
+			}
+			catch (System.Exception ex)
+			{
+				Infrastructure.Utility.ExceptionShow(ex);
+			}
+			finally
+			{
+				if (dataBaseContext != null)
+				{
+					dataBaseContext.Dispose();
+					dataBaseContext = null;
+				}
+			}
+		}
+		#endregion /RefreshCapitalFund
 
 		#region SetEventLog
 		private void SetEventLog(Models.AncillaryCosts _ancillaryCosts)
@@ -419,22 +522,23 @@ namespace Financial_Form
 				dataBaseContext =
 					new Models.DataBaseContext();
 
-				Models.AncillaryCosts ancillaryCosts =
-					dataBaseContext.AncillaryCosts
-					.FirstOrDefault();
+				Models.AncillaryCosts ancillaryCosts = null;
 
 				ancillaryCosts =
-					new Models.AncillaryCosts()
-					{
-						Name_Payer = Inventory.Program.UserAuthentication.Full_Name,
-						Cost_Name = _ancillaryCosts.Cost_Name,
-						Amount_Payment = _ancillaryCosts.Amount_Payment,
-						Registration_Date = $"{Infrastructure.Utility.PersianCalendar(System.DateTime.Now)}",
-						Registration_Time = $"{Infrastructure.Utility.ShowTime()}",
-					};
+					new Models.AncillaryCosts();
+
+				ancillaryCosts.Name_Payer = Inventory.Program.UserAuthentication.Full_Name;
+				ancillaryCosts.Cost_Name = _ancillaryCosts.Cost_Name;
+				ancillaryCosts.Amount_Payment = _ancillaryCosts.Amount_Payment;
+				ancillaryCosts.Registration_Date = $"{Infrastructure.Utility.PersianCalendar(System.DateTime.Now)}";
+				ancillaryCosts.Registration_Time = $"{Infrastructure.Utility.ShowTime()}";
+					
 
 				dataBaseContext.AncillaryCosts.Add(ancillaryCosts);
 				dataBaseContext.SaveChanges();
+
+				GetListAncillaryCosts();
+
 				return true;
 			}
 			catch (System.Exception ex)

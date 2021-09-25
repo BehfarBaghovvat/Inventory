@@ -62,7 +62,24 @@ namespace Client_Forms
 			}
 		}
 
-		public Models.EventLog EventLog { get; set; }
+		private Models.EventLog _eventLog;
+		public Models.EventLog EventLog
+		{
+			get
+			{
+				if (_eventLog == null)
+				{
+					_eventLog =
+						new Models.EventLog();
+				}
+				return _eventLog;
+			}
+			set
+			{
+				_eventLog = value;
+			}
+		}
+
 		public string Search_Item { get; set; }
 		#endregion /Properties
 
@@ -149,94 +166,6 @@ namespace Client_Forms
 			}
 		}
 		#endregion /LicensePlateGroupBox_Leave
-
-		//#region LicensePlateTextBox_Enter
-		//private void LicensePlateTextBox_Enter(object sender, System.EventArgs e)
-		//{
-		//	Infrastructure.Utility.PersianLanguage();
-		//	licensePlateTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-
-
-		//	//if ()
-		//	//{
-
-		//	//}
-		//	licensePlateTextBox.Text = licensePlateTextBox.Text.Replace("-", string.Empty).Trim();
-
-		//}
-		//#endregion /LicensePlateTextBox_Enter
-
-		//#region LicensePlateTextBox_KeyPress
-		//private void LicensePlateTextBox_KeyPress(object sender, System.Windows.Forms.KeyPressEventArgs e)
-		//{
-		//	Infrastructure.Utility.PersianAndNumberTyping(e);
-		//}
-		//#endregion /LicensePlateTextBox_KeyPress
-
-		//#region LicensePlateTextBox_Leave
-		//private void LicensePlateTextBox_Leave(object sender, System.EventArgs e)
-		//{
-		//	if (string.IsNullOrWhiteSpace(licensePlateTextBox.Text) || licensePlateTextBox.Text.Length < 8)
-		//	{
-		//		licensePlateTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-		//		licensePlateTextBox.Clear();
-		//		Client_GetData.License_Plate = null;
-		//	}
-		//	else
-		//	{
-		//		licensePlateTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-		//		if (Client_GetData.License_Plate.Length >= 19)
-		//		{
-
-		//			return;
-		//		}
-		//		else
-		//		{
-		//			licensePlateTextBox.Text = Client_GetData.License_Plate.Insert(7, " - ").Insert(14," - ");
-		//		}
-
-		//	}
-		//}
-		//#endregion /LicensePlateTextBox_Leave
-
-		//#region LicensePlateTextBox_TextChange
-		//private void LicensePlateTextBox_TextChange(object sender, System.EventArgs e)
-		//{
-		//	if (string.IsNullOrWhiteSpace(licensePlateTextBox.Text))
-		//	{
-		//		confirmLicensePlatePicturBox.Visible = false;
-		//		return;
-		//	}
-		//	else
-		//	{
-
-		//		if (licensePlateTextBox.Text.Length < 8)
-		//		{
-		//			confirmLicensePlatePicturBox.Visible = true;
-		//			confirmLicensePlatePicturBox.Image = Inventory.Properties.Resources.Tik_False;
-		//			licensePlateTextBox.Focus();
-		//			Client_GetData.License_Plate = null;
-		//			return;
-		//		}
-		//		else
-		//		{
-		//			Client_GetData.License_Plate = licensePlateTextBox.Text;
-
-		//			if (LicensePlateConfirmation(Client_GetData) == true)
-		//			{
-		//				confirmLicensePlatePicturBox.Visible = true;
-		//				confirmLicensePlatePicturBox.Image = Inventory.Properties.Resources.Tik_True;
-		//			}
-		//			else if (LicensePlateConfirmation(Client_GetData) == false)
-		//			{
-		//				confirmLicensePlatePicturBox.Visible = true;
-		//				confirmLicensePlatePicturBox.Image = Inventory.Properties.Resources.Tik_False;
-		//				Client_GetData.License_Plate = null;
-		//			}
-		//		}
-		//	}
-		//}
-		//#endregion /LicensePlateTextBox_TextChange
 
 		#region PhonNumberTextBox_Enter
 		private void PhonNumberTextBox_Enter(object sender, System.EventArgs e)
@@ -337,7 +266,7 @@ namespace Client_Forms
 		{
 			if (string.IsNullOrWhiteSpace(searchTextBox.Text))
 			{
-				GetDataFromClient();
+				GetListClient();
 				searchTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
 			}
 			else
@@ -350,30 +279,46 @@ namespace Client_Forms
 		#region SaveButton_Click
 		private void SaveButton_Click(object sender, System.EventArgs e)
 		{
-			if (string.Compare(saveButton.Text, "ثبت مشتری") == 0)
+			if (ValidationData(Client_GetData))
 			{
-				if (SetInClient(Client_GetData))
+				if (string.Compare(saveButton.Text, "ثبت مشتری") == 0)
 				{
-					Infrastructure.Utility.WindowsNotification(message: "مشتری جدید ثبت گردید", caption: Infrastructure.PopupNotificationForm.Caption.موفقیت);
-					return;
+					if (SetClient(Client_GetData))
+					{
+						Infrastructure.Utility.WindowsNotification(
+						message: "مشتری جدید ثبت گردید",
+						caption: Infrastructure.PopupNotificationForm.Caption.موفقیت);
+						return;
+					}
+					else
+					{
+						Infrastructure.Utility.WindowsNotification
+							(message: "عدم موفقیت در ثبت اطلاعات",
+							caption: Infrastructure.PopupNotificationForm.Caption.خطا);
+					}
+				}
+				else if (string.Compare(saveButton.Text, "ویرایش مشتری") == 0)
+				{
+					if (EditClient(Client_GetData))
+					{
+						Infrastructure.Utility.WindowsNotification(
+							message: "ویرایش مشتری انجام گردید",
+							caption: Infrastructure.PopupNotificationForm.Caption.موفقیت);
+						return;
+					}
+					else
+					{
+						Infrastructure.Utility.WindowsNotification(
+							message: "عدم موفقیت در ویرایش اطلاعات",
+							caption: Infrastructure.PopupNotificationForm.Caption.خطا);
+					}
 				}
 				else
 				{
-					Infrastructure.Utility.WindowsNotification(message: "عدم موفقیت در ثبت اطلاعات", caption: Infrastructure.PopupNotificationForm.Caption.خطا);
-				}
-			}
-			else if (string.Compare(saveButton.Text, "ویرایش مشتری") == 0)
-			{
-				if (EditClient(Client_GetData))
-				{
-					Infrastructure.Utility.WindowsNotification(message: "ویرایش مشتری انجام گردید", caption: Infrastructure.PopupNotificationForm.Caption.موفقیت);
 					return;
 				}
-				else
-				{
-					Infrastructure.Utility.WindowsNotification(message: "عدم موفقیت در ویرایش اطلاعات", caption: Infrastructure.PopupNotificationForm.Caption.خطا);
-				}
 			}
+
 		}
 		#endregion /SaveButton_Click
 
@@ -387,13 +332,13 @@ namespace Client_Forms
 			Client_GetData.Client_Name = listClientDataGridView.CurrentRow.Cells[1].Value.ToString();
 
 			Client_FirstLoad.License_Plate = listClientDataGridView.CurrentRow.Cells[3].Value.ToString();
-			numTextBox3.Text= Client_FirstLoad.License_Plate.Substring(0,2);
+			numTextBox3.Text = Client_FirstLoad.License_Plate.Substring(0, 2);
 			alphabetComboBox.SelectedIndex = alphabetComboBox.FindString(Client_FirstLoad.License_Plate.Substring(13, 1));
 			numTextBox2.Text = Client_FirstLoad.License_Plate.Substring(10, 3);
-			numTextBox1.Text = Client_FirstLoad.License_Plate.Substring(17,2);
+			numTextBox1.Text = Client_FirstLoad.License_Plate.Substring(17, 2);
 			Client_GetData.License_Plate = listClientDataGridView.CurrentRow.Cells[3].Value.ToString();
 
-			Client_FirstLoad.Phone_Number = listClientDataGridView.CurrentRow.Cells[2].Value.ToString().Replace("-",string.Empty).Trim();
+			Client_FirstLoad.Phone_Number = listClientDataGridView.CurrentRow.Cells[2].Value.ToString().Replace("-", string.Empty).Trim();
 			phoneNumberTextBox.Text = listClientDataGridView.CurrentRow.Cells[2].Value.ToString().Replace("-", string.Empty).Trim();
 			Client_GetData.Phone_Number = listClientDataGridView.CurrentRow.Cells[2].Value.ToString().Replace("-", string.Empty).Trim();
 		}
@@ -491,7 +436,7 @@ namespace Client_Forms
 						}
 						#endregion / -----------------------------------------     SetEventLog     -----------------------------------------
 
-						GetDataFromClient();
+						GetListClient();
 					}
 
 					Infrastructure.Utility.WindowsNotification
@@ -593,18 +538,20 @@ namespace Client_Forms
 					new Models.DataBaseContext();
 
 				Models.Client client =
-								dataBaseContext.Clients
-								.Where(current => string.Compare(current.License_Plate, Client_FirstLoad.Client_Name) == 0)
-								.FirstOrDefault();
+					dataBaseContext.Clients
+					.Where(current => string.Compare(current.Client_Name, _editClient.Client_Name) == 0)
+					.FirstOrDefault();
 
-				if (client != null)
-				{
-					client.Client_Name = _editClient.Client_Name;
-					client.License_Plate = _editClient.License_Plate;
-					client.Phone_Number = _editClient.Phone_Number;
-				}
+				client.Client_Name = _editClient.Client_Name;
+				client.License_Plate = _editClient.License_Plate;
+				client.Phone_Number = _editClient.Phone_Number;
 
 				dataBaseContext.SaveChanges();
+
+				saveButton.Text = "ثبت مشتری";
+
+				AllClear();
+				GetListClient();
 
 				return true;
 
@@ -625,11 +572,59 @@ namespace Client_Forms
 		}
 		#endregion /EditClient
 
-		#region GetDataFromClient
+		#region EditClientEventLog
+		private void EditClientEventLog(Models.Client _firstLoad, Models.Client _newData)
+		{
+			string eventDescription = null;
+
+
+			if (string.Compare(_firstLoad.Client_Name, _newData.Client_Name) != 0)
+			{
+				eventDescription = $"نام {_firstLoad.Client_Name} به {_newData.Client_Name} تغییر یافت.";
+			}
+			if (string.Compare(_firstLoad.License_Plate, _newData.License_Plate) != 0)
+			{
+				if (eventDescription != null)
+				{
+					eventDescription +=
+						System.Environment.NewLine;
+				}
+
+				eventDescription +=
+					$"پلاک وسیله نقلیه آقا / خانم {_newData.Client_Name} از {_firstLoad.License_Plate} به {_newData.License_Plate} تغییر یافت.";
+			}
+			if (string.Compare(_firstLoad.Phone_Number, _newData.Phone_Number) != 0)
+			{
+				if (eventDescription != null)
+				{
+					eventDescription +=
+						System.Environment.NewLine;
+				}
+
+				eventDescription +=
+					$"شماره تلفن آقا / خانم {_newData.Client_Name} از {_firstLoad.Phone_Number} به {_newData.Phone_Number} تغییر یافت.";
+			}
+
+			#region  -----------------------------------------    SetEventLog     -----------------------------------------
+			if (string.Compare(Inventory.Program.UserAuthentication.Username, "admin") != 0)
+			{
+				EventLog.Username = Inventory.Program.UserAuthentication.Username;
+				EventLog.Full_Name = Inventory.Program.UserAuthentication.Full_Name;
+				EventLog.Description = eventDescription;
+				EventLog.Event_Date = Infrastructure.Utility.PersianCalendar(System.DateTime.Now);
+				EventLog.Event_Time = Infrastructure.Utility.ShowTime();
+
+				Infrastructure.Utility.EventLog(EventLog);
+			}
+			#endregion / -----------------------------------------     SetEventLog     -----------------------------------------
+		}
+		#endregion /EditClientEventLog
+
+		#region GetListClient
 		/// <summary>
 		/// بارگزاری لیست مشتریان
 		/// </summary>
-		private void GetDataFromClient()
+		private void GetListClient()
 		{
 			Models.DataBaseContext dataBaseContext = null;
 			try
@@ -669,7 +664,7 @@ namespace Client_Forms
 				}
 			}
 		}
-		#endregion /GetDataFromClient
+		#endregion /GetListClient
 
 		#region Initialize
 		/// <summary>
@@ -678,7 +673,7 @@ namespace Client_Forms
 		private void Initialize()
 		{
 			AllClear();
-			GetDataFromClient();
+			GetListClient();
 		}
 		#endregion /Initialize
 
@@ -721,100 +716,100 @@ namespace Client_Forms
 		/// <param name="_searchItem"></param>
 		private void SearchClient(string _searchItem)
 		{
-				if (_searchItem.StartsWith("09"))
+			if (_searchItem.StartsWith("09"))
+			{
+				Models.DataBaseContext dataBaseContext = null;
+				try
 				{
-					Models.DataBaseContext dataBaseContext = null;
-					try
+					dataBaseContext =
+						new Models.DataBaseContext();
+
+					System.Collections.Generic.List<Models.Client> listClients = null;
+
+					if (string.IsNullOrWhiteSpace(_searchItem))
 					{
-						dataBaseContext =
-							new Models.DataBaseContext();
-
-						System.Collections.Generic.List<Models.Client> listClients = null;
-
-						if (string.IsNullOrWhiteSpace(_searchItem))
-						{
-							listClients =
-								dataBaseContext.Clients
-								.OrderBy(current => current.Id)
-								.ToList();
-						}
-						else
-						{
-							listClients =
-								dataBaseContext.Clients
-								.Where(current => current.Phone_Number.Contains(_searchItem))
-								.OrderBy(current => current.Id)
-								.ToList();
-						}
-
-						listClientDataGridView.DataSource = listClients;
-
+						listClients =
+							dataBaseContext.Clients
+							.OrderBy(current => current.Id)
+							.ToList();
 					}
-					catch (System.Exception ex)
+					else
 					{
-						Infrastructure.Utility.ExceptionShow(ex);
+						listClients =
+							dataBaseContext.Clients
+							.Where(current => current.Phone_Number.Contains(_searchItem))
+							.OrderBy(current => current.Id)
+							.ToList();
 					}
-					finally
+
+					listClientDataGridView.DataSource = listClients;
+
+				}
+				catch (System.Exception ex)
+				{
+					Infrastructure.Utility.ExceptionShow(ex);
+				}
+				finally
+				{
+					if (dataBaseContext != null)
 					{
-						if (dataBaseContext != null)
-						{
-							dataBaseContext.Dispose();
-							dataBaseContext = null;
-						}
+						dataBaseContext.Dispose();
+						dataBaseContext = null;
 					}
 				}
-				else
+			}
+			else
+			{
+				Models.DataBaseContext dataBaseContext = null;
+				try
 				{
-					Models.DataBaseContext dataBaseContext = null;
-					try
+					dataBaseContext =
+						new Models.DataBaseContext();
+
+					System.Collections.Generic.List<Models.Client> listClients = null;
+
+					if (string.IsNullOrWhiteSpace(_searchItem))
 					{
-						dataBaseContext =
-							new Models.DataBaseContext();
-
-						System.Collections.Generic.List<Models.Client> listClients = null;
-
-						if (string.IsNullOrWhiteSpace(_searchItem))
-						{
-							listClients =
-								dataBaseContext.Clients
-								.OrderBy(current => current.Id)
-								.ToList();
-						}
-						else
-						{
-							listClients =
-								dataBaseContext.Clients
-								.Where(current => current.License_Plate.Contains(_searchItem))
-								.OrderBy(current => current.Id)
-								.ToList();
-						}
-
-						listClientDataGridView.DataSource = listClients;
+						listClients =
+							dataBaseContext.Clients
+							.OrderBy(current => current.Id)
+							.ToList();
 					}
-					catch (System.Exception ex)
+					else
 					{
-						Infrastructure.Utility.ExceptionShow(ex);
+						listClients =
+							dataBaseContext.Clients
+							.Where(current => current.License_Plate.Contains(_searchItem))
+							.OrderBy(current => current.Id)
+							.ToList();
 					}
-					finally
+
+					listClientDataGridView.DataSource = listClients;
+				}
+				catch (System.Exception ex)
+				{
+					Infrastructure.Utility.ExceptionShow(ex);
+				}
+				finally
+				{
+					if (dataBaseContext != null)
 					{
-						if (dataBaseContext != null)
-						{
-							dataBaseContext.Dispose();
-							dataBaseContext = null;
-						}
+						dataBaseContext.Dispose();
+						dataBaseContext = null;
 					}
 				}
-			
+			}
+
 		}
 		#endregion /SearchClient
 
-		#region SetInClient
+		#region SetClient
 		/// <summary>
 		/// ذخیره اطلاعات در جدول مشتریان
 		/// </summary>
 		/// <param name="_client"></param>
 		/// <returns>true or false</returns>
-		private bool SetInClient(Models.Client _client)
+		private bool SetClient(Models.Client _setClient)
 		{
 			Models.DataBaseContext dataBaseContext = null;
 			try
@@ -822,22 +817,32 @@ namespace Client_Forms
 				dataBaseContext =
 					new Models.DataBaseContext();
 
-				Models.Client client =
-					new Models.Client()
-					{
-						Client_Name = _client.Client_Name,
-						License_Plate = _client.License_Plate,
-						Phone_Number = _client.Phone_Number,
-						Registration_Date = $"{Infrastructure.Utility.PersianCalendar(System.DateTime.Now)}",
-						Registration_Time = $"{Infrastructure.Utility.ShowTime()}",
-					};
+					Models.Client client = new Models.Client();
 
-				dataBaseContext.Clients.Add(client);
-				dataBaseContext.SaveChanges();
+					client.Client_Name = _setClient.Client_Name;
+					client.License_Plate = _setClient.License_Plate;
+					client.Phone_Number = _setClient.Phone_Number;
+					client.Registration_Date = $"{Infrastructure.Utility.PersianCalendar(System.DateTime.Now)}";
+					client.Registration_Time = $"{Infrastructure.Utility.ShowTime()}";
+
+					dataBaseContext.Clients.Add(client);
+					dataBaseContext.SaveChanges();
+
+					#region  -----------------------------------------    SetEventLog     -----------------------------------------
+					if (string.Compare(Inventory.Program.UserAuthentication.Username, "admin") != 0)
+					{
+						EventLog.Username = Inventory.Program.UserAuthentication.Username;
+						EventLog.Full_Name = Inventory.Program.UserAuthentication.Full_Name;
+						EventLog.Description = $"ثبت آقا / خانم {_setClient.Client_Name} در سیستم.";
+						EventLog.Event_Date = Infrastructure.Utility.PersianCalendar(System.DateTime.Now);
+						EventLog.Event_Time = Infrastructure.Utility.ShowTime();
+
+						Infrastructure.Utility.EventLog(EventLog);
+					}
+					#endregion / -----------------------------------------     SetEventLog     -----------------------------------------
 
 				AllClear();
-
-				GetDataFromClient();
+				GetListClient();
 
 				return true;
 			}
@@ -855,7 +860,7 @@ namespace Client_Forms
 				}
 			}
 		}
-		#endregion /SetInClient
+		#endregion /SetClient
 
 		#region SetEventLog
 		private void SetEventLog()
@@ -936,6 +941,40 @@ namespace Client_Forms
 
 
 		#endregion /TelConfirmation
+
+		#region ValidationData
+		/// <summary>
+		/// اعتبار سنجی اطلاعات ورودی
+		/// </summary>
+		/// <param name="_client"></param>
+		/// <returns></returns>
+		private bool ValidationData(Models.Client _client)
+		{
+			bool status = true;
+
+			if (string.IsNullOrEmpty(_client.Client_Name))
+			{
+				status = false;
+			}
+			if (string.IsNullOrEmpty(_client.License_Plate))
+			{
+				status = false;
+			}
+			if (string.IsNullOrEmpty(_client.Phone_Number))
+			{
+				status = false;
+			}
+
+			if (status)
+			{
+				return true;
+			}
+			else
+			{
+				return false;
+			}
+		}
+		#endregion /ValidationData
 
 		#endregion /Function
 

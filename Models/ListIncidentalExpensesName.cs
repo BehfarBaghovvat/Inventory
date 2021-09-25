@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Models
+﻿namespace Models
 {
 	/// <summary>
 	/// بانک اسامی هزینه های جانبی
@@ -24,7 +18,7 @@ namespace Models
 		[System.ComponentModel.DisplayName(displayName: "لیست اسامی هزینه")]
 		//--Lenght Cost_Name
 		[System.ComponentModel.DataAnnotations.StringLength
-			(maximumLength: 25)]
+			(maximumLength: 75)]
 		public string Cost_Name { get; set; }
 		#endregion /Cost_Name
 

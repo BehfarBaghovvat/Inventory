@@ -135,10 +135,10 @@
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="fullNameTextBox.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
-        iVBORw0KGgoAAAANSUhEUgAAAUQAAAAtCAYAAADWZhLgAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABrSURBVHhe7de7CQBACERB27XqK+U+YCjXgDPwIvMFAwAA
-        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAL4yc922JE3vDWJ7
-        kKRpGURJqupxBpgu4gBTOHSRo1soEAAAAABJRU5ErkJggg==
+        iVBORw0KGgoAAAANSUhEUgAAAUUAAAAjCAYAAAADrhiuAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABgSURBVHhe7dcrDgAgDETBvW5PzVH4JAgEFsVM8lT9Jg0A
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMADVdVmXZJUfY3i9SBJP2YUJeloP9EA
+        JMkAjj17P2MxZksAAAAASUVORK5CYII=
 </value>
   </data>
   <data name="fullNameTextBox.IconRight" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
@@ -409,10 +409,10 @@
   </metadata>
   <data name="confirmPasswordTextBox.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
-        iVBORw0KGgoAAAANSUhEUgAAAUQAAAAtCAYAAADWZhLgAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABrSURBVHhe7de7CQBACERB27XqK+U+YCjXgDPwIvMFAwAA
-        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAL4yc922JE3vDWJ7
-        kKRpGURJqupxBpgu4gBTOHSRo1soEAAAAABJRU5ErkJggg==
+        iVBORw0KGgoAAAANSUhEUgAAAUUAAAAjCAYAAAADrhiuAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABgSURBVHhe7dcrDgAgDETBvW5PzVH4JAgEFsVM8lT9Jg0A
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMADVdVmXZJUfY3i9SBJP2YUJeloP9EA
+        JMkAjj17P2MxZksAAAAASUVORK5CYII=
 </value>
   </data>
   <data name="confirmPasswordTextBox.IconRight" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
@@ -663,10 +663,10 @@
   </metadata>
   <data name="passwordTextBox.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
-        iVBORw0KGgoAAAANSUhEUgAAAUQAAAAtCAYAAADWZhLgAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABrSURBVHhe7de7CQBACERB27XqK+U+YCjXgDPwIvMFAwAA
-        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAL4yc922JE3vDWJ7
-        kKRpGURJqupxBpgu4gBTOHSRo1soEAAAAABJRU5ErkJggg==
+        iVBORw0KGgoAAAANSUhEUgAAAUUAAAAjCAYAAAADrhiuAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABgSURBVHhe7dcrDgAgDETBvW5PzVH4JAgEFsVM8lT9Jg0A
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMADVdVmXZJUfY3i9SBJP2YUJeloP9EA
+        JMkAjj17P2MxZksAAAAASUVORK5CYII=
 </value>
   </data>
   <data name="passwordTextBox.IconRight" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
@@ -869,10 +869,10 @@
   </metadata>
   <data name="usernameTextBox.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
-        iVBORw0KGgoAAAANSUhEUgAAAUQAAAAtCAYAAADWZhLgAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABrSURBVHhe7de7CQBACERB27XqK+U+YCjXgDPwIvMFAwAA
-        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAL4yc922JE3vDWJ7
-        kKRpGURJqupxBpgu4gBTOHSRo1soEAAAAABJRU5ErkJggg==
+        iVBORw0KGgoAAAANSUhEUgAAAUUAAAAjCAYAAAADrhiuAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABgSURBVHhe7dcrDgAgDETBvW5PzVH4JAgEFsVM8lT9Jg0A
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMADVdVmXZJUfY3i9SBJP2YUJeloP9EA
+        JMkAjj17P2MxZksAAAAASUVORK5CYII=
 </value>
   </data>
   <data name="usernameTextBox.IconRight" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">

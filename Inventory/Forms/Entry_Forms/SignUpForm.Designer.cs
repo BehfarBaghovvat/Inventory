@@ -109,7 +109,7 @@ namespace Entry_Forms
 			// 
 			this.visiblePictureBox2.BackColor = System.Drawing.Color.Transparent;
 			this.visiblePictureBox2.Image = global::Inventory.Properties.Resources.show_512;
-			this.visiblePictureBox2.Location = new System.Drawing.Point(12, 159);
+			this.visiblePictureBox2.Location = new System.Drawing.Point(12, 156);
 			this.visiblePictureBox2.Name = "visiblePictureBox2";
 			this.visiblePictureBox2.ShadowDecoration.Parent = this.visiblePictureBox2;
 			this.visiblePictureBox2.Size = new System.Drawing.Size(25, 25);
@@ -123,7 +123,7 @@ namespace Entry_Forms
 			// 
 			this.visiblePictureBox1.BackColor = System.Drawing.Color.Transparent;
 			this.visiblePictureBox1.Image = global::Inventory.Properties.Resources.show_512;
-			this.visiblePictureBox1.Location = new System.Drawing.Point(12, 98);
+			this.visiblePictureBox1.Location = new System.Drawing.Point(12, 95);
 			this.visiblePictureBox1.Name = "visiblePictureBox1";
 			this.visiblePictureBox1.ShadowDecoration.Parent = this.visiblePictureBox1;
 			this.visiblePictureBox1.Size = new System.Drawing.Size(25, 25);
@@ -137,7 +137,7 @@ namespace Entry_Forms
 			// 
 			this.usernameCheckPictureBox.BackColor = System.Drawing.Color.Transparent;
 			this.usernameCheckPictureBox.Image = global::Inventory.Properties.Resources.Tik_True;
-			this.usernameCheckPictureBox.Location = new System.Drawing.Point(12, 37);
+			this.usernameCheckPictureBox.Location = new System.Drawing.Point(12, 34);
 			this.usernameCheckPictureBox.Name = "usernameCheckPictureBox";
 			this.usernameCheckPictureBox.ShadowDecoration.Parent = this.usernameCheckPictureBox;
 			this.usernameCheckPictureBox.Size = new System.Drawing.Size(25, 25);
@@ -163,7 +163,7 @@ namespace Entry_Forms
 			this.fullNameTextBox.BorderThickness = 3;
 			this.fullNameTextBox.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
 			this.fullNameTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
-			this.fullNameTextBox.DefaultFont = new System.Drawing.Font("Segoe UI", 10F);
+			this.fullNameTextBox.DefaultFont = new System.Drawing.Font("IRANSansXFaNum", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
 			this.fullNameTextBox.DefaultText = "";
 			this.fullNameTextBox.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(0)))), ((int)(((byte)(61)))));
 			this.fullNameTextBox.ForeColor = System.Drawing.Color.White;
@@ -175,8 +175,9 @@ namespace Entry_Forms
 			this.fullNameTextBox.IconRightCursor = System.Windows.Forms.Cursors.IBeam;
 			this.fullNameTextBox.Lines = new string[0];
 			this.fullNameTextBox.Location = new System.Drawing.Point(44, 212);
+			this.fullNameTextBox.MaximumSize = new System.Drawing.Size(325, 35);
 			this.fullNameTextBox.MaxLength = 32767;
-			this.fullNameTextBox.MinimumSize = new System.Drawing.Size(100, 35);
+			this.fullNameTextBox.MinimumSize = new System.Drawing.Size(325, 35);
 			this.fullNameTextBox.Modified = false;
 			this.fullNameTextBox.Multiline = false;
 			this.fullNameTextBox.Name = "fullNameTextBox";
@@ -209,7 +210,7 @@ namespace Entry_Forms
 			this.fullNameTextBox.SelectionLength = 0;
 			this.fullNameTextBox.SelectionStart = 0;
 			this.fullNameTextBox.ShortcutsEnabled = true;
-			this.fullNameTextBox.Size = new System.Drawing.Size(324, 45);
+			this.fullNameTextBox.Size = new System.Drawing.Size(325, 35);
 			this.fullNameTextBox.Style = Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox._Style.Material;
 			this.fullNameTextBox.TabIndex = 3;
 			this.fullNameTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -240,7 +241,7 @@ namespace Entry_Forms
 			this.confirmPasswordTextBox.BorderThickness = 3;
 			this.confirmPasswordTextBox.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
 			this.confirmPasswordTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
-			this.confirmPasswordTextBox.DefaultFont = new System.Drawing.Font("Segoe UI", 10F);
+			this.confirmPasswordTextBox.DefaultFont = new System.Drawing.Font("IRANSansXFaNum", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
 			this.confirmPasswordTextBox.DefaultText = "";
 			this.confirmPasswordTextBox.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(0)))), ((int)(((byte)(61)))));
 			this.confirmPasswordTextBox.ForeColor = System.Drawing.Color.White;
@@ -252,8 +253,9 @@ namespace Entry_Forms
 			this.confirmPasswordTextBox.IconRightCursor = System.Windows.Forms.Cursors.IBeam;
 			this.confirmPasswordTextBox.Lines = new string[0];
 			this.confirmPasswordTextBox.Location = new System.Drawing.Point(44, 151);
+			this.confirmPasswordTextBox.MaximumSize = new System.Drawing.Size(325, 35);
 			this.confirmPasswordTextBox.MaxLength = 32767;
-			this.confirmPasswordTextBox.MinimumSize = new System.Drawing.Size(100, 35);
+			this.confirmPasswordTextBox.MinimumSize = new System.Drawing.Size(325, 35);
 			this.confirmPasswordTextBox.Modified = false;
 			this.confirmPasswordTextBox.Multiline = false;
 			this.confirmPasswordTextBox.Name = "confirmPasswordTextBox";
@@ -286,7 +288,7 @@ namespace Entry_Forms
 			this.confirmPasswordTextBox.SelectionLength = 0;
 			this.confirmPasswordTextBox.SelectionStart = 0;
 			this.confirmPasswordTextBox.ShortcutsEnabled = true;
-			this.confirmPasswordTextBox.Size = new System.Drawing.Size(324, 45);
+			this.confirmPasswordTextBox.Size = new System.Drawing.Size(325, 35);
 			this.confirmPasswordTextBox.Style = Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox._Style.Material;
 			this.confirmPasswordTextBox.TabIndex = 2;
 			this.confirmPasswordTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -316,7 +318,7 @@ namespace Entry_Forms
 			this.passwordTextBox.BorderThickness = 3;
 			this.passwordTextBox.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
 			this.passwordTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
-			this.passwordTextBox.DefaultFont = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.passwordTextBox.DefaultFont = new System.Drawing.Font("IRANSansXFaNum", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
 			this.passwordTextBox.DefaultText = "";
 			this.passwordTextBox.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(0)))), ((int)(((byte)(61)))));
 			this.passwordTextBox.ForeColor = System.Drawing.Color.White;
@@ -328,8 +330,9 @@ namespace Entry_Forms
 			this.passwordTextBox.IconRightCursor = System.Windows.Forms.Cursors.IBeam;
 			this.passwordTextBox.Lines = new string[0];
 			this.passwordTextBox.Location = new System.Drawing.Point(44, 90);
+			this.passwordTextBox.MaximumSize = new System.Drawing.Size(325, 35);
 			this.passwordTextBox.MaxLength = 32767;
-			this.passwordTextBox.MinimumSize = new System.Drawing.Size(100, 35);
+			this.passwordTextBox.MinimumSize = new System.Drawing.Size(325, 35);
 			this.passwordTextBox.Modified = false;
 			this.passwordTextBox.Multiline = false;
 			this.passwordTextBox.Name = "passwordTextBox";
@@ -362,7 +365,7 @@ namespace Entry_Forms
 			this.passwordTextBox.SelectionLength = 0;
 			this.passwordTextBox.SelectionStart = 0;
 			this.passwordTextBox.ShortcutsEnabled = true;
-			this.passwordTextBox.Size = new System.Drawing.Size(324, 45);
+			this.passwordTextBox.Size = new System.Drawing.Size(325, 35);
 			this.passwordTextBox.Style = Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox._Style.Material;
 			this.passwordTextBox.TabIndex = 1;
 			this.passwordTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
@@ -392,7 +395,7 @@ namespace Entry_Forms
 			this.usernameTextBox.BorderThickness = 3;
 			this.usernameTextBox.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
 			this.usernameTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
-			this.usernameTextBox.DefaultFont = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.usernameTextBox.DefaultFont = new System.Drawing.Font("IRANSansXFaNum", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
 			this.usernameTextBox.DefaultText = "";
 			this.usernameTextBox.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(0)))), ((int)(((byte)(61)))));
 			this.usernameTextBox.ForeColor = System.Drawing.Color.White;
@@ -404,8 +407,9 @@ namespace Entry_Forms
 			this.usernameTextBox.IconRightCursor = System.Windows.Forms.Cursors.IBeam;
 			this.usernameTextBox.Lines = new string[0];
 			this.usernameTextBox.Location = new System.Drawing.Point(44, 29);
+			this.usernameTextBox.MaximumSize = new System.Drawing.Size(325, 35);
 			this.usernameTextBox.MaxLength = 32767;
-			this.usernameTextBox.MinimumSize = new System.Drawing.Size(100, 35);
+			this.usernameTextBox.MinimumSize = new System.Drawing.Size(325, 35);
 			this.usernameTextBox.Modified = false;
 			this.usernameTextBox.Multiline = false;
 			this.usernameTextBox.Name = "usernameTextBox";
@@ -438,7 +442,7 @@ namespace Entry_Forms
 			this.usernameTextBox.SelectionLength = 0;
 			this.usernameTextBox.SelectionStart = 0;
 			this.usernameTextBox.ShortcutsEnabled = true;
-			this.usernameTextBox.Size = new System.Drawing.Size(324, 45);
+			this.usernameTextBox.Size = new System.Drawing.Size(325, 35);
 			this.usernameTextBox.Style = Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox._Style.Material;
 			this.usernameTextBox.TabIndex = 0;
 			this.usernameTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;

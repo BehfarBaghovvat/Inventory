@@ -170,12 +170,17 @@ namespace Inventory_Forms
 		public ServiceForm()
 		{
 			InitializeComponent();
-			Initialize();
+			
 		}
 
 
 
 		//-----------------------------------------------------------------------------------------------     Events Controls
+
+		private void ServiceForm_Load(object sender, System.EventArgs e)
+		{
+			Initialize();
+		}
 
 		#region ClientNameTextBox_Enter
 		private void ClientNameTextBox_Enter(object sender, System.EventArgs e)
@@ -1262,7 +1267,6 @@ namespace Inventory_Forms
 		private void GetServiceName()
 		{
 			serviceNameComboBox.Items.Add("...انتخاب سرویس");
-			serviceNameComboBox.StartIndex = 0;
 
 			Models.DataBaseContext dataBaseContext = null;
 			try
@@ -1270,24 +1274,23 @@ namespace Inventory_Forms
 				dataBaseContext =
 					 new Models.DataBaseContext();
 
-				System.Collections.Generic.List<Models.ListServiceName> listTypesService = new System.Collections.Generic.List<Models.ListServiceName>();
+				System.Collections.Generic.List<Models.ListServiceName> listTypesService =
+					new System.Collections.Generic.List<Models.ListServiceName>();
 
 				listTypesService =
 					dataBaseContext.ListServiceNames
 					.OrderBy(current => current.Id)
 					.ToList();
 
-
 				for (int i = 0; i < listTypesService.Count; i++)
 				{
-					serviceNameComboBox.Items.Add(listTypesService.ElementAt(i));
-					serviceNameComboBox.ValueMember = "Id";
+					serviceNameComboBox.Items.Add(listTypesService.ElementAt(index: i));
+					serviceNameComboBox.ValueMember = "Service_Name";
 					serviceNameComboBox.DisplayMember = "Service_Name";
 				}
 			}
 			catch (System.Exception ex)
 			{
-
 				Infrastructure.Utility.ExceptionShow(ex);
 			}
 		}
@@ -1303,6 +1306,7 @@ namespace Inventory_Forms
 
 			AllClear();
 			GetServiceName();
+			serviceNameComboBox.StartIndex = 0;
 
 			_auditItem.Capital_Fund = GetCapitalFund();
 			inventorySerialNumberTextBox.Text = ListService.Invoice_Serial_Numvber = _auditItem.Invoice_Serial_Number = SetInvoiceSerialNumber();
@@ -1850,23 +1854,26 @@ namespace Inventory_Forms
 		/// <returns></returns>
 		private void SetServicePrice()
 		{
-			if (serviceNameComboBox.SelectedIndex <= 0)
+			if (serviceNameComboBox.SelectedIndex <= 1)
 			{
+				ListService.Service_Name = null;
+				ListService.Service_Price = null;
+				servicePriceTextBox.Clear();
+				servicePriceTextBox.TextAlign =
+					System.Windows.Forms.HorizontalAlignment.Right;
+
 				Mbb.Windows.Forms.MessageBox.Show
 					(text: "لطفا یکی از سرویس های موجود را انتخاب کنید",
 					caption: "تصحیح انتخاب",
 					icon: Mbb.Windows.Forms.MessageBoxIcon.Information,
 					button: Mbb.Windows.Forms.MessageBoxButtons.Ok);
 
-				ListService.Service_Name = null;
-				ListService.Service_Price = null;
-				servicePriceTextBox.Clear();
-				servicePriceTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
 				return;
 			}
 			else
 			{
-				Models.ListServiceName typesService = serviceNameComboBox.SelectedItem as Models.ListServiceName;
+				Models.ListServiceName typesService =
+					serviceNameComboBox.SelectedItem as Models.ListServiceName;
 
 				if (typesService != null)
 				{
@@ -1878,7 +1885,6 @@ namespace Inventory_Forms
 				}
 			}
 		}
-
 		#endregion /SetServicePrice
 
 		#endregion /Function

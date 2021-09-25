@@ -1,5 +1,4 @@
-﻿
-using System.Linq;
+﻿using System.Linq;
 
 namespace Manegment_Setting
 {
@@ -13,10 +12,63 @@ namespace Manegment_Setting
 
 		#endregion /Layer
 
-		public Models.ListIncidentalExpensesName List_Incidental_Expenses_Name { get; set; }
-		public Models.ListServiceName List_Service_Name { get; set; }
-		public Models.EventLog EventLog { get; set; }
+		private Models.ListIncidentalExpensesName _listIncidentalExpensesName;
+		public Models.ListIncidentalExpensesName ListIncidentalExpensesName 
+		{ 
+			get
+			{
+				if (_listIncidentalExpensesName == null)
+				{
+					_listIncidentalExpensesName =
+						new Models.ListIncidentalExpensesName();
+				}
 
+				return _listIncidentalExpensesName;
+			}
+			set
+			{
+				_listIncidentalExpensesName = value;
+			}
+		}
+
+		private Models.ListServiceName _listServiceName;
+		public Models.ListServiceName ListServiceName
+		{
+			get
+			{
+				if (_listServiceName == null)
+				{
+					_listServiceName =
+						new Models.ListServiceName();
+				}
+				return _listServiceName;
+			}
+			set
+			{
+				_listServiceName = value;
+			}
+		}		
+
+		private Models.EventLog _eventLog;
+		public Models.EventLog EventLog
+		{
+			get
+			{
+				if (_eventLog == null)
+				{
+					_eventLog =
+						new Models.EventLog();
+				}
+				return _eventLog;
+			}
+			set
+			{
+				_eventLog = value;
+			}
+		}
+
+
+		public int ServicePrice { get; set; }
 
 		#endregion /Properties
 
@@ -61,11 +113,11 @@ namespace Manegment_Setting
 		{
 			if (string.IsNullOrWhiteSpace(serviceNameTextBox.Text))
 			{
-				List_Service_Name.Service_Name = null;
+				ListServiceName.Service_Name = null;
 			}
 			else
 			{
-				List_Service_Name.Service_Name = serviceNameTextBox.Text;
+				ListServiceName.Service_Name = serviceNameTextBox.Text;
 			}
 
 
@@ -85,13 +137,15 @@ namespace Manegment_Setting
 		{
 			Infrastructure.Utility.PersianLanguage();
 
-			serviceAmountTextBox.Text = "0 تومان";
-			serviceAmountTextBox.Select(0, 1);
-			serviceAmountTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-
 			if (serviceAmountTextBox.Text.Contains("تومان"))
 			{
 				return;
+			}
+			else
+			{
+				serviceAmountTextBox.Text = "0 تومان";
+				serviceAmountTextBox.Select(0, 1);
+				serviceAmountTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
 			}
 		}
 		#endregion /ServiceAmountTextBox_Enter
@@ -106,17 +160,18 @@ namespace Manegment_Setting
 		#region ServiceAmountTextBox_Leave
 		private void ServiceAmountTextBox_Leave(object sender, System.EventArgs e)
 		{
-			if (string.IsNullOrWhiteSpace(serviceAmountTextBox.Text) || serviceAmountTextBox.Text.Length < 7)
+			if (string.IsNullOrWhiteSpace(serviceAmountTextBox.Text) || serviceAmountTextBox.Text.Length < 7 || string.CompareOrdinal(serviceAmountTextBox.Text, "0 تومان")==0)
 			{
-				List_Service_Name.Service_Price = null;
+				ListServiceName.Service_Price = null;
 				serviceAmountTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
 				serviceAmountTextBox.Clear();
 			}
 			else
 			{
 				serviceAmountTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-				List_Service_Name.Service_Price = $"{serviceAmountTextBox.Text:#,0} تومان";
-				serviceAmountTextBox.Text = List_Service_Name.Service_Price;
+				ServicePrice = int.Parse(serviceAmountTextBox.Text.Replace("تومان", string.Empty).Replace(",", string.Empty).Trim());
+				ListServiceName.Service_Price = $"{ServicePrice:#,0} تومان";
+				serviceAmountTextBox.Text = $"{ServicePrice:#,0} تومان";
 			}
 		}
 		#endregion /ServiceAmountTextBox_Leave
@@ -124,7 +179,7 @@ namespace Manegment_Setting
 		#region ServiceAmountTextBox_TextChange
 		private void ServiceAmountTextBox_TextChange(object sender, System.EventArgs e)
 		{
-			if (string.IsNullOrWhiteSpace(serviceNameTextBox.Text) || string.IsNullOrWhiteSpace(serviceAmountTextBox.Text))
+			if (string.IsNullOrWhiteSpace(serviceNameTextBox.Text) || string.IsNullOrWhiteSpace(serviceAmountTextBox.Text) || string.CompareOrdinal(serviceAmountTextBox.Text, "0 تومان") == 0)
 			{
 				saveServiceNameButton.Enabled = false;
 			}
@@ -138,7 +193,7 @@ namespace Manegment_Setting
 		#region SaveServiceNameButton_Click
 		private void SaveServiceNameButton_Click(object sender, System.EventArgs e)
 		{
-			SetServiceName(List_Service_Name);
+			SetServiceName(ListServiceName);
 		}
 		#endregion /SaveServiceNameButton_Click
 
@@ -197,12 +252,12 @@ namespace Manegment_Setting
 			if (string.IsNullOrWhiteSpace(costNameTextBox.Text))
 			{
 				saveCostNameButton.Enabled = false;
-				List_Incidental_Expenses_Name.Cost_Name = null;
+				ListIncidentalExpensesName.Cost_Name = null;
 			}
 			else
 			{
 				saveCostNameButton.Enabled = true;
-				List_Incidental_Expenses_Name.Cost_Name = costNameTextBox.Text;
+				ListIncidentalExpensesName.Cost_Name = costNameTextBox.Text;
 			}
 
 		}
@@ -211,7 +266,7 @@ namespace Manegment_Setting
 		#region SaveCostNameButton_Click
 		private void SaveCostNameButton_Click(object sender, System.EventArgs e)
 		{
-			SetCostName(List_Incidental_Expenses_Name);
+			SetCostName(ListIncidentalExpensesName);
 		}
 		#endregion /SaveCostNameButton_Click
 
@@ -267,6 +322,21 @@ namespace Manegment_Setting
 		//-----------------------------------------------------------------------------------------------     Privat Methods
 
 		#region Function
+
+		#region AllClear
+		/// <summary>
+		/// حالت اولیه تمام کنترل ها
+		/// </summary>
+		private void AllClear()
+		{
+			serviceNameTextBox.Clear();
+			serviceAmountTextBox.Clear();
+			serviceAmountTextBox.TextAlign = 
+				System.Windows.Forms.HorizontalAlignment.Left;
+
+			costNameTextBox.Clear();
+		}
+		#endregion AllClear
 
 		#region DeleteCostName
 		/// <summary>
@@ -624,14 +694,14 @@ namespace Manegment_Setting
 
 				if (listServiceNames.Count > 0)
 				{
-					listIncidentalExpensesNameContextMenuStrip.Enabled = true;
+					listServiceNameContextMenuStrip.Enabled = true;
 				}
 				else
 				{
-					listIncidentalExpensesNameContextMenuStrip.Enabled = false;
+					listServiceNameContextMenuStrip.Enabled = false;
 				}
 
-				listIncidentalExpensesNameDataGridView.DataSource = listServiceNames;
+				listServiceNameDataGridView.DataSource = listServiceNames;
 			}
 			catch (System.Exception ex)
 			{
@@ -674,10 +744,10 @@ namespace Manegment_Setting
 
 				Models.ListIncidentalExpensesName listIncidentalExpensesName =
 					dataBaseContext.ListIncidentalExpensesNames
-					.Where(current => string.CompareOrdinal(current.Cost_Name, _listIncidentalExpensesName.Cost_Name) == 0)
+					.Where(current => string.Compare(current.Cost_Name, _listIncidentalExpensesName.Cost_Name) == 0)
 					.FirstOrDefault();
 
-				if (string.CompareOrdinal(saveCostNameButton.Text, "ثبت")==0)
+				if (string.Compare(saveCostNameButton.Text, "ثبت")==0)
 				{
 					if (listIncidentalExpensesName != null)
 					{
@@ -701,9 +771,18 @@ namespace Manegment_Setting
 						dataBaseContext.SaveChanges();
 					}
 
+					GetListIncidentalExpensesName();
+
 					saveCostNameButton.Enabled = false;
+
+					AllClear();
+
+					Infrastructure.Utility.WindowsNotification(
+						message: $"{_listIncidentalExpensesName.Cost_Name} ذخیره گردید.",
+						caption: Infrastructure.PopupNotificationForm.Caption.موفقیت);
+					return;
 				}
-				else if (string.CompareOrdinal(saveCostNameButton.Text, "ویرایش") == 0)
+				else if (string.Compare(saveCostNameButton.Text, "ویرایش") == 0)
 				{
 					listIncidentalExpensesName =
 						new Models.ListIncidentalExpensesName();
@@ -711,18 +790,19 @@ namespace Manegment_Setting
 					listIncidentalExpensesName.Cost_Name = _listIncidentalExpensesName.Cost_Name;
 
 					dataBaseContext.SaveChanges();
+
+					Infrastructure.Utility.WindowsNotification(
+						message: $"{_listIncidentalExpensesName.Cost_Name} ویرایش گردید.",
+						caption: Infrastructure.PopupNotificationForm.Caption.موفقیت);
+					return;
 				}
 
-				Infrastructure.Utility.WindowsNotification(
-						message: $"{_listIncidentalExpensesName.Cost_Name} ذخیره گردید.",
-						caption: Infrastructure.PopupNotificationForm.Caption.موفقیت);
+				GetListIncidentalExpensesName();
 
 				saveCostNameButton.Enabled = false;
 				saveCostNameButton.Text = "ثبت";
 
-				Infrastructure.Utility.WindowsNotification(
-						message: $"{_listIncidentalExpensesName.Cost_Name} ویرایش گردید.",
-						caption: Infrastructure.PopupNotificationForm.Caption.موفقیت);
+				AllClear();
 			}
 			catch (System.Exception ex)
 			{
@@ -756,11 +836,11 @@ namespace Manegment_Setting
 
 				Models.ListServiceName listServiceName =
 					dataBaseContext.ListServiceNames
-					.Where(current => string.CompareOrdinal(current.Service_Name, _listServiceName.Service_Name) == 0)
+					.Where(current => string.Compare(current.Service_Name, _listServiceName.Service_Name) == 0)
 					.FirstOrDefault();
 
 
-				if (string.CompareOrdinal(saveServiceNameButton.Text, "ثبت") == 0)
+				if (string.Compare(saveServiceNameButton.Text, "ثبت") == 0)
 				{
 					if (listServiceName != null)
 					{
@@ -785,13 +865,21 @@ namespace Manegment_Setting
 						dataBaseContext.SaveChanges();
 					}
 
+					GetListServiceName();
+
+					saveServiceNameButton.Enabled = false;
+
+					serviceNameTextBox.Clear();
+					serviceAmountTextBox.Clear();
+					serviceAmountTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+
+					AllClear();
+
 					Infrastructure.Utility.WindowsNotification(
 						message: $"{listServiceName.Service_Name} ذخیره گردید.",
 						caption: Infrastructure.PopupNotificationForm.Caption.موفقیت);
-
-					saveServiceNameButton.Enabled = false;
 				}
-				else if (string.CompareOrdinal(saveServiceNameButton.Text, "ویرایش") == 0)
+				else if (string.Compare(saveServiceNameButton.Text, "ویرایش") == 0)
 				{
 					listServiceName =
 						new Models.ListServiceName();
@@ -801,8 +889,16 @@ namespace Manegment_Setting
 
 					dataBaseContext.SaveChanges();
 
+					GetListServiceName();
+
 					saveServiceNameButton.Enabled = false;
 					saveServiceNameButton.Text = "ثبت";
+
+					serviceNameTextBox.Clear();
+					serviceAmountTextBox.Clear();
+					serviceAmountTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+
+					AllClear();
 
 					Infrastructure.Utility.WindowsNotification(
 						message: $"{listServiceName.Service_Name} ویرایش گردید.",

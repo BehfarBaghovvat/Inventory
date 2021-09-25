@@ -459,7 +459,7 @@ namespace Inventory_Forms
 			this.serviceNameComboBox.FocusedColor = System.Drawing.Color.Fuchsia;
 			this.serviceNameComboBox.FocusedState.BorderColor = System.Drawing.Color.Fuchsia;
 			this.serviceNameComboBox.FocusedState.Parent = this.serviceNameComboBox;
-			this.serviceNameComboBox.Font = new System.Drawing.Font("IRANSansX", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+			this.serviceNameComboBox.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
 			this.serviceNameComboBox.ForeColor = System.Drawing.Color.Silver;
 			this.serviceNameComboBox.FormattingEnabled = true;
 			this.serviceNameComboBox.HoverState.BorderColor = System.Drawing.Color.Cyan;
@@ -1800,6 +1800,7 @@ namespace Inventory_Forms
 			this.Controls.Add(this.controlsPanel);
 			this.Name = "ServiceForm";
 			this.Text = "ServiceForm";
+			this.Load += new System.EventHandler(this.ServiceForm_Load);
 			this.controlsPanel.ResumeLayout(false);
 			this.controlsPanel.PerformLayout();
 			this.paymentTypeGroupBox.ResumeLayout(false);
