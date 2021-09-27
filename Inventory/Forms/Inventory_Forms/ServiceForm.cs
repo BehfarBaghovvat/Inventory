@@ -14,18 +14,20 @@ namespace Inventory_Forms
 		/// </summary>
 		private class AuditItem
 		{
-			public int? Amount_Paid { get; set; }
+			public decimal? Amounts_Payment { get; set; }
+			public decimal? Amount_Paid { get; set; }
+			public decimal? Amount_Remaininig { get; set; }
 			public decimal? Capital_Fund { get; set; }
-			public int? Cash_Payment_Amount { get; set; }
+			public decimal? Cash_Payment_Amount { get; set; }
 			public string  Client_Name { get; set; }
+			public Models.ListFinancialClient.FinantialSituation Finantial_Situation { get; set; }
 			public string Invoice_Serial_Number { get; set; }
-			public int? Percent { get; set; }
-			public int? Price { get; set; }
-			public int? Pose_Payment_Amount { get; set; }
+			public string License_Plate { get; set; }
+			public string Phone_Number { get; set; }
+			public decimal? Pose_Payment_Amount { get; set; }
+			public decimal? Price { get; set; }
 			public string Register_Date { get; set; }
 			public string Register_Time { get; set; }
-			public int? Remaining_Amount { get; set; }
-			public int? Total_Sum_Price { get; set; }
 		}
 
 		/// <summary>
@@ -161,6 +163,8 @@ namespace Inventory_Forms
 			set { _listService = value; }
 		}
 
+		public bool Client_Availability { get; set; }
+
 		#endregion /Properties
 
 
@@ -170,17 +174,18 @@ namespace Inventory_Forms
 		public ServiceForm()
 		{
 			InitializeComponent();
-			
 		}
 
 
 
 		//-----------------------------------------------------------------------------------------------     Events Controls
 
+		#region ServiceForm_Load
 		private void ServiceForm_Load(object sender, System.EventArgs e)
 		{
-			Initialize();
+
 		}
+		#endregion /ServiceForm_Load
 
 		#region ClientNameTextBox_Enter
 		private void ClientNameTextBox_Enter(object sender, System.EventArgs e)
@@ -202,44 +207,131 @@ namespace Inventory_Forms
 			if (string.IsNullOrWhiteSpace(clientNameTextBox.Text))
 			{
 				ServiceInvoice.Client_Name = null;
+				_auditItem.Client_Name = null;
 				return;
 			}
 			else
 			{
 				ServiceInvoice.Client_Name = clientNameTextBox.Text;
+				_auditItem.Client_Name = clientNameTextBox.Text;
 			}
 		}
 		#endregion /ClientNameTextBox_TextChange
 
-		#region LicensePlateTextBox_Enter
-		private void LicensePlateTextBox_Enter(object sender, System.EventArgs e)
+		#region LicensePlateGroupBox_Leave
+		private void LicensePlateGroupBox_Leave(object sender, System.EventArgs e)
 		{
-			Infrastructure.Utility.PersianLanguage();
-			licensePlateTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-		}
-		#endregion /LicensePlateTextBox_Enter
-
-		#region LicensePlateTextBox_KeyPress
-		private void LicensePlateTextBox_KeyPress(object sender, System.Windows.Forms.KeyPressEventArgs e)
-		{
-			Infrastructure.Utility.PersianAndNumberTyping(e);
-		}
-		#endregion /LicensePlateTextBox_KeyPress
-
-		#region LicensePlateTextBox_TextChange
-		private void LicensePlateTextBox_TextChange(object sender, System.EventArgs e)
-		{
-			if (string.IsNullOrWhiteSpace(licensePlateTextBox.Text))
+			if (string.IsNullOrWhiteSpace(numTextBox1.Text) || string.IsNullOrWhiteSpace(numTextBox2.Text) || string.IsNullOrWhiteSpace(numTextBox3.Text))
 			{
-				ServiceInvoice.License_Plate = null;
+				_auditItem.License_Plate = null;
 				return;
 			}
 			else
 			{
-				ServiceInvoice.License_Plate = licensePlateTextBox.Text;
+				_auditItem.License_Plate =
+					$"{numTextBox3.Text}{iranLabel.Text} - {numTextBox2.Text}{alphabetComboBox.SelectedItem} - {numTextBox1.Text}";
 			}
 		}
-		#endregion /LicensePlateTextBox_TextChange
+		#endregion /LicensePlateGroupBox_Leave
+
+		#region PhoneNumberTextBox_Enter
+		private void PhoneNumberTextBox_Enter(object sender, System.EventArgs e)
+		{
+			Infrastructure.Utility.PersianLanguage();
+		}
+		#endregion /PhoneNumberTextBox_Enter
+
+		#region PhoneNumberTextBox_KeyPress
+		private void PhoneNumberTextBox_KeyPress(object sender, System.Windows.Forms.KeyPressEventArgs e)
+		{
+			Infrastructure.Utility.InsertOnlyNumber(e);
+		}
+		#endregion /PhoneNumberTextBox_KeyPress
+
+		#region PhoneNumberTextBox_Leave
+		private void PhoneNumberTextBox_Leave(object sender, System.EventArgs e)
+		{
+			if (string.IsNullOrWhiteSpace(phoneNumberTextBox.Text) || phoneNumberTextBox.Text.Length < 11)
+			{
+
+				Mbb.Windows.Forms.MessageBox.Show(
+					text: "تعداد ارقام وارد شده کمتر از 11 رقم می باشد. \n لطفا مجدد تلاش نمایید.",
+					caption: "خطای ورودی",
+					icon: Mbb.Windows.Forms.MessageBoxIcon.Error,
+					button: Mbb.Windows.Forms.MessageBoxButtons.Ok);
+
+				phoneNumberTextBox.Clear();
+				phoneNumberTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+				return;
+			}
+			else if (!phoneNumberTextBox.Text.StartsWith("09"))
+			{
+				Mbb.Windows.Forms.MessageBox.Show(
+					text: "فرمت شماره تلفن همراه صحیح نمی باشد. \n لطفا مجدد تلاش نمایید.",
+					caption: "خطای ورودی",
+					icon: Mbb.Windows.Forms.MessageBoxIcon.Error,
+					button: Mbb.Windows.Forms.MessageBoxButtons.Ok);
+
+				phoneNumberTextBox.Focus();
+				return;
+			}
+			else
+			{
+				if (_auditItem.Phone_Number.Length > 11)
+				{
+					Mbb.Windows.Forms.MessageBox.Show(
+					text: "تعداد ارقام وارد شده بیشتر از 11 می باشد. \n لطفا مجدد تلاش نمایید.",
+					caption: "خطای ورودی",
+					icon: Mbb.Windows.Forms.MessageBoxIcon.Error,
+					button: Mbb.Windows.Forms.MessageBoxButtons.Ok);
+
+					phoneNumberTextBox.Focus();
+					return;
+				}
+				else
+				{
+					phoneNumberTextBox.Text = phoneNumberTextBox.Text.Insert(4, "-");
+				}
+			}
+		}
+		#endregion /PhoneNumberTextBox_Leave
+
+		#region PhoneNumberTextBox_TextChange
+		private void PhoneNumberTextBox_TextChange(object sender, System.EventArgs e)
+		{
+			if (string.IsNullOrWhiteSpace(phoneNumberTextBox.Text))
+			{
+				_auditItem.Phone_Number = null;
+				phoneNumberTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+				return;
+			}
+			else
+			{
+				phoneNumberTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+
+				_auditItem.Phone_Number = phoneNumberTextBox.Text;
+				if (_auditItem.Phone_Number.Length < 11  || _auditItem.Phone_Number.Length > 11)
+				{
+					phoneNumberTextBox.Focus();
+					_auditItem.Phone_Number = null;
+					return;
+				}
+				else
+				{
+					if (TelConfirmation(_auditItem.Phone_Number) == true)
+					{
+						Client_Availability = true;
+						_auditItem.Phone_Number = phoneNumberTextBox.Text;
+					}
+					else if (TelConfirmation(_auditItem.Phone_Number) == false)
+					{
+						Client_Availability = false;
+						_auditItem.Phone_Number = null;
+					}
+				}
+			}
+		}
+		#endregion /PhoneNumberTextBox_TextChange
 
 		#region ServceNameComboBox_SelectionChangeCommitted
 		private void ServiceNameComboBox_SelectionChangeCommitted(object sender, System.EventArgs e)
@@ -661,6 +753,16 @@ namespace Inventory_Forms
 			if (SetListService(ListService, ServiceInvoice) && Deposit(_auditItem) && SetDailyOffice(_auditItem) && AccountRecivedBook(AccountsReceivable))
 			{
 				SetDailyFinancialReport(_auditItem);
+
+				if (Client_Availability)
+				{
+					SetFinancialClient(_auditItem);
+				}
+				else
+				{
+					AddClient(_auditItem);
+				}
+
 				Infrastructure.Utility.WindowsNotification
 					(message: Inventory.Properties.Resources.Complete_Operation, caption: Infrastructure.PopupNotificationForm.Caption.موفقیت);
 
@@ -672,7 +774,7 @@ namespace Inventory_Forms
 		#region SumPriceTextBox_TextChanged
 		private void SumPriceTextBox_TextChanged(object sender, System.EventArgs e)
 		{
-			_auditItem.Total_Sum_Price = int.Parse(sumPriceTextBox.Text.Replace("تومان", string.Empty).Replace(",", string.Empty).Trim());
+			_auditItem.Amounts_Payment = int.Parse(sumPriceTextBox.Text.Replace("تومان", string.Empty).Replace(",", string.Empty).Trim());
 			remainingTextBox.Text = sumPriceTextBox.Text;
 		}
 		#endregion /SumPriceTextBox_TextChanged
@@ -680,9 +782,22 @@ namespace Inventory_Forms
 		#region AmountPaidTextBox_TextChanged
 		private void AmountPaidTextBox_TextChanged(object sender, System.EventArgs e)
 		{
-			_auditItem.Remaining_Amount = _auditItem.Total_Sum_Price - _auditItem.Amount_Paid;
+			_auditItem.Amount_Remaininig = _auditItem.Amounts_Payment - _auditItem.Amount_Paid;
 
-			remainingTextBox.Text = $"{_auditItem.Remaining_Amount:#,0} تومان";
+			if (_auditItem.Amount_Remaininig < 0)
+			{
+				_auditItem.Finantial_Situation = Models.ListFinancialClient.FinantialSituation.بدهکار;
+			}
+			else if (_auditItem.Amount_Remaininig == 0)
+			{
+				_auditItem.Finantial_Situation = Models.ListFinancialClient.FinantialSituation.تسویه;
+			}
+			else
+			{
+				_auditItem.Finantial_Situation = Models.ListFinancialClient.FinantialSituation.طلبکار;
+			}
+
+			remainingTextBox.Text = $"{_auditItem.Amount_Remaininig:#,0} تومان";
 		}
 		#endregion /AmountPaidTextBox_TextChanged
 
@@ -988,7 +1103,7 @@ namespace Inventory_Forms
 			ListService = null;
 
 			clientNameTextBox.Clear();
-			licensePlateTextBox.Clear();
+			phoneNumberTextBox.Clear();
 			serviceNameComboBox.SelectedIndex = 0;
 			servicePriceTextBox.Clear();
 			serviceNumberTextBox.Clear();
@@ -1049,6 +1164,52 @@ namespace Inventory_Forms
 		}
 
 		#endregion /AccountRecivedBook
+
+		#region AddClient
+		/// <summary>
+		/// طبق روند برنامه اگر شماره تماس مشتری
+		/// در سیستم وجود نداشته باشد، به صورت خودکار
+		/// اطلاعات مشتری در لیست مشتریان ثبت میگردد.
+		/// </summary>
+		/// <param name="_auditItem"></param>
+		/// <returns></returns>
+		private void AddClient(AuditItem _auditItem)
+		{
+			Models.DataBaseContext dataBaseContext = null;
+			try
+			{
+				dataBaseContext =
+					new Models.DataBaseContext();
+
+				Models.Client client =
+					new Models.Client();
+
+				client.Client_Name = _auditItem.Client_Name;
+				client.License_Plate = _auditItem.License_Plate;
+				client.Phone_Number = _auditItem.Phone_Number;
+				client.Registration_Date = $"{Infrastructure.Utility.PersianCalendar(System.DateTime.Now)}";
+				client.Registration_Time = $"{Infrastructure.Utility.ShowTime()}";
+
+				dataBaseContext.Clients.Add(client);
+				dataBaseContext.SaveChanges();
+
+				SetFinancialClient(_auditItem);
+
+			}
+			catch (System.Exception ex)
+			{
+				Infrastructure.Utility.ExceptionShow(ex);
+			}
+			finally
+			{
+				if (dataBaseContext != null)
+				{
+					dataBaseContext.Dispose();
+					dataBaseContext = null;
+				}
+			}
+		}
+		#endregion /AddClient
 
 		#region AddService
 		/// <summary>
@@ -1160,7 +1321,7 @@ namespace Inventory_Forms
 					EventLog.Full_Name = Inventory.Program.UserAuthentication.Full_Name;
 					EventLog.Event_Date = $"{Infrastructure.Utility.PersianCalendar(System.DateTime.Now)}";
 					EventLog.Event_Time = $"{Infrastructure.Utility.ShowTime()}";
-					EventLog.Description = $"خرید توسط {auditItem.Client_Name} به مبلغ {auditItem.Amount_Paid: #,0} تومان و باقیمانده {auditItem.Remaining_Amount}";
+					EventLog.Description = $"خرید توسط {auditItem.Client_Name} به مبلغ {auditItem.Amount_Paid: #,0} تومان و باقیمانده {auditItem.Amount_Remaininig}";
 					Infrastructure.Utility.EventLog(EventLog);
 				}
 				#endregion /-----------------------------------------     Save Event Log     -----------------------------------------
@@ -1306,7 +1467,7 @@ namespace Inventory_Forms
 
 			AllClear();
 			GetServiceName();
-			serviceNameComboBox.StartIndex = 0;
+			serviceNameComboBox.SelectedIndex = 0;
 
 			_auditItem.Capital_Fund = GetCapitalFund();
 			inventorySerialNumberTextBox.Text = ListService.Invoice_Serial_Numvber = _auditItem.Invoice_Serial_Number = SetInvoiceSerialNumber();
@@ -1426,7 +1587,7 @@ namespace Inventory_Forms
 				}
 				else if (string.IsNullOrEmpty(_serviceInvoice.License_Plate))
 				{
-					licensePlateTextBox.Focus();
+					phoneNumberTextBox.Focus();
 				}
 				else if (string.IsNullOrEmpty(_service.Service_Name))
 				{
@@ -1650,9 +1811,9 @@ namespace Inventory_Forms
 					new Models.DailyFinancialReport()
 					{
 						Amounts_Paid = $"0 تومان",
-						Amounts_Payment = $"{auditItem.Total_Sum_Price} تومان",
+						Amounts_Payment = $"{auditItem.Amounts_Payment} تومان",
 						Amounts_Received = $"{auditItem.Amount_Paid:#,0} تومان",
-						Amounts_Remaining = $"{auditItem.Remaining_Amount} تومان",
+						Amounts_Remaining = $"{auditItem.Amount_Remaininig} تومان",
 						Register_Date = $"{auditItem.Register_Date}",
 						Register_Time = $"{auditItem.Register_Time}",
 
@@ -1720,6 +1881,51 @@ namespace Inventory_Forms
 			}
 		}
 		#endregion /SetDailyOffice
+
+		#region SetFinancialClient
+		/// <summary>
+		/// ثبت در حساب مالی مشتری
+		/// </summary>
+		/// <param name="_auditItem"></param>
+		private void SetFinancialClient(AuditItem _auditItem)
+		{
+			Models.DataBaseContext dataBaseContext = null;
+			try
+			{
+				dataBaseContext =
+					new Models.DataBaseContext();
+
+				Models.ListFinancialClient listFinancialClient =
+					new Models.ListFinancialClient();
+
+				listFinancialClient.Amounts_Payment =$"{_auditItem.Amounts_Payment:#,0} تومان";
+				listFinancialClient.Amount_Paid = $"{_auditItem.Amount_Paid:#,0} تومان";
+				listFinancialClient.Amount_Remaininig = $"{_auditItem.Amount_Remaininig:#,0} تومان";
+				listFinancialClient.Client_Name = _auditItem.Client_Name;
+				listFinancialClient.Finantial_Situation = _auditItem.Finantial_Situation;
+				listFinancialClient.License_Plate = _auditItem.License_Plate;
+				listFinancialClient.Phone_Number = _auditItem.Phone_Number;
+				listFinancialClient.Registration_Date = $"{Infrastructure.Utility.PersianCalendar(System.DateTime.Now)}";
+				listFinancialClient.Registration_Time = $"{Infrastructure.Utility.ShowTime()}";
+				listFinancialClient.Tax_Percent = "0 %";
+
+				dataBaseContext.ListFinancialClients.Add(listFinancialClient);
+				dataBaseContext.SaveChanges();
+			}
+			catch (System.Exception ex)
+			{
+				Infrastructure.Utility.ExceptionShow(ex);
+			}
+			finally
+			{
+				if (dataBaseContext != null)
+				{
+					dataBaseContext.Dispose();
+					dataBaseContext = null;
+				}
+			}
+		}
+		#endregion SetFinancialClient
 
 		#region SetInvoiceSerialNumber
 		/// <summary>
@@ -1885,10 +2091,39 @@ namespace Inventory_Forms
 				}
 			}
 		}
+
 		#endregion /SetServicePrice
 
-		#endregion /Function
+		#region TelConfirmation
+		/// <summary>
+		/// بررسی وجود شماره همراه در سیستم
+		/// </summary>
+		/// <param name="tel"></param>
+		/// <returns></returns>
+		private bool TelConfirmation(string _phoneNumber)
+		{
+			bool status;
+			Models.DataBaseContext dataBaseContext = null;
+			dataBaseContext =
+					new Models.DataBaseContext();
 
-		
+			Models.Client client =
+				dataBaseContext.Clients
+				.Where(current => string.Compare(current.Phone_Number, _phoneNumber) == 0)
+				.FirstOrDefault();
+
+			if (client == null)
+			{
+				status = true;
+			}
+			else
+			{
+				status = false;
+			}
+			return status;
+		}
+		#endregion /TelConfirmation
+
+		#endregion /Function
 	}
 }

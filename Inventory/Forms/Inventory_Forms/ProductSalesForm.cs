@@ -2,7 +2,7 @@
 
 namespace Inventory_Forms
 {
-	public partial class ProcutSalesForm : Infrastructure.EmptyForm
+	public partial class ProductSalesForm : Infrastructure.EmptyForm
 	{
 		//-----------------------------------------------------------------------------------------------     Fields, Properties, Layers
 
@@ -120,7 +120,7 @@ namespace Inventory_Forms
 
 		//-----------------------------------------------------------------------------------------------     Constracture
 
-		public ProcutSalesForm()
+		public ProductSalesForm()
 		{
 			InitializeComponent();
 		}
@@ -132,7 +132,7 @@ namespace Inventory_Forms
 		#region ProcutSalesForm_Load
 		private void ProcutSalesForm_Load(object sender, System.EventArgs e)
 		{
-			Initialize();
+			
 		}
 		#endregion  /ProcutSalesForm_Load
 
@@ -423,7 +423,7 @@ namespace Inventory_Forms
 			}
 			else
 			{
-				BillSaleReportForm.MyProcutSalesForm = this;
+				BillSaleReportForm.MyProductSalesForm = this;
 				BillSaleReportForm.SetItemsBillSale(listBillSaleReports, Transaction_Factors_Items);
 
 				BillSaleReportForm.ShowDialog();

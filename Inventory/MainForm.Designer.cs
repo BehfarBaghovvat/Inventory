@@ -720,7 +720,7 @@ namespace Inventory
 			this.logoutButton.FillColor = System.Drawing.Color.Transparent;
 			this.logoutButton.Font = new System.Drawing.Font("Segoe UI", 9F);
 			this.logoutButton.ForeColor = System.Drawing.Color.White;
-			this.logoutButton.HoverState.FillColor = System.Drawing.Color.Teal;
+			this.logoutButton.HoverState.FillColor = System.Drawing.Color.RoyalBlue;
 			this.logoutButton.HoverState.Parent = this.logoutButton;
 			this.logoutButton.Image = ((System.Drawing.Image)(resources.GetObject("logoutButton.Image")));
 			this.logoutButton.ImageOffset = new System.Drawing.Point(1, 0);
@@ -742,7 +742,7 @@ namespace Inventory
 			this.shutDownButton.FillColor = System.Drawing.Color.Transparent;
 			this.shutDownButton.Font = new System.Drawing.Font("Segoe UI", 9F);
 			this.shutDownButton.ForeColor = System.Drawing.Color.White;
-			this.shutDownButton.HoverState.FillColor = System.Drawing.Color.Teal;
+			this.shutDownButton.HoverState.FillColor = System.Drawing.Color.RoyalBlue;
 			this.shutDownButton.HoverState.Parent = this.shutDownButton;
 			this.shutDownButton.Image = ((System.Drawing.Image)(resources.GetObject("shutDownButton.Image")));
 			this.shutDownButton.ImageOffset = new System.Drawing.Point(1, 0);

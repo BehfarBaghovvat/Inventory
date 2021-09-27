@@ -120,21 +120,21 @@ namespace Inventory_Forms
 			}
 		}
 
-		private ProcutSalesForm _myProcutSalesForm;
-		public ProcutSalesForm MyProcutSalesForm
+		private ProductSalesForm _myProductSalesForm;
+		public ProductSalesForm MyProductSalesForm
 		{
 			get
 			{
-				if (_myProcutSalesForm == null || _myProcutSalesForm.IsDisposed == true)
+				if (_myProductSalesForm == null || _myProductSalesForm.IsDisposed == true)
 				{
-					_myProcutSalesForm =
-						new ProcutSalesForm();
+					_myProductSalesForm =
+						new ProductSalesForm();
 				}
-				return _myProcutSalesForm;
+				return _myProductSalesForm;
 			}
 			set
 			{
-				_myProcutSalesForm = value;
+				_myProductSalesForm = value;
 			}
 		}
 
@@ -1110,11 +1110,11 @@ namespace Inventory_Forms
 		#region EditBill
 		private void EditBill()
 		{
-			System.Collections.Generic.List<ProcutSalesForm.BillSaleReportItems> billSaleReportItemsList = new System.Collections.Generic.List<ProcutSalesForm.BillSaleReportItems>();
+			System.Collections.Generic.List<ProductSalesForm.BillSaleReportItems> billSaleReportItemsList = new System.Collections.Generic.List<ProductSalesForm.BillSaleReportItems>();
 
 			foreach (System.Windows.Forms.DataGridViewRow rows in productsListDataGridView.Rows)
 			{
-				ProcutSalesForm.BillSaleReportItems billSaleReportItems = new ProcutSalesForm.BillSaleReportItems
+				ProductSalesForm.BillSaleReportItems billSaleReportItems = new ProductSalesForm.BillSaleReportItems
 				{
 					Product_Name = rows.Cells[0].Value.ToString(),
 					Product_Price = rows.Cells[1].Value.ToString(),
@@ -1124,9 +1124,9 @@ namespace Inventory_Forms
 				};
 				billSaleReportItemsList.Add(billSaleReportItems);
 			}
-			MyProcutSalesForm.listBillSaleReports.Clear();
-			MyProcutSalesForm.listBillSaleReports = billSaleReportItemsList.ToList();
-			MyProcutSalesForm.listBillSaleReports.TrimExcess();
+			MyProductSalesForm.listBillSaleReports.Clear();
+			MyProductSalesForm.listBillSaleReports = billSaleReportItemsList.ToList();
+			MyProductSalesForm.listBillSaleReports.TrimExcess();
 		}
 		#endregion /EditBill
 
@@ -1518,7 +1518,7 @@ namespace Inventory_Forms
 		/// </summary>
 		private void ResetAllControl()
 		{
-			MyProcutSalesForm.RemoveBill();
+			MyProductSalesForm.RemoveBill();
 
 			sellerNameTextBox.Text = "نام فروشنده";
 			clientNameTextBox.Text = "نام مشتری";
@@ -1692,8 +1692,8 @@ namespace Inventory_Forms
 		/// </summary>
 		/// <param name="billSaleReportItems"></param>
 		/// <param name="transactionFactorsItems"></param>
-		public void SetItemsBillSale(System.Collections.Generic.List<ProcutSalesForm.BillSaleReportItems> billSaleReportItems,
-			ProcutSalesForm.TransactionFactorsItems transactionFactorsItems)
+		public void SetItemsBillSale(System.Collections.Generic.List<ProductSalesForm.BillSaleReportItems> billSaleReportItems,
+			ProductSalesForm.TransactionFactorsItems transactionFactorsItems)
 		{
 			foreach (var item in billSaleReportItems)
 			{

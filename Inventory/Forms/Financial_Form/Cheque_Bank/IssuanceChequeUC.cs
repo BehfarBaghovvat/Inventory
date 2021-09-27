@@ -5,7 +5,31 @@
 		//-----------------------------------------------------------------------------------------------     Fields, Properties, Layers
 
 		#region Properties
-		public Models.ChequeSection ChequeSection { get; set; }
+		#region Layer
+
+		#endregion /Layer
+
+		private Models.ChequeSection _chequeSection;
+		public Models.ChequeSection ChequeSection
+		{
+			get
+			{
+				if (_chequeSection == null)
+				{
+					_chequeSection =
+						new Models.ChequeSection();
+				}
+				return _chequeSection;
+			}
+			set
+			{
+				_chequeSection = value;
+			}
+		}
+
+
+
+
 		#endregion /Properties
 
 

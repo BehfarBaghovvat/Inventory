@@ -99,7 +99,7 @@ namespace Client_Forms
 		#region RegisterClientForm_Load
 		private void RegisterClientForm_Load(object sender, System.EventArgs e)
 		{
-			Initialize();
+			
 		}
 		#endregion /RegisterClientForm_Load
 
@@ -145,12 +145,6 @@ namespace Client_Forms
 				Client_GetData.License_Plate =
 					$"{numTextBox3.Text}{iranLabel.Text} - {numTextBox2.Text}{alphabetComboBox.SelectedItem} - {numTextBox1.Text}";
 
-				//Mbb.Windows.Forms.MessageBox.Show(
-				//	text: Client_GetData.License_Plate,
-				//	caption: "اعلان",
-				//	icon: Mbb.Windows.Forms.MessageBoxIcon.Information,
-				//	button: Mbb.Windows.Forms.MessageBoxButtons.Ok);
-
 				if (LicensePlateConfirmation(Client_GetData) == true)
 				{
 					confirmLicensePlatePicturBox.Visible = true;
@@ -186,15 +180,38 @@ namespace Client_Forms
 		{
 			if (string.IsNullOrWhiteSpace(phoneNumberTextBox.Text) || phoneNumberTextBox.Text.Length < 11)
 			{
+				Mbb.Windows.Forms.MessageBox.Show(
+					text: "تعداد ارقام وارد شده کمتر از 11 رقم می باشد. \n لطفا مجدد تلاش نمایید.",
+					caption: "خطای ورودی",
+					icon: Mbb.Windows.Forms.MessageBoxIcon.Error,
+					button: Mbb.Windows.Forms.MessageBoxButtons.Ok);
 				phoneNumberTextBox.Clear();
 				Client_GetData.Phone_Number = null;
 				phoneNumberTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
 				return;
 			}
+			else if (!phoneNumberTextBox.Text.StartsWith("09"))
+			{
+				Mbb.Windows.Forms.MessageBox.Show(
+					text: "فرمت شماره تلفن همراه صحیح نمی باشد. \n لطفا مجدد تلاش نمایید.",
+					caption: "خطای ورودی",
+					icon: Mbb.Windows.Forms.MessageBoxIcon.Error,
+					button: Mbb.Windows.Forms.MessageBoxButtons.Ok);
+
+				phoneNumberTextBox.Focus();
+				return;
+			}
 			else
 			{
-				if (Client_GetData.Phone_Number.Length >= 12)
+				if (Client_GetData.Phone_Number.Length > 11)
 				{
+					Mbb.Windows.Forms.MessageBox.Show(
+					text: "تعداد ارقام وارد شده بیشتر از 11 می باشد. \n لطفا مجدد تلاش نمایید.",
+					caption: "خطای ورودی",
+					icon: Mbb.Windows.Forms.MessageBoxIcon.Error,
+					button: Mbb.Windows.Forms.MessageBoxButtons.Ok);
+
+					phoneNumberTextBox.Focus();
 					return;
 				}
 				else
@@ -670,7 +687,7 @@ namespace Client_Forms
 		/// <summary>
 		/// تنظیمات ورود اولیه
 		/// </summary>
-		private void Initialize()
+		public void Initialize()
 		{
 			AllClear();
 			GetListClient();

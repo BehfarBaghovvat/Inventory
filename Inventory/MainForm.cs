@@ -47,21 +47,21 @@ namespace Inventory
 			}
 		}
 
-		private Inventory_Forms.ProcutSalesForm _procutSalesForm;
-		public Inventory_Forms.ProcutSalesForm ProcutSalesForm
+		private Inventory_Forms.ProductSalesForm _productSalesForm;
+		public Inventory_Forms.ProductSalesForm ProductSalesForm
 		{
 			get
 			{
-				if (_procutSalesForm == null || _procutSalesForm.IsDisposed == true)
+				if (_productSalesForm == null || _productSalesForm.IsDisposed == true)
 				{
-					_procutSalesForm =
-						new Inventory_Forms.ProcutSalesForm();
+					_productSalesForm =
+						new Inventory_Forms.ProductSalesForm();
 
-					_procutSalesForm.TopLevel = false;
-					_procutSalesForm.TopMost = true;
-					_procutSalesForm.Dock = System.Windows.Forms.DockStyle.Fill;
+					_productSalesForm.TopLevel = false;
+					_productSalesForm.TopMost = true;
+					_productSalesForm.Dock = System.Windows.Forms.DockStyle.Fill;
 				}
-				return _procutSalesForm;
+				return _productSalesForm;
 			}
 		}
 
@@ -458,7 +458,7 @@ namespace Inventory
 
 				inventoryButton.Checked = false;
 				ProductBuyForm.Hide();
-				ProcutSalesForm.Hide();
+				ProductSalesForm.Hide();
 				InventoryForm.Hide();
 				ServiceForm.Hide();
 				inventoryEntryButton.Checked = false;
@@ -543,7 +543,7 @@ namespace Inventory
 				ProductBuyForm.Initialize();
 				ProductBuyForm.Show();
 
-				ProcutSalesForm.Hide();
+				ProductSalesForm.Hide();
 				InventoryForm.Hide();
 				ServiceForm.Hide();
 
@@ -588,8 +588,9 @@ namespace Inventory
 			else
 			{
 				mainPanel.Controls.Clear();
-				mainPanel.Controls.Add(ProcutSalesForm);
-				ProcutSalesForm.Show();
+				mainPanel.Controls.Add(ProductSalesForm);
+				ProductSalesForm.Initialize();
+				ProductSalesForm.Show();
 
 				ProductBuyForm.Hide();
 				InventoryForm.Hide();
@@ -641,7 +642,7 @@ namespace Inventory
 				InventoryForm.Show();
 
 				ProductBuyForm.Hide();
-				ProcutSalesForm.Hide();
+				ProductSalesForm.Hide();
 				ServiceForm.Hide();
 
 				AncillaryCostsForm.Hide();
@@ -690,7 +691,7 @@ namespace Inventory
 				ServiceForm.Show();
 
 				ProductBuyForm.Hide();
-				ProcutSalesForm.Hide();
+				ProductSalesForm.Hide();
 				InventoryForm.Hide();
 
 				AncillaryCostsForm.Hide();
@@ -795,10 +796,11 @@ namespace Inventory
 			{
 				mainPanel.Controls.Clear();
 				mainPanel.Controls.Add(SafeBoxForm);
+				SafeBoxForm.Initialize();
 				SafeBoxForm.Show();
 
 				ProductBuyForm.Hide();
-				ProcutSalesForm.Hide();
+				ProductSalesForm.Hide();
 				InventoryForm.Hide();
 				ServiceForm.Hide();
 
@@ -844,10 +846,11 @@ namespace Inventory
 			{
 				mainPanel.Controls.Clear();
 				mainPanel.Controls.Add(AncillaryCostsForm);
+				AncillaryCostsForm.Initialize();
 				AncillaryCostsForm.Show();
 
 				ProductBuyForm.Hide();
-				ProcutSalesForm.Hide();
+				ProductSalesForm.Hide();
 				InventoryForm.Hide();
 				ServiceForm.Hide();
 
@@ -893,10 +896,11 @@ namespace Inventory
 			{
 				mainPanel.Controls.Clear();
 				mainPanel.Controls.Add(FinancialReportForm);
+				FinancialReportForm.Initialize();
 				FinancialReportForm.Show();
 
 				ProductBuyForm.Hide();
-				ProcutSalesForm.Hide();
+				ProductSalesForm.Hide();
 				InventoryForm.Hide();
 				ServiceForm.Hide();
 
@@ -945,7 +949,7 @@ namespace Inventory
 				SectionChequeBankForm.Show();
 
 				ProductBuyForm.Hide();
-				ProcutSalesForm.Hide();
+				ProductSalesForm.Hide();
 				InventoryForm.Hide();
 				ServiceForm.Hide();
 
@@ -1049,10 +1053,11 @@ namespace Inventory
 			{
 				mainPanel.Controls.Clear();
 				mainPanel.Controls.Add(RegisterClientForm);
+				RegisterClientForm.Initialize();
 				RegisterClientForm.Show();
 
 				ProductBuyForm.Hide();
-				ProcutSalesForm.Hide();
+				ProductSalesForm.Hide();
 				InventoryForm.Hide();
 				ServiceForm.Hide();
 
@@ -1097,10 +1102,11 @@ namespace Inventory
 			{
 				mainPanel.Controls.Clear();
 				mainPanel.Controls.Add(ClientFinancialSituationForm);
+				ClientFinancialSituationForm.Initialize();
 				ClientFinancialSituationForm.Show();
 
 				ProductBuyForm.Hide();
-				ProcutSalesForm.Hide();
+				ProductSalesForm.Hide();
 				InventoryForm.Hide();
 				ServiceForm.Hide();
 
@@ -1207,7 +1213,7 @@ namespace Inventory
 				ManagementSettingForm.Show();
 
 				ProductBuyForm.Hide();
-				ProcutSalesForm.Hide();
+				ProductSalesForm.Hide();
 				InventoryForm.Hide();
 				ServiceForm.Hide();
 
@@ -1258,7 +1264,7 @@ namespace Inventory
 				BackupSettingForm.Show();
 
 				ProductBuyForm.Hide();
-				ProcutSalesForm.Hide();
+				ProductSalesForm.Hide();
 				InventoryForm.Hide();
 				ServiceForm.Hide();
 
@@ -1974,7 +1980,7 @@ namespace Inventory
 			//-------------------------------------------- Inventory
 
 			ProductBuyForm.Hide();
-			ProcutSalesForm.Dispose();
+			ProductSalesForm.Dispose();
 			InventoryForm.Dispose();
 			ServiceForm.Dispose();
 

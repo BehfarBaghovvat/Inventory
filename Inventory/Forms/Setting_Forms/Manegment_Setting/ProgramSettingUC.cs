@@ -104,7 +104,7 @@ namespace Manegment_Setting
 		#region ServiceNameTextBox_KeyPress
 		private void ServiceNameTextBox_KeyPress(object sender, System.Windows.Forms.KeyPressEventArgs e)
 		{
-			Infrastructure.Utility.PersianTyping(e);
+			Infrastructure.Utility.PersianAndNumberTyping(e);
 		}
 		#endregion /ServiceNameTextBox_KeyPress
 

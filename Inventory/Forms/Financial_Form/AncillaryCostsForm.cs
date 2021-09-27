@@ -77,7 +77,6 @@ namespace Financial_Form
 		public AncillaryCostsForm()
 		{
 			InitializeComponent();
-			Initialize();
 		}
 
 
@@ -87,7 +86,7 @@ namespace Financial_Form
 		#region AncillaryCostsForm_Load
 		private void AncillaryCostsForm_Load(object sender, System.EventArgs e)
 		{
-
+			//Initialize();
 		}
 		#endregion /AncillaryCostsForm_Load
 
@@ -123,24 +122,16 @@ namespace Financial_Form
 		private void AmountPaymentTextBox_Leave(object sender, System.EventArgs e)
 		{
 			if (string.IsNullOrWhiteSpace(amountPaymentTextBox.Text) ||
-			   string.Compare(amountPaymentTextBox.Text, "0 تومان") == 0 ||
-			   string.Compare(amountPaymentTextBox.Text, " تومان") == 0 ||
-			   string.Compare(amountPaymentTextBox.Text, "تومان") == 0 ||
-			   string.Compare(amountPaymentTextBox.Text, "توما") == 0 ||
-			   string.Compare(amountPaymentTextBox.Text, "توم") == 0 ||
-			   string.Compare(amountPaymentTextBox.Text, "تو") == 0 ||
-			   string.Compare(amountPaymentTextBox.Text, "ت") == 0)
+				string.Compare(amountPaymentTextBox.Text, "0 تومان") == 0 ||
+				amountPaymentTextBox.Text.Length < 7)
 			{
 				amountPaymentTextBox.Clear();
 				AncillaryCosts.Amount_Payment = null;
 				amountPaymentTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-				AmountPayment = null;
 				return;
 			}
 			else
 			{
-				AmountPayment = int.Parse(amountPaymentTextBox.Text.Replace("تومان", string.Empty)
-					.Replace(",", string.Empty).Trim());
 				amountPaymentTextBox.Text = $"{AmountPayment:#,0} تومان";
 				AncillaryCosts.Amount_Payment = $"{AmountPayment:#,0} تومان";
 			}
@@ -152,17 +143,17 @@ namespace Financial_Form
 		{
 			if (string.IsNullOrWhiteSpace(amountPaymentTextBox.Text) ||
 				string.Compare(amountPaymentTextBox.Text, "0 تومان") == 0 ||
-				string.Compare(amountPaymentTextBox.Text, " تومان") == 0 ||
-				string.Compare(amountPaymentTextBox.Text, "تومان") == 0 ||
-				string.Compare(amountPaymentTextBox.Text, "توما") == 0 ||
-				string.Compare(amountPaymentTextBox.Text, "توم") == 0 ||
-				string.Compare(amountPaymentTextBox.Text, "تو") == 0 ||
-				string.Compare(amountPaymentTextBox.Text, "ت") == 0)
+				amountPaymentTextBox.Text.Length < 7)
 			{
-				AncillaryCosts.Amount_Payment = null;
 				AmountPayment = null;
 				return;
 			}
+			else
+			{
+				AmountPayment = 
+					decimal.Parse(amountPaymentTextBox.Text.Replace("تومان", string.Empty).Replace(",", string.Empty).Trim());
+			}
+
 		}
 		#endregion /AmountPaymentTextBox_TextChange
 
@@ -190,7 +181,7 @@ namespace Financial_Form
 			{
 				if (SetToAncillaryCosts(AncillaryCosts))
 				{
-					PaymentCost(AmountPayment, Capital_Fund);
+					PaymentCost(AmountPayment);
 
 					Infrastructure.Utility.WindowsNotification
 						($"{Inventory.Properties.Resources.Complete_Operation}",
@@ -361,10 +352,9 @@ namespace Financial_Form
 		/// <summary>
 		/// مقداردهی اولیه
 		/// </summary>
-		private void Initialize()
+		public void Initialize()
 		{
 			this.Focus();
-			Capital_Fund = GetCapitalFund();
 			GetListIncidentalExpenses();
 			GetListAncillaryCosts();
 
@@ -374,13 +364,19 @@ namespace Financial_Form
 
 		#region PaymentCost
 		/// <summary>
-		/// پرداخت هزینه ها از صندوق
+		/// کم کردن هزینه از صندوق
 		/// </summary>
 		/// <param name="_amountPayment"></param>
 		/// <param name="_capitalFund"></param>
-		private void PaymentCost(decimal? _amountPayment, decimal? _capitalFund)
+		private void PaymentCost(decimal? _amountPayment)
 		{
-			_capitalFund -= _amountPayment;
+			decimal? _capitalFund = GetCapitalFund();
+			decimal? _remainding = _capitalFund - _amountPayment;
+
+
+
+
+
 			Models.DataBaseContext dataBaseContext = null;
 			try
 			{
@@ -388,13 +384,16 @@ namespace Financial_Form
 					new Models.DataBaseContext();
 
 				Models.CapitalFund capitalFund =
-					new Models.CapitalFund();
+						dataBaseContext.CapitalFunds
+						.FirstOrDefault();
 
-				capitalFund.Capital_Fund = $"{_capitalFund:#,0} تومان";
+				capitalFund.Capital_Fund = $"{_remainding:#,0} تومان";
 
 				dataBaseContext.SaveChanges();
 
 				RefreshCapitalFund();
+
+				AllClear();
 			}
 			catch (System.Exception ex)
 			{

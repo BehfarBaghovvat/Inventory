@@ -63,7 +63,7 @@ namespace Client_Forms
 		#region ClientFinancialSituationForm_Load
 		private void ClientFinancialSituationForm_Load(object sender, EventArgs e)
 		{
-			Initialize();
+			
 		}
 		#endregion /ClientFinancialSituationForm_Load
 
@@ -245,7 +245,7 @@ namespace Client_Forms
 		/// <summary>
 		/// تنظیمات اولیه ورود
 		/// </summary>
-		private void Initialize()
+		public void Initialize()
 		{
 			searchClientTextBox.Clear();
 			GetListFinantialClient();

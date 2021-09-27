@@ -38,7 +38,6 @@ namespace Financial_Form
 		public FinancialReportForm()
 		{
 			InitializeComponent();
-			Initialize();
 		}
 
 
@@ -75,18 +74,13 @@ namespace Financial_Form
 
 
 
-
-
-
-
-
 		//------------------------------------------------------------------------------------ Private Methods
 
 		#region Initialize
 		/// <summary>
 		/// تنظیمات اولیه ورودی
 		/// </summary>
-		private void Initialize()
+		public void Initialize()
 		{
 			bottomPanel.Controls.Clear();
 			capitalFundLabel.Text = GetAmountInCirculation();

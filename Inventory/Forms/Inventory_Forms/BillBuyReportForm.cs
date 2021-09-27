@@ -565,6 +565,7 @@ namespace Inventory_Forms
 						.FirstOrDefault();
 
 					capitalFund.Capital_Fund = $"{_auditItem.Capital_Fund: #,0} تومان";
+
 					dataBaseContext.SaveChanges();
 
 				auditItem.Capital_Fund = GetCapitalFund();

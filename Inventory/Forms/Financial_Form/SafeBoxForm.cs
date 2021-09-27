@@ -60,7 +60,6 @@ namespace Financial_Form
 		public SafeBoxForm()
 		{
 			InitializeComponent();
-			Initialize();
 		}
 
 
@@ -259,7 +258,7 @@ namespace Financial_Form
 		/// <summary>
 		/// مقدار دهی اولیه
 		/// </summary>
-		private void Initialize()
+		public void Initialize()
 		{
 			OldCash = GetCapitalFund();
 			funeLabel.Text = $"{OldCash:#,0} تومان";

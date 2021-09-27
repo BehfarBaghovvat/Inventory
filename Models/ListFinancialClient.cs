@@ -2,7 +2,7 @@
 namespace Models
 {
 	/// <summary>
-	/// جدول لیست مالی مشتریان
+	/// جدول حساب مالی مشتریان
 	/// </summary>
 	public class ListFinancialClient
 	{
