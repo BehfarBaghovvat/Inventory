@@ -99,7 +99,7 @@ namespace Inventory_Forms
 			this.printReportStiViewerControl.Report = null;
 			this.printReportStiViewerControl.RightToLeft = System.Windows.Forms.RightToLeft.No;
 			this.printReportStiViewerControl.ShowZoom = true;
-			this.printReportStiViewerControl.Size = new System.Drawing.Size(950, 730);
+			this.printReportStiViewerControl.Size = new System.Drawing.Size(950, 695);
 			this.printReportStiViewerControl.TabIndex = 2;
 			// 
 			// showFormAnimateWindow
@@ -113,17 +113,17 @@ namespace Inventory_Forms
 			this.closeFadeFormTimer.Interval = 5;
 			this.closeFadeFormTimer.Tick += new System.EventHandler(this.CloseFadeFormTimer_Tick);
 			// 
-			// PrintReportForm
+			// PrintBuyReportForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 17F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-			this.ClientSize = new System.Drawing.Size(950, 760);
+			this.ClientSize = new System.Drawing.Size(950, 725);
 			this.Controls.Add(this.printReportStiViewerControl);
 			this.Controls.Add(this.topPanel);
-			this.MaximumSize = new System.Drawing.Size(950, 760);
-			this.MinimumSize = new System.Drawing.Size(950, 726);
-			this.Name = "PrintReportForm";
+			this.MaximumSize = new System.Drawing.Size(950, 725);
+			this.MinimumSize = new System.Drawing.Size(950, 725);
+			this.Name = "PrintBuyReportForm";
 			this.Text = "ReceiptForm";
 			this.topPanel.ResumeLayout(false);
 			this.ResumeLayout(false);

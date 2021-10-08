@@ -168,8 +168,7 @@ namespace Inventory_Forms
 		#region PaymentCashRadioButton_CheckedChanged
 		private void PaymentCashRadioButton_CheckedChanged(object sender, System.EventArgs e)
 		{
-			amountPaidTextBox.ReadOnly = true;
-			paymentButton.Enabled = true;
+			amountPaidTextBox.ReadOnly = false;
 			auditItem.Purchase_Payment_Type = Models.PurchaseInvoice.PurchasePaymentType.نقد;
 		}
 		#endregion /PaymentCashRadioButton_CheckedChanged
@@ -184,8 +183,7 @@ namespace Inventory_Forms
 		#region PaymentChequeRadioButton_CheckedChanged
 		private void PaymentChequeRadioButton_CheckedChanged(object sender, System.EventArgs e)
 		{
-			amountPaidTextBox.ReadOnly = false;
-			paymentButton.Enabled = true;
+			amountPaidTextBox.ReadOnly = true;
 			auditItem.Purchase_Payment_Type = Models.PurchaseInvoice.PurchasePaymentType.چک;
 		}
 		#endregion /PaymentChequeRadioButton_CheckedChanged 
@@ -224,6 +222,7 @@ namespace Inventory_Forms
 				(reportReceip.GetComponentByName("remainingAmountTextBox") as Stimulsoft.Report.Components.StiText).Text = remainingAmountTextBox.Text;
 
 				reportReceip.Render();
+				PrintReportForm.printReportStiViewerControl.Report = null;
 				PrintReportForm.printReportStiViewerControl.Report = reportReceip;
 				PrintReportForm.ShowDialog();
 			}

@@ -45,7 +45,7 @@ namespace Inventory_Forms
 			public int? Product_Quantity { get; set; }
 			public string Product_Unit { get; set; }
 			public string Product_Price { get; set; }
-			public string Total_Price { get; set; }
+			public string Total_Sum_Price { get; set; }
 		}
 		public class ClientItem
 		{
@@ -150,6 +150,10 @@ namespace Inventory_Forms
 				}
 				return _printReportForm;
 			}
+			set
+			{
+				_printReportForm = value;
+			}
 		}
 
 		#endregion /Layer
@@ -185,7 +189,6 @@ namespace Inventory_Forms
 		public BillSaleReportForm()
 		{
 			InitializeComponent();
-
 		}
 
 
@@ -204,10 +207,11 @@ namespace Inventory_Forms
 		{
 			if (Purchase_Operations)
 			{
+				MyProductSalesForm.AllClear();
 				ResetAllControl();
 				closeFormTimer.Start();
 			}
-			if (productsListDataGridView.RowCount >= 1)
+			else if (productsListDataGridView.RowCount >= 1)
 			{
 				if (Mbb.Windows.Forms.MessageBox.Show(
 					text: "آیا فاکتور جاری حذف گردد؟",
@@ -452,46 +456,7 @@ namespace Inventory_Forms
 		#region PrintButton_Click
 		private void PrintButton_Click(object sender, System.EventArgs e)
 		{
-			try
-			{
-				System.Collections.Generic.List<BillItems> billSaleReportItemsList = new System.Collections.Generic.List<BillItems>();
-
-				foreach (System.Windows.Forms.DataGridViewRow rows in productsListDataGridView.Rows)
-				{
-					BillItems billSaleReportItems = new BillItems
-					{
-						Product_Name = rows.Cells[0].Value.ToString(),
-						Product_Price = rows.Cells[1].Value.ToString(),
-						Product_Quantity = int.Parse(rows.Cells[2].Value.ToString()),
-						Product_Unit = rows.Cells[3].Value.ToString(),
-						Total_Price = rows.Cells[4].Value.ToString(),
-					};
-					billSaleReportItemsList.Add(billSaleReportItems);
-				}
-
-				Stimulsoft.Report.StiReport printInvoice = new Stimulsoft.Report.StiReport();
-
-				printInvoice.Load(System.Windows.Forms.Application.StartupPath + "\\Reports\\BillSaleReport.mrt");
-				printInvoice.RegBusinessObject("BillSale", billSaleReportItemsList);
-
-				(printInvoice.GetComponentByName("dateOfPrintTextBox") as Stimulsoft.Report.Components.StiText).Text = dateSetInvoiceTextBox.Text;
-				(printInvoice.GetComponentByName("sellerNameTextBox") as Stimulsoft.Report.Components.StiText).Text = Inventory.Program.UserAuthentication.Full_Name;
-				(printInvoice.GetComponentByName("clientNameTextBox") as Stimulsoft.Report.Components.StiText).Text = clientNameTextBox.Text;
-				(printInvoice.GetComponentByName("carrierNameTextBox") as Stimulsoft.Report.Components.StiText).Text = carrierNameTextBox.Text;
-				(printInvoice.GetComponentByName("totalSumPriceTextBox") as Stimulsoft.Report.Components.StiText).Text = amountPayableTextBox.Text;
-				(printInvoice.GetComponentByName("taxRateTextBox") as Stimulsoft.Report.Components.StiText).Text = taxRateTextBox.Text;
-				(printInvoice.GetComponentByName("amountPaymentTextBox") as Stimulsoft.Report.Components.StiText).Text = amountPaidTextBox.Text;
-				(printInvoice.GetComponentByName("remainingAmountTextBox") as Stimulsoft.Report.Components.StiText).Text = amountRemainingTextBox.Text;
-
-				printInvoice.Render(true);
-
-				PrintReportForm.printReportStiViewerControl.Report = printInvoice;
-				PrintReportForm.ShowDialog();
-			}
-			catch (System.Exception ex)
-			{
-				Infrastructure.Utility.ExceptionShow(ex);
-			}
+			PrintBillSales();
 		}
 		#endregion /PrintButton_Click
 
@@ -1284,7 +1249,7 @@ namespace Inventory_Forms
 					.Where(current => string.Compare(current.Phone_Number, _auditItem.Phone_Number) == 0)
 					.FirstOrDefault();
 
-				if (client == null)
+				if (client != null)
 				{
 					clientItem.Finde_Client = true;
 					clientItem.License_Plate = client.License_Plate;
@@ -1297,12 +1262,11 @@ namespace Inventory_Forms
 					clientItem.License_Plate = null;
 					return clientItem;
 				}
-
 			}
 			catch (System.Exception ex)
 			{
-
-				throw;
+				Infrastructure.Utility.ExceptionShow(ex);
+				return null;
 			}
 			finally
 			{
@@ -1418,7 +1382,6 @@ namespace Inventory_Forms
 			if (Client_Item.Finde_Client)
 			{
 				auditItem.License_Plate = Client_Item.License_Plate;
-				return;
 			}
 			// در غیر این صورت مقدار رشته ای خالی را بر میگرداند. سوالی مبنی بر ثبت مشتری در سیستم پرسیده می شود.
 			else
@@ -1488,6 +1451,61 @@ namespace Inventory_Forms
 		}
 		#endregion /Payment
 
+		#region PrintBillSales
+		/// <summary>
+		/// چاپ فاکتور فروش کالا
+		/// </summary>
+		private void PrintBillSales()
+		{
+			try
+			{
+				System.Collections.Generic.List<BillItems> billSalseReportsList = new System.Collections.Generic.List<BillItems>();
+
+				foreach (System.Windows.Forms.DataGridViewRow rows in productsListDataGridView.Rows)
+				{
+					BillItems billSales = new BillItems
+					{
+						Product_Name = rows.Cells[0].Value.ToString(),
+						Product_Price = rows.Cells[1].Value.ToString(),
+						Product_Quantity = int.Parse(rows.Cells[2].Value.ToString()),
+						Product_Unit = rows.Cells[3].Value.ToString(),
+						Total_Sum_Price = rows.Cells[4].Value.ToString(),
+					};
+					billSalseReportsList.Add(billSales);
+				}
+				string receipDate = $"{Infrastructure.Utility.ShowTime()} - {Infrastructure.Utility.PersianCalendar(dateTime: System.DateTime.Now)}";
+				Stimulsoft.Report.StiReport reportReceip = new Stimulsoft.Report.StiReport();
+
+				reportReceip.Load(System.Windows.Forms.Application.StartupPath + "\\Reports\\BillSalesReport.mrt");
+				reportReceip.RegBusinessObject("BillSales", billSalseReportsList);
+
+				if (string.IsNullOrWhiteSpace(taxRateTextBox.Text) || string.Compare(taxRateTextBox.Text,"0 %")==0)
+				{
+					auditItem.Tax_Percent = 0;
+				}
+				
+				(reportReceip.GetComponentByName("dateOfPrintTextBox") as Stimulsoft.Report.Components.StiText).Text = receipDate;
+				(reportReceip.GetComponentByName("invoiceSerialNumberTextBox") as Stimulsoft.Report.Components.StiText).Text = invoiceSerialNumberTextBox.Text;
+				(reportReceip.GetComponentByName("sellerNameTextBox") as Stimulsoft.Report.Components.StiText).Text = Inventory.Program.UserAuthentication.Full_Name;
+				(reportReceip.GetComponentByName("clientNameTextBox") as Stimulsoft.Report.Components.StiText).Text = clientNameTextBox.Text;
+				(reportReceip.GetComponentByName("carrierNameTextBox") as Stimulsoft.Report.Components.StiText).Text = carrierNameTextBox.Text;
+				(reportReceip.GetComponentByName("totalAmountPayableTextBox") as Stimulsoft.Report.Components.StiText).Text = amountPayableTextBox.Text;
+				(reportReceip.GetComponentByName("taxRateTextBox") as Stimulsoft.Report.Components.StiText).Text = $"{auditItem.Tax_Percent} %" ;
+				(reportReceip.GetComponentByName("amountPaidTextBox") as Stimulsoft.Report.Components.StiText).Text = amountPaidTextBox.Text;
+				(reportReceip.GetComponentByName("amountRemainingTextBox") as Stimulsoft.Report.Components.StiText).Text = amountRemainingTextBox.Text;
+
+				reportReceip.Render();
+				PrintReportForm.printReportStiViewerControl.Report = null;
+				PrintReportForm.printReportStiViewerControl.Report = reportReceip;
+				PrintReportForm.ShowDialog();
+			}
+			catch (System.Exception ex)
+			{
+				Infrastructure.Utility.ExceptionShow(ex);
+			}
+		}
+		#endregion PrintBillSales
+
 		#region RefreshCalculator
 		/// <summary>
 		/// تازه سازی عملیات محاسبه
@@ -1555,9 +1573,9 @@ namespace Inventory_Forms
 					new Models.DailyFinancialReport()
 					{
 						Amounts_Paid = $"0 تومان",
-						Amounts_Payment = $"{auditItem.Amounts_Payment} تومان",
+						Amounts_Payment = $"{auditItem.Amounts_Payment:#,0} تومان",
 						Amounts_Received = $"{auditItem.Amount_Paid:#,0} تومان",
-						Amounts_Remaining = $"{auditItem.Amount_Remaininig} تومان",
+						Amounts_Remaining = $"{auditItem.Amount_Remaininig:#,0} تومان",
 						Register_Date = $"{auditItem.Register_Date}",
 						Register_Time = $"{auditItem.Register_Time}",
 
@@ -1655,9 +1673,9 @@ namespace Inventory_Forms
 				Models.ListFinancialClient listFinancialClient =
 					new Models.ListFinancialClient()
 					{
-						Amount_Paid = $"{ _auditItem.Amount_Paid} تومان",
-						Amounts_Payment = $"{ _auditItem.Amounts_Payment} تومان",
-						Amount_Remaininig = $"{ _auditItem.Amount_Remaininig} تومان",
+						Amount_Paid = $"{ _auditItem.Amount_Paid:#,0} تومان",
+						Amounts_Payment = $"{ _auditItem.Amounts_Payment:#,0} تومان",
+						Amount_Remaininig = $"{ _auditItem.Amount_Remaininig:#,0} تومان",
 						Client_Name = _auditItem.Client_Name,
 						Finantial_Situation = auditItem.Finantial_Situation,
 						License_Plate = _auditItem.License_Plate,
@@ -1836,7 +1854,5 @@ namespace Inventory_Forms
 		#endregion /GetPurchaseProduct
 
 		#endregion /Function
-
-
 	}
 }

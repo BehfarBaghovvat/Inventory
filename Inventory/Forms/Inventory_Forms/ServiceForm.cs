@@ -253,7 +253,6 @@ namespace Inventory_Forms
 		{
 			if (string.IsNullOrWhiteSpace(phoneNumberTextBox.Text) || phoneNumberTextBox.Text.Length < 11)
 			{
-
 				Mbb.Windows.Forms.MessageBox.Show(
 					text: "تعداد ارقام وارد شده کمتر از 11 رقم می باشد. \n لطفا مجدد تلاش نمایید.",
 					caption: "خطای ورودی",
@@ -267,31 +266,40 @@ namespace Inventory_Forms
 			else if (!phoneNumberTextBox.Text.StartsWith("09"))
 			{
 				Mbb.Windows.Forms.MessageBox.Show(
-					text: "فرمت شماره تلفن همراه صحیح نمی باشد. \n لطفا مجدد تلاش نمایید.",
+				text: "فرمت شماره تلفن همراه صحیح نمی باشد. \n لطفا مجدد تلاش نمایید.",
+				caption: "خطای ورودی",
+				icon: Mbb.Windows.Forms.MessageBoxIcon.Error,
+				button: Mbb.Windows.Forms.MessageBoxButtons.Ok);
+
+				phoneNumberTextBox.SelectAll();
+				phoneNumberTextBox.Focus();
+				return;
+			}
+			else if (phoneNumberTextBox.Text.Length < 11)
+			{
+				Mbb.Windows.Forms.MessageBox.Show(
+					text: "تعداد ارقام وارد شده کمتر از 11 رقم می باشد. \n لطفا مجدد تلاش نمایید.",
 					caption: "خطای ورودی",
 					icon: Mbb.Windows.Forms.MessageBoxIcon.Error,
 					button: Mbb.Windows.Forms.MessageBoxButtons.Ok);
 
 				phoneNumberTextBox.Focus();
-				return;
 			}
-			else
+			else if (phoneNumberTextBox.Text.Length == 11)
 			{
-				if (_auditItem.Phone_Number.Length > 11)
-				{
-					Mbb.Windows.Forms.MessageBox.Show(
-					text: "تعداد ارقام وارد شده بیشتر از 11 می باشد. \n لطفا مجدد تلاش نمایید.",
+				phoneNumberTextBox.Text = phoneNumberTextBox.Text.Insert(4, "-");
+			}
+			else if (phoneNumberTextBox.Text.Length >= 12 && !phoneNumberTextBox.Text.Contains('-'))
+			{
+				Mbb.Windows.Forms.MessageBox.Show(
+				text: "تعداد ارقام وارد شده بیشتر از 11 رقم می باشد. \n لطفا مجدد تلاش نمایید.",
 					caption: "خطای ورودی",
 					icon: Mbb.Windows.Forms.MessageBoxIcon.Error,
 					button: Mbb.Windows.Forms.MessageBoxButtons.Ok);
 
-					phoneNumberTextBox.Focus();
-					return;
-				}
-				else
-				{
-					phoneNumberTextBox.Text = phoneNumberTextBox.Text.Insert(4, "-");
-				}
+				phoneNumberTextBox.SelectAll();
+				phoneNumberTextBox.Focus();
+				return;
 			}
 		}
 		#endregion /PhoneNumberTextBox_Leave

@@ -30,11 +30,10 @@ namespace Client_Forms
 		private void InitializeComponent()
 		{
 			this.components = new System.ComponentModel.Container();
-			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ClientFinancialSituationForm));
-			Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties1 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
-			Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties2 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
-			Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties3 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
-			Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties4 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
 			Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties5 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
 			Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties6 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
 			Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties7 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
@@ -59,42 +58,47 @@ namespace Client_Forms
 			Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties26 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
 			Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties27 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
 			Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties28 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+			Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties29 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
+			Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties30 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
+			Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties31 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
+			Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties32 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
+			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ClientFinancialSituationForm));
+			Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties1 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
+			Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties2 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
+			Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties3 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
+			Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties4 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
 			this.mainPanel = new Guna.UI2.WinForms.Guna2Panel();
+			this.listFinantioalClientDataGridView = new Guna.UI2.WinForms.Guna2DataGridView();
 			this.licensePlateGroupBox = new Guna.UI2.WinForms.Guna2GroupBox();
 			this.alphabetTextBox = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox();
 			this.numTextBox3 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox();
 			this.numTextBox1 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox();
-			this.separatorLabel1 = new Mbb.Windows.Forms.Label();
 			this.numTextBox2 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox();
-			this.separatorLabel2 = new Mbb.Windows.Forms.Label();
-			this.iranLabel = new Mbb.Windows.Forms.Label();
 			this.phoneNumberTextBox = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox();
 			this.clientNameTextBox = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox();
 			this.financialSituationLabel = new System.Windows.Forms.Label();
-			this.totalAmountUnderlinePanel = new System.Windows.Forms.Panel();
-			this.totalAmountTextBox = new System.Windows.Forms.Label();
 			this.paymentButton = new Guna.UI2.WinForms.Guna2GradientButton();
 			this.searchClientTextBox = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox();
-			this.listFinantioalClientDataGridView = new Guna.UI2.WinForms.Guna2DataGridView();
-			this.listFinancialClientBindingSource = new System.Windows.Forms.BindingSource(this.components);
 			this.listFinantioalClientDataGridViewElipse = new Guna.UI2.WinForms.Guna2Elipse(this.components);
-			this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.totalAmountTextBox = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox();
 			this.Select_Item = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+			this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.amountPaidDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.amountRemaininigDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.registrationDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.Registration_Time = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.finantialSituationDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.registrationTimeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.finantialSituationDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.clientNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.licensePlateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.phoneNumberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.taxPercentDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.listFinancialClientBindingSource = new System.Windows.Forms.BindingSource(this.components);
+			this.separatorLabel1 = new Mbb.Windows.Forms.Label();
+			this.separatorLabel2 = new Mbb.Windows.Forms.Label();
+			this.iranLabel = new Mbb.Windows.Forms.Label();
 			this.mainPanel.SuspendLayout();
-			this.licensePlateGroupBox.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.listFinantioalClientDataGridView)).BeginInit();
+			this.licensePlateGroupBox.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.listFinancialClientBindingSource)).BeginInit();
 			this.SuspendLayout();
 			// 
@@ -103,21 +107,105 @@ namespace Client_Forms
 			this.mainPanel.BorderColor = System.Drawing.Color.Indigo;
 			this.mainPanel.BorderRadius = 15;
 			this.mainPanel.BorderThickness = 3;
+			this.mainPanel.Controls.Add(this.totalAmountTextBox);
+			this.mainPanel.Controls.Add(this.listFinantioalClientDataGridView);
 			this.mainPanel.Controls.Add(this.licensePlateGroupBox);
 			this.mainPanel.Controls.Add(this.phoneNumberTextBox);
 			this.mainPanel.Controls.Add(this.clientNameTextBox);
 			this.mainPanel.Controls.Add(this.financialSituationLabel);
-			this.mainPanel.Controls.Add(this.totalAmountUnderlinePanel);
-			this.mainPanel.Controls.Add(this.totalAmountTextBox);
 			this.mainPanel.Controls.Add(this.paymentButton);
 			this.mainPanel.Controls.Add(this.searchClientTextBox);
-			this.mainPanel.Controls.Add(this.listFinantioalClientDataGridView);
 			this.mainPanel.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.mainPanel.Location = new System.Drawing.Point(0, 0);
 			this.mainPanel.Name = "mainPanel";
 			this.mainPanel.ShadowDecoration.Parent = this.mainPanel;
 			this.mainPanel.Size = new System.Drawing.Size(1150, 650);
 			this.mainPanel.TabIndex = 1;
+			// 
+			// listFinantioalClientDataGridView
+			// 
+			this.listFinantioalClientDataGridView.AllowUserToAddRows = false;
+			this.listFinantioalClientDataGridView.AllowUserToDeleteRows = false;
+			dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+			dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(196)))), ((int)(((byte)(233)))));
+			dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
+			dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.White;
+			this.listFinantioalClientDataGridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+			this.listFinantioalClientDataGridView.AutoGenerateColumns = false;
+			this.listFinantioalClientDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+			this.listFinantioalClientDataGridView.BackgroundColor = System.Drawing.Color.White;
+			this.listFinantioalClientDataGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
+			this.listFinantioalClientDataGridView.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+			this.listFinantioalClientDataGridView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+			dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+			dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(103)))), ((int)(((byte)(58)))), ((int)(((byte)(183)))));
+			dataGridViewCellStyle2.Font = new System.Drawing.Font("IRANSans", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+			dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+			dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+			dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+			dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+			this.listFinantioalClientDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+			this.listFinantioalClientDataGridView.ColumnHeadersHeight = 35;
+			this.listFinantioalClientDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+			this.listFinantioalClientDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.idDataGridViewTextBoxColumn,
+            this.Select_Item,
+            this.amountPaidDataGridViewTextBoxColumn,
+            this.amountRemaininigDataGridViewTextBoxColumn,
+            this.registrationDateDataGridViewTextBoxColumn,
+            this.registrationTimeDataGridViewTextBoxColumn,
+            this.finantialSituationDataGridViewTextBoxColumn,
+            this.clientNameDataGridViewTextBoxColumn,
+            this.licensePlateDataGridViewTextBoxColumn,
+            this.phoneNumberDataGridViewTextBoxColumn,
+            this.taxPercentDataGridViewTextBoxColumn});
+			this.listFinantioalClientDataGridView.DataSource = this.listFinancialClientBindingSource;
+			dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+			dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(215)))), ((int)(((byte)(240)))));
+			dataGridViewCellStyle3.Font = new System.Drawing.Font("IRANSans", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+			dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
+			dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(123)))), ((int)(((byte)(207)))));
+			dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.White;
+			dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+			this.listFinantioalClientDataGridView.DefaultCellStyle = dataGridViewCellStyle3;
+			this.listFinantioalClientDataGridView.EnableHeadersVisualStyles = false;
+			this.listFinantioalClientDataGridView.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(193)))), ((int)(((byte)(232)))));
+			this.listFinantioalClientDataGridView.Location = new System.Drawing.Point(13, 113);
+			this.listFinantioalClientDataGridView.Name = "listFinantioalClientDataGridView";
+			this.listFinantioalClientDataGridView.ReadOnly = true;
+			this.listFinantioalClientDataGridView.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+			this.listFinantioalClientDataGridView.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+			this.listFinantioalClientDataGridView.RowHeadersVisible = false;
+			this.listFinantioalClientDataGridView.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+			dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+			this.listFinantioalClientDataGridView.RowsDefaultCellStyle = dataGridViewCellStyle4;
+			this.listFinantioalClientDataGridView.RowTemplate.Height = 25;
+			this.listFinantioalClientDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+			this.listFinantioalClientDataGridView.Size = new System.Drawing.Size(1125, 460);
+			this.listFinantioalClientDataGridView.TabIndex = 10;
+			this.listFinantioalClientDataGridView.Theme = Guna.UI2.WinForms.Enums.DataGridViewPresetThemes.DeepPurple;
+			this.listFinantioalClientDataGridView.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(196)))), ((int)(((byte)(233)))));
+			this.listFinantioalClientDataGridView.ThemeStyle.AlternatingRowsStyle.Font = null;
+			this.listFinantioalClientDataGridView.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Black;
+			this.listFinantioalClientDataGridView.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.Empty;
+			this.listFinantioalClientDataGridView.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.White;
+			this.listFinantioalClientDataGridView.ThemeStyle.BackColor = System.Drawing.Color.White;
+			this.listFinantioalClientDataGridView.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(193)))), ((int)(((byte)(232)))));
+			this.listFinantioalClientDataGridView.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(103)))), ((int)(((byte)(58)))), ((int)(((byte)(183)))));
+			this.listFinantioalClientDataGridView.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+			this.listFinantioalClientDataGridView.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("IRANSans", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+			this.listFinantioalClientDataGridView.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White;
+			this.listFinantioalClientDataGridView.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+			this.listFinantioalClientDataGridView.ThemeStyle.HeaderStyle.Height = 35;
+			this.listFinantioalClientDataGridView.ThemeStyle.ReadOnly = true;
+			this.listFinantioalClientDataGridView.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(215)))), ((int)(((byte)(240)))));
+			this.listFinantioalClientDataGridView.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+			this.listFinantioalClientDataGridView.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("IRANSans", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+			this.listFinantioalClientDataGridView.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.Black;
+			this.listFinantioalClientDataGridView.ThemeStyle.RowsStyle.Height = 25;
+			this.listFinantioalClientDataGridView.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(123)))), ((int)(((byte)(207)))));
+			this.listFinantioalClientDataGridView.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.White;
+			this.listFinantioalClientDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ListFinantioalClientDataGridView_CellContentClick);
 			// 
 			// licensePlateGroupBox
 			// 
@@ -177,26 +265,26 @@ namespace Client_Forms
 			this.alphabetTextBox.Modified = false;
 			this.alphabetTextBox.Multiline = false;
 			this.alphabetTextBox.Name = "alphabetTextBox";
-			stateProperties1.BorderColor = System.Drawing.Color.Empty;
-			stateProperties1.FillColor = System.Drawing.Color.Empty;
-			stateProperties1.ForeColor = System.Drawing.Color.Empty;
-			stateProperties1.PlaceholderForeColor = System.Drawing.Color.Empty;
-			this.alphabetTextBox.OnActiveState = stateProperties1;
-			stateProperties2.BorderColor = System.Drawing.Color.Empty;
-			stateProperties2.FillColor = System.Drawing.Color.White;
-			stateProperties2.ForeColor = System.Drawing.Color.Empty;
-			stateProperties2.PlaceholderForeColor = System.Drawing.Color.Silver;
-			this.alphabetTextBox.OnDisabledState = stateProperties2;
-			stateProperties3.BorderColor = System.Drawing.Color.Empty;
-			stateProperties3.FillColor = System.Drawing.Color.Empty;
-			stateProperties3.ForeColor = System.Drawing.Color.Empty;
-			stateProperties3.PlaceholderForeColor = System.Drawing.Color.Empty;
-			this.alphabetTextBox.OnHoverState = stateProperties3;
-			stateProperties4.BorderColor = System.Drawing.Color.DimGray;
-			stateProperties4.FillColor = System.Drawing.Color.White;
-			stateProperties4.ForeColor = System.Drawing.Color.Black;
-			stateProperties4.PlaceholderForeColor = System.Drawing.Color.Empty;
-			this.alphabetTextBox.OnIdleState = stateProperties4;
+			stateProperties5.BorderColor = System.Drawing.Color.Empty;
+			stateProperties5.FillColor = System.Drawing.Color.Empty;
+			stateProperties5.ForeColor = System.Drawing.Color.Empty;
+			stateProperties5.PlaceholderForeColor = System.Drawing.Color.Empty;
+			this.alphabetTextBox.OnActiveState = stateProperties5;
+			stateProperties6.BorderColor = System.Drawing.Color.Empty;
+			stateProperties6.FillColor = System.Drawing.Color.White;
+			stateProperties6.ForeColor = System.Drawing.Color.Empty;
+			stateProperties6.PlaceholderForeColor = System.Drawing.Color.Silver;
+			this.alphabetTextBox.OnDisabledState = stateProperties6;
+			stateProperties7.BorderColor = System.Drawing.Color.Empty;
+			stateProperties7.FillColor = System.Drawing.Color.Empty;
+			stateProperties7.ForeColor = System.Drawing.Color.Empty;
+			stateProperties7.PlaceholderForeColor = System.Drawing.Color.Empty;
+			this.alphabetTextBox.OnHoverState = stateProperties7;
+			stateProperties8.BorderColor = System.Drawing.Color.DimGray;
+			stateProperties8.FillColor = System.Drawing.Color.White;
+			stateProperties8.ForeColor = System.Drawing.Color.Black;
+			stateProperties8.PlaceholderForeColor = System.Drawing.Color.Empty;
+			this.alphabetTextBox.OnIdleState = stateProperties8;
 			this.alphabetTextBox.PasswordChar = '\0';
 			this.alphabetTextBox.PlaceholderForeColor = System.Drawing.Color.Gray;
 			this.alphabetTextBox.PlaceholderText = "الف";
@@ -252,26 +340,26 @@ namespace Client_Forms
 			this.numTextBox3.Modified = false;
 			this.numTextBox3.Multiline = false;
 			this.numTextBox3.Name = "numTextBox3";
-			stateProperties5.BorderColor = System.Drawing.Color.Empty;
-			stateProperties5.FillColor = System.Drawing.Color.Empty;
-			stateProperties5.ForeColor = System.Drawing.Color.Empty;
-			stateProperties5.PlaceholderForeColor = System.Drawing.Color.Empty;
-			this.numTextBox3.OnActiveState = stateProperties5;
-			stateProperties6.BorderColor = System.Drawing.Color.Empty;
-			stateProperties6.FillColor = System.Drawing.Color.White;
-			stateProperties6.ForeColor = System.Drawing.Color.Empty;
-			stateProperties6.PlaceholderForeColor = System.Drawing.Color.Silver;
-			this.numTextBox3.OnDisabledState = stateProperties6;
-			stateProperties7.BorderColor = System.Drawing.Color.Empty;
-			stateProperties7.FillColor = System.Drawing.Color.Empty;
-			stateProperties7.ForeColor = System.Drawing.Color.Empty;
-			stateProperties7.PlaceholderForeColor = System.Drawing.Color.Empty;
-			this.numTextBox3.OnHoverState = stateProperties7;
-			stateProperties8.BorderColor = System.Drawing.Color.DimGray;
-			stateProperties8.FillColor = System.Drawing.Color.White;
-			stateProperties8.ForeColor = System.Drawing.Color.Black;
-			stateProperties8.PlaceholderForeColor = System.Drawing.Color.Empty;
-			this.numTextBox3.OnIdleState = stateProperties8;
+			stateProperties9.BorderColor = System.Drawing.Color.Empty;
+			stateProperties9.FillColor = System.Drawing.Color.Empty;
+			stateProperties9.ForeColor = System.Drawing.Color.Empty;
+			stateProperties9.PlaceholderForeColor = System.Drawing.Color.Empty;
+			this.numTextBox3.OnActiveState = stateProperties9;
+			stateProperties10.BorderColor = System.Drawing.Color.Empty;
+			stateProperties10.FillColor = System.Drawing.Color.White;
+			stateProperties10.ForeColor = System.Drawing.Color.Empty;
+			stateProperties10.PlaceholderForeColor = System.Drawing.Color.Silver;
+			this.numTextBox3.OnDisabledState = stateProperties10;
+			stateProperties11.BorderColor = System.Drawing.Color.Empty;
+			stateProperties11.FillColor = System.Drawing.Color.Empty;
+			stateProperties11.ForeColor = System.Drawing.Color.Empty;
+			stateProperties11.PlaceholderForeColor = System.Drawing.Color.Empty;
+			this.numTextBox3.OnHoverState = stateProperties11;
+			stateProperties12.BorderColor = System.Drawing.Color.DimGray;
+			stateProperties12.FillColor = System.Drawing.Color.White;
+			stateProperties12.ForeColor = System.Drawing.Color.Black;
+			stateProperties12.PlaceholderForeColor = System.Drawing.Color.Empty;
+			this.numTextBox3.OnIdleState = stateProperties12;
 			this.numTextBox3.PasswordChar = '\0';
 			this.numTextBox3.PlaceholderForeColor = System.Drawing.Color.Gray;
 			this.numTextBox3.PlaceholderText = "11";
@@ -327,26 +415,26 @@ namespace Client_Forms
 			this.numTextBox1.Modified = false;
 			this.numTextBox1.Multiline = false;
 			this.numTextBox1.Name = "numTextBox1";
-			stateProperties9.BorderColor = System.Drawing.Color.Empty;
-			stateProperties9.FillColor = System.Drawing.Color.Empty;
-			stateProperties9.ForeColor = System.Drawing.Color.Empty;
-			stateProperties9.PlaceholderForeColor = System.Drawing.Color.Empty;
-			this.numTextBox1.OnActiveState = stateProperties9;
-			stateProperties10.BorderColor = System.Drawing.Color.Empty;
-			stateProperties10.FillColor = System.Drawing.Color.White;
-			stateProperties10.ForeColor = System.Drawing.Color.Empty;
-			stateProperties10.PlaceholderForeColor = System.Drawing.Color.Silver;
-			this.numTextBox1.OnDisabledState = stateProperties10;
-			stateProperties11.BorderColor = System.Drawing.Color.Empty;
-			stateProperties11.FillColor = System.Drawing.Color.Empty;
-			stateProperties11.ForeColor = System.Drawing.Color.Empty;
-			stateProperties11.PlaceholderForeColor = System.Drawing.Color.Empty;
-			this.numTextBox1.OnHoverState = stateProperties11;
-			stateProperties12.BorderColor = System.Drawing.Color.DimGray;
-			stateProperties12.FillColor = System.Drawing.Color.White;
-			stateProperties12.ForeColor = System.Drawing.Color.Black;
-			stateProperties12.PlaceholderForeColor = System.Drawing.Color.Empty;
-			this.numTextBox1.OnIdleState = stateProperties12;
+			stateProperties13.BorderColor = System.Drawing.Color.Empty;
+			stateProperties13.FillColor = System.Drawing.Color.Empty;
+			stateProperties13.ForeColor = System.Drawing.Color.Empty;
+			stateProperties13.PlaceholderForeColor = System.Drawing.Color.Empty;
+			this.numTextBox1.OnActiveState = stateProperties13;
+			stateProperties14.BorderColor = System.Drawing.Color.Empty;
+			stateProperties14.FillColor = System.Drawing.Color.White;
+			stateProperties14.ForeColor = System.Drawing.Color.Empty;
+			stateProperties14.PlaceholderForeColor = System.Drawing.Color.Silver;
+			this.numTextBox1.OnDisabledState = stateProperties14;
+			stateProperties15.BorderColor = System.Drawing.Color.Empty;
+			stateProperties15.FillColor = System.Drawing.Color.Empty;
+			stateProperties15.ForeColor = System.Drawing.Color.Empty;
+			stateProperties15.PlaceholderForeColor = System.Drawing.Color.Empty;
+			this.numTextBox1.OnHoverState = stateProperties15;
+			stateProperties16.BorderColor = System.Drawing.Color.DimGray;
+			stateProperties16.FillColor = System.Drawing.Color.White;
+			stateProperties16.ForeColor = System.Drawing.Color.Black;
+			stateProperties16.PlaceholderForeColor = System.Drawing.Color.Empty;
+			this.numTextBox1.OnIdleState = stateProperties16;
 			this.numTextBox1.PasswordChar = '\0';
 			this.numTextBox1.PlaceholderForeColor = System.Drawing.Color.Gray;
 			this.numTextBox1.PlaceholderText = "63";
@@ -366,16 +454,6 @@ namespace Client_Forms
 			this.numTextBox1.TextPlaceholder = "63";
 			this.numTextBox1.UseSystemPasswordChar = false;
 			this.numTextBox1.WordWrap = true;
-			// 
-			// separatorLabel1
-			// 
-			this.separatorLabel1.AutoSize = true;
-			this.separatorLabel1.ForeColor = System.Drawing.Color.White;
-			this.separatorLabel1.Location = new System.Drawing.Point(37, 13);
-			this.separatorLabel1.Name = "separatorLabel1";
-			this.separatorLabel1.Size = new System.Drawing.Size(12, 15);
-			this.separatorLabel1.TabIndex = 6;
-			this.separatorLabel1.Text = "-";
 			// 
 			// numTextBox2
 			// 
@@ -412,26 +490,26 @@ namespace Client_Forms
 			this.numTextBox2.Modified = false;
 			this.numTextBox2.Multiline = false;
 			this.numTextBox2.Name = "numTextBox2";
-			stateProperties13.BorderColor = System.Drawing.Color.Empty;
-			stateProperties13.FillColor = System.Drawing.Color.Empty;
-			stateProperties13.ForeColor = System.Drawing.Color.Empty;
-			stateProperties13.PlaceholderForeColor = System.Drawing.Color.Empty;
-			this.numTextBox2.OnActiveState = stateProperties13;
-			stateProperties14.BorderColor = System.Drawing.Color.Empty;
-			stateProperties14.FillColor = System.Drawing.Color.White;
-			stateProperties14.ForeColor = System.Drawing.Color.Empty;
-			stateProperties14.PlaceholderForeColor = System.Drawing.Color.Silver;
-			this.numTextBox2.OnDisabledState = stateProperties14;
-			stateProperties15.BorderColor = System.Drawing.Color.Empty;
-			stateProperties15.FillColor = System.Drawing.Color.Empty;
-			stateProperties15.ForeColor = System.Drawing.Color.Empty;
-			stateProperties15.PlaceholderForeColor = System.Drawing.Color.Empty;
-			this.numTextBox2.OnHoverState = stateProperties15;
-			stateProperties16.BorderColor = System.Drawing.Color.DimGray;
-			stateProperties16.FillColor = System.Drawing.Color.White;
-			stateProperties16.ForeColor = System.Drawing.Color.Black;
-			stateProperties16.PlaceholderForeColor = System.Drawing.Color.Empty;
-			this.numTextBox2.OnIdleState = stateProperties16;
+			stateProperties17.BorderColor = System.Drawing.Color.Empty;
+			stateProperties17.FillColor = System.Drawing.Color.Empty;
+			stateProperties17.ForeColor = System.Drawing.Color.Empty;
+			stateProperties17.PlaceholderForeColor = System.Drawing.Color.Empty;
+			this.numTextBox2.OnActiveState = stateProperties17;
+			stateProperties18.BorderColor = System.Drawing.Color.Empty;
+			stateProperties18.FillColor = System.Drawing.Color.White;
+			stateProperties18.ForeColor = System.Drawing.Color.Empty;
+			stateProperties18.PlaceholderForeColor = System.Drawing.Color.Silver;
+			this.numTextBox2.OnDisabledState = stateProperties18;
+			stateProperties19.BorderColor = System.Drawing.Color.Empty;
+			stateProperties19.FillColor = System.Drawing.Color.Empty;
+			stateProperties19.ForeColor = System.Drawing.Color.Empty;
+			stateProperties19.PlaceholderForeColor = System.Drawing.Color.Empty;
+			this.numTextBox2.OnHoverState = stateProperties19;
+			stateProperties20.BorderColor = System.Drawing.Color.DimGray;
+			stateProperties20.FillColor = System.Drawing.Color.White;
+			stateProperties20.ForeColor = System.Drawing.Color.Black;
+			stateProperties20.PlaceholderForeColor = System.Drawing.Color.Empty;
+			this.numTextBox2.OnIdleState = stateProperties20;
 			this.numTextBox2.PasswordChar = '\0';
 			this.numTextBox2.PlaceholderForeColor = System.Drawing.Color.Gray;
 			this.numTextBox2.PlaceholderText = "489";
@@ -451,27 +529,6 @@ namespace Client_Forms
 			this.numTextBox2.TextPlaceholder = "489";
 			this.numTextBox2.UseSystemPasswordChar = false;
 			this.numTextBox2.WordWrap = true;
-			// 
-			// separatorLabel2
-			// 
-			this.separatorLabel2.AutoSize = true;
-			this.separatorLabel2.ForeColor = System.Drawing.Color.White;
-			this.separatorLabel2.Location = new System.Drawing.Point(144, 13);
-			this.separatorLabel2.Name = "separatorLabel2";
-			this.separatorLabel2.Size = new System.Drawing.Size(12, 15);
-			this.separatorLabel2.TabIndex = 5;
-			this.separatorLabel2.Text = "-";
-			// 
-			// iranLabel
-			// 
-			this.iranLabel.AutoSize = true;
-			this.iranLabel.Font = new System.Drawing.Font("IRANSansXFaNum", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-			this.iranLabel.ForeColor = System.Drawing.Color.White;
-			this.iranLabel.Location = new System.Drawing.Point(155, 11);
-			this.iranLabel.Name = "iranLabel";
-			this.iranLabel.Size = new System.Drawing.Size(29, 18);
-			this.iranLabel.TabIndex = 4;
-			this.iranLabel.Text = "ایران";
 			// 
 			// phoneNumberTextBox
 			// 
@@ -508,26 +565,26 @@ namespace Client_Forms
 			this.phoneNumberTextBox.Modified = false;
 			this.phoneNumberTextBox.Multiline = false;
 			this.phoneNumberTextBox.Name = "phoneNumberTextBox";
-			stateProperties17.BorderColor = System.Drawing.Color.Empty;
-			stateProperties17.FillColor = System.Drawing.Color.Empty;
-			stateProperties17.ForeColor = System.Drawing.Color.Empty;
-			stateProperties17.PlaceholderForeColor = System.Drawing.Color.Empty;
-			this.phoneNumberTextBox.OnActiveState = stateProperties17;
-			stateProperties18.BorderColor = System.Drawing.Color.Empty;
-			stateProperties18.FillColor = System.Drawing.Color.White;
-			stateProperties18.ForeColor = System.Drawing.Color.Empty;
-			stateProperties18.PlaceholderForeColor = System.Drawing.Color.Silver;
-			this.phoneNumberTextBox.OnDisabledState = stateProperties18;
-			stateProperties19.BorderColor = System.Drawing.Color.Empty;
-			stateProperties19.FillColor = System.Drawing.Color.Empty;
-			stateProperties19.ForeColor = System.Drawing.Color.Empty;
-			stateProperties19.PlaceholderForeColor = System.Drawing.Color.Empty;
-			this.phoneNumberTextBox.OnHoverState = stateProperties19;
-			stateProperties20.BorderColor = System.Drawing.Color.Maroon;
-			stateProperties20.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(0)))), ((int)(((byte)(61)))));
-			stateProperties20.ForeColor = System.Drawing.Color.White;
-			stateProperties20.PlaceholderForeColor = System.Drawing.Color.Empty;
-			this.phoneNumberTextBox.OnIdleState = stateProperties20;
+			stateProperties21.BorderColor = System.Drawing.Color.Empty;
+			stateProperties21.FillColor = System.Drawing.Color.Empty;
+			stateProperties21.ForeColor = System.Drawing.Color.Empty;
+			stateProperties21.PlaceholderForeColor = System.Drawing.Color.Empty;
+			this.phoneNumberTextBox.OnActiveState = stateProperties21;
+			stateProperties22.BorderColor = System.Drawing.Color.Empty;
+			stateProperties22.FillColor = System.Drawing.Color.White;
+			stateProperties22.ForeColor = System.Drawing.Color.Empty;
+			stateProperties22.PlaceholderForeColor = System.Drawing.Color.Silver;
+			this.phoneNumberTextBox.OnDisabledState = stateProperties22;
+			stateProperties23.BorderColor = System.Drawing.Color.Empty;
+			stateProperties23.FillColor = System.Drawing.Color.Empty;
+			stateProperties23.ForeColor = System.Drawing.Color.Empty;
+			stateProperties23.PlaceholderForeColor = System.Drawing.Color.Empty;
+			this.phoneNumberTextBox.OnHoverState = stateProperties23;
+			stateProperties24.BorderColor = System.Drawing.Color.Maroon;
+			stateProperties24.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(0)))), ((int)(((byte)(61)))));
+			stateProperties24.ForeColor = System.Drawing.Color.White;
+			stateProperties24.PlaceholderForeColor = System.Drawing.Color.Empty;
+			this.phoneNumberTextBox.OnIdleState = stateProperties24;
 			this.phoneNumberTextBox.PasswordChar = '\0';
 			this.phoneNumberTextBox.PlaceholderForeColor = System.Drawing.Color.Silver;
 			this.phoneNumberTextBox.PlaceholderText = "شماره همراه";
@@ -584,26 +641,26 @@ namespace Client_Forms
 			this.clientNameTextBox.Modified = false;
 			this.clientNameTextBox.Multiline = false;
 			this.clientNameTextBox.Name = "clientNameTextBox";
-			stateProperties21.BorderColor = System.Drawing.Color.Empty;
-			stateProperties21.FillColor = System.Drawing.Color.Empty;
-			stateProperties21.ForeColor = System.Drawing.Color.Empty;
-			stateProperties21.PlaceholderForeColor = System.Drawing.Color.Empty;
-			this.clientNameTextBox.OnActiveState = stateProperties21;
-			stateProperties22.BorderColor = System.Drawing.Color.Empty;
-			stateProperties22.FillColor = System.Drawing.Color.White;
-			stateProperties22.ForeColor = System.Drawing.Color.Empty;
-			stateProperties22.PlaceholderForeColor = System.Drawing.Color.Silver;
-			this.clientNameTextBox.OnDisabledState = stateProperties22;
-			stateProperties23.BorderColor = System.Drawing.Color.Empty;
-			stateProperties23.FillColor = System.Drawing.Color.Empty;
-			stateProperties23.ForeColor = System.Drawing.Color.Empty;
-			stateProperties23.PlaceholderForeColor = System.Drawing.Color.Empty;
-			this.clientNameTextBox.OnHoverState = stateProperties23;
-			stateProperties24.BorderColor = System.Drawing.Color.Maroon;
-			stateProperties24.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(0)))), ((int)(((byte)(61)))));
-			stateProperties24.ForeColor = System.Drawing.Color.White;
-			stateProperties24.PlaceholderForeColor = System.Drawing.Color.Empty;
-			this.clientNameTextBox.OnIdleState = stateProperties24;
+			stateProperties25.BorderColor = System.Drawing.Color.Empty;
+			stateProperties25.FillColor = System.Drawing.Color.Empty;
+			stateProperties25.ForeColor = System.Drawing.Color.Empty;
+			stateProperties25.PlaceholderForeColor = System.Drawing.Color.Empty;
+			this.clientNameTextBox.OnActiveState = stateProperties25;
+			stateProperties26.BorderColor = System.Drawing.Color.Empty;
+			stateProperties26.FillColor = System.Drawing.Color.White;
+			stateProperties26.ForeColor = System.Drawing.Color.Empty;
+			stateProperties26.PlaceholderForeColor = System.Drawing.Color.Silver;
+			this.clientNameTextBox.OnDisabledState = stateProperties26;
+			stateProperties27.BorderColor = System.Drawing.Color.Empty;
+			stateProperties27.FillColor = System.Drawing.Color.Empty;
+			stateProperties27.ForeColor = System.Drawing.Color.Empty;
+			stateProperties27.PlaceholderForeColor = System.Drawing.Color.Empty;
+			this.clientNameTextBox.OnHoverState = stateProperties27;
+			stateProperties28.BorderColor = System.Drawing.Color.Maroon;
+			stateProperties28.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(0)))), ((int)(((byte)(61)))));
+			stateProperties28.ForeColor = System.Drawing.Color.White;
+			stateProperties28.PlaceholderForeColor = System.Drawing.Color.Empty;
+			this.clientNameTextBox.OnIdleState = stateProperties28;
 			this.clientNameTextBox.PasswordChar = '\0';
 			this.clientNameTextBox.PlaceholderForeColor = System.Drawing.Color.Silver;
 			this.clientNameTextBox.PlaceholderText = "نام مشتری";
@@ -629,34 +686,13 @@ namespace Client_Forms
 			// 
 			this.financialSituationLabel.Font = new System.Drawing.Font("IRANSansXFaNum", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
 			this.financialSituationLabel.ForeColor = System.Drawing.Color.White;
-			this.financialSituationLabel.Location = new System.Drawing.Point(368, 600);
+			this.financialSituationLabel.Location = new System.Drawing.Point(371, 600);
 			this.financialSituationLabel.Name = "financialSituationLabel";
 			this.financialSituationLabel.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
 			this.financialSituationLabel.Size = new System.Drawing.Size(123, 25);
 			this.financialSituationLabel.TabIndex = 5;
 			this.financialSituationLabel.Text = "(وضعیت مالی)";
 			this.financialSituationLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-			// 
-			// totalAmountUnderlinePanel
-			// 
-			this.totalAmountUnderlinePanel.BackColor = System.Drawing.Color.DimGray;
-			this.totalAmountUnderlinePanel.Location = new System.Drawing.Point(12, 635);
-			this.totalAmountUnderlinePanel.Name = "totalAmountUnderlinePanel";
-			this.totalAmountUnderlinePanel.Size = new System.Drawing.Size(350, 3);
-			this.totalAmountUnderlinePanel.TabIndex = 4;
-			// 
-			// totalAmountTextBox
-			// 
-			this.totalAmountTextBox.Font = new System.Drawing.Font("IRANSansXFaNum", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-			this.totalAmountTextBox.ForeColor = System.Drawing.Color.DimGray;
-			this.totalAmountTextBox.Location = new System.Drawing.Point(12, 587);
-			this.totalAmountTextBox.Name = "totalAmountTextBox";
-			this.totalAmountTextBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-			this.totalAmountTextBox.Size = new System.Drawing.Size(350, 45);
-			this.totalAmountTextBox.TabIndex = 3;
-			this.totalAmountTextBox.Text = "0 تومان";
-			this.totalAmountTextBox.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-			this.totalAmountTextBox.TextChanged += new System.EventHandler(this.TotalAmountTextBox_TextChanged);
 			// 
 			// paymentButton
 			// 
@@ -718,26 +754,26 @@ namespace Client_Forms
 			this.searchClientTextBox.Modified = false;
 			this.searchClientTextBox.Multiline = false;
 			this.searchClientTextBox.Name = "searchClientTextBox";
-			stateProperties25.BorderColor = System.Drawing.Color.DodgerBlue;
-			stateProperties25.FillColor = System.Drawing.Color.Empty;
-			stateProperties25.ForeColor = System.Drawing.Color.Empty;
-			stateProperties25.PlaceholderForeColor = System.Drawing.Color.Empty;
-			this.searchClientTextBox.OnActiveState = stateProperties25;
-			stateProperties26.BorderColor = System.Drawing.Color.Empty;
-			stateProperties26.FillColor = System.Drawing.Color.White;
-			stateProperties26.ForeColor = System.Drawing.Color.Empty;
-			stateProperties26.PlaceholderForeColor = System.Drawing.Color.Silver;
-			this.searchClientTextBox.OnDisabledState = stateProperties26;
-			stateProperties27.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(181)))), ((int)(((byte)(255)))));
-			stateProperties27.FillColor = System.Drawing.Color.Empty;
-			stateProperties27.ForeColor = System.Drawing.Color.Empty;
-			stateProperties27.PlaceholderForeColor = System.Drawing.Color.Empty;
-			this.searchClientTextBox.OnHoverState = stateProperties27;
-			stateProperties28.BorderColor = System.Drawing.Color.Gray;
-			stateProperties28.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(0)))), ((int)(((byte)(61)))));
-			stateProperties28.ForeColor = System.Drawing.Color.Empty;
-			stateProperties28.PlaceholderForeColor = System.Drawing.Color.Empty;
-			this.searchClientTextBox.OnIdleState = stateProperties28;
+			stateProperties29.BorderColor = System.Drawing.Color.DodgerBlue;
+			stateProperties29.FillColor = System.Drawing.Color.Empty;
+			stateProperties29.ForeColor = System.Drawing.Color.Empty;
+			stateProperties29.PlaceholderForeColor = System.Drawing.Color.Empty;
+			this.searchClientTextBox.OnActiveState = stateProperties29;
+			stateProperties30.BorderColor = System.Drawing.Color.Empty;
+			stateProperties30.FillColor = System.Drawing.Color.White;
+			stateProperties30.ForeColor = System.Drawing.Color.Empty;
+			stateProperties30.PlaceholderForeColor = System.Drawing.Color.Silver;
+			this.searchClientTextBox.OnDisabledState = stateProperties30;
+			stateProperties31.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(181)))), ((int)(((byte)(255)))));
+			stateProperties31.FillColor = System.Drawing.Color.Empty;
+			stateProperties31.ForeColor = System.Drawing.Color.Empty;
+			stateProperties31.PlaceholderForeColor = System.Drawing.Color.Empty;
+			this.searchClientTextBox.OnHoverState = stateProperties31;
+			stateProperties32.BorderColor = System.Drawing.Color.Gray;
+			stateProperties32.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(0)))), ((int)(((byte)(61)))));
+			stateProperties32.ForeColor = System.Drawing.Color.Empty;
+			stateProperties32.PlaceholderForeColor = System.Drawing.Color.Empty;
+			this.searchClientTextBox.OnIdleState = stateProperties32;
 			this.searchClientTextBox.PasswordChar = '\0';
 			this.searchClientTextBox.PlaceholderForeColor = System.Drawing.Color.Silver;
 			this.searchClientTextBox.PlaceholderText = "جستجو (شماره پلاک، شماره تماس)";
@@ -762,91 +798,92 @@ namespace Client_Forms
 			this.searchClientTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.SearchClientTextBox_KeyPress);
 			this.searchClientTextBox.Enter += new System.EventHandler(this.SearchClientTextBox_Enter);
 			// 
-			// listFinantioalClientDataGridView
-			// 
-			this.listFinantioalClientDataGridView.AllowUserToAddRows = false;
-			this.listFinantioalClientDataGridView.AllowUserToDeleteRows = false;
-			dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(203)))), ((int)(((byte)(232)))));
-			this.listFinantioalClientDataGridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-			this.listFinantioalClientDataGridView.AutoGenerateColumns = false;
-			this.listFinantioalClientDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-			this.listFinantioalClientDataGridView.BackgroundColor = System.Drawing.Color.White;
-			this.listFinantioalClientDataGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
-			this.listFinantioalClientDataGridView.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
-			this.listFinantioalClientDataGridView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-			dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-			dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(81)))), ((int)(((byte)(181)))));
-			dataGridViewCellStyle2.Font = new System.Drawing.Font("IRANSansXFaNum", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-			dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-			dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-			dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-			dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-			this.listFinantioalClientDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
-			this.listFinantioalClientDataGridView.ColumnHeadersHeight = 30;
-			this.listFinantioalClientDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-			this.listFinantioalClientDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.idDataGridViewTextBoxColumn,
-            this.Select_Item,
-            this.amountPaidDataGridViewTextBoxColumn,
-            this.registrationDateDataGridViewTextBoxColumn,
-            this.Registration_Time,
-            this.finantialSituationDataGridViewTextBoxColumn,
-            this.registrationTimeDataGridViewTextBoxColumn,
-            this.clientNameDataGridViewTextBoxColumn,
-            this.licensePlateDataGridViewTextBoxColumn,
-            this.phoneNumberDataGridViewTextBoxColumn,
-            this.taxPercentDataGridViewTextBoxColumn});
-			this.listFinantioalClientDataGridView.DataSource = this.listFinancialClientBindingSource;
-			dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-			dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(220)))), ((int)(((byte)(239)))));
-			dataGridViewCellStyle3.Font = new System.Drawing.Font("IRANSans", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-			dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
-			dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(139)))), ((int)(((byte)(205)))));
-			dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
-			dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-			this.listFinantioalClientDataGridView.DefaultCellStyle = dataGridViewCellStyle3;
-			this.listFinantioalClientDataGridView.EnableHeadersVisualStyles = false;
-			this.listFinantioalClientDataGridView.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(201)))), ((int)(((byte)(231)))));
-			this.listFinantioalClientDataGridView.Location = new System.Drawing.Point(12, 111);
-			this.listFinantioalClientDataGridView.Name = "listFinantioalClientDataGridView";
-			this.listFinantioalClientDataGridView.ReadOnly = true;
-			this.listFinantioalClientDataGridView.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-			this.listFinantioalClientDataGridView.RowHeadersVisible = false;
-			this.listFinantioalClientDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-			this.listFinantioalClientDataGridView.Size = new System.Drawing.Size(1126, 470);
-			this.listFinantioalClientDataGridView.TabIndex = 0;
-			this.listFinantioalClientDataGridView.Theme = Guna.UI2.WinForms.Enums.DataGridViewPresetThemes.Indigo;
-			this.listFinantioalClientDataGridView.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(203)))), ((int)(((byte)(232)))));
-			this.listFinantioalClientDataGridView.ThemeStyle.AlternatingRowsStyle.Font = null;
-			this.listFinantioalClientDataGridView.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty;
-			this.listFinantioalClientDataGridView.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.Empty;
-			this.listFinantioalClientDataGridView.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Empty;
-			this.listFinantioalClientDataGridView.ThemeStyle.BackColor = System.Drawing.Color.White;
-			this.listFinantioalClientDataGridView.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(201)))), ((int)(((byte)(231)))));
-			this.listFinantioalClientDataGridView.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(81)))), ((int)(((byte)(181)))));
-			this.listFinantioalClientDataGridView.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-			this.listFinantioalClientDataGridView.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("IRANSansXFaNum", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-			this.listFinantioalClientDataGridView.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White;
-			this.listFinantioalClientDataGridView.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-			this.listFinantioalClientDataGridView.ThemeStyle.HeaderStyle.Height = 30;
-			this.listFinantioalClientDataGridView.ThemeStyle.ReadOnly = true;
-			this.listFinantioalClientDataGridView.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(220)))), ((int)(((byte)(239)))));
-			this.listFinantioalClientDataGridView.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
-			this.listFinantioalClientDataGridView.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("IRANSans", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-			this.listFinantioalClientDataGridView.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.Black;
-			this.listFinantioalClientDataGridView.ThemeStyle.RowsStyle.Height = 22;
-			this.listFinantioalClientDataGridView.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(139)))), ((int)(((byte)(205)))));
-			this.listFinantioalClientDataGridView.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.Black;
-			this.listFinantioalClientDataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ListFinantioalClientDataGridView_CellClick);
-			// 
-			// listFinancialClientBindingSource
-			// 
-			this.listFinancialClientBindingSource.DataSource = typeof(Models.ListFinancialClient);
-			// 
 			// listFinantioalClientDataGridViewElipse
 			// 
 			this.listFinantioalClientDataGridViewElipse.BorderRadius = 25;
 			this.listFinantioalClientDataGridViewElipse.TargetControl = this.listFinantioalClientDataGridView;
+			// 
+			// totalAmountTextBox
+			// 
+			this.totalAmountTextBox.AcceptsReturn = false;
+			this.totalAmountTextBox.AcceptsTab = false;
+			this.totalAmountTextBox.AnimationSpeed = 200;
+			this.totalAmountTextBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
+			this.totalAmountTextBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
+			this.totalAmountTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(0)))), ((int)(((byte)(61)))));
+			this.totalAmountTextBox.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("totalAmountTextBox.BackgroundImage")));
+			this.totalAmountTextBox.BorderColorActive = System.Drawing.Color.DimGray;
+			this.totalAmountTextBox.BorderColorDisabled = System.Drawing.Color.DimGray;
+			this.totalAmountTextBox.BorderColorHover = System.Drawing.Color.DimGray;
+			this.totalAmountTextBox.BorderColorIdle = System.Drawing.Color.DimGray;
+			this.totalAmountTextBox.BorderRadius = 1;
+			this.totalAmountTextBox.BorderThickness = 3;
+			this.totalAmountTextBox.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
+			this.totalAmountTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
+			this.totalAmountTextBox.DefaultFont = new System.Drawing.Font("IRANSansXFaNum", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+			this.totalAmountTextBox.DefaultText = "";
+			this.totalAmountTextBox.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(0)))), ((int)(((byte)(61)))));
+			this.totalAmountTextBox.ForeColor = System.Drawing.Color.White;
+			this.totalAmountTextBox.HideSelection = true;
+			this.totalAmountTextBox.IconLeft = null;
+			this.totalAmountTextBox.IconLeftCursor = System.Windows.Forms.Cursors.IBeam;
+			this.totalAmountTextBox.IconPadding = 10;
+			this.totalAmountTextBox.IconRight = null;
+			this.totalAmountTextBox.IconRightCursor = System.Windows.Forms.Cursors.IBeam;
+			this.totalAmountTextBox.Lines = new string[0];
+			this.totalAmountTextBox.Location = new System.Drawing.Point(12, 592);
+			this.totalAmountTextBox.MaxLength = 32767;
+			this.totalAmountTextBox.MinimumSize = new System.Drawing.Size(100, 35);
+			this.totalAmountTextBox.Modified = false;
+			this.totalAmountTextBox.Multiline = false;
+			this.totalAmountTextBox.Name = "totalAmountTextBox";
+			stateProperties1.BorderColor = System.Drawing.Color.DimGray;
+			stateProperties1.FillColor = System.Drawing.Color.Empty;
+			stateProperties1.ForeColor = System.Drawing.Color.Empty;
+			stateProperties1.PlaceholderForeColor = System.Drawing.Color.Empty;
+			this.totalAmountTextBox.OnActiveState = stateProperties1;
+			stateProperties2.BorderColor = System.Drawing.Color.DimGray;
+			stateProperties2.FillColor = System.Drawing.Color.White;
+			stateProperties2.ForeColor = System.Drawing.Color.Empty;
+			stateProperties2.PlaceholderForeColor = System.Drawing.Color.Silver;
+			this.totalAmountTextBox.OnDisabledState = stateProperties2;
+			stateProperties3.BorderColor = System.Drawing.Color.DimGray;
+			stateProperties3.FillColor = System.Drawing.Color.Empty;
+			stateProperties3.ForeColor = System.Drawing.Color.Empty;
+			stateProperties3.PlaceholderForeColor = System.Drawing.Color.Empty;
+			this.totalAmountTextBox.OnHoverState = stateProperties3;
+			stateProperties4.BorderColor = System.Drawing.Color.DimGray;
+			stateProperties4.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(0)))), ((int)(((byte)(61)))));
+			stateProperties4.ForeColor = System.Drawing.Color.White;
+			stateProperties4.PlaceholderForeColor = System.Drawing.Color.Empty;
+			this.totalAmountTextBox.OnIdleState = stateProperties4;
+			this.totalAmountTextBox.PasswordChar = '\0';
+			this.totalAmountTextBox.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+			this.totalAmountTextBox.PlaceholderText = "جمع مبلغ بدهی";
+			this.totalAmountTextBox.ReadOnly = true;
+			this.totalAmountTextBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+			this.totalAmountTextBox.ScrollBars = System.Windows.Forms.ScrollBars.None;
+			this.totalAmountTextBox.SelectedText = "";
+			this.totalAmountTextBox.SelectionLength = 0;
+			this.totalAmountTextBox.SelectionStart = 0;
+			this.totalAmountTextBox.ShortcutsEnabled = true;
+			this.totalAmountTextBox.Size = new System.Drawing.Size(350, 49);
+			this.totalAmountTextBox.Style = Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox._Style.Material;
+			this.totalAmountTextBox.TabIndex = 11;
+			this.totalAmountTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+			this.totalAmountTextBox.TextMarginBottom = 0;
+			this.totalAmountTextBox.TextMarginLeft = 0;
+			this.totalAmountTextBox.TextMarginTop = -3;
+			this.totalAmountTextBox.TextPlaceholder = "جمع مبلغ بدهی";
+			this.totalAmountTextBox.UseSystemPasswordChar = false;
+			this.totalAmountTextBox.WordWrap = true;
+			// 
+			// Select_Item
+			// 
+			this.Select_Item.FillWeight = 50F;
+			this.Select_Item.HeaderText = "انتخاب";
+			this.Select_Item.Name = "Select_Item";
+			this.Select_Item.ReadOnly = true;
 			// 
 			// idDataGridViewTextBoxColumn
 			// 
@@ -856,20 +893,21 @@ namespace Client_Forms
 			this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
 			this.idDataGridViewTextBoxColumn.ReadOnly = true;
 			// 
-			// Select_Item
-			// 
-			this.Select_Item.FillWeight = 50F;
-			this.Select_Item.HeaderText = "انتخاب مورد";
-			this.Select_Item.Name = "Select_Item";
-			this.Select_Item.ReadOnly = true;
-			// 
 			// amountPaidDataGridViewTextBoxColumn
 			// 
 			this.amountPaidDataGridViewTextBoxColumn.DataPropertyName = "Amount_Paid";
-			this.amountPaidDataGridViewTextBoxColumn.FillWeight = 250F;
+			this.amountPaidDataGridViewTextBoxColumn.FillWeight = 150F;
 			this.amountPaidDataGridViewTextBoxColumn.HeaderText = "مبلغ پرداخت شده";
 			this.amountPaidDataGridViewTextBoxColumn.Name = "amountPaidDataGridViewTextBoxColumn";
 			this.amountPaidDataGridViewTextBoxColumn.ReadOnly = true;
+			// 
+			// amountRemaininigDataGridViewTextBoxColumn
+			// 
+			this.amountRemaininigDataGridViewTextBoxColumn.DataPropertyName = "Amount_Remaininig";
+			this.amountRemaininigDataGridViewTextBoxColumn.FillWeight = 150F;
+			this.amountRemaininigDataGridViewTextBoxColumn.HeaderText = "مبلغ باقیمانده";
+			this.amountRemaininigDataGridViewTextBoxColumn.Name = "amountRemaininigDataGridViewTextBoxColumn";
+			this.amountRemaininigDataGridViewTextBoxColumn.ReadOnly = true;
 			// 
 			// registrationDateDataGridViewTextBoxColumn
 			// 
@@ -878,13 +916,12 @@ namespace Client_Forms
 			this.registrationDateDataGridViewTextBoxColumn.Name = "registrationDateDataGridViewTextBoxColumn";
 			this.registrationDateDataGridViewTextBoxColumn.ReadOnly = true;
 			// 
-			// Registration_Time
+			// registrationTimeDataGridViewTextBoxColumn
 			// 
-			this.Registration_Time.DataPropertyName = "Registration_Time";
-			this.Registration_Time.HeaderText = "زمان ثبت";
-			this.Registration_Time.Name = "Registration_Time";
-			this.Registration_Time.ReadOnly = true;
-			this.Registration_Time.Visible = false;
+			this.registrationTimeDataGridViewTextBoxColumn.DataPropertyName = "Registration_Time";
+			this.registrationTimeDataGridViewTextBoxColumn.HeaderText = "زمان ثبت";
+			this.registrationTimeDataGridViewTextBoxColumn.Name = "registrationTimeDataGridViewTextBoxColumn";
+			this.registrationTimeDataGridViewTextBoxColumn.ReadOnly = true;
 			// 
 			// finantialSituationDataGridViewTextBoxColumn
 			// 
@@ -893,18 +930,9 @@ namespace Client_Forms
 			this.finantialSituationDataGridViewTextBoxColumn.Name = "finantialSituationDataGridViewTextBoxColumn";
 			this.finantialSituationDataGridViewTextBoxColumn.ReadOnly = true;
 			// 
-			// registrationTimeDataGridViewTextBoxColumn
-			// 
-			this.registrationTimeDataGridViewTextBoxColumn.DataPropertyName = "Registration_Time";
-			this.registrationTimeDataGridViewTextBoxColumn.HeaderText = "زمان ثبت";
-			this.registrationTimeDataGridViewTextBoxColumn.Name = "registrationTimeDataGridViewTextBoxColumn";
-			this.registrationTimeDataGridViewTextBoxColumn.ReadOnly = true;
-			this.registrationTimeDataGridViewTextBoxColumn.Visible = false;
-			// 
 			// clientNameDataGridViewTextBoxColumn
 			// 
 			this.clientNameDataGridViewTextBoxColumn.DataPropertyName = "Client_Name";
-			this.clientNameDataGridViewTextBoxColumn.FillWeight = 150F;
 			this.clientNameDataGridViewTextBoxColumn.HeaderText = "نام مشتری";
 			this.clientNameDataGridViewTextBoxColumn.Name = "clientNameDataGridViewTextBoxColumn";
 			this.clientNameDataGridViewTextBoxColumn.ReadOnly = true;
@@ -934,6 +962,41 @@ namespace Client_Forms
 			this.taxPercentDataGridViewTextBoxColumn.ReadOnly = true;
 			this.taxPercentDataGridViewTextBoxColumn.Visible = false;
 			// 
+			// listFinancialClientBindingSource
+			// 
+			this.listFinancialClientBindingSource.DataSource = typeof(Models.ListFinancialClient);
+			// 
+			// separatorLabel1
+			// 
+			this.separatorLabel1.AutoSize = true;
+			this.separatorLabel1.ForeColor = System.Drawing.Color.White;
+			this.separatorLabel1.Location = new System.Drawing.Point(37, 13);
+			this.separatorLabel1.Name = "separatorLabel1";
+			this.separatorLabel1.Size = new System.Drawing.Size(12, 15);
+			this.separatorLabel1.TabIndex = 6;
+			this.separatorLabel1.Text = "-";
+			// 
+			// separatorLabel2
+			// 
+			this.separatorLabel2.AutoSize = true;
+			this.separatorLabel2.ForeColor = System.Drawing.Color.White;
+			this.separatorLabel2.Location = new System.Drawing.Point(144, 13);
+			this.separatorLabel2.Name = "separatorLabel2";
+			this.separatorLabel2.Size = new System.Drawing.Size(12, 15);
+			this.separatorLabel2.TabIndex = 5;
+			this.separatorLabel2.Text = "-";
+			// 
+			// iranLabel
+			// 
+			this.iranLabel.AutoSize = true;
+			this.iranLabel.Font = new System.Drawing.Font("IRANSansXFaNum", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+			this.iranLabel.ForeColor = System.Drawing.Color.White;
+			this.iranLabel.Location = new System.Drawing.Point(155, 11);
+			this.iranLabel.Name = "iranLabel";
+			this.iranLabel.Size = new System.Drawing.Size(29, 18);
+			this.iranLabel.TabIndex = 4;
+			this.iranLabel.Text = "ایران";
+			// 
 			// ClientFinancialSituationForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 17F);
@@ -945,9 +1008,9 @@ namespace Client_Forms
 			this.Text = "ClientFinancialSituationForm";
 			this.Load += new System.EventHandler(this.ClientFinancialSituationForm_Load);
 			this.mainPanel.ResumeLayout(false);
+			((System.ComponentModel.ISupportInitialize)(this.listFinantioalClientDataGridView)).EndInit();
 			this.licensePlateGroupBox.ResumeLayout(false);
 			this.licensePlateGroupBox.PerformLayout();
-			((System.ComponentModel.ISupportInitialize)(this.listFinantioalClientDataGridView)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.listFinancialClientBindingSource)).EndInit();
 			this.ResumeLayout(false);
 
@@ -956,13 +1019,9 @@ namespace Client_Forms
 		#endregion
 
 		private Guna.UI2.WinForms.Guna2Panel mainPanel;
-		private Guna.UI2.WinForms.Guna2DataGridView listFinantioalClientDataGridView;
-		private System.Windows.Forms.BindingSource listFinancialClientBindingSource;
 		private Guna.UI2.WinForms.Guna2GradientButton paymentButton;
 		private Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox searchClientTextBox;
 		private System.Windows.Forms.Label financialSituationLabel;
-		private System.Windows.Forms.Panel totalAmountUnderlinePanel;
-		private System.Windows.Forms.Label totalAmountTextBox;
 		private Guna.UI2.WinForms.Guna2Elipse listFinantioalClientDataGridViewElipse;
 		private Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox phoneNumberTextBox;
 		private Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox clientNameTextBox;
@@ -976,13 +1035,16 @@ namespace Client_Forms
 		private Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox numTextBox2;
 		private Mbb.Windows.Forms.Label separatorLabel2;
 		private Mbb.Windows.Forms.Label iranLabel;
+		private System.Windows.Forms.BindingSource listFinancialClientBindingSource;
+		private Guna.UI2.WinForms.Guna2DataGridView listFinantioalClientDataGridView;
+		private Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox totalAmountTextBox;
 		private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
 		private System.Windows.Forms.DataGridViewCheckBoxColumn Select_Item;
 		private System.Windows.Forms.DataGridViewTextBoxColumn amountPaidDataGridViewTextBoxColumn;
+		private System.Windows.Forms.DataGridViewTextBoxColumn amountRemaininigDataGridViewTextBoxColumn;
 		private System.Windows.Forms.DataGridViewTextBoxColumn registrationDateDataGridViewTextBoxColumn;
-		private System.Windows.Forms.DataGridViewTextBoxColumn Registration_Time;
-		private System.Windows.Forms.DataGridViewTextBoxColumn finantialSituationDataGridViewTextBoxColumn;
 		private System.Windows.Forms.DataGridViewTextBoxColumn registrationTimeDataGridViewTextBoxColumn;
+		private System.Windows.Forms.DataGridViewTextBoxColumn finantialSituationDataGridViewTextBoxColumn;
 		private System.Windows.Forms.DataGridViewTextBoxColumn clientNameDataGridViewTextBoxColumn;
 		private System.Windows.Forms.DataGridViewTextBoxColumn licensePlateDataGridViewTextBoxColumn;
 		private System.Windows.Forms.DataGridViewTextBoxColumn phoneNumberDataGridViewTextBoxColumn;

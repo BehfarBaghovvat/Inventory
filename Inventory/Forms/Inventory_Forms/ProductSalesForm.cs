@@ -336,34 +336,52 @@ namespace Inventory_Forms
 		#region PhoneNumberTextBox_Leave
 		private void PhoneNumberTextBox_Leave(object sender, System.EventArgs e)
 		{
-			if (string.IsNullOrWhiteSpace(phoneNumberTextBox.Text) || phoneNumberTextBox.Text.Length < 11)
+			if (string.IsNullOrWhiteSpace(phoneNumberTextBox.Text))
 			{
 				phoneNumberTextBox.Clear();
-				Transaction_Factors_Items.Phone_Number = null;
-				InventoryOutput.Phone_Number = null;
 				phoneNumberTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
 				return;
 			}
-			else
+			else if (!phoneNumberTextBox.Text.StartsWith("09"))
 			{
-				if (phoneNumberTextBox.Text.Length >= 12)
-				{
-					Mbb.Windows.Forms.MessageBox.Show(
-						text: "شماره همراه بیشتر از 11 رقم نمیشود. \n لطفا مجدد شماره را وارد نمایید.",
-						caption:"",
-						icon: Mbb.Windows.Forms.MessageBoxIcon.Information,
-						button: Mbb.Windows.Forms.MessageBoxButtons.Ok);
+				Mbb.Windows.Forms.MessageBox.Show(
+				text: "فرمت شماره تلفن همراه صحیح نمی باشد. \n لطفا مجدد تلاش نمایید.",
+				caption: "خطای ورودی",
+				icon: Mbb.Windows.Forms.MessageBoxIcon.Error,
+				button: Mbb.Windows.Forms.MessageBoxButtons.Ok);
 
-					phoneNumberTextBox.Focus();
-					return;
-				}
-				else
-				{
-					InventoryOutput.Phone_Number = phoneNumberTextBox.Text.Insert(4, "-");
+				phoneNumberTextBox.SelectAll();
+				phoneNumberTextBox.Focus();
+				return;
+			}
+			else if (phoneNumberTextBox.Text.Length < 11)
+			{
+				Mbb.Windows.Forms.MessageBox.Show(
+					text: "تعداد ارقام وارد شده کمتر از 11 رقم می باشد. \n لطفا مجدد تلاش نمایید.",
+					caption: "خطای ورودی",
+					icon: Mbb.Windows.Forms.MessageBoxIcon.Error,
+					button: Mbb.Windows.Forms.MessageBoxButtons.Ok);
 
-					Transaction_Factors_Items.Phone_Number =
-						phoneNumberTextBox.Text = phoneNumberTextBox.Text.Insert(4, "-");
-				}
+				phoneNumberTextBox.Focus();
+			}
+			else if (phoneNumberTextBox.Text.Length == 11)
+			{
+				phoneNumberTextBox.Text = phoneNumberTextBox.Text.Insert(4, "-");
+
+				InventoryOutput.Phone_Number = phoneNumberTextBox.Text;
+				
+			}
+			else if (phoneNumberTextBox.Text.Length >= 12 && !phoneNumberTextBox.Text.Contains('-'))
+			{
+				Mbb.Windows.Forms.MessageBox.Show(
+				text: "تعداد ارقام وارد شده بیشتر از 11 رقم می باشد. \n لطفا مجدد تلاش نمایید.",
+					caption: "خطای ورودی",
+					icon: Mbb.Windows.Forms.MessageBoxIcon.Error,
+					button: Mbb.Windows.Forms.MessageBoxButtons.Ok);
+
+				phoneNumberTextBox.SelectAll();
+				phoneNumberTextBox.Focus();
+				return;
 			}
 		}
 		#endregion /PhoneNumberTextBox_Leave
@@ -378,6 +396,8 @@ namespace Inventory_Forms
 			else
 			{
 				phoneNumberTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+
+				GetClientName(phoneNumberTextBox.Text);
 				
 			}
 		}
@@ -505,7 +525,7 @@ namespace Inventory_Forms
 		/// <summary>
 		/// برگشت به حالت اولیه سفارش
 		/// </summary>
-		private void AllClear()
+		public void AllClear()
 		{
 			InventoryOutput = null;
 			NumberPurchases = 0;
@@ -518,6 +538,7 @@ namespace Inventory_Forms
 			sellerNameTextBox.Clear();
 			clientNameTextBox.Clear();
 			carrierNameTextBox.Clear();
+			phoneNumberTextBox.Clear();
 		}
 		#endregion /AllClear
 
@@ -658,6 +679,55 @@ namespace Inventory_Forms
 		}
 		#endregion
 
+		#region GetClientName
+		/// <summary>
+		/// با وارد کردن شماره همراه
+		/// در صورت موجود بودن در سیستم
+		/// نام مشتری برگشت داده میشود.
+		/// </summary>
+		/// <param name="_client"></param>
+		/// <returns></returns>
+		private void GetClientName(string _clientPhone)
+		{
+			string _phoneNumber = _clientPhone.Replace("-",string.Empty).Trim();
+
+			Models.DataBaseContext dataBaseContext = null;
+			try
+			{
+				dataBaseContext =
+					new Models.DataBaseContext();
+
+				Models.Client client =
+					dataBaseContext.Clients
+					.Where(current => string.Compare(current.Phone_Number, _phoneNumber) ==0)
+					.FirstOrDefault();
+
+				if (client != null)
+				{
+					Transaction_Factors_Items.Phone_Number = client.Phone_Number;
+					clientNameTextBox.Text = client.Client_Name;
+				}
+				else
+				{
+					Transaction_Factors_Items.Phone_Number = null;
+					clientNameTextBox.Clear();
+				}
+			}
+			catch (System.Exception ex)
+			{
+				Infrastructure.Utility.ExceptionShow(ex);
+			}
+			finally
+			{
+				if (dataBaseContext != null)
+				{
+					dataBaseContext.Dispose();
+					dataBaseContext = null;
+				}
+			}
+		}
+		#endregion /GetClientName
+
 		#region LoadedProduction
 		/// <summary>
 		/// بارگزاری محصولات
@@ -696,6 +766,8 @@ namespace Inventory_Forms
 		{
 			this.Focus();
 
+			AllClear();
+
 			if (Inventory.Program.UserAuthentication == null)
 			{
 				sellerNameTextBox.Text = "حالت استفاده بدون کاربر";
@@ -704,8 +776,6 @@ namespace Inventory_Forms
 			{
 				sellerNameTextBox.Text = Inventory.Program.UserAuthentication.Full_Name;
 			}
-
-			AllClear();
 			LoadedProduction();
 		}
 		#endregion /Initialize
@@ -977,10 +1047,9 @@ namespace Inventory_Forms
 		}
 
 
+
 		#endregion /WarehouseOutput
 
 		#endregion /Founction
-
-		
 	}
 }

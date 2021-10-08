@@ -293,7 +293,7 @@ namespace Inventory_Forms
 			this.amountPaidTextBox.PasswordChar = '\0';
 			this.amountPaidTextBox.PlaceholderForeColor = System.Drawing.Color.White;
 			this.amountPaidTextBox.PlaceholderText = "";
-			this.amountPaidTextBox.ReadOnly = true;
+			this.amountPaidTextBox.ReadOnly = false;
 			this.amountPaidTextBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
 			this.amountPaidTextBox.ScrollBars = System.Windows.Forms.ScrollBars.None;
 			this.amountPaidTextBox.SelectedText = "";

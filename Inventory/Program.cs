@@ -244,6 +244,7 @@ namespace Inventory
 			//System.Windows.Forms.Application.Run(new Setting_Forms.BackupSettingForm());
 			//System.Windows.Forms.Application.Run(new Setting_Forms.ManagementSettingForm());
 			//System.Windows.Forms.Application.Run(new Client_Forms.RegisterClientForm());
+			//System.Windows.Forms.Application.Run(new Client_Forms.ClientFinancialSituationForm());
 		}
 	}
 }

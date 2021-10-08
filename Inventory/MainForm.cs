@@ -1102,8 +1102,8 @@ namespace Inventory
 			{
 				mainPanel.Controls.Clear();
 				mainPanel.Controls.Add(ClientFinancialSituationForm);
-				ClientFinancialSituationForm.Initialize();
 				ClientFinancialSituationForm.Show();
+				ClientFinancialSituationForm.Initialize();
 
 				ProductBuyForm.Hide();
 				ProductSalesForm.Hide();

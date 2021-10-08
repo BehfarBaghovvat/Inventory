@@ -1308,7 +1308,6 @@ namespace Inventory_Forms
 					return;
 				}
 				else
-
 				{
 					if (string.Compare(saveBottom.Text, "ثبت کالا") == 0)
 					{

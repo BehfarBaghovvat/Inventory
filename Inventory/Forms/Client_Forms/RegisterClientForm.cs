@@ -178,13 +178,8 @@ namespace Client_Forms
 		#region PhoneNumberTextBox_Leave
 		private void PhoneNumberTextBox_Leave(object sender, System.EventArgs e)
 		{
-			if (string.IsNullOrWhiteSpace(phoneNumberTextBox.Text) || phoneNumberTextBox.Text.Length < 11)
+			if (string.IsNullOrWhiteSpace(phoneNumberTextBox.Text))
 			{
-				Mbb.Windows.Forms.MessageBox.Show(
-					text: "تعداد ارقام وارد شده کمتر از 11 رقم می باشد. \n لطفا مجدد تلاش نمایید.",
-					caption: "خطای ورودی",
-					icon: Mbb.Windows.Forms.MessageBoxIcon.Error,
-					button: Mbb.Windows.Forms.MessageBoxButtons.Ok);
 				phoneNumberTextBox.Clear();
 				Client_GetData.Phone_Number = null;
 				phoneNumberTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -193,31 +188,40 @@ namespace Client_Forms
 			else if (!phoneNumberTextBox.Text.StartsWith("09"))
 			{
 				Mbb.Windows.Forms.MessageBox.Show(
-					text: "فرمت شماره تلفن همراه صحیح نمی باشد. \n لطفا مجدد تلاش نمایید.",
+				text: "فرمت شماره تلفن همراه صحیح نمی باشد. \n لطفا مجدد تلاش نمایید.",
+				caption: "خطای ورودی",
+				icon: Mbb.Windows.Forms.MessageBoxIcon.Error,
+				button: Mbb.Windows.Forms.MessageBoxButtons.Ok);
+
+				phoneNumberTextBox.SelectAll();
+				phoneNumberTextBox.Focus();
+				return;
+			}
+			else if (phoneNumberTextBox.Text.Length < 11)
+			{
+				Mbb.Windows.Forms.MessageBox.Show(
+					text: "تعداد ارقام وارد شده کمتر از 11 رقم می باشد. \n لطفا مجدد تلاش نمایید.",
 					caption: "خطای ورودی",
 					icon: Mbb.Windows.Forms.MessageBoxIcon.Error,
 					button: Mbb.Windows.Forms.MessageBoxButtons.Ok);
 
 				phoneNumberTextBox.Focus();
-				return;
 			}
-			else
+			else if (phoneNumberTextBox.Text.Length == 11)
 			{
-				if (Client_GetData.Phone_Number.Length > 11)
-				{
-					Mbb.Windows.Forms.MessageBox.Show(
-					text: "تعداد ارقام وارد شده بیشتر از 11 می باشد. \n لطفا مجدد تلاش نمایید.",
+				phoneNumberTextBox.Text = phoneNumberTextBox.Text.Insert(4, "-");
+			}
+			else if (phoneNumberTextBox.Text.Length >= 12 && !phoneNumberTextBox.Text.Contains('-'))
+			{
+				Mbb.Windows.Forms.MessageBox.Show(
+				text: "تعداد ارقام وارد شده بیشتر از 11 رقم می باشد. \n لطفا مجدد تلاش نمایید.",
 					caption: "خطای ورودی",
 					icon: Mbb.Windows.Forms.MessageBoxIcon.Error,
 					button: Mbb.Windows.Forms.MessageBoxButtons.Ok);
 
+				phoneNumberTextBox.SelectAll();
 					phoneNumberTextBox.Focus();
 					return;
-				}
-				else
-				{
-					phoneNumberTextBox.Text = phoneNumberTextBox.Text.Insert(4, "-");
-				}
 			}
 		}
 		#endregion /PhoneNumberTextBox_Leave
@@ -838,7 +842,7 @@ namespace Client_Forms
 
 					client.Client_Name = _setClient.Client_Name;
 					client.License_Plate = _setClient.License_Plate;
-					client.Phone_Number = _setClient.Phone_Number;
+					client.Phone_Number = _setClient.Phone_Number.Replace("-",string.Empty).Trim();
 					client.Registration_Date = $"{Infrastructure.Utility.PersianCalendar(System.DateTime.Now)}";
 					client.Registration_Time = $"{Infrastructure.Utility.ShowTime()}";
 

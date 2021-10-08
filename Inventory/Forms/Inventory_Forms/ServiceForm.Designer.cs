@@ -1662,10 +1662,10 @@ namespace Inventory_Forms
 			this.phoneNumberTextBox.IconRight = null;
 			this.phoneNumberTextBox.IconRightCursor = System.Windows.Forms.Cursors.IBeam;
 			this.phoneNumberTextBox.Lines = new string[0];
-			this.phoneNumberTextBox.Location = new System.Drawing.Point(229, 62);
-			this.phoneNumberTextBox.MaximumSize = new System.Drawing.Size(200, 35);
+			this.phoneNumberTextBox.Location = new System.Drawing.Point(179, 62);
+			this.phoneNumberTextBox.MaximumSize = new System.Drawing.Size(250, 35);
 			this.phoneNumberTextBox.MaxLength = 32767;
-			this.phoneNumberTextBox.MinimumSize = new System.Drawing.Size(100, 35);
+			this.phoneNumberTextBox.MinimumSize = new System.Drawing.Size(250, 35);
 			this.phoneNumberTextBox.Modified = false;
 			this.phoneNumberTextBox.Multiline = false;
 			this.phoneNumberTextBox.Name = "phoneNumberTextBox";
@@ -1699,7 +1699,7 @@ namespace Inventory_Forms
 			this.phoneNumberTextBox.SelectionLength = 0;
 			this.phoneNumberTextBox.SelectionStart = 0;
 			this.phoneNumberTextBox.ShortcutsEnabled = true;
-			this.phoneNumberTextBox.Size = new System.Drawing.Size(200, 35);
+			this.phoneNumberTextBox.Size = new System.Drawing.Size(250, 35);
 			this.phoneNumberTextBox.Style = Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox._Style.Material;
 			this.phoneNumberTextBox.TabIndex = 2;
 			this.phoneNumberTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -1743,9 +1743,9 @@ namespace Inventory_Forms
 			this.clientNameTextBox.IconRightCursor = System.Windows.Forms.Cursors.IBeam;
 			this.clientNameTextBox.Lines = new string[0];
 			this.clientNameTextBox.Location = new System.Drawing.Point(721, 62);
-			this.clientNameTextBox.MaximumSize = new System.Drawing.Size(200, 35);
+			this.clientNameTextBox.MaximumSize = new System.Drawing.Size(250, 35);
 			this.clientNameTextBox.MaxLength = 32767;
-			this.clientNameTextBox.MinimumSize = new System.Drawing.Size(100, 35);
+			this.clientNameTextBox.MinimumSize = new System.Drawing.Size(250, 35);
 			this.clientNameTextBox.Modified = false;
 			this.clientNameTextBox.Multiline = false;
 			this.clientNameTextBox.Name = "clientNameTextBox";
@@ -1779,7 +1779,7 @@ namespace Inventory_Forms
 			this.clientNameTextBox.SelectionLength = 0;
 			this.clientNameTextBox.SelectionStart = 0;
 			this.clientNameTextBox.ShortcutsEnabled = true;
-			this.clientNameTextBox.Size = new System.Drawing.Size(200, 35);
+			this.clientNameTextBox.Size = new System.Drawing.Size(250, 35);
 			this.clientNameTextBox.Style = Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox._Style.Material;
 			this.clientNameTextBox.TabIndex = 1;
 			this.clientNameTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
