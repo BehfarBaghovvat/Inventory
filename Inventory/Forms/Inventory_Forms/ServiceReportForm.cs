@@ -72,7 +72,7 @@ namespace Inventory_Forms
 		}
 		#endregion /SelectSearchComboBox_SelectedIndexChanged
 
-		#region SearchClientNameTextBox_Enter
+		#region SearchTextBox_Enter
 		private void SearchTextBox_Enter(object sender, System.EventArgs e)
 		{
 			switch (index)
@@ -88,9 +88,9 @@ namespace Inventory_Forms
 				break;
 			}
 		}
-		#endregion /SearchClientNameTextBox_Enter
+		#endregion /SearchTextBox_Enter
 
-		#region SearchClientNameTextBox_KeyPress
+		#region SearchTextBox_KeyPress
 		private void SearchTextBox_KeyPress(object sender, System.Windows.Forms.KeyPressEventArgs e)
 		{
 			switch (index)
@@ -114,9 +114,9 @@ namespace Inventory_Forms
 				break;
 			}
 		}
-		#endregion /SearchClientNameTextBox_KeyPress
+		#endregion /SearchTextBox_KeyPress
 
-		#region SearchClientNameTextBox_TextChange
+		#region SearchTextBox_TextChange
 		private void SearchTextBox_TextChange(object sender, System.EventArgs e)
 		{
 			if (string.IsNullOrWhiteSpace(searchTextBox.Text))
@@ -128,7 +128,7 @@ namespace Inventory_Forms
 				SearchItem = searchTextBox.Text;
 			}
 		}
-		#endregion /SearchClientNameTextBox_TextChange
+		#endregion /SearchTextBox_TextChange
 
 		#region SearchButton_Click
 		private void SearchButton_Click(object sender, System.EventArgs e)
@@ -168,7 +168,6 @@ namespace Inventory_Forms
 				selectSearchComboBox.Focus();
 				return;
 			}
-
 		}
 		#endregion /SearchButton_Click
 
@@ -224,7 +223,7 @@ namespace Inventory_Forms
 				if (invoiceSerialNumber == null)
 				{
 					Mbb.Windows.Forms.MessageBox.Show(
-						text: "شماره فاکتور مورد نظر در سیستم یافت نگردید. \n لطفا مجدد تلاش نمیادد."
+						text: "شماره فاکتور مورد نظر در سیستم یافت نگردید. \n لطفا مجدد تلاش نمیاد."
 						, caption: "جستجوی ناموفق"
 						, icon: Mbb.Windows.Forms.MessageBoxIcon.Error
 						, button: Mbb.Windows.Forms.MessageBoxButtons.Ok);
@@ -247,7 +246,10 @@ namespace Inventory_Forms
 				serviceTimeTextBox.Text = invoiceSerialNumber.Service_Time;
 				currentKilometersTextBox.Text = invoiceSerialNumber.Current_Kilometer;
 				clientNameTextBox.Text = invoiceSerialNumber.Client_Name;
-				licensePlateTextBox.Text = invoiceSerialNumber.License_Plate;
+				numTextBox3.Text = invoiceSerialNumber.License_Plate.Substring(0, 2);
+				alphabetComboBox.SelectedIndex = alphabetComboBox.FindString(invoiceSerialNumber.License_Plate.Substring(13, 1));
+				numTextBox2.Text = invoiceSerialNumber.License_Plate.Substring(10, 3);
+				numTextBox1.Text = invoiceSerialNumber.License_Plate.Substring(17, 2);
 				phonNumberTextBox.Text = invoiceSerialNumber.Phone_Number;
 				nextKilometersTextBox.Text = invoiceSerialNumber.Next_Kilometer;
 
@@ -314,7 +316,10 @@ namespace Inventory_Forms
 				serviceTimeTextBox.Text = invoiceSerialNumber.Service_Time;
 				currentKilometersTextBox.Text = invoiceSerialNumber.Current_Kilometer;
 				clientNameTextBox.Text = invoiceSerialNumber.Client_Name;
-				licensePlateTextBox.Text = invoiceSerialNumber.License_Plate;
+				numTextBox3.Text = invoiceSerialNumber.License_Plate.Substring(0, 2);
+				alphabetComboBox.SelectedIndex = alphabetComboBox.FindString(invoiceSerialNumber.License_Plate.Substring(13, 1));
+				numTextBox2.Text = invoiceSerialNumber.License_Plate.Substring(10, 3);
+				numTextBox1.Text = invoiceSerialNumber.License_Plate.Substring(17, 2);
 				phonNumberTextBox.Text = invoiceSerialNumber.Phone_Number;
 				nextKilometersTextBox.Text = invoiceSerialNumber.Next_Kilometer;
 
@@ -381,7 +386,10 @@ namespace Inventory_Forms
 				serviceTimeTextBox.Text = invoiceSerialNumber.Service_Time;
 				currentKilometersTextBox.Text = invoiceSerialNumber.Current_Kilometer;
 				clientNameTextBox.Text = invoiceSerialNumber.Client_Name;
-				licensePlateTextBox.Text = invoiceSerialNumber.License_Plate;
+				numTextBox3.Text = invoiceSerialNumber.License_Plate.Substring(0, 2);
+				alphabetComboBox.SelectedIndex = alphabetComboBox.FindString(invoiceSerialNumber.License_Plate.Substring(13, 1));
+				numTextBox2.Text = invoiceSerialNumber.License_Plate.Substring(10, 3);
+				numTextBox1.Text = invoiceSerialNumber.License_Plate.Substring(17, 2);
 				phonNumberTextBox.Text = invoiceSerialNumber.Phone_Number;
 				nextKilometersTextBox.Text = invoiceSerialNumber.Next_Kilometer;
 
@@ -412,10 +420,15 @@ namespace Inventory_Forms
 
 			showFadeTimer.Start();
 			LoadingService();
+
+			searchTextBox.Clear();
 		}
 		#endregion /Initialize
 
 		#region LoadingService
+		/// <summary>
+		/// بارگذاری لیست سرویس
+		/// </summary>
 		private void LoadingService()
 		{
 			Models.DataBaseContext dataBaseContext = null;
@@ -455,10 +468,6 @@ namespace Inventory_Forms
 				}
 			}
 		}
-
-
-
-
 		#endregion /LoadingService
 
 		#endregion /Founction

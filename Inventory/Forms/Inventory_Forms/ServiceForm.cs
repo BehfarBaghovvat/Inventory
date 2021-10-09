@@ -81,6 +81,21 @@ namespace Inventory_Forms
 			}
 		}
 
+		private PrintReportForm _printReportForm;
+		public PrintReportForm PrintReportForm
+		{
+			get
+			{
+				if (_printReportForm == null || _printReportForm.IsDisposed == true)
+				{
+					_printReportForm =
+						new PrintReportForm();
+				}
+				return _printReportForm;
+			}
+		}
+
+
 		#endregion /Layer
 
 		private AuditItem _auditItem = new AuditItem();
@@ -115,20 +130,7 @@ namespace Inventory_Forms
 			}
 			set { _eventLog = value; }
 		}
-
-		private PrintReportForm _printReportForm;
-		public PrintReportForm PrintReportForm
-		{
-			get
-			{
-				if (_printReportForm == null || _printReportForm.IsDisposed == true)
-				{
-					_printReportForm =
-						new PrintReportForm();
-				}
-				return _printReportForm;
-			}
-		}
+	
 
 		private Models.ServiceInvoice _serviceInvoice = null;
 		public Models.ServiceInvoice ServiceInvoice
@@ -251,14 +253,8 @@ namespace Inventory_Forms
 		#region PhoneNumberTextBox_Leave
 		private void PhoneNumberTextBox_Leave(object sender, System.EventArgs e)
 		{
-			if (string.IsNullOrWhiteSpace(phoneNumberTextBox.Text) || phoneNumberTextBox.Text.Length < 11)
+			if (string.IsNullOrWhiteSpace(phoneNumberTextBox.Text))
 			{
-				Mbb.Windows.Forms.MessageBox.Show(
-					text: "تعداد ارقام وارد شده کمتر از 11 رقم می باشد. \n لطفا مجدد تلاش نمایید.",
-					caption: "خطای ورودی",
-					icon: Mbb.Windows.Forms.MessageBoxIcon.Error,
-					button: Mbb.Windows.Forms.MessageBoxButtons.Ok);
-
 				phoneNumberTextBox.Clear();
 				phoneNumberTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
 				return;
@@ -284,6 +280,7 @@ namespace Inventory_Forms
 					button: Mbb.Windows.Forms.MessageBoxButtons.Ok);
 
 				phoneNumberTextBox.Focus();
+				return;
 			}
 			else if (phoneNumberTextBox.Text.Length == 11)
 			{
@@ -309,34 +306,12 @@ namespace Inventory_Forms
 		{
 			if (string.IsNullOrWhiteSpace(phoneNumberTextBox.Text))
 			{
-				_auditItem.Phone_Number = null;
-				phoneNumberTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-				return;
+				phoneNumberTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
 			}
 			else
 			{
-				phoneNumberTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-
-				_auditItem.Phone_Number = phoneNumberTextBox.Text;
-				if (_auditItem.Phone_Number.Length < 11  || _auditItem.Phone_Number.Length > 11)
-				{
-					phoneNumberTextBox.Focus();
-					_auditItem.Phone_Number = null;
-					return;
-				}
-				else
-				{
-					if (TelConfirmation(_auditItem.Phone_Number) == true)
-					{
-						Client_Availability = true;
-						_auditItem.Phone_Number = phoneNumberTextBox.Text;
-					}
-					else if (TelConfirmation(_auditItem.Phone_Number) == false)
-					{
-						Client_Availability = false;
-						_auditItem.Phone_Number = null;
-					}
-				}
+				phoneNumberTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+				GetClientName(phoneNumberTextBox.Text);
 			}
 		}
 		#endregion /PhoneNumberTextBox_TextChange
@@ -755,29 +730,12 @@ namespace Inventory_Forms
 		}
 		#endregion /ListServiceDataGridView_RowsAdded
 
-		#region ServiceRegisterButton_Click
-		private void ServiceRegisterButton_Click(object sender, System.EventArgs e)
+		#region SaveButton_Click
+		private void SaveButton_Click(object sender, System.EventArgs e)
 		{
-			if (SetListService(ListService, ServiceInvoice) && Deposit(_auditItem) && SetDailyOffice(_auditItem) && AccountRecivedBook(AccountsReceivable))
-			{
-				SetDailyFinancialReport(_auditItem);
-
-				if (Client_Availability)
-				{
-					SetFinancialClient(_auditItem);
-				}
-				else
-				{
-					AddClient(_auditItem);
-				}
-
-				Infrastructure.Utility.WindowsNotification
-					(message: Inventory.Properties.Resources.Complete_Operation, caption: Infrastructure.PopupNotificationForm.Caption.موفقیت);
-
-				return;
-			}
+			RegisterService();
 		}
-		#endregion /ServiceRegisterButton_Click
+		#endregion /SaveButton_Click
 
 		#region SumPriceTextBox_TextChanged
 		private void SumPriceTextBox_TextChanged(object sender, System.EventArgs e)
@@ -790,6 +748,12 @@ namespace Inventory_Forms
 		#region AmountPaidTextBox_TextChanged
 		private void AmountPaidTextBox_TextChanged(object sender, System.EventArgs e)
 		{
+			if (string.Compare(amountPaidTextBox.Text, "0 تومان") == 0)
+				saveButton.Enabled = false;
+			else
+				saveButton.Enabled = true;
+
+
 			_auditItem.Amount_Remaininig = _auditItem.Amounts_Payment - _auditItem.Amount_Paid;
 
 			if (_auditItem.Amount_Remaininig < 0)
@@ -1255,7 +1219,7 @@ namespace Inventory_Forms
 					newServiceButton.Enabled = true;
 					showReportServiceButton.Enabled = true;
 					editServiceToolStripMenuItem.Enabled = true;
-					serviceRegisterButton.Enabled = true;
+					saveButton.Enabled = true;
 					reductionServiceButton.Enabled = true;
 					for (int i = 0; i < listServiceDataGridView.Rows.Count; i++)
 					{
@@ -1428,6 +1392,63 @@ namespace Inventory_Forms
 			}
 		}
 		#endregion /GetCapitalFund
+
+		#region GetClientName
+		/// <summary>
+		/// با وارد کردن شماره همراه
+		/// در صورت موجود بودن در سیستم
+		/// نام مشتری برگشت داده میشود.
+		/// </summary>
+		/// <param name="_client"></param>
+		/// <returns></returns>
+		private void GetClientName(string _clientPhone)
+		{
+			string _phoneNumber = _clientPhone.Replace("-", string.Empty).Trim();
+
+			Models.DataBaseContext dataBaseContext = null;
+			try
+			{
+				dataBaseContext =
+					new Models.DataBaseContext();
+
+				Models.Client client =
+					dataBaseContext.Clients
+					.Where(current => string.Compare(current.Phone_Number, _phoneNumber) == 0)
+					.FirstOrDefault();
+
+				if (client != null)
+				{
+					Client_Availability = true;
+					clientNameTextBox.Text = client.Client_Name;
+					numTextBox3.Text = client.License_Plate.Substring(0, 2);
+					alphabetComboBox.SelectedIndex = alphabetComboBox.FindString(client.License_Plate.Substring(13, 1));
+					numTextBox2.Text = client.License_Plate.Substring(10, 3);
+					numTextBox1.Text = client.License_Plate.Substring(17, 2);
+				}
+				else
+				{
+					Client_Availability = false;
+					clientNameTextBox.Clear();
+					numTextBox3.Clear();
+					alphabetComboBox.SelectedIndex = 0;
+					numTextBox2.Clear();
+					numTextBox1.Clear();
+				}
+			}
+			catch (System.Exception ex)
+			{
+				Infrastructure.Utility.ExceptionShow(ex);
+			}
+			finally
+			{
+				if (dataBaseContext != null)
+				{
+					dataBaseContext.Dispose();
+					dataBaseContext = null;
+				}
+			}
+		}
+		#endregion /GetClientName
 
 		#region GetServiceName
 		/// <summary>
@@ -1744,7 +1765,7 @@ namespace Inventory_Forms
 							newServiceButton.Enabled = false;
 							showReportServiceButton.Enabled = false;
 							editServiceToolStripMenuItem.Enabled = false;
-							serviceRegisterButton.Enabled = false;
+							saveButton.Enabled = false;
 							reductionServiceButton.Enabled = false;
 							return;
 						}
@@ -1801,6 +1822,53 @@ namespace Inventory_Forms
 
 		}
 		#endregion /ReductionService
+
+		#region RegisterService
+		/// <summary>
+		/// ثبت سرویس در جدول مربوطه به سرویسها
+		/// </summary>
+		private void RegisterService()
+		{
+			if (Client_Availability)
+			{
+				if (SetListService(ListService, ServiceInvoice) && Deposit(_auditItem) && SetDailyOffice(_auditItem) && AccountRecivedBook(AccountsReceivable))
+				{
+					SetDailyFinancialReport(_auditItem);
+					SetFinancialClient(_auditItem);
+
+					Infrastructure.Utility.WindowsNotification
+						(message: Inventory.Properties.Resources.Service_Register, caption: Infrastructure.PopupNotificationForm.Caption.موفقیت);
+
+					return;
+				}
+				else
+				{
+					Infrastructure.Utility.WindowsNotification
+						(message: Inventory.Properties.Resources.Service_Register_Error, caption: Infrastructure.PopupNotificationForm.Caption.خطا);
+				}
+			}
+			else
+			{
+				AddClient(_auditItem);
+
+				if (SetListService(ListService, ServiceInvoice) && Deposit(_auditItem) && SetDailyOffice(_auditItem) && AccountRecivedBook(AccountsReceivable))
+				{
+					SetDailyFinancialReport(_auditItem);
+					SetFinancialClient(_auditItem);
+
+					Infrastructure.Utility.WindowsNotification
+						(message: Inventory.Properties.Resources.Service_Register, caption: Infrastructure.PopupNotificationForm.Caption.موفقیت);
+
+					return;
+				}
+				else
+				{
+					Infrastructure.Utility.WindowsNotification
+						(message: Inventory.Properties.Resources.Service_Register_Error, caption: Infrastructure.PopupNotificationForm.Caption.خطا);
+				}
+			}
+		}
+		#endregion RegisterService
 
 		#region SetDailyFinancialReport
 		/// <summary>

@@ -216,40 +216,51 @@ namespace Setting_Forms
 				{
 					Mbb.Windows.Forms.MessageBox.Show(
 						text: "لطفا برای ذخیره یک مسیر انتخاب نمایید.",
-						caption: "",
+						caption: "خطای ورودی",
 						icon: Mbb.Windows.Forms.MessageBoxIcon.Error,
 						button: Mbb.Windows.Forms.MessageBoxButtons.Ok);
 					selectSavePathButton.Focus();
 				}
 				else
 				{
-					string command = $"Backup Database [{dataBase}] To Disk='{savePathTextBox.Text}\\Database-{System.DateTime.Now:yyyy-MM-dd--HH-mm-ss}.bak'";
-					this.Cursor = System.Windows.Forms.Cursors.WaitCursor;
-					System.Data.SqlClient.SqlConnection sqlConnection = new System.Data.SqlClient.SqlConnection();
-					System.Data.SqlClient.SqlCommand sqlCommand = null;
-
-					sqlConnection.ConnectionString = ($"Data Source=.; Initial Catalog={dataBase}; Integrated Security=True");
-
-					if (sqlConnection.State != System.Data.ConnectionState.Open)
+					if (savePathTextBox.Text.StartsWith("C:\\"))
 					{
-						sqlConnection.Open();
+						Mbb.Windows.Forms.MessageBox.Show(
+						text: "امکان تهیه نسخه پشتیبان در این پارتیشن وجود ندارد.\nلطفا پارتیشن دیگری جهت ذخیره سازی انتخاب نمایید.",
+						caption: "",
+						icon: Mbb.Windows.Forms.MessageBoxIcon.Error,
+						button: Mbb.Windows.Forms.MessageBoxButtons.Ok);
 					}
-
-					sqlCommand = new System.Data.SqlClient.SqlCommand(command, sqlConnection);
-					sqlCommand.ExecuteNonQuery();
-					this.Cursor = System.Windows.Forms.Cursors.Default;
-					Infrastructure.Utility.WindowsNotification(
-						message: $"فایل Database-{System.DateTime.Now:yyyy-MM-dd--HH-mm-ss} ایجاد گردید.",
-						caption: Infrastructure.PopupNotificationForm.Caption.موفقیت);
-					savePathTextBox.Text = "Save Path...";
-					savePathTextBox.ForeColor = Infrastructure.Utility.GrayColor();
-
-					#region  -----------------------------------------    SetEventLog     -----------------------------------------
-					if (string.Compare(Inventory.Program.UserAuthentication.Username, "admin") != 0)
+					else
 					{
-						SetEventLog();
+						string command = $"Backup Database [{dataBase}] To Disk='{savePathTextBox.Text}\\Database-{System.DateTime.Now:yyyy-MM-dd--HH-mm-ss}.bak'";
+						this.Cursor = System.Windows.Forms.Cursors.WaitCursor;
+						System.Data.SqlClient.SqlConnection sqlConnection = new System.Data.SqlClient.SqlConnection();
+						System.Data.SqlClient.SqlCommand sqlCommand = null;
+
+						sqlConnection.ConnectionString = ($"Data Source=.; Initial Catalog={dataBase}; Integrated Security=True");
+
+						if (sqlConnection.State != System.Data.ConnectionState.Open)
+						{
+							sqlConnection.Open();
+						}
+
+						sqlCommand = new System.Data.SqlClient.SqlCommand(command, sqlConnection);
+						sqlCommand.ExecuteNonQuery();
+						this.Cursor = System.Windows.Forms.Cursors.Default;
+						Infrastructure.Utility.WindowsNotification(
+							message: $"فایل Database-{System.DateTime.Now:yyyy-MM-dd--HH-mm-ss} ایجاد گردید.",
+							caption: Infrastructure.PopupNotificationForm.Caption.موفقیت);
+						savePathTextBox.Text = "Save Path...";
+						savePathTextBox.ForeColor = Infrastructure.Utility.GrayColor();
+
+						#region  -----------------------------------------    SetEventLog     -----------------------------------------
+						if (string.Compare(Inventory.Program.UserAuthentication.Username, "admin") != 0)
+						{
+							SetEventLog();
+						}
+						#endregion / -----------------------------------------     SetEventLog     -----------------------------------------
 					}
-					#endregion / -----------------------------------------     SetEventLog     -----------------------------------------
 				}
 			}
 			catch (System.Exception ex)

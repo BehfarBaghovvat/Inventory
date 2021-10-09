@@ -205,7 +205,7 @@ namespace Manegment_Setting
 
 			serviceNameTextBox.Text = listServiceNameDataGridView.CurrentRow.Cells[1].Value.ToString();
 			serviceAmountTextBox.Text = listServiceNameDataGridView.CurrentRow.Cells[2].Value.ToString();
-
+			serviceAmountTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
 			saveServiceNameButton.Text = "ویرایش";
 
 		}
@@ -881,9 +881,6 @@ namespace Manegment_Setting
 				}
 				else if (string.Compare(saveServiceNameButton.Text, "ویرایش") == 0)
 				{
-					listServiceName =
-						new Models.ListServiceName();
-
 					listServiceName.Service_Name = _listServiceName.Service_Name;
 					listServiceName.Service_Price = _listServiceName.Service_Price;
 

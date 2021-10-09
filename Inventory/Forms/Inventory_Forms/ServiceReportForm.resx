@@ -135,10 +135,127 @@
   <metadata name="mainPanel.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
+  <metadata name="invoicePanel.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="separatorLabel1.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="separatorLabel2.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="iranLabel.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="nextKilometersTextBox.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="nextKilometersTextBox.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAANcAAAAjCAYAAAAHfp+6AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABRSURBVHhe7dahDQAgEATBKw76L4FOAIPEAcHMJGveX/IB
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAL7oJW3UDEl3y+4o6Tzjkh61nkPgrmQCyAOy+W/Y/HAAAAAA
+        SUVORK5CYII=
+</value>
+  </data>
+  <metadata name="currentKilometersTextBox.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="currentKilometersTextBox.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAANcAAAAjCAYAAAAHfp+6AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABSSURBVHhe7dahDQAgDEXBztT9R4AZGAUMEkcJ5i55pv4n
+        DQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADgi2w5sueUVFucjpLuMy7pUfs5BGpFLKDJgxuaw5DjAAAA
+        AElFTkSuQmCC
+</value>
+  </data>
+  <metadata name="serviceTimeTextBox.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="serviceTimeTextBox.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAANcAAAAjCAYAAAAHfp+6AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABTSURBVHhe7daxDQAQEIbRG9ZIzGcBZqBR6hDNe8nXXP8n
+        FwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADAFym3mkofku4Wu6Ok84xLetR6DoG7IiZukUtB8Yk0jAAA
+        AABJRU5ErkJggg==
+</value>
+  </data>
+  <metadata name="serviceDateTextBox.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="serviceDateTextBox.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAANcAAAAjCAYAAAAHfp+6AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABTSURBVHhe7daxDQAQEIbRG9ZIzGcBZqBR6hDNe8nXXP8n
+        FwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADAFym3mkofku4Wu6Ok84xLetR6DoG7IiZukUtB8Yk0jAAA
+        AABJRU5ErkJggg==
+</value>
+  </data>
+  <metadata name="clientNameTextBox.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="clientNameTextBox.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAANcAAAAjCAYAAAAHfp+6AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABTSURBVHhe7daxDQAQEIbRG9ZIzGcBZqBR6hDNe8nXXP8n
+        FwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADAFym3mkofku4Wu6Ok84xLetR6DoG7IiZukUtB8Yk0jAAA
+        AABJRU5ErkJggg==
+</value>
+  </data>
+  <metadata name="phonNumberTextBox.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="phonNumberTextBox.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAANcAAAAjCAYAAAAHfp+6AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABTSURBVHhe7daxDQAQEIbRG9ZIzGcBZqBR6hDNe8nXXP8n
+        FwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADAFym3mkofku4Wu6Ok84xLetR6DoG7IiZukUtB8Yk0jAAA
+        AABJRU5ErkJggg==
+</value>
+  </data>
+  <metadata name="invoiceSerialNumberTextBox.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="invoiceSerialNumberTextBox.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAANcAAAAjCAYAAAAHfp+6AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABTSURBVHhe7daxDQAQEIbRG9ZIzGcBZqBR6hDNe8nXXP8n
+        FwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADAFym3mkofku4Wu6Ok84xLetR6DoG7IiZukUtB8Yk0jAAA
+        AABJRU5ErkJggg==
+</value>
+  </data>
+  <metadata name="licensePlatePanel.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="bunifuTextBox9.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="bunifuTextBox10.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="bunifuTextBox11.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="bunifuTextBox12.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="bunifuTextBox13.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="bunifuTextBox14.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="bunifuTextBox15.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="licensePlateAndPhoneNumberDataGridView.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
   <metadata name="searchGroupBox.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
-  <metadata name="topPanel.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  <metadata name="searchTextBox.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
   <metadata name="topPanel.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
@@ -153,7 +270,6 @@
   <metadata name="minimizeButton.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="minimizeButton.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAgAAAAIACAYAAAD0eNT6AAAABGdBTUEAALGPC/xhBQAABJNJREFUeF7t
@@ -312,15 +428,6 @@
         GnHgOPutbltOAAAAAElFTkSuQmCC
 </value>
   </data>
-  <metadata name="searchGroupBox.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="searchTextBox.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="searchButton.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
   <metadata name="searchTextBox.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
@@ -540,157 +647,6 @@
         NuMF+TPSfAAAAABJRU5ErkJggg==
 </value>
   </data>
-  <metadata name="mainPanel.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="invoicePanel.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="licensePlatePanel.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="invoicePanel.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="nextKilometersTextBox.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="currentKilometersTextBox.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="serviceTimeTextBox.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="serviceDateTextBox.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="clientNameTextBox.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="licensePlateTextBox.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="phonNumberTextBox.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="invoiceSerialNumberTextBox.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="nextKilometersTextBox.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <data name="nextKilometersTextBox.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAANcAAAAjCAYAAAAHfp+6AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABRSURBVHhe7dahDQAgEATBKw76L4FOAIPEAcHMJGveX/IB
-        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAL7oJW3UDEl3y+4o6Tzjkh61nkPgrmQCyAOy+W/Y/HAAAAAA
-        SUVORK5CYII=
-</value>
-  </data>
-  <metadata name="currentKilometersTextBox.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <data name="currentKilometersTextBox.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAANcAAAAjCAYAAAAHfp+6AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABSSURBVHhe7dahDQAgDEXBztT9R4AZGAUMEkcJ5i55pv4n
-        DQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADgi2w5sueUVFucjpLuMy7pUfs5BGpFLKDJgxuaw5DjAAAA
-        AElFTkSuQmCC
-</value>
-  </data>
-  <metadata name="serviceTimeTextBox.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <data name="serviceTimeTextBox.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAANcAAAAjCAYAAAAHfp+6AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABTSURBVHhe7daxDQAQEIbRG9ZIzGcBZqBR6hDNe8nXXP8n
-        FwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADAFym3mkofku4Wu6Ok84xLetR6DoG7IiZukUtB8Yk0jAAA
-        AABJRU5ErkJggg==
-</value>
-  </data>
-  <metadata name="serviceDateTextBox.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <data name="serviceDateTextBox.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAANcAAAAjCAYAAAAHfp+6AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABTSURBVHhe7daxDQAQEIbRG9ZIzGcBZqBR6hDNe8nXXP8n
-        FwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADAFym3mkofku4Wu6Ok84xLetR6DoG7IiZukUtB8Yk0jAAA
-        AABJRU5ErkJggg==
-</value>
-  </data>
-  <metadata name="clientNameTextBox.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <data name="clientNameTextBox.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAANcAAAAjCAYAAAAHfp+6AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABTSURBVHhe7daxDQAQEIbRG9ZIzGcBZqBR6hDNe8nXXP8n
-        FwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADAFym3mkofku4Wu6Ok84xLetR6DoG7IiZukUtB8Yk0jAAA
-        AABJRU5ErkJggg==
-</value>
-  </data>
-  <metadata name="licensePlateTextBox.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <data name="licensePlateTextBox.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAANcAAAAjCAYAAAAHfp+6AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABTSURBVHhe7daxDQAQEIbRG9ZIzGcBZqBR6hDNe8nXXP8n
-        FwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADAFym3mkofku4Wu6Ok84xLetR6DoG7IiZukUtB8Yk0jAAA
-        AABJRU5ErkJggg==
-</value>
-  </data>
-  <metadata name="phonNumberTextBox.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <data name="phonNumberTextBox.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAANcAAAAjCAYAAAAHfp+6AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABTSURBVHhe7daxDQAQEIbRG9ZIzGcBZqBR6hDNe8nXXP8n
-        FwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADAFym3mkofku4Wu6Ok84xLetR6DoG7IiZukUtB8Yk0jAAA
-        AABJRU5ErkJggg==
-</value>
-  </data>
-  <metadata name="invoiceSerialNumberTextBox.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <data name="invoiceSerialNumberTextBox.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAANcAAAAjCAYAAAAHfp+6AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAABTSURBVHhe7daxDQAQEIbRG9ZIzGcBZqBR6hDNe8nXXP8n
-        FwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADAFym3mkofku4Wu6Ok84xLetR6DoG7IiZukUtB8Yk0jAAA
-        AABJRU5ErkJggg==
-</value>
-  </data>
-  <metadata name="licensePlatePanel.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="bunifuTextBox9.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="bunifuTextBox10.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="bunifuTextBox11.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="bunifuTextBox12.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="bunifuTextBox13.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="bunifuTextBox14.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="bunifuTextBox15.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="licensePlateAndPhoneNumberDataGridView.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
   <metadata name="bunifuTextBox9.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
@@ -776,5 +732,44 @@
   </metadata>
   <metadata name="closeFadeTimer.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>553, 17</value>
+  </metadata>
+  <data name="numTextBox3.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACMAAAAjCAYAAAAe2bNZAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAD3SURBVFhH7ZghDoNAEEX3GJWVlT1CZWVlZRUsOFwlCO6A
+        xmIQJMVwnvYGrep2/jKkIWEkmzaZl4zZmeS/zGIW87OkabqJ4/iQJEm+dlHWkbK2HD2Hmntr7Z0GXcB6
+        ktCFFUawEWo8MFAUhWuaxnVdt1q1bevKspyEXlgEqxhDByc0MBCSuq69EN3IlVW8DO7RG4ek7/tpOzmr
+        fGWwwpAgT2WWUBkJlZFQGQmVkVAZCZWRUBkJlZFQGQmVkfgLGYvDqqp4LAyLMlEU7fjQvyoxtHYNw+Cy
+        LHsjE38kWGUE791JKGRR7o0V5sCQBvD9BCkSOXP0r2HMB/a5faGxuI9aAAAAAElFTkSuQmCC
+</value>
+  </data>
+  <data name="numTextBox1.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACMAAAAjCAYAAAAe2bNZAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAD3SURBVFhH7ZghDoNAEEX3GJWVlT1CZWVlZRUsOFwlCO6A
+        xmIQJMVwnvYGrep2/jKkIWEkmzaZl4zZmeS/zGIW87OkabqJ4/iQJEm+dlHWkbK2HD2Hmntr7Z0GXcB6
+        ktCFFUawEWo8MFAUhWuaxnVdt1q1bevKspyEXlgEqxhDByc0MBCSuq69EN3IlVW8DO7RG4ek7/tpOzmr
+        fGWwwpAgT2WWUBkJlZFQGQmVkVAZCZWRUBkJlZFQGQmVkfgLGYvDqqp4LAyLMlEU7fjQvyoxtHYNw+Cy
+        LHsjE38kWGUE791JKGRR7o0V5sCQBvD9BCkSOXP0r2HMB/a5faGxuI9aAAAAAElFTkSuQmCC
+</value>
+  </data>
+  <metadata name="separatorLabel1.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="numTextBox2.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAAC0AAAAjCAYAAAAAEIPqAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAD4SURBVFhH7dgtEsIwEIbhHAOJRHIEJBKJRPXP1SFb0TtU
+        19ZUdIaangduAIqwX7odpjPoZWH2nYlJIp6mUXE/X5ZlqziOd2maFloGmfZkWjNxGS1ukyS50kavcNwJ
+        fmLqFE6YFm7YUJalb9vW933/9dF1na+qaoY/cLBMdo4mDljABo01TRPgdBPOTA5o3J/wZRobhmE+7YLJ
+        bzR+icbgMrREhpbK0FIZWipDS2VoqQwtlaGlMrRUhpbK0FL9FTrBZF3XvE1XH9FRFG14MrwyYZOWMY6j
+        z/P8CRteUJk8hXeyGa5xkO/C1GX4EtqA+61qEPjIxF/NuRdKoD70ldBYUAAAAABJRU5ErkJggg==
+</value>
+  </data>
+  <metadata name="separatorLabel2.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="iranLabel.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
   </metadata>
 </root>

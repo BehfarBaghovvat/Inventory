@@ -466,7 +466,7 @@ namespace Manegment_Setting
             this.deleteAllServiceToolStripMenuItem});
 			this.listServiceNameContextMenuStrip.Name = "listServiceNameContextMenuStrip";
 			this.listServiceNameContextMenuStrip.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-			this.listServiceNameContextMenuStrip.Size = new System.Drawing.Size(243, 70);
+			this.listServiceNameContextMenuStrip.Size = new System.Drawing.Size(243, 92);
 			// 
 			// editServiceToolStripMenuItem
 			// 

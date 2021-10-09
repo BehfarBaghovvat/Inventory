@@ -19,7 +19,7 @@ namespace Inventory.Properties {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     public class Resources {
@@ -67,15 +67,6 @@ namespace Inventory.Properties {
             get {
                 object obj = ResourceManager.GetObject("circled_user_male_skin_type_3_512px", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to عملیات ثبت انجام شد..
-        /// </summary>
-        public static string Complete_Operation {
-            get {
-                return ResourceManager.GetString("Complete_Operation", resourceCulture);
             }
         }
         
@@ -170,6 +161,24 @@ namespace Inventory.Properties {
         public static string Sales_Error {
             get {
                 return ResourceManager.GetString("Sales_Error", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ثبت سرویس انجام شد..
+        /// </summary>
+        public static string Service_Register {
+            get {
+                return ResourceManager.GetString("Service_Register", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ثبت سرویس انجام نگردید.
+        /// </summary>
+        public static string Service_Register_Error {
+            get {
+                return ResourceManager.GetString("Service_Register_Error", resourceCulture);
             }
         }
         
