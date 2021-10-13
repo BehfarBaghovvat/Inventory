@@ -71,6 +71,15 @@ namespace Inventory.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to عملیات ثبت با موفقیت انجام گردید..
+        /// </summary>
+        public static string Complete_Operation {
+            get {
+                return ResourceManager.GetString("Complete_Operation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         public static System.Drawing.Bitmap error_512 {

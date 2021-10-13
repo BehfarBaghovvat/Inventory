@@ -62,14 +62,14 @@
 		/// <summary>
 		/// شماره فاکتور
 		/// </summary>
-		#region Invoice_Serial_Numvber
-		//--DisplayName field for Invoice_Serial_Numvber
+		#region Invoice_Serial_Number
+		//--DisplayName field for Invoice_Serial_Number
 		[System.ComponentModel.DisplayName(displayName: "شماره فاکتور")]
-		//--Lenght Invoice_Serial_Numvber
+		//--Lenght Invoice_Serial_Number
 		[System.ComponentModel.DataAnnotations.StringLength
 			(maximumLength: 60)]
-		public string Invoice_Serial_Numvber { get; set; }
-		#endregion /Invoice_Serial_Numvber
+		public string Invoice_Serial_Number { get; set; }
+		#endregion /Invoice_Serial_Number
 
 		/// <summary>
 		/// نوع پرداخت

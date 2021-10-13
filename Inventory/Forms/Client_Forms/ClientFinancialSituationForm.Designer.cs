@@ -30,6 +30,11 @@ namespace Client_Forms
 		private void InitializeComponent()
 		{
 			this.components = new System.ComponentModel.Container();
+			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ClientFinancialSituationForm));
+			Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties1 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
+			Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties2 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
+			Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties3 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
+			Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties4 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
 			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
 			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
 			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -62,27 +67,11 @@ namespace Client_Forms
 			Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties30 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
 			Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties31 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
 			Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties32 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
-			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ClientFinancialSituationForm));
-			Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties1 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
-			Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties2 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
-			Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties3 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
-			Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties4 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
 			this.mainPanel = new Guna.UI2.WinForms.Guna2Panel();
-			this.listFinantioalClientDataGridView = new Guna.UI2.WinForms.Guna2DataGridView();
-			this.licensePlateGroupBox = new Guna.UI2.WinForms.Guna2GroupBox();
-			this.alphabetTextBox = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox();
-			this.numTextBox3 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox();
-			this.numTextBox1 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox();
-			this.numTextBox2 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox();
-			this.phoneNumberTextBox = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox();
-			this.clientNameTextBox = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox();
-			this.financialSituationLabel = new System.Windows.Forms.Label();
-			this.paymentButton = new Guna.UI2.WinForms.Guna2GradientButton();
-			this.searchClientTextBox = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox();
-			this.listFinantioalClientDataGridViewElipse = new Guna.UI2.WinForms.Guna2Elipse(this.components);
 			this.totalAmountTextBox = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox();
-			this.Select_Item = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+			this.listFinantioalClientDataGridView = new Guna.UI2.WinForms.Guna2DataGridView();
 			this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.Select_Item = new System.Windows.Forms.DataGridViewCheckBoxColumn();
 			this.amountPaidDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.amountRemaininigDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.registrationDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -93,13 +82,24 @@ namespace Client_Forms
 			this.phoneNumberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.taxPercentDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.listFinancialClientBindingSource = new System.Windows.Forms.BindingSource(this.components);
+			this.licensePlateGroupBox = new Guna.UI2.WinForms.Guna2GroupBox();
+			this.alphabetTextBox = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox();
+			this.numTextBox3 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox();
+			this.numTextBox1 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox();
 			this.separatorLabel1 = new Mbb.Windows.Forms.Label();
+			this.numTextBox2 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox();
 			this.separatorLabel2 = new Mbb.Windows.Forms.Label();
 			this.iranLabel = new Mbb.Windows.Forms.Label();
+			this.phoneNumberTextBox = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox();
+			this.clientNameTextBox = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox();
+			this.financialSituationLabel = new System.Windows.Forms.Label();
+			this.paymentButton = new Guna.UI2.WinForms.Guna2GradientButton();
+			this.searchClientTextBox = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox();
+			this.listFinantioalClientDataGridViewElipse = new Guna.UI2.WinForms.Guna2Elipse(this.components);
 			this.mainPanel.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.listFinantioalClientDataGridView)).BeginInit();
-			this.licensePlateGroupBox.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.listFinancialClientBindingSource)).BeginInit();
+			this.licensePlateGroupBox.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// mainPanel
@@ -121,6 +121,82 @@ namespace Client_Forms
 			this.mainPanel.ShadowDecoration.Parent = this.mainPanel;
 			this.mainPanel.Size = new System.Drawing.Size(1150, 650);
 			this.mainPanel.TabIndex = 1;
+			// 
+			// totalAmountTextBox
+			// 
+			this.totalAmountTextBox.AcceptsReturn = false;
+			this.totalAmountTextBox.AcceptsTab = false;
+			this.totalAmountTextBox.AnimationSpeed = 200;
+			this.totalAmountTextBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
+			this.totalAmountTextBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
+			this.totalAmountTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(0)))), ((int)(((byte)(61)))));
+			this.totalAmountTextBox.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("totalAmountTextBox.BackgroundImage")));
+			this.totalAmountTextBox.BorderColorActive = System.Drawing.Color.DimGray;
+			this.totalAmountTextBox.BorderColorDisabled = System.Drawing.Color.DimGray;
+			this.totalAmountTextBox.BorderColorHover = System.Drawing.Color.DimGray;
+			this.totalAmountTextBox.BorderColorIdle = System.Drawing.Color.DimGray;
+			this.totalAmountTextBox.BorderRadius = 1;
+			this.totalAmountTextBox.BorderThickness = 3;
+			this.totalAmountTextBox.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
+			this.totalAmountTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
+			this.totalAmountTextBox.DefaultFont = new System.Drawing.Font("IRANSansXFaNum", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+			this.totalAmountTextBox.DefaultText = "";
+			this.totalAmountTextBox.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(0)))), ((int)(((byte)(61)))));
+			this.totalAmountTextBox.ForeColor = System.Drawing.Color.White;
+			this.totalAmountTextBox.HideSelection = true;
+			this.totalAmountTextBox.IconLeft = null;
+			this.totalAmountTextBox.IconLeftCursor = System.Windows.Forms.Cursors.IBeam;
+			this.totalAmountTextBox.IconPadding = 10;
+			this.totalAmountTextBox.IconRight = null;
+			this.totalAmountTextBox.IconRightCursor = System.Windows.Forms.Cursors.IBeam;
+			this.totalAmountTextBox.Lines = new string[0];
+			this.totalAmountTextBox.Location = new System.Drawing.Point(13, 580);
+			this.totalAmountTextBox.MaximumSize = new System.Drawing.Size(350, 45);
+			this.totalAmountTextBox.MaxLength = 32767;
+			this.totalAmountTextBox.MinimumSize = new System.Drawing.Size(350, 45);
+			this.totalAmountTextBox.Modified = false;
+			this.totalAmountTextBox.Multiline = false;
+			this.totalAmountTextBox.Name = "totalAmountTextBox";
+			stateProperties1.BorderColor = System.Drawing.Color.DimGray;
+			stateProperties1.FillColor = System.Drawing.Color.Empty;
+			stateProperties1.ForeColor = System.Drawing.Color.Empty;
+			stateProperties1.PlaceholderForeColor = System.Drawing.Color.Empty;
+			this.totalAmountTextBox.OnActiveState = stateProperties1;
+			stateProperties2.BorderColor = System.Drawing.Color.DimGray;
+			stateProperties2.FillColor = System.Drawing.Color.White;
+			stateProperties2.ForeColor = System.Drawing.Color.Empty;
+			stateProperties2.PlaceholderForeColor = System.Drawing.Color.Silver;
+			this.totalAmountTextBox.OnDisabledState = stateProperties2;
+			stateProperties3.BorderColor = System.Drawing.Color.DimGray;
+			stateProperties3.FillColor = System.Drawing.Color.Empty;
+			stateProperties3.ForeColor = System.Drawing.Color.Empty;
+			stateProperties3.PlaceholderForeColor = System.Drawing.Color.Empty;
+			this.totalAmountTextBox.OnHoverState = stateProperties3;
+			stateProperties4.BorderColor = System.Drawing.Color.DimGray;
+			stateProperties4.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(0)))), ((int)(((byte)(61)))));
+			stateProperties4.ForeColor = System.Drawing.Color.White;
+			stateProperties4.PlaceholderForeColor = System.Drawing.Color.Empty;
+			this.totalAmountTextBox.OnIdleState = stateProperties4;
+			this.totalAmountTextBox.PasswordChar = '\0';
+			this.totalAmountTextBox.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+			this.totalAmountTextBox.PlaceholderText = "جمع مبلغ بدهی...";
+			this.totalAmountTextBox.ReadOnly = true;
+			this.totalAmountTextBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+			this.totalAmountTextBox.ScrollBars = System.Windows.Forms.ScrollBars.None;
+			this.totalAmountTextBox.SelectedText = "";
+			this.totalAmountTextBox.SelectionLength = 0;
+			this.totalAmountTextBox.SelectionStart = 0;
+			this.totalAmountTextBox.ShortcutsEnabled = true;
+			this.totalAmountTextBox.Size = new System.Drawing.Size(350, 45);
+			this.totalAmountTextBox.Style = Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox._Style.Material;
+			this.totalAmountTextBox.TabIndex = 11;
+			this.totalAmountTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+			this.totalAmountTextBox.TextMarginBottom = 0;
+			this.totalAmountTextBox.TextMarginLeft = 0;
+			this.totalAmountTextBox.TextMarginTop = -3;
+			this.totalAmountTextBox.TextPlaceholder = "جمع مبلغ بدهی...";
+			this.totalAmountTextBox.UseSystemPasswordChar = false;
+			this.totalAmountTextBox.WordWrap = true;
 			// 
 			// listFinantioalClientDataGridView
 			// 
@@ -206,6 +282,94 @@ namespace Client_Forms
 			this.listFinantioalClientDataGridView.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(123)))), ((int)(((byte)(207)))));
 			this.listFinantioalClientDataGridView.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.White;
 			this.listFinantioalClientDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ListFinantioalClientDataGridView_CellContentClick);
+			// 
+			// idDataGridViewTextBoxColumn
+			// 
+			this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
+			this.idDataGridViewTextBoxColumn.FillWeight = 50F;
+			this.idDataGridViewTextBoxColumn.HeaderText = "ردیف";
+			this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
+			this.idDataGridViewTextBoxColumn.ReadOnly = true;
+			// 
+			// Select_Item
+			// 
+			this.Select_Item.FillWeight = 50F;
+			this.Select_Item.HeaderText = "انتخاب";
+			this.Select_Item.Name = "Select_Item";
+			this.Select_Item.ReadOnly = true;
+			// 
+			// amountPaidDataGridViewTextBoxColumn
+			// 
+			this.amountPaidDataGridViewTextBoxColumn.DataPropertyName = "Amount_Paid";
+			this.amountPaidDataGridViewTextBoxColumn.FillWeight = 150F;
+			this.amountPaidDataGridViewTextBoxColumn.HeaderText = "مبلغ پرداخت شده";
+			this.amountPaidDataGridViewTextBoxColumn.Name = "amountPaidDataGridViewTextBoxColumn";
+			this.amountPaidDataGridViewTextBoxColumn.ReadOnly = true;
+			// 
+			// amountRemaininigDataGridViewTextBoxColumn
+			// 
+			this.amountRemaininigDataGridViewTextBoxColumn.DataPropertyName = "Amount_Remaininig";
+			this.amountRemaininigDataGridViewTextBoxColumn.FillWeight = 150F;
+			this.amountRemaininigDataGridViewTextBoxColumn.HeaderText = "مبلغ باقیمانده";
+			this.amountRemaininigDataGridViewTextBoxColumn.Name = "amountRemaininigDataGridViewTextBoxColumn";
+			this.amountRemaininigDataGridViewTextBoxColumn.ReadOnly = true;
+			// 
+			// registrationDateDataGridViewTextBoxColumn
+			// 
+			this.registrationDateDataGridViewTextBoxColumn.DataPropertyName = "Registration_Date";
+			this.registrationDateDataGridViewTextBoxColumn.HeaderText = "تاریخ ثبت";
+			this.registrationDateDataGridViewTextBoxColumn.Name = "registrationDateDataGridViewTextBoxColumn";
+			this.registrationDateDataGridViewTextBoxColumn.ReadOnly = true;
+			// 
+			// registrationTimeDataGridViewTextBoxColumn
+			// 
+			this.registrationTimeDataGridViewTextBoxColumn.DataPropertyName = "Registration_Time";
+			this.registrationTimeDataGridViewTextBoxColumn.HeaderText = "زمان ثبت";
+			this.registrationTimeDataGridViewTextBoxColumn.Name = "registrationTimeDataGridViewTextBoxColumn";
+			this.registrationTimeDataGridViewTextBoxColumn.ReadOnly = true;
+			// 
+			// finantialSituationDataGridViewTextBoxColumn
+			// 
+			this.finantialSituationDataGridViewTextBoxColumn.DataPropertyName = "Finantial_Situation";
+			this.finantialSituationDataGridViewTextBoxColumn.HeaderText = "وضعیت مالی";
+			this.finantialSituationDataGridViewTextBoxColumn.Name = "finantialSituationDataGridViewTextBoxColumn";
+			this.finantialSituationDataGridViewTextBoxColumn.ReadOnly = true;
+			// 
+			// clientNameDataGridViewTextBoxColumn
+			// 
+			this.clientNameDataGridViewTextBoxColumn.DataPropertyName = "Client_Name";
+			this.clientNameDataGridViewTextBoxColumn.HeaderText = "نام مشتری";
+			this.clientNameDataGridViewTextBoxColumn.Name = "clientNameDataGridViewTextBoxColumn";
+			this.clientNameDataGridViewTextBoxColumn.ReadOnly = true;
+			this.clientNameDataGridViewTextBoxColumn.Visible = false;
+			// 
+			// licensePlateDataGridViewTextBoxColumn
+			// 
+			this.licensePlateDataGridViewTextBoxColumn.DataPropertyName = "License_Plate";
+			this.licensePlateDataGridViewTextBoxColumn.HeaderText = "پلاک وسیله نقیله";
+			this.licensePlateDataGridViewTextBoxColumn.Name = "licensePlateDataGridViewTextBoxColumn";
+			this.licensePlateDataGridViewTextBoxColumn.ReadOnly = true;
+			this.licensePlateDataGridViewTextBoxColumn.Visible = false;
+			// 
+			// phoneNumberDataGridViewTextBoxColumn
+			// 
+			this.phoneNumberDataGridViewTextBoxColumn.DataPropertyName = "Phone_Number";
+			this.phoneNumberDataGridViewTextBoxColumn.HeaderText = "شماره تماس";
+			this.phoneNumberDataGridViewTextBoxColumn.Name = "phoneNumberDataGridViewTextBoxColumn";
+			this.phoneNumberDataGridViewTextBoxColumn.ReadOnly = true;
+			this.phoneNumberDataGridViewTextBoxColumn.Visible = false;
+			// 
+			// taxPercentDataGridViewTextBoxColumn
+			// 
+			this.taxPercentDataGridViewTextBoxColumn.DataPropertyName = "Tax_Percent";
+			this.taxPercentDataGridViewTextBoxColumn.HeaderText = "درصد مالیات";
+			this.taxPercentDataGridViewTextBoxColumn.Name = "taxPercentDataGridViewTextBoxColumn";
+			this.taxPercentDataGridViewTextBoxColumn.ReadOnly = true;
+			this.taxPercentDataGridViewTextBoxColumn.Visible = false;
+			// 
+			// listFinancialClientBindingSource
+			// 
+			this.listFinancialClientBindingSource.DataSource = typeof(Models.ListFinancialClient);
 			// 
 			// licensePlateGroupBox
 			// 
@@ -455,6 +619,16 @@ namespace Client_Forms
 			this.numTextBox1.UseSystemPasswordChar = false;
 			this.numTextBox1.WordWrap = true;
 			// 
+			// separatorLabel1
+			// 
+			this.separatorLabel1.AutoSize = true;
+			this.separatorLabel1.ForeColor = System.Drawing.Color.White;
+			this.separatorLabel1.Location = new System.Drawing.Point(37, 13);
+			this.separatorLabel1.Name = "separatorLabel1";
+			this.separatorLabel1.Size = new System.Drawing.Size(12, 15);
+			this.separatorLabel1.TabIndex = 6;
+			this.separatorLabel1.Text = "-";
+			// 
 			// numTextBox2
 			// 
 			this.numTextBox2.AcceptsReturn = false;
@@ -529,6 +703,27 @@ namespace Client_Forms
 			this.numTextBox2.TextPlaceholder = "489";
 			this.numTextBox2.UseSystemPasswordChar = false;
 			this.numTextBox2.WordWrap = true;
+			// 
+			// separatorLabel2
+			// 
+			this.separatorLabel2.AutoSize = true;
+			this.separatorLabel2.ForeColor = System.Drawing.Color.White;
+			this.separatorLabel2.Location = new System.Drawing.Point(144, 13);
+			this.separatorLabel2.Name = "separatorLabel2";
+			this.separatorLabel2.Size = new System.Drawing.Size(12, 15);
+			this.separatorLabel2.TabIndex = 5;
+			this.separatorLabel2.Text = "-";
+			// 
+			// iranLabel
+			// 
+			this.iranLabel.AutoSize = true;
+			this.iranLabel.Font = new System.Drawing.Font("IRANSansXFaNum", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+			this.iranLabel.ForeColor = System.Drawing.Color.White;
+			this.iranLabel.Location = new System.Drawing.Point(155, 11);
+			this.iranLabel.Name = "iranLabel";
+			this.iranLabel.Size = new System.Drawing.Size(29, 18);
+			this.iranLabel.TabIndex = 4;
+			this.iranLabel.Text = "ایران";
 			// 
 			// phoneNumberTextBox
 			// 
@@ -803,200 +998,6 @@ namespace Client_Forms
 			this.listFinantioalClientDataGridViewElipse.BorderRadius = 25;
 			this.listFinantioalClientDataGridViewElipse.TargetControl = this.listFinantioalClientDataGridView;
 			// 
-			// totalAmountTextBox
-			// 
-			this.totalAmountTextBox.AcceptsReturn = false;
-			this.totalAmountTextBox.AcceptsTab = false;
-			this.totalAmountTextBox.AnimationSpeed = 200;
-			this.totalAmountTextBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
-			this.totalAmountTextBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
-			this.totalAmountTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(0)))), ((int)(((byte)(61)))));
-			this.totalAmountTextBox.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("totalAmountTextBox.BackgroundImage")));
-			this.totalAmountTextBox.BorderColorActive = System.Drawing.Color.DimGray;
-			this.totalAmountTextBox.BorderColorDisabled = System.Drawing.Color.DimGray;
-			this.totalAmountTextBox.BorderColorHover = System.Drawing.Color.DimGray;
-			this.totalAmountTextBox.BorderColorIdle = System.Drawing.Color.DimGray;
-			this.totalAmountTextBox.BorderRadius = 1;
-			this.totalAmountTextBox.BorderThickness = 3;
-			this.totalAmountTextBox.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
-			this.totalAmountTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
-			this.totalAmountTextBox.DefaultFont = new System.Drawing.Font("IRANSansXFaNum", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-			this.totalAmountTextBox.DefaultText = "";
-			this.totalAmountTextBox.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(0)))), ((int)(((byte)(61)))));
-			this.totalAmountTextBox.ForeColor = System.Drawing.Color.White;
-			this.totalAmountTextBox.HideSelection = true;
-			this.totalAmountTextBox.IconLeft = null;
-			this.totalAmountTextBox.IconLeftCursor = System.Windows.Forms.Cursors.IBeam;
-			this.totalAmountTextBox.IconPadding = 10;
-			this.totalAmountTextBox.IconRight = null;
-			this.totalAmountTextBox.IconRightCursor = System.Windows.Forms.Cursors.IBeam;
-			this.totalAmountTextBox.Lines = new string[0];
-			this.totalAmountTextBox.Location = new System.Drawing.Point(12, 592);
-			this.totalAmountTextBox.MaxLength = 32767;
-			this.totalAmountTextBox.MinimumSize = new System.Drawing.Size(100, 35);
-			this.totalAmountTextBox.Modified = false;
-			this.totalAmountTextBox.Multiline = false;
-			this.totalAmountTextBox.Name = "totalAmountTextBox";
-			stateProperties1.BorderColor = System.Drawing.Color.DimGray;
-			stateProperties1.FillColor = System.Drawing.Color.Empty;
-			stateProperties1.ForeColor = System.Drawing.Color.Empty;
-			stateProperties1.PlaceholderForeColor = System.Drawing.Color.Empty;
-			this.totalAmountTextBox.OnActiveState = stateProperties1;
-			stateProperties2.BorderColor = System.Drawing.Color.DimGray;
-			stateProperties2.FillColor = System.Drawing.Color.White;
-			stateProperties2.ForeColor = System.Drawing.Color.Empty;
-			stateProperties2.PlaceholderForeColor = System.Drawing.Color.Silver;
-			this.totalAmountTextBox.OnDisabledState = stateProperties2;
-			stateProperties3.BorderColor = System.Drawing.Color.DimGray;
-			stateProperties3.FillColor = System.Drawing.Color.Empty;
-			stateProperties3.ForeColor = System.Drawing.Color.Empty;
-			stateProperties3.PlaceholderForeColor = System.Drawing.Color.Empty;
-			this.totalAmountTextBox.OnHoverState = stateProperties3;
-			stateProperties4.BorderColor = System.Drawing.Color.DimGray;
-			stateProperties4.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(0)))), ((int)(((byte)(61)))));
-			stateProperties4.ForeColor = System.Drawing.Color.White;
-			stateProperties4.PlaceholderForeColor = System.Drawing.Color.Empty;
-			this.totalAmountTextBox.OnIdleState = stateProperties4;
-			this.totalAmountTextBox.PasswordChar = '\0';
-			this.totalAmountTextBox.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-			this.totalAmountTextBox.PlaceholderText = "جمع مبلغ بدهی";
-			this.totalAmountTextBox.ReadOnly = true;
-			this.totalAmountTextBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-			this.totalAmountTextBox.ScrollBars = System.Windows.Forms.ScrollBars.None;
-			this.totalAmountTextBox.SelectedText = "";
-			this.totalAmountTextBox.SelectionLength = 0;
-			this.totalAmountTextBox.SelectionStart = 0;
-			this.totalAmountTextBox.ShortcutsEnabled = true;
-			this.totalAmountTextBox.Size = new System.Drawing.Size(350, 49);
-			this.totalAmountTextBox.Style = Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox._Style.Material;
-			this.totalAmountTextBox.TabIndex = 11;
-			this.totalAmountTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-			this.totalAmountTextBox.TextMarginBottom = 0;
-			this.totalAmountTextBox.TextMarginLeft = 0;
-			this.totalAmountTextBox.TextMarginTop = -3;
-			this.totalAmountTextBox.TextPlaceholder = "جمع مبلغ بدهی";
-			this.totalAmountTextBox.UseSystemPasswordChar = false;
-			this.totalAmountTextBox.WordWrap = true;
-			// 
-			// Select_Item
-			// 
-			this.Select_Item.FillWeight = 50F;
-			this.Select_Item.HeaderText = "انتخاب";
-			this.Select_Item.Name = "Select_Item";
-			this.Select_Item.ReadOnly = true;
-			// 
-			// idDataGridViewTextBoxColumn
-			// 
-			this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
-			this.idDataGridViewTextBoxColumn.FillWeight = 50F;
-			this.idDataGridViewTextBoxColumn.HeaderText = "ردیف";
-			this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
-			this.idDataGridViewTextBoxColumn.ReadOnly = true;
-			// 
-			// amountPaidDataGridViewTextBoxColumn
-			// 
-			this.amountPaidDataGridViewTextBoxColumn.DataPropertyName = "Amount_Paid";
-			this.amountPaidDataGridViewTextBoxColumn.FillWeight = 150F;
-			this.amountPaidDataGridViewTextBoxColumn.HeaderText = "مبلغ پرداخت شده";
-			this.amountPaidDataGridViewTextBoxColumn.Name = "amountPaidDataGridViewTextBoxColumn";
-			this.amountPaidDataGridViewTextBoxColumn.ReadOnly = true;
-			// 
-			// amountRemaininigDataGridViewTextBoxColumn
-			// 
-			this.amountRemaininigDataGridViewTextBoxColumn.DataPropertyName = "Amount_Remaininig";
-			this.amountRemaininigDataGridViewTextBoxColumn.FillWeight = 150F;
-			this.amountRemaininigDataGridViewTextBoxColumn.HeaderText = "مبلغ باقیمانده";
-			this.amountRemaininigDataGridViewTextBoxColumn.Name = "amountRemaininigDataGridViewTextBoxColumn";
-			this.amountRemaininigDataGridViewTextBoxColumn.ReadOnly = true;
-			// 
-			// registrationDateDataGridViewTextBoxColumn
-			// 
-			this.registrationDateDataGridViewTextBoxColumn.DataPropertyName = "Registration_Date";
-			this.registrationDateDataGridViewTextBoxColumn.HeaderText = "تاریخ ثبت";
-			this.registrationDateDataGridViewTextBoxColumn.Name = "registrationDateDataGridViewTextBoxColumn";
-			this.registrationDateDataGridViewTextBoxColumn.ReadOnly = true;
-			// 
-			// registrationTimeDataGridViewTextBoxColumn
-			// 
-			this.registrationTimeDataGridViewTextBoxColumn.DataPropertyName = "Registration_Time";
-			this.registrationTimeDataGridViewTextBoxColumn.HeaderText = "زمان ثبت";
-			this.registrationTimeDataGridViewTextBoxColumn.Name = "registrationTimeDataGridViewTextBoxColumn";
-			this.registrationTimeDataGridViewTextBoxColumn.ReadOnly = true;
-			// 
-			// finantialSituationDataGridViewTextBoxColumn
-			// 
-			this.finantialSituationDataGridViewTextBoxColumn.DataPropertyName = "Finantial_Situation";
-			this.finantialSituationDataGridViewTextBoxColumn.HeaderText = "وضعیت مالی";
-			this.finantialSituationDataGridViewTextBoxColumn.Name = "finantialSituationDataGridViewTextBoxColumn";
-			this.finantialSituationDataGridViewTextBoxColumn.ReadOnly = true;
-			// 
-			// clientNameDataGridViewTextBoxColumn
-			// 
-			this.clientNameDataGridViewTextBoxColumn.DataPropertyName = "Client_Name";
-			this.clientNameDataGridViewTextBoxColumn.HeaderText = "نام مشتری";
-			this.clientNameDataGridViewTextBoxColumn.Name = "clientNameDataGridViewTextBoxColumn";
-			this.clientNameDataGridViewTextBoxColumn.ReadOnly = true;
-			this.clientNameDataGridViewTextBoxColumn.Visible = false;
-			// 
-			// licensePlateDataGridViewTextBoxColumn
-			// 
-			this.licensePlateDataGridViewTextBoxColumn.DataPropertyName = "License_Plate";
-			this.licensePlateDataGridViewTextBoxColumn.HeaderText = "پلاک وسیله نقیله";
-			this.licensePlateDataGridViewTextBoxColumn.Name = "licensePlateDataGridViewTextBoxColumn";
-			this.licensePlateDataGridViewTextBoxColumn.ReadOnly = true;
-			this.licensePlateDataGridViewTextBoxColumn.Visible = false;
-			// 
-			// phoneNumberDataGridViewTextBoxColumn
-			// 
-			this.phoneNumberDataGridViewTextBoxColumn.DataPropertyName = "Phone_Number";
-			this.phoneNumberDataGridViewTextBoxColumn.HeaderText = "شماره تماس";
-			this.phoneNumberDataGridViewTextBoxColumn.Name = "phoneNumberDataGridViewTextBoxColumn";
-			this.phoneNumberDataGridViewTextBoxColumn.ReadOnly = true;
-			this.phoneNumberDataGridViewTextBoxColumn.Visible = false;
-			// 
-			// taxPercentDataGridViewTextBoxColumn
-			// 
-			this.taxPercentDataGridViewTextBoxColumn.DataPropertyName = "Tax_Percent";
-			this.taxPercentDataGridViewTextBoxColumn.HeaderText = "درصد مالیات";
-			this.taxPercentDataGridViewTextBoxColumn.Name = "taxPercentDataGridViewTextBoxColumn";
-			this.taxPercentDataGridViewTextBoxColumn.ReadOnly = true;
-			this.taxPercentDataGridViewTextBoxColumn.Visible = false;
-			// 
-			// listFinancialClientBindingSource
-			// 
-			this.listFinancialClientBindingSource.DataSource = typeof(Models.ListFinancialClient);
-			// 
-			// separatorLabel1
-			// 
-			this.separatorLabel1.AutoSize = true;
-			this.separatorLabel1.ForeColor = System.Drawing.Color.White;
-			this.separatorLabel1.Location = new System.Drawing.Point(37, 13);
-			this.separatorLabel1.Name = "separatorLabel1";
-			this.separatorLabel1.Size = new System.Drawing.Size(12, 15);
-			this.separatorLabel1.TabIndex = 6;
-			this.separatorLabel1.Text = "-";
-			// 
-			// separatorLabel2
-			// 
-			this.separatorLabel2.AutoSize = true;
-			this.separatorLabel2.ForeColor = System.Drawing.Color.White;
-			this.separatorLabel2.Location = new System.Drawing.Point(144, 13);
-			this.separatorLabel2.Name = "separatorLabel2";
-			this.separatorLabel2.Size = new System.Drawing.Size(12, 15);
-			this.separatorLabel2.TabIndex = 5;
-			this.separatorLabel2.Text = "-";
-			// 
-			// iranLabel
-			// 
-			this.iranLabel.AutoSize = true;
-			this.iranLabel.Font = new System.Drawing.Font("IRANSansXFaNum", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-			this.iranLabel.ForeColor = System.Drawing.Color.White;
-			this.iranLabel.Location = new System.Drawing.Point(155, 11);
-			this.iranLabel.Name = "iranLabel";
-			this.iranLabel.Size = new System.Drawing.Size(29, 18);
-			this.iranLabel.TabIndex = 4;
-			this.iranLabel.Text = "ایران";
-			// 
 			// ClientFinancialSituationForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 17F);
@@ -1009,9 +1010,9 @@ namespace Client_Forms
 			this.Load += new System.EventHandler(this.ClientFinancialSituationForm_Load);
 			this.mainPanel.ResumeLayout(false);
 			((System.ComponentModel.ISupportInitialize)(this.listFinantioalClientDataGridView)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.listFinancialClientBindingSource)).EndInit();
 			this.licensePlateGroupBox.ResumeLayout(false);
 			this.licensePlateGroupBox.PerformLayout();
-			((System.ComponentModel.ISupportInitialize)(this.listFinancialClientBindingSource)).EndInit();
 			this.ResumeLayout(false);
 
 		}

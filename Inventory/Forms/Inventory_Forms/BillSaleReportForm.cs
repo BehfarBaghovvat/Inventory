@@ -1752,7 +1752,7 @@ namespace Inventory_Forms
 
 					Models.ServiceInvoice invoiceSerialNumber =
 						dataBaseContext.ServiceInvoices
-						.Where(current => string.Compare(current.Invoice_Serial_Numvber, serialNumber) == 0)
+						.Where(current => string.Compare(current.Invoice_Serial_Number, serialNumber) == 0)
 						.FirstOrDefault();
 					if (invoiceSerialNumber == null)
 					{
@@ -1805,7 +1805,7 @@ namespace Inventory_Forms
 					{
 						Carrier_Name = _auditItem.Carrier_Name,
 						Client_Name = _auditItem.Client_Name,
-						Invoice_Serial_Numvber = _auditItem.InvoiceSerialNumber,
+						Invoice_Serial_Number = _auditItem.InvoiceSerialNumber,
 						Sales_Payment_Type = _auditItem.Sales_Payment_Type,
 						Payment_Cach_Type = _auditItem.Payment_Cach_Type,
 						Sales_Date = _auditItem.Register_Date,

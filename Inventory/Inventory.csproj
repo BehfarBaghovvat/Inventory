@@ -137,6 +137,12 @@
     <Compile Include="Forms\Financial_Form\AncillaryCostsForm.Designer.cs">
       <DependentUpon>AncillaryCostsForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Financial_Form\AuditingForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Financial_Form\AuditingForm.Designer.cs">
+      <DependentUpon>AuditingForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Financial_Form\Cheque_Bank\GetChequeUC.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -365,6 +371,9 @@
     <EmbeddedResource Include="Forms\Financial_Form\AncillaryCostsForm.resx">
       <DependentUpon>AncillaryCostsForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Financial_Form\AuditingForm.resx">
+      <DependentUpon>AuditingForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\Financial_Form\Cheque_Bank\GetChequeUC.resx">
       <DependentUpon>GetChequeUC.cs</DependentUpon>
     </EmbeddedResource>
@@ -484,6 +493,7 @@
       <DependentUpon>TestControlsForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\Models.AccountsPayable.datasource" />
     <None Include="Properties\DataSources\Models.AccountsReceivable.datasource" />
     <None Include="Properties\DataSources\Models.AncillaryCosts.datasource" />
     <None Include="Properties\DataSources\Models.ChequaSection.datasource" />

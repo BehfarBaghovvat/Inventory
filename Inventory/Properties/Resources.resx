@@ -121,6 +121,9 @@
   <data name="circled_user_male_skin_type_3_512px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\circled_user_male_skin_type_3_512px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Complete_Operation" xml:space="preserve">
+    <value>عملیات ثبت با موفقیت انجام گردید.</value>
+  </data>
   <data name="error-512" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\error-512.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>

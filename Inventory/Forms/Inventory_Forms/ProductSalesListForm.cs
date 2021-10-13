@@ -8,6 +8,7 @@ namespace Inventory_Forms
 
 		#region Properties
 
+		int index = 0;
 		public string Search { get; set; }
 
 		#endregion /Properties
@@ -35,7 +36,7 @@ namespace Inventory_Forms
 		#region CloseButton_Click
 		private void CloseButton_Click(object sender, System.EventArgs e)
 		{
-			this.Close();
+			closeFadeTimer.Start();
 		}
 		#endregion /CloseButton_Click
 
@@ -75,12 +76,12 @@ namespace Inventory_Forms
 		#region SearchTextBox_TextChange
 		private void SearchTextBox_TextChange(object sender, System.EventArgs e)
 		{
-			if (selectSearchComboBox.SelectedIndex == 0)
+			if (index == 0)
 			{
 				Search = null;
 				return;
 			}
-			else if (selectSearchComboBox.SelectedIndex == 1)//----- جستجوی نام مشتری
+			else if (index == 1)//----- جستجوی نام مشتری
 			{
 				if (string.IsNullOrWhiteSpace(searchTextBox.Text))
 				{
@@ -108,7 +109,7 @@ namespace Inventory_Forms
 					SellerNameSearch(Search);
 				}
 			}
-			else if (selectSearchComboBox.SelectedIndex == 3)//----- جستجوی حامل کالا
+			else if (index == 3)//----- جستجوی حامل کالا
 			{
 				if (string.IsNullOrWhiteSpace(searchTextBox.Text))
 				{
@@ -122,7 +123,7 @@ namespace Inventory_Forms
 
 				}
 			}
-			else if (selectSearchComboBox.SelectedIndex == 4)//----- جستجوی نام کالا
+			else if (index == 4)//----- جستجوی نام کالا
 			{
 				if (string.IsNullOrWhiteSpace(searchTextBox.Text))
 				{
@@ -136,7 +137,7 @@ namespace Inventory_Forms
 					ProductNameSearch(Search);
 				}
 			}
-			else if (selectSearchComboBox.SelectedIndex == 5)//----- جستجوی تاریخ ثبت
+			else if (index == 5)//----- جستجوی تاریخ ثبت
 			{
 				if (string.IsNullOrWhiteSpace(searchTextBox.Text))
 				{
@@ -156,10 +157,22 @@ namespace Inventory_Forms
 		#region SelectSearchComboBox_SelectedIndexChanged
 		private void SelectSearchComboBox_SelectedIndexChanged(object sender, System.EventArgs e)
 		{
-
+			index = selectSearchComboBox.SelectedIndex;
+			searchTextBox.Clear();
 		}
 		#endregion /SelectSearchComboBox_SelectedIndexChanged
 
+		#region CloseFadeTimer_Tick
+		private void CloseFadeTimer_Tick(object sender, System.EventArgs e)
+		{
+			this.Opacity -= 0.1;
+			if (this.Opacity == 0.0)
+			{
+				closeFadeTimer.Stop();
+				this.Dispose();
+			}
+		}
+		#endregion /CloseFadeTimer_Tick
 
 
 		//-----------------------------------------------------------------------------------------------     Privat Methods
@@ -316,6 +329,9 @@ namespace Inventory_Forms
 		/// </summary>
 		private void Initialize()
 		{
+			animateWindow.Interval = 200;
+			animateWindow.AnimationType = Guna.UI.WinForms.GunaAnimateWindow.AnimateWindowType.AW_CENTER;
+			animateWindow.Start();
 			LoadingInventoryOutput();
 		}
 		#endregion /Initialize
@@ -460,6 +476,7 @@ namespace Inventory_Forms
 				}
 			}
 		}
+
 		#endregion /SellerNameSearch
 
 		#endregion /Founction
