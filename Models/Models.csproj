@@ -63,7 +63,7 @@
     <Compile Include="DataBaseContextInitializerBeforTheFirstRelease.cs" />
     <Compile Include="EventLog.cs" />
     <Compile Include="AccountsReceivable.cs" />
-    <Compile Include="AccountsPayable.cs" />
+    <Compile Include="AccountsPayment.cs" />
     <Compile Include="InventoryHolding.cs" />
     <Compile Include="ListFinancialClient.cs" />
     <Compile Include="ListIncidentalExpensesName.cs" />

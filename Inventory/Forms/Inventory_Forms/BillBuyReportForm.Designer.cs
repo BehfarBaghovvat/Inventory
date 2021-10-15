@@ -221,6 +221,7 @@ namespace Inventory_Forms
 			this.remainingAmountTextBox.TabIndex = 12;
 			this.remainingAmountTextBox.Text = "0 تومان";
 			this.remainingAmountTextBox.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+			this.remainingAmountTextBox.TextChanged += new System.EventHandler(this.RemainingAmountTextBox_TextChanged);
 			// 
 			// totalSumPriceLable
 			// 

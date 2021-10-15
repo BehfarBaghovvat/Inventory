@@ -63,8 +63,8 @@ namespace Inventory
 			this.dropDownInventoryTimer = new System.Windows.Forms.Timer(this.components);
 			this.dropUpInventoryTimer = new System.Windows.Forms.Timer(this.components);
 			this.topMainPanel = new Guna.UI2.WinForms.Guna2Panel();
-			this.fundLabel = new Mbb.Windows.Forms.Label();
-			this.fundsNotificationTextBox = new Mbb.Windows.Forms.Label();
+			this.capitalFundLabel = new Mbb.Windows.Forms.Label();
+			this.capitalFundsNotificationTextBox = new Mbb.Windows.Forms.Label();
 			this.logoutButton = new Guna.UI2.WinForms.Guna2CircleButton();
 			this.shutDownButton = new Guna.UI2.WinForms.Guna2CircleButton();
 			this.fadeInMainFormTimer = new System.Windows.Forms.Timer(this.components);
@@ -677,8 +677,8 @@ namespace Inventory
 			// 
 			// topMainPanel
 			// 
-			this.topMainPanel.Controls.Add(this.fundLabel);
-			this.topMainPanel.Controls.Add(this.fundsNotificationTextBox);
+			this.topMainPanel.Controls.Add(this.capitalFundLabel);
+			this.topMainPanel.Controls.Add(this.capitalFundsNotificationTextBox);
 			this.topMainPanel.Controls.Add(this.logoutButton);
 			this.topMainPanel.Controls.Add(this.shutDownButton);
 			this.topMainPanel.Dock = System.Windows.Forms.DockStyle.Top;
@@ -688,29 +688,29 @@ namespace Inventory
 			this.topMainPanel.Size = new System.Drawing.Size(1150, 40);
 			this.topMainPanel.TabIndex = 3;
 			// 
-			// fundLabel
+			// capitalFundLabel
 			// 
-			this.fundLabel.AutoSize = true;
-			this.fundLabel.ForeColor = System.Drawing.Color.White;
-			this.fundLabel.Location = new System.Drawing.Point(48, 12);
-			this.fundLabel.Name = "fundLabel";
-			this.fundLabel.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-			this.fundLabel.Size = new System.Drawing.Size(83, 17);
-			this.fundLabel.TabIndex = 2;
-			this.fundLabel.Text = ":موجودی صندوق";
-			this.fundLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+			this.capitalFundLabel.AutoSize = true;
+			this.capitalFundLabel.ForeColor = System.Drawing.Color.White;
+			this.capitalFundLabel.Location = new System.Drawing.Point(48, 12);
+			this.capitalFundLabel.Name = "capitalFundLabel";
+			this.capitalFundLabel.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+			this.capitalFundLabel.Size = new System.Drawing.Size(83, 17);
+			this.capitalFundLabel.TabIndex = 2;
+			this.capitalFundLabel.Text = ":موجودی صندوق";
+			this.capitalFundLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
 			// 
-			// fundsNotificationTextBox
+			// capitalFundsNotificationTextBox
 			// 
-			this.fundsNotificationTextBox.Font = new System.Drawing.Font("IRANSans", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-			this.fundsNotificationTextBox.ForeColor = System.Drawing.Color.Yellow;
-			this.fundsNotificationTextBox.Location = new System.Drawing.Point(137, 5);
-			this.fundsNotificationTextBox.Name = "fundsNotificationTextBox";
-			this.fundsNotificationTextBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-			this.fundsNotificationTextBox.Size = new System.Drawing.Size(250, 30);
-			this.fundsNotificationTextBox.TabIndex = 1;
-			this.fundsNotificationTextBox.Text = "0 تومان";
-			this.fundsNotificationTextBox.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+			this.capitalFundsNotificationTextBox.Font = new System.Drawing.Font("IRANSans", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+			this.capitalFundsNotificationTextBox.ForeColor = System.Drawing.Color.Cyan;
+			this.capitalFundsNotificationTextBox.Location = new System.Drawing.Point(137, 5);
+			this.capitalFundsNotificationTextBox.Name = "capitalFundsNotificationTextBox";
+			this.capitalFundsNotificationTextBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+			this.capitalFundsNotificationTextBox.Size = new System.Drawing.Size(350, 30);
+			this.capitalFundsNotificationTextBox.TabIndex = 1;
+			this.capitalFundsNotificationTextBox.Text = "0 تومان";
+			this.capitalFundsNotificationTextBox.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
 			// 
 			// logoutButton
 			// 
@@ -1031,8 +1031,7 @@ namespace Inventory
 		private Guna.UI2.WinForms.Guna2GradientButton fainancialButton;
 		public System.Windows.Forms.Timer logOutMainFormTimer;
 		private Guna.UI2.WinForms.Guna2GradientButton serviceButton;
-		public Mbb.Windows.Forms.Label fundsNotificationTextBox;
-		public Mbb.Windows.Forms.Label fundLabel;
+		public Mbb.Windows.Forms.Label capitalFundsNotificationTextBox;
 		private Guna.UI2.WinForms.Guna2Panel mainPanel;
 		private Guna.UI2.WinForms.Guna2Panel homePanel;
 		private Guna.UI2.WinForms.Guna2Panel timePanel;
@@ -1048,6 +1047,7 @@ namespace Inventory
 		private Guna.UI2.WinForms.Guna2GradientButton safeBoxButton;
 		private Guna.UI2.WinForms.Guna2GradientButton ancillaryCostsButton;
 		private Guna.UI.WinForms.GunaPictureBox hologramPictureBox;
+		private Mbb.Windows.Forms.Label capitalFundLabel;
 	}
 }
 

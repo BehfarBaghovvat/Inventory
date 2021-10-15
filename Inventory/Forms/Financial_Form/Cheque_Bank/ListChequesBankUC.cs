@@ -209,12 +209,12 @@ namespace Chequa_Bank
 					else if (capitalFund.Capital_Fund.Length <= 9)
 					{
 						capital_Fund = decimal.Parse(capitalFund.Capital_Fund.Replace("تومان", string.Empty).Trim());
-						MainForm.fundsNotificationTextBox.Text = $"{capital_Fund} تومان";
+						MainForm.capitalFundsNotificationTextBox.Text = $"{capital_Fund} تومان";
 					}
 					else
 					{
 						capital_Fund = decimal.Parse(capitalFund.Capital_Fund.Replace("تومان", string.Empty).Replace(",", string.Empty).Trim());
-						MainForm.fundsNotificationTextBox.Text = $"{capital_Fund:#,0} تومان";
+						MainForm.capitalFundsNotificationTextBox.Text = $"{capital_Fund:#,0} تومان";
 					}
 				}
 

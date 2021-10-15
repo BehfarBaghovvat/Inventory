@@ -1,11 +1,18 @@
 ﻿namespace Models
 {
 	/// <summary>
-	/// دفتر معین برداشت از صندوق
+	/// دفتر معین پرداختی ها
 	/// </summary>
-	public class AccountsPayable
+	public class AccountsPayment
 	{
-		public AccountsPayable()
+		public enum FinantialSituation
+		{
+			طلبکار,
+			تسویه,
+			بدهکار,
+		}
+
+		public AccountsPayment()
 		{
 
 		}
@@ -45,6 +52,15 @@
 			(maximumLength: 1000)]
 		public string Description { get; set; }
 		#endregion /Description
+
+		/// <summary>
+		/// وضعیت مالی
+		/// </summary>
+		#region Finantial_Situation
+		//--DisplayName FinantialSituation
+		[System.ComponentModel.DisplayName(displayName: "وضعیت مالی")]
+		public FinantialSituation Finantial_Situation { get; set; }
+		#endregion /Finantial_Situation
 
 		/// <summary>
 		/// ردیف

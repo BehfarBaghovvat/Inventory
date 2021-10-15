@@ -334,7 +334,7 @@ namespace Client_Forms
 					}
 				}
 
-				MainForm.fundLabel.Text = $"{amount:#,0} تومان";
+				MainForm.capitalFundLabel.Text = $"{amount:#,0} تومان";
 
 				return amount;
 			}
