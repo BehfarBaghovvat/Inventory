@@ -5,7 +5,7 @@
 	/// </summary>
 	public class AccountsPayment
 	{
-		public enum FinantialSituation
+		public enum FinantialSituationAccountPaymetn
 		{
 			طلبکار,
 			تسویه,
@@ -25,7 +25,7 @@
 		[System.ComponentModel.DisplayName(displayName: "مبلغ پرداخت شده")]
 		//--Lenght Amount_Payable
 		[System.ComponentModel.DataAnnotations.StringLength
-			(maximumLength: 60)]
+			(maximumLength: 150)]
 		public string Amount_Paid { get; set; }
 		#endregion /Amount_Paid
 
@@ -40,6 +40,17 @@
 			(maximumLength: 160)]
 		public string Amount_Payable { get; set; }
 		#endregion /Amount_Payable
+
+		/// <summary>
+		/// مبلغ باقیمانده
+		/// </summary>
+		#region Amount_Remaininig
+		[System.ComponentModel.DisplayName(displayName: "مبلغ باقیمانده")]
+		//--Lenght Amount_Remaininig
+		[System.ComponentModel.DataAnnotations.StringLength
+			(maximumLength: 150)]
+		public string Amount_Remaininig { get; set; }
+		#endregion /Amount_Remaininig
 
 		/// <summary>
 		/// توضیحات
@@ -59,7 +70,7 @@
 		#region Finantial_Situation
 		//--DisplayName FinantialSituation
 		[System.ComponentModel.DisplayName(displayName: "وضعیت مالی")]
-		public FinantialSituation Finantial_Situation { get; set; }
+		public FinantialSituationAccountPaymetn Finantial_Situation { get; set; }
 		#endregion /Finantial_Situation
 
 		/// <summary>
@@ -96,17 +107,6 @@
 			(maximumLength: 8)]
 		public string Registration_Time { get; set; }
 		#endregion /Registration_Time
-
-		/// <summary>
-		/// مبلغ باقیمانده
-		/// </summary>
-		#region Remaininig_Amount
-		[System.ComponentModel.DisplayName(displayName: "مبلغ باقیمانده")]
-		//--Lenght Amount_Payable
-		[System.ComponentModel.DataAnnotations.StringLength
-			(maximumLength: 60)]
-		public string Remaininig_Amount { get; set; }
-		#endregion /Remaininig_Amount
 
 		/// <summary>
 		/// نام فروشنده

@@ -148,6 +148,28 @@ namespace Inventory
 			}
 		}
 
+		private Financial_Form.AuditingForm _auditingForm;
+		public Financial_Form.AuditingForm AuditingForm
+		{
+			get
+			{
+				if (_auditingForm == null || _auditingForm.IsDisposed == true)
+				{
+					_auditingForm =
+						new Financial_Form.AuditingForm();
+
+					_auditingForm.TopLevel = false;
+					_auditingForm.TopMost = true;
+					_auditingForm.Dock = System.Windows.Forms.DockStyle.Fill;
+				}
+				return _auditingForm;
+			}
+			set
+			{
+				_auditingForm = value;
+			}
+		}
+
 		private Financial_Form.FinancialReportForm _financialReportForm;
 		public Financial_Form.FinancialReportForm FinancialReportForm
 		{
@@ -549,6 +571,7 @@ namespace Inventory
 
 				AncillaryCostsForm.Hide();
 				FinancialReportForm.Hide();
+				AuditingForm.Hide();
 				SafeBoxForm.Hide();
 				SectionChequeBankForm.Hide();
 
@@ -566,6 +589,7 @@ namespace Inventory
 
 				ancillaryCostsButton.Checked = false;
 				financialReportButton.Checked = false;
+				auditingButton.Checked = false;
 				safeBoxButton.Checked = false;
 				sectionChequeBankButton.Checked = false;
 
@@ -598,6 +622,7 @@ namespace Inventory
 
 				AncillaryCostsForm.Hide();
 				FinancialReportForm.Hide();
+				AuditingForm.Hide();
 				SafeBoxForm.Hide();
 				SectionChequeBankForm.Hide();
 
@@ -615,6 +640,7 @@ namespace Inventory
 
 				ancillaryCostsButton.Checked = false;
 				financialReportButton.Checked = false;
+				auditingButton.Checked = false;
 				safeBoxButton.Checked = false;
 				sectionChequeBankButton.Checked = false;
 
@@ -646,7 +672,7 @@ namespace Inventory
 				ServiceForm.Hide();
 
 				AncillaryCostsForm.Hide();
-				FinancialReportForm.Hide();
+				AuditingForm.Hide();
 				SafeBoxForm.Hide();
 				SectionChequeBankForm.Hide();
 
@@ -664,6 +690,7 @@ namespace Inventory
 
 				ancillaryCostsButton.Checked = false;
 				financialReportButton.Checked = false;
+				auditingButton.Checked = false;
 				safeBoxButton.Checked = false;
 				sectionChequeBankButton.Checked = false;
 
@@ -696,6 +723,7 @@ namespace Inventory
 
 				AncillaryCostsForm.Hide();
 				FinancialReportForm.Hide();
+				AuditingForm.Hide();
 				SafeBoxForm.Hide();
 				SectionChequeBankForm.Hide();
 
@@ -713,6 +741,7 @@ namespace Inventory
 
 				ancillaryCostsButton.Checked = false;
 				financialReportButton.Checked = false;
+				auditingButton.Checked = false;
 				safeBoxButton.Checked = false;
 				sectionChequeBankButton.Checked = false;
 
@@ -805,6 +834,7 @@ namespace Inventory
 				ServiceForm.Hide();
 
 				AncillaryCostsForm.Hide();
+				AuditingForm.Hide();
 				FinancialReportForm.Hide();
 				SectionChequeBankForm.Hide();
 
@@ -823,6 +853,7 @@ namespace Inventory
 
 				ancillaryCostsButton.Checked = false;
 				financialReportButton.Checked = false;
+				auditingButton.Checked = false;
 				safeBoxButton.Checked = true;
 				sectionChequeBankButton.Checked = false;
 
@@ -855,6 +886,7 @@ namespace Inventory
 				ServiceForm.Hide();
 
 				FinancialReportForm.Hide();
+				AuditingForm.Hide();
 				SafeBoxForm.Hide();
 				SectionChequeBankForm.Hide();
 
@@ -873,6 +905,7 @@ namespace Inventory
 
 				ancillaryCostsButton.Checked = true;
 				financialReportButton.Checked = false;
+				auditingButton.Checked = false;
 				safeBoxButton.Checked = false;
 				sectionChequeBankButton.Checked = false;
 
@@ -884,6 +917,59 @@ namespace Inventory
 			}
 		}
 		#endregion /AncillaryCostsButton_Click
+
+		#region AuditingButton_Click
+		private void AuditingButton_Click(object sender, System.EventArgs e)
+		{
+			if (auditingButton.Checked)
+			{
+				return;
+			}
+			else
+			{
+				mainPanel.Controls.Clear();
+				mainPanel.Controls.Add(AuditingForm);
+				AuditingForm.Initialize();
+				AuditingForm.Show();
+
+				ProductBuyForm.Hide();
+				ProductSalesForm.Hide();
+				InventoryForm.Hide();
+				ServiceForm.Hide();
+
+
+				AncillaryCostsForm.Hide();
+				FinancialReportForm.Hide();
+				SafeBoxForm.Hide();
+				SectionChequeBankForm.Hide();
+
+				RegisterClientForm.Hide();
+				ClientFinancialSituationForm.Hide();
+
+				ManagementSettingForm.Hide();
+				BackupSettingForm.Hide();
+
+				homeButton.Checked = false;
+
+				inventoryEntryButton.Checked = false;
+				productSalesButton.Checked = false;
+				inventoryholdingButton.Checked = false;
+				serviceButton.Checked = false;
+
+				ancillaryCostsButton.Checked = false;
+				financialReportButton.Checked = false;
+				auditingButton.Checked = true;
+				safeBoxButton.Checked = false;
+				sectionChequeBankButton.Checked = false;
+
+				registerClientButton.Checked = false;
+				clientFinancialSituationButton.Checked = false;
+
+				managementSettingsButton.Checked = false;
+				backupSettingsButton.Checked = false;
+			}
+		}
+		#endregion /AuditingButton_Click
 
 		#region FinancialOrderButton_Click
 		private void FinancialOrderButton_Click(object sender, System.EventArgs e)
@@ -905,6 +991,7 @@ namespace Inventory
 				ServiceForm.Hide();
 
 				AncillaryCostsForm.Hide();
+				AuditingForm.Hide();
 				SafeBoxForm.Hide();
 				SectionChequeBankForm.Hide();
 
@@ -923,6 +1010,7 @@ namespace Inventory
 
 				ancillaryCostsButton.Checked = false;
 				financialReportButton.Checked = true;
+				auditingButton.Checked = false;
 				safeBoxButton.Checked = false;
 				sectionChequeBankButton.Checked = false;
 
@@ -954,6 +1042,7 @@ namespace Inventory
 				ServiceForm.Hide();
 
 				FinancialReportForm.Hide();
+				AuditingForm.Hide();
 				AncillaryCostsForm.Hide();
 				SafeBoxForm.Hide();
 
@@ -972,6 +1061,7 @@ namespace Inventory
 
 				ancillaryCostsButton.Checked = false;
 				financialReportButton.Checked = false;
+				auditingButton.Checked = false;
 				safeBoxButton.Checked = false;
 				sectionChequeBankButton.Checked = true;
 
@@ -990,7 +1080,7 @@ namespace Inventory
 		private void DropDownFinancialTimer_Tick(object sender, System.EventArgs e)
 		{
 			submenuFinancialPanel.Height += 10;
-			if (submenuFinancialPanel.Height >= 155)
+			if (submenuFinancialPanel.Height >= 190)
 			{
 				dropDownFinancialTimer.Stop();
 			}
@@ -1062,8 +1152,10 @@ namespace Inventory
 				ServiceForm.Hide();
 
 				FinancialReportForm.Hide();
+				AuditingForm.Hide();
 				AncillaryCostsForm.Hide();
 				SafeBoxForm.Hide();
+				SectionChequeBankForm.Hide();
 
 				ClientFinancialSituationForm.Hide();
 
@@ -1079,6 +1171,7 @@ namespace Inventory
 
 				ancillaryCostsButton.Checked = false;
 				financialReportButton.Checked = false;
+				auditingButton.Checked = false;
 				safeBoxButton.Checked = false;
 				sectionChequeBankButton.Checked = false;
 
@@ -1112,7 +1205,9 @@ namespace Inventory
 
 				FinancialReportForm.Hide();
 				AncillaryCostsForm.Hide();
+				AuditingForm.Hide();
 				SafeBoxForm.Hide();
+				SectionChequeBankForm.Hide();
 
 				RegisterClientForm.Hide();
 
@@ -1128,6 +1223,7 @@ namespace Inventory
 
 				ancillaryCostsButton.Checked = false;
 				financialReportButton.Checked = false;
+				auditingButton.Checked = false;
 				safeBoxButton.Checked = false;
 				sectionChequeBankButton.Checked = false;
 
@@ -1219,7 +1315,9 @@ namespace Inventory
 
 				FinancialReportForm.Hide();
 				AncillaryCostsForm.Hide();
+				AuditingForm.Hide();
 				SafeBoxForm.Hide();
+				SectionChequeBankForm.Hide();
 
 				RegisterClientForm.Hide();
 				ClientFinancialSituationForm.Hide();
@@ -1235,6 +1333,7 @@ namespace Inventory
 
 				ancillaryCostsButton.Checked = false;
 				financialReportButton.Checked = false;
+				auditingButton.Checked = false;
 				safeBoxButton.Checked = false;
 				sectionChequeBankButton.Checked = false;
 
@@ -1270,7 +1369,9 @@ namespace Inventory
 
 				FinancialReportForm.Hide();
 				AncillaryCostsForm.Hide();
+				AuditingForm.Hide();
 				SafeBoxForm.Hide();
+				SectionChequeBankForm.Hide();
 
 				RegisterClientForm.Hide();
 				ClientFinancialSituationForm.Hide();
@@ -1286,6 +1387,7 @@ namespace Inventory
 
 				ancillaryCostsButton.Checked = false;
 				financialReportButton.Checked = false;
+				auditingButton.Checked = false;
 				safeBoxButton.Checked = false;
 				sectionChequeBankButton.Checked = false;
 
@@ -2094,6 +2196,7 @@ namespace Inventory
 
 			Infrastructure.Utility.EventLog(EventLog);
 		}
+
 		#endregion /SetEventLog
 
 		#endregion /Founcitons

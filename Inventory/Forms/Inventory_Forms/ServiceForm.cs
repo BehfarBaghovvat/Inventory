@@ -20,7 +20,7 @@ namespace Inventory_Forms
 			public decimal? Capital_Fund { get; set; }
 			public decimal? Cash_Payment_Amount { get; set; }
 			public string  Client_Name { get; set; }
-			public Models.ListFinancialClient.FinantialSituation Finantial_Situation { get; set; }
+			public Models.ListFinancialClient.FinantialSituationClient Finantial_Situation { get; set; }
 			public string Invoice_Serial_Number { get; set; }
 			public string License_Plate { get; set; }
 			public string Phone_Number { get; set; }
@@ -710,15 +710,15 @@ namespace Inventory_Forms
 
 			if (_auditItem.Amount_Remaininig < 0)
 			{
-				_auditItem.Finantial_Situation = Models.ListFinancialClient.FinantialSituation.بدهکار;
+				_auditItem.Finantial_Situation = Models.ListFinancialClient.FinantialSituationClient.بدهکار;
 			}
 			else if (_auditItem.Amount_Remaininig == 0)
 			{
-				_auditItem.Finantial_Situation = Models.ListFinancialClient.FinantialSituation.تسویه;
+				_auditItem.Finantial_Situation = Models.ListFinancialClient.FinantialSituationClient.تسویه;
 			}
 			else
 			{
-				_auditItem.Finantial_Situation = Models.ListFinancialClient.FinantialSituation.طلبکار;
+				_auditItem.Finantial_Situation = Models.ListFinancialClient.FinantialSituationClient.طلبکار;
 			}
 
 			remainingTextBox.Text = $"{_auditItem.Amount_Remaininig:#,0} تومان";

@@ -20,10 +20,14 @@
 			ماهیانه,
 		}
 
+
+
+		decimal num1, num2, num3;
+
+
 		public TestControlsForm()
 		{
 			InitializeComponent();
-			
 		}
 
 		private void button1_Click(object sender, System.EventArgs e)
@@ -93,16 +97,73 @@
 		private void button4_Click(object sender, System.EventArgs e)
 		{
 			System.Windows.Forms.MessageBox.Show($"{numTextBox1.Text} - {numTextBox3.Text}{iranLabel.Text} - {numTextBox2.Text}{alphabetComboBox.SelectedItem}");
-		}
-
-		private void guna2Panel1_Leave(object sender, System.EventArgs e)
-		{
-			
-		}
+		}		
 
 		private void guna2GroupBox1_Leave(object sender, System.EventArgs e)
 		{
 			System.Windows.Forms.MessageBox.Show($"{numTextBox1.Text} - {numTextBox3.Text}{iranLabel.Text} - {numTextBox2.Text}{alphabetComboBox.SelectedItem}");
+		}
+
+		private void textBox6_TextChanged(object sender, System.EventArgs e)
+		{
+			if ((string.IsNullOrWhiteSpace(textBox5.Text) || string.Compare(textBox5.Text, "0") == 0) && (string.IsNullOrWhiteSpace(textBox6.Text) || string.Compare(textBox6.Text, "0") == 0))
+			{
+				num2 = 0;
+				num1 = 0;
+
+				num3 = num2 - (num1);
+
+				textBox4.Text = $"{num3}";
+			}
+			else if (string.IsNullOrWhiteSpace(textBox5.Text) || string.Compare(textBox5.Text,"0")==0)
+			{
+				num2 = 0;
+
+				num1 = decimal.Parse(textBox6.Text);
+
+				num3 = num2 - (num1);
+
+				textBox4.Text = $"{num3}";
+			}
+			else
+			{
+				num1 = decimal.Parse(textBox6.Text);
+
+				num3 = num2 - (num1);
+
+				textBox4.Text = $"{num3}";
+			}
+		}
+
+		private void textBox5_TextChanged(object sender, System.EventArgs e)
+		{
+			if ((string.IsNullOrWhiteSpace(textBox5.Text) || string.Compare(textBox5.Text, "0") == 0) &&(string.IsNullOrWhiteSpace(textBox6.Text) || string.Compare(textBox6.Text, "0") == 0))
+			{
+				num2 = 0;
+				num1 = 0;
+
+				num3 = num2 - (num1);
+
+				textBox4.Text = $"{num3}";
+			}
+			else if (string.IsNullOrWhiteSpace(textBox6.Text) || string.Compare(textBox6.Text, "0") == 0)
+			{
+				num1 = 0;
+
+				num2 = decimal.Parse(textBox5.Text);
+
+				num3 = num2 - (num1);
+
+				textBox4.Text = $"{num3}";
+			}
+			else
+			{
+				num2 = decimal.Parse(textBox5.Text);
+
+				num3 = num2 - (num1);
+
+				textBox4.Text = $"{num3}";
+			}
 		}
 	}
 }

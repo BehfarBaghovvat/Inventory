@@ -44,6 +44,7 @@ namespace Inventory
 			this.clientButton = new Guna.UI2.WinForms.Guna2GradientButton();
 			this.separator3 = new Mbb.Windows.Forms.Panel();
 			this.submenuFinancialPanel = new Mbb.Windows.Forms.Panel();
+			this.auditingButton = new Guna.UI2.WinForms.Guna2GradientButton();
 			this.sectionChequeBankButton = new Guna.UI2.WinForms.Guna2GradientButton();
 			this.financialReportButton = new Guna.UI2.WinForms.Guna2GradientButton();
 			this.safeBoxButton = new Guna.UI2.WinForms.Guna2GradientButton();
@@ -132,7 +133,7 @@ namespace Inventory
 			// 
 			this.separator5.BackColor = System.Drawing.Color.Indigo;
 			this.separator5.Dock = System.Windows.Forms.DockStyle.Top;
-			this.separator5.Location = new System.Drawing.Point(0, 875);
+			this.separator5.Location = new System.Drawing.Point(0, 910);
 			this.separator5.Name = "separator5";
 			this.separator5.Size = new System.Drawing.Size(183, 5);
 			this.separator5.TabIndex = 32;
@@ -142,7 +143,7 @@ namespace Inventory
 			this.submenuSettingPanel.Controls.Add(this.managementSettingsButton);
 			this.submenuSettingPanel.Controls.Add(this.backupSettingsButton);
 			this.submenuSettingPanel.Dock = System.Windows.Forms.DockStyle.Top;
-			this.submenuSettingPanel.Location = new System.Drawing.Point(0, 790);
+			this.submenuSettingPanel.Location = new System.Drawing.Point(0, 825);
 			this.submenuSettingPanel.Name = "submenuSettingPanel";
 			this.submenuSettingPanel.Size = new System.Drawing.Size(183, 85);
 			this.submenuSettingPanel.TabIndex = 31;
@@ -213,7 +214,7 @@ namespace Inventory
 			this.settingButton.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(0)))), ((int)(((byte)(61)))));
 			this.settingButton.HoverState.FillColor2 = System.Drawing.Color.Teal;
 			this.settingButton.HoverState.Parent = this.settingButton;
-			this.settingButton.Location = new System.Drawing.Point(0, 745);
+			this.settingButton.Location = new System.Drawing.Point(0, 780);
 			this.settingButton.Name = "settingButton";
 			this.settingButton.PressedColor = System.Drawing.Color.White;
 			this.settingButton.ShadowDecoration.Parent = this.settingButton;
@@ -226,7 +227,7 @@ namespace Inventory
 			// 
 			this.separator4.BackColor = System.Drawing.Color.Indigo;
 			this.separator4.Dock = System.Windows.Forms.DockStyle.Top;
-			this.separator4.Location = new System.Drawing.Point(0, 740);
+			this.separator4.Location = new System.Drawing.Point(0, 775);
 			this.separator4.Name = "separator4";
 			this.separator4.Size = new System.Drawing.Size(183, 5);
 			this.separator4.TabIndex = 29;
@@ -236,7 +237,7 @@ namespace Inventory
 			this.submenuClientPanel.Controls.Add(this.registerClientButton);
 			this.submenuClientPanel.Controls.Add(this.clientFinancialSituationButton);
 			this.submenuClientPanel.Dock = System.Windows.Forms.DockStyle.Top;
-			this.submenuClientPanel.Location = new System.Drawing.Point(0, 655);
+			this.submenuClientPanel.Location = new System.Drawing.Point(0, 690);
 			this.submenuClientPanel.Name = "submenuClientPanel";
 			this.submenuClientPanel.Size = new System.Drawing.Size(183, 85);
 			this.submenuClientPanel.TabIndex = 28;
@@ -307,7 +308,7 @@ namespace Inventory
 			this.clientButton.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(0)))), ((int)(((byte)(61)))));
 			this.clientButton.HoverState.FillColor2 = System.Drawing.Color.Teal;
 			this.clientButton.HoverState.Parent = this.clientButton;
-			this.clientButton.Location = new System.Drawing.Point(0, 610);
+			this.clientButton.Location = new System.Drawing.Point(0, 645);
 			this.clientButton.Name = "clientButton";
 			this.clientButton.PressedColor = System.Drawing.Color.White;
 			this.clientButton.ShadowDecoration.Parent = this.clientButton;
@@ -320,13 +321,14 @@ namespace Inventory
 			// 
 			this.separator3.BackColor = System.Drawing.Color.Indigo;
 			this.separator3.Dock = System.Windows.Forms.DockStyle.Top;
-			this.separator3.Location = new System.Drawing.Point(0, 605);
+			this.separator3.Location = new System.Drawing.Point(0, 640);
 			this.separator3.Name = "separator3";
 			this.separator3.Size = new System.Drawing.Size(183, 5);
 			this.separator3.TabIndex = 26;
 			// 
 			// submenuFinancialPanel
 			// 
+			this.submenuFinancialPanel.Controls.Add(this.auditingButton);
 			this.submenuFinancialPanel.Controls.Add(this.sectionChequeBankButton);
 			this.submenuFinancialPanel.Controls.Add(this.financialReportButton);
 			this.submenuFinancialPanel.Controls.Add(this.safeBoxButton);
@@ -334,8 +336,34 @@ namespace Inventory
 			this.submenuFinancialPanel.Dock = System.Windows.Forms.DockStyle.Top;
 			this.submenuFinancialPanel.Location = new System.Drawing.Point(0, 450);
 			this.submenuFinancialPanel.Name = "submenuFinancialPanel";
-			this.submenuFinancialPanel.Size = new System.Drawing.Size(183, 155);
+			this.submenuFinancialPanel.Size = new System.Drawing.Size(183, 190);
 			this.submenuFinancialPanel.TabIndex = 25;
+			// 
+			// auditingButton
+			// 
+			this.auditingButton.Animated = true;
+			this.auditingButton.BackColor = System.Drawing.Color.Transparent;
+			this.auditingButton.BorderRadius = 5;
+			this.auditingButton.CheckedState.FillColor = System.Drawing.Color.Olive;
+			this.auditingButton.CheckedState.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(0)))), ((int)(((byte)(61)))));
+			this.auditingButton.CheckedState.Parent = this.auditingButton;
+			this.auditingButton.CustomImages.Parent = this.auditingButton;
+			this.auditingButton.FillColor = System.Drawing.Color.RoyalBlue;
+			this.auditingButton.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(0)))), ((int)(((byte)(61)))));
+			this.auditingButton.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+			this.auditingButton.ForeColor = System.Drawing.Color.White;
+			this.auditingButton.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(0)))), ((int)(((byte)(61)))));
+			this.auditingButton.HoverState.FillColor2 = System.Drawing.Color.RoyalBlue;
+			this.auditingButton.HoverState.Parent = this.auditingButton;
+			this.auditingButton.Location = new System.Drawing.Point(16, 80);
+			this.auditingButton.Name = "auditingButton";
+			this.auditingButton.PressedColor = System.Drawing.Color.White;
+			this.auditingButton.ShadowDecoration.Enabled = true;
+			this.auditingButton.ShadowDecoration.Parent = this.auditingButton;
+			this.auditingButton.Size = new System.Drawing.Size(150, 30);
+			this.auditingButton.TabIndex = 2;
+			this.auditingButton.Text = "وضعیت حساب خرید";
+			this.auditingButton.Click += new System.EventHandler(this.AuditingButton_Click);
 			// 
 			// sectionChequeBankButton
 			// 
@@ -353,7 +381,7 @@ namespace Inventory
 			this.sectionChequeBankButton.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(0)))), ((int)(((byte)(61)))));
 			this.sectionChequeBankButton.HoverState.FillColor2 = System.Drawing.Color.RoyalBlue;
 			this.sectionChequeBankButton.HoverState.Parent = this.sectionChequeBankButton;
-			this.sectionChequeBankButton.Location = new System.Drawing.Point(16, 116);
+			this.sectionChequeBankButton.Location = new System.Drawing.Point(16, 152);
 			this.sectionChequeBankButton.Name = "sectionChequeBankButton";
 			this.sectionChequeBankButton.PressedColor = System.Drawing.Color.White;
 			this.sectionChequeBankButton.ShadowDecoration.Enabled = true;
@@ -379,7 +407,7 @@ namespace Inventory
 			this.financialReportButton.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(0)))), ((int)(((byte)(61)))));
 			this.financialReportButton.HoverState.FillColor2 = System.Drawing.Color.RoyalBlue;
 			this.financialReportButton.HoverState.Parent = this.financialReportButton;
-			this.financialReportButton.Location = new System.Drawing.Point(16, 80);
+			this.financialReportButton.Location = new System.Drawing.Point(16, 116);
 			this.financialReportButton.Name = "financialReportButton";
 			this.financialReportButton.PressedColor = System.Drawing.Color.White;
 			this.financialReportButton.ShadowDecoration.Enabled = true;
@@ -1048,6 +1076,7 @@ namespace Inventory
 		private Guna.UI2.WinForms.Guna2GradientButton ancillaryCostsButton;
 		private Guna.UI.WinForms.GunaPictureBox hologramPictureBox;
 		private Mbb.Windows.Forms.Label capitalFundLabel;
+		private Guna.UI2.WinForms.Guna2GradientButton auditingButton;
 	}
 }
 

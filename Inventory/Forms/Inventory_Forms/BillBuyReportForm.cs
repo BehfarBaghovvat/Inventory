@@ -19,7 +19,7 @@ namespace Inventory_Forms
 			public decimal Amount_Paid { get; set; }
 			public decimal Capital_Fund { get; set; }
 			public string Carrier_Name { get; set; }
-			public Models.AccountsPayment.FinantialSituation FinantialSituation { get; set; }
+			public Models.AccountsPayment.FinantialSituationAccountPaymetn FinantialSituation { get; set; }
 			public string InvoiceSerialNumber { get; set; }
 			public decimal Total_Sum_Price { get; set; }
 			public string Recipient_Name { get; set; }
@@ -364,15 +364,15 @@ namespace Inventory_Forms
 		{
 			if (auditItem.Amount_Remaining < 0)
 			{
-				auditItem.FinantialSituation = Models.AccountsPayment.FinantialSituation.بدهکار;
+				auditItem.FinantialSituation = Models.AccountsPayment.FinantialSituationAccountPaymetn.بدهکار;
 			}
 			else if (auditItem.Amount_Remaining == 0)
 			{
-				auditItem.FinantialSituation = Models.AccountsPayment.FinantialSituation.تسویه;
+				auditItem.FinantialSituation = Models.AccountsPayment.FinantialSituationAccountPaymetn.تسویه;
 			}
 			else
 			{
-				auditItem.FinantialSituation = Models.AccountsPayment.FinantialSituation.طلبکار;
+				auditItem.FinantialSituation = Models.AccountsPayment.FinantialSituationAccountPaymetn.طلبکار;
 			}
 		}
 		#endregion /RemainingAmountTextBox_TextChanged
@@ -728,13 +728,14 @@ namespace Inventory_Forms
 					{
 						Amount_Paid = $"{auditItem.Amount_Paid:#,0} تومان",
 						Amount_Payable = $"{auditItem.Total_Sum_Price:#,0} تومان",
+						Amount_Remaininig = $"{auditItem.Amount_Remaining:#,0} تومان",
 						Description = $"خرید کالا یا لوازم",
-						Remaininig_Amount = $"{auditItem.Amount_Remaining:#,0} تومان",
+						Finantial_Situation = auditItem.FinantialSituation,
 						Registration_Date = $"{Infrastructure.Utility.PersianCalendar(System.DateTime.Now)}",
 						Registration_Time = $"{Infrastructure.Utility.ShowTime()}",
 						Seller_Name = auditItem.Sender_Name,
 					};
-				dataBaseContext.AccountsPayables.Add(accountsPayable);
+				dataBaseContext.AccountsPayments.Add(accountsPayable);
 				dataBaseContext.SaveChanges();
 
 				return true;

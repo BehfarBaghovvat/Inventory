@@ -708,17 +708,21 @@ namespace Infrastructure
 		}
 		#endregion /GrayColor
 
-		#region InsertDcimalNumbers
+		#region InsertOnlyNumber
 		/// <summary>
 		/// Function for inserting decimal numbers
 		/// </summary>
 		/// <param name="e"></param>
 		/// <param name="text"></param>
-		public static void InsertDcimalNumbers(System.Windows.Forms.KeyPressEventArgs e, string text)
+		public static void InsertOnlyNumber(System.Windows.Forms.KeyPressEventArgs e, string text)
 		{
 			char ch = e.KeyChar;
 
-			if (ch == 47 && text.IndexOf('/') != -1)
+			//text.IndexOf('/') != -1
+
+
+
+			if (ch == 47 && text.Contains('/'))
 			{
 				e.Handled = true;
 				return;
@@ -729,7 +733,7 @@ namespace Infrastructure
 				e.Handled = true;
 			}
 		}
-		#endregion /InsertDcimalNumbers
+		#endregion /InsertOnlyNumber
 
 		#region InsertOnlyNumber
 		/// <summary>

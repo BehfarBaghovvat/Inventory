@@ -17,6 +17,18 @@ namespace Client_Forms
 			بدهکار,
 		}
 
+		private class Audit
+		{
+			public decimal? Amount { get; set; }
+			public decimal? Amount_Paid { get; set; }
+			public decimal? Capital_Fund { get; set; }
+			public string Search_Client { get; set; }
+			public int? Situation { get; set; }
+			public decimal? Sum_Amount { get; set; }
+			public int Select_Count { get; set; }
+			public bool Select_Row { get; set; }
+		}
+
 		private Inventory.MainForm _mainForm;
 		public Inventory.MainForm MainForm
 		{
@@ -37,14 +49,7 @@ namespace Client_Forms
 
 		#endregion /Layers
 
-		private decimal? _amounts;
-		public decimal? Amount_Paid { get; set; }
-		public decimal? Capital_Fund { get; set; }
-		public string Search_Client { get; set; }
-		public int? Situation { get; set; }
-		public decimal? Sum_Amount { get; set; }
-		public int Select_Count { get; set; }
-		public bool Select_Row { get; set; }
+		private Audit _audit = new Audit();
 
 		#endregion /Properties
 
@@ -64,7 +69,7 @@ namespace Client_Forms
 		#region ClientFinancialSituationForm_Load
 		private void ClientFinancialSituationForm_Load(object sender, EventArgs e)
 		{
-
+			
 		}
 		#endregion /ClientFinancialSituationForm_Load
 
@@ -88,16 +93,16 @@ namespace Client_Forms
 			if (string.IsNullOrWhiteSpace(searchClientTextBox.Text))
 			{
 				searchClientTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-				Search_Client = null;
+				_audit.Search_Client = null;
 				return;
 			}
 			else
 			{
 				searchClientTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
 
-				Search_Client = searchClientTextBox.Text;
+				_audit.Search_Client = searchClientTextBox.Text;
 
-				SearchClient(Search_Client);
+				SearchClient(_audit.Search_Client);
 			}
 		}
 		#endregion /SearchClientTextBox_TextChange
@@ -138,11 +143,11 @@ namespace Client_Forms
 						//// در غیر این صورت از انتخاب ردیف جاری جلو گیری به عمل می آورد.
 						if (string.Compare(listFinantioalClientDataGridView.CurrentRow.Cells[7].Value.ToString(), clientNameTextBox.Text) == 0)
 						{
-							Select_Count++;
-							_amounts +=
+							_audit.Select_Count++;
+							_audit.Amount +=
 								decimal.Parse(listFinantioalClientDataGridView.CurrentRow.Cells[3].Value.ToString().Replace("تومان", string.Empty).Replace(",", string.Empty).Trim());
 
-							Sum_Amount = _amounts;
+							_audit.Sum_Amount = _audit.Amount;
 						}
 						else
 						{
@@ -151,19 +156,18 @@ namespace Client_Forms
 					}
 					else if (listFinantioalClientDataGridView.Rows[e.RowIndex].Cells[1].Value != null && (bool)listFinantioalClientDataGridView.Rows[e.RowIndex].Cells[1].Value == true)
 					{
-
 						listFinantioalClientDataGridView.Rows[e.RowIndex].Cells[1].Value = false;
 
-						Select_Count--;
+						_audit.Select_Count--;
 
-						_amounts -=
+						_audit.Amount -=
 							decimal.Parse(listFinantioalClientDataGridView.Rows[e.RowIndex].Cells[3].Value.ToString().Replace("تومان", string.Empty).Replace(",", string.Empty).Trim());
 
-						Sum_Amount = _amounts;
+						_audit.Sum_Amount = _audit.Amount;
 
-						if (Select_Count <= 0)
+						if (_audit.Select_Count <= 0)
 						{
-							AllClear();
+							RestAllControl();
 						}
 					}
 				}
@@ -175,34 +179,28 @@ namespace Client_Forms
 				return;
 			}
 
-			if (_amounts == 0)
+			if (_audit.Amount == 0)
 			{
 				totalAmountTextBox.Clear();
 				totalAmountTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
 			}
 			else
 			{
-				totalAmountTextBox.Text = $"{_amounts:#,0} تومان";
+				totalAmountTextBox.Text = $"{_audit.Amount:#,0} تومان";
 				totalAmountTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
 			}
 
-			Situation = CheckSituation(_amounts);
+			_audit.Situation = CheckSituation(_audit.Amount);
 		}
 		#endregion /ListFinantioalClientDataGridView_CellContentClick
 
 		#region PaymentButton_Click
 		private void PaymentButton_Click(object sender, System.EventArgs e)
 		{
-			Mbb.Windows.Forms.MessageBox.Show(
-				text: $"مبلغ {-Sum_Amount:#,0} تومان به حساب واریز شد",
-				caption: "وصول بدهی",
-				icon: Mbb.Windows.Forms.MessageBoxIcon.Success,
-				button: Mbb.Windows.Forms.MessageBoxButtons.Ok);
-
-			//if (SetAmountInCapitalFund(Situation, Sum_Amount) && (UpdateListFinancialClient()))
-			//{
-			//	Infrastructure.Utility.WindowsNotification(message: "عملیات تسویه انجام گردید.", caption: Infrastructure.PopupNotificationForm.Caption.اطلاع);
-			//}
+			if (Payment(_audit) && (UpdateListFinancialClient()))
+			{
+				Infrastructure.Utility.WindowsNotification(message: "عملیات تسویه انجام گردید.", caption: Infrastructure.PopupNotificationForm.Caption.اطلاع);
+			}
 		}
 		#endregion /PaymentButton_Click
 
@@ -212,26 +210,6 @@ namespace Client_Forms
 
 		#region Function
 
-		#region AllClear
-		/// <summary>
-		/// حالت اولیه کنترل ها
-		/// </summary>
-		private void AllClear()
-		{
-			clientNameTextBox.Clear();
-			numTextBox3.Clear();
-			alphabetTextBox.Clear();
-			numTextBox2.Clear();
-			numTextBox1.Clear();
-			phoneNumberTextBox.Clear();
-			phoneNumberTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-
-			_amounts = 0;
-
-			Select_Count = 0;
-		}
-		#endregion /AllClear
-
 		#region CheckSituation
 		/// <summary>
 		/// بررسی باقیمانده حساب
@@ -239,14 +217,14 @@ namespace Client_Forms
 		/// <param name="_amount"></param>
 		private int CheckSituation(decimal? _amount)
 		{
-			if (_amounts > 0)
+			if (_amount > 0)
 			{
 				financialSituationLabel.Text = "بدهکار";
 				financialSituationLabel.ForeColor = System.Drawing.Color.LightGreen;
 				paymentButton.Enabled = true;
 				return -1;
 			}
-			else if (_amounts == 0)
+			else if (_amount == 0)
 			{
 				financialSituationLabel.Text = "تسویه";
 				financialSituationLabel.ForeColor = System.Drawing.Color.White;
@@ -266,14 +244,14 @@ namespace Client_Forms
 
 		#region Initialize
 		/// <summary>
-		/// تنظیمات اولیه ورود
+		/// تنظیمات و مقدار دهی اولیه
 		/// </summary>
 		public void Initialize()
 		{
-			AllClear();
+			RestAllControl();
 			searchClientTextBox.Clear();
 			GetListFinantialClient();
-			Capital_Fund = GetCapitalFund();
+			_audit.Capital_Fund = GetCapitalFund();
 
 			foreach (System.Windows.Forms.DataGridViewRow row in listFinantioalClientDataGridView.Rows)
 			{
@@ -292,8 +270,6 @@ namespace Client_Forms
 					row.Cells[6].Style.BackColor = System.Drawing.Color.LightGreen;
 				}
 			}
-
-
 		}
 		#endregion /Initialize
 
@@ -304,7 +280,7 @@ namespace Client_Forms
 		/// <returns>amount of 0</returns>
 		private decimal GetCapitalFund()
 		{
-			decimal amount;
+			decimal _capitalFund;
 			Models.DataBaseContext dataBaseContext = null;
 			try
 			{
@@ -322,21 +298,21 @@ namespace Client_Forms
 				{
 					if (string.IsNullOrEmpty(capitalFund.Capital_Fund))
 					{
-						amount = 0;
+						_capitalFund = 0;
 					}
 					else if (capitalFund.Capital_Fund.Length < 9)
 					{
-						amount = decimal.Parse(capitalFund.Capital_Fund.Replace("توان", string.Empty).Trim());
+						_capitalFund = decimal.Parse(capitalFund.Capital_Fund.Replace("توان", string.Empty).Trim());
 					}
 					else
 					{
-						amount = decimal.Parse(capitalFund.Capital_Fund.Replace("توان", string.Empty).Replace(",", string.Empty).Trim());
+						_capitalFund = decimal.Parse(capitalFund.Capital_Fund.Replace("توان", string.Empty).Replace(",", string.Empty).Trim());
 					}
 				}
 
-				MainForm.capitalFundLabel.Text = $"{amount:#,0} تومان";
+				MainForm.capitalFundsNotificationTextBox.Text = $"{_capitalFund:#,0} تومان";
 
-				return amount;
+				return _capitalFund;
 			}
 			catch (System.Exception ex)
 			{
@@ -397,6 +373,88 @@ namespace Client_Forms
 		}
 		#endregion GetListFinantialClient
 
+		#region Payment
+		/// <summary>
+		/// تابع پرداخت صورت حساب
+		/// </summary>
+		/// <param name="_amountPayment"></param>
+		/// <param name="_capitalFund"></param>
+		/// <returns>True Or False</returns>
+		private bool Payment(Audit _audit)
+		{
+			decimal _returnCapitalFund = 0;
+			decimal? _remainingCapitalFund = _audit.Capital_Fund + (_audit.Sum_Amount);
+
+			Models.DataBaseContext dataBaseContext = null;
+			try
+			{
+				dataBaseContext =
+					new Models.DataBaseContext();
+
+				Models.CapitalFund capitalFund =
+					dataBaseContext.CapitalFunds
+					.Where(current => current.Id == 1)
+					.FirstOrDefault();
+
+				if (capitalFund == null)
+				{
+					capitalFund = 
+						new Models.CapitalFund
+						{
+							Capital_Fund = $"{_remainingCapitalFund:#,0} تومان",
+						};
+					dataBaseContext.CapitalFunds.Add(capitalFund);
+				}
+				else
+				{
+					capitalFund.Capital_Fund = $"{_remainingCapitalFund:#,0} تومان";
+				}
+
+				dataBaseContext.SaveChanges();
+
+				_returnCapitalFund = GetCapitalFund();
+
+				Inventory.Program.MainForm.capitalFundsNotificationTextBox.Text = $"{_returnCapitalFund:#,0} تومان";
+
+				return true;
+
+			}
+			catch (System.Exception ex)
+			{
+				Infrastructure.Utility.ExceptionShow(ex);
+				return false;
+			}
+			finally
+			{
+				if (dataBaseContext != null)
+				{
+					dataBaseContext.Dispose();
+					dataBaseContext = null;
+				}
+			}
+		}
+		#endregion /Payment
+
+		#region RestAllControl
+		/// <summary>
+		/// حالت اولیه کنترل ها
+		/// </summary>
+		private void RestAllControl()
+		{
+			clientNameTextBox.Clear();
+			numTextBox3.Clear();
+			alphabetTextBox.Clear();
+			numTextBox2.Clear();
+			numTextBox1.Clear();
+			phoneNumberTextBox.Clear();
+			phoneNumberTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+
+			_audit.Amount = 0;
+
+			_audit.Select_Count = 0;
+		}
+		#endregion /RestAllControl
+
 		#region SearchClient
 		/// <summary>
 		/// جستجوی مشتری بر اساس 
@@ -455,171 +513,44 @@ namespace Client_Forms
 
 		#endregion /SearchClient
 
-		#region SetAmountInCapitalFund
-		/// <summary>
-		/// ثبت مبالغ (پرداختی یا دریافتی) صندوق سرمایه
-		/// </summary>
-		/// <param name="_situation"></param>
-		/// <param name="_amount"></param>
-		private bool SetAmountInCapitalFund(int? _situation, decimal? _amount)
-		{
-			decimal amountPaid, amountRemaining;
-
-			if (_situation == 1)
-			{
-				Capital_Fund += _amount;
-
-				Models.DataBaseContext dataBaseContext = null;
-				try
-				{
-					dataBaseContext =
-						new Models.DataBaseContext();
-
-					Models.CapitalFund capitalFund =
-						new Models.CapitalFund()
-						{
-							Capital_Fund = $"{Capital_Fund:#,0} تومان"
-						};
-
-					dataBaseContext.SaveChanges();
-					Capital_Fund = GetCapitalFund();
-					paymentButton.Enabled = false;
-
-					//foreach (System.Windows.Forms.DataGridViewRow row in listFinantioalClientDataGridView.Rows)
-					//{
-					//	if (row.Cells[1].Value != null || (bool)row.Cells[1].Value == true)
-					//	{
-					//		//مبلغ پرداخت شده را در یک متغییر قرار دادیم
-					//		amountPaid = decimal.Parse(row.Cells[3].Value.ToString().Replace("تومان", string.Empty).Replace(",", string.Empty).Trim());
-					//		//مبلغ باقیمانده حساب را هم در یک متغییر قرار دادیم
-					//		amountRemaining = decimal.Parse(row.Cells[5].Value.ToString().Replace("تومان",string.Empty).Replace(",",string.Empty).Trim());							
-					//		//در دو متغییر را با هم جمع در متغییر مبلغ پرداخت شده قرار دادیم
-					//		amountPaid += amountRemaining;
-
-					//		row.Cells[2].Value = $"{amountPaid:#,0} تومان";
-					//		row.Cells[4].Value = "0 تومان";
-					//		row.Cells[6].Value = $"{FinantialSituation.تسویه}";
-					//		row.DefaultCellStyle.BackColor = System.Drawing.Color.LightGreen;
-					//	}
-					//}
-					return true;
-				}
-				catch (System.Exception ex)
-				{
-					Infrastructure.Utility.ExceptionShow(ex);
-					return false;
-				}
-				finally
-				{
-					if (dataBaseContext != null)
-					{
-						dataBaseContext.Dispose();
-						dataBaseContext = null;
-					}
-				}
-			}
-			else if (_situation == -1)
-			{
-				Capital_Fund -= _amount;
-
-				Models.DataBaseContext dataBaseContext = null;
-				try
-				{
-					dataBaseContext =
-						new Models.DataBaseContext();
-
-					Models.CapitalFund capitalFund =
-						new Models.CapitalFund()
-						{
-							Capital_Fund = $"{Capital_Fund:#,0} تومان"
-						};
-
-					dataBaseContext.SaveChanges();
-
-					Capital_Fund = GetCapitalFund();
-
-					//foreach (System.Windows.Forms.DataGridViewRow row in listFinantioalClientDataGridView.Rows)
-					//{
-					//	if (row.Cells[1].Value != null || (bool)row.Cells[1].Value == true)
-					//	{
-					//		//مبلغ پرداخت شده را در یک متغییر قرار دادیم
-					//		amountPaid = decimal.Parse(row.Cells[3].Value.ToString().Replace("تومان", string.Empty).Replace(",", string.Empty).Trim());
-					//		//مبلغ باقیمانده حساب را هم در یک متغییر قرار دادیم
-					//		amountRemaining = decimal.Parse(row.Cells[5].Value.ToString().Replace("تومان", string.Empty).Replace(",", string.Empty).Trim());
-					//		//در دو متغییر را با هم جمع در متغییر مبلغ پرداخت شده قرار دادیم
-					//		amountPaid -= amountRemaining;
-
-					//		row.Cells[2].Value = $"{amountPaid:#,0} تومان";
-					//		row.Cells[4].Value = $"0 تومان";
-					//		row.Cells[6].Value = $"{FinantialSituation.تسویه}";
-					//		row.DefaultCellStyle.BackColor = System.Drawing.Color.LightGreen;
-					//	}
-					//}
-					paymentButton.Enabled = false;
-
-					return true;
-				}
-				catch (System.Exception ex)
-				{
-					Infrastructure.Utility.ExceptionShow(ex);
-					return false;
-				}
-				finally
-				{
-					if (dataBaseContext != null)
-					{
-						dataBaseContext.Dispose();
-						dataBaseContext = null;
-					}
-				}
-			}
-			else if (_situation == 0)
-			{
-				Infrastructure.Utility.WindowsNotification(message: "پرداختی صورت نگرفت.", caption: Infrastructure.PopupNotificationForm.Caption.اطلاع);
-				return false;
-			}
-			else
-			{
-				return false;
-			}
-
-		}
-		#endregion /SetAmountInCapitalFund
-
 		#region UpdateListFinancialClient
+		/// <summary>
+		/// به روز شدن حساب مشترک
+		/// </summary>
+		/// <returns>True Or False</returns>
 		private bool UpdateListFinancialClient()
 		{
+			decimal _amountRemaining, _amountPaid, _result;
+
 			Models.DataBaseContext dataBaseContext = null;
 			try
 			{
 				dataBaseContext =
 					new Models.DataBaseContext();
 
-				//foreach (System.Windows.Forms.DataGridViewRow row in listFinantioalClientDataGridView.Rows)
-				//{
-				//	if (row.Cells[1].Value != null || (bool)row.Cells[1].Value == true)
-				//	{
-				//		Models.ListFinancialClient listFinancialClient =
-				//			dataBaseContext.ListFinancialClients
-				//			.Where(current => current.Id == int.Parse(row.Cells[0].Value.ToString()))
-				//			.FirstOrDefault();
+				foreach (System.Windows.Forms.DataGridViewRow row in listFinantioalClientDataGridView.Rows)
+				{
+					if (row.Cells[1].Value != null || (bool)row.Cells[1].Value == true)
+					{
 
-				//		if (listFinancialClient != null)
-				//		{
-				//			listFinancialClient =
-				//				new Models.ListFinancialClient();
+						_amountRemaining = decimal.Parse(row.Cells[6].Value.ToString().Replace("تومان", string.Empty).Replace(",", string.Empty).Trim());
 
-				//			listFinancialClient.Amount_Paid = row.Cells[2].Value.ToString();
-				//			listFinancialClient.Amount_Remaininig = row.Cells[4].Value.ToString();
+						_amountPaid = decimal.Parse(row.Cells[5].Value.ToString().Replace("تومان", string.Empty).Replace(",", string.Empty).Trim());
 
-				//			if (string.Compare(row.Cells[6].Value.ToString(), FinantialSituation.تسویه.ToString()) == 0)
-				//			{
-				//				listFinancialClient.Finantial_Situation = Models.ListFinancialClient.FinantialSituation.تسویه;
-				//			}
-				//		}
-				//		dataBaseContext.SaveChanges();
-				//	}
-				//}
+						_result = _amountPaid -(_amountRemaining);
+
+						Models.ListFinancialClient listFinancialClient =
+							dataBaseContext.ListFinancialClients
+							.Where(current => current.Id == int.Parse(row.Cells[0].Value.ToString()))
+							.FirstOrDefault();
+
+							listFinancialClient.Amount_Paid = $"{_result:#,0} تومان";
+							listFinancialClient.Amount_Remaininig = $"0 تومان";
+							listFinancialClient.Finantial_Situation = Models.ListFinancialClient.FinantialSituationClient.تسویه;
+						
+						dataBaseContext.SaveChanges();
+					}
+				}
 				GetListFinantialClient();
 				return true;
 			}
@@ -644,7 +575,5 @@ namespace Client_Forms
 		#endregion /UpdateListFinancialClient
 
 		#endregion /Function
-
-
 	}
 }

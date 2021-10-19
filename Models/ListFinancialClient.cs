@@ -6,7 +6,7 @@ namespace Models
 	/// </summary>
 	public class ListFinancialClient
 	{
-		public enum FinantialSituation
+		public enum FinantialSituationClient
 		{
 			طلبکار,
 			تسویه,
@@ -70,7 +70,7 @@ namespace Models
 		#region Finantial_Situation
 		//--DisplayName FinantialSituation
 		[System.ComponentModel.DisplayName(displayName: "وضعیت مالی")]
-		public FinantialSituation Finantial_Situation { get; set; }
+		public FinantialSituationClient Finantial_Situation { get; set; }
 		#endregion /Finantial_Situation
 
 		/// <summary>

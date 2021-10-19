@@ -30,6 +30,11 @@ namespace Client_Forms
 		private void InitializeComponent()
 		{
 			this.components = new System.ComponentModel.Container();
+			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ClientFinancialSituationForm));
+			Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties1 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
+			Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties2 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
+			Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties3 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
+			Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties4 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
 			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
 			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
 			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -62,12 +67,8 @@ namespace Client_Forms
 			Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties30 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
 			Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties31 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
 			Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties32 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
-			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ClientFinancialSituationForm));
-			Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties1 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
-			Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties2 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
-			Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties3 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
-			Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties4 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
 			this.mainPanel = new Guna.UI2.WinForms.Guna2Panel();
+			this.totalAmountTextBox = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox();
 			this.listFinantioalClientDataGridView = new Guna.UI2.WinForms.Guna2DataGridView();
 			this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.Select_Item = new System.Windows.Forms.DataGridViewCheckBoxColumn();
@@ -95,7 +96,6 @@ namespace Client_Forms
 			this.paymentButton = new Guna.UI2.WinForms.Guna2GradientButton();
 			this.searchClientTextBox = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox();
 			this.listFinantioalClientDataGridViewElipse = new Guna.UI2.WinForms.Guna2Elipse(this.components);
-			this.totalAmountTextBox = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox();
 			this.mainPanel.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.listFinantioalClientDataGridView)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.listFinancialClientBindingSource)).BeginInit();
@@ -121,6 +121,81 @@ namespace Client_Forms
 			this.mainPanel.ShadowDecoration.Parent = this.mainPanel;
 			this.mainPanel.Size = new System.Drawing.Size(1150, 650);
 			this.mainPanel.TabIndex = 1;
+			// 
+			// totalAmountTextBox
+			// 
+			this.totalAmountTextBox.AcceptsReturn = false;
+			this.totalAmountTextBox.AcceptsTab = false;
+			this.totalAmountTextBox.AnimationSpeed = 200;
+			this.totalAmountTextBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
+			this.totalAmountTextBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
+			this.totalAmountTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(0)))), ((int)(((byte)(61)))));
+			this.totalAmountTextBox.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("totalAmountTextBox.BackgroundImage")));
+			this.totalAmountTextBox.BorderColorActive = System.Drawing.Color.DodgerBlue;
+			this.totalAmountTextBox.BorderColorDisabled = System.Drawing.Color.FromArgb(((int)(((byte)(161)))), ((int)(((byte)(161)))), ((int)(((byte)(161)))));
+			this.totalAmountTextBox.BorderColorHover = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(181)))), ((int)(((byte)(255)))));
+			this.totalAmountTextBox.BorderColorIdle = System.Drawing.Color.Gray;
+			this.totalAmountTextBox.BorderRadius = 1;
+			this.totalAmountTextBox.BorderThickness = 3;
+			this.totalAmountTextBox.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
+			this.totalAmountTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
+			this.totalAmountTextBox.DefaultFont = new System.Drawing.Font("IRANSansXFaNum", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+			this.totalAmountTextBox.DefaultText = "";
+			this.totalAmountTextBox.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(0)))), ((int)(((byte)(61)))));
+			this.totalAmountTextBox.HideSelection = true;
+			this.totalAmountTextBox.IconLeft = null;
+			this.totalAmountTextBox.IconLeftCursor = System.Windows.Forms.Cursors.IBeam;
+			this.totalAmountTextBox.IconPadding = 10;
+			this.totalAmountTextBox.IconRight = null;
+			this.totalAmountTextBox.IconRightCursor = System.Windows.Forms.Cursors.IBeam;
+			this.totalAmountTextBox.Lines = new string[0];
+			this.totalAmountTextBox.Location = new System.Drawing.Point(13, 596);
+			this.totalAmountTextBox.MaximumSize = new System.Drawing.Size(350, 40);
+			this.totalAmountTextBox.MaxLength = 32767;
+			this.totalAmountTextBox.MinimumSize = new System.Drawing.Size(350, 40);
+			this.totalAmountTextBox.Modified = false;
+			this.totalAmountTextBox.Multiline = false;
+			this.totalAmountTextBox.Name = "totalAmountTextBox";
+			stateProperties1.BorderColor = System.Drawing.Color.DodgerBlue;
+			stateProperties1.FillColor = System.Drawing.Color.Empty;
+			stateProperties1.ForeColor = System.Drawing.Color.Empty;
+			stateProperties1.PlaceholderForeColor = System.Drawing.Color.Empty;
+			this.totalAmountTextBox.OnActiveState = stateProperties1;
+			stateProperties2.BorderColor = System.Drawing.Color.Empty;
+			stateProperties2.FillColor = System.Drawing.Color.White;
+			stateProperties2.ForeColor = System.Drawing.Color.Empty;
+			stateProperties2.PlaceholderForeColor = System.Drawing.Color.Silver;
+			this.totalAmountTextBox.OnDisabledState = stateProperties2;
+			stateProperties3.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(181)))), ((int)(((byte)(255)))));
+			stateProperties3.FillColor = System.Drawing.Color.Empty;
+			stateProperties3.ForeColor = System.Drawing.Color.Empty;
+			stateProperties3.PlaceholderForeColor = System.Drawing.Color.Empty;
+			this.totalAmountTextBox.OnHoverState = stateProperties3;
+			stateProperties4.BorderColor = System.Drawing.Color.Gray;
+			stateProperties4.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(0)))), ((int)(((byte)(61)))));
+			stateProperties4.ForeColor = System.Drawing.Color.Empty;
+			stateProperties4.PlaceholderForeColor = System.Drawing.Color.Empty;
+			this.totalAmountTextBox.OnIdleState = stateProperties4;
+			this.totalAmountTextBox.PasswordChar = '\0';
+			this.totalAmountTextBox.PlaceholderForeColor = System.Drawing.Color.Gray;
+			this.totalAmountTextBox.PlaceholderText = "جمع مبلغ بدهی...";
+			this.totalAmountTextBox.ReadOnly = true;
+			this.totalAmountTextBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+			this.totalAmountTextBox.ScrollBars = System.Windows.Forms.ScrollBars.None;
+			this.totalAmountTextBox.SelectedText = "";
+			this.totalAmountTextBox.SelectionLength = 0;
+			this.totalAmountTextBox.SelectionStart = 0;
+			this.totalAmountTextBox.ShortcutsEnabled = true;
+			this.totalAmountTextBox.Size = new System.Drawing.Size(350, 40);
+			this.totalAmountTextBox.Style = Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox._Style.Material;
+			this.totalAmountTextBox.TabIndex = 11;
+			this.totalAmountTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+			this.totalAmountTextBox.TextMarginBottom = 0;
+			this.totalAmountTextBox.TextMarginLeft = 0;
+			this.totalAmountTextBox.TextMarginTop = -3;
+			this.totalAmountTextBox.TextPlaceholder = "جمع مبلغ بدهی...";
+			this.totalAmountTextBox.UseSystemPasswordChar = false;
+			this.totalAmountTextBox.WordWrap = true;
 			// 
 			// listFinantioalClientDataGridView
 			// 
@@ -921,81 +996,6 @@ namespace Client_Forms
 			// 
 			this.listFinantioalClientDataGridViewElipse.BorderRadius = 25;
 			this.listFinantioalClientDataGridViewElipse.TargetControl = this.listFinantioalClientDataGridView;
-			// 
-			// totalAmountTextBox
-			// 
-			this.totalAmountTextBox.AcceptsReturn = false;
-			this.totalAmountTextBox.AcceptsTab = false;
-			this.totalAmountTextBox.AnimationSpeed = 200;
-			this.totalAmountTextBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
-			this.totalAmountTextBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
-			this.totalAmountTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(0)))), ((int)(((byte)(61)))));
-			this.totalAmountTextBox.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("totalAmountTextBox.BackgroundImage")));
-			this.totalAmountTextBox.BorderColorActive = System.Drawing.Color.DodgerBlue;
-			this.totalAmountTextBox.BorderColorDisabled = System.Drawing.Color.FromArgb(((int)(((byte)(161)))), ((int)(((byte)(161)))), ((int)(((byte)(161)))));
-			this.totalAmountTextBox.BorderColorHover = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(181)))), ((int)(((byte)(255)))));
-			this.totalAmountTextBox.BorderColorIdle = System.Drawing.Color.Gray;
-			this.totalAmountTextBox.BorderRadius = 1;
-			this.totalAmountTextBox.BorderThickness = 3;
-			this.totalAmountTextBox.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
-			this.totalAmountTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
-			this.totalAmountTextBox.DefaultFont = new System.Drawing.Font("IRANSansXFaNum", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-			this.totalAmountTextBox.DefaultText = "";
-			this.totalAmountTextBox.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(0)))), ((int)(((byte)(61)))));
-			this.totalAmountTextBox.HideSelection = true;
-			this.totalAmountTextBox.IconLeft = null;
-			this.totalAmountTextBox.IconLeftCursor = System.Windows.Forms.Cursors.IBeam;
-			this.totalAmountTextBox.IconPadding = 10;
-			this.totalAmountTextBox.IconRight = null;
-			this.totalAmountTextBox.IconRightCursor = System.Windows.Forms.Cursors.IBeam;
-			this.totalAmountTextBox.Lines = new string[0];
-			this.totalAmountTextBox.Location = new System.Drawing.Point(13, 596);
-			this.totalAmountTextBox.MaximumSize = new System.Drawing.Size(350, 40);
-			this.totalAmountTextBox.MaxLength = 32767;
-			this.totalAmountTextBox.MinimumSize = new System.Drawing.Size(350, 40);
-			this.totalAmountTextBox.Modified = false;
-			this.totalAmountTextBox.Multiline = false;
-			this.totalAmountTextBox.Name = "totalAmountTextBox";
-			stateProperties1.BorderColor = System.Drawing.Color.DodgerBlue;
-			stateProperties1.FillColor = System.Drawing.Color.Empty;
-			stateProperties1.ForeColor = System.Drawing.Color.Empty;
-			stateProperties1.PlaceholderForeColor = System.Drawing.Color.Empty;
-			this.totalAmountTextBox.OnActiveState = stateProperties1;
-			stateProperties2.BorderColor = System.Drawing.Color.Empty;
-			stateProperties2.FillColor = System.Drawing.Color.White;
-			stateProperties2.ForeColor = System.Drawing.Color.Empty;
-			stateProperties2.PlaceholderForeColor = System.Drawing.Color.Silver;
-			this.totalAmountTextBox.OnDisabledState = stateProperties2;
-			stateProperties3.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(181)))), ((int)(((byte)(255)))));
-			stateProperties3.FillColor = System.Drawing.Color.Empty;
-			stateProperties3.ForeColor = System.Drawing.Color.Empty;
-			stateProperties3.PlaceholderForeColor = System.Drawing.Color.Empty;
-			this.totalAmountTextBox.OnHoverState = stateProperties3;
-			stateProperties4.BorderColor = System.Drawing.Color.Gray;
-			stateProperties4.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(0)))), ((int)(((byte)(61)))));
-			stateProperties4.ForeColor = System.Drawing.Color.Empty;
-			stateProperties4.PlaceholderForeColor = System.Drawing.Color.Empty;
-			this.totalAmountTextBox.OnIdleState = stateProperties4;
-			this.totalAmountTextBox.PasswordChar = '\0';
-			this.totalAmountTextBox.PlaceholderForeColor = System.Drawing.Color.Gray;
-			this.totalAmountTextBox.PlaceholderText = "جمع مبلغ بدهی...";
-			this.totalAmountTextBox.ReadOnly = true;
-			this.totalAmountTextBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-			this.totalAmountTextBox.ScrollBars = System.Windows.Forms.ScrollBars.None;
-			this.totalAmountTextBox.SelectedText = "";
-			this.totalAmountTextBox.SelectionLength = 0;
-			this.totalAmountTextBox.SelectionStart = 0;
-			this.totalAmountTextBox.ShortcutsEnabled = true;
-			this.totalAmountTextBox.Size = new System.Drawing.Size(350, 40);
-			this.totalAmountTextBox.Style = Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox._Style.Material;
-			this.totalAmountTextBox.TabIndex = 11;
-			this.totalAmountTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-			this.totalAmountTextBox.TextMarginBottom = 0;
-			this.totalAmountTextBox.TextMarginLeft = 0;
-			this.totalAmountTextBox.TextMarginTop = -3;
-			this.totalAmountTextBox.TextPlaceholder = "جمع مبلغ بدهی...";
-			this.totalAmountTextBox.UseSystemPasswordChar = false;
-			this.totalAmountTextBox.WordWrap = true;
 			// 
 			// ClientFinancialSituationForm
 			// 

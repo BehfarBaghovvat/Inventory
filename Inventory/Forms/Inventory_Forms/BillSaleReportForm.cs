@@ -22,7 +22,7 @@ namespace Inventory_Forms
 			public string Carrier_Name { get; set; }
 			public decimal? Cash_Payment_Amount { get; set; }
 			public int Final_Quantity { get; set; }
-			public Models.ListFinancialClient.FinantialSituation Finantial_Situation { get; set; }
+			public Models.ListFinancialClient.FinantialSituationClient Finantial_Situation { get; set; }
 			public int First_Quantity { get; set; }
 			public string InvoiceSerialNumber { get; set; }
 			public string License_Plate { get; set; }
@@ -1653,15 +1653,15 @@ namespace Inventory_Forms
 		{
 			if (_auditItem.Amount_Remaininig == 0)
 			{
-				_auditItem.Finantial_Situation = Models.ListFinancialClient.FinantialSituation.تسویه;
+				_auditItem.Finantial_Situation = Models.ListFinancialClient.FinantialSituationClient.تسویه;
 			}
 			else if (_auditItem.Amount_Remaininig > 0)
 			{
-				_auditItem.Finantial_Situation = Models.ListFinancialClient.FinantialSituation.طلبکار;
+				_auditItem.Finantial_Situation = Models.ListFinancialClient.FinantialSituationClient.طلبکار;
 			}
 			else
 			{
-				_auditItem.Finantial_Situation = Models.ListFinancialClient.FinantialSituation.بدهکار;
+				_auditItem.Finantial_Situation = Models.ListFinancialClient.FinantialSituationClient.بدهکار;
 			}
 
 			Models.DataBaseContext dataBaseContext = null;

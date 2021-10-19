@@ -494,6 +494,7 @@
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\DataSources\Models.AccountsPayable.datasource" />
+    <None Include="Properties\DataSources\Models.AccountsPayment.datasource" />
     <None Include="Properties\DataSources\Models.AccountsReceivable.datasource" />
     <None Include="Properties\DataSources\Models.AncillaryCosts.datasource" />
     <None Include="Properties\DataSources\Models.ChequaSection.datasource" />

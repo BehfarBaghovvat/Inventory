@@ -31,17 +31,18 @@ namespace Financial_Form
 		{
 			this.components = new System.ComponentModel.Container();
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AuditingForm));
-			Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties1 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
-			Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties2 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
-			Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties3 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
-			Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties4 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
-			Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties5 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
-			Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties6 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
-			Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties7 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
-			Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties8 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+			Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties9 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
+			Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties10 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
+			Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties11 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
+			Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties12 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
+			Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties13 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
+			Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties14 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
+			Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties15 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
+			Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties16 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
 			this.mainPanel = new Guna.UI2.WinForms.Guna2Panel();
 			this.amountPaidTextBox = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox();
 			this.registerDateRadioButton = new Guna.UI2.WinForms.Guna2CustomRadioButton();
@@ -50,21 +51,20 @@ namespace Financial_Form
 			this.searchTextBox = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox();
 			this.paymentButton = new Guna.UI2.WinForms.Guna2GradientButton();
 			this.accountsPayableDataGridView = new Guna.UI2.WinForms.Guna2DataGridView();
-			this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.SelectObject = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-			this.descriptionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.sellerNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.amountPaidDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.amountPayableDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.remaininigAmountDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.registrationDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.Account_Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.accountsPayableBindingSource = new System.Windows.Forms.BindingSource(this.components);
 			this.registerDateLabel = new Mbb.Windows.Forms.Label();
 			this.accountsPayableDataGridViewElipse = new Guna.UI2.WinForms.Guna2Elipse(this.components);
+			this.accountsPaymentBindingSource = new System.Windows.Forms.BindingSource(this.components);
+			this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.Select_Object = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+			this.descriptionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.sellerNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.amountPayableDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.amountPaidDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.amountRemaininigDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.finantialSituationDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.mainPanel.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.accountsPayableDataGridView)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.accountsPayableBindingSource)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.accountsPaymentBindingSource)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// mainPanel
@@ -122,26 +122,26 @@ namespace Financial_Form
 			this.amountPaidTextBox.Modified = false;
 			this.amountPaidTextBox.Multiline = false;
 			this.amountPaidTextBox.Name = "amountPaidTextBox";
-			stateProperties1.BorderColor = System.Drawing.Color.DodgerBlue;
-			stateProperties1.FillColor = System.Drawing.Color.Empty;
-			stateProperties1.ForeColor = System.Drawing.Color.Empty;
-			stateProperties1.PlaceholderForeColor = System.Drawing.Color.Empty;
-			this.amountPaidTextBox.OnActiveState = stateProperties1;
-			stateProperties2.BorderColor = System.Drawing.Color.Empty;
-			stateProperties2.FillColor = System.Drawing.Color.White;
-			stateProperties2.ForeColor = System.Drawing.Color.Empty;
-			stateProperties2.PlaceholderForeColor = System.Drawing.Color.Silver;
-			this.amountPaidTextBox.OnDisabledState = stateProperties2;
-			stateProperties3.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(181)))), ((int)(((byte)(255)))));
-			stateProperties3.FillColor = System.Drawing.Color.Empty;
-			stateProperties3.ForeColor = System.Drawing.Color.Empty;
-			stateProperties3.PlaceholderForeColor = System.Drawing.Color.Empty;
-			this.amountPaidTextBox.OnHoverState = stateProperties3;
-			stateProperties4.BorderColor = System.Drawing.Color.Gray;
-			stateProperties4.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(0)))), ((int)(((byte)(61)))));
-			stateProperties4.ForeColor = System.Drawing.Color.White;
-			stateProperties4.PlaceholderForeColor = System.Drawing.Color.Empty;
-			this.amountPaidTextBox.OnIdleState = stateProperties4;
+			stateProperties9.BorderColor = System.Drawing.Color.DodgerBlue;
+			stateProperties9.FillColor = System.Drawing.Color.Empty;
+			stateProperties9.ForeColor = System.Drawing.Color.Empty;
+			stateProperties9.PlaceholderForeColor = System.Drawing.Color.Empty;
+			this.amountPaidTextBox.OnActiveState = stateProperties9;
+			stateProperties10.BorderColor = System.Drawing.Color.Empty;
+			stateProperties10.FillColor = System.Drawing.Color.White;
+			stateProperties10.ForeColor = System.Drawing.Color.Empty;
+			stateProperties10.PlaceholderForeColor = System.Drawing.Color.Silver;
+			this.amountPaidTextBox.OnDisabledState = stateProperties10;
+			stateProperties11.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(181)))), ((int)(((byte)(255)))));
+			stateProperties11.FillColor = System.Drawing.Color.Empty;
+			stateProperties11.ForeColor = System.Drawing.Color.Empty;
+			stateProperties11.PlaceholderForeColor = System.Drawing.Color.Empty;
+			this.amountPaidTextBox.OnHoverState = stateProperties11;
+			stateProperties12.BorderColor = System.Drawing.Color.Gray;
+			stateProperties12.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(0)))), ((int)(((byte)(61)))));
+			stateProperties12.ForeColor = System.Drawing.Color.White;
+			stateProperties12.PlaceholderForeColor = System.Drawing.Color.Empty;
+			this.amountPaidTextBox.OnIdleState = stateProperties12;
 			this.amountPaidTextBox.PasswordChar = '\0';
 			this.amountPaidTextBox.PlaceholderForeColor = System.Drawing.Color.Gray;
 			this.amountPaidTextBox.PlaceholderText = "مبلغ پرداختی...";
@@ -166,17 +166,16 @@ namespace Financial_Form
 			// registerDateRadioButton
 			// 
 			this.registerDateRadioButton.BackColor = System.Drawing.Color.Transparent;
-			this.registerDateRadioButton.CheckedState.BorderColor = System.Drawing.Color.Silver;
 			this.registerDateRadioButton.CheckedState.BorderThickness = 0;
-			this.registerDateRadioButton.CheckedState.FillColor = System.Drawing.Color.Silver;
-			this.registerDateRadioButton.CheckedState.InnerColor = System.Drawing.Color.White;
+			this.registerDateRadioButton.CheckedState.FillColor = System.Drawing.Color.SlateBlue;
+			this.registerDateRadioButton.CheckedState.InnerColor = System.Drawing.Color.Aqua;
 			this.registerDateRadioButton.CheckedState.Parent = this.registerDateRadioButton;
-			this.registerDateRadioButton.Location = new System.Drawing.Point(140, 19);
+			this.registerDateRadioButton.Location = new System.Drawing.Point(199, 21);
 			this.registerDateRadioButton.Name = "registerDateRadioButton";
 			this.registerDateRadioButton.ShadowDecoration.Parent = this.registerDateRadioButton;
 			this.registerDateRadioButton.Size = new System.Drawing.Size(20, 20);
 			this.registerDateRadioButton.TabIndex = 8;
-			this.registerDateRadioButton.UncheckedState.BorderColor = System.Drawing.Color.Silver;
+			this.registerDateRadioButton.UncheckedState.BorderColor = System.Drawing.Color.Indigo;
 			this.registerDateRadioButton.UncheckedState.BorderThickness = 2;
 			this.registerDateRadioButton.UncheckedState.FillColor = System.Drawing.Color.Transparent;
 			this.registerDateRadioButton.UncheckedState.InnerColor = System.Drawing.Color.Transparent;
@@ -186,18 +185,16 @@ namespace Financial_Form
 			// sellerNameRadioButton
 			// 
 			this.sellerNameRadioButton.BackColor = System.Drawing.Color.Transparent;
-			this.sellerNameRadioButton.Checked = true;
-			this.sellerNameRadioButton.CheckedState.BorderColor = System.Drawing.Color.Silver;
 			this.sellerNameRadioButton.CheckedState.BorderThickness = 0;
-			this.sellerNameRadioButton.CheckedState.FillColor = System.Drawing.Color.Silver;
-			this.sellerNameRadioButton.CheckedState.InnerColor = System.Drawing.Color.White;
+			this.sellerNameRadioButton.CheckedState.FillColor = System.Drawing.Color.SlateBlue;
+			this.sellerNameRadioButton.CheckedState.InnerColor = System.Drawing.Color.Aqua;
 			this.sellerNameRadioButton.CheckedState.Parent = this.sellerNameRadioButton;
-			this.sellerNameRadioButton.Location = new System.Drawing.Point(357, 19);
+			this.sellerNameRadioButton.Location = new System.Drawing.Point(416, 21);
 			this.sellerNameRadioButton.Name = "sellerNameRadioButton";
 			this.sellerNameRadioButton.ShadowDecoration.Parent = this.sellerNameRadioButton;
 			this.sellerNameRadioButton.Size = new System.Drawing.Size(20, 20);
 			this.sellerNameRadioButton.TabIndex = 7;
-			this.sellerNameRadioButton.UncheckedState.BorderColor = System.Drawing.Color.Silver;
+			this.sellerNameRadioButton.UncheckedState.BorderColor = System.Drawing.Color.Indigo;
 			this.sellerNameRadioButton.UncheckedState.BorderThickness = 2;
 			this.sellerNameRadioButton.UncheckedState.FillColor = System.Drawing.Color.Transparent;
 			this.sellerNameRadioButton.UncheckedState.InnerColor = System.Drawing.Color.Transparent;
@@ -208,7 +205,7 @@ namespace Financial_Form
 			// 
 			this.sellerNameLabel.AutoSize = true;
 			this.sellerNameLabel.ForeColor = System.Drawing.Color.White;
-			this.sellerNameLabel.Location = new System.Drawing.Point(213, 21);
+			this.sellerNameLabel.Location = new System.Drawing.Point(272, 23);
 			this.sellerNameLabel.Name = "sellerNameLabel";
 			this.sellerNameLabel.Size = new System.Drawing.Size(145, 17);
 			this.sellerNameLabel.TabIndex = 6;
@@ -248,26 +245,26 @@ namespace Financial_Form
 			this.searchTextBox.Modified = false;
 			this.searchTextBox.Multiline = false;
 			this.searchTextBox.Name = "searchTextBox";
-			stateProperties5.BorderColor = System.Drawing.Color.DodgerBlue;
-			stateProperties5.FillColor = System.Drawing.Color.Empty;
-			stateProperties5.ForeColor = System.Drawing.Color.Empty;
-			stateProperties5.PlaceholderForeColor = System.Drawing.Color.Empty;
-			this.searchTextBox.OnActiveState = stateProperties5;
-			stateProperties6.BorderColor = System.Drawing.Color.Empty;
-			stateProperties6.FillColor = System.Drawing.Color.White;
-			stateProperties6.ForeColor = System.Drawing.Color.Empty;
-			stateProperties6.PlaceholderForeColor = System.Drawing.Color.Silver;
-			this.searchTextBox.OnDisabledState = stateProperties6;
-			stateProperties7.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(181)))), ((int)(((byte)(255)))));
-			stateProperties7.FillColor = System.Drawing.Color.Empty;
-			stateProperties7.ForeColor = System.Drawing.Color.Empty;
-			stateProperties7.PlaceholderForeColor = System.Drawing.Color.Empty;
-			this.searchTextBox.OnHoverState = stateProperties7;
-			stateProperties8.BorderColor = System.Drawing.Color.Silver;
-			stateProperties8.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(0)))), ((int)(((byte)(61)))));
-			stateProperties8.ForeColor = System.Drawing.Color.Empty;
-			stateProperties8.PlaceholderForeColor = System.Drawing.Color.Empty;
-			this.searchTextBox.OnIdleState = stateProperties8;
+			stateProperties13.BorderColor = System.Drawing.Color.DodgerBlue;
+			stateProperties13.FillColor = System.Drawing.Color.Empty;
+			stateProperties13.ForeColor = System.Drawing.Color.Empty;
+			stateProperties13.PlaceholderForeColor = System.Drawing.Color.Empty;
+			this.searchTextBox.OnActiveState = stateProperties13;
+			stateProperties14.BorderColor = System.Drawing.Color.Empty;
+			stateProperties14.FillColor = System.Drawing.Color.White;
+			stateProperties14.ForeColor = System.Drawing.Color.Empty;
+			stateProperties14.PlaceholderForeColor = System.Drawing.Color.Silver;
+			this.searchTextBox.OnDisabledState = stateProperties14;
+			stateProperties15.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(181)))), ((int)(((byte)(255)))));
+			stateProperties15.FillColor = System.Drawing.Color.Empty;
+			stateProperties15.ForeColor = System.Drawing.Color.Empty;
+			stateProperties15.PlaceholderForeColor = System.Drawing.Color.Empty;
+			this.searchTextBox.OnHoverState = stateProperties15;
+			stateProperties16.BorderColor = System.Drawing.Color.Silver;
+			stateProperties16.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(0)))), ((int)(((byte)(61)))));
+			stateProperties16.ForeColor = System.Drawing.Color.Empty;
+			stateProperties16.PlaceholderForeColor = System.Drawing.Color.Empty;
+			this.searchTextBox.OnIdleState = stateProperties16;
 			this.searchTextBox.PasswordChar = '\0';
 			this.searchTextBox.PlaceholderForeColor = System.Drawing.Color.Silver;
 			this.searchTextBox.PlaceholderText = "جستجو (نام فروشنده، تاریخ)...";
@@ -324,44 +321,43 @@ namespace Financial_Form
 			// 
 			this.accountsPayableDataGridView.AllowUserToAddRows = false;
 			this.accountsPayableDataGridView.AllowUserToDeleteRows = false;
-			dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(196)))), ((int)(((byte)(233)))));
-			this.accountsPayableDataGridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+			dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(196)))), ((int)(((byte)(233)))));
+			this.accountsPayableDataGridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
 			this.accountsPayableDataGridView.AutoGenerateColumns = false;
 			this.accountsPayableDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
 			this.accountsPayableDataGridView.BackgroundColor = System.Drawing.Color.White;
 			this.accountsPayableDataGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
-			this.accountsPayableDataGridView.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+			this.accountsPayableDataGridView.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
 			this.accountsPayableDataGridView.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.Disable;
 			this.accountsPayableDataGridView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-			dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-			dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(103)))), ((int)(((byte)(58)))), ((int)(((byte)(183)))));
-			dataGridViewCellStyle2.Font = new System.Drawing.Font("IRANSansXFaNum", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-			dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-			dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-			dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-			dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-			this.accountsPayableDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+			dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+			dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(103)))), ((int)(((byte)(58)))), ((int)(((byte)(183)))));
+			dataGridViewCellStyle6.Font = new System.Drawing.Font("IRANSansXFaNum", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+			dataGridViewCellStyle6.ForeColor = System.Drawing.Color.White;
+			dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+			dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+			dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+			this.accountsPayableDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
 			this.accountsPayableDataGridView.ColumnHeadersHeight = 35;
 			this.accountsPayableDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
 			this.accountsPayableDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.idDataGridViewTextBoxColumn,
-            this.SelectObject,
+            this.Select_Object,
             this.descriptionDataGridViewTextBoxColumn,
             this.sellerNameDataGridViewTextBoxColumn,
-            this.amountPaidDataGridViewTextBoxColumn,
             this.amountPayableDataGridViewTextBoxColumn,
-            this.remaininigAmountDataGridViewTextBoxColumn,
-            this.registrationDateDataGridViewTextBoxColumn,
-            this.Account_Status});
-			this.accountsPayableDataGridView.DataSource = this.accountsPayableBindingSource;
-			dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-			dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(215)))), ((int)(((byte)(240)))));
-			dataGridViewCellStyle3.Font = new System.Drawing.Font("IRANSansXFaNum", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-			dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
-			dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(123)))), ((int)(((byte)(207)))));
-			dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
-			dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-			this.accountsPayableDataGridView.DefaultCellStyle = dataGridViewCellStyle3;
+            this.amountPaidDataGridViewTextBoxColumn,
+            this.amountRemaininigDataGridViewTextBoxColumn,
+            this.finantialSituationDataGridViewTextBoxColumn});
+			this.accountsPayableDataGridView.DataSource = this.accountsPaymentBindingSource;
+			dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+			dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(215)))), ((int)(((byte)(240)))));
+			dataGridViewCellStyle7.Font = new System.Drawing.Font("IRANSansXFaNum", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+			dataGridViewCellStyle7.ForeColor = System.Drawing.Color.Black;
+			dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(123)))), ((int)(((byte)(207)))));
+			dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.Black;
+			dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+			this.accountsPayableDataGridView.DefaultCellStyle = dataGridViewCellStyle7;
 			this.accountsPayableDataGridView.EnableHeadersVisualStyles = false;
 			this.accountsPayableDataGridView.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(193)))), ((int)(((byte)(232)))));
 			this.accountsPayableDataGridView.Location = new System.Drawing.Point(15, 60);
@@ -371,6 +367,9 @@ namespace Financial_Form
 			this.accountsPayableDataGridView.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
 			this.accountsPayableDataGridView.RowHeadersVisible = false;
 			this.accountsPayableDataGridView.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+			dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+			this.accountsPayableDataGridView.RowsDefaultCellStyle = dataGridViewCellStyle8;
+			this.accountsPayableDataGridView.RowTemplate.Height = 25;
 			this.accountsPayableDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
 			this.accountsPayableDataGridView.Size = new System.Drawing.Size(1120, 515);
 			this.accountsPayableDataGridView.TabIndex = 0;
@@ -390,13 +389,33 @@ namespace Financial_Form
 			this.accountsPayableDataGridView.ThemeStyle.HeaderStyle.Height = 35;
 			this.accountsPayableDataGridView.ThemeStyle.ReadOnly = true;
 			this.accountsPayableDataGridView.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(215)))), ((int)(((byte)(240)))));
-			this.accountsPayableDataGridView.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+			this.accountsPayableDataGridView.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
 			this.accountsPayableDataGridView.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("IRANSansXFaNum", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
 			this.accountsPayableDataGridView.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.Black;
-			this.accountsPayableDataGridView.ThemeStyle.RowsStyle.Height = 22;
+			this.accountsPayableDataGridView.ThemeStyle.RowsStyle.Height = 25;
 			this.accountsPayableDataGridView.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(123)))), ((int)(((byte)(207)))));
 			this.accountsPayableDataGridView.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.Black;
 			this.accountsPayableDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.AccountsPayableDataGridView_CellContentClick);
+			// 
+			// registerDateLabel
+			// 
+			this.registerDateLabel.AutoSize = true;
+			this.registerDateLabel.ForeColor = System.Drawing.Color.White;
+			this.registerDateLabel.Location = new System.Drawing.Point(88, 23);
+			this.registerDateLabel.Name = "registerDateLabel";
+			this.registerDateLabel.Size = new System.Drawing.Size(111, 17);
+			this.registerDateLabel.TabIndex = 9;
+			this.registerDateLabel.Text = "جستجو بر اساس تاریخ";
+			this.registerDateLabel.Click += new System.EventHandler(this.RegisterDateLabel_Click);
+			// 
+			// accountsPayableDataGridViewElipse
+			// 
+			this.accountsPayableDataGridViewElipse.BorderRadius = 15;
+			this.accountsPayableDataGridViewElipse.TargetControl = this.accountsPayableDataGridView;
+			// 
+			// accountsPaymentBindingSource
+			// 
+			this.accountsPaymentBindingSource.DataSource = typeof(Models.AccountsPayment);
 			// 
 			// idDataGridViewTextBoxColumn
 			// 
@@ -406,12 +425,12 @@ namespace Financial_Form
 			this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
 			this.idDataGridViewTextBoxColumn.ReadOnly = true;
 			// 
-			// SelectObject
+			// Select_Object
 			// 
-			this.SelectObject.FillWeight = 50F;
-			this.SelectObject.HeaderText = "انتخاب";
-			this.SelectObject.Name = "SelectObject";
-			this.SelectObject.ReadOnly = true;
+			this.Select_Object.FillWeight = 30F;
+			this.Select_Object.HeaderText = "انتخاب";
+			this.Select_Object.Name = "Select_Object";
+			this.Select_Object.ReadOnly = true;
 			// 
 			// descriptionDataGridViewTextBoxColumn
 			// 
@@ -428,59 +447,37 @@ namespace Financial_Form
 			this.sellerNameDataGridViewTextBoxColumn.Name = "sellerNameDataGridViewTextBoxColumn";
 			this.sellerNameDataGridViewTextBoxColumn.ReadOnly = true;
 			// 
-			// amountPaidDataGridViewTextBoxColumn
-			// 
-			this.amountPaidDataGridViewTextBoxColumn.DataPropertyName = "Amount_Paid";
-			this.amountPaidDataGridViewTextBoxColumn.HeaderText = "مبلغ پرداخت شده";
-			this.amountPaidDataGridViewTextBoxColumn.Name = "amountPaidDataGridViewTextBoxColumn";
-			this.amountPaidDataGridViewTextBoxColumn.ReadOnly = true;
-			// 
 			// amountPayableDataGridViewTextBoxColumn
 			// 
 			this.amountPayableDataGridViewTextBoxColumn.DataPropertyName = "Amount_Payable";
+			this.amountPayableDataGridViewTextBoxColumn.FillWeight = 75F;
 			this.amountPayableDataGridViewTextBoxColumn.HeaderText = "مبلغ قابل پرداخت";
 			this.amountPayableDataGridViewTextBoxColumn.Name = "amountPayableDataGridViewTextBoxColumn";
 			this.amountPayableDataGridViewTextBoxColumn.ReadOnly = true;
 			// 
-			// remaininigAmountDataGridViewTextBoxColumn
+			// amountPaidDataGridViewTextBoxColumn
 			// 
-			this.remaininigAmountDataGridViewTextBoxColumn.DataPropertyName = "Remaininig_Amount";
-			this.remaininigAmountDataGridViewTextBoxColumn.HeaderText = "مبلغ باقیمانده";
-			this.remaininigAmountDataGridViewTextBoxColumn.Name = "remaininigAmountDataGridViewTextBoxColumn";
-			this.remaininigAmountDataGridViewTextBoxColumn.ReadOnly = true;
+			this.amountPaidDataGridViewTextBoxColumn.DataPropertyName = "Amount_Paid";
+			this.amountPaidDataGridViewTextBoxColumn.FillWeight = 75F;
+			this.amountPaidDataGridViewTextBoxColumn.HeaderText = "مبلغ پرداخت شده";
+			this.amountPaidDataGridViewTextBoxColumn.Name = "amountPaidDataGridViewTextBoxColumn";
+			this.amountPaidDataGridViewTextBoxColumn.ReadOnly = true;
 			// 
-			// registrationDateDataGridViewTextBoxColumn
+			// amountRemaininigDataGridViewTextBoxColumn
 			// 
-			this.registrationDateDataGridViewTextBoxColumn.DataPropertyName = "Registration_Date";
-			this.registrationDateDataGridViewTextBoxColumn.HeaderText = "تاریخ ثبت";
-			this.registrationDateDataGridViewTextBoxColumn.Name = "registrationDateDataGridViewTextBoxColumn";
-			this.registrationDateDataGridViewTextBoxColumn.ReadOnly = true;
+			this.amountRemaininigDataGridViewTextBoxColumn.DataPropertyName = "Amount_Remaininig";
+			this.amountRemaininigDataGridViewTextBoxColumn.FillWeight = 75F;
+			this.amountRemaininigDataGridViewTextBoxColumn.HeaderText = "مبلغ باقیمانده";
+			this.amountRemaininigDataGridViewTextBoxColumn.Name = "amountRemaininigDataGridViewTextBoxColumn";
+			this.amountRemaininigDataGridViewTextBoxColumn.ReadOnly = true;
 			// 
-			// Account_Status
+			// finantialSituationDataGridViewTextBoxColumn
 			// 
-			this.Account_Status.HeaderText = "وضعیت";
-			this.Account_Status.Name = "Account_Status";
-			this.Account_Status.ReadOnly = true;
-			// 
-			// accountsPayableBindingSource
-			// 
-			this.accountsPayableBindingSource.DataSource = typeof(Models.AccountsPayment);
-			// 
-			// registerDateLabel
-			// 
-			this.registerDateLabel.AutoSize = true;
-			this.registerDateLabel.ForeColor = System.Drawing.Color.White;
-			this.registerDateLabel.Location = new System.Drawing.Point(29, 21);
-			this.registerDateLabel.Name = "registerDateLabel";
-			this.registerDateLabel.Size = new System.Drawing.Size(111, 17);
-			this.registerDateLabel.TabIndex = 9;
-			this.registerDateLabel.Text = "جستجو بر اساس تاریخ";
-			this.registerDateLabel.Click += new System.EventHandler(this.RegisterDateLabel_Click);
-			// 
-			// accountsPayableDataGridViewElipse
-			// 
-			this.accountsPayableDataGridViewElipse.BorderRadius = 15;
-			this.accountsPayableDataGridViewElipse.TargetControl = this.accountsPayableDataGridView;
+			this.finantialSituationDataGridViewTextBoxColumn.DataPropertyName = "Finantial_Situation";
+			this.finantialSituationDataGridViewTextBoxColumn.FillWeight = 75F;
+			this.finantialSituationDataGridViewTextBoxColumn.HeaderText = "وضعیت";
+			this.finantialSituationDataGridViewTextBoxColumn.Name = "finantialSituationDataGridViewTextBoxColumn";
+			this.finantialSituationDataGridViewTextBoxColumn.ReadOnly = true;
 			// 
 			// AuditingForm
 			// 
@@ -496,7 +493,7 @@ namespace Financial_Form
 			this.mainPanel.ResumeLayout(false);
 			this.mainPanel.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)(this.accountsPayableDataGridView)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.accountsPayableBindingSource)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.accountsPaymentBindingSource)).EndInit();
 			this.ResumeLayout(false);
 
 		}
@@ -505,7 +502,6 @@ namespace Financial_Form
 
 		private Guna.UI2.WinForms.Guna2Panel mainPanel;
 		private Guna.UI2.WinForms.Guna2DataGridView accountsPayableDataGridView;
-		private System.Windows.Forms.BindingSource accountsPayableBindingSource;
 		private Guna.UI2.WinForms.Guna2Elipse accountsPayableDataGridViewElipse;
 		private Guna.UI2.WinForms.Guna2GradientButton paymentButton;
 		private Guna.UI2.WinForms.Guna2CustomRadioButton registerDateRadioButton;
@@ -513,15 +509,16 @@ namespace Financial_Form
 		private Mbb.Windows.Forms.Label sellerNameLabel;
 		private Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox searchTextBox;
 		private Mbb.Windows.Forms.Label registerDateLabel;
+		private Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox amountPaidTextBox;
+		private System.Windows.Forms.DataGridViewTextBoxColumn remaininigAmountDataGridViewTextBoxColumn;
 		private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
-		private System.Windows.Forms.DataGridViewCheckBoxColumn SelectObject;
+		private System.Windows.Forms.DataGridViewCheckBoxColumn Select_Object;
 		private System.Windows.Forms.DataGridViewTextBoxColumn descriptionDataGridViewTextBoxColumn;
 		private System.Windows.Forms.DataGridViewTextBoxColumn sellerNameDataGridViewTextBoxColumn;
-		private System.Windows.Forms.DataGridViewTextBoxColumn amountPaidDataGridViewTextBoxColumn;
 		private System.Windows.Forms.DataGridViewTextBoxColumn amountPayableDataGridViewTextBoxColumn;
-		private System.Windows.Forms.DataGridViewTextBoxColumn remaininigAmountDataGridViewTextBoxColumn;
-		private System.Windows.Forms.DataGridViewTextBoxColumn registrationDateDataGridViewTextBoxColumn;
-		private System.Windows.Forms.DataGridViewTextBoxColumn Account_Status;
-		private Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox amountPaidTextBox;
+		private System.Windows.Forms.DataGridViewTextBoxColumn amountPaidDataGridViewTextBoxColumn;
+		private System.Windows.Forms.DataGridViewTextBoxColumn amountRemaininigDataGridViewTextBoxColumn;
+		private System.Windows.Forms.DataGridViewTextBoxColumn finantialSituationDataGridViewTextBoxColumn;
+		private System.Windows.Forms.BindingSource accountsPaymentBindingSource;
 	}
 }
