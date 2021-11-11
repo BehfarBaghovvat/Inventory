@@ -26,13 +26,13 @@ namespace Financial_Form
 
 		private class Audit
 		{
-			public decimal Amount { get; set; }
-			public decimal Amount_Payment { get; set; }
-			public decimal Capital_Fund { get; set; }
+			public decimal? Amount { get; set; }
+			public decimal? Amount_Payment { get; set; }
+			public decimal? Capital_Fund { get; set; }
 			public string Object_Search { get; set; }
 			public SearchType Search_Type { get; set; }
-			public int Select_Count { get; set; }
-			public decimal Sum_Amount { get; set; }
+			public int? Select_Count { get; set; }
+			public decimal? Sum_Amount { get; set; }
 		}
 		#endregion /Layer
 
@@ -231,8 +231,9 @@ namespace Financial_Form
 		/// </summary>
 		private void AllClear()
 		{
-			_audit.Amount = 0;
-			_audit.Select_Count = 0;
+			_audit.Amount = null;
+			_audit.Select_Count = null;
+			_audit.Capital_Fund = null;
 		}
 		#endregion /AllClear
 
@@ -331,11 +332,8 @@ namespace Financial_Form
 		/// </summary>
 		public void Initialize()
 		{
-			//AllClear();
-			ResetAllControl();
-
+			AllClear();
 			_audit.Capital_Fund = GetCapitalFund();
-
 			foreach (System.Windows.Forms.DataGridViewRow row in accountsPayableDataGridView.Rows)
 			{
 				row.Cells[1].Value = false;
@@ -353,6 +351,8 @@ namespace Financial_Form
 					row.Cells[7].Style.BackColor = System.Drawing.Color.LightGreen;
 				}
 			}
+
+			ResetAllControl();
 		}
 		#endregion /Initialize
 
@@ -366,7 +366,7 @@ namespace Financial_Form
 		private bool Payment(Audit _audit)
 		{
 			decimal _returnCapitalFund = 0;
-			decimal _resualtCalculate = _audit.Capital_Fund + (_audit.Amount_Payment);
+			decimal? _resualtCalculate = _audit.Capital_Fund + (_audit.Amount_Payment);
 
 			Models.DataBaseContext dataBaseContext = null;
 			try
@@ -416,7 +416,7 @@ namespace Financial_Form
 			searchTextBox.Clear();
 			sellerNameRadioButton.Checked = false;
 			registerDateRadioButton.Checked = false;
-			_audit = null;
+			AllClear();
 
 			GetAccountPayment();
 		}

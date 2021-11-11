@@ -69,6 +69,11 @@
     <Compile Include="ListIncidentalExpensesName.cs" />
     <Compile Include="ListPurchaseProduct.cs" />
     <Compile Include="ListSalesProduct.cs" />
+    <Compile Include="Migrations\202110181309279_InitialCreate.cs" />
+    <Compile Include="Migrations\202110181309279_InitialCreate.designer.cs">
+      <DependentUpon>202110181309279_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="MonthlyFinancialReport.cs" />
     <Compile Include="PurchaseInvoice.cs" />
     <Compile Include="SalesInvoice.cs" />
@@ -90,6 +95,11 @@
   <ItemGroup>
     <Content Include="Document\Configuration.txt" />
     <Content Include="Document\Migration Setup.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202110181309279_InitialCreate.resx">
+      <DependentUpon>202110181309279_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

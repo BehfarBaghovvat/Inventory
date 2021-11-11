@@ -244,6 +244,11 @@ namespace Inventory_Forms
 		#region ProductsListDataGridView_CellDoubleClick
 		private void ProductsListDataGridView_CellDoubleClick(object sender, System.Windows.Forms.DataGridViewCellEventArgs e)
 		{
+			if (e.ColumnIndex <= -1 || e.RowIndex <= -1)
+			{
+				return;
+			}
+
 			if ((e.ColumnIndex == 1 && e.RowIndex >= 0) || (e.ColumnIndex == 2 && e.RowIndex >= 0))
 			{
 				auditItem.First_Quantity =int.Parse(productsListDataGridView.CurrentRow.Cells[2].Value.ToString());

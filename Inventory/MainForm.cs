@@ -12,7 +12,7 @@ namespace Inventory
 
 		/// <summary>
 		/// کلاس مربوط به تاریخ و زمان سیستم
-		/// </summary>
+		/// </summary>		
 		private class DateTimeSystem
 		{
 			string second, minute, hour;

@@ -77,7 +77,7 @@ namespace Entry_Forms
 		#region UsernameTextBox_TextChange
 		private void UsernameTextBox_TextChange(object sender, System.EventArgs e)
 		{
-			if (string.IsNullOrWhiteSpace(usernameTextBox.Text))
+			if (string.IsNullOrWhiteSpace(usernameTextBox.Text) || usernameTextBox.Text == string.Empty)
 			{
 				Username = null;
 				return;
@@ -145,7 +145,7 @@ namespace Entry_Forms
 		#region PasswordTextBox_TextChange
 		private void PasswordTextBox_TextChange(object sender, System.EventArgs e)
 		{
-			if (string.IsNullOrWhiteSpace(passwordTextBox.Text))
+			if (string.IsNullOrWhiteSpace(passwordTextBox.Text) || passwordTextBox.Text == string.Empty)
 			{
 				passwordTextBox.UseSystemPasswordChar = false;
 				Password = null;
@@ -247,6 +247,8 @@ namespace Entry_Forms
 			}
 		}
 		#endregion /FadeOutForSingUpTimer_Tick
+
+
 
 		//-----------------------------------------------------------------------------------------------     Privat Methods
 

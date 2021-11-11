@@ -227,24 +227,6 @@ namespace Inventory
 			Administrator();
 			InitialAmountCapital();
 			System.Windows.Forms.Application.Run(new Entry_Forms.StartUpForm());
-			//System.Windows.Forms.Application.Run(new TestControlsForm());
-
-			//System.Windows.Forms.Application.Run(new MainForm());
-			//System.Windows.Forms.Application.Run(new Financial_Form.AncillaryCostsForm());
-			//System.Windows.Forms.Application.Run(new Financial_Form.SafeBoxForm());
-			//System.Windows.Forms.Application.Run(new Inventory_Forms.InvoiceForm());
-			//System.Windows.Forms.Application.Run(new Inventory_Forms.ProcutSalesForm());
-			//System.Windows.Forms.Application.Run(new Inventory_Forms.BillBuyReportForm());
-			//System.Windows.Forms.Application.Run(new Inventory_Forms.BillSaleReportForm());
-			//System.Windows.Forms.Application.Run(new Inventory_Forms.ProductBuyForm());
-			//System.Windows.Forms.Application.Run(new Inventory_Forms.ViewProducrImageForm());
-			//System.Windows.Forms.Application.Run(new Inventory_Forms.ServiceForm());
-			//System.Windows.Forms.Application.Run(new Inventory_Forms.ServiceReportForm());
-			//System.Windows.Forms.Application.Run(new Financial_Form.FinancialReportForm());
-			//System.Windows.Forms.Application.Run(new Setting_Forms.BackupSettingForm());
-			//System.Windows.Forms.Application.Run(new Setting_Forms.ManagementSettingForm());
-			//System.Windows.Forms.Application.Run(new Client_Forms.RegisterClientForm());
-			//System.Windows.Forms.Application.Run(new Client_Forms.ClientFinancialSituationForm());
 		}
 	}
 }

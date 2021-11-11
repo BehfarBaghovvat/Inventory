@@ -4,11 +4,14 @@
 	{
 		static DataBaseContext()
 		{
-			System.Data.Entity.Database.SetInitializer
-				( new System.Data.Entity.DropCreateDatabaseIfModelChanges<DataBaseContext>());
+			//System.Data.Entity.Database.SetInitializer
+			//	( new System.Data.Entity.DropCreateDatabaseIfModelChanges<DataBaseContext>());
 
 			//System.Data.Entity.Database.SetInitializer
-			//(new System.Data.Entity.MigrateDatabaseToLatestVersion<DataBaseContext, Migrations.Configuration>());
+			//	(new DataBaseContextInitializerBeforTheFirstRelease());
+
+			System.Data.Entity.Database.SetInitializer
+			(new System.Data.Entity.MigrateDatabaseToLatestVersion<DataBaseContext, Migrations.Configuration>());
 		}
 
 		public DataBaseContext() : base()

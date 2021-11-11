@@ -52,7 +52,6 @@
 				caption.Text = value;
 			}
 		}
-
 		public System.Drawing.Color TopColor 
 		{
 			get
@@ -65,8 +64,6 @@
 			}
 
 		}
-
-
 		#endregion /Properties
 
 		public BaseForm()

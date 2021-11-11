@@ -110,6 +110,12 @@ namespace Client_Forms
 		#region ListFinantioalClientDataGridView_CellContentClick
 		private void ListFinantioalClientDataGridView_CellContentClick(object sender, System.Windows.Forms.DataGridViewCellEventArgs e)
 		{
+
+			if (e.ColumnIndex <=-1 || e.RowIndex <= -1 )
+			{
+				return;
+			}
+
 			if ((e.ColumnIndex == 1 && e.RowIndex >= 0))
 			{
 				if ((string.Compare(listFinantioalClientDataGridView.Rows[e.RowIndex].Cells[6].Value.ToString(), FinantialSituation.تسویه.ToString()) == 0))
@@ -520,6 +526,7 @@ namespace Client_Forms
 		/// <returns>True Or False</returns>
 		private bool UpdateListFinancialClient()
 		{
+			int id;
 			decimal _amountRemaining, _amountPaid, _result;
 
 			Models.DataBaseContext dataBaseContext = null;
@@ -539,9 +546,11 @@ namespace Client_Forms
 
 						_result = _amountPaid -(_amountRemaining);
 
+						id = int.Parse(row.Cells[0].Value.ToString());
+
 						Models.ListFinancialClient listFinancialClient =
 							dataBaseContext.ListFinancialClients
-							.Where(current => current.Id == int.Parse(row.Cells[0].Value.ToString()))
+							.Where(current => current.Id == id)
 							.FirstOrDefault();
 
 							listFinancialClient.Amount_Paid = $"{_result:#,0} تومان";
