@@ -316,7 +316,7 @@ namespace Client_Forms
 					}
 				}
 
-				MainForm.capitalFundsNotificationTextBox.Text = $"{_capitalFund:#,0} تومان";
+				MainForm.cashCapitalTextBox.Text = $"{_capitalFund:#,0} تومان";
 
 				return _capitalFund;
 			}
@@ -420,7 +420,7 @@ namespace Client_Forms
 
 				_returnCapitalFund = GetCapitalFund();
 
-				Inventory.Program.MainForm.capitalFundsNotificationTextBox.Text = $"{_returnCapitalFund:#,0} تومان";
+				Inventory.Program.MainForm.cashCapitalTextBox.Text = $"{_returnCapitalFund:#,0} تومان";
 
 				return true;
 

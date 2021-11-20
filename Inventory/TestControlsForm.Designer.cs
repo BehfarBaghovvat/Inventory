@@ -30,22 +30,22 @@ namespace Inventory
 		private void InitializeComponent()
 		{
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TestControlsForm));
-			Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties33 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
-			Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties34 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
-			Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties35 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
-			Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties36 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
-			Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties37 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
-			Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties38 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
-			Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties39 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
-			Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties40 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
-			Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties41 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
-			Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties42 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
-			Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties43 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
-			Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties44 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
-			Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties45 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
-			Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties46 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
-			Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties47 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
-			Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties48 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
+			Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties17 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
+			Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties18 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
+			Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties19 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
+			Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties20 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
+			Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties21 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
+			Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties22 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
+			Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties23 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
+			Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties24 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
+			Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties25 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
+			Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties26 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
+			Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties27 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
+			Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties28 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
+			Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties29 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
+			Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties30 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
+			Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties31 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
+			Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties32 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
 			this.button1 = new System.Windows.Forms.Button();
 			this.button2 = new System.Windows.Forms.Button();
 			this.button3 = new System.Windows.Forms.Button();
@@ -60,19 +60,7 @@ namespace Inventory
 			this.separatorLabel2 = new Mbb.Windows.Forms.Label();
 			this.numTextBox3 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox();
 			this.guna2GroupBox1 = new Guna.UI2.WinForms.Guna2GroupBox();
-			this.guna2GradientPanel1 = new Guna.UI2.WinForms.Guna2GradientPanel();
-			this.textBox1 = new System.Windows.Forms.TextBox();
-			this.textBox2 = new System.Windows.Forms.TextBox();
-			this.textBox3 = new System.Windows.Forms.TextBox();
-			this.plusLabel = new System.Windows.Forms.Label();
-			this.equalLabel = new System.Windows.Forms.Label();
-			this.label1 = new System.Windows.Forms.Label();
-			this.minusLabel = new System.Windows.Forms.Label();
-			this.textBox4 = new System.Windows.Forms.TextBox();
-			this.textBox5 = new System.Windows.Forms.TextBox();
-			this.textBox6 = new System.Windows.Forms.TextBox();
 			this.guna2GroupBox1.SuspendLayout();
-			this.guna2GradientPanel1.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// button1
@@ -175,26 +163,26 @@ namespace Inventory
 			this.bunifuTextBox4.Modified = false;
 			this.bunifuTextBox4.Multiline = false;
 			this.bunifuTextBox4.Name = "bunifuTextBox4";
-			stateProperties33.BorderColor = System.Drawing.Color.DodgerBlue;
-			stateProperties33.FillColor = System.Drawing.Color.Empty;
-			stateProperties33.ForeColor = System.Drawing.Color.Empty;
-			stateProperties33.PlaceholderForeColor = System.Drawing.Color.Empty;
-			this.bunifuTextBox4.OnActiveState = stateProperties33;
-			stateProperties34.BorderColor = System.Drawing.Color.Empty;
-			stateProperties34.FillColor = System.Drawing.Color.White;
-			stateProperties34.ForeColor = System.Drawing.Color.Empty;
-			stateProperties34.PlaceholderForeColor = System.Drawing.Color.Silver;
-			this.bunifuTextBox4.OnDisabledState = stateProperties34;
-			stateProperties35.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(181)))), ((int)(((byte)(255)))));
-			stateProperties35.FillColor = System.Drawing.Color.Empty;
-			stateProperties35.ForeColor = System.Drawing.Color.Empty;
-			stateProperties35.PlaceholderForeColor = System.Drawing.Color.Empty;
-			this.bunifuTextBox4.OnHoverState = stateProperties35;
-			stateProperties36.BorderColor = System.Drawing.Color.Silver;
-			stateProperties36.FillColor = System.Drawing.Color.White;
-			stateProperties36.ForeColor = System.Drawing.Color.Empty;
-			stateProperties36.PlaceholderForeColor = System.Drawing.Color.Empty;
-			this.bunifuTextBox4.OnIdleState = stateProperties36;
+			stateProperties17.BorderColor = System.Drawing.Color.DodgerBlue;
+			stateProperties17.FillColor = System.Drawing.Color.Empty;
+			stateProperties17.ForeColor = System.Drawing.Color.Empty;
+			stateProperties17.PlaceholderForeColor = System.Drawing.Color.Empty;
+			this.bunifuTextBox4.OnActiveState = stateProperties17;
+			stateProperties18.BorderColor = System.Drawing.Color.Empty;
+			stateProperties18.FillColor = System.Drawing.Color.White;
+			stateProperties18.ForeColor = System.Drawing.Color.Empty;
+			stateProperties18.PlaceholderForeColor = System.Drawing.Color.Silver;
+			this.bunifuTextBox4.OnDisabledState = stateProperties18;
+			stateProperties19.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(181)))), ((int)(((byte)(255)))));
+			stateProperties19.FillColor = System.Drawing.Color.Empty;
+			stateProperties19.ForeColor = System.Drawing.Color.Empty;
+			stateProperties19.PlaceholderForeColor = System.Drawing.Color.Empty;
+			this.bunifuTextBox4.OnHoverState = stateProperties19;
+			stateProperties20.BorderColor = System.Drawing.Color.Silver;
+			stateProperties20.FillColor = System.Drawing.Color.White;
+			stateProperties20.ForeColor = System.Drawing.Color.Empty;
+			stateProperties20.PlaceholderForeColor = System.Drawing.Color.Empty;
+			this.bunifuTextBox4.OnIdleState = stateProperties20;
 			this.bunifuTextBox4.PasswordChar = '\0';
 			this.bunifuTextBox4.PlaceholderForeColor = System.Drawing.Color.Silver;
 			this.bunifuTextBox4.PlaceholderText = "73";
@@ -261,26 +249,26 @@ namespace Inventory
 			this.numTextBox2.Modified = false;
 			this.numTextBox2.Multiline = false;
 			this.numTextBox2.Name = "numTextBox2";
-			stateProperties37.BorderColor = System.Drawing.Color.DodgerBlue;
-			stateProperties37.FillColor = System.Drawing.Color.Empty;
-			stateProperties37.ForeColor = System.Drawing.Color.Empty;
-			stateProperties37.PlaceholderForeColor = System.Drawing.Color.Empty;
-			this.numTextBox2.OnActiveState = stateProperties37;
-			stateProperties38.BorderColor = System.Drawing.Color.Empty;
-			stateProperties38.FillColor = System.Drawing.Color.White;
-			stateProperties38.ForeColor = System.Drawing.Color.Empty;
-			stateProperties38.PlaceholderForeColor = System.Drawing.Color.Silver;
-			this.numTextBox2.OnDisabledState = stateProperties38;
-			stateProperties39.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(181)))), ((int)(((byte)(255)))));
-			stateProperties39.FillColor = System.Drawing.Color.Empty;
-			stateProperties39.ForeColor = System.Drawing.Color.Empty;
-			stateProperties39.PlaceholderForeColor = System.Drawing.Color.Empty;
-			this.numTextBox2.OnHoverState = stateProperties39;
-			stateProperties40.BorderColor = System.Drawing.Color.Silver;
-			stateProperties40.FillColor = System.Drawing.Color.White;
-			stateProperties40.ForeColor = System.Drawing.Color.Black;
-			stateProperties40.PlaceholderForeColor = System.Drawing.Color.Empty;
-			this.numTextBox2.OnIdleState = stateProperties40;
+			stateProperties21.BorderColor = System.Drawing.Color.DodgerBlue;
+			stateProperties21.FillColor = System.Drawing.Color.Empty;
+			stateProperties21.ForeColor = System.Drawing.Color.Empty;
+			stateProperties21.PlaceholderForeColor = System.Drawing.Color.Empty;
+			this.numTextBox2.OnActiveState = stateProperties21;
+			stateProperties22.BorderColor = System.Drawing.Color.Empty;
+			stateProperties22.FillColor = System.Drawing.Color.White;
+			stateProperties22.ForeColor = System.Drawing.Color.Empty;
+			stateProperties22.PlaceholderForeColor = System.Drawing.Color.Silver;
+			this.numTextBox2.OnDisabledState = stateProperties22;
+			stateProperties23.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(181)))), ((int)(((byte)(255)))));
+			stateProperties23.FillColor = System.Drawing.Color.Empty;
+			stateProperties23.ForeColor = System.Drawing.Color.Empty;
+			stateProperties23.PlaceholderForeColor = System.Drawing.Color.Empty;
+			this.numTextBox2.OnHoverState = stateProperties23;
+			stateProperties24.BorderColor = System.Drawing.Color.Silver;
+			stateProperties24.FillColor = System.Drawing.Color.White;
+			stateProperties24.ForeColor = System.Drawing.Color.Black;
+			stateProperties24.PlaceholderForeColor = System.Drawing.Color.Empty;
+			this.numTextBox2.OnIdleState = stateProperties24;
 			this.numTextBox2.PasswordChar = '\0';
 			this.numTextBox2.PlaceholderForeColor = System.Drawing.Color.Silver;
 			this.numTextBox2.PlaceholderText = "471";
@@ -410,26 +398,26 @@ namespace Inventory
 			this.numTextBox1.Modified = false;
 			this.numTextBox1.Multiline = false;
 			this.numTextBox1.Name = "numTextBox1";
-			stateProperties41.BorderColor = System.Drawing.Color.DodgerBlue;
-			stateProperties41.FillColor = System.Drawing.Color.Empty;
-			stateProperties41.ForeColor = System.Drawing.Color.Empty;
-			stateProperties41.PlaceholderForeColor = System.Drawing.Color.Empty;
-			this.numTextBox1.OnActiveState = stateProperties41;
-			stateProperties42.BorderColor = System.Drawing.Color.Empty;
-			stateProperties42.FillColor = System.Drawing.Color.White;
-			stateProperties42.ForeColor = System.Drawing.Color.Empty;
-			stateProperties42.PlaceholderForeColor = System.Drawing.Color.Silver;
-			this.numTextBox1.OnDisabledState = stateProperties42;
-			stateProperties43.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(181)))), ((int)(((byte)(255)))));
-			stateProperties43.FillColor = System.Drawing.Color.Empty;
-			stateProperties43.ForeColor = System.Drawing.Color.Empty;
-			stateProperties43.PlaceholderForeColor = System.Drawing.Color.Empty;
-			this.numTextBox1.OnHoverState = stateProperties43;
-			stateProperties44.BorderColor = System.Drawing.Color.Silver;
-			stateProperties44.FillColor = System.Drawing.Color.White;
-			stateProperties44.ForeColor = System.Drawing.Color.Black;
-			stateProperties44.PlaceholderForeColor = System.Drawing.Color.Empty;
-			this.numTextBox1.OnIdleState = stateProperties44;
+			stateProperties25.BorderColor = System.Drawing.Color.DodgerBlue;
+			stateProperties25.FillColor = System.Drawing.Color.Empty;
+			stateProperties25.ForeColor = System.Drawing.Color.Empty;
+			stateProperties25.PlaceholderForeColor = System.Drawing.Color.Empty;
+			this.numTextBox1.OnActiveState = stateProperties25;
+			stateProperties26.BorderColor = System.Drawing.Color.Empty;
+			stateProperties26.FillColor = System.Drawing.Color.White;
+			stateProperties26.ForeColor = System.Drawing.Color.Empty;
+			stateProperties26.PlaceholderForeColor = System.Drawing.Color.Silver;
+			this.numTextBox1.OnDisabledState = stateProperties26;
+			stateProperties27.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(181)))), ((int)(((byte)(255)))));
+			stateProperties27.FillColor = System.Drawing.Color.Empty;
+			stateProperties27.ForeColor = System.Drawing.Color.Empty;
+			stateProperties27.PlaceholderForeColor = System.Drawing.Color.Empty;
+			this.numTextBox1.OnHoverState = stateProperties27;
+			stateProperties28.BorderColor = System.Drawing.Color.Silver;
+			stateProperties28.FillColor = System.Drawing.Color.White;
+			stateProperties28.ForeColor = System.Drawing.Color.Black;
+			stateProperties28.PlaceholderForeColor = System.Drawing.Color.Empty;
+			this.numTextBox1.OnIdleState = stateProperties28;
 			this.numTextBox1.PasswordChar = '\0';
 			this.numTextBox1.PlaceholderForeColor = System.Drawing.Color.Silver;
 			this.numTextBox1.PlaceholderText = "73";
@@ -505,26 +493,26 @@ namespace Inventory
 			this.numTextBox3.Modified = false;
 			this.numTextBox3.Multiline = false;
 			this.numTextBox3.Name = "numTextBox3";
-			stateProperties45.BorderColor = System.Drawing.Color.DodgerBlue;
-			stateProperties45.FillColor = System.Drawing.Color.Empty;
-			stateProperties45.ForeColor = System.Drawing.Color.Empty;
-			stateProperties45.PlaceholderForeColor = System.Drawing.Color.Empty;
-			this.numTextBox3.OnActiveState = stateProperties45;
-			stateProperties46.BorderColor = System.Drawing.Color.Empty;
-			stateProperties46.FillColor = System.Drawing.Color.White;
-			stateProperties46.ForeColor = System.Drawing.Color.Empty;
-			stateProperties46.PlaceholderForeColor = System.Drawing.Color.Silver;
-			this.numTextBox3.OnDisabledState = stateProperties46;
-			stateProperties47.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(181)))), ((int)(((byte)(255)))));
-			stateProperties47.FillColor = System.Drawing.Color.Empty;
-			stateProperties47.ForeColor = System.Drawing.Color.Empty;
-			stateProperties47.PlaceholderForeColor = System.Drawing.Color.Empty;
-			this.numTextBox3.OnHoverState = stateProperties47;
-			stateProperties48.BorderColor = System.Drawing.Color.Silver;
-			stateProperties48.FillColor = System.Drawing.Color.White;
-			stateProperties48.ForeColor = System.Drawing.Color.Black;
-			stateProperties48.PlaceholderForeColor = System.Drawing.Color.Empty;
-			this.numTextBox3.OnIdleState = stateProperties48;
+			stateProperties29.BorderColor = System.Drawing.Color.DodgerBlue;
+			stateProperties29.FillColor = System.Drawing.Color.Empty;
+			stateProperties29.ForeColor = System.Drawing.Color.Empty;
+			stateProperties29.PlaceholderForeColor = System.Drawing.Color.Empty;
+			this.numTextBox3.OnActiveState = stateProperties29;
+			stateProperties30.BorderColor = System.Drawing.Color.Empty;
+			stateProperties30.FillColor = System.Drawing.Color.White;
+			stateProperties30.ForeColor = System.Drawing.Color.Empty;
+			stateProperties30.PlaceholderForeColor = System.Drawing.Color.Silver;
+			this.numTextBox3.OnDisabledState = stateProperties30;
+			stateProperties31.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(181)))), ((int)(((byte)(255)))));
+			stateProperties31.FillColor = System.Drawing.Color.Empty;
+			stateProperties31.ForeColor = System.Drawing.Color.Empty;
+			stateProperties31.PlaceholderForeColor = System.Drawing.Color.Empty;
+			this.numTextBox3.OnHoverState = stateProperties31;
+			stateProperties32.BorderColor = System.Drawing.Color.Silver;
+			stateProperties32.FillColor = System.Drawing.Color.White;
+			stateProperties32.ForeColor = System.Drawing.Color.Black;
+			stateProperties32.PlaceholderForeColor = System.Drawing.Color.Empty;
+			this.numTextBox3.OnIdleState = stateProperties32;
 			this.numTextBox3.PasswordChar = '\0';
 			this.numTextBox3.PlaceholderForeColor = System.Drawing.Color.Silver;
 			this.numTextBox3.PlaceholderText = "11";
@@ -569,112 +557,11 @@ namespace Inventory
 			this.guna2GroupBox1.TabIndex = 8;
 			this.guna2GroupBox1.Leave += new System.EventHandler(this.guna2GroupBox1_Leave);
 			// 
-			// guna2GradientPanel1
-			// 
-			this.guna2GradientPanel1.Controls.Add(this.label1);
-			this.guna2GradientPanel1.Controls.Add(this.minusLabel);
-			this.guna2GradientPanel1.Controls.Add(this.textBox4);
-			this.guna2GradientPanel1.Controls.Add(this.textBox5);
-			this.guna2GradientPanel1.Controls.Add(this.textBox6);
-			this.guna2GradientPanel1.Controls.Add(this.equalLabel);
-			this.guna2GradientPanel1.Controls.Add(this.plusLabel);
-			this.guna2GradientPanel1.Controls.Add(this.textBox3);
-			this.guna2GradientPanel1.Controls.Add(this.textBox2);
-			this.guna2GradientPanel1.Controls.Add(this.textBox1);
-			this.guna2GradientPanel1.Location = new System.Drawing.Point(169, 174);
-			this.guna2GradientPanel1.Name = "guna2GradientPanel1";
-			this.guna2GradientPanel1.ShadowDecoration.Parent = this.guna2GradientPanel1;
-			this.guna2GradientPanel1.Size = new System.Drawing.Size(403, 117);
-			this.guna2GradientPanel1.TabIndex = 9;
-			// 
-			// textBox1
-			// 
-			this.textBox1.Location = new System.Drawing.Point(14, 23);
-			this.textBox1.Name = "textBox1";
-			this.textBox1.Size = new System.Drawing.Size(100, 20);
-			this.textBox1.TabIndex = 0;
-			// 
-			// textBox2
-			// 
-			this.textBox2.Location = new System.Drawing.Point(136, 23);
-			this.textBox2.Name = "textBox2";
-			this.textBox2.Size = new System.Drawing.Size(100, 20);
-			this.textBox2.TabIndex = 1;
-			// 
-			// textBox3
-			// 
-			this.textBox3.Location = new System.Drawing.Point(261, 23);
-			this.textBox3.Name = "textBox3";
-			this.textBox3.Size = new System.Drawing.Size(100, 20);
-			this.textBox3.TabIndex = 2;
-			// 
-			// plusLabel
-			// 
-			this.plusLabel.AutoSize = true;
-			this.plusLabel.Location = new System.Drawing.Point(120, 26);
-			this.plusLabel.Name = "plusLabel";
-			this.plusLabel.Size = new System.Drawing.Size(13, 13);
-			this.plusLabel.TabIndex = 3;
-			this.plusLabel.Text = "+";
-			// 
-			// equalLabel
-			// 
-			this.equalLabel.AutoSize = true;
-			this.equalLabel.Location = new System.Drawing.Point(242, 26);
-			this.equalLabel.Name = "equalLabel";
-			this.equalLabel.Size = new System.Drawing.Size(13, 13);
-			this.equalLabel.TabIndex = 4;
-			this.equalLabel.Text = "=";
-			// 
-			// label1
-			// 
-			this.label1.AutoSize = true;
-			this.label1.Location = new System.Drawing.Point(242, 62);
-			this.label1.Name = "label1";
-			this.label1.Size = new System.Drawing.Size(13, 13);
-			this.label1.TabIndex = 9;
-			this.label1.Text = "=";
-			// 
-			// minusLabel
-			// 
-			this.minusLabel.AutoSize = true;
-			this.minusLabel.Location = new System.Drawing.Point(120, 62);
-			this.minusLabel.Name = "minusLabel";
-			this.minusLabel.Size = new System.Drawing.Size(10, 13);
-			this.minusLabel.TabIndex = 8;
-			this.minusLabel.Text = "-";
-			// 
-			// textBox4
-			// 
-			this.textBox4.Location = new System.Drawing.Point(261, 59);
-			this.textBox4.Name = "textBox4";
-			this.textBox4.Size = new System.Drawing.Size(100, 20);
-			this.textBox4.TabIndex = 7;
-			// 
-			// textBox5
-			// 
-			this.textBox5.Location = new System.Drawing.Point(136, 59);
-			this.textBox5.Name = "textBox5";
-			this.textBox5.Size = new System.Drawing.Size(100, 20);
-			this.textBox5.TabIndex = 6;
-			this.textBox5.Text = "0";
-			this.textBox5.TextChanged += new System.EventHandler(this.textBox5_TextChanged);
-			// 
-			// textBox6
-			// 
-			this.textBox6.Location = new System.Drawing.Point(14, 59);
-			this.textBox6.Name = "textBox6";
-			this.textBox6.Size = new System.Drawing.Size(100, 20);
-			this.textBox6.TabIndex = 5;
-			this.textBox6.Text = "0";
-			this.textBox6.TextChanged += new System.EventHandler(this.textBox6_TextChanged);
-			// 
 			// TestControlsForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(800, 450);
-			this.Controls.Add(this.guna2GradientPanel1);
 			this.Controls.Add(this.guna2GroupBox1);
 			this.Controls.Add(this.button4);
 			this.Controls.Add(this.bunifuTextBox4);
@@ -687,8 +574,6 @@ namespace Inventory
 			this.Text = "TestControlsForm";
 			this.guna2GroupBox1.ResumeLayout(false);
 			this.guna2GroupBox1.PerformLayout();
-			this.guna2GradientPanel1.ResumeLayout(false);
-			this.guna2GradientPanel1.PerformLayout();
 			this.ResumeLayout(false);
 
 		}
@@ -709,16 +594,5 @@ namespace Inventory
 		private Mbb.Windows.Forms.Label separatorLabel2;
 		private Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox numTextBox3;
 		private Guna.UI2.WinForms.Guna2GroupBox guna2GroupBox1;
-		private Guna.UI2.WinForms.Guna2GradientPanel guna2GradientPanel1;
-		private System.Windows.Forms.Label label1;
-		private System.Windows.Forms.Label minusLabel;
-		private System.Windows.Forms.TextBox textBox4;
-		private System.Windows.Forms.TextBox textBox5;
-		private System.Windows.Forms.TextBox textBox6;
-		private System.Windows.Forms.Label equalLabel;
-		private System.Windows.Forms.Label plusLabel;
-		private System.Windows.Forms.TextBox textBox3;
-		private System.Windows.Forms.TextBox textBox2;
-		private System.Windows.Forms.TextBox textBox1;
 	}
 }

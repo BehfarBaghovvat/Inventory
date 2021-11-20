@@ -1889,12 +1889,12 @@ namespace Inventory
 					else if (capitalFund.Capital_Fund.Length <= 9)
 					{
 						capital_Fund = decimal.Parse(capitalFund.Capital_Fund.Replace("تومان", string.Empty).Trim());
-						capitalFundsNotificationTextBox.Text = $"{capital_Fund} تومان";
+						cashCapitalTextBox.Text = $"{capital_Fund} تومان";
 					}
 					else
 					{
 						capital_Fund = decimal.Parse(capitalFund.Capital_Fund.Replace("تومان", string.Empty).Replace(",", string.Empty).Trim());
-						capitalFundsNotificationTextBox.Text = $"{capital_Fund:#,0} تومان";
+						cashCapitalTextBox.Text = $"{capital_Fund:#,0} تومان";
 					}
 				}
 			}

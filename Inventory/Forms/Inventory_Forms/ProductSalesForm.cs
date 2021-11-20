@@ -709,7 +709,7 @@ namespace Inventory_Forms
 				}
 				else
 				{
-					Transaction_Factors_Items.Phone_Number = null;
+					Transaction_Factors_Items.Phone_Number = _phoneNumber;
 					clientNameTextBox.Clear();
 				}
 			}

@@ -30,10 +30,10 @@ namespace Inventory_Forms
 		private void InitializeComponent()
 		{
 			this.components = new System.ComponentModel.Container();
-			Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties33 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
-			Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties34 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
-			Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties35 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
-			Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties36 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ProductSalesForm));
 			Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties1 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
 			Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties2 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
@@ -67,14 +67,19 @@ namespace Inventory_Forms
 			Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties30 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
 			Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties31 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
 			Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties32 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+			Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties33 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
+			Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties34 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
+			Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties35 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
+			Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties36 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
 			this.inventoryHoldingDataGridViewElipse = new Guna.UI.WinForms.GunaElipse(this.components);
+			this.inventoryHoldingDataGridView = new Guna.UI2.WinForms.Guna2DataGridView();
+			this.idDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.productNameDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.productQuantityDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.productUnitDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.productPurchasePriceDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.inventoryHoldingBindingSource = new System.Windows.Forms.BindingSource(this.components);
 			this.mainPanel = new Guna.UI2.WinForms.Guna2Panel();
-			this.phoneNumberTextBox = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox();
 			this.carrierNameTextBox = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox();
 			this.productPriceTextBox = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox();
 			this.clientNameTextBox = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox();
@@ -87,21 +92,133 @@ namespace Inventory_Forms
 			this.inventoryOutputButton = new Guna.UI2.WinForms.Guna2Button();
 			this.billButton = new Guna.UI2.WinForms.Guna2Button();
 			this.productSearchTextBox = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox();
-			this.inventoryHoldingDataGridView = new Guna.UI2.WinForms.Guna2DataGridView();
-			this.idDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.productNameDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.productQuantityDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.productUnitDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.productPurchasePriceDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.phoneNumberTextBox = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox();
+			((System.ComponentModel.ISupportInitialize)(this.inventoryHoldingDataGridView)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.inventoryHoldingBindingSource)).BeginInit();
 			this.mainPanel.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)(this.inventoryHoldingDataGridView)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// inventoryHoldingDataGridViewElipse
 			// 
 			this.inventoryHoldingDataGridViewElipse.Radius = 5;
 			this.inventoryHoldingDataGridViewElipse.TargetControl = this.inventoryHoldingDataGridView;
+			// 
+			// inventoryHoldingDataGridView
+			// 
+			this.inventoryHoldingDataGridView.AllowUserToAddRows = false;
+			this.inventoryHoldingDataGridView.AllowUserToDeleteRows = false;
+			dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(196)))), ((int)(((byte)(233)))));
+			dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
+			dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.White;
+			this.inventoryHoldingDataGridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+			this.inventoryHoldingDataGridView.AutoGenerateColumns = false;
+			this.inventoryHoldingDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+			this.inventoryHoldingDataGridView.BackgroundColor = System.Drawing.Color.White;
+			this.inventoryHoldingDataGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
+			this.inventoryHoldingDataGridView.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+			this.inventoryHoldingDataGridView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+			dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+			dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(103)))), ((int)(((byte)(58)))), ((int)(((byte)(183)))));
+			dataGridViewCellStyle2.Font = new System.Drawing.Font("IRANSans", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+			dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+			dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+			dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+			dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+			this.inventoryHoldingDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+			this.inventoryHoldingDataGridView.ColumnHeadersHeight = 35;
+			this.inventoryHoldingDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+			this.inventoryHoldingDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.idDataGridViewTextBoxColumn1,
+            this.productNameDataGridViewTextBoxColumn1,
+            this.productQuantityDataGridViewTextBoxColumn1,
+            this.productUnitDataGridViewTextBoxColumn1,
+            this.productPurchasePriceDataGridViewTextBoxColumn1});
+			this.inventoryHoldingDataGridView.DataSource = this.inventoryHoldingBindingSource;
+			dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+			dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(215)))), ((int)(((byte)(240)))));
+			dataGridViewCellStyle3.Font = new System.Drawing.Font("IRANSansXFaNum", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+			dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
+			dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(123)))), ((int)(((byte)(207)))));
+			dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.White;
+			dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+			this.inventoryHoldingDataGridView.DefaultCellStyle = dataGridViewCellStyle3;
+			this.inventoryHoldingDataGridView.EnableHeadersVisualStyles = false;
+			this.inventoryHoldingDataGridView.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(193)))), ((int)(((byte)(232)))));
+			this.inventoryHoldingDataGridView.Location = new System.Drawing.Point(13, 243);
+			this.inventoryHoldingDataGridView.Name = "inventoryHoldingDataGridView";
+			this.inventoryHoldingDataGridView.ReadOnly = true;
+			this.inventoryHoldingDataGridView.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+			this.inventoryHoldingDataGridView.RowHeadersVisible = false;
+			this.inventoryHoldingDataGridView.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+			dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+			this.inventoryHoldingDataGridView.RowsDefaultCellStyle = dataGridViewCellStyle4;
+			this.inventoryHoldingDataGridView.RowTemplate.Height = 25;
+			this.inventoryHoldingDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+			this.inventoryHoldingDataGridView.Size = new System.Drawing.Size(1124, 395);
+			this.inventoryHoldingDataGridView.TabIndex = 0;
+			this.inventoryHoldingDataGridView.Theme = Guna.UI2.WinForms.Enums.DataGridViewPresetThemes.DeepPurple;
+			this.inventoryHoldingDataGridView.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(196)))), ((int)(((byte)(233)))));
+			this.inventoryHoldingDataGridView.ThemeStyle.AlternatingRowsStyle.Font = null;
+			this.inventoryHoldingDataGridView.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Black;
+			this.inventoryHoldingDataGridView.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.Empty;
+			this.inventoryHoldingDataGridView.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.White;
+			this.inventoryHoldingDataGridView.ThemeStyle.BackColor = System.Drawing.Color.White;
+			this.inventoryHoldingDataGridView.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(193)))), ((int)(((byte)(232)))));
+			this.inventoryHoldingDataGridView.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(103)))), ((int)(((byte)(58)))), ((int)(((byte)(183)))));
+			this.inventoryHoldingDataGridView.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+			this.inventoryHoldingDataGridView.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("IRANSans", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+			this.inventoryHoldingDataGridView.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White;
+			this.inventoryHoldingDataGridView.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+			this.inventoryHoldingDataGridView.ThemeStyle.HeaderStyle.Height = 35;
+			this.inventoryHoldingDataGridView.ThemeStyle.ReadOnly = true;
+			this.inventoryHoldingDataGridView.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(215)))), ((int)(((byte)(240)))));
+			this.inventoryHoldingDataGridView.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+			this.inventoryHoldingDataGridView.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("IRANSansXFaNum", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+			this.inventoryHoldingDataGridView.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.Black;
+			this.inventoryHoldingDataGridView.ThemeStyle.RowsStyle.Height = 25;
+			this.inventoryHoldingDataGridView.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(123)))), ((int)(((byte)(207)))));
+			this.inventoryHoldingDataGridView.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.White;
+			this.inventoryHoldingDataGridView.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.InventoryHoldingDataGridView_CellDoubleClick);
+			// 
+			// idDataGridViewTextBoxColumn1
+			// 
+			this.idDataGridViewTextBoxColumn1.DataPropertyName = "Id";
+			this.idDataGridViewTextBoxColumn1.FillWeight = 50F;
+			this.idDataGridViewTextBoxColumn1.HeaderText = "ردیف";
+			this.idDataGridViewTextBoxColumn1.Name = "idDataGridViewTextBoxColumn1";
+			this.idDataGridViewTextBoxColumn1.ReadOnly = true;
+			// 
+			// productNameDataGridViewTextBoxColumn1
+			// 
+			this.productNameDataGridViewTextBoxColumn1.DataPropertyName = "Product_Name";
+			this.productNameDataGridViewTextBoxColumn1.FillWeight = 200F;
+			this.productNameDataGridViewTextBoxColumn1.HeaderText = "نام کالا";
+			this.productNameDataGridViewTextBoxColumn1.Name = "productNameDataGridViewTextBoxColumn1";
+			this.productNameDataGridViewTextBoxColumn1.ReadOnly = true;
+			// 
+			// productQuantityDataGridViewTextBoxColumn1
+			// 
+			this.productQuantityDataGridViewTextBoxColumn1.DataPropertyName = "Product_Quantity";
+			this.productQuantityDataGridViewTextBoxColumn1.FillWeight = 50F;
+			this.productQuantityDataGridViewTextBoxColumn1.HeaderText = "تعداد کالا";
+			this.productQuantityDataGridViewTextBoxColumn1.Name = "productQuantityDataGridViewTextBoxColumn1";
+			this.productQuantityDataGridViewTextBoxColumn1.ReadOnly = true;
+			// 
+			// productUnitDataGridViewTextBoxColumn1
+			// 
+			this.productUnitDataGridViewTextBoxColumn1.DataPropertyName = "Product_Unit";
+			this.productUnitDataGridViewTextBoxColumn1.FillWeight = 50F;
+			this.productUnitDataGridViewTextBoxColumn1.HeaderText = "واحد کالا";
+			this.productUnitDataGridViewTextBoxColumn1.Name = "productUnitDataGridViewTextBoxColumn1";
+			this.productUnitDataGridViewTextBoxColumn1.ReadOnly = true;
+			// 
+			// productPurchasePriceDataGridViewTextBoxColumn1
+			// 
+			this.productPurchasePriceDataGridViewTextBoxColumn1.DataPropertyName = "Product_Purchase_Price";
+			this.productPurchasePriceDataGridViewTextBoxColumn1.FillWeight = 150F;
+			this.productPurchasePriceDataGridViewTextBoxColumn1.HeaderText = "قیمت خرید کالا";
+			this.productPurchasePriceDataGridViewTextBoxColumn1.Name = "productPurchasePriceDataGridViewTextBoxColumn1";
+			this.productPurchasePriceDataGridViewTextBoxColumn1.ReadOnly = true;
 			// 
 			// inventoryHoldingBindingSource
 			// 
@@ -135,85 +252,6 @@ namespace Inventory_Forms
 			this.mainPanel.Size = new System.Drawing.Size(1150, 650);
 			this.mainPanel.TabIndex = 0;
 			this.mainPanel.UseTransparentBackground = true;
-			// 
-			// phoneNumberTextBox
-			// 
-			this.phoneNumberTextBox.AcceptsReturn = false;
-			this.phoneNumberTextBox.AcceptsTab = false;
-			this.phoneNumberTextBox.AnimationSpeed = 200;
-			this.phoneNumberTextBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
-			this.phoneNumberTextBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
-			this.phoneNumberTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(0)))), ((int)(((byte)(61)))));
-			this.phoneNumberTextBox.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("phoneNumberTextBox.BackgroundImage")));
-			this.phoneNumberTextBox.BorderColorActive = System.Drawing.Color.Aqua;
-			this.phoneNumberTextBox.BorderColorDisabled = System.Drawing.Color.FromArgb(((int)(((byte)(161)))), ((int)(((byte)(161)))), ((int)(((byte)(161)))));
-			this.phoneNumberTextBox.BorderColorHover = System.Drawing.Color.Magenta;
-			this.phoneNumberTextBox.BorderColorIdle = System.Drawing.Color.Gray;
-			this.phoneNumberTextBox.BorderRadius = 1;
-			this.phoneNumberTextBox.BorderThickness = 3;
-			this.phoneNumberTextBox.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
-			this.phoneNumberTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
-			this.phoneNumberTextBox.DefaultFont = new System.Drawing.Font("IRANSansXFaNum", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-			this.phoneNumberTextBox.DefaultText = "";
-			this.phoneNumberTextBox.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(0)))), ((int)(((byte)(61)))));
-			this.phoneNumberTextBox.ForeColor = System.Drawing.Color.White;
-			this.phoneNumberTextBox.HideSelection = true;
-			this.phoneNumberTextBox.IconLeft = null;
-			this.phoneNumberTextBox.IconLeftCursor = System.Windows.Forms.Cursors.IBeam;
-			this.phoneNumberTextBox.IconPadding = 10;
-			this.phoneNumberTextBox.IconRight = null;
-			this.phoneNumberTextBox.IconRightCursor = System.Windows.Forms.Cursors.IBeam;
-			this.phoneNumberTextBox.Lines = new string[0];
-			this.phoneNumberTextBox.Location = new System.Drawing.Point(848, 133);
-			this.phoneNumberTextBox.MaximumSize = new System.Drawing.Size(250, 35);
-			this.phoneNumberTextBox.MaxLength = 32767;
-			this.phoneNumberTextBox.MinimumSize = new System.Drawing.Size(250, 35);
-			this.phoneNumberTextBox.Modified = false;
-			this.phoneNumberTextBox.Multiline = false;
-			this.phoneNumberTextBox.Name = "phoneNumberTextBox";
-			stateProperties33.BorderColor = System.Drawing.Color.Aqua;
-			stateProperties33.FillColor = System.Drawing.Color.Empty;
-			stateProperties33.ForeColor = System.Drawing.Color.Empty;
-			stateProperties33.PlaceholderForeColor = System.Drawing.Color.Empty;
-			this.phoneNumberTextBox.OnActiveState = stateProperties33;
-			stateProperties34.BorderColor = System.Drawing.Color.Empty;
-			stateProperties34.FillColor = System.Drawing.Color.White;
-			stateProperties34.ForeColor = System.Drawing.Color.Empty;
-			stateProperties34.PlaceholderForeColor = System.Drawing.Color.Silver;
-			this.phoneNumberTextBox.OnDisabledState = stateProperties34;
-			stateProperties35.BorderColor = System.Drawing.Color.Magenta;
-			stateProperties35.FillColor = System.Drawing.Color.Empty;
-			stateProperties35.ForeColor = System.Drawing.Color.Empty;
-			stateProperties35.PlaceholderForeColor = System.Drawing.Color.Empty;
-			this.phoneNumberTextBox.OnHoverState = stateProperties35;
-			stateProperties36.BorderColor = System.Drawing.Color.Gray;
-			stateProperties36.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(0)))), ((int)(((byte)(61)))));
-			stateProperties36.ForeColor = System.Drawing.Color.White;
-			stateProperties36.PlaceholderForeColor = System.Drawing.Color.Empty;
-			this.phoneNumberTextBox.OnIdleState = stateProperties36;
-			this.phoneNumberTextBox.PasswordChar = '\0';
-			this.phoneNumberTextBox.PlaceholderForeColor = System.Drawing.Color.Silver;
-			this.phoneNumberTextBox.PlaceholderText = "شماره همراه";
-			this.phoneNumberTextBox.ReadOnly = false;
-			this.phoneNumberTextBox.ScrollBars = System.Windows.Forms.ScrollBars.None;
-			this.phoneNumberTextBox.SelectedText = "";
-			this.phoneNumberTextBox.SelectionLength = 0;
-			this.phoneNumberTextBox.SelectionStart = 0;
-			this.phoneNumberTextBox.ShortcutsEnabled = true;
-			this.phoneNumberTextBox.Size = new System.Drawing.Size(250, 35);
-			this.phoneNumberTextBox.Style = Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox._Style.Material;
-			this.phoneNumberTextBox.TabIndex = 7;
-			this.phoneNumberTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-			this.phoneNumberTextBox.TextMarginBottom = 0;
-			this.phoneNumberTextBox.TextMarginLeft = 5;
-			this.phoneNumberTextBox.TextMarginTop = 0;
-			this.phoneNumberTextBox.TextPlaceholder = "شماره همراه";
-			this.phoneNumberTextBox.UseSystemPasswordChar = false;
-			this.phoneNumberTextBox.WordWrap = true;
-			this.phoneNumberTextBox.TextChange += new System.EventHandler(this.PhoneNumberTextBox_TextChange);
-			this.phoneNumberTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.PhoneNumberTextBox_KeyPress);
-			this.phoneNumberTextBox.Enter += new System.EventHandler(this.PhoneNumberTextBox_Enter);
-			this.phoneNumberTextBox.Leave += new System.EventHandler(this.PhoneNumberTextBox_Leave);
 			// 
 			// carrierNameTextBox
 			// 
@@ -860,7 +898,7 @@ namespace Inventory_Forms
 			this.productSearchTextBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
 			this.productSearchTextBox.BackColor = System.Drawing.Color.Transparent;
 			this.productSearchTextBox.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("productSearchTextBox.BackgroundImage")));
-			this.productSearchTextBox.BorderColorActive = System.Drawing.Color.Teal;
+			this.productSearchTextBox.BorderColorActive = System.Drawing.Color.Aqua;
 			this.productSearchTextBox.BorderColorDisabled = System.Drawing.Color.FromArgb(((int)(((byte)(161)))), ((int)(((byte)(161)))), ((int)(((byte)(161)))));
 			this.productSearchTextBox.BorderColorHover = System.Drawing.Color.Magenta;
 			this.productSearchTextBox.BorderColorIdle = System.Drawing.Color.Gray;
@@ -871,6 +909,7 @@ namespace Inventory_Forms
 			this.productSearchTextBox.DefaultFont = new System.Drawing.Font("IRANSans", 8.249999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.productSearchTextBox.DefaultText = "";
 			this.productSearchTextBox.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(0)))), ((int)(((byte)(61)))));
+			this.productSearchTextBox.ForeColor = System.Drawing.Color.White;
 			this.productSearchTextBox.HideSelection = true;
 			this.productSearchTextBox.IconLeft = null;
 			this.productSearchTextBox.IconLeftCursor = System.Windows.Forms.Cursors.IBeam;
@@ -884,7 +923,7 @@ namespace Inventory_Forms
 			this.productSearchTextBox.Modified = false;
 			this.productSearchTextBox.Multiline = false;
 			this.productSearchTextBox.Name = "productSearchTextBox";
-			stateProperties29.BorderColor = System.Drawing.Color.Teal;
+			stateProperties29.BorderColor = System.Drawing.Color.Aqua;
 			stateProperties29.FillColor = System.Drawing.Color.Empty;
 			stateProperties29.ForeColor = System.Drawing.Color.Empty;
 			stateProperties29.PlaceholderForeColor = System.Drawing.Color.Empty;
@@ -901,7 +940,7 @@ namespace Inventory_Forms
 			this.productSearchTextBox.OnHoverState = stateProperties31;
 			stateProperties32.BorderColor = System.Drawing.Color.Gray;
 			stateProperties32.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(0)))), ((int)(((byte)(61)))));
-			stateProperties32.ForeColor = System.Drawing.Color.Empty;
+			stateProperties32.ForeColor = System.Drawing.Color.White;
 			stateProperties32.PlaceholderForeColor = System.Drawing.Color.Empty;
 			this.productSearchTextBox.OnIdleState = stateProperties32;
 			this.productSearchTextBox.PasswordChar = '\0';
@@ -927,122 +966,84 @@ namespace Inventory_Forms
 			this.productSearchTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ProductSearchTextBox_KeyPress);
 			this.productSearchTextBox.Enter += new System.EventHandler(this.ProductSearchTextBox_Enter);
 			// 
-			// inventoryHoldingDataGridView
+			// phoneNumberTextBox
 			// 
-			this.inventoryHoldingDataGridView.AllowUserToAddRows = false;
-			this.inventoryHoldingDataGridView.AllowUserToDeleteRows = false;
-			dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(196)))), ((int)(((byte)(233)))));
-			dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
-			dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.White;
-			this.inventoryHoldingDataGridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-			this.inventoryHoldingDataGridView.AutoGenerateColumns = false;
-			this.inventoryHoldingDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-			this.inventoryHoldingDataGridView.BackgroundColor = System.Drawing.Color.White;
-			this.inventoryHoldingDataGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
-			this.inventoryHoldingDataGridView.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
-			this.inventoryHoldingDataGridView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-			dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-			dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(103)))), ((int)(((byte)(58)))), ((int)(((byte)(183)))));
-			dataGridViewCellStyle2.Font = new System.Drawing.Font("IRANSans", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-			dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-			dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-			dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-			dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-			this.inventoryHoldingDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
-			this.inventoryHoldingDataGridView.ColumnHeadersHeight = 35;
-			this.inventoryHoldingDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-			this.inventoryHoldingDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.idDataGridViewTextBoxColumn1,
-            this.productNameDataGridViewTextBoxColumn1,
-            this.productQuantityDataGridViewTextBoxColumn1,
-            this.productUnitDataGridViewTextBoxColumn1,
-            this.productPurchasePriceDataGridViewTextBoxColumn1});
-			this.inventoryHoldingDataGridView.DataSource = this.inventoryHoldingBindingSource;
-			dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-			dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(215)))), ((int)(((byte)(240)))));
-			dataGridViewCellStyle3.Font = new System.Drawing.Font("IRANSansXFaNum", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-			dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
-			dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(123)))), ((int)(((byte)(207)))));
-			dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.White;
-			dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-			this.inventoryHoldingDataGridView.DefaultCellStyle = dataGridViewCellStyle3;
-			this.inventoryHoldingDataGridView.EnableHeadersVisualStyles = false;
-			this.inventoryHoldingDataGridView.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(193)))), ((int)(((byte)(232)))));
-			this.inventoryHoldingDataGridView.Location = new System.Drawing.Point(13, 243);
-			this.inventoryHoldingDataGridView.Name = "inventoryHoldingDataGridView";
-			this.inventoryHoldingDataGridView.ReadOnly = true;
-			this.inventoryHoldingDataGridView.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-			this.inventoryHoldingDataGridView.RowHeadersVisible = false;
-			this.inventoryHoldingDataGridView.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-			dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-			this.inventoryHoldingDataGridView.RowsDefaultCellStyle = dataGridViewCellStyle4;
-			this.inventoryHoldingDataGridView.RowTemplate.Height = 25;
-			this.inventoryHoldingDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-			this.inventoryHoldingDataGridView.Size = new System.Drawing.Size(1124, 395);
-			this.inventoryHoldingDataGridView.TabIndex = 0;
-			this.inventoryHoldingDataGridView.Theme = Guna.UI2.WinForms.Enums.DataGridViewPresetThemes.DeepPurple;
-			this.inventoryHoldingDataGridView.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(196)))), ((int)(((byte)(233)))));
-			this.inventoryHoldingDataGridView.ThemeStyle.AlternatingRowsStyle.Font = null;
-			this.inventoryHoldingDataGridView.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Black;
-			this.inventoryHoldingDataGridView.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.Empty;
-			this.inventoryHoldingDataGridView.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.White;
-			this.inventoryHoldingDataGridView.ThemeStyle.BackColor = System.Drawing.Color.White;
-			this.inventoryHoldingDataGridView.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(193)))), ((int)(((byte)(232)))));
-			this.inventoryHoldingDataGridView.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(103)))), ((int)(((byte)(58)))), ((int)(((byte)(183)))));
-			this.inventoryHoldingDataGridView.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-			this.inventoryHoldingDataGridView.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("IRANSans", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-			this.inventoryHoldingDataGridView.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White;
-			this.inventoryHoldingDataGridView.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-			this.inventoryHoldingDataGridView.ThemeStyle.HeaderStyle.Height = 35;
-			this.inventoryHoldingDataGridView.ThemeStyle.ReadOnly = true;
-			this.inventoryHoldingDataGridView.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(215)))), ((int)(((byte)(240)))));
-			this.inventoryHoldingDataGridView.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
-			this.inventoryHoldingDataGridView.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("IRANSansXFaNum", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-			this.inventoryHoldingDataGridView.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.Black;
-			this.inventoryHoldingDataGridView.ThemeStyle.RowsStyle.Height = 25;
-			this.inventoryHoldingDataGridView.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(123)))), ((int)(((byte)(207)))));
-			this.inventoryHoldingDataGridView.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.White;
-			this.inventoryHoldingDataGridView.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.InventoryHoldingDataGridView_CellDoubleClick);
-			// 
-			// idDataGridViewTextBoxColumn1
-			// 
-			this.idDataGridViewTextBoxColumn1.DataPropertyName = "Id";
-			this.idDataGridViewTextBoxColumn1.FillWeight = 50F;
-			this.idDataGridViewTextBoxColumn1.HeaderText = "ردیف";
-			this.idDataGridViewTextBoxColumn1.Name = "idDataGridViewTextBoxColumn1";
-			this.idDataGridViewTextBoxColumn1.ReadOnly = true;
-			// 
-			// productNameDataGridViewTextBoxColumn1
-			// 
-			this.productNameDataGridViewTextBoxColumn1.DataPropertyName = "Product_Name";
-			this.productNameDataGridViewTextBoxColumn1.FillWeight = 200F;
-			this.productNameDataGridViewTextBoxColumn1.HeaderText = "نام کالا";
-			this.productNameDataGridViewTextBoxColumn1.Name = "productNameDataGridViewTextBoxColumn1";
-			this.productNameDataGridViewTextBoxColumn1.ReadOnly = true;
-			// 
-			// productQuantityDataGridViewTextBoxColumn1
-			// 
-			this.productQuantityDataGridViewTextBoxColumn1.DataPropertyName = "Product_Quantity";
-			this.productQuantityDataGridViewTextBoxColumn1.FillWeight = 50F;
-			this.productQuantityDataGridViewTextBoxColumn1.HeaderText = "تعداد کالا";
-			this.productQuantityDataGridViewTextBoxColumn1.Name = "productQuantityDataGridViewTextBoxColumn1";
-			this.productQuantityDataGridViewTextBoxColumn1.ReadOnly = true;
-			// 
-			// productUnitDataGridViewTextBoxColumn1
-			// 
-			this.productUnitDataGridViewTextBoxColumn1.DataPropertyName = "Product_Unit";
-			this.productUnitDataGridViewTextBoxColumn1.FillWeight = 50F;
-			this.productUnitDataGridViewTextBoxColumn1.HeaderText = "واحد کالا";
-			this.productUnitDataGridViewTextBoxColumn1.Name = "productUnitDataGridViewTextBoxColumn1";
-			this.productUnitDataGridViewTextBoxColumn1.ReadOnly = true;
-			// 
-			// productPurchasePriceDataGridViewTextBoxColumn1
-			// 
-			this.productPurchasePriceDataGridViewTextBoxColumn1.DataPropertyName = "Product_Purchase_Price";
-			this.productPurchasePriceDataGridViewTextBoxColumn1.FillWeight = 150F;
-			this.productPurchasePriceDataGridViewTextBoxColumn1.HeaderText = "قیمت خرید کالا";
-			this.productPurchasePriceDataGridViewTextBoxColumn1.Name = "productPurchasePriceDataGridViewTextBoxColumn1";
-			this.productPurchasePriceDataGridViewTextBoxColumn1.ReadOnly = true;
+			this.phoneNumberTextBox.AcceptsReturn = false;
+			this.phoneNumberTextBox.AcceptsTab = false;
+			this.phoneNumberTextBox.AnimationSpeed = 200;
+			this.phoneNumberTextBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
+			this.phoneNumberTextBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
+			this.phoneNumberTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(0)))), ((int)(((byte)(61)))));
+			this.phoneNumberTextBox.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("phoneNumberTextBox.BackgroundImage")));
+			this.phoneNumberTextBox.BorderColorActive = System.Drawing.Color.Aqua;
+			this.phoneNumberTextBox.BorderColorDisabled = System.Drawing.Color.FromArgb(((int)(((byte)(161)))), ((int)(((byte)(161)))), ((int)(((byte)(161)))));
+			this.phoneNumberTextBox.BorderColorHover = System.Drawing.Color.Magenta;
+			this.phoneNumberTextBox.BorderColorIdle = System.Drawing.Color.Gray;
+			this.phoneNumberTextBox.BorderRadius = 1;
+			this.phoneNumberTextBox.BorderThickness = 3;
+			this.phoneNumberTextBox.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
+			this.phoneNumberTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
+			this.phoneNumberTextBox.DefaultFont = new System.Drawing.Font("IRANSansXFaNum", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+			this.phoneNumberTextBox.DefaultText = "";
+			this.phoneNumberTextBox.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(0)))), ((int)(((byte)(61)))));
+			this.phoneNumberTextBox.ForeColor = System.Drawing.Color.White;
+			this.phoneNumberTextBox.HideSelection = true;
+			this.phoneNumberTextBox.IconLeft = null;
+			this.phoneNumberTextBox.IconLeftCursor = System.Windows.Forms.Cursors.IBeam;
+			this.phoneNumberTextBox.IconPadding = 10;
+			this.phoneNumberTextBox.IconRight = null;
+			this.phoneNumberTextBox.IconRightCursor = System.Windows.Forms.Cursors.IBeam;
+			this.phoneNumberTextBox.Lines = new string[0];
+			this.phoneNumberTextBox.Location = new System.Drawing.Point(848, 133);
+			this.phoneNumberTextBox.MaximumSize = new System.Drawing.Size(250, 35);
+			this.phoneNumberTextBox.MaxLength = 32767;
+			this.phoneNumberTextBox.MinimumSize = new System.Drawing.Size(250, 35);
+			this.phoneNumberTextBox.Modified = false;
+			this.phoneNumberTextBox.Multiline = false;
+			this.phoneNumberTextBox.Name = "phoneNumberTextBox";
+			stateProperties33.BorderColor = System.Drawing.Color.Aqua;
+			stateProperties33.FillColor = System.Drawing.Color.Empty;
+			stateProperties33.ForeColor = System.Drawing.Color.Empty;
+			stateProperties33.PlaceholderForeColor = System.Drawing.Color.Empty;
+			this.phoneNumberTextBox.OnActiveState = stateProperties33;
+			stateProperties34.BorderColor = System.Drawing.Color.Empty;
+			stateProperties34.FillColor = System.Drawing.Color.White;
+			stateProperties34.ForeColor = System.Drawing.Color.Empty;
+			stateProperties34.PlaceholderForeColor = System.Drawing.Color.Silver;
+			this.phoneNumberTextBox.OnDisabledState = stateProperties34;
+			stateProperties35.BorderColor = System.Drawing.Color.Magenta;
+			stateProperties35.FillColor = System.Drawing.Color.Empty;
+			stateProperties35.ForeColor = System.Drawing.Color.Empty;
+			stateProperties35.PlaceholderForeColor = System.Drawing.Color.Empty;
+			this.phoneNumberTextBox.OnHoverState = stateProperties35;
+			stateProperties36.BorderColor = System.Drawing.Color.Gray;
+			stateProperties36.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(0)))), ((int)(((byte)(61)))));
+			stateProperties36.ForeColor = System.Drawing.Color.White;
+			stateProperties36.PlaceholderForeColor = System.Drawing.Color.Empty;
+			this.phoneNumberTextBox.OnIdleState = stateProperties36;
+			this.phoneNumberTextBox.PasswordChar = '\0';
+			this.phoneNumberTextBox.PlaceholderForeColor = System.Drawing.Color.Silver;
+			this.phoneNumberTextBox.PlaceholderText = "شماره همراه";
+			this.phoneNumberTextBox.ReadOnly = false;
+			this.phoneNumberTextBox.ScrollBars = System.Windows.Forms.ScrollBars.None;
+			this.phoneNumberTextBox.SelectedText = "";
+			this.phoneNumberTextBox.SelectionLength = 0;
+			this.phoneNumberTextBox.SelectionStart = 0;
+			this.phoneNumberTextBox.ShortcutsEnabled = true;
+			this.phoneNumberTextBox.Size = new System.Drawing.Size(250, 35);
+			this.phoneNumberTextBox.Style = Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox._Style.Material;
+			this.phoneNumberTextBox.TabIndex = 7;
+			this.phoneNumberTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+			this.phoneNumberTextBox.TextMarginBottom = 0;
+			this.phoneNumberTextBox.TextMarginLeft = 5;
+			this.phoneNumberTextBox.TextMarginTop = 0;
+			this.phoneNumberTextBox.TextPlaceholder = "شماره همراه";
+			this.phoneNumberTextBox.UseSystemPasswordChar = false;
+			this.phoneNumberTextBox.WordWrap = true;
+			this.phoneNumberTextBox.TextChange += new System.EventHandler(this.PhoneNumberTextBox_TextChange);
+			this.phoneNumberTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.PhoneNumberTextBox_KeyPress);
+			this.phoneNumberTextBox.Enter += new System.EventHandler(this.PhoneNumberTextBox_Enter);
+			this.phoneNumberTextBox.Leave += new System.EventHandler(this.PhoneNumberTextBox_Leave);
 			// 
 			// ProductSalesForm
 			// 
@@ -1054,9 +1055,9 @@ namespace Inventory_Forms
 			this.Name = "ProductSalesForm";
 			this.Text = "InventoryOutputForm";
 			this.Load += new System.EventHandler(this.ProcutSalesForm_Load);
+			((System.ComponentModel.ISupportInitialize)(this.inventoryHoldingDataGridView)).EndInit();
 			((System.ComponentModel.ISupportInitialize)(this.inventoryHoldingBindingSource)).EndInit();
 			this.mainPanel.ResumeLayout(false);
-			((System.ComponentModel.ISupportInitialize)(this.inventoryHoldingDataGridView)).EndInit();
 			this.ResumeLayout(false);
 
 		}

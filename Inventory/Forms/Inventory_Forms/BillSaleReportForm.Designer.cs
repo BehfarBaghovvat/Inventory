@@ -397,12 +397,12 @@ namespace Inventory_Forms
 			// invoiceSerialNumberLabel
 			// 
 			this.invoiceSerialNumberLabel.AutoSize = true;
-			this.invoiceSerialNumberLabel.Font = new System.Drawing.Font("IRANSansX", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+			this.invoiceSerialNumberLabel.Font = new System.Drawing.Font("IRANSans", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.invoiceSerialNumberLabel.ForeColor = System.Drawing.Color.White;
 			this.invoiceSerialNumberLabel.Location = new System.Drawing.Point(826, 72);
 			this.invoiceSerialNumberLabel.Name = "invoiceSerialNumberLabel";
 			this.invoiceSerialNumberLabel.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-			this.invoiceSerialNumberLabel.Size = new System.Drawing.Size(101, 18);
+			this.invoiceSerialNumberLabel.Size = new System.Drawing.Size(95, 17);
 			this.invoiceSerialNumberLabel.TabIndex = 28;
 			this.invoiceSerialNumberLabel.Text = "شماره سریال فاکتور:";
 			// 
@@ -970,7 +970,7 @@ namespace Inventory_Forms
 			// 
 			// carrierNameTextBox
 			// 
-			this.carrierNameTextBox.Font = new System.Drawing.Font("IRANSansX", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+			this.carrierNameTextBox.Font = new System.Drawing.Font("IRANSans", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.carrierNameTextBox.ForeColor = System.Drawing.SystemColors.ActiveCaption;
 			this.carrierNameTextBox.Location = new System.Drawing.Point(620, 172);
 			this.carrierNameTextBox.Name = "carrierNameTextBox";
@@ -983,18 +983,18 @@ namespace Inventory_Forms
 			// carrierNameLabel
 			// 
 			this.carrierNameLabel.AutoSize = true;
-			this.carrierNameLabel.Font = new System.Drawing.Font("IRANSansX", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+			this.carrierNameLabel.Font = new System.Drawing.Font("IRANSans", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.carrierNameLabel.ForeColor = System.Drawing.Color.White;
 			this.carrierNameLabel.Location = new System.Drawing.Point(854, 177);
 			this.carrierNameLabel.Name = "carrierNameLabel";
 			this.carrierNameLabel.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-			this.carrierNameLabel.Size = new System.Drawing.Size(73, 18);
+			this.carrierNameLabel.Size = new System.Drawing.Size(67, 17);
 			this.carrierNameLabel.TabIndex = 12;
 			this.carrierNameLabel.Text = "نام حامل کالا:";
 			// 
 			// clientNameTextBox
 			// 
-			this.clientNameTextBox.Font = new System.Drawing.Font("IRANSansX", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+			this.clientNameTextBox.Font = new System.Drawing.Font("IRANSans", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.clientNameTextBox.ForeColor = System.Drawing.SystemColors.ActiveCaption;
 			this.clientNameTextBox.Location = new System.Drawing.Point(620, 137);
 			this.clientNameTextBox.Name = "clientNameTextBox";
@@ -1007,18 +1007,18 @@ namespace Inventory_Forms
 			// clientNameLabel
 			// 
 			this.clientNameLabel.AutoSize = true;
-			this.clientNameLabel.Font = new System.Drawing.Font("IRANSansX", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+			this.clientNameLabel.Font = new System.Drawing.Font("IRANSans", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.clientNameLabel.ForeColor = System.Drawing.Color.White;
 			this.clientNameLabel.Location = new System.Drawing.Point(864, 142);
 			this.clientNameLabel.Name = "clientNameLabel";
 			this.clientNameLabel.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-			this.clientNameLabel.Size = new System.Drawing.Size(63, 18);
+			this.clientNameLabel.Size = new System.Drawing.Size(58, 17);
 			this.clientNameLabel.TabIndex = 10;
 			this.clientNameLabel.Text = "نام مشتری:";
 			// 
 			// dateSetInvoiceTextBox
 			// 
-			this.dateSetInvoiceTextBox.Font = new System.Drawing.Font("IRANSansX", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+			this.dateSetInvoiceTextBox.Font = new System.Drawing.Font("IRANSans", 8F);
 			this.dateSetInvoiceTextBox.ForeColor = System.Drawing.SystemColors.ActiveCaption;
 			this.dateSetInvoiceTextBox.Location = new System.Drawing.Point(681, 41);
 			this.dateSetInvoiceTextBox.Name = "dateSetInvoiceTextBox";
@@ -1030,7 +1030,7 @@ namespace Inventory_Forms
 			// 
 			// sellerNameTextBox
 			// 
-			this.sellerNameTextBox.Font = new System.Drawing.Font("IRANSansX", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+			this.sellerNameTextBox.Font = new System.Drawing.Font("IRANSans", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.sellerNameTextBox.ForeColor = System.Drawing.SystemColors.ActiveCaption;
 			this.sellerNameTextBox.Location = new System.Drawing.Point(620, 102);
 			this.sellerNameTextBox.Name = "sellerNameTextBox";
@@ -1043,24 +1043,24 @@ namespace Inventory_Forms
 			// dateSetInvoiceLabel
 			// 
 			this.dateSetInvoiceLabel.AutoSize = true;
-			this.dateSetInvoiceLabel.Font = new System.Drawing.Font("IRANSansX", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+			this.dateSetInvoiceLabel.Font = new System.Drawing.Font("IRANSans", 8F);
 			this.dateSetInvoiceLabel.ForeColor = System.Drawing.Color.White;
 			this.dateSetInvoiceLabel.Location = new System.Drawing.Point(887, 41);
 			this.dateSetInvoiceLabel.Name = "dateSetInvoiceLabel";
 			this.dateSetInvoiceLabel.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-			this.dateSetInvoiceLabel.Size = new System.Drawing.Size(35, 18);
+			this.dateSetInvoiceLabel.Size = new System.Drawing.Size(35, 17);
 			this.dateSetInvoiceLabel.TabIndex = 6;
 			this.dateSetInvoiceLabel.Text = "تاریخ:";
 			// 
 			// sellerNameLabel
 			// 
 			this.sellerNameLabel.AutoSize = true;
-			this.sellerNameLabel.Font = new System.Drawing.Font("IRANSansX", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+			this.sellerNameLabel.Font = new System.Drawing.Font("IRANSans", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.sellerNameLabel.ForeColor = System.Drawing.Color.White;
 			this.sellerNameLabel.Location = new System.Drawing.Point(859, 107);
 			this.sellerNameLabel.Name = "sellerNameLabel";
 			this.sellerNameLabel.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-			this.sellerNameLabel.Size = new System.Drawing.Size(68, 18);
+			this.sellerNameLabel.Size = new System.Drawing.Size(61, 17);
 			this.sellerNameLabel.TabIndex = 8;
 			this.sellerNameLabel.Text = "نام فروشنده:";
 			// 

@@ -837,20 +837,6 @@ namespace Mbb.Windows.Forms
 		}
 		#endregion /IconLeftBox_MouseClick
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 		#region Override_Methods
 		protected override void OnLoad(System.EventArgs e)
 		{

@@ -384,7 +384,7 @@ namespace Financial_Form
 
 				_returnCapitalFund = GetCapitalFund();
 
-				Inventory.Program.MainForm.capitalFundsNotificationTextBox.Text = $"{_returnCapitalFund:#,0} تومان";
+				Inventory.Program.MainForm.cashCapitalTextBox.Text = $"{_returnCapitalFund:#,0} تومان";
 
 				return true;
 

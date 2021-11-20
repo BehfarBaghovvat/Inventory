@@ -347,8 +347,6 @@ namespace Mbb.Windows.Forms
 				_iconLeftMousUp = value;
 			}
 		}
-
-
 		[Category("MBB Advance Properties")]
 		public int OffsetLeft
 		{
@@ -390,8 +388,6 @@ namespace Mbb.Windows.Forms
 				}
 			}
 		}
-
-
 		public override Color BackColor
 		{
 			get

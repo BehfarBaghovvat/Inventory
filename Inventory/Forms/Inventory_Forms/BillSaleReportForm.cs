@@ -1341,13 +1341,13 @@ namespace Inventory_Forms
 					{
 						capital_Fund = decimal.Parse(capitalFund.Capital_Fund.Replace("تومان", string.Empty).Trim());
 
-						Inventory.Program.MainForm.capitalFundsNotificationTextBox.Text = $"{capital_Fund} تومان ";
+						Inventory.Program.MainForm.cashCapitalTextBox.Text = $"{capital_Fund} تومان ";
 					}
 					else
 					{
 						capital_Fund = decimal.Parse(capitalFund.Capital_Fund.Replace("تومان", string.Empty).Replace(",", string.Empty).Trim());
 
-						Inventory.Program.MainForm.capitalFundsNotificationTextBox.Text = $"{capital_Fund:#,0} تومان ";
+						Inventory.Program.MainForm.cashCapitalTextBox.Text = $"{capital_Fund:#,0} تومان ";
 					}
 				}
 

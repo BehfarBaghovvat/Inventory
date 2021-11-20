@@ -509,6 +509,7 @@ namespace Inventory_Forms
 			this.searchTextBox.DefaultFont = new System.Drawing.Font("IRANSans", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.searchTextBox.DefaultText = "";
 			this.searchTextBox.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(0)))), ((int)(((byte)(61)))));
+			this.searchTextBox.ForeColor = System.Drawing.Color.White;
 			this.searchTextBox.HideSelection = true;
 			this.searchTextBox.IconLeft = null;
 			this.searchTextBox.IconLeftCursor = System.Windows.Forms.Cursors.IBeam;
@@ -539,7 +540,7 @@ namespace Inventory_Forms
 			this.searchTextBox.OnHoverState = stateProperties7;
 			stateProperties8.BorderColor = System.Drawing.Color.Gray;
 			stateProperties8.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(0)))), ((int)(((byte)(61)))));
-			stateProperties8.ForeColor = System.Drawing.Color.Empty;
+			stateProperties8.ForeColor = System.Drawing.Color.White;
 			stateProperties8.PlaceholderForeColor = System.Drawing.Color.Empty;
 			this.searchTextBox.OnIdleState = stateProperties8;
 			this.searchTextBox.PasswordChar = '\0';
@@ -975,7 +976,7 @@ namespace Inventory_Forms
 			this.productRecivedDataGridView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
 			dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
 			dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(103)))), ((int)(((byte)(58)))), ((int)(((byte)(183)))));
-			dataGridViewCellStyle2.Font = new System.Drawing.Font("IRANSansXFaNum", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+			dataGridViewCellStyle2.Font = new System.Drawing.Font("IRANSans", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
 			dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
 			dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
 			this.productRecivedDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
