@@ -1047,6 +1047,9 @@ namespace Inventory_Forms
 
 				dataBaseContext.SaveChanges();
 
+				Inventory.Program.MainForm.GetNon_CashCapital();
+				Inventory.Program.MainForm.GetTotalCapital();
+
 				#region -----------------------------------------     Save Event Log     -----------------------------------------
 				if (string.Compare(Inventory.Program.UserAuthentication.Username, "admin") != 0)
 				{

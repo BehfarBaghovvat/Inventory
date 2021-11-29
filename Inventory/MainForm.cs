@@ -1859,10 +1859,10 @@ namespace Inventory
 
 		#region GetCapitalFund
 		/// <summary>
-		/// بارگزاری موجودی صندوق
+		/// بارگذاری موجودی صندوق
 		/// </summary>
 		/// <returns></returns>
-		private void GetCapitalFund()
+		public decimal GetCapitalFund()
 		{
 			decimal capital_Fund;
 			Models.DataBaseContext dataBaseContext = null;
@@ -1879,28 +1879,34 @@ namespace Inventory
 				if (capitalFund == null)
 				{
 					capital_Fund = 0;
+
+					return 0;
 				}
 				else
 				{
 					if (string.IsNullOrEmpty(capitalFund.Capital_Fund))
 					{
 						capital_Fund = 0;
+						return 0;
 					}
 					else if (capitalFund.Capital_Fund.Length <= 9)
 					{
 						capital_Fund = decimal.Parse(capitalFund.Capital_Fund.Replace("تومان", string.Empty).Trim());
 						cashCapitalTextBox.Text = $"{capital_Fund} تومان";
+						return capital_Fund;
 					}
 					else
 					{
 						capital_Fund = decimal.Parse(capitalFund.Capital_Fund.Replace("تومان", string.Empty).Replace(",", string.Empty).Trim());
 						cashCapitalTextBox.Text = $"{capital_Fund:#,0} تومان";
+						return capital_Fund;
 					}
 				}
 			}
 			catch (System.Exception ex)
 			{
 				Infrastructure.Utility.ExceptionShow(ex);
+				return 0;
 
 			}
 			finally
@@ -1914,6 +1920,80 @@ namespace Inventory
 		}
 		#endregion /GetCapitalFund
 
+		#region GetNon_CashCapital
+		/// <summary>
+		/// بارگذاری سرمایه غیر نقدی موجود در انبار.
+		/// </summary>
+		/// <returns>capital</returns>
+		public decimal GetNon_CashCapital()
+		{
+			decimal capital = 0;
+			int quantity = 0;
+			decimal price = 0;
+			decimal sumPrice = 0;
+
+			Models.DataBaseContext dataBaseContext = null;
+			try
+			{
+				dataBaseContext =
+					new Models.DataBaseContext();
+
+				Models.ProductReceived productReceived =
+					dataBaseContext.ProductReceiveds
+					.FirstOrDefault();
+
+				if (productReceived == null)
+				{
+					non_cashCapitalTextBox.Text = $"{capital:#,0} تومان";
+
+					return 0;
+				}
+				else
+				{
+					foreach (var item in dataBaseContext.ProductReceiveds)
+					{
+						price = decimal.Parse(item.Product_Purchase_Price.Replace("تومان", string.Empty).Replace(",", string.Empty).Trim());
+						quantity =int.Parse(item.Product_Quantity.ToString());
+
+						sumPrice = price * quantity;
+
+						capital += sumPrice;
+					}
+					non_cashCapitalTextBox.Text = $"{capital:#,0} تومان";
+					return capital;
+				}
+			}
+			catch (System.Exception ex)
+			{
+				Infrastructure.Utility.ExceptionShow(ex);
+				return 0;
+			}
+			finally
+			{
+				if (dataBaseContext != null)
+				{
+					dataBaseContext.Dispose();
+					dataBaseContext = null;
+				}
+			}
+		}
+		#endregion /GetNon_CashCapital
+
+		#region GetTotalCpital
+		/// <summary>
+		/// بارگذاری کل سرمایه
+		/// </summary>
+		public void GetTotalCapital()
+		{
+			decimal _capitalFund = GetCapitalFund();
+			decimal _nonCashCapital = GetNon_CashCapital();
+
+			decimal _totalCapital = _capitalFund + _nonCashCapital;
+
+			totalCpitalTextBox.Text = $"{_totalCapital:#,0} تومان";
+		}
+		#endregion /GetTotalCpital
+
 		#region Initialize
 		/// <summary>
 		/// تنظمیات ورود اولیه
@@ -1923,6 +2003,8 @@ namespace Inventory
 			AccountLoaded();
 			ResetSubmenu();
 			GetCapitalFund();
+			GetNon_CashCapital();
+			GetTotalCapital();
 
 			homeButton.Checked = true;
 
@@ -1943,6 +2025,9 @@ namespace Inventory
 			this.Opacity = 0.0;
 
 			fadeInMainFormTimer.Start();
+
+
+			
 		}
 		#endregion /Initialize
 

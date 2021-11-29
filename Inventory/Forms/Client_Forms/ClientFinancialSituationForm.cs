@@ -19,14 +19,38 @@ namespace Client_Forms
 
 		private class Audit
 		{
-			public decimal? Amount { get; set; }
-			public decimal? Amount_Paid { get; set; }
-			public decimal? Capital_Fund { get; set; }
-			public string Search_Client { get; set; }
-			public int? Situation { get; set; }
-			public decimal? Sum_Amount { get; set; }
-			public int Select_Count { get; set; }
-			public bool Select_Row { get; set; }
+			public decimal? Amount
+			{
+				get; set;
+			}
+			public decimal? Amount_Paid
+			{
+				get; set;
+			}
+			public decimal? Capital_Fund
+			{
+				get; set;
+			}
+			public string Search_Client
+			{
+				get; set;
+			}
+			public int? Situation
+			{
+				get; set;
+			}
+			public decimal? Sum_Amount
+			{
+				get; set;
+			}
+			public int Select_Count
+			{
+				get; set;
+			}
+			public bool Select_Row
+			{
+				get; set;
+			}
 		}
 
 		private Inventory.MainForm _mainForm;
@@ -45,6 +69,12 @@ namespace Client_Forms
 			{
 				_mainForm = value;
 			}
+		}
+
+		public bool SearchStatus
+		{
+			get;
+			set;
 		}
 
 		#endregion /Layers
@@ -69,7 +99,7 @@ namespace Client_Forms
 		#region ClientFinancialSituationForm_Load
 		private void ClientFinancialSituationForm_Load(object sender, EventArgs e)
 		{
-			
+
 		}
 		#endregion /ClientFinancialSituationForm_Load
 
@@ -94,14 +124,14 @@ namespace Client_Forms
 			{
 				searchClientTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
 				_audit.Search_Client = null;
+				SearchStatus = false;
 				return;
 			}
 			else
 			{
 				searchClientTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-
 				_audit.Search_Client = searchClientTextBox.Text;
-
+				SearchStatus = true;
 				SearchClient(_audit.Search_Client);
 			}
 		}
@@ -111,7 +141,7 @@ namespace Client_Forms
 		private void ListFinantioalClientDataGridView_CellContentClick(object sender, System.Windows.Forms.DataGridViewCellEventArgs e)
 		{
 
-			if (e.ColumnIndex <=-1 || e.RowIndex <= -1 )
+			if (e.ColumnIndex <= -1 || e.RowIndex <= -1)
 			{
 				return;
 			}
@@ -126,55 +156,106 @@ namespace Client_Forms
 				}
 				else
 				{
-					listFinantioalClientDataGridView.Rows[e.RowIndex].Cells[1].ReadOnly = false;
-
-					//این بخش از کد، بعد از بررسی کردن کنترل چک باکس
-					// مقادیر نام مشتری، شماره پلاک وسیله نقلیه و شماره همراه را 
-					//به کنترلهای مربوطه انتقال میدهد.
-					if (listFinantioalClientDataGridView.Rows[e.RowIndex].Cells[1].Value != null && (bool)listFinantioalClientDataGridView.Rows[e.RowIndex].Cells[1].Value == false)
+					if (SearchStatus)
 					{
-						listFinantioalClientDataGridView.Rows[e.RowIndex].Cells[1].Value = true;
-
-						clientNameTextBox.Text = listFinantioalClientDataGridView.CurrentRow.Cells[7].Value.ToString();
-						numTextBox3.Text = listFinantioalClientDataGridView.CurrentRow.Cells[8].Value.ToString().Substring(0, 2);
-						alphabetTextBox.Text = listFinantioalClientDataGridView.CurrentRow.Cells[8].Value.ToString().Substring(13, 1);
-						numTextBox2.Text = listFinantioalClientDataGridView.CurrentRow.Cells[8].Value.ToString().Substring(10, 3);
-						numTextBox1.Text = listFinantioalClientDataGridView.CurrentRow.Cells[8].Value.ToString().Substring(17, 2);
-						phoneNumberTextBox.Text = listFinantioalClientDataGridView.CurrentRow.Cells[9].Value.ToString().Insert(4, "-");
-						phoneNumberTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-
-						////در این قسمت بعد از اینکه اطلاعات مربوطه منتقل گردید، بررسی میکند
-						//// ایا مقدار نام مشتری تیک خورده با نام مشتری موجود در کنترل جعبه متن 
-						//// یکی می باشد یا خیر. اگر نتیجه درست بود ادامه عملیات
-						//// در غیر این صورت از انتخاب ردیف جاری جلو گیری به عمل می آورد.
-						if (string.Compare(listFinantioalClientDataGridView.CurrentRow.Cells[7].Value.ToString(), clientNameTextBox.Text) == 0)
+						listFinantioalClientDataGridView.Rows[e.RowIndex].Cells[1].ReadOnly = false;
+						//این بخش از کد، بعد از بررسی کردن کنترل چک باکس
+						// مقادیر نام مشتری، شماره پلاک وسیله نقلیه و شماره همراه را 
+						//به کنترلهای مربوطه انتقال میدهد.
+						if (listFinantioalClientDataGridView.Rows[e.RowIndex].Cells[1].Value != null && (bool)listFinantioalClientDataGridView.Rows[e.RowIndex].Cells[1].Value == false)
 						{
-							_audit.Select_Count++;
-							_audit.Amount +=
-								decimal.Parse(listFinantioalClientDataGridView.CurrentRow.Cells[3].Value.ToString().Replace("تومان", string.Empty).Replace(",", string.Empty).Trim());
+							listFinantioalClientDataGridView.Rows[e.RowIndex].Cells[1].Value = true;
 
-							_audit.Sum_Amount = _audit.Amount;
+							// این بخش از کد، اگر ردیف پلاک خودرو خالی باشد فقط فیلد های نام مشتری و
+							// شماره تماس مشتری را درج میکند. در غیر این صورت 
+							// شماره پلاک خودرو نیز در فیلد مروبطه لحاظ میگردد.
+							if (listFinantioalClientDataGridView.CurrentRow.Cells[8].Value == null || listFinantioalClientDataGridView.CurrentRow.Cells[8].Value.ToString() == String.Empty)
+							{
+								clientNameTextBox.Text = listFinantioalClientDataGridView.CurrentRow.Cells[7].Value.ToString();
+								phoneNumberTextBox.Text = listFinantioalClientDataGridView.CurrentRow.Cells[9].Value.ToString().Insert(4, "-");
+								phoneNumberTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+							}
+							else
+							{
+								clientNameTextBox.Text = listFinantioalClientDataGridView.CurrentRow.Cells[7].Value.ToString();
+								numTextBox3.Text = listFinantioalClientDataGridView.CurrentRow.Cells[8].Value.ToString().Substring(0, 2);
+								alphabetTextBox.Text = listFinantioalClientDataGridView.CurrentRow.Cells[8].Value.ToString().Substring(13, 1);
+								numTextBox2.Text = listFinantioalClientDataGridView.CurrentRow.Cells[8].Value.ToString().Substring(10, 3);
+								numTextBox1.Text = listFinantioalClientDataGridView.CurrentRow.Cells[8].Value.ToString().Substring(17, 2);
+								phoneNumberTextBox.Text = listFinantioalClientDataGridView.CurrentRow.Cells[9].Value.ToString().Insert(4, "-");
+								phoneNumberTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+							}
+
+							////در این قسمت بعد از اینکه اطلاعات مربوطه منتقل گردید، بررسی میکند
+							//// ایا مقدار نام مشتری تیک خورده با نام مشتری موجود در کنترل جعبه متن
+							//// یکی می باشد یا خیر. اگر نتیجه درست بود ادامه عملیات
+							//// در غیر این صورت از انتخاب ردیف جاری جلو گیری به عمل می آورد.
+							if (string.Compare(listFinantioalClientDataGridView.CurrentRow.Cells[7].Value.ToString(), clientNameTextBox.Text) == 0)
+							{
+								_audit.Select_Count++;
+								_audit.Amount +=
+									decimal.Parse(listFinantioalClientDataGridView.CurrentRow.Cells[3].Value.ToString().Replace("تومان", string.Empty).Replace(",", string.Empty).Trim());
+
+								_audit.Sum_Amount = _audit.Amount;
+							}
+							else
+							{
+								listFinantioalClientDataGridView.Rows[e.RowIndex].Cells[1].Value = false;
+							}
 						}
-						else
+						else if (listFinantioalClientDataGridView.Rows[e.RowIndex].Cells[1].Value != null && (bool)listFinantioalClientDataGridView.Rows[e.RowIndex].Cells[1].Value == true)
 						{
 							listFinantioalClientDataGridView.Rows[e.RowIndex].Cells[1].Value = false;
+
+							_audit.Select_Count--;
+
+							_audit.Amount -=
+								decimal.Parse(listFinantioalClientDataGridView.Rows[e.RowIndex].Cells[3].Value.ToString().Replace("تومان", string.Empty).Replace(",", string.Empty).Trim());
+
+							_audit.Sum_Amount = _audit.Amount;
+
+							if (_audit.Select_Count <= 0)
+							{
+								RestAllControl();
+							}
 						}
 					}
-					else if (listFinantioalClientDataGridView.Rows[e.RowIndex].Cells[1].Value != null && (bool)listFinantioalClientDataGridView.Rows[e.RowIndex].Cells[1].Value == true)
+					else
 					{
-						listFinantioalClientDataGridView.Rows[e.RowIndex].Cells[1].Value = false;
+						Mbb.Windows.Forms.MessageBox.Show(
+							text: "جهت پرداخت یا وصول بدهی، مشتری خود را مشخص نمایید!",
+							caption: "خطای ورودی",
+							icon: Mbb.Windows.Forms.MessageBoxIcon.Error,
+							button: Mbb.Windows.Forms.MessageBoxButtons.Ok);
+						searchClientTextBox.Focus();
 
-						_audit.Select_Count--;
+						//listFinantioalClientDataGridView.Rows[e.RowIndex].Cells[1].ReadOnly = false;
 
-						_audit.Amount -=
-							decimal.Parse(listFinantioalClientDataGridView.Rows[e.RowIndex].Cells[3].Value.ToString().Replace("تومان", string.Empty).Replace(",", string.Empty).Trim());
+						//if (listFinantioalClientDataGridView.Rows[e.RowIndex].Cells[1].Value != null && (bool)listFinantioalClientDataGridView.Rows[e.RowIndex].Cells[1].Value == false)
+						//{
+						//	listFinantioalClientDataGridView.Rows[e.RowIndex].Cells[1].Value = true;
+						//	_audit.Select_Count++;
+						//	_audit.Amount +=
+						//		decimal.Parse(listFinantioalClientDataGridView.CurrentRow.Cells[3].Value.ToString().Replace("تومان", string.Empty).Replace(",", string.Empty).Trim());
 
-						_audit.Sum_Amount = _audit.Amount;
+						//	_audit.Sum_Amount = _audit.Amount;
+						//}
+						//else if (listFinantioalClientDataGridView.Rows[e.RowIndex].Cells[1].Value != null && (bool)listFinantioalClientDataGridView.Rows[e.RowIndex].Cells[1].Value == true)
+						//{
+						//	listFinantioalClientDataGridView.Rows[e.RowIndex].Cells[1].Value = false;
 
-						if (_audit.Select_Count <= 0)
-						{
-							RestAllControl();
-						}
+						//	_audit.Select_Count--;
+
+						//	_audit.Amount -=
+						//		decimal.Parse(listFinantioalClientDataGridView.Rows[e.RowIndex].Cells[3].Value.ToString().Replace("تومان", string.Empty).Replace(",", string.Empty).Trim());
+
+						//	_audit.Sum_Amount = _audit.Amount;
+
+						//	if (_audit.Select_Count <= 0)
+						//	{
+						//		RestAllControl();
+						//	}
+						//}
 					}
 				}
 			}
@@ -225,22 +306,20 @@ namespace Client_Forms
 		{
 			if (_amount > 0)
 			{
-				financialSituationLabel.Text = "بدهکار";
-				financialSituationLabel.ForeColor = System.Drawing.Color.LightGreen;
+				totalAmountTextBox.FillColor = System.Drawing.Color.LightGreen;
 				paymentButton.Enabled = true;
 				return -1;
 			}
 			else if (_amount == 0)
 			{
-				financialSituationLabel.Text = "تسویه";
-				financialSituationLabel.ForeColor = System.Drawing.Color.White;
+				totalAmountTextBox.FillColor = System.Drawing.Color.FromArgb(26, 0, 61);
 				paymentButton.Enabled = false;
 				return 0;
 			}
 			else
 			{
-				financialSituationLabel.Text = "بستانکار";
-				financialSituationLabel.ForeColor = System.Drawing.Color.LightPink;
+				
+				totalAmountTextBox.FillColor = System.Drawing.Color.LightPink;
 				paymentButton.Enabled = true;
 				return 1;
 			}
@@ -258,6 +337,8 @@ namespace Client_Forms
 			searchClientTextBox.Clear();
 			GetListFinantialClient();
 			_audit.Capital_Fund = GetCapitalFund();
+
+			SearchStatus = false;
 
 			foreach (System.Windows.Forms.DataGridViewRow row in listFinantioalClientDataGridView.Rows)
 			{
@@ -308,15 +389,15 @@ namespace Client_Forms
 					}
 					else if (capitalFund.Capital_Fund.Length < 9)
 					{
-						_capitalFund = decimal.Parse(capitalFund.Capital_Fund.Replace("توان", string.Empty).Trim());
+						_capitalFund = decimal.Parse(capitalFund.Capital_Fund.Replace("تومان", string.Empty).Trim());
 					}
 					else
 					{
-						_capitalFund = decimal.Parse(capitalFund.Capital_Fund.Replace("توان", string.Empty).Replace(",", string.Empty).Trim());
+						_capitalFund = decimal.Parse(capitalFund.Capital_Fund.Replace("تومان", string.Empty).Replace(",", string.Empty).Trim());
 					}
 				}
 
-				MainForm.cashCapitalTextBox.Text = $"{_capitalFund:#,0} تومان";
+				//MainForm.cashCapitalTextBox.Text = $"{_capitalFund:#,0} تومان";
 
 				return _capitalFund;
 			}
@@ -404,7 +485,7 @@ namespace Client_Forms
 
 				if (capitalFund == null)
 				{
-					capitalFund = 
+					capitalFund =
 						new Models.CapitalFund
 						{
 							Capital_Fund = $"{_remainingCapitalFund:#,0} تومان",
@@ -419,6 +500,10 @@ namespace Client_Forms
 				dataBaseContext.SaveChanges();
 
 				_returnCapitalFund = GetCapitalFund();
+
+				Inventory.Program.MainForm.GetCapitalFund();
+				Inventory.Program.MainForm.GetNon_CashCapital();
+				Inventory.Program.MainForm.GetTotalCapital();
 
 				Inventory.Program.MainForm.cashCapitalTextBox.Text = $"{_returnCapitalFund:#,0} تومان";
 
@@ -540,11 +625,11 @@ namespace Client_Forms
 					if (row.Cells[1].Value != null || (bool)row.Cells[1].Value == true)
 					{
 
-						_amountRemaining = decimal.Parse(row.Cells[6].Value.ToString().Replace("تومان", string.Empty).Replace(",", string.Empty).Trim());
+						_amountRemaining = decimal.Parse(row.Cells[3].Value.ToString().Replace("تومان", string.Empty).Replace(",", string.Empty).Trim());
 
-						_amountPaid = decimal.Parse(row.Cells[5].Value.ToString().Replace("تومان", string.Empty).Replace(",", string.Empty).Trim());
+						_amountPaid = decimal.Parse(row.Cells[2].Value.ToString().Replace("تومان", string.Empty).Replace(",", string.Empty).Trim());
 
-						_result = _amountPaid -(_amountRemaining);
+						_result = _amountPaid - (_amountRemaining);
 
 						id = int.Parse(row.Cells[0].Value.ToString());
 
@@ -553,10 +638,10 @@ namespace Client_Forms
 							.Where(current => current.Id == id)
 							.FirstOrDefault();
 
-							listFinancialClient.Amount_Paid = $"{_result:#,0} تومان";
-							listFinancialClient.Amount_Remaininig = $"0 تومان";
-							listFinancialClient.Finantial_Situation = Models.ListFinancialClient.FinantialSituationClient.تسویه;
-						
+						listFinancialClient.Amount_Paid = $"{_result:#,0} تومان";
+						listFinancialClient.Amount_Remaininig = $"0 تومان";
+						listFinancialClient.Finantial_Situation = Models.ListFinancialClient.FinantialSituationClient.تسویه;
+
 						dataBaseContext.SaveChanges();
 					}
 				}

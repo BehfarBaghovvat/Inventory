@@ -15,19 +15,58 @@ namespace Inventory_Forms
 		/// </summary>
 		public class AuditItem
 		{
-			public decimal Amount { get; set; }
-			public decimal Amount_Paid { get; set; }
-			public decimal Capital_Fund { get; set; }
-			public string Carrier_Name { get; set; }
-			public Models.AccountsPayment.FinantialSituationAccountPaymetn FinantialSituation { get; set; }
-			public string InvoiceSerialNumber { get; set; }
-			public decimal Total_Sum_Price { get; set; }
-			public string Recipient_Name { get; set; }
-			public string Register_Date { get; set; }
-			public string Register_Time { get; set; }
-			public decimal Amount_Remaining { get; set; }
-			public string Sender_Name { get; set; }
-			public Models.PurchaseInvoice.PurchasePaymentType Purchase_Payment_Type { get; set; }
+			public decimal Amount
+			{
+				get; set;
+			}
+			public decimal Amount_Paid
+			{
+				get; set;
+			}
+			public decimal Capital_Fund
+			{
+				get; set;
+			}
+			public string Carrier_Name
+			{
+				get; set;
+			}
+			public Models.AccountsPayment.FinantialSituationAccountPaymetn FinantialSituation
+			{
+				get; set;
+			}
+			public string InvoiceSerialNumber
+			{
+				get; set;
+			}
+			public decimal Total_Sum_Price
+			{
+				get; set;
+			}
+			public string Recipient_Name
+			{
+				get; set;
+			}
+			public string Register_Date
+			{
+				get; set;
+			}
+			public string Register_Time
+			{
+				get; set;
+			}
+			public decimal Amount_Remaining
+			{
+				get; set;
+			}
+			public string Sender_Name
+			{
+				get; set;
+			}
+			public Models.PurchaseInvoice.PurchasePaymentType Purchase_Payment_Type
+			{
+				get; set;
+			}
 		}
 
 		/// <summary>
@@ -35,11 +74,26 @@ namespace Inventory_Forms
 		/// </summary>
 		private class Bill
 		{
-			public string Product_Name { get; set; }
-			public int? Product_Quantity { get; set; }
-			public string Product_Unit { get; set; }
-			public string Product_Price { get; set; }
-			public string Total_Amount { get; set; }
+			public string Product_Name
+			{
+				get; set;
+			}
+			public int? Product_Quantity
+			{
+				get; set;
+			}
+			public string Product_Unit
+			{
+				get; set;
+			}
+			public string Product_Price
+			{
+				get; set;
+			}
+			public string Total_Amount
+			{
+				get; set;
+			}
 		}
 
 		private Inventory.MainForm _mainForm;
@@ -62,7 +116,10 @@ namespace Inventory_Forms
 
 		private static AuditItem auditItem;
 
-		public ProductBuyForm MyProductBuyForm { get; set; }
+		public ProductBuyForm MyProductBuyForm
+		{
+			get; set;
+		}
 
 		private PrintReportForm _printReportForm;
 		public PrintReportForm PrintReportForm
@@ -94,7 +151,10 @@ namespace Inventory_Forms
 			}
 		}
 
-		public bool Purchase_Operations { get; set; }
+		public bool Purchase_Operations
+		{
+			get; set;
+		}
 
 		#endregion /Properties
 
@@ -253,7 +313,7 @@ namespace Inventory_Forms
 			}
 			else
 			{
-				auditItem.Total_Sum_Price = 
+				auditItem.Total_Sum_Price =
 					decimal.Parse(totalSumPriceTextBox.Text.Replace("تومان", string.Empty).Replace(",", string.Empty).Trim());
 
 				auditItem.Amount_Remaining = auditItem.Amount_Paid - auditItem.Total_Sum_Price;
@@ -556,76 +616,80 @@ namespace Inventory_Forms
 		/// <returns></returns>
 		private bool Harvest(AuditItem _auditItem)
 		{
-				#region Validation
-				if (_auditItem.Capital_Fund < _auditItem.Amount_Paid)
-				{
-					Mbb.Windows.Forms.MessageBox.Show
-						(text: Inventory.Properties.Resources.Financial_Error,
-						caption: "خطای موجودی",
-						icon: Mbb.Windows.Forms.MessageBoxIcon.Warning,
-						button: Mbb.Windows.Forms.MessageBoxButtons.Ok);
-					return false;
-				}
-				else
-				{
-					_auditItem.Capital_Fund -= _auditItem.Amount_Paid;
-				}
-				#endregion /Validation
+			#region Validation
+			if (_auditItem.Capital_Fund < _auditItem.Amount_Paid)
+			{
+				Mbb.Windows.Forms.MessageBox.Show
+					(text: Inventory.Properties.Resources.Financial_Error,
+					caption: "خطای موجودی",
+					icon: Mbb.Windows.Forms.MessageBoxIcon.Warning,
+					button: Mbb.Windows.Forms.MessageBoxButtons.Ok);
+				return false;
+			}
+			else
+			{
+				_auditItem.Capital_Fund -= _auditItem.Amount_Paid;
+			}
+			#endregion /Validation
 
-				Models.DataBaseContext dataBaseContext = null;
-				try
-				{
-					dataBaseContext =
-						new Models.DataBaseContext();
+			Models.DataBaseContext dataBaseContext = null;
+			try
+			{
+				dataBaseContext =
+					new Models.DataBaseContext();
 
-					Models.CapitalFund capitalFund =
-						dataBaseContext.CapitalFunds
-						.FirstOrDefault();
+				Models.CapitalFund capitalFund =
+					dataBaseContext.CapitalFunds
+					.FirstOrDefault();
 
-					capitalFund.Capital_Fund = $"{_auditItem.Capital_Fund: #,0} تومان";
+				capitalFund.Capital_Fund = $"{_auditItem.Capital_Fund: #,0} تومان";
 
-					dataBaseContext.SaveChanges();
+				dataBaseContext.SaveChanges();
 
 				auditItem.Capital_Fund = GetCapitalFund();
 
+				Inventory.Program.MainForm.GetNon_CashCapital();
+
+				Inventory.Program.MainForm.GetTotalCapital();
+
 				#region -----------------------------------------     Save Event Log     -----------------------------------------
 				if (string.Compare(Inventory.Program.UserAuthentication.Username, "admin") != 0)
+				{
+					EventLog.Username = Inventory.Program.UserAuthentication.Username;
+					EventLog.Full_Name = Inventory.Program.UserAuthentication.Full_Name;
+					EventLog.Event_Date = $"{Infrastructure.Utility.PersianCalendar(System.DateTime.Now)}";
+					EventLog.Event_Time = $"{Infrastructure.Utility.ShowTime()}";
+					if (_auditItem.Amount_Remaining < 1000)
 					{
-						EventLog.Username = Inventory.Program.UserAuthentication.Username;
-						EventLog.Full_Name = Inventory.Program.UserAuthentication.Full_Name;
-						EventLog.Event_Date = $"{Infrastructure.Utility.PersianCalendar(System.DateTime.Now)}";
-						EventLog.Event_Time = $"{Infrastructure.Utility.ShowTime()}";
-						if (_auditItem.Amount_Remaining < 1000)
-						{
-							EventLog.Description =
-							$"پرداخت هزینه به مبلغ {_auditItem.Amount_Paid: #,0}" +
-							$" تومان و باقیمانده {_auditItem.Amount_Remaining} تومان";
-						}
-						else
-						{
-							EventLog.Description =
-							$"پرداخت هزینه به مبلغ {_auditItem.Amount_Paid: #,0}" +
-							$" تومان و باقیمانده {_auditItem.Amount_Remaining:#,0} تومان";
-						}
-						Infrastructure.Utility.EventLog(EventLog);
+						EventLog.Description =
+						$"پرداخت هزینه به مبلغ {_auditItem.Amount_Paid: #,0}" +
+						$" تومان و باقیمانده {_auditItem.Amount_Remaining} تومان";
 					}
-					#endregion /-----------------------------------------     Save Event Log     -----------------------------------------
+					else
+					{
+						EventLog.Description =
+						$"پرداخت هزینه به مبلغ {_auditItem.Amount_Paid: #,0}" +
+						$" تومان و باقیمانده {_auditItem.Amount_Remaining:#,0} تومان";
+					}
+					Infrastructure.Utility.EventLog(EventLog);
+				}
+				#endregion /-----------------------------------------     Save Event Log     -----------------------------------------
 
-					return true;
-				}
-				catch (System.Exception ex)
+				return true;
+			}
+			catch (System.Exception ex)
+			{
+				Infrastructure.Utility.ExceptionShow(ex);
+				return false;
+			}
+			finally
+			{
+				if (dataBaseContext != null)
 				{
-					Infrastructure.Utility.ExceptionShow(ex);
-					return false;
+					dataBaseContext.Dispose();
+					dataBaseContext = null;
 				}
-				finally
-				{
-					if (dataBaseContext != null)
-					{
-						dataBaseContext.Dispose();
-						dataBaseContext = null;
-					}
-				}
+			}
 		}
 		#endregion /Harvest
 
@@ -642,7 +706,7 @@ namespace Inventory_Forms
 			auditItem.Register_Date = $"{Infrastructure.Utility.PersianCalendar(System.DateTime.Now)}";
 			auditItem.Register_Time = $"{Infrastructure.Utility.ShowTime()}";
 			auditItem.Capital_Fund = GetCapitalFund();
-			
+
 			recipientNameTextBox.Text = Inventory.Program.UserAuthentication.Full_Name;
 			auditItem.Recipient_Name = Inventory.Program.UserAuthentication.Full_Name;
 			invoiceSerialNumberTextBox.Text = auditItem.InvoiceSerialNumber = GetInvoiceSerialNumber();
@@ -667,7 +731,7 @@ namespace Inventory_Forms
 				{
 					SetDailyFinancialReport(auditItem);
 					MyProductBuyForm.RemoveBill();
-					
+
 					paymentButton.Enabled = false;
 
 					Infrastructure.Utility.WindowsNotification(
@@ -679,7 +743,7 @@ namespace Inventory_Forms
 				{
 					Purchase_Operations = false;
 					return;
-				} 
+				}
 			}
 			else if (_auditItem.Purchase_Payment_Type == Models.PurchaseInvoice.PurchasePaymentType.چک)
 			{
@@ -687,7 +751,7 @@ namespace Inventory_Forms
 				{
 					SetDailyFinancialReport(auditItem);
 					MyProductBuyForm.RemoveBill();
-					
+
 					paymentButton.Enabled = false;
 
 					Infrastructure.Utility.WindowsNotification(
@@ -706,6 +770,8 @@ namespace Inventory_Forms
 					return;
 				}
 			}
+
+
 		}
 		#endregion Payment
 

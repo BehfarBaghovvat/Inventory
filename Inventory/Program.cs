@@ -227,6 +227,9 @@ namespace Inventory
 			Administrator();
 			InitialAmountCapital();
 			System.Windows.Forms.Application.Run(new Entry_Forms.StartUpForm());
+
+
+			//System.Windows.Forms.Application.Run(new Inventory_Forms.InventoryForm());
 		}
 	}
 }

@@ -446,7 +446,7 @@ namespace Inventory_Forms
 				BillSaleReportForm.MyProductSalesForm = this;
 				BillSaleReportForm.SetItemsBillSale(listBillSaleReports, Transaction_Factors_Items);
 
-				BillSaleReportForm.ShowDialog();
+				BillSaleReportForm.Show();
 			}
 		}
 		#endregion /BillButton_Click
@@ -508,8 +508,8 @@ namespace Inventory_Forms
 				productUnitTextBox.Text = inventoryHoldingDataGridView.CurrentRow.Cells[3].Value.ToString();
 				InventoryOutput.Product_Unit = inventoryHoldingDataGridView.CurrentRow.Cells[3].Value.ToString();
 
-				productPriceTextBox.Text = inventoryHoldingDataGridView.CurrentRow.Cells[4].Value.ToString();
-				InventoryOutput.Product_Price = inventoryHoldingDataGridView.CurrentRow.Cells[4].Value.ToString();
+				productPriceTextBox.Text = inventoryHoldingDataGridView.CurrentRow.Cells[5].Value.ToString();
+				InventoryOutput.Product_Price = inventoryHoldingDataGridView.CurrentRow.Cells[5].Value.ToString();
 
 			}
 		}

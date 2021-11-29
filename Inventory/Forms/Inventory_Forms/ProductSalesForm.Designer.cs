@@ -73,12 +73,6 @@ namespace Inventory_Forms
 			Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties36 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
 			this.inventoryHoldingDataGridViewElipse = new Guna.UI.WinForms.GunaElipse(this.components);
 			this.inventoryHoldingDataGridView = new Guna.UI2.WinForms.Guna2DataGridView();
-			this.idDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.productNameDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.productQuantityDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.productUnitDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.productPurchasePriceDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.inventoryHoldingBindingSource = new System.Windows.Forms.BindingSource(this.components);
 			this.mainPanel = new Guna.UI2.WinForms.Guna2Panel();
 			this.carrierNameTextBox = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox();
 			this.productPriceTextBox = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox();
@@ -93,9 +87,16 @@ namespace Inventory_Forms
 			this.billButton = new Guna.UI2.WinForms.Guna2Button();
 			this.productSearchTextBox = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox();
 			this.phoneNumberTextBox = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox();
+			this.inventoryHoldingBindingSource = new System.Windows.Forms.BindingSource(this.components);
+			this.idDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.productNameDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.productQuantityDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.productUnitDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.productPurchasePriceDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.Product_Sale_Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			((System.ComponentModel.ISupportInitialize)(this.inventoryHoldingDataGridView)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.inventoryHoldingBindingSource)).BeginInit();
 			this.mainPanel.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.inventoryHoldingBindingSource)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// inventoryHoldingDataGridViewElipse
@@ -132,7 +133,8 @@ namespace Inventory_Forms
             this.productNameDataGridViewTextBoxColumn1,
             this.productQuantityDataGridViewTextBoxColumn1,
             this.productUnitDataGridViewTextBoxColumn1,
-            this.productPurchasePriceDataGridViewTextBoxColumn1});
+            this.productPurchasePriceDataGridViewTextBoxColumn1,
+            this.Product_Sale_Price});
 			this.inventoryHoldingDataGridView.DataSource = this.inventoryHoldingBindingSource;
 			dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
 			dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(215)))), ((int)(((byte)(240)))));
@@ -179,50 +181,6 @@ namespace Inventory_Forms
 			this.inventoryHoldingDataGridView.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(123)))), ((int)(((byte)(207)))));
 			this.inventoryHoldingDataGridView.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.White;
 			this.inventoryHoldingDataGridView.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.InventoryHoldingDataGridView_CellDoubleClick);
-			// 
-			// idDataGridViewTextBoxColumn1
-			// 
-			this.idDataGridViewTextBoxColumn1.DataPropertyName = "Id";
-			this.idDataGridViewTextBoxColumn1.FillWeight = 50F;
-			this.idDataGridViewTextBoxColumn1.HeaderText = "ردیف";
-			this.idDataGridViewTextBoxColumn1.Name = "idDataGridViewTextBoxColumn1";
-			this.idDataGridViewTextBoxColumn1.ReadOnly = true;
-			// 
-			// productNameDataGridViewTextBoxColumn1
-			// 
-			this.productNameDataGridViewTextBoxColumn1.DataPropertyName = "Product_Name";
-			this.productNameDataGridViewTextBoxColumn1.FillWeight = 200F;
-			this.productNameDataGridViewTextBoxColumn1.HeaderText = "نام کالا";
-			this.productNameDataGridViewTextBoxColumn1.Name = "productNameDataGridViewTextBoxColumn1";
-			this.productNameDataGridViewTextBoxColumn1.ReadOnly = true;
-			// 
-			// productQuantityDataGridViewTextBoxColumn1
-			// 
-			this.productQuantityDataGridViewTextBoxColumn1.DataPropertyName = "Product_Quantity";
-			this.productQuantityDataGridViewTextBoxColumn1.FillWeight = 50F;
-			this.productQuantityDataGridViewTextBoxColumn1.HeaderText = "تعداد کالا";
-			this.productQuantityDataGridViewTextBoxColumn1.Name = "productQuantityDataGridViewTextBoxColumn1";
-			this.productQuantityDataGridViewTextBoxColumn1.ReadOnly = true;
-			// 
-			// productUnitDataGridViewTextBoxColumn1
-			// 
-			this.productUnitDataGridViewTextBoxColumn1.DataPropertyName = "Product_Unit";
-			this.productUnitDataGridViewTextBoxColumn1.FillWeight = 50F;
-			this.productUnitDataGridViewTextBoxColumn1.HeaderText = "واحد کالا";
-			this.productUnitDataGridViewTextBoxColumn1.Name = "productUnitDataGridViewTextBoxColumn1";
-			this.productUnitDataGridViewTextBoxColumn1.ReadOnly = true;
-			// 
-			// productPurchasePriceDataGridViewTextBoxColumn1
-			// 
-			this.productPurchasePriceDataGridViewTextBoxColumn1.DataPropertyName = "Product_Purchase_Price";
-			this.productPurchasePriceDataGridViewTextBoxColumn1.FillWeight = 150F;
-			this.productPurchasePriceDataGridViewTextBoxColumn1.HeaderText = "قیمت خرید کالا";
-			this.productPurchasePriceDataGridViewTextBoxColumn1.Name = "productPurchasePriceDataGridViewTextBoxColumn1";
-			this.productPurchasePriceDataGridViewTextBoxColumn1.ReadOnly = true;
-			// 
-			// inventoryHoldingBindingSource
-			// 
-			this.inventoryHoldingBindingSource.DataSource = typeof(Models.InventoryHolding);
 			// 
 			// mainPanel
 			// 
@@ -1045,6 +1003,57 @@ namespace Inventory_Forms
 			this.phoneNumberTextBox.Enter += new System.EventHandler(this.PhoneNumberTextBox_Enter);
 			this.phoneNumberTextBox.Leave += new System.EventHandler(this.PhoneNumberTextBox_Leave);
 			// 
+			// inventoryHoldingBindingSource
+			// 
+			this.inventoryHoldingBindingSource.DataSource = typeof(Models.InventoryHolding);
+			// 
+			// idDataGridViewTextBoxColumn1
+			// 
+			this.idDataGridViewTextBoxColumn1.DataPropertyName = "Id";
+			this.idDataGridViewTextBoxColumn1.FillWeight = 50F;
+			this.idDataGridViewTextBoxColumn1.HeaderText = "ردیف";
+			this.idDataGridViewTextBoxColumn1.Name = "idDataGridViewTextBoxColumn1";
+			this.idDataGridViewTextBoxColumn1.ReadOnly = true;
+			// 
+			// productNameDataGridViewTextBoxColumn1
+			// 
+			this.productNameDataGridViewTextBoxColumn1.DataPropertyName = "Product_Name";
+			this.productNameDataGridViewTextBoxColumn1.FillWeight = 200F;
+			this.productNameDataGridViewTextBoxColumn1.HeaderText = "نام کالا";
+			this.productNameDataGridViewTextBoxColumn1.Name = "productNameDataGridViewTextBoxColumn1";
+			this.productNameDataGridViewTextBoxColumn1.ReadOnly = true;
+			// 
+			// productQuantityDataGridViewTextBoxColumn1
+			// 
+			this.productQuantityDataGridViewTextBoxColumn1.DataPropertyName = "Product_Quantity";
+			this.productQuantityDataGridViewTextBoxColumn1.FillWeight = 50F;
+			this.productQuantityDataGridViewTextBoxColumn1.HeaderText = "تعداد کالا";
+			this.productQuantityDataGridViewTextBoxColumn1.Name = "productQuantityDataGridViewTextBoxColumn1";
+			this.productQuantityDataGridViewTextBoxColumn1.ReadOnly = true;
+			// 
+			// productUnitDataGridViewTextBoxColumn1
+			// 
+			this.productUnitDataGridViewTextBoxColumn1.DataPropertyName = "Product_Unit";
+			this.productUnitDataGridViewTextBoxColumn1.FillWeight = 50F;
+			this.productUnitDataGridViewTextBoxColumn1.HeaderText = "واحد کالا";
+			this.productUnitDataGridViewTextBoxColumn1.Name = "productUnitDataGridViewTextBoxColumn1";
+			this.productUnitDataGridViewTextBoxColumn1.ReadOnly = true;
+			// 
+			// productPurchasePriceDataGridViewTextBoxColumn1
+			// 
+			this.productPurchasePriceDataGridViewTextBoxColumn1.DataPropertyName = "Product_Purchase_Price";
+			this.productPurchasePriceDataGridViewTextBoxColumn1.FillWeight = 150F;
+			this.productPurchasePriceDataGridViewTextBoxColumn1.HeaderText = "قیمت خرید کالا";
+			this.productPurchasePriceDataGridViewTextBoxColumn1.Name = "productPurchasePriceDataGridViewTextBoxColumn1";
+			this.productPurchasePriceDataGridViewTextBoxColumn1.ReadOnly = true;
+			// 
+			// Product_Sale_Price
+			// 
+			this.Product_Sale_Price.DataPropertyName = "Product_Sale_Price";
+			this.Product_Sale_Price.HeaderText = "قیمت فروش کالا";
+			this.Product_Sale_Price.Name = "Product_Sale_Price";
+			this.Product_Sale_Price.ReadOnly = true;
+			// 
 			// ProductSalesForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 17F);
@@ -1056,8 +1065,8 @@ namespace Inventory_Forms
 			this.Text = "InventoryOutputForm";
 			this.Load += new System.EventHandler(this.ProcutSalesForm_Load);
 			((System.ComponentModel.ISupportInitialize)(this.inventoryHoldingDataGridView)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.inventoryHoldingBindingSource)).EndInit();
 			this.mainPanel.ResumeLayout(false);
+			((System.ComponentModel.ISupportInitialize)(this.inventoryHoldingBindingSource)).EndInit();
 			this.ResumeLayout(false);
 
 		}
@@ -1077,13 +1086,14 @@ namespace Inventory_Forms
 		private Guna.UI2.WinForms.Guna2Button inventoryOutputButton;
 		private Guna.UI2.WinForms.Guna2Button billButton;
 		private Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox productSearchTextBox;
-		private System.Windows.Forms.BindingSource inventoryHoldingBindingSource;
 		private Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox phoneNumberTextBox;
 		private Guna.UI2.WinForms.Guna2DataGridView inventoryHoldingDataGridView;
+		private System.Windows.Forms.BindingSource inventoryHoldingBindingSource;
 		private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn1;
 		private System.Windows.Forms.DataGridViewTextBoxColumn productNameDataGridViewTextBoxColumn1;
 		private System.Windows.Forms.DataGridViewTextBoxColumn productQuantityDataGridViewTextBoxColumn1;
 		private System.Windows.Forms.DataGridViewTextBoxColumn productUnitDataGridViewTextBoxColumn1;
 		private System.Windows.Forms.DataGridViewTextBoxColumn productPurchasePriceDataGridViewTextBoxColumn1;
+		private System.Windows.Forms.DataGridViewTextBoxColumn Product_Sale_Price;
 	}
 }

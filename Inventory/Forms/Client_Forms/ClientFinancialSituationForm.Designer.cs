@@ -92,7 +92,6 @@ namespace Client_Forms
 			this.iranLabel = new Mbb.Windows.Forms.Label();
 			this.phoneNumberTextBox = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox();
 			this.clientNameTextBox = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox();
-			this.financialSituationLabel = new System.Windows.Forms.Label();
 			this.paymentButton = new Guna.UI2.WinForms.Guna2GradientButton();
 			this.searchClientTextBox = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox();
 			this.listFinantioalClientDataGridViewElipse = new Guna.UI2.WinForms.Guna2Elipse(this.components);
@@ -112,7 +111,6 @@ namespace Client_Forms
 			this.mainPanel.Controls.Add(this.licensePlateGroupBox);
 			this.mainPanel.Controls.Add(this.phoneNumberTextBox);
 			this.mainPanel.Controls.Add(this.clientNameTextBox);
-			this.mainPanel.Controls.Add(this.financialSituationLabel);
 			this.mainPanel.Controls.Add(this.paymentButton);
 			this.mainPanel.Controls.Add(this.searchClientTextBox);
 			this.mainPanel.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -142,6 +140,7 @@ namespace Client_Forms
 			this.totalAmountTextBox.DefaultFont = new System.Drawing.Font("IRANSansXFaNum", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
 			this.totalAmountTextBox.DefaultText = "";
 			this.totalAmountTextBox.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(0)))), ((int)(((byte)(61)))));
+			this.totalAmountTextBox.ForeColor = System.Drawing.Color.White;
 			this.totalAmountTextBox.HideSelection = true;
 			this.totalAmountTextBox.IconLeft = null;
 			this.totalAmountTextBox.IconLeftCursor = System.Windows.Forms.Cursors.IBeam;
@@ -173,7 +172,7 @@ namespace Client_Forms
 			this.totalAmountTextBox.OnHoverState = stateProperties3;
 			stateProperties4.BorderColor = System.Drawing.Color.Gray;
 			stateProperties4.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(0)))), ((int)(((byte)(61)))));
-			stateProperties4.ForeColor = System.Drawing.Color.Empty;
+			stateProperties4.ForeColor = System.Drawing.Color.White;
 			stateProperties4.PlaceholderForeColor = System.Drawing.Color.Empty;
 			this.totalAmountTextBox.OnIdleState = stateProperties4;
 			this.totalAmountTextBox.PasswordChar = '\0';
@@ -876,18 +875,6 @@ namespace Client_Forms
 			this.clientNameTextBox.UseSystemPasswordChar = false;
 			this.clientNameTextBox.WordWrap = true;
 			// 
-			// financialSituationLabel
-			// 
-			this.financialSituationLabel.Font = new System.Drawing.Font("IRANSansXFaNum", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-			this.financialSituationLabel.ForeColor = System.Drawing.Color.White;
-			this.financialSituationLabel.Location = new System.Drawing.Point(371, 602);
-			this.financialSituationLabel.Name = "financialSituationLabel";
-			this.financialSituationLabel.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-			this.financialSituationLabel.Size = new System.Drawing.Size(123, 25);
-			this.financialSituationLabel.TabIndex = 5;
-			this.financialSituationLabel.Text = "(وضعیت مالی)";
-			this.financialSituationLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-			// 
 			// paymentButton
 			// 
 			this.paymentButton.Animated = true;
@@ -935,6 +922,7 @@ namespace Client_Forms
 			this.searchClientTextBox.DefaultFont = new System.Drawing.Font("IRANSansXFaNum", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
 			this.searchClientTextBox.DefaultText = "";
 			this.searchClientTextBox.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(0)))), ((int)(((byte)(61)))));
+			this.searchClientTextBox.ForeColor = System.Drawing.Color.White;
 			this.searchClientTextBox.HideSelection = true;
 			this.searchClientTextBox.IconLeft = null;
 			this.searchClientTextBox.IconLeftCursor = System.Windows.Forms.Cursors.IBeam;
@@ -965,7 +953,7 @@ namespace Client_Forms
 			this.searchClientTextBox.OnHoverState = stateProperties31;
 			stateProperties32.BorderColor = System.Drawing.Color.Gray;
 			stateProperties32.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(0)))), ((int)(((byte)(61)))));
-			stateProperties32.ForeColor = System.Drawing.Color.Empty;
+			stateProperties32.ForeColor = System.Drawing.Color.White;
 			stateProperties32.PlaceholderForeColor = System.Drawing.Color.Empty;
 			this.searchClientTextBox.OnIdleState = stateProperties32;
 			this.searchClientTextBox.PasswordChar = '\0';
@@ -1022,7 +1010,6 @@ namespace Client_Forms
 		private Guna.UI2.WinForms.Guna2Panel mainPanel;
 		private Guna.UI2.WinForms.Guna2GradientButton paymentButton;
 		private Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox searchClientTextBox;
-		private System.Windows.Forms.Label financialSituationLabel;
 		private Guna.UI2.WinForms.Guna2Elipse listFinantioalClientDataGridViewElipse;
 		private Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox phoneNumberTextBox;
 		private Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox clientNameTextBox;

@@ -52,6 +52,20 @@
 		#endregion /Product_Purchase_Price
 
 		/// <summary>
+		/// قیمت فروش کالا
+		/// </summary>
+		#region Product_Sale_Price
+		[System.ComponentModel.DisplayName(displayName: "قیمت فروش کالا")]
+
+		[System.ComponentModel.DataAnnotations.StringLength
+			(maximumLength: 150)]
+		public string Product_Sale_Price
+		{
+			get; set;
+		}
+		#endregion /Product_Sale_Price
+
+		/// <summary>
 		/// تعداد کالا
 		/// </summary>
 		#region Product_Quantity

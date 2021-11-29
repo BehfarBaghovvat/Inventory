@@ -89,9 +89,9 @@ namespace Inventory
 			this.minutesLabel = new Mbb.Windows.Forms.Label();
 			this.pointLabel1 = new Mbb.Windows.Forms.Label();
 			this.hoursLabel = new Mbb.Windows.Forms.Label();
-			this.non_cashCapitalTxtBox = new Mbb.Windows.Forms.Label();
+			this.non_cashCapitalTextBox = new Mbb.Windows.Forms.Label();
 			this.non_cashCapitalLabel = new Mbb.Windows.Forms.Label();
-			this.totalCpitaTextBox = new Mbb.Windows.Forms.Label();
+			this.totalCpitalTextBox = new Mbb.Windows.Forms.Label();
 			this.totalCpitaLabel = new Mbb.Windows.Forms.Label();
 			this.menuPanel.SuspendLayout();
 			this.submenuSettingPanel.SuspendLayout();
@@ -710,9 +710,9 @@ namespace Inventory
 			// topMainPanel
 			// 
 			this.topMainPanel.Controls.Add(this.totalCpitaLabel);
-			this.topMainPanel.Controls.Add(this.totalCpitaTextBox);
+			this.topMainPanel.Controls.Add(this.totalCpitalTextBox);
 			this.topMainPanel.Controls.Add(this.non_cashCapitalLabel);
-			this.topMainPanel.Controls.Add(this.non_cashCapitalTxtBox);
+			this.topMainPanel.Controls.Add(this.non_cashCapitalTextBox);
 			this.topMainPanel.Controls.Add(this.cashCapitalLabel);
 			this.topMainPanel.Controls.Add(this.cashCapitalTextBox);
 			this.topMainPanel.Controls.Add(this.logoutButton);
@@ -984,17 +984,17 @@ namespace Inventory
 			this.hoursLabel.Text = "00";
 			this.hoursLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
 			// 
-			// non_cashCapitalTxtBox
+			// non_cashCapitalTextBox
 			// 
-			this.non_cashCapitalTxtBox.Font = new System.Drawing.Font("IRANSans", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-			this.non_cashCapitalTxtBox.ForeColor = System.Drawing.Color.Cyan;
-			this.non_cashCapitalTxtBox.Location = new System.Drawing.Point(380, 5);
-			this.non_cashCapitalTxtBox.Name = "non_cashCapitalTxtBox";
-			this.non_cashCapitalTxtBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-			this.non_cashCapitalTxtBox.Size = new System.Drawing.Size(220, 30);
-			this.non_cashCapitalTxtBox.TabIndex = 1;
-			this.non_cashCapitalTxtBox.Text = "0 تومان";
-			this.non_cashCapitalTxtBox.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+			this.non_cashCapitalTextBox.Font = new System.Drawing.Font("IRANSans", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+			this.non_cashCapitalTextBox.ForeColor = System.Drawing.Color.Cyan;
+			this.non_cashCapitalTextBox.Location = new System.Drawing.Point(380, 5);
+			this.non_cashCapitalTextBox.Name = "non_cashCapitalTextBox";
+			this.non_cashCapitalTextBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+			this.non_cashCapitalTextBox.Size = new System.Drawing.Size(220, 30);
+			this.non_cashCapitalTextBox.TabIndex = 1;
+			this.non_cashCapitalTextBox.Text = "0 تومان";
+			this.non_cashCapitalTextBox.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
 			// 
 			// non_cashCapitalLabel
 			// 
@@ -1008,17 +1008,17 @@ namespace Inventory
 			this.non_cashCapitalLabel.Text = ":سرمایه غیر نقد";
 			this.non_cashCapitalLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
 			// 
-			// totalCpitaTextBox
+			// totalCpitalTextBox
 			// 
-			this.totalCpitaTextBox.Font = new System.Drawing.Font("IRANSans", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-			this.totalCpitaTextBox.ForeColor = System.Drawing.Color.Cyan;
-			this.totalCpitaTextBox.Location = new System.Drawing.Point(668, 5);
-			this.totalCpitaTextBox.Name = "totalCpitaTextBox";
-			this.totalCpitaTextBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-			this.totalCpitaTextBox.Size = new System.Drawing.Size(220, 30);
-			this.totalCpitaTextBox.TabIndex = 1;
-			this.totalCpitaTextBox.Text = "0 تومان";
-			this.totalCpitaTextBox.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+			this.totalCpitalTextBox.Font = new System.Drawing.Font("IRANSans", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+			this.totalCpitalTextBox.ForeColor = System.Drawing.Color.Cyan;
+			this.totalCpitalTextBox.Location = new System.Drawing.Point(668, 5);
+			this.totalCpitalTextBox.Name = "totalCpitalTextBox";
+			this.totalCpitalTextBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+			this.totalCpitalTextBox.Size = new System.Drawing.Size(220, 30);
+			this.totalCpitalTextBox.TabIndex = 1;
+			this.totalCpitalTextBox.Text = "0 تومان";
+			this.totalCpitalTextBox.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
 			// 
 			// totalCpitaLabel
 			// 
@@ -1134,9 +1134,9 @@ namespace Inventory
 		private Mbb.Windows.Forms.Label cashCapitalLabel;
 		private Guna.UI2.WinForms.Guna2GradientButton auditingButton;
 		private Mbb.Windows.Forms.Label totalCpitaLabel;
-		public Mbb.Windows.Forms.Label totalCpitaTextBox;
+		public Mbb.Windows.Forms.Label totalCpitalTextBox;
 		private Mbb.Windows.Forms.Label non_cashCapitalLabel;
-		public Mbb.Windows.Forms.Label non_cashCapitalTxtBox;
+		public Mbb.Windows.Forms.Label non_cashCapitalTextBox;
 	}
 }
 

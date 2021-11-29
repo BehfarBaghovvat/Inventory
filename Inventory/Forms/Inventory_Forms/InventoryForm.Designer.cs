@@ -46,13 +46,18 @@ namespace Inventory_Forms
 			this.productQuantityDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.productUnitDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.productPurchasePriceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.Product_Sale_Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.registrationDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.registrationTimeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.Product_Image = new System.Windows.Forms.DataGridViewImageColumn();
+			this.contextMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
+			this.showImageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.inventoryHoldingBindingSource = new System.Windows.Forms.BindingSource(this.components);
 			this.productNameSearchTextBox = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox();
 			this.inventoryHoldingDataGridViewElipse = new Guna.UI2.WinForms.Guna2Elipse(this.components);
 			this.mainPanel.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.inventoryHoldingDataGridView)).BeginInit();
+			this.contextMenuStrip.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.inventoryHoldingBindingSource)).BeginInit();
 			this.SuspendLayout();
 			// 
@@ -97,7 +102,7 @@ namespace Inventory_Forms
 			this.inventoryHoldingDataGridView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
 			dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
 			dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(103)))), ((int)(((byte)(58)))), ((int)(((byte)(183)))));
-			dataGridViewCellStyle2.Font = new System.Drawing.Font("IRANSansXFaNum", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+			dataGridViewCellStyle2.Font = new System.Drawing.Font("IRANSans", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
 			dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
 			dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
 			this.inventoryHoldingDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
@@ -109,8 +114,11 @@ namespace Inventory_Forms
             this.productQuantityDataGridViewTextBoxColumn,
             this.productUnitDataGridViewTextBoxColumn,
             this.productPurchasePriceDataGridViewTextBoxColumn,
+            this.Product_Sale_Price,
             this.registrationDateDataGridViewTextBoxColumn,
-            this.registrationTimeDataGridViewTextBoxColumn});
+            this.registrationTimeDataGridViewTextBoxColumn,
+            this.Product_Image});
+			this.inventoryHoldingDataGridView.ContextMenuStrip = this.contextMenuStrip;
 			this.inventoryHoldingDataGridView.DataSource = this.inventoryHoldingBindingSource;
 			dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
 			dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
@@ -121,10 +129,9 @@ namespace Inventory_Forms
 			dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
 			this.inventoryHoldingDataGridView.DefaultCellStyle = dataGridViewCellStyle3;
 			this.inventoryHoldingDataGridView.EnableHeadersVisualStyles = false;
-			this.inventoryHoldingDataGridView.Location = new System.Drawing.Point(13, 53);
+			this.inventoryHoldingDataGridView.Location = new System.Drawing.Point(13, 58);
 			this.inventoryHoldingDataGridView.MultiSelect = false;
 			this.inventoryHoldingDataGridView.Name = "inventoryHoldingDataGridView";
-			this.inventoryHoldingDataGridView.ReadOnly = true;
 			this.inventoryHoldingDataGridView.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
 			this.inventoryHoldingDataGridView.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
 			this.inventoryHoldingDataGridView.RowHeadersVisible = false;
@@ -137,12 +144,17 @@ namespace Inventory_Forms
 			dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.White;
 			this.inventoryHoldingDataGridView.RowsDefaultCellStyle = dataGridViewCellStyle4;
 			this.inventoryHoldingDataGridView.RowTemplate.DefaultCellStyle.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-			this.inventoryHoldingDataGridView.RowTemplate.Height = 25;
+			this.inventoryHoldingDataGridView.RowTemplate.Height = 50;
 			this.inventoryHoldingDataGridView.RowTemplate.ReadOnly = true;
 			this.inventoryHoldingDataGridView.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
 			this.inventoryHoldingDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-			this.inventoryHoldingDataGridView.Size = new System.Drawing.Size(1124, 587);
-			this.inventoryHoldingDataGridView.TabIndex = 0;
+			this.inventoryHoldingDataGridView.Size = new System.Drawing.Size(1124, 582);
+			this.inventoryHoldingDataGridView.TabIndex = 1;
+			this.inventoryHoldingDataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.InventoryHoldingDataGridView_CellClick);
+			this.inventoryHoldingDataGridView.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.InventoryHoldingDataGridView_CellDoubleClick);
+			this.inventoryHoldingDataGridView.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.InventoryHoldingDataGridView_CellValueChanged);
+			this.inventoryHoldingDataGridView.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.InventoryHoldingDataGridView_RowEnter);
+			this.inventoryHoldingDataGridView.RowLeave += new System.Windows.Forms.DataGridViewCellEventHandler(this.InventoryHoldingDataGridView_RowLeave);
 			// 
 			// idDataGridViewTextBoxColumn
 			// 
@@ -150,15 +162,13 @@ namespace Inventory_Forms
 			this.idDataGridViewTextBoxColumn.FillWeight = 50F;
 			this.idDataGridViewTextBoxColumn.HeaderText = "ردیف";
 			this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
-			this.idDataGridViewTextBoxColumn.ReadOnly = true;
 			// 
 			// productNameDataGridViewTextBoxColumn
 			// 
 			this.productNameDataGridViewTextBoxColumn.DataPropertyName = "Product_Name";
-			this.productNameDataGridViewTextBoxColumn.FillWeight = 200F;
+			this.productNameDataGridViewTextBoxColumn.FillWeight = 150F;
 			this.productNameDataGridViewTextBoxColumn.HeaderText = "نام کالا";
 			this.productNameDataGridViewTextBoxColumn.Name = "productNameDataGridViewTextBoxColumn";
-			this.productNameDataGridViewTextBoxColumn.ReadOnly = true;
 			// 
 			// productQuantityDataGridViewTextBoxColumn
 			// 
@@ -166,7 +176,6 @@ namespace Inventory_Forms
 			this.productQuantityDataGridViewTextBoxColumn.FillWeight = 50F;
 			this.productQuantityDataGridViewTextBoxColumn.HeaderText = "تعداد کالا";
 			this.productQuantityDataGridViewTextBoxColumn.Name = "productQuantityDataGridViewTextBoxColumn";
-			this.productQuantityDataGridViewTextBoxColumn.ReadOnly = true;
 			// 
 			// productUnitDataGridViewTextBoxColumn
 			// 
@@ -174,28 +183,56 @@ namespace Inventory_Forms
 			this.productUnitDataGridViewTextBoxColumn.FillWeight = 50F;
 			this.productUnitDataGridViewTextBoxColumn.HeaderText = "واحد کالا";
 			this.productUnitDataGridViewTextBoxColumn.Name = "productUnitDataGridViewTextBoxColumn";
-			this.productUnitDataGridViewTextBoxColumn.ReadOnly = true;
 			// 
 			// productPurchasePriceDataGridViewTextBoxColumn
 			// 
 			this.productPurchasePriceDataGridViewTextBoxColumn.DataPropertyName = "Product_Purchase_Price";
 			this.productPurchasePriceDataGridViewTextBoxColumn.HeaderText = "قیمت خرید کالا";
 			this.productPurchasePriceDataGridViewTextBoxColumn.Name = "productPurchasePriceDataGridViewTextBoxColumn";
-			this.productPurchasePriceDataGridViewTextBoxColumn.ReadOnly = true;
+			// 
+			// Product_Sale_Price
+			// 
+			this.Product_Sale_Price.DataPropertyName = "Product_Sale_Price";
+			this.Product_Sale_Price.HeaderText = "قیمت فروش کالا";
+			this.Product_Sale_Price.Name = "Product_Sale_Price";
 			// 
 			// registrationDateDataGridViewTextBoxColumn
 			// 
 			this.registrationDateDataGridViewTextBoxColumn.DataPropertyName = "Registration_Date";
 			this.registrationDateDataGridViewTextBoxColumn.HeaderText = "تاریخ ثبت";
 			this.registrationDateDataGridViewTextBoxColumn.Name = "registrationDateDataGridViewTextBoxColumn";
-			this.registrationDateDataGridViewTextBoxColumn.ReadOnly = true;
 			// 
 			// registrationTimeDataGridViewTextBoxColumn
 			// 
 			this.registrationTimeDataGridViewTextBoxColumn.DataPropertyName = "Registration_Time";
 			this.registrationTimeDataGridViewTextBoxColumn.HeaderText = "زمان ثبت";
 			this.registrationTimeDataGridViewTextBoxColumn.Name = "registrationTimeDataGridViewTextBoxColumn";
-			this.registrationTimeDataGridViewTextBoxColumn.ReadOnly = true;
+			// 
+			// Product_Image
+			// 
+			this.Product_Image.DataPropertyName = "Product_Image";
+			this.Product_Image.HeaderText = "تصویر کالا";
+			this.Product_Image.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+			this.Product_Image.Name = "Product_Image";
+			// 
+			// contextMenuStrip
+			// 
+			this.contextMenuStrip.Font = new System.Drawing.Font("IRANSans", 8.249999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.contextMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.showImageToolStripMenuItem});
+			this.contextMenuStrip.Name = "contextMenuStrip";
+			this.contextMenuStrip.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+			this.contextMenuStrip.Size = new System.Drawing.Size(166, 26);
+			// 
+			// showImageToolStripMenuItem
+			// 
+			this.showImageToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("showImageToolStripMenuItem.Image")));
+			this.showImageToolStripMenuItem.Name = "showImageToolStripMenuItem";
+			this.showImageToolStripMenuItem.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+			this.showImageToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.I)));
+			this.showImageToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
+			this.showImageToolStripMenuItem.Text = "نمایش عکس";
+			this.showImageToolStripMenuItem.Click += new System.EventHandler(this.ShowImageToolStripMenuItem_Click);
 			// 
 			// inventoryHoldingBindingSource
 			// 
@@ -264,9 +301,9 @@ namespace Inventory_Forms
 			this.productNameSearchTextBox.SelectionLength = 0;
 			this.productNameSearchTextBox.SelectionStart = 0;
 			this.productNameSearchTextBox.ShortcutsEnabled = true;
-			this.productNameSearchTextBox.Size = new System.Drawing.Size(1124, 35);
+			this.productNameSearchTextBox.Size = new System.Drawing.Size(1124, 40);
 			this.productNameSearchTextBox.Style = Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox._Style.Bunifu;
-			this.productNameSearchTextBox.TabIndex = 1;
+			this.productNameSearchTextBox.TabIndex = 0;
 			this.productNameSearchTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
 			this.productNameSearchTextBox.TextMarginBottom = 0;
 			this.productNameSearchTextBox.TextMarginLeft = 5;
@@ -294,6 +331,7 @@ namespace Inventory_Forms
 			this.Text = "InventoryForm";
 			this.mainPanel.ResumeLayout(false);
 			((System.ComponentModel.ISupportInitialize)(this.inventoryHoldingDataGridView)).EndInit();
+			this.contextMenuStrip.ResumeLayout(false);
 			((System.ComponentModel.ISupportInitialize)(this.inventoryHoldingBindingSource)).EndInit();
 			this.ResumeLayout(false);
 
@@ -308,12 +346,16 @@ namespace Inventory_Forms
 		private Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox productNameSearchTextBox;
 		private System.Windows.Forms.DataGridViewTextBoxColumn editDateDataGridViewTextBoxColumn;
 		private System.Windows.Forms.DataGridViewTextBoxColumn editTimeDataGridViewTextBoxColumn;
+		private System.Windows.Forms.ContextMenuStrip contextMenuStrip;
+		private System.Windows.Forms.ToolStripMenuItem showImageToolStripMenuItem;
 		private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
 		private System.Windows.Forms.DataGridViewTextBoxColumn productNameDataGridViewTextBoxColumn;
 		private System.Windows.Forms.DataGridViewTextBoxColumn productQuantityDataGridViewTextBoxColumn;
 		private System.Windows.Forms.DataGridViewTextBoxColumn productUnitDataGridViewTextBoxColumn;
 		private System.Windows.Forms.DataGridViewTextBoxColumn productPurchasePriceDataGridViewTextBoxColumn;
+		private System.Windows.Forms.DataGridViewTextBoxColumn Product_Sale_Price;
 		private System.Windows.Forms.DataGridViewTextBoxColumn registrationDateDataGridViewTextBoxColumn;
 		private System.Windows.Forms.DataGridViewTextBoxColumn registrationTimeDataGridViewTextBoxColumn;
+		private System.Windows.Forms.DataGridViewImageColumn Product_Image;
 	}
 }

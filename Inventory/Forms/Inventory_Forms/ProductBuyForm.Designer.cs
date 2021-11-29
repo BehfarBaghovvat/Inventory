@@ -59,6 +59,10 @@ namespace Inventory_Forms
 			Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties26 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
 			Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties27 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
 			Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties28 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
+			Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties29 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
+			Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties30 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
+			Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties31 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
+			Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties32 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
 			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
 			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
 			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -84,6 +88,7 @@ namespace Inventory_Forms
 			this.productNameTextBox = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox();
 			this.senderNameTextBox = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox();
 			this.carrierNameTextBox = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox();
+			this.salesPriceTextBox = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox();
 			this.productPriceTextBox = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox();
 			this.recipientNameTextBox = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox();
 			this.productRecivedDataGridView = new System.Windows.Forms.DataGridView();
@@ -96,6 +101,7 @@ namespace Inventory_Forms
 			this.productQuantityDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.productUnitDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.productImageDataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
+			this.Product_Sale_Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.registrationDateDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.registrationTimeDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.numberEditDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -175,6 +181,7 @@ namespace Inventory_Forms
 			this.controlsPanel.Controls.Add(this.productNameTextBox);
 			this.controlsPanel.Controls.Add(this.senderNameTextBox);
 			this.controlsPanel.Controls.Add(this.carrierNameTextBox);
+			this.controlsPanel.Controls.Add(this.salesPriceTextBox);
 			this.controlsPanel.Controls.Add(this.productPriceTextBox);
 			this.controlsPanel.Controls.Add(this.recipientNameTextBox);
 			this.controlsPanel.Controls.Add(this.productRecivedDataGridView);
@@ -212,7 +219,7 @@ namespace Inventory_Forms
 			// checkProductNamePictureBox
 			// 
 			this.checkProductNamePictureBox.Image = global::Inventory.Properties.Resources.Tik_False;
-			this.checkProductNamePictureBox.Location = new System.Drawing.Point(746, 48);
+			this.checkProductNamePictureBox.Location = new System.Drawing.Point(746, 30);
 			this.checkProductNamePictureBox.Name = "checkProductNamePictureBox";
 			this.checkProductNamePictureBox.Size = new System.Drawing.Size(20, 20);
 			this.checkProductNamePictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -239,7 +246,7 @@ namespace Inventory_Forms
 			this.billButton.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
 			this.billButton.ShadowDecoration.Parent = this.billButton;
 			this.billButton.Size = new System.Drawing.Size(130, 75);
-			this.billButton.TabIndex = 0;
+			this.billButton.TabIndex = 16;
 			this.billButton.Text = "نمایش رسید خرید";
 			this.billButton.TextOffset = new System.Drawing.Point(-12, 25);
 			this.billButton.Click += new System.EventHandler(this.BillButton_Click);
@@ -308,7 +315,7 @@ namespace Inventory_Forms
 			this.productQuantityTextBox.IconRight = null;
 			this.productQuantityTextBox.IconRightCursor = System.Windows.Forms.Cursors.IBeam;
 			this.productQuantityTextBox.Lines = new string[0];
-			this.productQuantityTextBox.Location = new System.Drawing.Point(620, 143);
+			this.productQuantityTextBox.Location = new System.Drawing.Point(946, 171);
 			this.productQuantityTextBox.MaximumSize = new System.Drawing.Size(100, 35);
 			this.productQuantityTextBox.MaxLength = 32767;
 			this.productQuantityTextBox.MinimumSize = new System.Drawing.Size(100, 35);
@@ -434,10 +441,10 @@ namespace Inventory_Forms
 			this.productUnitComboBox.ItemsAppearance.Parent = this.productUnitComboBox;
 			this.productUnitComboBox.ItemsAppearance.SelectedBackColor = System.Drawing.Color.Teal;
 			this.productUnitComboBox.ItemsAppearance.SelectedForeColor = System.Drawing.Color.White;
-			this.productUnitComboBox.Location = new System.Drawing.Point(404, 147);
+			this.productUnitComboBox.Location = new System.Drawing.Point(746, 175);
 			this.productUnitComboBox.Name = "productUnitComboBox";
 			this.productUnitComboBox.ShadowDecoration.Parent = this.productUnitComboBox;
-			this.productUnitComboBox.Size = new System.Drawing.Size(200, 31);
+			this.productUnitComboBox.Size = new System.Drawing.Size(184, 31);
 			this.productUnitComboBox.StartIndex = 0;
 			this.productUnitComboBox.Style = Guna.UI2.WinForms.Enums.TextBoxStyle.Material;
 			this.productUnitComboBox.TabIndex = 9;
@@ -463,7 +470,7 @@ namespace Inventory_Forms
 			this.resetBottom.PressedColor = System.Drawing.Color.White;
 			this.resetBottom.ShadowDecoration.Parent = this.resetBottom;
 			this.resetBottom.Size = new System.Drawing.Size(180, 35);
-			this.resetBottom.TabIndex = 2;
+			this.resetBottom.TabIndex = 1;
 			this.resetBottom.Text = "حالت اولیه";
 			this.resetBottom.Click += new System.EventHandler(this.ResetBottom_Click);
 			// 
@@ -485,7 +492,7 @@ namespace Inventory_Forms
 			this.saveBottom.PressedColor = System.Drawing.Color.White;
 			this.saveBottom.ShadowDecoration.Parent = this.saveBottom;
 			this.saveBottom.Size = new System.Drawing.Size(180, 35);
-			this.saveBottom.TabIndex = 1;
+			this.saveBottom.TabIndex = 0;
 			this.saveBottom.Text = "ثبت کالا";
 			this.saveBottom.Click += new System.EventHandler(this.SaveBottom_Click);
 			// 
@@ -594,7 +601,7 @@ namespace Inventory_Forms
 			this.productNameTextBox.IconRight = null;
 			this.productNameTextBox.IconRightCursor = System.Windows.Forms.Cursors.IBeam;
 			this.productNameTextBox.Lines = new string[0];
-			this.productNameTextBox.Location = new System.Drawing.Point(746, 41);
+			this.productNameTextBox.Location = new System.Drawing.Point(746, 23);
 			this.productNameTextBox.MaximumSize = new System.Drawing.Size(300, 35);
 			this.productNameTextBox.MaxLength = 32767;
 			this.productNameTextBox.MinimumSize = new System.Drawing.Size(300, 35);
@@ -632,7 +639,7 @@ namespace Inventory_Forms
 			this.productNameTextBox.ShortcutsEnabled = true;
 			this.productNameTextBox.Size = new System.Drawing.Size(300, 35);
 			this.productNameTextBox.Style = Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox._Style.Material;
-			this.productNameTextBox.TabIndex = 3;
+			this.productNameTextBox.TabIndex = 2;
 			this.productNameTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
 			this.productNameTextBox.TextMarginBottom = 0;
 			this.productNameTextBox.TextMarginLeft = 0;
@@ -673,7 +680,7 @@ namespace Inventory_Forms
 			this.senderNameTextBox.IconRight = null;
 			this.senderNameTextBox.IconRightCursor = System.Windows.Forms.Cursors.IBeam;
 			this.senderNameTextBox.Lines = new string[0];
-			this.senderNameTextBox.Location = new System.Drawing.Point(746, 92);
+			this.senderNameTextBox.Location = new System.Drawing.Point(746, 74);
 			this.senderNameTextBox.MaximumSize = new System.Drawing.Size(300, 35);
 			this.senderNameTextBox.MaxLength = 32767;
 			this.senderNameTextBox.MinimumSize = new System.Drawing.Size(300, 35);
@@ -711,7 +718,7 @@ namespace Inventory_Forms
 			this.senderNameTextBox.ShortcutsEnabled = true;
 			this.senderNameTextBox.Size = new System.Drawing.Size(300, 35);
 			this.senderNameTextBox.Style = Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox._Style.Material;
-			this.senderNameTextBox.TabIndex = 5;
+			this.senderNameTextBox.TabIndex = 4;
 			this.senderNameTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
 			this.senderNameTextBox.TextMarginBottom = 0;
 			this.senderNameTextBox.TextMarginLeft = 0;
@@ -751,7 +758,7 @@ namespace Inventory_Forms
 			this.carrierNameTextBox.IconRight = null;
 			this.carrierNameTextBox.IconRightCursor = System.Windows.Forms.Cursors.IBeam;
 			this.carrierNameTextBox.Lines = new string[0];
-			this.carrierNameTextBox.Location = new System.Drawing.Point(420, 92);
+			this.carrierNameTextBox.Location = new System.Drawing.Point(420, 74);
 			this.carrierNameTextBox.MaximumSize = new System.Drawing.Size(300, 35);
 			this.carrierNameTextBox.MaxLength = 32767;
 			this.carrierNameTextBox.MinimumSize = new System.Drawing.Size(300, 35);
@@ -789,7 +796,7 @@ namespace Inventory_Forms
 			this.carrierNameTextBox.ShortcutsEnabled = true;
 			this.carrierNameTextBox.Size = new System.Drawing.Size(300, 35);
 			this.carrierNameTextBox.Style = Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox._Style.Material;
-			this.carrierNameTextBox.TabIndex = 6;
+			this.carrierNameTextBox.TabIndex = 5;
 			this.carrierNameTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
 			this.carrierNameTextBox.TextMarginBottom = 0;
 			this.carrierNameTextBox.TextMarginLeft = 0;
@@ -800,6 +807,86 @@ namespace Inventory_Forms
 			this.carrierNameTextBox.TextChange += new System.EventHandler(this.CarrierNameTextBox_TextChange);
 			this.carrierNameTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CarrierNameTextBox_KeyPress);
 			this.carrierNameTextBox.Enter += new System.EventHandler(this.CarrierNameTextBox_Enter);
+			// 
+			// salesPriceTextBox
+			// 
+			this.salesPriceTextBox.AcceptsReturn = false;
+			this.salesPriceTextBox.AcceptsTab = false;
+			this.salesPriceTextBox.AnimationSpeed = 200;
+			this.salesPriceTextBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
+			this.salesPriceTextBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
+			this.salesPriceTextBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(0)))), ((int)(((byte)(61)))));
+			this.salesPriceTextBox.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("salesPriceTextBox.BackgroundImage")));
+			this.salesPriceTextBox.BorderColorActive = System.Drawing.Color.Magenta;
+			this.salesPriceTextBox.BorderColorDisabled = System.Drawing.Color.FromArgb(((int)(((byte)(161)))), ((int)(((byte)(161)))), ((int)(((byte)(161)))));
+			this.salesPriceTextBox.BorderColorHover = System.Drawing.Color.Cyan;
+			this.salesPriceTextBox.BorderColorIdle = System.Drawing.Color.Gray;
+			this.salesPriceTextBox.BorderRadius = 25;
+			this.salesPriceTextBox.BorderThickness = 2;
+			this.salesPriceTextBox.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
+			this.salesPriceTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
+			this.salesPriceTextBox.DefaultFont = new System.Drawing.Font("IRANSans", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.salesPriceTextBox.DefaultText = "";
+			this.salesPriceTextBox.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(0)))), ((int)(((byte)(61)))));
+			this.salesPriceTextBox.ForeColor = System.Drawing.Color.White;
+			this.salesPriceTextBox.HideSelection = true;
+			this.salesPriceTextBox.IconLeft = null;
+			this.salesPriceTextBox.IconLeftCursor = System.Windows.Forms.Cursors.IBeam;
+			this.salesPriceTextBox.IconPadding = 10;
+			this.salesPriceTextBox.IconRight = null;
+			this.salesPriceTextBox.IconRightCursor = System.Windows.Forms.Cursors.IBeam;
+			this.salesPriceTextBox.Lines = new string[0];
+			this.salesPriceTextBox.Location = new System.Drawing.Point(420, 125);
+			this.salesPriceTextBox.MaximumSize = new System.Drawing.Size(300, 35);
+			this.salesPriceTextBox.MaxLength = 32767;
+			this.salesPriceTextBox.MinimumSize = new System.Drawing.Size(300, 35);
+			this.salesPriceTextBox.Modified = false;
+			this.salesPriceTextBox.Multiline = false;
+			this.salesPriceTextBox.Name = "salesPriceTextBox";
+			stateProperties21.BorderColor = System.Drawing.Color.Magenta;
+			stateProperties21.FillColor = System.Drawing.Color.Empty;
+			stateProperties21.ForeColor = System.Drawing.Color.Empty;
+			stateProperties21.PlaceholderForeColor = System.Drawing.Color.Empty;
+			this.salesPriceTextBox.OnActiveState = stateProperties21;
+			stateProperties22.BorderColor = System.Drawing.Color.Empty;
+			stateProperties22.FillColor = System.Drawing.Color.White;
+			stateProperties22.ForeColor = System.Drawing.Color.Empty;
+			stateProperties22.PlaceholderForeColor = System.Drawing.Color.Silver;
+			this.salesPriceTextBox.OnDisabledState = stateProperties22;
+			stateProperties23.BorderColor = System.Drawing.Color.Cyan;
+			stateProperties23.FillColor = System.Drawing.Color.Empty;
+			stateProperties23.ForeColor = System.Drawing.Color.Empty;
+			stateProperties23.PlaceholderForeColor = System.Drawing.Color.Empty;
+			this.salesPriceTextBox.OnHoverState = stateProperties23;
+			stateProperties24.BorderColor = System.Drawing.Color.Gray;
+			stateProperties24.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(0)))), ((int)(((byte)(61)))));
+			stateProperties24.ForeColor = System.Drawing.Color.White;
+			stateProperties24.PlaceholderForeColor = System.Drawing.Color.Empty;
+			this.salesPriceTextBox.OnIdleState = stateProperties24;
+			this.salesPriceTextBox.PasswordChar = '\0';
+			this.salesPriceTextBox.PlaceholderForeColor = System.Drawing.Color.Silver;
+			this.salesPriceTextBox.PlaceholderText = "قیمت فروش کالا";
+			this.salesPriceTextBox.ReadOnly = false;
+			this.salesPriceTextBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+			this.salesPriceTextBox.ScrollBars = System.Windows.Forms.ScrollBars.None;
+			this.salesPriceTextBox.SelectedText = "";
+			this.salesPriceTextBox.SelectionLength = 0;
+			this.salesPriceTextBox.SelectionStart = 0;
+			this.salesPriceTextBox.ShortcutsEnabled = true;
+			this.salesPriceTextBox.Size = new System.Drawing.Size(300, 35);
+			this.salesPriceTextBox.Style = Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox._Style.Material;
+			this.salesPriceTextBox.TabIndex = 7;
+			this.salesPriceTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+			this.salesPriceTextBox.TextMarginBottom = 0;
+			this.salesPriceTextBox.TextMarginLeft = 0;
+			this.salesPriceTextBox.TextMarginTop = 0;
+			this.salesPriceTextBox.TextPlaceholder = "قیمت فروش کالا";
+			this.salesPriceTextBox.UseSystemPasswordChar = false;
+			this.salesPriceTextBox.WordWrap = true;
+			this.salesPriceTextBox.TextChange += new System.EventHandler(this.SalesPriceTextBox_TextChange);
+			this.salesPriceTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.SalesPriceTextBox_KeyPress);
+			this.salesPriceTextBox.Enter += new System.EventHandler(this.SalesPriceTextBox_Enter);
+			this.salesPriceTextBox.Leave += new System.EventHandler(this.SalesPriceTextBox_Leave);
 			// 
 			// productPriceTextBox
 			// 
@@ -829,33 +916,33 @@ namespace Inventory_Forms
 			this.productPriceTextBox.IconRight = null;
 			this.productPriceTextBox.IconRightCursor = System.Windows.Forms.Cursors.IBeam;
 			this.productPriceTextBox.Lines = new string[0];
-			this.productPriceTextBox.Location = new System.Drawing.Point(746, 143);
+			this.productPriceTextBox.Location = new System.Drawing.Point(746, 125);
 			this.productPriceTextBox.MaximumSize = new System.Drawing.Size(300, 35);
 			this.productPriceTextBox.MaxLength = 32767;
 			this.productPriceTextBox.MinimumSize = new System.Drawing.Size(300, 35);
 			this.productPriceTextBox.Modified = false;
 			this.productPriceTextBox.Multiline = false;
 			this.productPriceTextBox.Name = "productPriceTextBox";
-			stateProperties21.BorderColor = System.Drawing.Color.Magenta;
-			stateProperties21.FillColor = System.Drawing.Color.Empty;
-			stateProperties21.ForeColor = System.Drawing.Color.Empty;
-			stateProperties21.PlaceholderForeColor = System.Drawing.Color.Empty;
-			this.productPriceTextBox.OnActiveState = stateProperties21;
-			stateProperties22.BorderColor = System.Drawing.Color.Empty;
-			stateProperties22.FillColor = System.Drawing.Color.White;
-			stateProperties22.ForeColor = System.Drawing.Color.Empty;
-			stateProperties22.PlaceholderForeColor = System.Drawing.Color.Silver;
-			this.productPriceTextBox.OnDisabledState = stateProperties22;
-			stateProperties23.BorderColor = System.Drawing.Color.Cyan;
-			stateProperties23.FillColor = System.Drawing.Color.Empty;
-			stateProperties23.ForeColor = System.Drawing.Color.Empty;
-			stateProperties23.PlaceholderForeColor = System.Drawing.Color.Empty;
-			this.productPriceTextBox.OnHoverState = stateProperties23;
-			stateProperties24.BorderColor = System.Drawing.Color.Gray;
-			stateProperties24.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(0)))), ((int)(((byte)(61)))));
-			stateProperties24.ForeColor = System.Drawing.Color.White;
-			stateProperties24.PlaceholderForeColor = System.Drawing.Color.Empty;
-			this.productPriceTextBox.OnIdleState = stateProperties24;
+			stateProperties25.BorderColor = System.Drawing.Color.Magenta;
+			stateProperties25.FillColor = System.Drawing.Color.Empty;
+			stateProperties25.ForeColor = System.Drawing.Color.Empty;
+			stateProperties25.PlaceholderForeColor = System.Drawing.Color.Empty;
+			this.productPriceTextBox.OnActiveState = stateProperties25;
+			stateProperties26.BorderColor = System.Drawing.Color.Empty;
+			stateProperties26.FillColor = System.Drawing.Color.White;
+			stateProperties26.ForeColor = System.Drawing.Color.Empty;
+			stateProperties26.PlaceholderForeColor = System.Drawing.Color.Silver;
+			this.productPriceTextBox.OnDisabledState = stateProperties26;
+			stateProperties27.BorderColor = System.Drawing.Color.Cyan;
+			stateProperties27.FillColor = System.Drawing.Color.Empty;
+			stateProperties27.ForeColor = System.Drawing.Color.Empty;
+			stateProperties27.PlaceholderForeColor = System.Drawing.Color.Empty;
+			this.productPriceTextBox.OnHoverState = stateProperties27;
+			stateProperties28.BorderColor = System.Drawing.Color.Gray;
+			stateProperties28.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(0)))), ((int)(((byte)(61)))));
+			stateProperties28.ForeColor = System.Drawing.Color.White;
+			stateProperties28.PlaceholderForeColor = System.Drawing.Color.Empty;
+			this.productPriceTextBox.OnIdleState = stateProperties28;
 			this.productPriceTextBox.PasswordChar = '\0';
 			this.productPriceTextBox.PlaceholderForeColor = System.Drawing.Color.Silver;
 			this.productPriceTextBox.PlaceholderText = "قیمت کالا";
@@ -868,7 +955,7 @@ namespace Inventory_Forms
 			this.productPriceTextBox.ShortcutsEnabled = true;
 			this.productPriceTextBox.Size = new System.Drawing.Size(300, 35);
 			this.productPriceTextBox.Style = Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox._Style.Material;
-			this.productPriceTextBox.TabIndex = 7;
+			this.productPriceTextBox.TabIndex = 6;
 			this.productPriceTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
 			this.productPriceTextBox.TextMarginBottom = 0;
 			this.productPriceTextBox.TextMarginLeft = 0;
@@ -909,33 +996,33 @@ namespace Inventory_Forms
 			this.recipientNameTextBox.IconRight = null;
 			this.recipientNameTextBox.IconRightCursor = System.Windows.Forms.Cursors.IBeam;
 			this.recipientNameTextBox.Lines = new string[0];
-			this.recipientNameTextBox.Location = new System.Drawing.Point(420, 41);
+			this.recipientNameTextBox.Location = new System.Drawing.Point(420, 23);
 			this.recipientNameTextBox.MaximumSize = new System.Drawing.Size(300, 35);
 			this.recipientNameTextBox.MaxLength = 32767;
 			this.recipientNameTextBox.MinimumSize = new System.Drawing.Size(300, 35);
 			this.recipientNameTextBox.Modified = false;
 			this.recipientNameTextBox.Multiline = false;
 			this.recipientNameTextBox.Name = "recipientNameTextBox";
-			stateProperties25.BorderColor = System.Drawing.Color.Empty;
-			stateProperties25.FillColor = System.Drawing.Color.Empty;
-			stateProperties25.ForeColor = System.Drawing.Color.Empty;
-			stateProperties25.PlaceholderForeColor = System.Drawing.Color.Empty;
-			this.recipientNameTextBox.OnActiveState = stateProperties25;
-			stateProperties26.BorderColor = System.Drawing.Color.Empty;
-			stateProperties26.FillColor = System.Drawing.Color.White;
-			stateProperties26.ForeColor = System.Drawing.Color.Empty;
-			stateProperties26.PlaceholderForeColor = System.Drawing.Color.Silver;
-			this.recipientNameTextBox.OnDisabledState = stateProperties26;
-			stateProperties27.BorderColor = System.Drawing.Color.Empty;
-			stateProperties27.FillColor = System.Drawing.Color.Empty;
-			stateProperties27.ForeColor = System.Drawing.Color.Empty;
-			stateProperties27.PlaceholderForeColor = System.Drawing.Color.Empty;
-			this.recipientNameTextBox.OnHoverState = stateProperties27;
-			stateProperties28.BorderColor = System.Drawing.Color.Maroon;
-			stateProperties28.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(0)))), ((int)(((byte)(61)))));
-			stateProperties28.ForeColor = System.Drawing.Color.White;
-			stateProperties28.PlaceholderForeColor = System.Drawing.Color.Empty;
-			this.recipientNameTextBox.OnIdleState = stateProperties28;
+			stateProperties29.BorderColor = System.Drawing.Color.Empty;
+			stateProperties29.FillColor = System.Drawing.Color.Empty;
+			stateProperties29.ForeColor = System.Drawing.Color.Empty;
+			stateProperties29.PlaceholderForeColor = System.Drawing.Color.Empty;
+			this.recipientNameTextBox.OnActiveState = stateProperties29;
+			stateProperties30.BorderColor = System.Drawing.Color.Empty;
+			stateProperties30.FillColor = System.Drawing.Color.White;
+			stateProperties30.ForeColor = System.Drawing.Color.Empty;
+			stateProperties30.PlaceholderForeColor = System.Drawing.Color.Silver;
+			this.recipientNameTextBox.OnDisabledState = stateProperties30;
+			stateProperties31.BorderColor = System.Drawing.Color.Empty;
+			stateProperties31.FillColor = System.Drawing.Color.Empty;
+			stateProperties31.ForeColor = System.Drawing.Color.Empty;
+			stateProperties31.PlaceholderForeColor = System.Drawing.Color.Empty;
+			this.recipientNameTextBox.OnHoverState = stateProperties31;
+			stateProperties32.BorderColor = System.Drawing.Color.Maroon;
+			stateProperties32.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(0)))), ((int)(((byte)(61)))));
+			stateProperties32.ForeColor = System.Drawing.Color.White;
+			stateProperties32.PlaceholderForeColor = System.Drawing.Color.Empty;
+			this.recipientNameTextBox.OnIdleState = stateProperties32;
 			this.recipientNameTextBox.PasswordChar = '\0';
 			this.recipientNameTextBox.PlaceholderForeColor = System.Drawing.Color.Silver;
 			this.recipientNameTextBox.PlaceholderText = "نام تحویل گیرنده";
@@ -947,7 +1034,7 @@ namespace Inventory_Forms
 			this.recipientNameTextBox.ShortcutsEnabled = false;
 			this.recipientNameTextBox.Size = new System.Drawing.Size(300, 35);
 			this.recipientNameTextBox.Style = Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox._Style.Material;
-			this.recipientNameTextBox.TabIndex = 4;
+			this.recipientNameTextBox.TabIndex = 3;
 			this.recipientNameTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
 			this.recipientNameTextBox.TextMarginBottom = 0;
 			this.recipientNameTextBox.TextMarginLeft = 0;
@@ -992,6 +1079,7 @@ namespace Inventory_Forms
             this.productQuantityDataGridViewTextBoxColumn1,
             this.productUnitDataGridViewTextBoxColumn1,
             this.productImageDataGridViewImageColumn1,
+            this.Product_Sale_Price,
             this.registrationDateDataGridViewTextBoxColumn1,
             this.registrationTimeDataGridViewTextBoxColumn1,
             this.numberEditDataGridViewTextBoxColumn,
@@ -1101,6 +1189,14 @@ namespace Inventory_Forms
 			this.productImageDataGridViewImageColumn1.ReadOnly = true;
 			this.productImageDataGridViewImageColumn1.Visible = false;
 			// 
+			// Product_Sale_Price
+			// 
+			this.Product_Sale_Price.DataPropertyName = "Product_Sale_Price";
+			this.Product_Sale_Price.HeaderText = "قیمت فروش کالا";
+			this.Product_Sale_Price.Name = "Product_Sale_Price";
+			this.Product_Sale_Price.ReadOnly = true;
+			this.Product_Sale_Price.Visible = false;
+			// 
 			// registrationDateDataGridViewTextBoxColumn1
 			// 
 			this.registrationDateDataGridViewTextBoxColumn1.DataPropertyName = "Registration_Date";
@@ -1192,7 +1288,6 @@ namespace Inventory_Forms
 		private Guna.UI2.WinForms.Guna2Button deleteImageButton;
 		private System.Windows.Forms.BindingSource productReceivedBindingSource;
 		private System.Windows.Forms.ToolStripMenuItem editProductToolStripMenuItem;
-		private System.Windows.Forms.DataGridView productRecivedDataGridView;
 		private Guna.UI2.WinForms.Guna2Elipse DataGridViewElipse;
 		public Guna.UI2.WinForms.Guna2Button billButton;
 		private System.Windows.Forms.DataGridViewTextBoxColumn transferNameDataGridViewTextBoxColumn1;
@@ -1201,6 +1296,8 @@ namespace Inventory_Forms
 		private System.Windows.Forms.PictureBox checkProductNamePictureBox;
 		private System.Windows.Forms.PictureBox productImagePictureBox;
 		private Guna.UI2.WinForms.Guna2Panel borderPicturePanel;
+		public System.Windows.Forms.DataGridView productRecivedDataGridView;
+		private Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox salesPriceTextBox;
 		private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn1;
 		private System.Windows.Forms.DataGridViewTextBoxColumn productNameDataGridViewTextBoxColumn1;
 		private System.Windows.Forms.DataGridViewTextBoxColumn Recipient_Name;
@@ -1210,6 +1307,7 @@ namespace Inventory_Forms
 		private System.Windows.Forms.DataGridViewTextBoxColumn productQuantityDataGridViewTextBoxColumn1;
 		private System.Windows.Forms.DataGridViewTextBoxColumn productUnitDataGridViewTextBoxColumn1;
 		private System.Windows.Forms.DataGridViewImageColumn productImageDataGridViewImageColumn1;
+		private System.Windows.Forms.DataGridViewTextBoxColumn Product_Sale_Price;
 		private System.Windows.Forms.DataGridViewTextBoxColumn registrationDateDataGridViewTextBoxColumn1;
 		private System.Windows.Forms.DataGridViewTextBoxColumn registrationTimeDataGridViewTextBoxColumn1;
 		private System.Windows.Forms.DataGridViewTextBoxColumn numberEditDataGridViewTextBoxColumn;
