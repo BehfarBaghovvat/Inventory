@@ -77,6 +77,10 @@
     <Compile Include="Migrations\202111230652306_NewChanges.designer.cs">
       <DependentUpon>202111230652306_NewChanges.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202111300638154_FirstRelease.cs" />
+    <Compile Include="Migrations\202111300638154_FirstRelease.designer.cs">
+      <DependentUpon>202111300638154_FirstRelease.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="MonthlyFinancialReport.cs" />
     <Compile Include="PurchaseInvoice.cs" />
@@ -106,6 +110,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202111230652306_NewChanges.resx">
       <DependentUpon>202111230652306_NewChanges.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202111300638154_FirstRelease.resx">
+      <DependentUpon>202111300638154_FirstRelease.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
