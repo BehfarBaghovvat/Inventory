@@ -1242,7 +1242,7 @@ namespace Inventory
 		private void DropDownClitntTimer_Tick(object sender, System.EventArgs e)
 		{
 			submenuClientPanel.Height += 10;
-			if (submenuClientPanel.Height >= 120)
+			if (submenuClientPanel.Height >= 85)
 			{
 				dropDownClitntTimer.Stop();
 			}
