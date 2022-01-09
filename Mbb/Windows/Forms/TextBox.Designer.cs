@@ -41,10 +41,12 @@ namespace Mbb.Windows.Forms
 			// 
 			// iconLeft
 			// 
+			this.iconLeft.BackColor = System.Drawing.Color.Transparent;
 			this.iconLeft.Dock = System.Windows.Forms.DockStyle.Left;
 			this.iconLeft.Location = new System.Drawing.Point(13, 10);
 			this.iconLeft.Name = "iconLeft";
 			this.iconLeft.Size = new System.Drawing.Size(15, 15);
+			this.iconLeft.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
 			this.iconLeft.TabIndex = 0;
 			this.iconLeft.TabStop = false;
 			this.iconLeft.Visible = false;
@@ -72,10 +74,12 @@ namespace Mbb.Windows.Forms
 			// 
 			// iconRight
 			// 
+			this.iconRight.BackColor = System.Drawing.Color.Transparent;
 			this.iconRight.Dock = System.Windows.Forms.DockStyle.Right;
 			this.iconRight.Location = new System.Drawing.Point(272, 10);
 			this.iconRight.Name = "iconRight";
 			this.iconRight.Size = new System.Drawing.Size(15, 15);
+			this.iconRight.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
 			this.iconRight.TabIndex = 2;
 			this.iconRight.TabStop = false;
 			this.iconRight.Visible = false;

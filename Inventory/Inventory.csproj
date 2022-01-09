@@ -209,6 +209,12 @@
     <Compile Include="Forms\Inventory_Forms\BillBuyReportForm.Designer.cs">
       <DependentUpon>BillBuyReportForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Inventory_Forms\listProductForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Inventory_Forms\listProductForm.Designer.cs">
+      <DependentUpon>listProductForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Inventory_Forms\ProductSalesListForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -409,6 +415,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Inventory_Forms\InventoryForm.resx">
       <DependentUpon>InventoryForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Inventory_Forms\listProductForm.resx">
+      <DependentUpon>listProductForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Inventory_Forms\ProductSalesListForm.resx">
       <DependentUpon>ProductSalesListForm.cs</DependentUpon>

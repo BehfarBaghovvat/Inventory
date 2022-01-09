@@ -30,7 +30,6 @@ namespace Inventory_Forms
 		private void InitializeComponent()
 		{
 			this.components = new System.ComponentModel.Container();
-			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ServiceForm));
 			Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties1 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
 			Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties2 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
 			Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties3 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
@@ -98,6 +97,7 @@ namespace Inventory_Forms
 			Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties62 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
 			Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties63 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
 			Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties64 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
+			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ServiceForm));
 			this.controlsPanel = new Guna.UI2.WinForms.Guna2Panel();
 			this.licensePlateGroupBox = new Guna.UI2.WinForms.Guna2GroupBox();
 			this.numTextBox3 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox();
@@ -153,6 +153,7 @@ namespace Inventory_Forms
 			this.editServiceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.phoneNumberTextBox = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox();
 			this.listServiceDataGridViewElipse = new Guna.UI2.WinForms.Guna2Elipse(this.components);
+			this.commodityListButton = new Guna.UI2.WinForms.Guna2GradientButton();
 			this.controlsPanel.SuspendLayout();
 			this.licensePlateGroupBox.SuspendLayout();
 			this.paymentTypeGroupBox.SuspendLayout();
@@ -165,6 +166,7 @@ namespace Inventory_Forms
 			this.controlsPanel.BorderColor = System.Drawing.Color.Indigo;
 			this.controlsPanel.BorderRadius = 15;
 			this.controlsPanel.BorderThickness = 5;
+			this.controlsPanel.Controls.Add(this.commodityListButton);
 			this.controlsPanel.Controls.Add(this.licensePlateGroupBox);
 			this.controlsPanel.Controls.Add(this.serviceTimeTextBox);
 			this.controlsPanel.Controls.Add(this.nextKilometerTextBox);
@@ -2169,6 +2171,33 @@ namespace Inventory_Forms
 			this.listServiceDataGridViewElipse.BorderRadius = 25;
 			this.listServiceDataGridViewElipse.TargetControl = this.listServiceDataGridView;
 			// 
+			// commodityListButton
+			// 
+			this.commodityListButton.Animated = true;
+			this.commodityListButton.BorderRadius = 5;
+			this.commodityListButton.CheckedState.Parent = this.commodityListButton;
+			this.commodityListButton.CustomImages.Parent = this.commodityListButton;
+			this.commodityListButton.Enabled = false;
+			this.commodityListButton.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(0)))), ((int)(((byte)(61)))));
+			this.commodityListButton.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+			this.commodityListButton.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.commodityListButton.ForeColor = System.Drawing.Color.White;
+			this.commodityListButton.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(0)))), ((int)(((byte)(61)))));
+			this.commodityListButton.HoverState.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+			this.commodityListButton.HoverState.Parent = this.commodityListButton;
+			this.commodityListButton.Image = ((System.Drawing.Image)(resources.GetObject("commodityListButton.Image")));
+			this.commodityListButton.ImageAlign = System.Windows.Forms.HorizontalAlignment.Right;
+			this.commodityListButton.ImageSize = new System.Drawing.Size(25, 25);
+			this.commodityListButton.Location = new System.Drawing.Point(13, 12);
+			this.commodityListButton.Name = "commodityListButton";
+			this.commodityListButton.PressedColor = System.Drawing.Color.White;
+			this.commodityListButton.ShadowDecoration.Parent = this.commodityListButton;
+			this.commodityListButton.Size = new System.Drawing.Size(160, 35);
+			this.commodityListButton.TabIndex = 31;
+			this.commodityListButton.Text = "لیست کالاها";
+			this.commodityListButton.TextOffset = new System.Drawing.Point(0, -1);
+			this.commodityListButton.Click += new System.EventHandler(this.CommodityListButton_Click);
+			// 
 			// ServiceForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 17F);
@@ -2248,5 +2277,6 @@ namespace Inventory_Forms
 		private Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox numTextBox2;
 		private Mbb.Windows.Forms.Label separatorLabel2;
 		private Mbb.Windows.Forms.Label iranLabel;
+		private Guna.UI2.WinForms.Guna2GradientButton commodityListButton;
 	}
 }

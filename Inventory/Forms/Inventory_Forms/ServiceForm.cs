@@ -237,6 +237,13 @@ namespace Inventory_Forms
 		}
 		#endregion /LicensePlateGroupBox_Leave
 
+		#region CommodityListButton_Click
+		private void CommodityListButton_Click(object sender, System.EventArgs e)
+		{
+
+		}
+		#endregion /CommodityListButton_Click
+
 		#region PhoneNumberTextBox_Enter
 		private void PhoneNumberTextBox_Enter(object sender, System.EventArgs e)
 		{
@@ -2119,7 +2126,6 @@ namespace Inventory_Forms
 				}
 			}
 		}
-
 		#endregion /SetServicePrice
 
 		#region TelConfirmation

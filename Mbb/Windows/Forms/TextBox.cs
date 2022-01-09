@@ -252,14 +252,16 @@ namespace Mbb.Windows.Forms
 			set
 			{
 				_iconLeft = value;
-				iconLeft.Image = _iconLeft;
-				if (_iconLeft == null)
+				
+				if (value == null)
 				{
 					iconLeft.Visible = false;
+					iconLeft.Image = null;
 				}
 				else
 				{
 					iconLeft.Visible = true;
+					iconLeft.Image = value;
 				}
 			}
 		}
