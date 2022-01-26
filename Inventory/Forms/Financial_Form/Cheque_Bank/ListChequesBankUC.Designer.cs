@@ -40,17 +40,17 @@ namespace Chequa_Bank
 			Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties3 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
 			Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties4 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
 			this.listChequasDataGridView = new Guna.UI2.WinForms.Guna2DataGridView();
-			this.chequaSectionBindingSource = new System.Windows.Forms.BindingSource(this.components);
-			this.searchSerialChequeTextBox = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox();
-			this.chequePaymentButton = new Guna.UI2.WinForms.Guna2GradientButton();
 			this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.Select_Chequa = new System.Windows.Forms.DataGridViewCheckBoxColumn();
 			this.payToDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.numberChequaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.dataReceiptDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.amountNumberPaidDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.amountNumberReceivedDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.statusChequaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.chequaSectionBindingSource = new System.Windows.Forms.BindingSource(this.components);
+			this.searchSerialChequeTextBox = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox();
+			this.chequePaymentButton = new Guna.UI2.WinForms.Guna2GradientButton();
+			this.listChequasDataGridViewElipse = new Guna.UI2.WinForms.Guna2Elipse(this.components);
 			((System.ComponentModel.ISupportInitialize)(this.listChequasDataGridView)).BeginInit();
 			((System.ComponentModel.ISupportInitialize)(this.chequaSectionBindingSource)).BeginInit();
 			this.SuspendLayout();
@@ -60,6 +60,7 @@ namespace Chequa_Bank
 			this.listChequasDataGridView.AllowUserToAddRows = false;
 			this.listChequasDataGridView.AllowUserToDeleteRows = false;
 			dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(196)))), ((int)(((byte)(233)))));
+			dataGridViewCellStyle1.Font = new System.Drawing.Font("IRANSansFaNum", 8F);
 			this.listChequasDataGridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
 			this.listChequasDataGridView.AutoGenerateColumns = false;
 			this.listChequasDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
@@ -69,23 +70,22 @@ namespace Chequa_Bank
 			this.listChequasDataGridView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
 			dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
 			dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(103)))), ((int)(((byte)(58)))), ((int)(((byte)(183)))));
-			dataGridViewCellStyle2.Font = new System.Drawing.Font("IRANSansXFaNum", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+			dataGridViewCellStyle2.Font = new System.Drawing.Font("IRANSansXFaNum", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
 			dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
 			dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
 			dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
 			dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
 			this.listChequasDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
-			this.listChequasDataGridView.ColumnHeadersHeight = 30;
+			this.listChequasDataGridView.ColumnHeadersHeight = 35;
 			this.listChequasDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
 			this.listChequasDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-			this.idDataGridViewTextBoxColumn,
-			this.Select_Chequa,
-			this.payToDataGridViewTextBoxColumn,
-			this.numberChequaDataGridViewTextBoxColumn,
-			this.dataReceiptDataGridViewTextBoxColumn,
-			this.amountNumberPaidDataGridViewTextBoxColumn,
-			this.amountNumberReceivedDataGridViewTextBoxColumn,
-			this.statusChequaDataGridViewTextBoxColumn});
+            this.idDataGridViewTextBoxColumn,
+            this.Select_Chequa,
+            this.payToDataGridViewTextBoxColumn,
+            this.dataReceiptDataGridViewTextBoxColumn,
+            this.amountNumberPaidDataGridViewTextBoxColumn,
+            this.amountNumberReceivedDataGridViewTextBoxColumn,
+            this.statusChequaDataGridViewTextBoxColumn});
 			this.listChequasDataGridView.DataSource = this.chequaSectionBindingSource;
 			dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
 			dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(215)))), ((int)(((byte)(240)))));
@@ -110,7 +110,7 @@ namespace Chequa_Bank
 			this.listChequasDataGridView.TabIndex = 0;
 			this.listChequasDataGridView.Theme = Guna.UI2.WinForms.Enums.DataGridViewPresetThemes.DeepPurple;
 			this.listChequasDataGridView.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(196)))), ((int)(((byte)(233)))));
-			this.listChequasDataGridView.ThemeStyle.AlternatingRowsStyle.Font = null;
+			this.listChequasDataGridView.ThemeStyle.AlternatingRowsStyle.Font = new System.Drawing.Font("IRANSansFaNum", 8F);
 			this.listChequasDataGridView.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty;
 			this.listChequasDataGridView.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.Empty;
 			this.listChequasDataGridView.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Empty;
@@ -121,7 +121,7 @@ namespace Chequa_Bank
 			this.listChequasDataGridView.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("IRANSansXFaNum", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
 			this.listChequasDataGridView.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White;
 			this.listChequasDataGridView.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-			this.listChequasDataGridView.ThemeStyle.HeaderStyle.Height = 30;
+			this.listChequasDataGridView.ThemeStyle.HeaderStyle.Height = 35;
 			this.listChequasDataGridView.ThemeStyle.ReadOnly = true;
 			this.listChequasDataGridView.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(215)))), ((int)(((byte)(240)))));
 			this.listChequasDataGridView.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
@@ -130,6 +130,59 @@ namespace Chequa_Bank
 			this.listChequasDataGridView.ThemeStyle.RowsStyle.Height = 22;
 			this.listChequasDataGridView.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(123)))), ((int)(((byte)(207)))));
 			this.listChequasDataGridView.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.Black;
+			// 
+			// idDataGridViewTextBoxColumn
+			// 
+			this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
+			this.idDataGridViewTextBoxColumn.FillWeight = 50F;
+			this.idDataGridViewTextBoxColumn.HeaderText = "ردیف";
+			this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
+			this.idDataGridViewTextBoxColumn.ReadOnly = true;
+			// 
+			// Select_Chequa
+			// 
+			this.Select_Chequa.DataPropertyName = "Amount_Number";
+			this.Select_Chequa.FillWeight = 50F;
+			this.Select_Chequa.HeaderText = "انتخاب چک";
+			this.Select_Chequa.Name = "Select_Chequa";
+			this.Select_Chequa.ReadOnly = true;
+			// 
+			// payToDataGridViewTextBoxColumn
+			// 
+			this.payToDataGridViewTextBoxColumn.DataPropertyName = "Pay_To";
+			this.payToDataGridViewTextBoxColumn.HeaderText = "در وجه";
+			this.payToDataGridViewTextBoxColumn.Name = "payToDataGridViewTextBoxColumn";
+			this.payToDataGridViewTextBoxColumn.ReadOnly = true;
+			// 
+			// dataReceiptDataGridViewTextBoxColumn
+			// 
+			this.dataReceiptDataGridViewTextBoxColumn.DataPropertyName = "Data_Receipt";
+			this.dataReceiptDataGridViewTextBoxColumn.FillWeight = 75F;
+			this.dataReceiptDataGridViewTextBoxColumn.HeaderText = "تاریخ وصول";
+			this.dataReceiptDataGridViewTextBoxColumn.Name = "dataReceiptDataGridViewTextBoxColumn";
+			this.dataReceiptDataGridViewTextBoxColumn.ReadOnly = true;
+			// 
+			// amountNumberPaidDataGridViewTextBoxColumn
+			// 
+			this.amountNumberPaidDataGridViewTextBoxColumn.DataPropertyName = "Amount_Number_Paid";
+			this.amountNumberPaidDataGridViewTextBoxColumn.HeaderText = "مبلغ پرداختی به عدد";
+			this.amountNumberPaidDataGridViewTextBoxColumn.Name = "amountNumberPaidDataGridViewTextBoxColumn";
+			this.amountNumberPaidDataGridViewTextBoxColumn.ReadOnly = true;
+			// 
+			// amountNumberReceivedDataGridViewTextBoxColumn
+			// 
+			this.amountNumberReceivedDataGridViewTextBoxColumn.DataPropertyName = "Amount_Number_Received";
+			this.amountNumberReceivedDataGridViewTextBoxColumn.HeaderText = "مبلغ دریافتی به عدد";
+			this.amountNumberReceivedDataGridViewTextBoxColumn.Name = "amountNumberReceivedDataGridViewTextBoxColumn";
+			this.amountNumberReceivedDataGridViewTextBoxColumn.ReadOnly = true;
+			// 
+			// statusChequaDataGridViewTextBoxColumn
+			// 
+			this.statusChequaDataGridViewTextBoxColumn.DataPropertyName = "Status_Chequa";
+			this.statusChequaDataGridViewTextBoxColumn.FillWeight = 75F;
+			this.statusChequaDataGridViewTextBoxColumn.HeaderText = "وضعیت چک";
+			this.statusChequaDataGridViewTextBoxColumn.Name = "statusChequaDataGridViewTextBoxColumn";
+			this.statusChequaDataGridViewTextBoxColumn.ReadOnly = true;
 			// 
 			// chequaSectionBindingSource
 			// 
@@ -236,65 +289,10 @@ namespace Chequa_Bank
 			this.chequePaymentButton.Text = "پرداخت چک";
 			this.chequePaymentButton.Click += new System.EventHandler(this.ChequePaymentButton_Click);
 			// 
-			// idDataGridViewTextBoxColumn
+			// listChequasDataGridViewElipse
 			// 
-			this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
-			this.idDataGridViewTextBoxColumn.FillWeight = 50F;
-			this.idDataGridViewTextBoxColumn.HeaderText = "ردیف";
-			this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
-			this.idDataGridViewTextBoxColumn.ReadOnly = true;
-			// 
-			// Select_Chequa
-			// 
-			this.Select_Chequa.DataPropertyName = "Amount_Number";
-			this.Select_Chequa.FillWeight = 50F;
-			this.Select_Chequa.HeaderText = "انتخاب چک";
-			this.Select_Chequa.Name = "Select_Chequa";
-			this.Select_Chequa.ReadOnly = true;
-			// 
-			// payToDataGridViewTextBoxColumn
-			// 
-			this.payToDataGridViewTextBoxColumn.DataPropertyName = "Pay_To";
-			this.payToDataGridViewTextBoxColumn.HeaderText = "در وجه";
-			this.payToDataGridViewTextBoxColumn.Name = "payToDataGridViewTextBoxColumn";
-			this.payToDataGridViewTextBoxColumn.ReadOnly = true;
-			// 
-			// numberChequaDataGridViewTextBoxColumn
-			// 
-			this.numberChequaDataGridViewTextBoxColumn.DataPropertyName = "Number_Chequa";
-			this.numberChequaDataGridViewTextBoxColumn.HeaderText = "شماره چک";
-			this.numberChequaDataGridViewTextBoxColumn.Name = "numberChequaDataGridViewTextBoxColumn";
-			this.numberChequaDataGridViewTextBoxColumn.ReadOnly = true;
-			// 
-			// dataReceiptDataGridViewTextBoxColumn
-			// 
-			this.dataReceiptDataGridViewTextBoxColumn.DataPropertyName = "Data_Receipt";
-			this.dataReceiptDataGridViewTextBoxColumn.FillWeight = 75F;
-			this.dataReceiptDataGridViewTextBoxColumn.HeaderText = "تاریخ وصول";
-			this.dataReceiptDataGridViewTextBoxColumn.Name = "dataReceiptDataGridViewTextBoxColumn";
-			this.dataReceiptDataGridViewTextBoxColumn.ReadOnly = true;
-			// 
-			// amountNumberPaidDataGridViewTextBoxColumn
-			// 
-			this.amountNumberPaidDataGridViewTextBoxColumn.DataPropertyName = "Amount_Number_Paid";
-			this.amountNumberPaidDataGridViewTextBoxColumn.HeaderText = "مبلغ پرداختی به عدد";
-			this.amountNumberPaidDataGridViewTextBoxColumn.Name = "amountNumberPaidDataGridViewTextBoxColumn";
-			this.amountNumberPaidDataGridViewTextBoxColumn.ReadOnly = true;
-			// 
-			// amountNumberReceivedDataGridViewTextBoxColumn
-			// 
-			this.amountNumberReceivedDataGridViewTextBoxColumn.DataPropertyName = "Amount_Number_Received";
-			this.amountNumberReceivedDataGridViewTextBoxColumn.HeaderText = "مبلغ دریافتی به عدد";
-			this.amountNumberReceivedDataGridViewTextBoxColumn.Name = "amountNumberReceivedDataGridViewTextBoxColumn";
-			this.amountNumberReceivedDataGridViewTextBoxColumn.ReadOnly = true;
-			// 
-			// statusChequaDataGridViewTextBoxColumn
-			// 
-			this.statusChequaDataGridViewTextBoxColumn.DataPropertyName = "Status_Chequa";
-			this.statusChequaDataGridViewTextBoxColumn.FillWeight = 75F;
-			this.statusChequaDataGridViewTextBoxColumn.HeaderText = "وضعیت چک";
-			this.statusChequaDataGridViewTextBoxColumn.Name = "statusChequaDataGridViewTextBoxColumn";
-			this.statusChequaDataGridViewTextBoxColumn.ReadOnly = true;
+			this.listChequasDataGridViewElipse.BorderRadius = 15;
+			this.listChequasDataGridViewElipse.TargetControl = this.listChequasDataGridView;
 			// 
 			// ListChequasBankUC
 			// 
@@ -328,5 +326,6 @@ namespace Chequa_Bank
 		private System.Windows.Forms.DataGridViewTextBoxColumn amountNumberPaidDataGridViewTextBoxColumn;
 		private System.Windows.Forms.DataGridViewTextBoxColumn amountNumberReceivedDataGridViewTextBoxColumn;
 		private System.Windows.Forms.DataGridViewTextBoxColumn statusChequaDataGridViewTextBoxColumn;
+		private Guna.UI2.WinForms.Guna2Elipse listChequasDataGridViewElipse;
 	}
 }

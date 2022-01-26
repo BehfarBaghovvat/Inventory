@@ -95,7 +95,7 @@ namespace Inventory_Forms
 			// 
 			// receiptDataGridViewElipse
 			// 
-			this.receiptDataGridViewElipse.BorderRadius = 25;
+			this.receiptDataGridViewElipse.BorderRadius = 15;
 			this.receiptDataGridViewElipse.TargetControl = this.productListDataGridView;
 			// 
 			// productListDataGridView
@@ -104,7 +104,7 @@ namespace Inventory_Forms
 			this.productListDataGridView.AllowUserToDeleteRows = false;
 			dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
 			dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
-			dataGridViewCellStyle1.Font = new System.Drawing.Font("IRANSansXFaNum Light", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+			dataGridViewCellStyle1.Font = new System.Drawing.Font("IRANSansFaNum", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
 			dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
 			dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(143)))), ((int)(((byte)(255)))));
 			dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Black;
@@ -116,7 +116,7 @@ namespace Inventory_Forms
 			this.productListDataGridView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
 			dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
 			dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-			dataGridViewCellStyle2.Font = new System.Drawing.Font("IRANSans", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+			dataGridViewCellStyle2.Font = new System.Drawing.Font("IRANSansFaNum", 10F);
 			dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
 			dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
 			dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
@@ -141,7 +141,7 @@ namespace Inventory_Forms
 			this.productListDataGridView.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
 			dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
 			dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(203)))), ((int)(((byte)(199)))), ((int)(((byte)(255)))));
-			dataGridViewCellStyle3.Font = new System.Drawing.Font("IRANSansXFaNum Light", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+			dataGridViewCellStyle3.Font = new System.Drawing.Font("IRANSansFaNum", 8F);
 			dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
 			dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(143)))), ((int)(((byte)(255)))));
 			dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
@@ -199,7 +199,7 @@ namespace Inventory_Forms
 			// 
 			// totalSumPriceTextBox
 			// 
-			this.totalSumPriceTextBox.Font = new System.Drawing.Font("IRANSansXFaNum", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+			this.totalSumPriceTextBox.Font = new System.Drawing.Font("IRANSansFaNum", 10F);
 			this.totalSumPriceTextBox.ForeColor = System.Drawing.SystemColors.ActiveCaption;
 			this.totalSumPriceTextBox.Location = new System.Drawing.Point(12, 413);
 			this.totalSumPriceTextBox.Name = "totalSumPriceTextBox";
@@ -212,7 +212,7 @@ namespace Inventory_Forms
 			// 
 			// remainingAmountTextBox
 			// 
-			this.remainingAmountTextBox.Font = new System.Drawing.Font("IRANSansXFaNum", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+			this.remainingAmountTextBox.Font = new System.Drawing.Font("IRANSansFaNum", 10F);
 			this.remainingAmountTextBox.ForeColor = System.Drawing.SystemColors.ActiveCaption;
 			this.remainingAmountTextBox.Location = new System.Drawing.Point(12, 495);
 			this.remainingAmountTextBox.Name = "remainingAmountTextBox";
@@ -252,7 +252,7 @@ namespace Inventory_Forms
 			this.amountPaidTextBox.BorderThickness = 0;
 			this.amountPaidTextBox.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
 			this.amountPaidTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
-			this.amountPaidTextBox.DefaultFont = new System.Drawing.Font("IRANSansXFaNum", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+			this.amountPaidTextBox.DefaultFont = new System.Drawing.Font("IRANSansFaNum", 10F);
 			this.amountPaidTextBox.DefaultText = "0 تومان";
 			this.amountPaidTextBox.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
 			this.amountPaidTextBox.ForeColor = System.Drawing.Color.White;
@@ -362,7 +362,7 @@ namespace Inventory_Forms
 			// dateOfPrintTextBox
 			// 
 			this.dateOfPrintTextBox.AllowDrop = true;
-			this.dateOfPrintTextBox.Font = new System.Drawing.Font("IRANSansXFaNum", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+			this.dateOfPrintTextBox.Font = new System.Drawing.Font("IRANSansFaNum", 10F);
 			this.dateOfPrintTextBox.ForeColor = System.Drawing.SystemColors.ActiveCaption;
 			this.dateOfPrintTextBox.Location = new System.Drawing.Point(707, 38);
 			this.dateOfPrintTextBox.Name = "dateOfPrintTextBox";
@@ -587,7 +587,7 @@ namespace Inventory_Forms
 			// 
 			// paymentTypeGroupBox
 			// 
-			this.paymentTypeGroupBox.BorderRadius = 10;
+			this.paymentTypeGroupBox.BorderRadius = 5;
 			this.paymentTypeGroupBox.Controls.Add(this.paymentChequeLabel);
 			this.paymentTypeGroupBox.Controls.Add(this.paymentCashLabel);
 			this.paymentTypeGroupBox.Controls.Add(this.paymentChequeRadioButton);

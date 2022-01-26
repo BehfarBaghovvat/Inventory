@@ -305,9 +305,14 @@ namespace Financial_Form
 
 				OldCash = _newCahsh;
 				funeLabel.Text =  $"{_newCahsh:#,0} تومان";
+
 				Inventory.Program.MainForm.cashCapitalTextBox.Text = $"{_newCahsh:#,0} تومان";
 
-
+				if (string.Compare(Inventory.Program.MainForm.non_cashCapitalTextBox.Text, "0 تومان")==1 )
+				{
+					Inventory.Program.MainForm.GetNon_CashCapital();
+					Inventory.Program.MainForm.GetTotalCapital();
+				}
 
 				#region -----------------------------------------     Save Event Log     -----------------------------------------
 				if (string.Compare(Inventory.Program.UserAuthentication.Username, "admin") != 0)

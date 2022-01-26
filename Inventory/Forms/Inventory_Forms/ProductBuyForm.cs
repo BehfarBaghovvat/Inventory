@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 
 namespace Inventory_Forms
 {
@@ -209,7 +210,7 @@ namespace Inventory_Forms
 		#region ProductNameTextBox_KeyPress
 		private void ProductNameTextBox_KeyPress(object sender, System.Windows.Forms.KeyPressEventArgs e)
 		{
-			Infrastructure.Utility.PersianAndNumberTyping(e);
+			//Infrastructure.Utility.PersianAndNumberTyping(e);
 		}
 		#endregion /ProductNameTextBox_KeyPress
 
@@ -507,11 +508,12 @@ namespace Inventory_Forms
 
 			if (string.IsNullOrWhiteSpace(productQuantityTextBox.Text))
 			{
-				productQuantityTextBox.SelectAll();
+				productQuantityTextBox.Select(0, productQuantityTextBox.Text.Length);
 				productQuantityTextBox.Text = "0";
 			}
 			else
 			{
+				productQuantityTextBox.Select(0, productQuantityTextBox.Text.Length);
 				return;
 			}
 		}
@@ -627,7 +629,7 @@ namespace Inventory_Forms
 				BillBuyReportForm.carrierNameTextBox.Text = carrierNameTextBox.Text;
 				BillBuyReportForm.MyProductBuyForm = this;
 				BillBuyReportForm.SetBillInDataGridView(listBillBuyReportItems);
-				BillBuyReportForm.Show();
+				BillBuyReportForm.ShowDialog();
 			}
 		}
 		#endregion /BillButton_Click
@@ -696,38 +698,41 @@ namespace Inventory_Forms
 			ProductReceived_New.Carrier_Name = productRecivedDataGridView.CurrentRow.Cells[4].Value.ToString();
 			carrierNameTextBox.Text = productRecivedDataGridView.CurrentRow.Cells[4].Value.ToString();
 
-			ProductReceived_Selected.Product_Purchase_Price = productRecivedDataGridView.CurrentRow.Cells[5].Value.ToString();
-			ProductReceived_New.Product_Purchase_Price = productRecivedDataGridView.CurrentRow.Cells[5].Value.ToString();
-			InventoryHolding_New.Product_Purchase_Price = productRecivedDataGridView.CurrentRow.Cells[5].Value.ToString();
-			productPriceTextBox.Text = productRecivedDataGridView.CurrentRow.Cells[5].Value.ToString();
+			ProductReceived_Selected.Product_Purchase_Price = productRecivedDataGridView.CurrentRow.Cells[7].Value.ToString();
+			ProductReceived_New.Product_Purchase_Price = productRecivedDataGridView.CurrentRow.Cells[7].Value.ToString();
+			InventoryHolding_New.Product_Purchase_Price = productRecivedDataGridView.CurrentRow.Cells[7].Value.ToString();
+			productPriceTextBox.Text = productRecivedDataGridView.CurrentRow.Cells[7].Value.ToString();
 
-			ProductReceived_Selected.Product_Sale_Price = productRecivedDataGridView.CurrentRow.Cells[9].Value.ToString();
-			ProductReceived_New.Product_Sale_Price = productRecivedDataGridView.CurrentRow.Cells[9].Value.ToString();
-			InventoryHolding_New.Product_Sale_Price = productRecivedDataGridView.CurrentRow.Cells[9].Value.ToString();
-			salesPriceTextBox.Text = productRecivedDataGridView.CurrentRow.Cells[9].Value.ToString();
+			ProductReceived_Selected.Product_Sale_Price = productRecivedDataGridView.CurrentRow.Cells[8].Value.ToString();
+			ProductReceived_New.Product_Sale_Price = productRecivedDataGridView.CurrentRow.Cells[8].Value.ToString();
+			InventoryHolding_New.Product_Sale_Price = productRecivedDataGridView.CurrentRow.Cells[8].Value.ToString();
+			salesPriceTextBox.Text = productRecivedDataGridView.CurrentRow.Cells[8].Value.ToString();
 
-			ProductReceived_Selected.Product_Quantity = int.Parse(productRecivedDataGridView.CurrentRow.Cells[6].Value.ToString());
-			ProductReceived_New.Product_Quantity = int.Parse(productRecivedDataGridView.CurrentRow.Cells[6].Value.ToString());
-			InventoryHolding_New.Product_Quantity = int.Parse(productRecivedDataGridView.CurrentRow.Cells[6].Value.ToString());
-			_updateProductQuantity.First_Quantity = int.Parse(productRecivedDataGridView.CurrentRow.Cells[6].Value.ToString());
+			ProductReceived_Selected.Product_Quantity = int.Parse(productRecivedDataGridView.CurrentRow.Cells[5].Value.ToString());
+			ProductReceived_New.Product_Quantity = int.Parse(productRecivedDataGridView.CurrentRow.Cells[5].Value.ToString());
+			InventoryHolding_New.Product_Quantity = int.Parse(productRecivedDataGridView.CurrentRow.Cells[5].Value.ToString());
 			_updateProductQuantity.Second_Quantity = 0;
-			productQuantityTextBox.Text = "0";
-			//_updateProductQuantity.First_Quantity = int.Parse(productRecivedDataGridView.CurrentRow.Cells[6].Value.ToString());
-			//_updateProductQuantity.Second_Quantity = int.Parse(productRecivedDataGridView.CurrentRow.Cells[6].Value.ToString());
-			//productQuantityTextBox.Text = productRecivedDataGridView.CurrentRow.Cells[6].Value.ToString();
+			productQuantityTextBox.Text = productRecivedDataGridView.CurrentRow.Cells[5].Value.ToString();
 
-			ProductReceived_Selected.Product_Unit = productRecivedDataGridView.CurrentRow.Cells[7].Value.ToString();
-			ProductReceived_New.Product_Unit = productRecivedDataGridView.CurrentRow.Cells[7].Value.ToString();
-			InventoryHolding_New.Product_Unit = productRecivedDataGridView.CurrentRow.Cells[7].Value.ToString();
-			productUnitComboBox.SelectedIndex = productUnitComboBox.FindString(productRecivedDataGridView.CurrentRow.Cells[7].Value.ToString());
+			ProductReceived_Selected.Product_Unit = productRecivedDataGridView.CurrentRow.Cells[6].Value.ToString();
+			ProductReceived_New.Product_Unit = productRecivedDataGridView.CurrentRow.Cells[6].Value.ToString();
+			InventoryHolding_New.Product_Unit = productRecivedDataGridView.CurrentRow.Cells[6].Value.ToString();
+			productUnitComboBox.SelectedIndex = productUnitComboBox.FindString(productRecivedDataGridView.CurrentRow.Cells[6].Value.ToString());
 
-			ProductReceived_Selected.Product_Image = (byte[])productRecivedDataGridView.CurrentRow.Cells[8].Value;
-			ProductReceived_New.Product_Image = (byte[])productRecivedDataGridView.CurrentRow.Cells[8].Value;
-			InventoryHolding_New.Product_Image = (byte[])productRecivedDataGridView.CurrentRow.Cells[8].Value;
-
-			using (System.IO.MemoryStream ms = new System.IO.MemoryStream(ProductReceived_Selected.Product_Image))
+			if (productRecivedDataGridView.CurrentRow.Cells[9].Value != null)
 			{
-				productImagePictureBox.Image = System.Drawing.Image.FromStream(ms);
+				ProductReceived_Selected.Product_Image = (byte[])productRecivedDataGridView.CurrentRow.Cells[9].Value;
+				ProductReceived_New.Product_Image = (byte[])productRecivedDataGridView.CurrentRow.Cells[9].Value;
+				InventoryHolding_New.Product_Image = (byte[])productRecivedDataGridView.CurrentRow.Cells[9].Value;
+
+				using (System.IO.MemoryStream ms = new System.IO.MemoryStream(ProductReceived_Selected.Product_Image))
+				{
+					productImagePictureBox.Image = System.Drawing.Image.FromStream(ms);
+				}
+			}
+			else
+			{
+				return;
 			}
 		}
 		#endregion /EditProductToolStripMenuItem_Click
@@ -737,6 +742,11 @@ namespace Inventory_Forms
 		{
 			try
 			{
+				if (string.Compare(saveBottom.Text, "ویرایش کالا") == 0)
+				{
+					saveBottom.Text = "ثبت کالا";
+				}
+
 				if (productRecivedDataGridView.Rows.Count == 0)
 				{
 					Mbb.Windows.Forms.MessageBox.Show
@@ -757,6 +767,10 @@ namespace Inventory_Forms
 
 					if (dialogResult == System.Windows.Forms.DialogResult.Yes)
 					{
+						decimal _refundAmount = 0;
+						decimal _cashCapital = Inventory.Program.MainForm.GetCapitalFund();
+						decimal _nonCashCapital = Inventory.Program.MainForm.GetNon_CashCapital();
+
 						string productName = productRecivedDataGridView.CurrentRow.Cells[1].Value.ToString();
 
 						using (Models.DataBaseContext dataBaseContext = new Models.DataBaseContext())
@@ -767,8 +781,16 @@ namespace Inventory_Forms
 								dataBaseContext.ProductReceiveds
 								.Where(current => string.Compare(current.Product_Name, productName) == 0)
 								.FirstOrDefault();
+
 							if (productReceived != null)
 							{
+								_refundAmount = 
+									decimal.Parse(productRecivedDataGridView.CurrentRow.Cells[7].Value.ToString().Replace("تومان", string.Empty).Replace(",", string.Empty).Trim()) * int.Parse(productRecivedDataGridView.CurrentRow.Cells[5].Value.ToString());
+
+								_cashCapital += _refundAmount;
+
+								
+
 								var entry = dataBaseContext.Entry(productReceived);
 
 								if (entry.State == System.Data.Entity.EntityState.Detached)
@@ -778,6 +800,8 @@ namespace Inventory_Forms
 							}
 							dataBaseContext.ProductReceiveds.Remove(productReceived);
 							dataBaseContext.SaveChanges();
+
+							
 
 							//=========================================================.این بخش برای حذف کالا از انبار اصلی می باشد========================================================
 
@@ -802,6 +826,8 @@ namespace Inventory_Forms
 
 							RefrashData();
 						}
+
+						CapitalUpdate(_cashCapital);
 
 						Infrastructure.Utility.WindowsNotification
 							(message: "کالای مورد نظر حذف گردید!",
@@ -832,15 +858,19 @@ namespace Inventory_Forms
 		#region ViewProductToolStripMenuItem_Click
 		private void ViewProductToolStripMenuItem_Click(object sender, System.EventArgs e)
 		{
-			byte[] product_Image = (byte[])productRecivedDataGridView.CurrentRow.Cells[8].Value;
-
-			System.IO.MemoryStream ms = new System.IO.MemoryStream(product_Image);
-
-			//----برای بار گزاری تصویر
-			ViewProducrImageForm viewProducrImageForm = new ViewProducrImageForm(System.Drawing.Image.FromStream(ms));
-
-			viewProducrImageForm.ShowDialog();
-
+			if (productRecivedDataGridView.CurrentRow.Cells[9].Value == null)
+			{
+				ViewProducrImageForm viewProducrImageForm = new ViewProducrImageForm(null);
+				viewProducrImageForm.ShowDialog();
+			}
+			else
+			{
+				byte[] product_Image = (byte[])productRecivedDataGridView.CurrentRow.Cells[9].Value;
+				System.IO.MemoryStream ms = new System.IO.MemoryStream(product_Image);
+				//----برای بار گزاری تصویر
+				ViewProducrImageForm viewProducrImageForm = new ViewProducrImageForm(System.Drawing.Image.FromStream(ms));
+				viewProducrImageForm.ShowDialog();
+			}
 		}
 		#endregion /ViewProductToolStripMenuItem_Click
 
@@ -890,40 +920,47 @@ namespace Inventory_Forms
 		}
 		#endregion /AllClear
 
-		#region DeleteToGetNew
+		#region CapitalUpdate
 		/// <summary>
-		/// حذف داده های درج شده جهت
-		/// دریافت اطلاعات جدید
+		/// به روز رسانی صندوق سرمایه
 		/// </summary>
-		private void DeleteToGetNew()
+		/// <param name="cashCapital"></param>
+		/// <param name="nonCashCapital"></param>
+		/// <param name="totalCapital"></param>
+		private void CapitalUpdate(decimal cashCapital)
 		{
-			productNameTextBox.Clear();
-			ProductReceived_New.Product_Name = null;
-			InventoryHolding_New.Product_Name = null;
+			Models.DataBaseContext dataBaseContext = null;
+			try
+			{
+				dataBaseContext =
+					new Models.DataBaseContext();
 
-			productPriceTextBox.Clear();
-			ProductReceived_New.Product_Purchase_Price = null;
-			InventoryHolding_New.Product_Purchase_Price = null;
+				Models.CapitalFund capitalFund =
+					dataBaseContext.CapitalFunds
+					.FirstOrDefault();
 
-			salesPriceTextBox.Clear();
-			ProductReceived_New.Product_Sale_Price = null;
-			InventoryHolding_New.Product_Sale_Price = null;
+				capitalFund.Capital_Fund = $"{cashCapital:#,0} تومان";
 
-			productQuantityTextBox.Clear();
-			ProductReceived_New.Product_Quantity = null;
-			InventoryHolding_New.Product_Quantity = null;
+				dataBaseContext.SaveChanges();
 
-			productUnitComboBox.SelectedIndex = 0;
-			ProductReceived_New.Product_Unit = null;
-			InventoryHolding_New.Product_Unit = null;
+				Inventory.Program.MainForm.GetNon_CashCapital();
 
-			productImagePictureBox.Image = null;
-			ProductReceived_New.Product_Image = null;
-			InventoryHolding_New.Product_Image = null;
-
-			deleteImageButton.Visible = false;
+				Inventory.Program.MainForm.GetTotalCapital();
+			}
+			catch (Exception ex)
+			{
+				Infrastructure.Utility.ExceptionShow(ex);
+			}
+			finally
+			{
+				if (dataBaseContext != null)
+				{
+					dataBaseContext.Dispose();
+					dataBaseContext = null;
+				}
+			}
 		}
-		#endregion /DeleteToGetNew
+		#endregion /CapitalUpdate
 
 		#region CheckFundBalance
 		/// <summary>
@@ -973,6 +1010,41 @@ namespace Inventory_Forms
 			InventoryHolding_New = null;
 		}
 		#endregion /ClearForEdit
+
+		#region DeleteToGetNew
+		/// <summary>
+		/// حذف داده های درج شده جهت
+		/// دریافت اطلاعات جدید
+		/// </summary>
+		private void DeleteToGetNew()
+		{
+			productNameTextBox.Clear();
+			ProductReceived_New.Product_Name = null;
+			InventoryHolding_New.Product_Name = null;
+
+			productPriceTextBox.Clear();
+			ProductReceived_New.Product_Purchase_Price = null;
+			InventoryHolding_New.Product_Purchase_Price = null;
+
+			salesPriceTextBox.Clear();
+			ProductReceived_New.Product_Sale_Price = null;
+			InventoryHolding_New.Product_Sale_Price = null;
+
+			productQuantityTextBox.Clear();
+			ProductReceived_New.Product_Quantity = null;
+			InventoryHolding_New.Product_Quantity = null;
+
+			productUnitComboBox.SelectedIndex = 0;
+			ProductReceived_New.Product_Unit = null;
+			InventoryHolding_New.Product_Unit = null;
+
+			productImagePictureBox.Image = null;
+			ProductReceived_New.Product_Image = null;
+			InventoryHolding_New.Product_Image = null;
+
+			deleteImageButton.Visible = false;
+		}
+		#endregion /DeleteToGetNew
 
 		#region GetCapitalInventory
 		/// <summary>
@@ -1222,6 +1294,7 @@ namespace Inventory_Forms
 				Product_Unit = productReceived.Product_Unit,
 				Total_Price = $"{totalPrice:#,0} تومان",
 			};
+
 			listBillBuyReportItems.Add(bill);
 		}
 		#endregion /SetReceiptDataGridView
@@ -1350,14 +1423,18 @@ namespace Inventory_Forms
 				}
 				else
 				{
-					_updateProductQuantity.Final_Quantity =
-						_updateProductQuantity.First_Quantity + _updateProductQuantity.Second_Quantity;
+					decimal _capitalFund = Inventory.Program.MainForm.GetCapitalFund();
+
+					decimal _amountPaid = 
+						decimal.Parse(inputProductReceived.Product_Purchase_Price.Replace("تومان",string.Empty).Replace(",",string.Empty).Trim()) * _updateProductQuantity.Second_Quantity;
+
+					_capitalFund -= _amountPaid;
 
 					productReceived.Product_Name = inputProductReceived.Product_Name;
 					productReceived.Product_Image = inputProductReceived.Product_Image;
 					productReceived.Product_Purchase_Price = inputProductReceived.Product_Purchase_Price;
 					productReceived.Product_Sale_Price = inputProductReceived.Product_Sale_Price;
-					productReceived.Product_Quantity = _updateProductQuantity.Final_Quantity;
+					productReceived.Product_Quantity = _updateProductQuantity.Second_Quantity;
 					productReceived.Product_Unit = inputProductReceived.Product_Unit;
 					productReceived.Recipient_Name = Inventory.Program.UserAuthentication.Full_Name;
 					productReceived.Sender_Name = inputProductReceived.Sender_Name;
@@ -1367,6 +1444,8 @@ namespace Inventory_Forms
 					productReceived.Last_Edited_Time = Infrastructure.Utility.ShowTime();
 
 					dataBaseContext.SaveChanges();
+
+					CapitalUpdate(_capitalFund);
 
 					#region  -----------------------------------------    LogInformationEditingEvents     -----------------------------------------
 					if (string.Compare(Inventory.Program.UserAuthentication.Username, "admin") != 0)
@@ -1628,15 +1707,15 @@ namespace Inventory_Forms
 						}
 						errorMessage += "لطفا واحد کالا را تعیین نمایید.";
 					}
-					if (productReceivedNew.Product_Image == null)
-					{
-						if (!string.IsNullOrEmpty(errorMessage))
-						{
-							errorMessage +=
-								System.Environment.NewLine;
-						}
-						errorMessage += "لطفا برای کالای خود تصویر انتخاب کنید.";
-					}
+					//if (productReceivedNew.Product_Image == null)
+					//{
+					//	if (!string.IsNullOrEmpty(errorMessage))
+					//	{
+					//		errorMessage +=
+					//			System.Environment.NewLine;
+					//	}
+					//	errorMessage += "لطفا برای کالای خود تصویر انتخاب کنید.";
+					//}
 
 					if (string.IsNullOrEmpty(errorMessage))
 					{
@@ -1694,7 +1773,6 @@ namespace Inventory_Forms
 								deleteImageButton.Visible = false;
 							}
 						}
-
 						return false;
 					}
 				}
@@ -1749,16 +1827,15 @@ namespace Inventory_Forms
 						}
 						errorMessage += "لطفا واحد کالا را تعیین نمایید.";
 					}
-					if (productReceivedNew.Product_Image == null)
-					{
-						if (!string.IsNullOrEmpty(errorMessage))
-						{
-							errorMessage +=
-								System.Environment.NewLine;
-						}
-						errorMessage += "لطفا برای کالای خود تصویر انتخاب کنید.";
-					}
-
+					//if (productReceivedNew.Product_Image == null)
+					//{
+					//	if (!string.IsNullOrEmpty(errorMessage))
+					//	{
+					//		errorMessage +=
+					//			System.Environment.NewLine;
+					//	}
+					//	errorMessage += "لطفا برای کالای خود تصویر انتخاب کنید.";
+					//}
 					if (string.IsNullOrEmpty(errorMessage))
 					{
 						return true;
@@ -1791,30 +1868,30 @@ namespace Inventory_Forms
 						{
 							productUnitComboBox.Focus();
 						}
-						else if (productReceivedNew.Product_Image == null)
-						{
-							System.Windows.Forms.OpenFileDialog openFileDialog =
-								new System.Windows.Forms.OpenFileDialog
-								{
-									Filter = "JPG (*.jpg)|*.jpg|" +
-								"PNG (*.png)|*.png|" +
-								"BMP (*.bmp)|*.bmp",
-									Title = "Load user picture ",
-								};
+						//else if (productReceivedNew.Product_Image == null)
+						//{
+						//	System.Windows.Forms.OpenFileDialog openFileDialog =
+						//		new System.Windows.Forms.OpenFileDialog
+						//		{
+						//			Filter = "JPG (*.jpg)|*.jpg|" +
+						//		"PNG (*.png)|*.png|" +
+						//		"BMP (*.bmp)|*.bmp",
+						//			Title = "Load user picture ",
+						//		};
 
-							if (openFileDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
-							{
-								productImagePictureBox.Image =
-								System.Drawing.Image.FromFile(openFileDialog.FileName);
-								ProductReceived_New.Product_Image = System.IO.File.ReadAllBytes(openFileDialog.FileName);
-								deleteImageButton.Visible = true;
-							}
-							else
-							{
-								ProductReceived_New.Product_Image = null;
-								deleteImageButton.Visible = false;
-							}
-						}
+						//	if (openFileDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+						//	{
+						//		productImagePictureBox.Image =
+						//		System.Drawing.Image.FromFile(openFileDialog.FileName);
+						//		ProductReceived_New.Product_Image = System.IO.File.ReadAllBytes(openFileDialog.FileName);
+						//		deleteImageButton.Visible = true;
+						//	}
+						//	else
+						//	{
+						//		ProductReceived_New.Product_Image = null;
+						//		deleteImageButton.Visible = false;
+						//	}
+						//}
 
 						return false;
 					}

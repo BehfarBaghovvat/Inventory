@@ -1,7 +1,7 @@
 ﻿
-namespace Inventory.Forms.Inventory_Forms
+namespace Inventory_Forms
 {
-	partial class listProductForm
+	partial class ListProductForm
 	{
 		/// <summary>
 		/// Required designer variable.
@@ -30,171 +30,38 @@ namespace Inventory.Forms.Inventory_Forms
 		private void InitializeComponent()
 		{
 			this.components = new System.ComponentModel.Container();
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(listProductForm));
-			this.guna2DataGridView1 = new Guna.UI2.WinForms.Guna2DataGridView();
-			this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.productNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.productPurchasePriceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.productSalePriceDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.productQuantityDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.productUnitDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.Quantity_Sells = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.Add_To_Bill = new System.Windows.Forms.DataGridViewButtonColumn();
-			this.Delete_From_Bill = new System.Windows.Forms.DataGridViewButtonColumn();
-			this.inventoryHoldingBindingSource = new System.Windows.Forms.BindingSource(this.components);
+			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ListProductForm));
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+			Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties9 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
+			Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties10 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
+			Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties11 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
+			Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties12 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
 			this.topPanel = new Mbb.Windows.Forms.Panel();
 			this.minimizeButton = new Guna.UI2.WinForms.Guna2Button();
 			this.closeButton = new Guna.UI2.WinForms.Guna2Button();
-			this.guna2GradientButton1 = new Guna.UI2.WinForms.Guna2GradientButton();
-			this.guna2GradientButton2 = new Guna.UI2.WinForms.Guna2GradientButton();
-			((System.ComponentModel.ISupportInitialize)(this.guna2DataGridView1)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.inventoryHoldingBindingSource)).BeginInit();
+			this.sendToBillButton = new Guna.UI2.WinForms.Guna2GradientButton();
+			this.cancelButton = new Guna.UI2.WinForms.Guna2GradientButton();
+			this.inventoryHoldingDataGridViewElipse = new Guna.UI2.WinForms.Guna2Elipse(this.components);
+			this.inventoryHoldingDataGridView = new Guna.UI2.WinForms.Guna2DataGridView();
+			this.idDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.productNameDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.productSalePriceDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.productQuantityDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.productUnitDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.Number_Orders = new Stimulsoft.Controls.Win.DotNetBar.Controls.DataGridViewIntegerInputColumn();
+			this.productImageDataGridViewImageColumn = new System.Windows.Forms.DataGridViewImageColumn();
+			this.inventoryHoldingBindingSource = new System.Windows.Forms.BindingSource(this.components);
+			this.searckPanel = new Guna.UI2.WinForms.Guna2Panel();
+			this.searchProducteTextBox = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox();
 			this.topPanel.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.inventoryHoldingDataGridView)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.inventoryHoldingBindingSource)).BeginInit();
+			this.searckPanel.SuspendLayout();
 			this.SuspendLayout();
-			// 
-			// guna2DataGridView1
-			// 
-			this.guna2DataGridView1.AllowUserToAddRows = false;
-			this.guna2DataGridView1.AllowUserToDeleteRows = false;
-			dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(196)))), ((int)(((byte)(233)))));
-			this.guna2DataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-			this.guna2DataGridView1.AutoGenerateColumns = false;
-			this.guna2DataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-			this.guna2DataGridView1.BackgroundColor = System.Drawing.Color.White;
-			this.guna2DataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-			this.guna2DataGridView1.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
-			this.guna2DataGridView1.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-			dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-			dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(103)))), ((int)(((byte)(58)))), ((int)(((byte)(183)))));
-			dataGridViewCellStyle2.Font = new System.Drawing.Font("IRANSansXFaNum", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-			dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-			dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-			dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-			dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-			this.guna2DataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
-			this.guna2DataGridView1.ColumnHeadersHeight = 30;
-			this.guna2DataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.idDataGridViewTextBoxColumn,
-            this.productNameDataGridViewTextBoxColumn,
-            this.productPurchasePriceDataGridViewTextBoxColumn,
-            this.productSalePriceDataGridViewTextBoxColumn,
-            this.productQuantityDataGridViewTextBoxColumn,
-            this.productUnitDataGridViewTextBoxColumn,
-            this.Quantity_Sells,
-            this.Add_To_Bill,
-            this.Delete_From_Bill});
-			this.guna2DataGridView1.DataSource = this.inventoryHoldingBindingSource;
-			dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-			dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(215)))), ((int)(((byte)(240)))));
-			dataGridViewCellStyle5.Font = new System.Drawing.Font("IRANSansXFaNum", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-			dataGridViewCellStyle5.ForeColor = System.Drawing.Color.Black;
-			dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(123)))), ((int)(((byte)(207)))));
-			dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.Black;
-			dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-			this.guna2DataGridView1.DefaultCellStyle = dataGridViewCellStyle5;
-			this.guna2DataGridView1.Dock = System.Windows.Forms.DockStyle.Top;
-			this.guna2DataGridView1.EnableHeadersVisualStyles = false;
-			this.guna2DataGridView1.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(193)))), ((int)(((byte)(232)))));
-			this.guna2DataGridView1.Location = new System.Drawing.Point(0, 30);
-			this.guna2DataGridView1.Name = "guna2DataGridView1";
-			this.guna2DataGridView1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-			this.guna2DataGridView1.RowHeadersVisible = false;
-			this.guna2DataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-			this.guna2DataGridView1.Size = new System.Drawing.Size(1171, 473);
-			this.guna2DataGridView1.TabIndex = 0;
-			this.guna2DataGridView1.Theme = Guna.UI2.WinForms.Enums.DataGridViewPresetThemes.DeepPurple;
-			this.guna2DataGridView1.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(196)))), ((int)(((byte)(233)))));
-			this.guna2DataGridView1.ThemeStyle.AlternatingRowsStyle.Font = null;
-			this.guna2DataGridView1.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty;
-			this.guna2DataGridView1.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.Empty;
-			this.guna2DataGridView1.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Empty;
-			this.guna2DataGridView1.ThemeStyle.BackColor = System.Drawing.Color.White;
-			this.guna2DataGridView1.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(193)))), ((int)(((byte)(232)))));
-			this.guna2DataGridView1.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(103)))), ((int)(((byte)(58)))), ((int)(((byte)(183)))));
-			this.guna2DataGridView1.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-			this.guna2DataGridView1.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("IRANSansXFaNum", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-			this.guna2DataGridView1.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White;
-			this.guna2DataGridView1.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
-			this.guna2DataGridView1.ThemeStyle.HeaderStyle.Height = 30;
-			this.guna2DataGridView1.ThemeStyle.ReadOnly = false;
-			this.guna2DataGridView1.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(215)))), ((int)(((byte)(240)))));
-			this.guna2DataGridView1.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
-			this.guna2DataGridView1.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("IRANSansXFaNum", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-			this.guna2DataGridView1.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.Black;
-			this.guna2DataGridView1.ThemeStyle.RowsStyle.Height = 22;
-			this.guna2DataGridView1.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(123)))), ((int)(((byte)(207)))));
-			this.guna2DataGridView1.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.Black;
-			// 
-			// idDataGridViewTextBoxColumn
-			// 
-			this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
-			this.idDataGridViewTextBoxColumn.HeaderText = "ردیف";
-			this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
-			// 
-			// productNameDataGridViewTextBoxColumn
-			// 
-			this.productNameDataGridViewTextBoxColumn.DataPropertyName = "Product_Name";
-			this.productNameDataGridViewTextBoxColumn.HeaderText = "نام کالا";
-			this.productNameDataGridViewTextBoxColumn.Name = "productNameDataGridViewTextBoxColumn";
-			// 
-			// productPurchasePriceDataGridViewTextBoxColumn
-			// 
-			this.productPurchasePriceDataGridViewTextBoxColumn.DataPropertyName = "Product_Purchase_Price";
-			this.productPurchasePriceDataGridViewTextBoxColumn.HeaderText = "قیمت خرید کالا";
-			this.productPurchasePriceDataGridViewTextBoxColumn.Name = "productPurchasePriceDataGridViewTextBoxColumn";
-			// 
-			// productSalePriceDataGridViewTextBoxColumn
-			// 
-			this.productSalePriceDataGridViewTextBoxColumn.DataPropertyName = "Product_Sale_Price";
-			this.productSalePriceDataGridViewTextBoxColumn.HeaderText = "قیمت فروش کالا";
-			this.productSalePriceDataGridViewTextBoxColumn.Name = "productSalePriceDataGridViewTextBoxColumn";
-			// 
-			// productQuantityDataGridViewTextBoxColumn
-			// 
-			this.productQuantityDataGridViewTextBoxColumn.DataPropertyName = "Product_Quantity";
-			this.productQuantityDataGridViewTextBoxColumn.HeaderText = "تعداد کالا";
-			this.productQuantityDataGridViewTextBoxColumn.Name = "productQuantityDataGridViewTextBoxColumn";
-			// 
-			// productUnitDataGridViewTextBoxColumn
-			// 
-			this.productUnitDataGridViewTextBoxColumn.DataPropertyName = "Product_Unit";
-			this.productUnitDataGridViewTextBoxColumn.HeaderText = "واحد کالا";
-			this.productUnitDataGridViewTextBoxColumn.Name = "productUnitDataGridViewTextBoxColumn";
-			// 
-			// Quantity_Sells
-			// 
-			this.Quantity_Sells.DataPropertyName = "Id";
-			this.Quantity_Sells.HeaderText = "تعداد فروش";
-			this.Quantity_Sells.Name = "Quantity_Sells";
-			// 
-			// Add_To_Bill
-			// 
-			this.Add_To_Bill.DataPropertyName = "Id";
-			dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-			dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-			this.Add_To_Bill.DefaultCellStyle = dataGridViewCellStyle3;
-			this.Add_To_Bill.HeaderText = "";
-			this.Add_To_Bill.Name = "Add_To_Bill";
-			this.Add_To_Bill.Text = "افزودن";
-			// 
-			// Delete_From_Bill
-			// 
-			this.Delete_From_Bill.DataPropertyName = "Id";
-			dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-			dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-			this.Delete_From_Bill.DefaultCellStyle = dataGridViewCellStyle4;
-			this.Delete_From_Bill.HeaderText = "";
-			this.Delete_From_Bill.Name = "Delete_From_Bill";
-			this.Delete_From_Bill.Text = "حذف";
-			// 
-			// inventoryHoldingBindingSource
-			// 
-			this.inventoryHoldingBindingSource.DataSource = typeof(Models.InventoryHolding);
 			// 
 			// topPanel
 			// 
@@ -204,7 +71,7 @@ namespace Inventory.Forms.Inventory_Forms
 			this.topPanel.Dock = System.Windows.Forms.DockStyle.Top;
 			this.topPanel.Location = new System.Drawing.Point(0, 0);
 			this.topPanel.Name = "topPanel";
-			this.topPanel.Size = new System.Drawing.Size(1171, 30);
+			this.topPanel.Size = new System.Drawing.Size(1350, 30);
 			this.topPanel.TabIndex = 1;
 			// 
 			// minimizeButton
@@ -245,83 +112,322 @@ namespace Inventory.Forms.Inventory_Forms
 			this.closeButton.Size = new System.Drawing.Size(50, 30);
 			this.closeButton.TabIndex = 0;
 			// 
-			// guna2GradientButton1
+			// sendToBillButton
 			// 
-			this.guna2GradientButton1.Animated = true;
-			this.guna2GradientButton1.BorderRadius = 5;
-			this.guna2GradientButton1.CheckedState.Parent = this.guna2GradientButton1;
-			this.guna2GradientButton1.CustomImages.Parent = this.guna2GradientButton1;
-			this.guna2GradientButton1.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(0)))), ((int)(((byte)(61)))));
-			this.guna2GradientButton1.FillColor2 = System.Drawing.Color.White;
-			this.guna2GradientButton1.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.guna2GradientButton1.ForeColor = System.Drawing.Color.White;
-			this.guna2GradientButton1.HoverState.FillColor = System.Drawing.Color.White;
-			this.guna2GradientButton1.HoverState.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(0)))), ((int)(((byte)(61)))));
-			this.guna2GradientButton1.HoverState.Parent = this.guna2GradientButton1;
-			this.guna2GradientButton1.Location = new System.Drawing.Point(1009, 509);
-			this.guna2GradientButton1.Name = "guna2GradientButton1";
-			this.guna2GradientButton1.ShadowDecoration.Parent = this.guna2GradientButton1;
-			this.guna2GradientButton1.Size = new System.Drawing.Size(150, 35);
-			this.guna2GradientButton1.TabIndex = 2;
-			this.guna2GradientButton1.Text = "ارسال به فاکتور";
+			this.sendToBillButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			this.sendToBillButton.Animated = true;
+			this.sendToBillButton.BorderRadius = 5;
+			this.sendToBillButton.CheckedState.Parent = this.sendToBillButton;
+			this.sendToBillButton.CustomImages.Parent = this.sendToBillButton;
+			this.sendToBillButton.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(0)))), ((int)(((byte)(61)))));
+			this.sendToBillButton.FillColor2 = System.Drawing.Color.White;
+			this.sendToBillButton.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.sendToBillButton.ForeColor = System.Drawing.Color.White;
+			this.sendToBillButton.HoverState.FillColor = System.Drawing.Color.White;
+			this.sendToBillButton.HoverState.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(0)))), ((int)(((byte)(61)))));
+			this.sendToBillButton.HoverState.Parent = this.sendToBillButton;
+			this.sendToBillButton.Location = new System.Drawing.Point(1188, 509);
+			this.sendToBillButton.Name = "sendToBillButton";
+			this.sendToBillButton.ShadowDecoration.Parent = this.sendToBillButton;
+			this.sendToBillButton.Size = new System.Drawing.Size(150, 35);
+			this.sendToBillButton.TabIndex = 2;
+			this.sendToBillButton.Text = "ارسال به فاکتور";
+			this.sendToBillButton.Click += new System.EventHandler(this.SendToBillButton_Click);
 			// 
-			// guna2GradientButton2
+			// cancelButton
 			// 
-			this.guna2GradientButton2.Animated = true;
-			this.guna2GradientButton2.BorderRadius = 5;
-			this.guna2GradientButton2.CheckedState.Parent = this.guna2GradientButton2;
-			this.guna2GradientButton2.CustomImages.Parent = this.guna2GradientButton2;
-			this.guna2GradientButton2.FillColor = System.Drawing.Color.White;
-			this.guna2GradientButton2.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(0)))), ((int)(((byte)(61)))));
-			this.guna2GradientButton2.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.guna2GradientButton2.ForeColor = System.Drawing.Color.White;
-			this.guna2GradientButton2.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(0)))), ((int)(((byte)(61)))));
-			this.guna2GradientButton2.HoverState.FillColor2 = System.Drawing.Color.White;
-			this.guna2GradientButton2.HoverState.Parent = this.guna2GradientButton2;
-			this.guna2GradientButton2.Location = new System.Drawing.Point(853, 509);
-			this.guna2GradientButton2.Name = "guna2GradientButton2";
-			this.guna2GradientButton2.ShadowDecoration.Parent = this.guna2GradientButton2;
-			this.guna2GradientButton2.Size = new System.Drawing.Size(150, 35);
-			this.guna2GradientButton2.TabIndex = 3;
-			this.guna2GradientButton2.Text = "انصراف";
+			this.cancelButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			this.cancelButton.Animated = true;
+			this.cancelButton.BorderRadius = 5;
+			this.cancelButton.CheckedState.Parent = this.cancelButton;
+			this.cancelButton.CustomImages.Parent = this.cancelButton;
+			this.cancelButton.FillColor = System.Drawing.Color.White;
+			this.cancelButton.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(0)))), ((int)(((byte)(61)))));
+			this.cancelButton.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.cancelButton.ForeColor = System.Drawing.Color.White;
+			this.cancelButton.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(0)))), ((int)(((byte)(61)))));
+			this.cancelButton.HoverState.FillColor2 = System.Drawing.Color.White;
+			this.cancelButton.HoverState.Parent = this.cancelButton;
+			this.cancelButton.Location = new System.Drawing.Point(1032, 509);
+			this.cancelButton.Name = "cancelButton";
+			this.cancelButton.ShadowDecoration.Parent = this.cancelButton;
+			this.cancelButton.Size = new System.Drawing.Size(150, 35);
+			this.cancelButton.TabIndex = 3;
+			this.cancelButton.Text = "انصراف";
 			// 
-			// listProductForm
+			// inventoryHoldingDataGridViewElipse
+			// 
+			this.inventoryHoldingDataGridViewElipse.BorderRadius = 15;
+			this.inventoryHoldingDataGridViewElipse.TargetControl = this.inventoryHoldingDataGridView;
+			// 
+			// inventoryHoldingDataGridView
+			// 
+			this.inventoryHoldingDataGridView.AllowUserToAddRows = false;
+			this.inventoryHoldingDataGridView.AllowUserToDeleteRows = false;
+			dataGridViewCellStyle10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(200)))), ((int)(((byte)(207)))));
+			dataGridViewCellStyle10.Font = new System.Drawing.Font("IRANSansXFaNum", 8F);
+			this.inventoryHoldingDataGridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle10;
+			this.inventoryHoldingDataGridView.AutoGenerateColumns = false;
+			this.inventoryHoldingDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+			this.inventoryHoldingDataGridView.BackgroundColor = System.Drawing.Color.White;
+			this.inventoryHoldingDataGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
+			this.inventoryHoldingDataGridView.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+			this.inventoryHoldingDataGridView.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.Disable;
+			this.inventoryHoldingDataGridView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+			dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+			dataGridViewCellStyle11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
+			dataGridViewCellStyle11.Font = new System.Drawing.Font("IRANSansXFaNum", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+			dataGridViewCellStyle11.ForeColor = System.Drawing.Color.White;
+			dataGridViewCellStyle11.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
+			dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+			dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+			this.inventoryHoldingDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle11;
+			this.inventoryHoldingDataGridView.ColumnHeadersHeight = 35;
+			this.inventoryHoldingDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+			this.inventoryHoldingDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.idDataGridViewTextBoxColumn1,
+            this.productNameDataGridViewTextBoxColumn1,
+            this.productSalePriceDataGridViewTextBoxColumn1,
+            this.productQuantityDataGridViewTextBoxColumn1,
+            this.productUnitDataGridViewTextBoxColumn1,
+            this.Number_Orders,
+            this.productImageDataGridViewImageColumn});
+			this.inventoryHoldingDataGridView.DataSource = this.inventoryHoldingBindingSource;
+			dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+			dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
+			dataGridViewCellStyle8.Font = new System.Drawing.Font("IRANSansXFaNum", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+			dataGridViewCellStyle8.ForeColor = System.Drawing.Color.Black;
+			dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(133)))), ((int)(((byte)(147)))));
+			dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.Black;
+			dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+			this.inventoryHoldingDataGridView.DefaultCellStyle = dataGridViewCellStyle8;
+			this.inventoryHoldingDataGridView.Dock = System.Windows.Forms.DockStyle.Top;
+			this.inventoryHoldingDataGridView.EnableHeadersVisualStyles = false;
+			this.inventoryHoldingDataGridView.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(199)))), ((int)(((byte)(206)))));
+			this.inventoryHoldingDataGridView.Location = new System.Drawing.Point(0, 82);
+			this.inventoryHoldingDataGridView.Name = "inventoryHoldingDataGridView";
+			this.inventoryHoldingDataGridView.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+			this.inventoryHoldingDataGridView.RowHeadersVisible = false;
+			dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+			this.inventoryHoldingDataGridView.RowsDefaultCellStyle = dataGridViewCellStyle13;
+			this.inventoryHoldingDataGridView.RowTemplate.Height = 30;
+			this.inventoryHoldingDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+			this.inventoryHoldingDataGridView.Size = new System.Drawing.Size(1350, 421);
+			this.inventoryHoldingDataGridView.TabIndex = 1;
+			this.inventoryHoldingDataGridView.Theme = Guna.UI2.WinForms.Enums.DataGridViewPresetThemes.WetAsphalt;
+			this.inventoryHoldingDataGridView.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(194)))), ((int)(((byte)(200)))), ((int)(((byte)(207)))));
+			this.inventoryHoldingDataGridView.ThemeStyle.AlternatingRowsStyle.Font = new System.Drawing.Font("IRANSansXFaNum", 8F);
+			this.inventoryHoldingDataGridView.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty;
+			this.inventoryHoldingDataGridView.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.Empty;
+			this.inventoryHoldingDataGridView.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Empty;
+			this.inventoryHoldingDataGridView.ThemeStyle.BackColor = System.Drawing.Color.White;
+			this.inventoryHoldingDataGridView.ThemeStyle.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(199)))), ((int)(((byte)(206)))));
+			this.inventoryHoldingDataGridView.ThemeStyle.HeaderStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(52)))), ((int)(((byte)(73)))), ((int)(((byte)(94)))));
+			this.inventoryHoldingDataGridView.ThemeStyle.HeaderStyle.BorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+			this.inventoryHoldingDataGridView.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("IRANSansXFaNum", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+			this.inventoryHoldingDataGridView.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White;
+			this.inventoryHoldingDataGridView.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+			this.inventoryHoldingDataGridView.ThemeStyle.HeaderStyle.Height = 35;
+			this.inventoryHoldingDataGridView.ThemeStyle.ReadOnly = false;
+			this.inventoryHoldingDataGridView.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
+			this.inventoryHoldingDataGridView.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+			this.inventoryHoldingDataGridView.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("IRANSansXFaNum", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+			this.inventoryHoldingDataGridView.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.Black;
+			this.inventoryHoldingDataGridView.ThemeStyle.RowsStyle.Height = 30;
+			this.inventoryHoldingDataGridView.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(119)))), ((int)(((byte)(133)))), ((int)(((byte)(147)))));
+			this.inventoryHoldingDataGridView.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.Black;
+			this.inventoryHoldingDataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.inventoryHoldingDataGridView_CellClick);
+			this.inventoryHoldingDataGridView.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.InventoryHoldingDataGridView_CellDoubleClick);
+			this.inventoryHoldingDataGridView.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.InventoryHoldingDataGridView_CellValueChanged);
+			// 
+			// idDataGridViewTextBoxColumn1
+			// 
+			this.idDataGridViewTextBoxColumn1.DataPropertyName = "Id";
+			this.idDataGridViewTextBoxColumn1.FillWeight = 50F;
+			this.idDataGridViewTextBoxColumn1.HeaderText = "ردیف";
+			this.idDataGridViewTextBoxColumn1.Name = "idDataGridViewTextBoxColumn1";
+			// 
+			// productNameDataGridViewTextBoxColumn1
+			// 
+			this.productNameDataGridViewTextBoxColumn1.DataPropertyName = "Product_Name";
+			this.productNameDataGridViewTextBoxColumn1.FillWeight = 250F;
+			this.productNameDataGridViewTextBoxColumn1.HeaderText = "نام کالا";
+			this.productNameDataGridViewTextBoxColumn1.Name = "productNameDataGridViewTextBoxColumn1";
+			// 
+			// productSalePriceDataGridViewTextBoxColumn1
+			// 
+			this.productSalePriceDataGridViewTextBoxColumn1.DataPropertyName = "Product_Sale_Price";
+			this.productSalePriceDataGridViewTextBoxColumn1.HeaderText = "قیمت فروش کالا";
+			this.productSalePriceDataGridViewTextBoxColumn1.Name = "productSalePriceDataGridViewTextBoxColumn1";
+			// 
+			// productQuantityDataGridViewTextBoxColumn1
+			// 
+			this.productQuantityDataGridViewTextBoxColumn1.DataPropertyName = "Product_Quantity";
+			this.productQuantityDataGridViewTextBoxColumn1.FillWeight = 50F;
+			this.productQuantityDataGridViewTextBoxColumn1.HeaderText = "تعداد کالا";
+			this.productQuantityDataGridViewTextBoxColumn1.Name = "productQuantityDataGridViewTextBoxColumn1";
+			// 
+			// productUnitDataGridViewTextBoxColumn1
+			// 
+			this.productUnitDataGridViewTextBoxColumn1.DataPropertyName = "Product_Unit";
+			this.productUnitDataGridViewTextBoxColumn1.FillWeight = 75F;
+			this.productUnitDataGridViewTextBoxColumn1.HeaderText = "واحد کالا";
+			this.productUnitDataGridViewTextBoxColumn1.Name = "productUnitDataGridViewTextBoxColumn1";
+			// 
+			// Number_Orders
+			// 
+			// 
+			// 
+			// 
+			this.Number_Orders.BackgroundStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(218)))), ((int)(((byte)(223)))));
+			this.Number_Orders.BackgroundStyle.Class = "DataGridViewNumericBorder";
+			this.Number_Orders.BackgroundStyle.CornerDiameter = 15;
+			this.Number_Orders.BackgroundStyle.CornerType = Stimulsoft.Controls.Win.DotNetBar.eCornerType.Rounded;
+			this.Number_Orders.BackgroundStyle.TextAlignment = Stimulsoft.Controls.Win.DotNetBar.eStyleTextAlignment.Center;
+			this.Number_Orders.BackgroundStyle.TextColor = System.Drawing.Color.Black;
+			dataGridViewCellStyle12.Font = new System.Drawing.Font("IRANSansFaNum", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+			this.Number_Orders.DefaultCellStyle = dataGridViewCellStyle12;
+			this.Number_Orders.HeaderText = "تعداد سفارش";
+			this.Number_Orders.InputHorizontalAlignment = Stimulsoft.Controls.Win.Editors.eHorizontalAlignment.Center;
+			this.Number_Orders.MinValue = 0;
+			this.Number_Orders.Name = "Number_Orders";
+			this.Number_Orders.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+			this.Number_Orders.ShowUpDown = true;
+			// 
+			// productImageDataGridViewImageColumn
+			// 
+			this.productImageDataGridViewImageColumn.DataPropertyName = "Product_Image";
+			this.productImageDataGridViewImageColumn.HeaderText = "تصویر کالا";
+			this.productImageDataGridViewImageColumn.Name = "productImageDataGridViewImageColumn";
+			// 
+			// inventoryHoldingBindingSource
+			// 
+			this.inventoryHoldingBindingSource.DataSource = typeof(Models.InventoryHolding);
+			// 
+			// searckPanel
+			// 
+			this.searckPanel.Controls.Add(this.searchProducteTextBox);
+			this.searckPanel.Dock = System.Windows.Forms.DockStyle.Top;
+			this.searckPanel.Location = new System.Drawing.Point(0, 30);
+			this.searckPanel.Name = "searckPanel";
+			this.searckPanel.ShadowDecoration.Parent = this.searckPanel;
+			this.searckPanel.Size = new System.Drawing.Size(1350, 52);
+			this.searckPanel.TabIndex = 0;
+			// 
+			// searchProducteTextBox
+			// 
+			this.searchProducteTextBox.AcceptsReturn = false;
+			this.searchProducteTextBox.AcceptsTab = false;
+			this.searchProducteTextBox.AnimationSpeed = 200;
+			this.searchProducteTextBox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
+			this.searchProducteTextBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
+			this.searchProducteTextBox.BackColor = System.Drawing.Color.Transparent;
+			this.searchProducteTextBox.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("searchProducteTextBox.BackgroundImage")));
+			this.searchProducteTextBox.BorderColorActive = System.Drawing.Color.DodgerBlue;
+			this.searchProducteTextBox.BorderColorDisabled = System.Drawing.Color.FromArgb(((int)(((byte)(161)))), ((int)(((byte)(161)))), ((int)(((byte)(161)))));
+			this.searchProducteTextBox.BorderColorHover = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(181)))), ((int)(((byte)(255)))));
+			this.searchProducteTextBox.BorderColorIdle = System.Drawing.Color.Silver;
+			this.searchProducteTextBox.BorderRadius = 25;
+			this.searchProducteTextBox.BorderThickness = 1;
+			this.searchProducteTextBox.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
+			this.searchProducteTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
+			this.searchProducteTextBox.DefaultFont = new System.Drawing.Font("IRANSansFaNum", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.searchProducteTextBox.DefaultText = "";
+			this.searchProducteTextBox.FillColor = System.Drawing.Color.White;
+			this.searchProducteTextBox.HideSelection = true;
+			this.searchProducteTextBox.IconLeft = null;
+			this.searchProducteTextBox.IconLeftCursor = System.Windows.Forms.Cursors.IBeam;
+			this.searchProducteTextBox.IconPadding = 7;
+			this.searchProducteTextBox.IconRight = ((System.Drawing.Image)(resources.GetObject("searchProducteTextBox.IconRight")));
+			this.searchProducteTextBox.IconRightCursor = System.Windows.Forms.Cursors.IBeam;
+			this.searchProducteTextBox.Lines = new string[0];
+			this.searchProducteTextBox.Location = new System.Drawing.Point(12, 9);
+			this.searchProducteTextBox.MaxLength = 32767;
+			this.searchProducteTextBox.MinimumSize = new System.Drawing.Size(100, 35);
+			this.searchProducteTextBox.Modified = false;
+			this.searchProducteTextBox.Multiline = false;
+			this.searchProducteTextBox.Name = "searchProducteTextBox";
+			stateProperties9.BorderColor = System.Drawing.Color.DodgerBlue;
+			stateProperties9.FillColor = System.Drawing.Color.Empty;
+			stateProperties9.ForeColor = System.Drawing.Color.Empty;
+			stateProperties9.PlaceholderForeColor = System.Drawing.Color.Empty;
+			this.searchProducteTextBox.OnActiveState = stateProperties9;
+			stateProperties10.BorderColor = System.Drawing.Color.Empty;
+			stateProperties10.FillColor = System.Drawing.Color.White;
+			stateProperties10.ForeColor = System.Drawing.Color.Empty;
+			stateProperties10.PlaceholderForeColor = System.Drawing.Color.Silver;
+			this.searchProducteTextBox.OnDisabledState = stateProperties10;
+			stateProperties11.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(181)))), ((int)(((byte)(255)))));
+			stateProperties11.FillColor = System.Drawing.Color.Empty;
+			stateProperties11.ForeColor = System.Drawing.Color.Empty;
+			stateProperties11.PlaceholderForeColor = System.Drawing.Color.Empty;
+			this.searchProducteTextBox.OnHoverState = stateProperties11;
+			stateProperties12.BorderColor = System.Drawing.Color.Silver;
+			stateProperties12.FillColor = System.Drawing.Color.White;
+			stateProperties12.ForeColor = System.Drawing.Color.Empty;
+			stateProperties12.PlaceholderForeColor = System.Drawing.Color.Empty;
+			this.searchProducteTextBox.OnIdleState = stateProperties12;
+			this.searchProducteTextBox.PasswordChar = '\0';
+			this.searchProducteTextBox.PlaceholderForeColor = System.Drawing.Color.Silver;
+			this.searchProducteTextBox.PlaceholderText = "جستجوی نام کالا...";
+			this.searchProducteTextBox.ReadOnly = false;
+			this.searchProducteTextBox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+			this.searchProducteTextBox.ScrollBars = System.Windows.Forms.ScrollBars.None;
+			this.searchProducteTextBox.SelectedText = "";
+			this.searchProducteTextBox.SelectionLength = 0;
+			this.searchProducteTextBox.SelectionStart = 0;
+			this.searchProducteTextBox.ShortcutsEnabled = true;
+			this.searchProducteTextBox.Size = new System.Drawing.Size(1326, 35);
+			this.searchProducteTextBox.Style = Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox._Style.Bunifu;
+			this.searchProducteTextBox.TabIndex = 0;
+			this.searchProducteTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+			this.searchProducteTextBox.TextMarginBottom = 0;
+			this.searchProducteTextBox.TextMarginLeft = 5;
+			this.searchProducteTextBox.TextMarginTop = 0;
+			this.searchProducteTextBox.TextPlaceholder = "جستجوی نام کالا...";
+			this.searchProducteTextBox.UseSystemPasswordChar = false;
+			this.searchProducteTextBox.WordWrap = true;
+			// 
+			// ListProductForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 17F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.BackColor = System.Drawing.SystemColors.Window;
-			this.ClientSize = new System.Drawing.Size(1171, 552);
-			this.Controls.Add(this.guna2GradientButton2);
-			this.Controls.Add(this.guna2GradientButton1);
-			this.Controls.Add(this.guna2DataGridView1);
+			this.ClientSize = new System.Drawing.Size(1350, 552);
+			this.Controls.Add(this.inventoryHoldingDataGridView);
+			this.Controls.Add(this.searckPanel);
+			this.Controls.Add(this.cancelButton);
+			this.Controls.Add(this.sendToBillButton);
 			this.Controls.Add(this.topPanel);
 			this.Font = new System.Drawing.Font("IRANSansXFaNum", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-			this.Name = "listProductForm";
+			this.Name = "ListProductForm";
 			this.Text = "listProductForm";
-			((System.ComponentModel.ISupportInitialize)(this.guna2DataGridView1)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.inventoryHoldingBindingSource)).EndInit();
+			this.Load += new System.EventHandler(this.ListProductForm_Load);
 			this.topPanel.ResumeLayout(false);
+			((System.ComponentModel.ISupportInitialize)(this.inventoryHoldingDataGridView)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.inventoryHoldingBindingSource)).EndInit();
+			this.searckPanel.ResumeLayout(false);
 			this.ResumeLayout(false);
 
 		}
 
 		#endregion
-
-		private Guna.UI2.WinForms.Guna2DataGridView guna2DataGridView1;
-		private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
-		private System.Windows.Forms.DataGridViewTextBoxColumn productNameDataGridViewTextBoxColumn;
-		private System.Windows.Forms.DataGridViewTextBoxColumn productPurchasePriceDataGridViewTextBoxColumn;
-		private System.Windows.Forms.DataGridViewTextBoxColumn productSalePriceDataGridViewTextBoxColumn;
-		private System.Windows.Forms.DataGridViewTextBoxColumn productQuantityDataGridViewTextBoxColumn;
-		private System.Windows.Forms.DataGridViewTextBoxColumn productUnitDataGridViewTextBoxColumn;
-		private System.Windows.Forms.DataGridViewTextBoxColumn Quantity_Sells;
-		private System.Windows.Forms.DataGridViewButtonColumn Add_To_Bill;
-		private System.Windows.Forms.DataGridViewButtonColumn Delete_From_Bill;
-		private System.Windows.Forms.BindingSource inventoryHoldingBindingSource;
 		private Mbb.Windows.Forms.Panel topPanel;
 		private Guna.UI2.WinForms.Guna2Button minimizeButton;
 		private Guna.UI2.WinForms.Guna2Button closeButton;
-		private Guna.UI2.WinForms.Guna2GradientButton guna2GradientButton1;
-		private Guna.UI2.WinForms.Guna2GradientButton guna2GradientButton2;
+		private Guna.UI2.WinForms.Guna2GradientButton sendToBillButton;
+		private Guna.UI2.WinForms.Guna2GradientButton cancelButton;
+		private Guna.UI2.WinForms.Guna2Elipse inventoryHoldingDataGridViewElipse;
+		private Guna.UI2.WinForms.Guna2Panel searckPanel;
+		private Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox searchProducteTextBox;
+		private System.Windows.Forms.BindingSource inventoryHoldingBindingSource;
+		private Guna.UI2.WinForms.Guna2DataGridView inventoryHoldingDataGridView;
+		private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn1;
+		private System.Windows.Forms.DataGridViewTextBoxColumn productNameDataGridViewTextBoxColumn1;
+		private System.Windows.Forms.DataGridViewTextBoxColumn productSalePriceDataGridViewTextBoxColumn1;
+		private System.Windows.Forms.DataGridViewTextBoxColumn productQuantityDataGridViewTextBoxColumn1;
+		private System.Windows.Forms.DataGridViewTextBoxColumn productUnitDataGridViewTextBoxColumn1;
+		private Stimulsoft.Controls.Win.DotNetBar.Controls.DataGridViewIntegerInputColumn Number_Orders;
+		private System.Windows.Forms.DataGridViewImageColumn productImageDataGridViewImageColumn;
 	}
 }

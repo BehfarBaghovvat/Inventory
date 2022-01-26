@@ -39,15 +39,6 @@ namespace Inventory_Forms
 			Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties3 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
 			Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties4 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
 			this.inventoryOutputDataGridView = new Guna.UI2.WinForms.Guna2DataGridView();
-			this.inventoryOutputBindingSource = new System.Windows.Forms.BindingSource(this.components);
-			this.inventoryOutputElipse = new Guna.UI2.WinForms.Guna2Elipse(this.components);
-			this.InventoryOutputFormElipse = new Guna.UI2.WinForms.Guna2Elipse(this.components);
-			this.topPanel = new Mbb.Windows.Forms.Panel();
-			this.minimizeButton = new Guna.UI2.WinForms.Guna2Button();
-			this.closeButton = new Guna.UI2.WinForms.Guna2Button();
-			this.searchGroupBox = new Guna.UI2.WinForms.Guna2GroupBox();
-			this.searchTextBox = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox();
-			this.selectSearchComboBox = new Guna.UI2.WinForms.Guna2ComboBox();
 			this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.clientNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.sellerNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -59,6 +50,15 @@ namespace Inventory_Forms
 			this.addOrderDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.addOrderTimeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.productImageDataGridViewImageColumn = new System.Windows.Forms.DataGridViewImageColumn();
+			this.inventoryOutputBindingSource = new System.Windows.Forms.BindingSource(this.components);
+			this.inventoryOutputElipse = new Guna.UI2.WinForms.Guna2Elipse(this.components);
+			this.InventoryOutputFormElipse = new Guna.UI2.WinForms.Guna2Elipse(this.components);
+			this.topPanel = new Mbb.Windows.Forms.Panel();
+			this.minimizeButton = new Guna.UI2.WinForms.Guna2Button();
+			this.closeButton = new Guna.UI2.WinForms.Guna2Button();
+			this.searchGroupBox = new Guna.UI2.WinForms.Guna2GroupBox();
+			this.searchTextBox = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox();
+			this.selectSearchComboBox = new Guna.UI2.WinForms.Guna2ComboBox();
 			this.animateWindow = new Guna.UI.WinForms.GunaAnimateWindow(this.components);
 			this.closeFadeTimer = new System.Windows.Forms.Timer(this.components);
 			((System.ComponentModel.ISupportInitialize)(this.inventoryOutputDataGridView)).BeginInit();
@@ -73,6 +73,7 @@ namespace Inventory_Forms
 			this.inventoryOutputDataGridView.AllowUserToDeleteRows = false;
 			dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
 			dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(196)))), ((int)(((byte)(233)))));
+			dataGridViewCellStyle1.Font = new System.Drawing.Font("IRANSansFaNum", 8F);
 			this.inventoryOutputDataGridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
 			this.inventoryOutputDataGridView.AutoGenerateColumns = false;
 			this.inventoryOutputDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
@@ -106,7 +107,7 @@ namespace Inventory_Forms
 			this.inventoryOutputDataGridView.DataSource = this.inventoryOutputBindingSource;
 			dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
 			dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(215)))), ((int)(((byte)(240)))));
-			dataGridViewCellStyle3.Font = new System.Drawing.Font("IRANSansXFaNum", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+			dataGridViewCellStyle3.Font = new System.Drawing.Font("IRANSansFaNum", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
 			dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
 			dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(123)))), ((int)(((byte)(207)))));
 			dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
@@ -127,7 +128,7 @@ namespace Inventory_Forms
 			this.inventoryOutputDataGridView.TabIndex = 0;
 			this.inventoryOutputDataGridView.Theme = Guna.UI2.WinForms.Enums.DataGridViewPresetThemes.DeepPurple;
 			this.inventoryOutputDataGridView.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(196)))), ((int)(((byte)(233)))));
-			this.inventoryOutputDataGridView.ThemeStyle.AlternatingRowsStyle.Font = null;
+			this.inventoryOutputDataGridView.ThemeStyle.AlternatingRowsStyle.Font = new System.Drawing.Font("IRANSansFaNum", 8F);
 			this.inventoryOutputDataGridView.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty;
 			this.inventoryOutputDataGridView.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.Empty;
 			this.inventoryOutputDataGridView.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Empty;
@@ -142,11 +143,93 @@ namespace Inventory_Forms
 			this.inventoryOutputDataGridView.ThemeStyle.ReadOnly = true;
 			this.inventoryOutputDataGridView.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(215)))), ((int)(((byte)(240)))));
 			this.inventoryOutputDataGridView.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
-			this.inventoryOutputDataGridView.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("IRANSansXFaNum", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+			this.inventoryOutputDataGridView.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("IRANSansFaNum", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
 			this.inventoryOutputDataGridView.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.Black;
 			this.inventoryOutputDataGridView.ThemeStyle.RowsStyle.Height = 25;
 			this.inventoryOutputDataGridView.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(123)))), ((int)(((byte)(207)))));
 			this.inventoryOutputDataGridView.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.Black;
+			// 
+			// idDataGridViewTextBoxColumn
+			// 
+			this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
+			this.idDataGridViewTextBoxColumn.FillWeight = 50F;
+			this.idDataGridViewTextBoxColumn.HeaderText = "ردیف";
+			this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
+			this.idDataGridViewTextBoxColumn.ReadOnly = true;
+			// 
+			// clientNameDataGridViewTextBoxColumn
+			// 
+			this.clientNameDataGridViewTextBoxColumn.DataPropertyName = "Client_Name";
+			this.clientNameDataGridViewTextBoxColumn.HeaderText = "نام مشتری";
+			this.clientNameDataGridViewTextBoxColumn.Name = "clientNameDataGridViewTextBoxColumn";
+			this.clientNameDataGridViewTextBoxColumn.ReadOnly = true;
+			// 
+			// sellerNameDataGridViewTextBoxColumn
+			// 
+			this.sellerNameDataGridViewTextBoxColumn.DataPropertyName = "Seller_Name";
+			this.sellerNameDataGridViewTextBoxColumn.HeaderText = "نام فروشنده";
+			this.sellerNameDataGridViewTextBoxColumn.Name = "sellerNameDataGridViewTextBoxColumn";
+			this.sellerNameDataGridViewTextBoxColumn.ReadOnly = true;
+			// 
+			// carrierNameDataGridViewTextBoxColumn
+			// 
+			this.carrierNameDataGridViewTextBoxColumn.DataPropertyName = "Carrier_Name";
+			this.carrierNameDataGridViewTextBoxColumn.HeaderText = "نام حامل کالا";
+			this.carrierNameDataGridViewTextBoxColumn.Name = "carrierNameDataGridViewTextBoxColumn";
+			this.carrierNameDataGridViewTextBoxColumn.ReadOnly = true;
+			// 
+			// productNameDataGridViewTextBoxColumn
+			// 
+			this.productNameDataGridViewTextBoxColumn.DataPropertyName = "Product_Name";
+			this.productNameDataGridViewTextBoxColumn.FillWeight = 200F;
+			this.productNameDataGridViewTextBoxColumn.HeaderText = "نام کالا";
+			this.productNameDataGridViewTextBoxColumn.Name = "productNameDataGridViewTextBoxColumn";
+			this.productNameDataGridViewTextBoxColumn.ReadOnly = true;
+			// 
+			// productPriceDataGridViewTextBoxColumn
+			// 
+			this.productPriceDataGridViewTextBoxColumn.DataPropertyName = "Product_Price";
+			this.productPriceDataGridViewTextBoxColumn.HeaderText = "قیمت کالا";
+			this.productPriceDataGridViewTextBoxColumn.Name = "productPriceDataGridViewTextBoxColumn";
+			this.productPriceDataGridViewTextBoxColumn.ReadOnly = true;
+			// 
+			// productQuantityDataGridViewTextBoxColumn
+			// 
+			this.productQuantityDataGridViewTextBoxColumn.DataPropertyName = "Product_Quantity";
+			this.productQuantityDataGridViewTextBoxColumn.FillWeight = 50F;
+			this.productQuantityDataGridViewTextBoxColumn.HeaderText = "تعداد";
+			this.productQuantityDataGridViewTextBoxColumn.Name = "productQuantityDataGridViewTextBoxColumn";
+			this.productQuantityDataGridViewTextBoxColumn.ReadOnly = true;
+			// 
+			// productUnitDataGridViewTextBoxColumn
+			// 
+			this.productUnitDataGridViewTextBoxColumn.DataPropertyName = "Product_Unit";
+			this.productUnitDataGridViewTextBoxColumn.FillWeight = 50F;
+			this.productUnitDataGridViewTextBoxColumn.HeaderText = "واحد";
+			this.productUnitDataGridViewTextBoxColumn.Name = "productUnitDataGridViewTextBoxColumn";
+			this.productUnitDataGridViewTextBoxColumn.ReadOnly = true;
+			// 
+			// addOrderDateDataGridViewTextBoxColumn
+			// 
+			this.addOrderDateDataGridViewTextBoxColumn.DataPropertyName = "Add_Order_Date";
+			this.addOrderDateDataGridViewTextBoxColumn.HeaderText = "تاریخ ثبت";
+			this.addOrderDateDataGridViewTextBoxColumn.Name = "addOrderDateDataGridViewTextBoxColumn";
+			this.addOrderDateDataGridViewTextBoxColumn.ReadOnly = true;
+			// 
+			// addOrderTimeDataGridViewTextBoxColumn
+			// 
+			this.addOrderTimeDataGridViewTextBoxColumn.DataPropertyName = "Add_Order_Time";
+			this.addOrderTimeDataGridViewTextBoxColumn.HeaderText = "زمان ثبت";
+			this.addOrderTimeDataGridViewTextBoxColumn.Name = "addOrderTimeDataGridViewTextBoxColumn";
+			this.addOrderTimeDataGridViewTextBoxColumn.ReadOnly = true;
+			// 
+			// productImageDataGridViewImageColumn
+			// 
+			this.productImageDataGridViewImageColumn.DataPropertyName = "Product_Image";
+			this.productImageDataGridViewImageColumn.HeaderText = "تصویر کالا";
+			this.productImageDataGridViewImageColumn.Name = "productImageDataGridViewImageColumn";
+			this.productImageDataGridViewImageColumn.ReadOnly = true;
+			this.productImageDataGridViewImageColumn.Visible = false;
 			// 
 			// inventoryOutputBindingSource
 			// 
@@ -248,7 +331,7 @@ namespace Inventory_Forms
 			this.searchTextBox.BorderThickness = 1;
 			this.searchTextBox.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
 			this.searchTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
-			this.searchTextBox.DefaultFont = new System.Drawing.Font("IRANSansXFaNum", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+			this.searchTextBox.DefaultFont = new System.Drawing.Font("IRANSansFaNum", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
 			this.searchTextBox.DefaultText = "";
 			this.searchTextBox.FillColor = System.Drawing.Color.White;
 			this.searchTextBox.ForeColor = System.Drawing.Color.Black;
@@ -347,88 +430,6 @@ namespace Inventory_Forms
 			this.selectSearchComboBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
 			this.selectSearchComboBox.TextRenderingHint = System.Drawing.Text.TextRenderingHint.SystemDefault;
 			this.selectSearchComboBox.SelectedIndexChanged += new System.EventHandler(this.SelectSearchComboBox_SelectedIndexChanged);
-			// 
-			// idDataGridViewTextBoxColumn
-			// 
-			this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
-			this.idDataGridViewTextBoxColumn.FillWeight = 50F;
-			this.idDataGridViewTextBoxColumn.HeaderText = "ردیف";
-			this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
-			this.idDataGridViewTextBoxColumn.ReadOnly = true;
-			// 
-			// clientNameDataGridViewTextBoxColumn
-			// 
-			this.clientNameDataGridViewTextBoxColumn.DataPropertyName = "Client_Name";
-			this.clientNameDataGridViewTextBoxColumn.HeaderText = "نام مشتری";
-			this.clientNameDataGridViewTextBoxColumn.Name = "clientNameDataGridViewTextBoxColumn";
-			this.clientNameDataGridViewTextBoxColumn.ReadOnly = true;
-			// 
-			// sellerNameDataGridViewTextBoxColumn
-			// 
-			this.sellerNameDataGridViewTextBoxColumn.DataPropertyName = "Seller_Name";
-			this.sellerNameDataGridViewTextBoxColumn.HeaderText = "نام فروشنده";
-			this.sellerNameDataGridViewTextBoxColumn.Name = "sellerNameDataGridViewTextBoxColumn";
-			this.sellerNameDataGridViewTextBoxColumn.ReadOnly = true;
-			// 
-			// carrierNameDataGridViewTextBoxColumn
-			// 
-			this.carrierNameDataGridViewTextBoxColumn.DataPropertyName = "Carrier_Name";
-			this.carrierNameDataGridViewTextBoxColumn.HeaderText = "نام حامل کالا";
-			this.carrierNameDataGridViewTextBoxColumn.Name = "carrierNameDataGridViewTextBoxColumn";
-			this.carrierNameDataGridViewTextBoxColumn.ReadOnly = true;
-			// 
-			// productNameDataGridViewTextBoxColumn
-			// 
-			this.productNameDataGridViewTextBoxColumn.DataPropertyName = "Product_Name";
-			this.productNameDataGridViewTextBoxColumn.FillWeight = 200F;
-			this.productNameDataGridViewTextBoxColumn.HeaderText = "نام کالا";
-			this.productNameDataGridViewTextBoxColumn.Name = "productNameDataGridViewTextBoxColumn";
-			this.productNameDataGridViewTextBoxColumn.ReadOnly = true;
-			// 
-			// productPriceDataGridViewTextBoxColumn
-			// 
-			this.productPriceDataGridViewTextBoxColumn.DataPropertyName = "Product_Price";
-			this.productPriceDataGridViewTextBoxColumn.HeaderText = "قیمت کالا";
-			this.productPriceDataGridViewTextBoxColumn.Name = "productPriceDataGridViewTextBoxColumn";
-			this.productPriceDataGridViewTextBoxColumn.ReadOnly = true;
-			// 
-			// productQuantityDataGridViewTextBoxColumn
-			// 
-			this.productQuantityDataGridViewTextBoxColumn.DataPropertyName = "Product_Quantity";
-			this.productQuantityDataGridViewTextBoxColumn.FillWeight = 50F;
-			this.productQuantityDataGridViewTextBoxColumn.HeaderText = "تعداد";
-			this.productQuantityDataGridViewTextBoxColumn.Name = "productQuantityDataGridViewTextBoxColumn";
-			this.productQuantityDataGridViewTextBoxColumn.ReadOnly = true;
-			// 
-			// productUnitDataGridViewTextBoxColumn
-			// 
-			this.productUnitDataGridViewTextBoxColumn.DataPropertyName = "Product_Unit";
-			this.productUnitDataGridViewTextBoxColumn.FillWeight = 50F;
-			this.productUnitDataGridViewTextBoxColumn.HeaderText = "واحد";
-			this.productUnitDataGridViewTextBoxColumn.Name = "productUnitDataGridViewTextBoxColumn";
-			this.productUnitDataGridViewTextBoxColumn.ReadOnly = true;
-			// 
-			// addOrderDateDataGridViewTextBoxColumn
-			// 
-			this.addOrderDateDataGridViewTextBoxColumn.DataPropertyName = "Add_Order_Date";
-			this.addOrderDateDataGridViewTextBoxColumn.HeaderText = "تاریخ ثبت";
-			this.addOrderDateDataGridViewTextBoxColumn.Name = "addOrderDateDataGridViewTextBoxColumn";
-			this.addOrderDateDataGridViewTextBoxColumn.ReadOnly = true;
-			// 
-			// addOrderTimeDataGridViewTextBoxColumn
-			// 
-			this.addOrderTimeDataGridViewTextBoxColumn.DataPropertyName = "Add_Order_Time";
-			this.addOrderTimeDataGridViewTextBoxColumn.HeaderText = "زمان ثبت";
-			this.addOrderTimeDataGridViewTextBoxColumn.Name = "addOrderTimeDataGridViewTextBoxColumn";
-			this.addOrderTimeDataGridViewTextBoxColumn.ReadOnly = true;
-			// 
-			// productImageDataGridViewImageColumn
-			// 
-			this.productImageDataGridViewImageColumn.DataPropertyName = "Product_Image";
-			this.productImageDataGridViewImageColumn.HeaderText = "تصویر کالا";
-			this.productImageDataGridViewImageColumn.Name = "productImageDataGridViewImageColumn";
-			this.productImageDataGridViewImageColumn.ReadOnly = true;
-			this.productImageDataGridViewImageColumn.Visible = false;
 			// 
 			// animateWindow
 			// 

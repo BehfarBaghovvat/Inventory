@@ -30,29 +30,30 @@ namespace Inventory
 		private void InitializeComponent()
 		{
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TestControlsForm));
-			Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties13 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
-			Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties14 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
-			Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties15 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
-			Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties16 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
-			Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties17 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
-			Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties18 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
-			Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties19 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
-			Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties20 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
-			Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties21 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
-			Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties22 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
-			Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties23 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
-			Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties24 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
+			Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties25 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
+			Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties26 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
+			Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties27 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
+			Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties28 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
+			Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties29 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
+			Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties30 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
+			Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties31 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
+			Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties32 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
+			Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties33 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
+			Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties34 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
+			Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties35 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
+			Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties36 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
 			this.numTextBox2 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox();
 			this.alphabetComboBox = new Guna.UI2.WinForms.Guna2ComboBox();
 			this.numTextBox1 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox();
 			this.numTextBox3 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox();
 			this.guna2GroupBox1 = new Guna.UI2.WinForms.Guna2GroupBox();
+			this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
+			this.label1 = new System.Windows.Forms.Label();
+			this.guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
 			this.separatorLabel2 = new Mbb.Windows.Forms.Label();
 			this.iranLabel = new Mbb.Windows.Forms.Label();
 			this.separatorLabel1 = new Mbb.Windows.Forms.Label();
-			this.guna2Panel1 = new Guna.UI2.WinForms.Guna2Panel();
-			this.guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
-			this.label1 = new System.Windows.Forms.Label();
+			this.button1 = new System.Windows.Forms.Button();
 			this.guna2GroupBox1.SuspendLayout();
 			this.guna2Panel1.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
@@ -93,26 +94,26 @@ namespace Inventory
 			this.numTextBox2.Modified = false;
 			this.numTextBox2.Multiline = false;
 			this.numTextBox2.Name = "numTextBox2";
-			stateProperties13.BorderColor = System.Drawing.Color.DodgerBlue;
-			stateProperties13.FillColor = System.Drawing.Color.Empty;
-			stateProperties13.ForeColor = System.Drawing.Color.Empty;
-			stateProperties13.PlaceholderForeColor = System.Drawing.Color.Empty;
-			this.numTextBox2.OnActiveState = stateProperties13;
-			stateProperties14.BorderColor = System.Drawing.Color.Empty;
-			stateProperties14.FillColor = System.Drawing.Color.White;
-			stateProperties14.ForeColor = System.Drawing.Color.Empty;
-			stateProperties14.PlaceholderForeColor = System.Drawing.Color.Silver;
-			this.numTextBox2.OnDisabledState = stateProperties14;
-			stateProperties15.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(181)))), ((int)(((byte)(255)))));
-			stateProperties15.FillColor = System.Drawing.Color.Empty;
-			stateProperties15.ForeColor = System.Drawing.Color.Empty;
-			stateProperties15.PlaceholderForeColor = System.Drawing.Color.Empty;
-			this.numTextBox2.OnHoverState = stateProperties15;
-			stateProperties16.BorderColor = System.Drawing.Color.Silver;
-			stateProperties16.FillColor = System.Drawing.Color.White;
-			stateProperties16.ForeColor = System.Drawing.Color.Black;
-			stateProperties16.PlaceholderForeColor = System.Drawing.Color.Empty;
-			this.numTextBox2.OnIdleState = stateProperties16;
+			stateProperties25.BorderColor = System.Drawing.Color.DodgerBlue;
+			stateProperties25.FillColor = System.Drawing.Color.Empty;
+			stateProperties25.ForeColor = System.Drawing.Color.Empty;
+			stateProperties25.PlaceholderForeColor = System.Drawing.Color.Empty;
+			this.numTextBox2.OnActiveState = stateProperties25;
+			stateProperties26.BorderColor = System.Drawing.Color.Empty;
+			stateProperties26.FillColor = System.Drawing.Color.White;
+			stateProperties26.ForeColor = System.Drawing.Color.Empty;
+			stateProperties26.PlaceholderForeColor = System.Drawing.Color.Silver;
+			this.numTextBox2.OnDisabledState = stateProperties26;
+			stateProperties27.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(181)))), ((int)(((byte)(255)))));
+			stateProperties27.FillColor = System.Drawing.Color.Empty;
+			stateProperties27.ForeColor = System.Drawing.Color.Empty;
+			stateProperties27.PlaceholderForeColor = System.Drawing.Color.Empty;
+			this.numTextBox2.OnHoverState = stateProperties27;
+			stateProperties28.BorderColor = System.Drawing.Color.Silver;
+			stateProperties28.FillColor = System.Drawing.Color.White;
+			stateProperties28.ForeColor = System.Drawing.Color.Black;
+			stateProperties28.PlaceholderForeColor = System.Drawing.Color.Empty;
+			this.numTextBox2.OnIdleState = stateProperties28;
 			this.numTextBox2.PasswordChar = '\0';
 			this.numTextBox2.PlaceholderForeColor = System.Drawing.Color.Silver;
 			this.numTextBox2.PlaceholderText = "471";
@@ -234,26 +235,26 @@ namespace Inventory
 			this.numTextBox1.Modified = false;
 			this.numTextBox1.Multiline = false;
 			this.numTextBox1.Name = "numTextBox1";
-			stateProperties17.BorderColor = System.Drawing.Color.DodgerBlue;
-			stateProperties17.FillColor = System.Drawing.Color.Empty;
-			stateProperties17.ForeColor = System.Drawing.Color.Empty;
-			stateProperties17.PlaceholderForeColor = System.Drawing.Color.Empty;
-			this.numTextBox1.OnActiveState = stateProperties17;
-			stateProperties18.BorderColor = System.Drawing.Color.Empty;
-			stateProperties18.FillColor = System.Drawing.Color.White;
-			stateProperties18.ForeColor = System.Drawing.Color.Empty;
-			stateProperties18.PlaceholderForeColor = System.Drawing.Color.Silver;
-			this.numTextBox1.OnDisabledState = stateProperties18;
-			stateProperties19.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(181)))), ((int)(((byte)(255)))));
-			stateProperties19.FillColor = System.Drawing.Color.Empty;
-			stateProperties19.ForeColor = System.Drawing.Color.Empty;
-			stateProperties19.PlaceholderForeColor = System.Drawing.Color.Empty;
-			this.numTextBox1.OnHoverState = stateProperties19;
-			stateProperties20.BorderColor = System.Drawing.Color.Silver;
-			stateProperties20.FillColor = System.Drawing.Color.White;
-			stateProperties20.ForeColor = System.Drawing.Color.Black;
-			stateProperties20.PlaceholderForeColor = System.Drawing.Color.Empty;
-			this.numTextBox1.OnIdleState = stateProperties20;
+			stateProperties29.BorderColor = System.Drawing.Color.DodgerBlue;
+			stateProperties29.FillColor = System.Drawing.Color.Empty;
+			stateProperties29.ForeColor = System.Drawing.Color.Empty;
+			stateProperties29.PlaceholderForeColor = System.Drawing.Color.Empty;
+			this.numTextBox1.OnActiveState = stateProperties29;
+			stateProperties30.BorderColor = System.Drawing.Color.Empty;
+			stateProperties30.FillColor = System.Drawing.Color.White;
+			stateProperties30.ForeColor = System.Drawing.Color.Empty;
+			stateProperties30.PlaceholderForeColor = System.Drawing.Color.Silver;
+			this.numTextBox1.OnDisabledState = stateProperties30;
+			stateProperties31.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(181)))), ((int)(((byte)(255)))));
+			stateProperties31.FillColor = System.Drawing.Color.Empty;
+			stateProperties31.ForeColor = System.Drawing.Color.Empty;
+			stateProperties31.PlaceholderForeColor = System.Drawing.Color.Empty;
+			this.numTextBox1.OnHoverState = stateProperties31;
+			stateProperties32.BorderColor = System.Drawing.Color.Silver;
+			stateProperties32.FillColor = System.Drawing.Color.White;
+			stateProperties32.ForeColor = System.Drawing.Color.Black;
+			stateProperties32.PlaceholderForeColor = System.Drawing.Color.Empty;
+			this.numTextBox1.OnIdleState = stateProperties32;
 			this.numTextBox1.PasswordChar = '\0';
 			this.numTextBox1.PlaceholderForeColor = System.Drawing.Color.Silver;
 			this.numTextBox1.PlaceholderText = "73";
@@ -309,26 +310,26 @@ namespace Inventory
 			this.numTextBox3.Modified = false;
 			this.numTextBox3.Multiline = false;
 			this.numTextBox3.Name = "numTextBox3";
-			stateProperties21.BorderColor = System.Drawing.Color.DodgerBlue;
-			stateProperties21.FillColor = System.Drawing.Color.Empty;
-			stateProperties21.ForeColor = System.Drawing.Color.Empty;
-			stateProperties21.PlaceholderForeColor = System.Drawing.Color.Empty;
-			this.numTextBox3.OnActiveState = stateProperties21;
-			stateProperties22.BorderColor = System.Drawing.Color.Empty;
-			stateProperties22.FillColor = System.Drawing.Color.White;
-			stateProperties22.ForeColor = System.Drawing.Color.Empty;
-			stateProperties22.PlaceholderForeColor = System.Drawing.Color.Silver;
-			this.numTextBox3.OnDisabledState = stateProperties22;
-			stateProperties23.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(181)))), ((int)(((byte)(255)))));
-			stateProperties23.FillColor = System.Drawing.Color.Empty;
-			stateProperties23.ForeColor = System.Drawing.Color.Empty;
-			stateProperties23.PlaceholderForeColor = System.Drawing.Color.Empty;
-			this.numTextBox3.OnHoverState = stateProperties23;
-			stateProperties24.BorderColor = System.Drawing.Color.Silver;
-			stateProperties24.FillColor = System.Drawing.Color.White;
-			stateProperties24.ForeColor = System.Drawing.Color.Black;
-			stateProperties24.PlaceholderForeColor = System.Drawing.Color.Empty;
-			this.numTextBox3.OnIdleState = stateProperties24;
+			stateProperties33.BorderColor = System.Drawing.Color.DodgerBlue;
+			stateProperties33.FillColor = System.Drawing.Color.Empty;
+			stateProperties33.ForeColor = System.Drawing.Color.Empty;
+			stateProperties33.PlaceholderForeColor = System.Drawing.Color.Empty;
+			this.numTextBox3.OnActiveState = stateProperties33;
+			stateProperties34.BorderColor = System.Drawing.Color.Empty;
+			stateProperties34.FillColor = System.Drawing.Color.White;
+			stateProperties34.ForeColor = System.Drawing.Color.Empty;
+			stateProperties34.PlaceholderForeColor = System.Drawing.Color.Silver;
+			this.numTextBox3.OnDisabledState = stateProperties34;
+			stateProperties35.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(181)))), ((int)(((byte)(255)))));
+			stateProperties35.FillColor = System.Drawing.Color.Empty;
+			stateProperties35.ForeColor = System.Drawing.Color.Empty;
+			stateProperties35.PlaceholderForeColor = System.Drawing.Color.Empty;
+			this.numTextBox3.OnHoverState = stateProperties35;
+			stateProperties36.BorderColor = System.Drawing.Color.Silver;
+			stateProperties36.FillColor = System.Drawing.Color.White;
+			stateProperties36.ForeColor = System.Drawing.Color.Black;
+			stateProperties36.PlaceholderForeColor = System.Drawing.Color.Empty;
+			this.numTextBox3.OnIdleState = stateProperties36;
 			this.numTextBox3.PasswordChar = '\0';
 			this.numTextBox3.PlaceholderForeColor = System.Drawing.Color.Silver;
 			this.numTextBox3.PlaceholderText = "11";
@@ -367,12 +368,46 @@ namespace Inventory
 			this.guna2GroupBox1.FillColor = System.Drawing.Color.Transparent;
 			this.guna2GroupBox1.Font = new System.Drawing.Font("Segoe UI", 9F);
 			this.guna2GroupBox1.ForeColor = System.Drawing.Color.Transparent;
-			this.guna2GroupBox1.Location = new System.Drawing.Point(51, 58);
+			this.guna2GroupBox1.Location = new System.Drawing.Point(52, 12);
 			this.guna2GroupBox1.Name = "guna2GroupBox1";
 			this.guna2GroupBox1.ShadowDecoration.Parent = this.guna2GroupBox1;
 			this.guna2GroupBox1.Size = new System.Drawing.Size(271, 40);
 			this.guna2GroupBox1.TabIndex = 8;
 			this.guna2GroupBox1.Leave += new System.EventHandler(this.guna2GroupBox1_Leave);
+			// 
+			// guna2Panel1
+			// 
+			this.guna2Panel1.BorderRadius = 5;
+			this.guna2Panel1.Controls.Add(this.label1);
+			this.guna2Panel1.Controls.Add(this.guna2PictureBox1);
+			this.guna2Panel1.Dock = System.Windows.Forms.DockStyle.Left;
+			this.guna2Panel1.FillColor = System.Drawing.SystemColors.Highlight;
+			this.guna2Panel1.Location = new System.Drawing.Point(0, 0);
+			this.guna2Panel1.Name = "guna2Panel1";
+			this.guna2Panel1.ShadowDecoration.Parent = this.guna2Panel1;
+			this.guna2Panel1.Size = new System.Drawing.Size(28, 40);
+			this.guna2Panel1.TabIndex = 11;
+			// 
+			// label1
+			// 
+			this.label1.AutoSize = true;
+			this.label1.Font = new System.Drawing.Font("B Traffic", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+			this.label1.Location = new System.Drawing.Point(1, 15);
+			this.label1.Name = "label1";
+			this.label1.Size = new System.Drawing.Size(26, 16);
+			this.label1.TabIndex = 9;
+			this.label1.Text = "ایران";
+			// 
+			// guna2PictureBox1
+			// 
+			this.guna2PictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("guna2PictureBox1.Image")));
+			this.guna2PictureBox1.Location = new System.Drawing.Point(7, 4);
+			this.guna2PictureBox1.Name = "guna2PictureBox1";
+			this.guna2PictureBox1.ShadowDecoration.Parent = this.guna2PictureBox1;
+			this.guna2PictureBox1.Size = new System.Drawing.Size(15, 10);
+			this.guna2PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+			this.guna2PictureBox1.TabIndex = 9;
+			this.guna2PictureBox1.TabStop = false;
 			// 
 			// separatorLabel2
 			// 
@@ -408,45 +443,22 @@ namespace Inventory
 			this.separatorLabel1.TabIndex = 10;
 			this.separatorLabel1.Text = "-";
 			// 
-			// guna2Panel1
+			// button1
 			// 
-			this.guna2Panel1.BorderRadius = 5;
-			this.guna2Panel1.Controls.Add(this.label1);
-			this.guna2Panel1.Controls.Add(this.guna2PictureBox1);
-			this.guna2Panel1.Dock = System.Windows.Forms.DockStyle.Left;
-			this.guna2Panel1.FillColor = System.Drawing.SystemColors.Highlight;
-			this.guna2Panel1.Location = new System.Drawing.Point(0, 0);
-			this.guna2Panel1.Name = "guna2Panel1";
-			this.guna2Panel1.ShadowDecoration.Parent = this.guna2Panel1;
-			this.guna2Panel1.Size = new System.Drawing.Size(28, 40);
-			this.guna2Panel1.TabIndex = 11;
-			// 
-			// guna2PictureBox1
-			// 
-			this.guna2PictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("guna2PictureBox1.Image")));
-			this.guna2PictureBox1.Location = new System.Drawing.Point(7, 4);
-			this.guna2PictureBox1.Name = "guna2PictureBox1";
-			this.guna2PictureBox1.ShadowDecoration.Parent = this.guna2PictureBox1;
-			this.guna2PictureBox1.Size = new System.Drawing.Size(15, 10);
-			this.guna2PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-			this.guna2PictureBox1.TabIndex = 9;
-			this.guna2PictureBox1.TabStop = false;
-			// 
-			// label1
-			// 
-			this.label1.AutoSize = true;
-			this.label1.Font = new System.Drawing.Font("B Traffic", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-			this.label1.Location = new System.Drawing.Point(1, 15);
-			this.label1.Name = "label1";
-			this.label1.Size = new System.Drawing.Size(26, 16);
-			this.label1.TabIndex = 9;
-			this.label1.Text = "ایران";
+			this.button1.Location = new System.Drawing.Point(131, 86);
+			this.button1.Name = "button1";
+			this.button1.Size = new System.Drawing.Size(93, 43);
+			this.button1.TabIndex = 9;
+			this.button1.Text = "button1";
+			this.button1.UseVisualStyleBackColor = true;
+			this.button1.Click += new System.EventHandler(this.button1_Click);
 			// 
 			// TestControlsForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(373, 157);
+			this.Controls.Add(this.button1);
 			this.Controls.Add(this.guna2GroupBox1);
 			this.Name = "TestControlsForm";
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -473,5 +485,6 @@ namespace Inventory
 		private Guna.UI2.WinForms.Guna2Panel guna2Panel1;
 		private System.Windows.Forms.Label label1;
 		private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox1;
+		private System.Windows.Forms.Button button1;
 	}
 }

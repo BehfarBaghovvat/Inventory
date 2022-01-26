@@ -9,8 +9,6 @@ namespace Inventory
 
 		//------------------------------------------------------------------
 
-		
-
 		#region Administrator
 		/// <summary>
 		/// ثبت خودکار کاربر ادمین در صورت حذف دیتابیس
@@ -226,7 +224,9 @@ namespace Inventory
 			System.Windows.Forms.Application.SetCompatibleTextRenderingDefault(false);
 			Administrator();
 			InitialAmountCapital();
-			System.Windows.Forms.Application.Run(new Entry_Forms.StartUpForm());
+			//System.Windows.Forms.Application.Run(new Entry_Forms.StartUpForm());
+			System.Windows.Forms.Application.Run(new TestControlsForm());
+			//System.Windows.Forms.Application.Run(new Inventory_Forms.ListProductForm());
 		}
 	}
 }

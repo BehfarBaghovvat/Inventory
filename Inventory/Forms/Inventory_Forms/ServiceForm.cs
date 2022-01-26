@@ -29,6 +29,38 @@ namespace Inventory_Forms
 			public string Register_Date { get; set; }
 			public string Register_Time { get; set; }
 		}
+		/// <summary>
+		/// کلاس ایتم های مربوط به فاکتور
+		/// </summary>
+		public class InvoiceItem
+		{
+			public string Producte_Name
+			{
+				get; set;
+			}
+
+			public string Description
+			{
+				get; set;
+			}
+
+			public int Number_Order
+			{
+				get; set;
+			}
+
+			public string Service_Price
+			{
+				get; set;
+			}
+
+			public string Producte_Price
+			{
+				get; set;
+			}
+		}
+
+
 
 		/// <summary>
 		/// این کلاس به همراه خصوصیات آن جهت انتقال اطلاعات به داخل گزارش
@@ -1961,6 +1993,25 @@ namespace Inventory_Forms
 			}
 		}
 		#endregion SetFinancialClient
+
+		#region SetInvoiceDataGridView
+		/// <summary>
+		/// ارسال کالاهای انتخابی به فاکتور
+		/// </summary>
+		/// <param name="invoiceItems"></param>
+		public void SetInvoiceDataGridView(System.Collections.Generic.List<ServiceForm.InvoiceItem> invoiceItems)
+		{
+			foreach (var item in invoiceItems)
+			{
+				listServiceDataGridView.Rows.Add(
+					item.Producte_Name,
+					item.Description,
+					item.Service_Price,
+					item.Number_Order.ToString(),
+					item.Producte_Price);
+			}
+		}
+		#endregion /SetInvoiceDataGridView
 
 		#region SetInvoiceSerialNumber
 		/// <summary>

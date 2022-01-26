@@ -92,23 +92,23 @@ namespace Inventory_Forms
 			this.productPriceTextBox = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox();
 			this.recipientNameTextBox = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox();
 			this.productRecivedDataGridView = new System.Windows.Forms.DataGridView();
+			this.productReceivedBindingSource = new System.Windows.Forms.BindingSource(this.components);
+			this.DataGridViewElipse = new Guna.UI2.WinForms.Guna2Elipse(this.components);
 			this.idDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.productNameDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.Recipient_Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.senderNameDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.carrierNameDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.productPurchasePriceDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.productQuantityDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.productUnitDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.productImageDataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
+			this.productPurchasePriceDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.Product_Sale_Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.productImageDataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
 			this.registrationDateDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.registrationTimeDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.numberEditDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.lastEditedDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.lastEditedTimeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.productReceivedBindingSource = new System.Windows.Forms.BindingSource(this.components);
-			this.DataGridViewElipse = new Guna.UI2.WinForms.Guna2Elipse(this.components);
 			this.contextMenuStrip.SuspendLayout();
 			this.controlsPanel.SuspendLayout();
 			this.borderPicturePanel.SuspendLayout();
@@ -304,7 +304,7 @@ namespace Inventory_Forms
 			this.productQuantityTextBox.BorderThickness = 2;
 			this.productQuantityTextBox.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
 			this.productQuantityTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
-			this.productQuantityTextBox.DefaultFont = new System.Drawing.Font("IRANSans", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.productQuantityTextBox.DefaultFont = new System.Drawing.Font("IRANSansFaNum", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.productQuantityTextBox.DefaultText = "";
 			this.productQuantityTextBox.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(0)))), ((int)(((byte)(61)))));
 			this.productQuantityTextBox.ForeColor = System.Drawing.Color.White;
@@ -422,7 +422,7 @@ namespace Inventory_Forms
 			this.productUnitComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
 			this.productUnitComboBox.FocusedColor = System.Drawing.Color.Empty;
 			this.productUnitComboBox.FocusedState.Parent = this.productUnitComboBox;
-			this.productUnitComboBox.Font = new System.Drawing.Font("IRANSans", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.productUnitComboBox.Font = new System.Drawing.Font("IRANSansFaNum", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.productUnitComboBox.ForeColor = System.Drawing.Color.White;
 			this.productUnitComboBox.FormattingEnabled = true;
 			this.productUnitComboBox.HoverState.BorderColor = System.Drawing.Color.RoyalBlue;
@@ -590,7 +590,7 @@ namespace Inventory_Forms
 			this.productNameTextBox.BorderThickness = 2;
 			this.productNameTextBox.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
 			this.productNameTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
-			this.productNameTextBox.DefaultFont = new System.Drawing.Font("IRANSans", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.productNameTextBox.DefaultFont = new System.Drawing.Font("IRANSansFaNum", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
 			this.productNameTextBox.DefaultText = "";
 			this.productNameTextBox.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(0)))), ((int)(((byte)(61)))));
 			this.productNameTextBox.ForeColor = System.Drawing.Color.White;
@@ -669,7 +669,7 @@ namespace Inventory_Forms
 			this.senderNameTextBox.BorderThickness = 2;
 			this.senderNameTextBox.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
 			this.senderNameTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
-			this.senderNameTextBox.DefaultFont = new System.Drawing.Font("IRANSans", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.senderNameTextBox.DefaultFont = new System.Drawing.Font("IRANSansFaNum", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
 			this.senderNameTextBox.DefaultText = "";
 			this.senderNameTextBox.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(0)))), ((int)(((byte)(61)))));
 			this.senderNameTextBox.ForeColor = System.Drawing.Color.White;
@@ -747,7 +747,7 @@ namespace Inventory_Forms
 			this.carrierNameTextBox.BorderThickness = 2;
 			this.carrierNameTextBox.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
 			this.carrierNameTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
-			this.carrierNameTextBox.DefaultFont = new System.Drawing.Font("IRANSans", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.carrierNameTextBox.DefaultFont = new System.Drawing.Font("IRANSansFaNum", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.carrierNameTextBox.DefaultText = "";
 			this.carrierNameTextBox.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(0)))), ((int)(((byte)(61)))));
 			this.carrierNameTextBox.ForeColor = System.Drawing.Color.White;
@@ -825,7 +825,7 @@ namespace Inventory_Forms
 			this.salesPriceTextBox.BorderThickness = 2;
 			this.salesPriceTextBox.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
 			this.salesPriceTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
-			this.salesPriceTextBox.DefaultFont = new System.Drawing.Font("IRANSans", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.salesPriceTextBox.DefaultFont = new System.Drawing.Font("IRANSansFaNum", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.salesPriceTextBox.DefaultText = "";
 			this.salesPriceTextBox.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(0)))), ((int)(((byte)(61)))));
 			this.salesPriceTextBox.ForeColor = System.Drawing.Color.White;
@@ -905,7 +905,7 @@ namespace Inventory_Forms
 			this.productPriceTextBox.BorderThickness = 2;
 			this.productPriceTextBox.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
 			this.productPriceTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
-			this.productPriceTextBox.DefaultFont = new System.Drawing.Font("IRANSans", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.productPriceTextBox.DefaultFont = new System.Drawing.Font("IRANSansFaNum", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
 			this.productPriceTextBox.DefaultText = "";
 			this.productPriceTextBox.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(0)))), ((int)(((byte)(61)))));
 			this.productPriceTextBox.ForeColor = System.Drawing.Color.White;
@@ -985,7 +985,7 @@ namespace Inventory_Forms
 			this.recipientNameTextBox.BorderThickness = 2;
 			this.recipientNameTextBox.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
 			this.recipientNameTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
-			this.recipientNameTextBox.DefaultFont = new System.Drawing.Font("IRANSans", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.recipientNameTextBox.DefaultFont = new System.Drawing.Font("IRANSansFaNum", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.recipientNameTextBox.DefaultText = "";
 			this.recipientNameTextBox.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(0)))), ((int)(((byte)(61)))));
 			this.recipientNameTextBox.ForeColor = System.Drawing.Color.White;
@@ -1049,7 +1049,7 @@ namespace Inventory_Forms
 			this.productRecivedDataGridView.AllowUserToDeleteRows = false;
 			dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
 			dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(196)))), ((int)(((byte)(233)))));
-			dataGridViewCellStyle1.Font = new System.Drawing.Font("IRANSansXFaNum Light", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+			dataGridViewCellStyle1.Font = new System.Drawing.Font("IRANSansFaNum", 8F);
 			dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
 			dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(123)))), ((int)(((byte)(207)))));
 			dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.White;
@@ -1063,7 +1063,7 @@ namespace Inventory_Forms
 			this.productRecivedDataGridView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
 			dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
 			dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(103)))), ((int)(((byte)(58)))), ((int)(((byte)(183)))));
-			dataGridViewCellStyle2.Font = new System.Drawing.Font("IRANSans", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+			dataGridViewCellStyle2.Font = new System.Drawing.Font("IRANSansFaNum", 10F);
 			dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
 			dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
 			this.productRecivedDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
@@ -1075,11 +1075,11 @@ namespace Inventory_Forms
             this.Recipient_Name,
             this.senderNameDataGridViewTextBoxColumn1,
             this.carrierNameDataGridViewTextBoxColumn1,
-            this.productPurchasePriceDataGridViewTextBoxColumn1,
             this.productQuantityDataGridViewTextBoxColumn1,
             this.productUnitDataGridViewTextBoxColumn1,
-            this.productImageDataGridViewImageColumn1,
+            this.productPurchasePriceDataGridViewTextBoxColumn1,
             this.Product_Sale_Price,
+            this.productImageDataGridViewImageColumn1,
             this.registrationDateDataGridViewTextBoxColumn1,
             this.registrationTimeDataGridViewTextBoxColumn1,
             this.numberEditDataGridViewTextBoxColumn,
@@ -1102,10 +1102,11 @@ namespace Inventory_Forms
 			this.productRecivedDataGridView.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
 			this.productRecivedDataGridView.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
 			this.productRecivedDataGridView.RowHeadersVisible = false;
+			this.productRecivedDataGridView.RowHeadersWidth = 5;
 			this.productRecivedDataGridView.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
 			dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
 			dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(215)))), ((int)(((byte)(240)))));
-			dataGridViewCellStyle4.Font = new System.Drawing.Font("IRANSansXFaNum Light", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+			dataGridViewCellStyle4.Font = new System.Drawing.Font("IRANSansFaNum", 8F);
 			dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
 			dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(123)))), ((int)(((byte)(207)))));
 			dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.White;
@@ -1118,6 +1119,15 @@ namespace Inventory_Forms
 			this.productRecivedDataGridView.Size = new System.Drawing.Size(1125, 358);
 			this.productRecivedDataGridView.TabIndex = 15;
 			// 
+			// productReceivedBindingSource
+			// 
+			this.productReceivedBindingSource.DataSource = typeof(Models.ProductReceived);
+			// 
+			// DataGridViewElipse
+			// 
+			this.DataGridViewElipse.BorderRadius = 25;
+			this.DataGridViewElipse.TargetControl = this.productRecivedDataGridView;
+			// 
 			// idDataGridViewTextBoxColumn1
 			// 
 			this.idDataGridViewTextBoxColumn1.DataPropertyName = "Id";
@@ -1129,7 +1139,7 @@ namespace Inventory_Forms
 			// productNameDataGridViewTextBoxColumn1
 			// 
 			this.productNameDataGridViewTextBoxColumn1.DataPropertyName = "Product_Name";
-			this.productNameDataGridViewTextBoxColumn1.FillWeight = 200F;
+			this.productNameDataGridViewTextBoxColumn1.FillWeight = 150F;
 			this.productNameDataGridViewTextBoxColumn1.HeaderText = "نام کالا";
 			this.productNameDataGridViewTextBoxColumn1.Name = "productNameDataGridViewTextBoxColumn1";
 			this.productNameDataGridViewTextBoxColumn1.ReadOnly = true;
@@ -1158,13 +1168,6 @@ namespace Inventory_Forms
 			this.carrierNameDataGridViewTextBoxColumn1.ReadOnly = true;
 			this.carrierNameDataGridViewTextBoxColumn1.Visible = false;
 			// 
-			// productPurchasePriceDataGridViewTextBoxColumn1
-			// 
-			this.productPurchasePriceDataGridViewTextBoxColumn1.DataPropertyName = "Product_Purchase_Price";
-			this.productPurchasePriceDataGridViewTextBoxColumn1.HeaderText = "قیمت خرید کالا";
-			this.productPurchasePriceDataGridViewTextBoxColumn1.Name = "productPurchasePriceDataGridViewTextBoxColumn1";
-			this.productPurchasePriceDataGridViewTextBoxColumn1.ReadOnly = true;
-			// 
 			// productQuantityDataGridViewTextBoxColumn1
 			// 
 			this.productQuantityDataGridViewTextBoxColumn1.DataPropertyName = "Product_Quantity";
@@ -1181,6 +1184,20 @@ namespace Inventory_Forms
 			this.productUnitDataGridViewTextBoxColumn1.Name = "productUnitDataGridViewTextBoxColumn1";
 			this.productUnitDataGridViewTextBoxColumn1.ReadOnly = true;
 			// 
+			// productPurchasePriceDataGridViewTextBoxColumn1
+			// 
+			this.productPurchasePriceDataGridViewTextBoxColumn1.DataPropertyName = "Product_Purchase_Price";
+			this.productPurchasePriceDataGridViewTextBoxColumn1.HeaderText = "قیمت خرید کالا";
+			this.productPurchasePriceDataGridViewTextBoxColumn1.Name = "productPurchasePriceDataGridViewTextBoxColumn1";
+			this.productPurchasePriceDataGridViewTextBoxColumn1.ReadOnly = true;
+			// 
+			// Product_Sale_Price
+			// 
+			this.Product_Sale_Price.DataPropertyName = "Product_Sale_Price";
+			this.Product_Sale_Price.HeaderText = "قیمت فروش کالا";
+			this.Product_Sale_Price.Name = "Product_Sale_Price";
+			this.Product_Sale_Price.ReadOnly = true;
+			// 
 			// productImageDataGridViewImageColumn1
 			// 
 			this.productImageDataGridViewImageColumn1.DataPropertyName = "Product_Image";
@@ -1189,14 +1206,6 @@ namespace Inventory_Forms
 			this.productImageDataGridViewImageColumn1.ReadOnly = true;
 			this.productImageDataGridViewImageColumn1.Visible = false;
 			// 
-			// Product_Sale_Price
-			// 
-			this.Product_Sale_Price.DataPropertyName = "Product_Sale_Price";
-			this.Product_Sale_Price.HeaderText = "قیمت فروش کالا";
-			this.Product_Sale_Price.Name = "Product_Sale_Price";
-			this.Product_Sale_Price.ReadOnly = true;
-			this.Product_Sale_Price.Visible = false;
-			// 
 			// registrationDateDataGridViewTextBoxColumn1
 			// 
 			this.registrationDateDataGridViewTextBoxColumn1.DataPropertyName = "Registration_Date";
@@ -1204,6 +1213,7 @@ namespace Inventory_Forms
 			this.registrationDateDataGridViewTextBoxColumn1.HeaderText = "تاریخ ثبت";
 			this.registrationDateDataGridViewTextBoxColumn1.Name = "registrationDateDataGridViewTextBoxColumn1";
 			this.registrationDateDataGridViewTextBoxColumn1.ReadOnly = true;
+			this.registrationDateDataGridViewTextBoxColumn1.Visible = false;
 			// 
 			// registrationTimeDataGridViewTextBoxColumn1
 			// 
@@ -1212,6 +1222,7 @@ namespace Inventory_Forms
 			this.registrationTimeDataGridViewTextBoxColumn1.HeaderText = "زمان ثبت";
 			this.registrationTimeDataGridViewTextBoxColumn1.Name = "registrationTimeDataGridViewTextBoxColumn1";
 			this.registrationTimeDataGridViewTextBoxColumn1.ReadOnly = true;
+			this.registrationTimeDataGridViewTextBoxColumn1.Visible = false;
 			// 
 			// numberEditDataGridViewTextBoxColumn
 			// 
@@ -1228,6 +1239,7 @@ namespace Inventory_Forms
 			this.lastEditedDateDataGridViewTextBoxColumn.HeaderText = "تاریخ ویرایش";
 			this.lastEditedDateDataGridViewTextBoxColumn.Name = "lastEditedDateDataGridViewTextBoxColumn";
 			this.lastEditedDateDataGridViewTextBoxColumn.ReadOnly = true;
+			this.lastEditedDateDataGridViewTextBoxColumn.Visible = false;
 			// 
 			// lastEditedTimeDataGridViewTextBoxColumn
 			// 
@@ -1236,15 +1248,7 @@ namespace Inventory_Forms
 			this.lastEditedTimeDataGridViewTextBoxColumn.HeaderText = "زمان  ویرایش";
 			this.lastEditedTimeDataGridViewTextBoxColumn.Name = "lastEditedTimeDataGridViewTextBoxColumn";
 			this.lastEditedTimeDataGridViewTextBoxColumn.ReadOnly = true;
-			// 
-			// productReceivedBindingSource
-			// 
-			this.productReceivedBindingSource.DataSource = typeof(Models.ProductReceived);
-			// 
-			// DataGridViewElipse
-			// 
-			this.DataGridViewElipse.BorderRadius = 25;
-			this.DataGridViewElipse.TargetControl = this.productRecivedDataGridView;
+			this.lastEditedTimeDataGridViewTextBoxColumn.Visible = false;
 			// 
 			// ProductBuyForm
 			// 
@@ -1303,11 +1307,11 @@ namespace Inventory_Forms
 		private System.Windows.Forms.DataGridViewTextBoxColumn Recipient_Name;
 		private System.Windows.Forms.DataGridViewTextBoxColumn senderNameDataGridViewTextBoxColumn1;
 		private System.Windows.Forms.DataGridViewTextBoxColumn carrierNameDataGridViewTextBoxColumn1;
-		private System.Windows.Forms.DataGridViewTextBoxColumn productPurchasePriceDataGridViewTextBoxColumn1;
 		private System.Windows.Forms.DataGridViewTextBoxColumn productQuantityDataGridViewTextBoxColumn1;
 		private System.Windows.Forms.DataGridViewTextBoxColumn productUnitDataGridViewTextBoxColumn1;
-		private System.Windows.Forms.DataGridViewImageColumn productImageDataGridViewImageColumn1;
+		private System.Windows.Forms.DataGridViewTextBoxColumn productPurchasePriceDataGridViewTextBoxColumn1;
 		private System.Windows.Forms.DataGridViewTextBoxColumn Product_Sale_Price;
+		private System.Windows.Forms.DataGridViewImageColumn productImageDataGridViewImageColumn1;
 		private System.Windows.Forms.DataGridViewTextBoxColumn registrationDateDataGridViewTextBoxColumn1;
 		private System.Windows.Forms.DataGridViewTextBoxColumn registrationTimeDataGridViewTextBoxColumn1;
 		private System.Windows.Forms.DataGridViewTextBoxColumn numberEditDataGridViewTextBoxColumn;

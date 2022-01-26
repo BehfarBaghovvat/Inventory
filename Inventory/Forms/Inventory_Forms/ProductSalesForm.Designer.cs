@@ -73,6 +73,13 @@ namespace Inventory_Forms
 			Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties36 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
 			this.inventoryHoldingDataGridViewElipse = new Guna.UI.WinForms.GunaElipse(this.components);
 			this.inventoryHoldingDataGridView = new Guna.UI2.WinForms.Guna2DataGridView();
+			this.idDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.productNameDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.productQuantityDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.productUnitDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.productPurchasePriceDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.Product_Sale_Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
+			this.inventoryHoldingBindingSource = new System.Windows.Forms.BindingSource(this.components);
 			this.mainPanel = new Guna.UI2.WinForms.Guna2Panel();
 			this.carrierNameTextBox = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox();
 			this.productPriceTextBox = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox();
@@ -87,16 +94,9 @@ namespace Inventory_Forms
 			this.billButton = new Guna.UI2.WinForms.Guna2Button();
 			this.productSearchTextBox = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox();
 			this.phoneNumberTextBox = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox();
-			this.inventoryHoldingBindingSource = new System.Windows.Forms.BindingSource(this.components);
-			this.idDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.productNameDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.productQuantityDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.productUnitDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.productPurchasePriceDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-			this.Product_Sale_Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			((System.ComponentModel.ISupportInitialize)(this.inventoryHoldingDataGridView)).BeginInit();
-			this.mainPanel.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.inventoryHoldingBindingSource)).BeginInit();
+			this.mainPanel.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// inventoryHoldingDataGridViewElipse
@@ -109,6 +109,7 @@ namespace Inventory_Forms
 			this.inventoryHoldingDataGridView.AllowUserToAddRows = false;
 			this.inventoryHoldingDataGridView.AllowUserToDeleteRows = false;
 			dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(196)))), ((int)(((byte)(233)))));
+			dataGridViewCellStyle1.Font = new System.Drawing.Font("IRANSansFaNum", 8F);
 			dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
 			dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.White;
 			this.inventoryHoldingDataGridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
@@ -120,7 +121,7 @@ namespace Inventory_Forms
 			this.inventoryHoldingDataGridView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
 			dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
 			dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(103)))), ((int)(((byte)(58)))), ((int)(((byte)(183)))));
-			dataGridViewCellStyle2.Font = new System.Drawing.Font("IRANSans", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+			dataGridViewCellStyle2.Font = new System.Drawing.Font("IRANSansFaNum", 10F);
 			dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
 			dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
 			dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
@@ -138,7 +139,7 @@ namespace Inventory_Forms
 			this.inventoryHoldingDataGridView.DataSource = this.inventoryHoldingBindingSource;
 			dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
 			dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(215)))), ((int)(((byte)(240)))));
-			dataGridViewCellStyle3.Font = new System.Drawing.Font("IRANSansXFaNum", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+			dataGridViewCellStyle3.Font = new System.Drawing.Font("IRANSansFaNum", 8F);
 			dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
 			dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(123)))), ((int)(((byte)(207)))));
 			dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.White;
@@ -160,7 +161,7 @@ namespace Inventory_Forms
 			this.inventoryHoldingDataGridView.TabIndex = 0;
 			this.inventoryHoldingDataGridView.Theme = Guna.UI2.WinForms.Enums.DataGridViewPresetThemes.DeepPurple;
 			this.inventoryHoldingDataGridView.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(196)))), ((int)(((byte)(233)))));
-			this.inventoryHoldingDataGridView.ThemeStyle.AlternatingRowsStyle.Font = null;
+			this.inventoryHoldingDataGridView.ThemeStyle.AlternatingRowsStyle.Font = new System.Drawing.Font("IRANSansFaNum", 8F);
 			this.inventoryHoldingDataGridView.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Black;
 			this.inventoryHoldingDataGridView.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.Empty;
 			this.inventoryHoldingDataGridView.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.White;
@@ -175,12 +176,63 @@ namespace Inventory_Forms
 			this.inventoryHoldingDataGridView.ThemeStyle.ReadOnly = true;
 			this.inventoryHoldingDataGridView.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(215)))), ((int)(((byte)(240)))));
 			this.inventoryHoldingDataGridView.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
-			this.inventoryHoldingDataGridView.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("IRANSansXFaNum", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+			this.inventoryHoldingDataGridView.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("IRANSansFaNum", 8F);
 			this.inventoryHoldingDataGridView.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.Black;
 			this.inventoryHoldingDataGridView.ThemeStyle.RowsStyle.Height = 25;
 			this.inventoryHoldingDataGridView.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(123)))), ((int)(((byte)(207)))));
 			this.inventoryHoldingDataGridView.ThemeStyle.RowsStyle.SelectionForeColor = System.Drawing.Color.White;
 			this.inventoryHoldingDataGridView.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.InventoryHoldingDataGridView_CellDoubleClick);
+			// 
+			// idDataGridViewTextBoxColumn1
+			// 
+			this.idDataGridViewTextBoxColumn1.DataPropertyName = "Id";
+			this.idDataGridViewTextBoxColumn1.FillWeight = 50F;
+			this.idDataGridViewTextBoxColumn1.HeaderText = "ردیف";
+			this.idDataGridViewTextBoxColumn1.Name = "idDataGridViewTextBoxColumn1";
+			this.idDataGridViewTextBoxColumn1.ReadOnly = true;
+			// 
+			// productNameDataGridViewTextBoxColumn1
+			// 
+			this.productNameDataGridViewTextBoxColumn1.DataPropertyName = "Product_Name";
+			this.productNameDataGridViewTextBoxColumn1.FillWeight = 200F;
+			this.productNameDataGridViewTextBoxColumn1.HeaderText = "نام کالا";
+			this.productNameDataGridViewTextBoxColumn1.Name = "productNameDataGridViewTextBoxColumn1";
+			this.productNameDataGridViewTextBoxColumn1.ReadOnly = true;
+			// 
+			// productQuantityDataGridViewTextBoxColumn1
+			// 
+			this.productQuantityDataGridViewTextBoxColumn1.DataPropertyName = "Product_Quantity";
+			this.productQuantityDataGridViewTextBoxColumn1.FillWeight = 50F;
+			this.productQuantityDataGridViewTextBoxColumn1.HeaderText = "تعداد کالا";
+			this.productQuantityDataGridViewTextBoxColumn1.Name = "productQuantityDataGridViewTextBoxColumn1";
+			this.productQuantityDataGridViewTextBoxColumn1.ReadOnly = true;
+			// 
+			// productUnitDataGridViewTextBoxColumn1
+			// 
+			this.productUnitDataGridViewTextBoxColumn1.DataPropertyName = "Product_Unit";
+			this.productUnitDataGridViewTextBoxColumn1.FillWeight = 50F;
+			this.productUnitDataGridViewTextBoxColumn1.HeaderText = "واحد کالا";
+			this.productUnitDataGridViewTextBoxColumn1.Name = "productUnitDataGridViewTextBoxColumn1";
+			this.productUnitDataGridViewTextBoxColumn1.ReadOnly = true;
+			// 
+			// productPurchasePriceDataGridViewTextBoxColumn1
+			// 
+			this.productPurchasePriceDataGridViewTextBoxColumn1.DataPropertyName = "Product_Purchase_Price";
+			this.productPurchasePriceDataGridViewTextBoxColumn1.FillWeight = 150F;
+			this.productPurchasePriceDataGridViewTextBoxColumn1.HeaderText = "قیمت خرید کالا";
+			this.productPurchasePriceDataGridViewTextBoxColumn1.Name = "productPurchasePriceDataGridViewTextBoxColumn1";
+			this.productPurchasePriceDataGridViewTextBoxColumn1.ReadOnly = true;
+			// 
+			// Product_Sale_Price
+			// 
+			this.Product_Sale_Price.DataPropertyName = "Product_Sale_Price";
+			this.Product_Sale_Price.HeaderText = "قیمت فروش کالا";
+			this.Product_Sale_Price.Name = "Product_Sale_Price";
+			this.Product_Sale_Price.ReadOnly = true;
+			// 
+			// inventoryHoldingBindingSource
+			// 
+			this.inventoryHoldingBindingSource.DataSource = typeof(Models.InventoryHolding);
 			// 
 			// mainPanel
 			// 
@@ -228,7 +280,7 @@ namespace Inventory_Forms
 			this.carrierNameTextBox.BorderThickness = 3;
 			this.carrierNameTextBox.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
 			this.carrierNameTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
-			this.carrierNameTextBox.DefaultFont = new System.Drawing.Font("IRANSansXFaNum", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+			this.carrierNameTextBox.DefaultFont = new System.Drawing.Font("IRANSansFaNum", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
 			this.carrierNameTextBox.DefaultText = "";
 			this.carrierNameTextBox.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(0)))), ((int)(((byte)(61)))));
 			this.carrierNameTextBox.ForeColor = System.Drawing.Color.White;
@@ -306,7 +358,7 @@ namespace Inventory_Forms
 			this.productPriceTextBox.BorderThickness = 3;
 			this.productPriceTextBox.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
 			this.productPriceTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
-			this.productPriceTextBox.DefaultFont = new System.Drawing.Font("IRANSansXFaNum", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+			this.productPriceTextBox.DefaultFont = new System.Drawing.Font("IRANSansFaNum", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
 			this.productPriceTextBox.DefaultText = "";
 			this.productPriceTextBox.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(0)))), ((int)(((byte)(61)))));
 			this.productPriceTextBox.ForeColor = System.Drawing.Color.White;
@@ -386,7 +438,7 @@ namespace Inventory_Forms
 			this.clientNameTextBox.BorderThickness = 3;
 			this.clientNameTextBox.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
 			this.clientNameTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
-			this.clientNameTextBox.DefaultFont = new System.Drawing.Font("IRANSansXFaNum", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+			this.clientNameTextBox.DefaultFont = new System.Drawing.Font("IRANSansFaNum", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
 			this.clientNameTextBox.DefaultText = "";
 			this.clientNameTextBox.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(0)))), ((int)(((byte)(61)))));
 			this.clientNameTextBox.ForeColor = System.Drawing.Color.White;
@@ -464,7 +516,7 @@ namespace Inventory_Forms
 			this.productUnitTextBox.BorderThickness = 3;
 			this.productUnitTextBox.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
 			this.productUnitTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
-			this.productUnitTextBox.DefaultFont = new System.Drawing.Font("IRANSansXFaNum", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+			this.productUnitTextBox.DefaultFont = new System.Drawing.Font("IRANSansFaNum", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
 			this.productUnitTextBox.DefaultText = "";
 			this.productUnitTextBox.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(0)))), ((int)(((byte)(61)))));
 			this.productUnitTextBox.ForeColor = System.Drawing.Color.White;
@@ -539,7 +591,7 @@ namespace Inventory_Forms
 			this.productQuantityTextBox.BorderThickness = 3;
 			this.productQuantityTextBox.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
 			this.productQuantityTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
-			this.productQuantityTextBox.DefaultFont = new System.Drawing.Font("IRANSansXFaNum", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+			this.productQuantityTextBox.DefaultFont = new System.Drawing.Font("IRANSansFaNum", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
 			this.productQuantityTextBox.DefaultText = "";
 			this.productQuantityTextBox.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(0)))), ((int)(((byte)(61)))));
 			this.productQuantityTextBox.ForeColor = System.Drawing.Color.White;
@@ -617,7 +669,7 @@ namespace Inventory_Forms
 			this.sellerNameTextBox.BorderThickness = 3;
 			this.sellerNameTextBox.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
 			this.sellerNameTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
-			this.sellerNameTextBox.DefaultFont = new System.Drawing.Font("IRANSansXFaNum", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+			this.sellerNameTextBox.DefaultFont = new System.Drawing.Font("IRANSansFaNum", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
 			this.sellerNameTextBox.DefaultText = "";
 			this.sellerNameTextBox.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(0)))), ((int)(((byte)(61)))));
 			this.sellerNameTextBox.ForeColor = System.Drawing.Color.White;
@@ -692,7 +744,7 @@ namespace Inventory_Forms
 			this.productNameTextBox.BorderThickness = 3;
 			this.productNameTextBox.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
 			this.productNameTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
-			this.productNameTextBox.DefaultFont = new System.Drawing.Font("IRANSansXFaNum", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+			this.productNameTextBox.DefaultFont = new System.Drawing.Font("IRANSansFaNum", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
 			this.productNameTextBox.DefaultText = "";
 			this.productNameTextBox.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(0)))), ((int)(((byte)(61)))));
 			this.productNameTextBox.ForeColor = System.Drawing.Color.White;
@@ -941,7 +993,7 @@ namespace Inventory_Forms
 			this.phoneNumberTextBox.BorderThickness = 3;
 			this.phoneNumberTextBox.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
 			this.phoneNumberTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
-			this.phoneNumberTextBox.DefaultFont = new System.Drawing.Font("IRANSansXFaNum", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+			this.phoneNumberTextBox.DefaultFont = new System.Drawing.Font("IRANSansFaNum", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
 			this.phoneNumberTextBox.DefaultText = "";
 			this.phoneNumberTextBox.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(0)))), ((int)(((byte)(61)))));
 			this.phoneNumberTextBox.ForeColor = System.Drawing.Color.White;
@@ -1003,57 +1055,6 @@ namespace Inventory_Forms
 			this.phoneNumberTextBox.Enter += new System.EventHandler(this.PhoneNumberTextBox_Enter);
 			this.phoneNumberTextBox.Leave += new System.EventHandler(this.PhoneNumberTextBox_Leave);
 			// 
-			// inventoryHoldingBindingSource
-			// 
-			this.inventoryHoldingBindingSource.DataSource = typeof(Models.InventoryHolding);
-			// 
-			// idDataGridViewTextBoxColumn1
-			// 
-			this.idDataGridViewTextBoxColumn1.DataPropertyName = "Id";
-			this.idDataGridViewTextBoxColumn1.FillWeight = 50F;
-			this.idDataGridViewTextBoxColumn1.HeaderText = "ردیف";
-			this.idDataGridViewTextBoxColumn1.Name = "idDataGridViewTextBoxColumn1";
-			this.idDataGridViewTextBoxColumn1.ReadOnly = true;
-			// 
-			// productNameDataGridViewTextBoxColumn1
-			// 
-			this.productNameDataGridViewTextBoxColumn1.DataPropertyName = "Product_Name";
-			this.productNameDataGridViewTextBoxColumn1.FillWeight = 200F;
-			this.productNameDataGridViewTextBoxColumn1.HeaderText = "نام کالا";
-			this.productNameDataGridViewTextBoxColumn1.Name = "productNameDataGridViewTextBoxColumn1";
-			this.productNameDataGridViewTextBoxColumn1.ReadOnly = true;
-			// 
-			// productQuantityDataGridViewTextBoxColumn1
-			// 
-			this.productQuantityDataGridViewTextBoxColumn1.DataPropertyName = "Product_Quantity";
-			this.productQuantityDataGridViewTextBoxColumn1.FillWeight = 50F;
-			this.productQuantityDataGridViewTextBoxColumn1.HeaderText = "تعداد کالا";
-			this.productQuantityDataGridViewTextBoxColumn1.Name = "productQuantityDataGridViewTextBoxColumn1";
-			this.productQuantityDataGridViewTextBoxColumn1.ReadOnly = true;
-			// 
-			// productUnitDataGridViewTextBoxColumn1
-			// 
-			this.productUnitDataGridViewTextBoxColumn1.DataPropertyName = "Product_Unit";
-			this.productUnitDataGridViewTextBoxColumn1.FillWeight = 50F;
-			this.productUnitDataGridViewTextBoxColumn1.HeaderText = "واحد کالا";
-			this.productUnitDataGridViewTextBoxColumn1.Name = "productUnitDataGridViewTextBoxColumn1";
-			this.productUnitDataGridViewTextBoxColumn1.ReadOnly = true;
-			// 
-			// productPurchasePriceDataGridViewTextBoxColumn1
-			// 
-			this.productPurchasePriceDataGridViewTextBoxColumn1.DataPropertyName = "Product_Purchase_Price";
-			this.productPurchasePriceDataGridViewTextBoxColumn1.FillWeight = 150F;
-			this.productPurchasePriceDataGridViewTextBoxColumn1.HeaderText = "قیمت خرید کالا";
-			this.productPurchasePriceDataGridViewTextBoxColumn1.Name = "productPurchasePriceDataGridViewTextBoxColumn1";
-			this.productPurchasePriceDataGridViewTextBoxColumn1.ReadOnly = true;
-			// 
-			// Product_Sale_Price
-			// 
-			this.Product_Sale_Price.DataPropertyName = "Product_Sale_Price";
-			this.Product_Sale_Price.HeaderText = "قیمت فروش کالا";
-			this.Product_Sale_Price.Name = "Product_Sale_Price";
-			this.Product_Sale_Price.ReadOnly = true;
-			// 
 			// ProductSalesForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 17F);
@@ -1065,8 +1066,8 @@ namespace Inventory_Forms
 			this.Text = "InventoryOutputForm";
 			this.Load += new System.EventHandler(this.ProcutSalesForm_Load);
 			((System.ComponentModel.ISupportInitialize)(this.inventoryHoldingDataGridView)).EndInit();
-			this.mainPanel.ResumeLayout(false);
 			((System.ComponentModel.ISupportInitialize)(this.inventoryHoldingBindingSource)).EndInit();
+			this.mainPanel.ResumeLayout(false);
 			this.ResumeLayout(false);
 
 		}

@@ -346,7 +346,7 @@ namespace Inventory_Forms
 			this.searchTextBox.BorderThickness = 1;
 			this.searchTextBox.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
 			this.searchTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
-			this.searchTextBox.DefaultFont = new System.Drawing.Font("IRANSansXFaNum", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+			this.searchTextBox.DefaultFont = new System.Drawing.Font("IRANSansFaNum", 9F);
 			this.searchTextBox.DefaultText = "";
 			this.searchTextBox.FillColor = System.Drawing.Color.White;
 			this.searchTextBox.ForeColor = System.Drawing.Color.Black;
@@ -1184,7 +1184,7 @@ namespace Inventory_Forms
 			this.nextKilometersTextBox.BorderThickness = 3;
 			this.nextKilometersTextBox.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
 			this.nextKilometersTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
-			this.nextKilometersTextBox.DefaultFont = new System.Drawing.Font("IRANSansXFaNum", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+			this.nextKilometersTextBox.DefaultFont = new System.Drawing.Font("IRANSansFaNum", 9F);
 			this.nextKilometersTextBox.DefaultText = "";
 			this.nextKilometersTextBox.FillColor = System.Drawing.SystemColors.Control;
 			this.nextKilometersTextBox.HideSelection = true;
@@ -1259,7 +1259,7 @@ namespace Inventory_Forms
 			this.currentKilometersTextBox.BorderThickness = 3;
 			this.currentKilometersTextBox.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
 			this.currentKilometersTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
-			this.currentKilometersTextBox.DefaultFont = new System.Drawing.Font("IRANSansXFaNum", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+			this.currentKilometersTextBox.DefaultFont = new System.Drawing.Font("IRANSansFaNum", 9F);
 			this.currentKilometersTextBox.DefaultText = "";
 			this.currentKilometersTextBox.FillColor = System.Drawing.SystemColors.Control;
 			this.currentKilometersTextBox.HideSelection = true;
@@ -1334,7 +1334,7 @@ namespace Inventory_Forms
 			this.serviceTimeTextBox.BorderThickness = 3;
 			this.serviceTimeTextBox.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
 			this.serviceTimeTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
-			this.serviceTimeTextBox.DefaultFont = new System.Drawing.Font("IRANSansXFaNum", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+			this.serviceTimeTextBox.DefaultFont = new System.Drawing.Font("IRANSansFaNum", 9F);
 			this.serviceTimeTextBox.DefaultText = "";
 			this.serviceTimeTextBox.FillColor = System.Drawing.SystemColors.Control;
 			this.serviceTimeTextBox.HideSelection = true;
@@ -1409,7 +1409,7 @@ namespace Inventory_Forms
 			this.serviceDateTextBox.BorderThickness = 3;
 			this.serviceDateTextBox.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
 			this.serviceDateTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
-			this.serviceDateTextBox.DefaultFont = new System.Drawing.Font("IRANSansXFaNum", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+			this.serviceDateTextBox.DefaultFont = new System.Drawing.Font("IRANSansFaNum", 9F);
 			this.serviceDateTextBox.DefaultText = "";
 			this.serviceDateTextBox.FillColor = System.Drawing.SystemColors.Control;
 			this.serviceDateTextBox.HideSelection = true;
@@ -1484,7 +1484,7 @@ namespace Inventory_Forms
 			this.clientNameTextBox.BorderThickness = 3;
 			this.clientNameTextBox.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
 			this.clientNameTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
-			this.clientNameTextBox.DefaultFont = new System.Drawing.Font("IRANSansXFaNum", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+			this.clientNameTextBox.DefaultFont = new System.Drawing.Font("IRANSansFaNum", 9F);
 			this.clientNameTextBox.DefaultText = "";
 			this.clientNameTextBox.FillColor = System.Drawing.SystemColors.Control;
 			this.clientNameTextBox.HideSelection = true;
@@ -1559,7 +1559,7 @@ namespace Inventory_Forms
 			this.phonNumberTextBox.BorderThickness = 3;
 			this.phonNumberTextBox.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
 			this.phonNumberTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
-			this.phonNumberTextBox.DefaultFont = new System.Drawing.Font("IRANSansXFaNum", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+			this.phonNumberTextBox.DefaultFont = new System.Drawing.Font("IRANSansFaNum", 9F);
 			this.phonNumberTextBox.DefaultText = "";
 			this.phonNumberTextBox.FillColor = System.Drawing.SystemColors.Control;
 			this.phonNumberTextBox.HideSelection = true;
@@ -1634,7 +1634,7 @@ namespace Inventory_Forms
 			this.invoiceSerialNumberTextBox.BorderThickness = 3;
 			this.invoiceSerialNumberTextBox.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
 			this.invoiceSerialNumberTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
-			this.invoiceSerialNumberTextBox.DefaultFont = new System.Drawing.Font("IRANSansXFaNum", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+			this.invoiceSerialNumberTextBox.DefaultFont = new System.Drawing.Font("IRANSansFaNum", 9F);
 			this.invoiceSerialNumberTextBox.DefaultText = "";
 			this.invoiceSerialNumberTextBox.FillColor = System.Drawing.SystemColors.Control;
 			this.invoiceSerialNumberTextBox.HideSelection = true;
@@ -1698,6 +1698,7 @@ namespace Inventory_Forms
 			this.serviceListDataGridView.AllowUserToDeleteRows = false;
 			dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
 			dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+			dataGridViewCellStyle1.Font = new System.Drawing.Font("IRANSansFaNum", 8F);
 			this.serviceListDataGridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
 			this.serviceListDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
 			this.serviceListDataGridView.BackgroundColor = System.Drawing.Color.White;
@@ -1706,7 +1707,7 @@ namespace Inventory_Forms
 			this.serviceListDataGridView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
 			dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
 			dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(88)))), ((int)(((byte)(255)))));
-			dataGridViewCellStyle2.Font = new System.Drawing.Font("IRANSans", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+			dataGridViewCellStyle2.Font = new System.Drawing.Font("IRANSansFaNum", 10F);
 			dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
 			dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
 			dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
@@ -1715,7 +1716,7 @@ namespace Inventory_Forms
 			this.serviceListDataGridView.ColumnHeadersHeight = 35;
 			dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
 			dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
-			dataGridViewCellStyle3.Font = new System.Drawing.Font("IRANSans", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+			dataGridViewCellStyle3.Font = new System.Drawing.Font("IRANSansFaNum", 8F);
 			dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
 			dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
 			dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
@@ -1736,7 +1737,7 @@ namespace Inventory_Forms
 			this.serviceListDataGridView.TabIndex = 6;
 			this.serviceListDataGridView.Theme = Guna.UI2.WinForms.Enums.DataGridViewPresetThemes.Default;
 			this.serviceListDataGridView.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
-			this.serviceListDataGridView.ThemeStyle.AlternatingRowsStyle.Font = null;
+			this.serviceListDataGridView.ThemeStyle.AlternatingRowsStyle.Font = new System.Drawing.Font("IRANSansFaNum", 8F);
 			this.serviceListDataGridView.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty;
 			this.serviceListDataGridView.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.Empty;
 			this.serviceListDataGridView.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Empty;
@@ -1751,7 +1752,7 @@ namespace Inventory_Forms
 			this.serviceListDataGridView.ThemeStyle.ReadOnly = true;
 			this.serviceListDataGridView.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.White;
 			this.serviceListDataGridView.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
-			this.serviceListDataGridView.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("IRANSans", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+			this.serviceListDataGridView.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("IRANSansFaNum", 8F);
 			this.serviceListDataGridView.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(71)))), ((int)(((byte)(69)))), ((int)(((byte)(94)))));
 			this.serviceListDataGridView.ThemeStyle.RowsStyle.Height = 22;
 			this.serviceListDataGridView.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));

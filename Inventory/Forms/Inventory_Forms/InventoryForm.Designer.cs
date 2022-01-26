@@ -30,15 +30,19 @@ namespace Inventory_Forms
 		private void InitializeComponent()
 		{
 			this.components = new System.ComponentModel.Container();
+			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(InventoryForm));
 			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
 			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
 			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
 			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(InventoryForm));
 			Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties1 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
 			Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties2 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
 			Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties3 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
 			Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties4 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
+			this.contextMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
+			this.showImageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.inventoryHoldingBindingSource = new System.Windows.Forms.BindingSource(this.components);
+			this.inventoryHoldingDataGridViewElipse = new Guna.UI2.WinForms.Guna2Elipse(this.components);
 			this.mainPanel = new Guna.UI2.WinForms.Guna2Panel();
 			this.inventoryHoldingDataGridView = new System.Windows.Forms.DataGridView();
 			this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -50,16 +54,40 @@ namespace Inventory_Forms
 			this.registrationDateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.registrationTimeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
 			this.Product_Image = new System.Windows.Forms.DataGridViewImageColumn();
-			this.contextMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
-			this.showImageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.inventoryHoldingBindingSource = new System.Windows.Forms.BindingSource(this.components);
 			this.productNameSearchTextBox = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox();
-			this.inventoryHoldingDataGridViewElipse = new Guna.UI2.WinForms.Guna2Elipse(this.components);
-			this.mainPanel.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)(this.inventoryHoldingDataGridView)).BeginInit();
 			this.contextMenuStrip.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.inventoryHoldingBindingSource)).BeginInit();
+			this.mainPanel.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.inventoryHoldingDataGridView)).BeginInit();
 			this.SuspendLayout();
+			// 
+			// contextMenuStrip
+			// 
+			this.contextMenuStrip.Font = new System.Drawing.Font("IRANSans", 8.249999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.contextMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.showImageToolStripMenuItem});
+			this.contextMenuStrip.Name = "contextMenuStrip";
+			this.contextMenuStrip.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+			this.contextMenuStrip.Size = new System.Drawing.Size(166, 26);
+			// 
+			// showImageToolStripMenuItem
+			// 
+			this.showImageToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("showImageToolStripMenuItem.Image")));
+			this.showImageToolStripMenuItem.Name = "showImageToolStripMenuItem";
+			this.showImageToolStripMenuItem.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+			this.showImageToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.I)));
+			this.showImageToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
+			this.showImageToolStripMenuItem.Text = "نمایش عکس";
+			this.showImageToolStripMenuItem.Click += new System.EventHandler(this.ShowImageToolStripMenuItem_Click);
+			// 
+			// inventoryHoldingBindingSource
+			// 
+			this.inventoryHoldingBindingSource.DataSource = typeof(Models.InventoryHolding);
+			// 
+			// inventoryHoldingDataGridViewElipse
+			// 
+			this.inventoryHoldingDataGridViewElipse.BorderRadius = 20;
+			this.inventoryHoldingDataGridViewElipse.TargetControl = this.inventoryHoldingDataGridView;
 			// 
 			// mainPanel
 			// 
@@ -102,7 +130,7 @@ namespace Inventory_Forms
 			this.inventoryHoldingDataGridView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
 			dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
 			dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(103)))), ((int)(((byte)(58)))), ((int)(((byte)(183)))));
-			dataGridViewCellStyle2.Font = new System.Drawing.Font("IRANSans", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+			dataGridViewCellStyle2.Font = new System.Drawing.Font("IRANSansFaNum", 10F);
 			dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
 			dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
 			this.inventoryHoldingDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
@@ -138,7 +166,7 @@ namespace Inventory_Forms
 			this.inventoryHoldingDataGridView.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
 			dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
 			dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(215)))), ((int)(((byte)(240)))));
-			dataGridViewCellStyle4.Font = new System.Drawing.Font("IRANSansXFaNum", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+			dataGridViewCellStyle4.Font = new System.Drawing.Font("IRANSansFaNum", 10F);
 			dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
 			dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(123)))), ((int)(((byte)(207)))));
 			dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.White;
@@ -189,22 +217,26 @@ namespace Inventory_Forms
 			this.productPurchasePriceDataGridViewTextBoxColumn.DataPropertyName = "Product_Purchase_Price";
 			this.productPurchasePriceDataGridViewTextBoxColumn.HeaderText = "قیمت خرید کالا";
 			this.productPurchasePriceDataGridViewTextBoxColumn.Name = "productPurchasePriceDataGridViewTextBoxColumn";
+			this.productPurchasePriceDataGridViewTextBoxColumn.Visible = false;
 			// 
 			// Product_Sale_Price
 			// 
 			this.Product_Sale_Price.DataPropertyName = "Product_Sale_Price";
+			this.Product_Sale_Price.FillWeight = 150F;
 			this.Product_Sale_Price.HeaderText = "قیمت فروش کالا";
 			this.Product_Sale_Price.Name = "Product_Sale_Price";
 			// 
 			// registrationDateDataGridViewTextBoxColumn
 			// 
 			this.registrationDateDataGridViewTextBoxColumn.DataPropertyName = "Registration_Date";
+			this.registrationDateDataGridViewTextBoxColumn.FillWeight = 75F;
 			this.registrationDateDataGridViewTextBoxColumn.HeaderText = "تاریخ ثبت";
 			this.registrationDateDataGridViewTextBoxColumn.Name = "registrationDateDataGridViewTextBoxColumn";
 			// 
 			// registrationTimeDataGridViewTextBoxColumn
 			// 
 			this.registrationTimeDataGridViewTextBoxColumn.DataPropertyName = "Registration_Time";
+			this.registrationTimeDataGridViewTextBoxColumn.FillWeight = 75F;
 			this.registrationTimeDataGridViewTextBoxColumn.HeaderText = "زمان ثبت";
 			this.registrationTimeDataGridViewTextBoxColumn.Name = "registrationTimeDataGridViewTextBoxColumn";
 			// 
@@ -214,29 +246,6 @@ namespace Inventory_Forms
 			this.Product_Image.HeaderText = "تصویر کالا";
 			this.Product_Image.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
 			this.Product_Image.Name = "Product_Image";
-			// 
-			// contextMenuStrip
-			// 
-			this.contextMenuStrip.Font = new System.Drawing.Font("IRANSans", 8.249999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.contextMenuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.showImageToolStripMenuItem});
-			this.contextMenuStrip.Name = "contextMenuStrip";
-			this.contextMenuStrip.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-			this.contextMenuStrip.Size = new System.Drawing.Size(166, 26);
-			// 
-			// showImageToolStripMenuItem
-			// 
-			this.showImageToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("showImageToolStripMenuItem.Image")));
-			this.showImageToolStripMenuItem.Name = "showImageToolStripMenuItem";
-			this.showImageToolStripMenuItem.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-			this.showImageToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.I)));
-			this.showImageToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
-			this.showImageToolStripMenuItem.Text = "نمایش عکس";
-			this.showImageToolStripMenuItem.Click += new System.EventHandler(this.ShowImageToolStripMenuItem_Click);
-			// 
-			// inventoryHoldingBindingSource
-			// 
-			this.inventoryHoldingBindingSource.DataSource = typeof(Models.InventoryHolding);
 			// 
 			// productNameSearchTextBox
 			// 
@@ -315,11 +324,6 @@ namespace Inventory_Forms
 			this.productNameSearchTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ProductNameSearchTextBox_KeyPress);
 			this.productNameSearchTextBox.Enter += new System.EventHandler(this.ProductNameSearchTextBox_Enter);
 			// 
-			// inventoryHoldingDataGridViewElipse
-			// 
-			this.inventoryHoldingDataGridViewElipse.BorderRadius = 20;
-			this.inventoryHoldingDataGridViewElipse.TargetControl = this.inventoryHoldingDataGridView;
-			// 
 			// InventoryForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 17F);
@@ -329,10 +333,10 @@ namespace Inventory_Forms
 			this.Controls.Add(this.mainPanel);
 			this.Name = "InventoryForm";
 			this.Text = "InventoryForm";
-			this.mainPanel.ResumeLayout(false);
-			((System.ComponentModel.ISupportInitialize)(this.inventoryHoldingDataGridView)).EndInit();
 			this.contextMenuStrip.ResumeLayout(false);
 			((System.ComponentModel.ISupportInitialize)(this.inventoryHoldingBindingSource)).EndInit();
+			this.mainPanel.ResumeLayout(false);
+			((System.ComponentModel.ISupportInitialize)(this.inventoryHoldingDataGridView)).EndInit();
 			this.ResumeLayout(false);
 
 		}

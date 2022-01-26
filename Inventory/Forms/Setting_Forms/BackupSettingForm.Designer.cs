@@ -45,11 +45,6 @@ namespace Setting_Forms
 			this.timeIntervalComboBox = new Guna.UI2.WinForms.Guna2ComboBox();
 			this.autoBackupLabel = new Mbb.Windows.Forms.Label();
 			this.autoBackupCheckBox = new Guna.UI2.WinForms.Guna2CustomCheckBox();
-			this.setTimeBackupGroupBox = new Guna.UI2.WinForms.Guna2GroupBox();
-			this.HoureLabel = new Mbb.Windows.Forms.Label();
-			this.minutesLbel = new Mbb.Windows.Forms.Label();
-			this.minutesNumericUpDown = new Guna.UI2.WinForms.Guna2NumericUpDown();
-			this.houreNumericUpDown = new Guna.UI2.WinForms.Guna2NumericUpDown();
 			this.dayOfWeekGroupBox = new Guna.UI2.WinForms.Guna2GroupBox();
 			this.ofWeekLabel = new Mbb.Windows.Forms.Label();
 			this.dayOfWeekLabel = new Mbb.Windows.Forms.Label();
@@ -58,6 +53,11 @@ namespace Setting_Forms
 			this.evryMonthLabel = new Mbb.Windows.Forms.Label();
 			this.dayOfMonthLabel = new Mbb.Windows.Forms.Label();
 			this.dayOfMonthNumericUpDown = new Guna.UI2.WinForms.Guna2NumericUpDown();
+			this.setTimeBackupGroupBox = new Guna.UI2.WinForms.Guna2GroupBox();
+			this.HoureLabel = new Mbb.Windows.Forms.Label();
+			this.minutesLbel = new Mbb.Windows.Forms.Label();
+			this.minutesNumericUpDown = new Guna.UI2.WinForms.Guna2NumericUpDown();
+			this.houreNumericUpDown = new Guna.UI2.WinForms.Guna2NumericUpDown();
 			this.restorePanel = new Guna.UI2.WinForms.Guna2Panel();
 			this.selectLoadPathButton = new Guna.UI2.WinForms.Guna2GradientButton();
 			this.restorBackupButton = new Guna.UI2.WinForms.Guna2GradientButton();
@@ -68,12 +68,12 @@ namespace Setting_Forms
 			this.savePathTextBox = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox();
 			this.mainPanel.SuspendLayout();
 			this.backupSettengGroupBox.SuspendLayout();
-			this.setTimeBackupGroupBox.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)(this.minutesNumericUpDown)).BeginInit();
-			((System.ComponentModel.ISupportInitialize)(this.houreNumericUpDown)).BeginInit();
 			this.dayOfWeekGroupBox.SuspendLayout();
 			this.dayOfMonthGroupBox.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.dayOfMonthNumericUpDown)).BeginInit();
+			this.setTimeBackupGroupBox.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.minutesNumericUpDown)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.houreNumericUpDown)).BeginInit();
 			this.restorePanel.SuspendLayout();
 			this.backupPanel.SuspendLayout();
 			this.SuspendLayout();
@@ -213,112 +213,6 @@ namespace Setting_Forms
 			this.autoBackupCheckBox.UncheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
 			this.autoBackupCheckBox.UncheckedState.Parent = this.autoBackupCheckBox;
 			this.autoBackupCheckBox.CheckedChanged += new System.EventHandler(this.AutoBackupCheckBox_CheckedChanged);
-			// 
-			// setTimeBackupGroupBox
-			// 
-			this.setTimeBackupGroupBox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-			this.setTimeBackupGroupBox.BorderRadius = 15;
-			this.setTimeBackupGroupBox.BorderThickness = 2;
-			this.setTimeBackupGroupBox.Controls.Add(this.HoureLabel);
-			this.setTimeBackupGroupBox.Controls.Add(this.minutesLbel);
-			this.setTimeBackupGroupBox.Controls.Add(this.minutesNumericUpDown);
-			this.setTimeBackupGroupBox.Controls.Add(this.houreNumericUpDown);
-			this.setTimeBackupGroupBox.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-			this.setTimeBackupGroupBox.CustomBorderThickness = new System.Windows.Forms.Padding(0, 35, 0, 0);
-			this.setTimeBackupGroupBox.Enabled = false;
-			this.setTimeBackupGroupBox.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-			this.setTimeBackupGroupBox.ForeColor = System.Drawing.Color.White;
-			this.setTimeBackupGroupBox.Location = new System.Drawing.Point(382, 107);
-			this.setTimeBackupGroupBox.Name = "setTimeBackupGroupBox";
-			this.setTimeBackupGroupBox.ShadowDecoration.Parent = this.setTimeBackupGroupBox;
-			this.setTimeBackupGroupBox.Size = new System.Drawing.Size(316, 92);
-			this.setTimeBackupGroupBox.TabIndex = 4;
-			this.setTimeBackupGroupBox.Text = "لطفا زمان تهیه نسخه پشتیبان را مشخص کنید";
-			this.setTimeBackupGroupBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-			// 
-			// HoureLabel
-			// 
-			this.HoureLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-			this.HoureLabel.AutoSize = true;
-			this.HoureLabel.ForeColor = System.Drawing.Color.Black;
-			this.HoureLabel.Location = new System.Drawing.Point(119, 56);
-			this.HoureLabel.Name = "HoureLabel";
-			this.HoureLabel.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-			this.HoureLabel.Size = new System.Drawing.Size(41, 14);
-			this.HoureLabel.TabIndex = 2;
-			this.HoureLabel.Text = "ساعت";
-			// 
-			// minutesLbel
-			// 
-			this.minutesLbel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-			this.minutesLbel.AutoSize = true;
-			this.minutesLbel.ForeColor = System.Drawing.Color.Black;
-			this.minutesLbel.Location = new System.Drawing.Point(272, 56);
-			this.minutesLbel.Name = "minutesLbel";
-			this.minutesLbel.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-			this.minutesLbel.Size = new System.Drawing.Size(35, 14);
-			this.minutesLbel.TabIndex = 0;
-			this.minutesLbel.Text = "دقیقه";
-			// 
-			// minutesNumericUpDown
-			// 
-			this.minutesNumericUpDown.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-			this.minutesNumericUpDown.BackColor = System.Drawing.Color.Transparent;
-			this.minutesNumericUpDown.BorderRadius = 5;
-			this.minutesNumericUpDown.Cursor = System.Windows.Forms.Cursors.IBeam;
-			this.minutesNumericUpDown.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-			this.minutesNumericUpDown.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-			this.minutesNumericUpDown.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-			this.minutesNumericUpDown.DisabledState.Parent = this.minutesNumericUpDown;
-			this.minutesNumericUpDown.DisabledState.UpDownButtonFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(177)))), ((int)(((byte)(177)))));
-			this.minutesNumericUpDown.DisabledState.UpDownButtonForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(203)))), ((int)(((byte)(203)))), ((int)(((byte)(203)))));
-			this.minutesNumericUpDown.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-			this.minutesNumericUpDown.FocusedState.Parent = this.minutesNumericUpDown;
-			this.minutesNumericUpDown.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.minutesNumericUpDown.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(126)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
-			this.minutesNumericUpDown.Location = new System.Drawing.Point(166, 46);
-			this.minutesNumericUpDown.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-			this.minutesNumericUpDown.Maximum = new decimal(new int[] {
-            59,
-            0,
-            0,
-            0});
-			this.minutesNumericUpDown.Name = "minutesNumericUpDown";
-			this.minutesNumericUpDown.ShadowDecoration.Parent = this.minutesNumericUpDown;
-			this.minutesNumericUpDown.Size = new System.Drawing.Size(100, 35);
-			this.minutesNumericUpDown.TabIndex = 1;
-			this.minutesNumericUpDown.UseTransparentBackground = true;
-			this.minutesNumericUpDown.ValueChanged += new System.EventHandler(this.MinutesNumericUpDown_ValueChanged);
-			// 
-			// houreNumericUpDown
-			// 
-			this.houreNumericUpDown.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-			this.houreNumericUpDown.BackColor = System.Drawing.Color.Transparent;
-			this.houreNumericUpDown.BorderRadius = 5;
-			this.houreNumericUpDown.Cursor = System.Windows.Forms.Cursors.IBeam;
-			this.houreNumericUpDown.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-			this.houreNumericUpDown.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-			this.houreNumericUpDown.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-			this.houreNumericUpDown.DisabledState.Parent = this.houreNumericUpDown;
-			this.houreNumericUpDown.DisabledState.UpDownButtonFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(177)))), ((int)(((byte)(177)))));
-			this.houreNumericUpDown.DisabledState.UpDownButtonForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(203)))), ((int)(((byte)(203)))), ((int)(((byte)(203)))));
-			this.houreNumericUpDown.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-			this.houreNumericUpDown.FocusedState.Parent = this.houreNumericUpDown;
-			this.houreNumericUpDown.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.houreNumericUpDown.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(126)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
-			this.houreNumericUpDown.Location = new System.Drawing.Point(13, 46);
-			this.houreNumericUpDown.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-			this.houreNumericUpDown.Maximum = new decimal(new int[] {
-            23,
-            0,
-            0,
-            0});
-			this.houreNumericUpDown.Name = "houreNumericUpDown";
-			this.houreNumericUpDown.ShadowDecoration.Parent = this.houreNumericUpDown;
-			this.houreNumericUpDown.Size = new System.Drawing.Size(100, 35);
-			this.houreNumericUpDown.TabIndex = 3;
-			this.houreNumericUpDown.UseTransparentBackground = true;
-			this.houreNumericUpDown.ValueChanged += new System.EventHandler(this.HoureNumericUpDown_ValueChanged);
 			// 
 			// dayOfWeekGroupBox
 			// 
@@ -488,6 +382,112 @@ namespace Setting_Forms
             0,
             0});
 			this.dayOfMonthNumericUpDown.ValueChanged += new System.EventHandler(this.DayOfMonthNumericUpDown_ValueChanged);
+			// 
+			// setTimeBackupGroupBox
+			// 
+			this.setTimeBackupGroupBox.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+			this.setTimeBackupGroupBox.BorderRadius = 15;
+			this.setTimeBackupGroupBox.BorderThickness = 2;
+			this.setTimeBackupGroupBox.Controls.Add(this.HoureLabel);
+			this.setTimeBackupGroupBox.Controls.Add(this.minutesLbel);
+			this.setTimeBackupGroupBox.Controls.Add(this.minutesNumericUpDown);
+			this.setTimeBackupGroupBox.Controls.Add(this.houreNumericUpDown);
+			this.setTimeBackupGroupBox.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+			this.setTimeBackupGroupBox.CustomBorderThickness = new System.Windows.Forms.Padding(0, 35, 0, 0);
+			this.setTimeBackupGroupBox.Enabled = false;
+			this.setTimeBackupGroupBox.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+			this.setTimeBackupGroupBox.ForeColor = System.Drawing.Color.White;
+			this.setTimeBackupGroupBox.Location = new System.Drawing.Point(382, 107);
+			this.setTimeBackupGroupBox.Name = "setTimeBackupGroupBox";
+			this.setTimeBackupGroupBox.ShadowDecoration.Parent = this.setTimeBackupGroupBox;
+			this.setTimeBackupGroupBox.Size = new System.Drawing.Size(316, 92);
+			this.setTimeBackupGroupBox.TabIndex = 4;
+			this.setTimeBackupGroupBox.Text = "لطفا زمان تهیه نسخه پشتیبان را مشخص کنید";
+			this.setTimeBackupGroupBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+			// 
+			// HoureLabel
+			// 
+			this.HoureLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			this.HoureLabel.AutoSize = true;
+			this.HoureLabel.ForeColor = System.Drawing.Color.Black;
+			this.HoureLabel.Location = new System.Drawing.Point(119, 56);
+			this.HoureLabel.Name = "HoureLabel";
+			this.HoureLabel.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+			this.HoureLabel.Size = new System.Drawing.Size(41, 14);
+			this.HoureLabel.TabIndex = 2;
+			this.HoureLabel.Text = "ساعت";
+			// 
+			// minutesLbel
+			// 
+			this.minutesLbel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			this.minutesLbel.AutoSize = true;
+			this.minutesLbel.ForeColor = System.Drawing.Color.Black;
+			this.minutesLbel.Location = new System.Drawing.Point(272, 56);
+			this.minutesLbel.Name = "minutesLbel";
+			this.minutesLbel.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+			this.minutesLbel.Size = new System.Drawing.Size(35, 14);
+			this.minutesLbel.TabIndex = 0;
+			this.minutesLbel.Text = "دقیقه";
+			// 
+			// minutesNumericUpDown
+			// 
+			this.minutesNumericUpDown.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			this.minutesNumericUpDown.BackColor = System.Drawing.Color.Transparent;
+			this.minutesNumericUpDown.BorderRadius = 5;
+			this.minutesNumericUpDown.Cursor = System.Windows.Forms.Cursors.IBeam;
+			this.minutesNumericUpDown.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+			this.minutesNumericUpDown.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+			this.minutesNumericUpDown.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+			this.minutesNumericUpDown.DisabledState.Parent = this.minutesNumericUpDown;
+			this.minutesNumericUpDown.DisabledState.UpDownButtonFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(177)))), ((int)(((byte)(177)))));
+			this.minutesNumericUpDown.DisabledState.UpDownButtonForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(203)))), ((int)(((byte)(203)))), ((int)(((byte)(203)))));
+			this.minutesNumericUpDown.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+			this.minutesNumericUpDown.FocusedState.Parent = this.minutesNumericUpDown;
+			this.minutesNumericUpDown.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.minutesNumericUpDown.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(126)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+			this.minutesNumericUpDown.Location = new System.Drawing.Point(166, 46);
+			this.minutesNumericUpDown.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+			this.minutesNumericUpDown.Maximum = new decimal(new int[] {
+            59,
+            0,
+            0,
+            0});
+			this.minutesNumericUpDown.Name = "minutesNumericUpDown";
+			this.minutesNumericUpDown.ShadowDecoration.Parent = this.minutesNumericUpDown;
+			this.minutesNumericUpDown.Size = new System.Drawing.Size(100, 35);
+			this.minutesNumericUpDown.TabIndex = 1;
+			this.minutesNumericUpDown.UseTransparentBackground = true;
+			this.minutesNumericUpDown.ValueChanged += new System.EventHandler(this.MinutesNumericUpDown_ValueChanged);
+			// 
+			// houreNumericUpDown
+			// 
+			this.houreNumericUpDown.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			this.houreNumericUpDown.BackColor = System.Drawing.Color.Transparent;
+			this.houreNumericUpDown.BorderRadius = 5;
+			this.houreNumericUpDown.Cursor = System.Windows.Forms.Cursors.IBeam;
+			this.houreNumericUpDown.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+			this.houreNumericUpDown.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+			this.houreNumericUpDown.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+			this.houreNumericUpDown.DisabledState.Parent = this.houreNumericUpDown;
+			this.houreNumericUpDown.DisabledState.UpDownButtonFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(177)))), ((int)(((byte)(177)))));
+			this.houreNumericUpDown.DisabledState.UpDownButtonForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(203)))), ((int)(((byte)(203)))), ((int)(((byte)(203)))));
+			this.houreNumericUpDown.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+			this.houreNumericUpDown.FocusedState.Parent = this.houreNumericUpDown;
+			this.houreNumericUpDown.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.houreNumericUpDown.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(126)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+			this.houreNumericUpDown.Location = new System.Drawing.Point(13, 46);
+			this.houreNumericUpDown.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+			this.houreNumericUpDown.Maximum = new decimal(new int[] {
+            23,
+            0,
+            0,
+            0});
+			this.houreNumericUpDown.Name = "houreNumericUpDown";
+			this.houreNumericUpDown.ShadowDecoration.Parent = this.houreNumericUpDown;
+			this.houreNumericUpDown.Size = new System.Drawing.Size(100, 35);
+			this.houreNumericUpDown.TabIndex = 3;
+			this.houreNumericUpDown.UseTransparentBackground = true;
+			this.houreNumericUpDown.ValueChanged += new System.EventHandler(this.HoureNumericUpDown_ValueChanged);
 			// 
 			// restorePanel
 			// 
@@ -764,15 +764,15 @@ namespace Setting_Forms
 			this.mainPanel.ResumeLayout(false);
 			this.backupSettengGroupBox.ResumeLayout(false);
 			this.backupSettengGroupBox.PerformLayout();
-			this.setTimeBackupGroupBox.ResumeLayout(false);
-			this.setTimeBackupGroupBox.PerformLayout();
-			((System.ComponentModel.ISupportInitialize)(this.minutesNumericUpDown)).EndInit();
-			((System.ComponentModel.ISupportInitialize)(this.houreNumericUpDown)).EndInit();
 			this.dayOfWeekGroupBox.ResumeLayout(false);
 			this.dayOfWeekGroupBox.PerformLayout();
 			this.dayOfMonthGroupBox.ResumeLayout(false);
 			this.dayOfMonthGroupBox.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)(this.dayOfMonthNumericUpDown)).EndInit();
+			this.setTimeBackupGroupBox.ResumeLayout(false);
+			this.setTimeBackupGroupBox.PerformLayout();
+			((System.ComponentModel.ISupportInitialize)(this.minutesNumericUpDown)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.houreNumericUpDown)).EndInit();
 			this.restorePanel.ResumeLayout(false);
 			this.backupPanel.ResumeLayout(false);
 			this.ResumeLayout(false);

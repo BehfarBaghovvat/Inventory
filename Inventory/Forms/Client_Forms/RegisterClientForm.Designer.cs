@@ -749,6 +749,7 @@ namespace Client_Forms
 			this.listClientDataGridView.AllowUserToDeleteRows = false;
 			dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
 			dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(196)))), ((int)(((byte)(233)))));
+			dataGridViewCellStyle1.Font = new System.Drawing.Font("IRANSansFaNum", 8F);
 			this.listClientDataGridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
 			this.listClientDataGridView.AutoGenerateColumns = false;
 			this.listClientDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
@@ -764,7 +765,7 @@ namespace Client_Forms
 			dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
 			dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
 			this.listClientDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
-			this.listClientDataGridView.ColumnHeadersHeight = 30;
+			this.listClientDataGridView.ColumnHeadersHeight = 35;
 			this.listClientDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
 			this.listClientDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.idDataGridViewTextBoxColumn,
@@ -795,7 +796,7 @@ namespace Client_Forms
 			this.listClientDataGridView.TabIndex = 5;
 			this.listClientDataGridView.Theme = Guna.UI2.WinForms.Enums.DataGridViewPresetThemes.DeepPurple;
 			this.listClientDataGridView.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(196)))), ((int)(((byte)(233)))));
-			this.listClientDataGridView.ThemeStyle.AlternatingRowsStyle.Font = null;
+			this.listClientDataGridView.ThemeStyle.AlternatingRowsStyle.Font = new System.Drawing.Font("IRANSansFaNum", 8F);
 			this.listClientDataGridView.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty;
 			this.listClientDataGridView.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.Empty;
 			this.listClientDataGridView.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Empty;
@@ -806,7 +807,7 @@ namespace Client_Forms
 			this.listClientDataGridView.ThemeStyle.HeaderStyle.Font = new System.Drawing.Font("IRANSansXFaNum", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
 			this.listClientDataGridView.ThemeStyle.HeaderStyle.ForeColor = System.Drawing.Color.White;
 			this.listClientDataGridView.ThemeStyle.HeaderStyle.HeaightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-			this.listClientDataGridView.ThemeStyle.HeaderStyle.Height = 30;
+			this.listClientDataGridView.ThemeStyle.HeaderStyle.Height = 35;
 			this.listClientDataGridView.ThemeStyle.ReadOnly = true;
 			this.listClientDataGridView.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(215)))), ((int)(((byte)(240)))));
 			this.listClientDataGridView.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;

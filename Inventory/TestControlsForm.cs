@@ -4,6 +4,10 @@
 	{
 		decimal num1, num2, num3;
 
+		private void button1_Click(object sender, System.EventArgs e)
+		{
+			Mbb.Windows.Forms.MessageBox.Show(text: "Hello Word!", caption: "اعلان", icon: Mbb.Windows.Forms.MessageBoxIcon.Information, button: Mbb.Windows.Forms.MessageBoxButtons.Ok);
+		}
 
 		public TestControlsForm()
 		{

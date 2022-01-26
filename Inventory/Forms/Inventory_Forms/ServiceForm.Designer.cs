@@ -30,6 +30,7 @@ namespace Inventory_Forms
 		private void InitializeComponent()
 		{
 			this.components = new System.ComponentModel.Container();
+			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ServiceForm));
 			Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties1 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
 			Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties2 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
 			Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties3 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
@@ -97,8 +98,8 @@ namespace Inventory_Forms
 			Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties62 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
 			Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties63 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
 			Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties64 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
-			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ServiceForm));
 			this.controlsPanel = new Guna.UI2.WinForms.Guna2Panel();
+			this.commodityListButton = new Guna.UI2.WinForms.Guna2GradientButton();
 			this.licensePlateGroupBox = new Guna.UI2.WinForms.Guna2GroupBox();
 			this.numTextBox3 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox();
 			this.numTextBox1 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox();
@@ -153,7 +154,6 @@ namespace Inventory_Forms
 			this.editServiceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.phoneNumberTextBox = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox();
 			this.listServiceDataGridViewElipse = new Guna.UI2.WinForms.Guna2Elipse(this.components);
-			this.commodityListButton = new Guna.UI2.WinForms.Guna2GradientButton();
 			this.controlsPanel.SuspendLayout();
 			this.licensePlateGroupBox.SuspendLayout();
 			this.paymentTypeGroupBox.SuspendLayout();
@@ -206,6 +206,33 @@ namespace Inventory_Forms
 			this.controlsPanel.Size = new System.Drawing.Size(1150, 650);
 			this.controlsPanel.TabIndex = 0;
 			// 
+			// commodityListButton
+			// 
+			this.commodityListButton.Animated = true;
+			this.commodityListButton.BorderRadius = 5;
+			this.commodityListButton.CheckedState.Parent = this.commodityListButton;
+			this.commodityListButton.CustomImages.Parent = this.commodityListButton;
+			this.commodityListButton.Enabled = false;
+			this.commodityListButton.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(0)))), ((int)(((byte)(61)))));
+			this.commodityListButton.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+			this.commodityListButton.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.commodityListButton.ForeColor = System.Drawing.Color.White;
+			this.commodityListButton.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(0)))), ((int)(((byte)(61)))));
+			this.commodityListButton.HoverState.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+			this.commodityListButton.HoverState.Parent = this.commodityListButton;
+			this.commodityListButton.Image = ((System.Drawing.Image)(resources.GetObject("commodityListButton.Image")));
+			this.commodityListButton.ImageAlign = System.Windows.Forms.HorizontalAlignment.Right;
+			this.commodityListButton.ImageSize = new System.Drawing.Size(25, 25);
+			this.commodityListButton.Location = new System.Drawing.Point(13, 12);
+			this.commodityListButton.Name = "commodityListButton";
+			this.commodityListButton.PressedColor = System.Drawing.Color.White;
+			this.commodityListButton.ShadowDecoration.Parent = this.commodityListButton;
+			this.commodityListButton.Size = new System.Drawing.Size(160, 35);
+			this.commodityListButton.TabIndex = 31;
+			this.commodityListButton.Text = "لیست کالاها";
+			this.commodityListButton.TextOffset = new System.Drawing.Point(0, -1);
+			this.commodityListButton.Click += new System.EventHandler(this.CommodityListButton_Click);
+			// 
 			// licensePlateGroupBox
 			// 
 			this.licensePlateGroupBox.BackColor = System.Drawing.Color.Transparent;
@@ -221,7 +248,7 @@ namespace Inventory_Forms
 			this.licensePlateGroupBox.CustomBorderColor = System.Drawing.Color.Transparent;
 			this.licensePlateGroupBox.CustomBorderThickness = new System.Windows.Forms.Padding(0);
 			this.licensePlateGroupBox.FillColor = System.Drawing.Color.Transparent;
-			this.licensePlateGroupBox.Font = new System.Drawing.Font("Segoe UI", 9F);
+			this.licensePlateGroupBox.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.licensePlateGroupBox.ForeColor = System.Drawing.Color.Transparent;
 			this.licensePlateGroupBox.Location = new System.Drawing.Point(455, 59);
 			this.licensePlateGroupBox.Name = "licensePlateGroupBox";
@@ -388,7 +415,7 @@ namespace Inventory_Forms
 			this.separatorLabel1.ForeColor = System.Drawing.Color.White;
 			this.separatorLabel1.Location = new System.Drawing.Point(37, 13);
 			this.separatorLabel1.Name = "separatorLabel1";
-			this.separatorLabel1.Size = new System.Drawing.Size(12, 15);
+			this.separatorLabel1.Size = new System.Drawing.Size(11, 14);
 			this.separatorLabel1.TabIndex = 4;
 			this.separatorLabel1.Text = "-";
 			// 
@@ -541,7 +568,7 @@ namespace Inventory_Forms
 			this.separatorLabel2.ForeColor = System.Drawing.Color.White;
 			this.separatorLabel2.Location = new System.Drawing.Point(162, 13);
 			this.separatorLabel2.Name = "separatorLabel2";
-			this.separatorLabel2.Size = new System.Drawing.Size(12, 15);
+			this.separatorLabel2.Size = new System.Drawing.Size(11, 14);
 			this.separatorLabel2.TabIndex = 5;
 			this.separatorLabel2.Text = "-";
 			// 
@@ -573,7 +600,7 @@ namespace Inventory_Forms
 			this.serviceTimeTextBox.BorderThickness = 3;
 			this.serviceTimeTextBox.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
 			this.serviceTimeTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
-			this.serviceTimeTextBox.DefaultFont = new System.Drawing.Font("IRANSansFaNum", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.serviceTimeTextBox.DefaultFont = new System.Drawing.Font("IRANSansFaNum", 8.249999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
 			this.serviceTimeTextBox.DefaultText = "";
 			this.serviceTimeTextBox.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(0)))), ((int)(((byte)(61)))));
 			this.serviceTimeTextBox.ForeColor = System.Drawing.Color.White;
@@ -648,7 +675,7 @@ namespace Inventory_Forms
 			this.nextKilometerTextBox.BorderThickness = 3;
 			this.nextKilometerTextBox.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
 			this.nextKilometerTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
-			this.nextKilometerTextBox.DefaultFont = new System.Drawing.Font("IRANSansXFaNum", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+			this.nextKilometerTextBox.DefaultFont = new System.Drawing.Font("IRANSansFaNum", 9F);
 			this.nextKilometerTextBox.DefaultText = "";
 			this.nextKilometerTextBox.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(0)))), ((int)(((byte)(61)))));
 			this.nextKilometerTextBox.ForeColor = System.Drawing.Color.White;
@@ -728,7 +755,7 @@ namespace Inventory_Forms
 			this.currerntKilometerTextBox.BorderThickness = 3;
 			this.currerntKilometerTextBox.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
 			this.currerntKilometerTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
-			this.currerntKilometerTextBox.DefaultFont = new System.Drawing.Font("IRANSansXFaNum", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+			this.currerntKilometerTextBox.DefaultFont = new System.Drawing.Font("IRANSansFaNum", 9F);
 			this.currerntKilometerTextBox.DefaultText = "";
 			this.currerntKilometerTextBox.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(0)))), ((int)(((byte)(61)))));
 			this.currerntKilometerTextBox.ForeColor = System.Drawing.Color.White;
@@ -1419,7 +1446,7 @@ namespace Inventory_Forms
 			this.serviceNumberTextBox.BorderThickness = 3;
 			this.serviceNumberTextBox.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
 			this.serviceNumberTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
-			this.serviceNumberTextBox.DefaultFont = new System.Drawing.Font("IRANSansXFaNum", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+			this.serviceNumberTextBox.DefaultFont = new System.Drawing.Font("IRANSansFaNum", 9F);
 			this.serviceNumberTextBox.DefaultText = "";
 			this.serviceNumberTextBox.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(0)))), ((int)(((byte)(61)))));
 			this.serviceNumberTextBox.ForeColor = System.Drawing.Color.White;
@@ -1498,7 +1525,7 @@ namespace Inventory_Forms
 			this.descriptionTextBox.BorderThickness = 3;
 			this.descriptionTextBox.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
 			this.descriptionTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
-			this.descriptionTextBox.DefaultFont = new System.Drawing.Font("IRANSansXFaNum", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+			this.descriptionTextBox.DefaultFont = new System.Drawing.Font("IRANSansFaNum", 9F);
 			this.descriptionTextBox.DefaultText = "";
 			this.descriptionTextBox.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(0)))), ((int)(((byte)(61)))));
 			this.descriptionTextBox.ForeColor = System.Drawing.Color.White;
@@ -1577,7 +1604,7 @@ namespace Inventory_Forms
 			this.repairmanNameTextBox.BorderThickness = 3;
 			this.repairmanNameTextBox.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
 			this.repairmanNameTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
-			this.repairmanNameTextBox.DefaultFont = new System.Drawing.Font("IRANSansXFaNum", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+			this.repairmanNameTextBox.DefaultFont = new System.Drawing.Font("IRANSansFaNum", 9F);
 			this.repairmanNameTextBox.DefaultText = "";
 			this.repairmanNameTextBox.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(0)))), ((int)(((byte)(61)))));
 			this.repairmanNameTextBox.ForeColor = System.Drawing.Color.White;
@@ -1735,7 +1762,7 @@ namespace Inventory_Forms
 			this.servicePriceTextBox.BorderThickness = 3;
 			this.servicePriceTextBox.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
 			this.servicePriceTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
-			this.servicePriceTextBox.DefaultFont = new System.Drawing.Font("IRANSansXFaNum", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+			this.servicePriceTextBox.DefaultFont = new System.Drawing.Font("IRANSansFaNum", 9F);
 			this.servicePriceTextBox.DefaultText = "";
 			this.servicePriceTextBox.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(0)))), ((int)(((byte)(61)))));
 			this.servicePriceTextBox.ForeColor = System.Drawing.Color.White;
@@ -1889,7 +1916,7 @@ namespace Inventory_Forms
 			this.serviceDateTextBox.BorderThickness = 3;
 			this.serviceDateTextBox.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
 			this.serviceDateTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
-			this.serviceDateTextBox.DefaultFont = new System.Drawing.Font("IRANSansFaNum", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.serviceDateTextBox.DefaultFont = new System.Drawing.Font("IRANSansFaNum", 8.249999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
 			this.serviceDateTextBox.DefaultText = "";
 			this.serviceDateTextBox.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(0)))), ((int)(((byte)(61)))));
 			this.serviceDateTextBox.ForeColor = System.Drawing.Color.White;
@@ -1955,6 +1982,7 @@ namespace Inventory_Forms
 			this.listServiceDataGridView.AllowUserToResizeRows = false;
 			dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
 			dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(196)))), ((int)(((byte)(233)))));
+			dataGridViewCellStyle1.Font = new System.Drawing.Font("IRANSansFaNum", 8F);
 			dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
 			dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(190)))), ((int)(((byte)(150)))), ((int)(((byte)(210)))));
 			dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Black;
@@ -1983,7 +2011,7 @@ namespace Inventory_Forms
 			this.listServiceDataGridView.ContextMenuStrip = this.contextMenuStrip;
 			dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
 			dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(215)))), ((int)(((byte)(240)))));
-			dataGridViewCellStyle3.Font = new System.Drawing.Font("IRANSans", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+			dataGridViewCellStyle3.Font = new System.Drawing.Font("IRANSansFaNum", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
 			dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
 			dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(123)))), ((int)(((byte)(207)))));
 			dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
@@ -2012,7 +2040,7 @@ namespace Inventory_Forms
 			this.listServiceDataGridView.TabIndex = 19;
 			this.listServiceDataGridView.Theme = Guna.UI.WinForms.GunaDataGridViewPresetThemes.DeepPurple;
 			this.listServiceDataGridView.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(196)))), ((int)(((byte)(233)))));
-			this.listServiceDataGridView.ThemeStyle.AlternatingRowsStyle.Font = null;
+			this.listServiceDataGridView.ThemeStyle.AlternatingRowsStyle.Font = new System.Drawing.Font("IRANSansFaNum", 8F);
 			this.listServiceDataGridView.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Black;
 			this.listServiceDataGridView.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(190)))), ((int)(((byte)(150)))), ((int)(((byte)(210)))));
 			this.listServiceDataGridView.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Black;
@@ -2027,7 +2055,7 @@ namespace Inventory_Forms
 			this.listServiceDataGridView.ThemeStyle.ReadOnly = true;
 			this.listServiceDataGridView.ThemeStyle.RowsStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(215)))), ((int)(((byte)(240)))));
 			this.listServiceDataGridView.ThemeStyle.RowsStyle.BorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
-			this.listServiceDataGridView.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("IRANSans", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+			this.listServiceDataGridView.ThemeStyle.RowsStyle.Font = new System.Drawing.Font("IRANSansFaNum", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
 			this.listServiceDataGridView.ThemeStyle.RowsStyle.ForeColor = System.Drawing.Color.Black;
 			this.listServiceDataGridView.ThemeStyle.RowsStyle.Height = 30;
 			this.listServiceDataGridView.ThemeStyle.RowsStyle.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(123)))), ((int)(((byte)(207)))));
@@ -2103,7 +2131,7 @@ namespace Inventory_Forms
 			this.phoneNumberTextBox.BorderThickness = 3;
 			this.phoneNumberTextBox.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
 			this.phoneNumberTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
-			this.phoneNumberTextBox.DefaultFont = new System.Drawing.Font("IRANSansXFaNum", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+			this.phoneNumberTextBox.DefaultFont = new System.Drawing.Font("IRANSansFaNum", 8.249999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
 			this.phoneNumberTextBox.DefaultText = "";
 			this.phoneNumberTextBox.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(0)))), ((int)(((byte)(61)))));
 			this.phoneNumberTextBox.ForeColor = System.Drawing.Color.White;
@@ -2171,33 +2199,6 @@ namespace Inventory_Forms
 			this.listServiceDataGridViewElipse.BorderRadius = 25;
 			this.listServiceDataGridViewElipse.TargetControl = this.listServiceDataGridView;
 			// 
-			// commodityListButton
-			// 
-			this.commodityListButton.Animated = true;
-			this.commodityListButton.BorderRadius = 5;
-			this.commodityListButton.CheckedState.Parent = this.commodityListButton;
-			this.commodityListButton.CustomImages.Parent = this.commodityListButton;
-			this.commodityListButton.Enabled = false;
-			this.commodityListButton.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(0)))), ((int)(((byte)(61)))));
-			this.commodityListButton.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-			this.commodityListButton.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.commodityListButton.ForeColor = System.Drawing.Color.White;
-			this.commodityListButton.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(0)))), ((int)(((byte)(61)))));
-			this.commodityListButton.HoverState.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-			this.commodityListButton.HoverState.Parent = this.commodityListButton;
-			this.commodityListButton.Image = ((System.Drawing.Image)(resources.GetObject("commodityListButton.Image")));
-			this.commodityListButton.ImageAlign = System.Windows.Forms.HorizontalAlignment.Right;
-			this.commodityListButton.ImageSize = new System.Drawing.Size(25, 25);
-			this.commodityListButton.Location = new System.Drawing.Point(13, 12);
-			this.commodityListButton.Name = "commodityListButton";
-			this.commodityListButton.PressedColor = System.Drawing.Color.White;
-			this.commodityListButton.ShadowDecoration.Parent = this.commodityListButton;
-			this.commodityListButton.Size = new System.Drawing.Size(160, 35);
-			this.commodityListButton.TabIndex = 31;
-			this.commodityListButton.Text = "لیست کالاها";
-			this.commodityListButton.TextOffset = new System.Drawing.Point(0, -1);
-			this.commodityListButton.Click += new System.EventHandler(this.CommodityListButton_Click);
-			// 
 			// ServiceForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 17F);
@@ -2223,7 +2224,6 @@ namespace Inventory_Forms
 		#endregion
 
 		private Guna.UI2.WinForms.Guna2Panel controlsPanel;
-		private Guna.UI.WinForms.GunaDataGridView listServiceDataGridView;
 		private Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox descriptionTextBox;
 		private Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox clientNameTextBox;
 		private Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox servicePriceTextBox;
@@ -2278,5 +2278,6 @@ namespace Inventory_Forms
 		private Mbb.Windows.Forms.Label separatorLabel2;
 		private Mbb.Windows.Forms.Label iranLabel;
 		private Guna.UI2.WinForms.Guna2GradientButton commodityListButton;
+		public Guna.UI.WinForms.GunaDataGridView listServiceDataGridView;
 	}
 }

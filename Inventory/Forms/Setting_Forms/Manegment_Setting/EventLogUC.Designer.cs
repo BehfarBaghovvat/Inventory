@@ -157,12 +157,13 @@ namespace Manegment_Setting
 			this.listEventLogDataGridView.AllowUserToAddRows = false;
 			this.listEventLogDataGridView.AllowUserToDeleteRows = false;
 			dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(203)))), ((int)(((byte)(232)))));
+			dataGridViewCellStyle1.Font = new System.Drawing.Font("IRANSansFaNum", 8F);
 			this.listEventLogDataGridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
 			this.listEventLogDataGridView.AutoGenerateColumns = false;
 			this.listEventLogDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
 			this.listEventLogDataGridView.BackgroundColor = System.Drawing.Color.White;
 			this.listEventLogDataGridView.BorderStyle = System.Windows.Forms.BorderStyle.None;
-			this.listEventLogDataGridView.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+			this.listEventLogDataGridView.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
 			this.listEventLogDataGridView.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
 			dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
 			dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(81)))), ((int)(((byte)(181)))));
@@ -203,7 +204,7 @@ namespace Manegment_Setting
 			this.listEventLogDataGridView.TabIndex = 3;
 			this.listEventLogDataGridView.Theme = Guna.UI2.WinForms.Enums.DataGridViewPresetThemes.Indigo;
 			this.listEventLogDataGridView.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(203)))), ((int)(((byte)(232)))));
-			this.listEventLogDataGridView.ThemeStyle.AlternatingRowsStyle.Font = null;
+			this.listEventLogDataGridView.ThemeStyle.AlternatingRowsStyle.Font = new System.Drawing.Font("IRANSansFaNum", 8F);
 			this.listEventLogDataGridView.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty;
 			this.listEventLogDataGridView.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.Empty;
 			this.listEventLogDataGridView.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Empty;

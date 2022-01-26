@@ -57,6 +57,7 @@ namespace Manegment_Setting
 			this.listLogHistoryDataGridView.AllowUserToAddRows = false;
 			this.listLogHistoryDataGridView.AllowUserToDeleteRows = false;
 			dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(203)))), ((int)(((byte)(232)))));
+			dataGridViewCellStyle1.Font = new System.Drawing.Font("IRANSansFaNum", 8F);
 			this.listLogHistoryDataGridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
 			this.listLogHistoryDataGridView.AutoGenerateColumns = false;
 			this.listLogHistoryDataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
@@ -104,7 +105,7 @@ namespace Manegment_Setting
 			this.listLogHistoryDataGridView.TabIndex = 0;
 			this.listLogHistoryDataGridView.Theme = Guna.UI2.WinForms.Enums.DataGridViewPresetThemes.Indigo;
 			this.listLogHistoryDataGridView.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(203)))), ((int)(((byte)(232)))));
-			this.listLogHistoryDataGridView.ThemeStyle.AlternatingRowsStyle.Font = null;
+			this.listLogHistoryDataGridView.ThemeStyle.AlternatingRowsStyle.Font = new System.Drawing.Font("IRANSansFaNum", 8F);
 			this.listLogHistoryDataGridView.ThemeStyle.AlternatingRowsStyle.ForeColor = System.Drawing.Color.Empty;
 			this.listLogHistoryDataGridView.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = System.Drawing.Color.Empty;
 			this.listLogHistoryDataGridView.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = System.Drawing.Color.Empty;

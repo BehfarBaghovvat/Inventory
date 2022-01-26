@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 
 namespace Inventory_Forms
 {
@@ -54,6 +55,8 @@ namespace Inventory_Forms
 		#endregion /Classes
 
 		private int _previousRow = 1;
+
+		private bool _performEditing = false;
 
 
 		private Models.InventoryHolding _inventoryHolding;
@@ -165,62 +168,82 @@ namespace Inventory_Forms
 			{
 				ProductNew.Product_Id = (int)inventoryHoldingDataGridView.CurrentRow.Cells[0].Value;
 
-				if (e.ColumnIndex == 8 && e.RowIndex >= 0)
-				{
-					ProductNew.Product_Image = (byte[])inventoryHoldingDataGridView.CurrentRow.Cells[8].Value;
-					ProductOld.Product_Image = (byte[])inventoryHoldingDataGridView.CurrentRow.Cells[8].Value;
+				ProductNew.Product_Name = inventoryHoldingDataGridView.CurrentRow.Cells[1].Value.ToString();
+				ProductOld.Product_Name = inventoryHoldingDataGridView.CurrentRow.Cells[1].Value.ToString();
 
-					System.Windows.Forms.OpenFileDialog openFileDialog =
-						new System.Windows.Forms.OpenFileDialog
-						{
-							Filter = "JPG (*.jpg)|*.jpg|" +
-							"PNG (*.png)|*.png|" +
-							"BMP (*.bmp)|*.bmp",
-							Title = "Load product picture ",
-						};
+				ProductNew.Product_Quantity = (int)inventoryHoldingDataGridView.CurrentRow.Cells[2].Value;
+				ProductOld.Product_Quantity = (int)inventoryHoldingDataGridView.CurrentRow.Cells[2].Value;
 
-					if (openFileDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
-					{
-						inventoryHoldingDataGridView.CurrentRow.Cells[8].Value =
-							System.Drawing.Image.FromFile(openFileDialog.FileName);
+				ProductNew.Product_Unit = inventoryHoldingDataGridView.CurrentRow.Cells[3].Value.ToString();
+				ProductOld.Product_Unit = inventoryHoldingDataGridView.CurrentRow.Cells[3].Value.ToString();
 
-						ProductNew.Product_Image = System.IO.File.ReadAllBytes(openFileDialog.FileName);
-					}
-					else
-					{
-						return;
-					}
-				}
+				ProductNew.Product_Purchase_Price = inventoryHoldingDataGridView.CurrentRow.Cells[4].Value.ToString();
+				ProductOld.Product_Purchase_Price = inventoryHoldingDataGridView.CurrentRow.Cells[4].Value.ToString();
 
-				if (e.ColumnIndex == 1 && e.RowIndex >= 0)
-				{
-					ProductNew.Product_Name = inventoryHoldingDataGridView.CurrentRow.Cells[1].Value.ToString();
-					ProductOld.Product_Name = inventoryHoldingDataGridView.CurrentRow.Cells[1].Value.ToString();
-				}
+				ProductNew.Product_Sale_Price = inventoryHoldingDataGridView.CurrentRow.Cells[5].Value.ToString();
+				ProductOld.Product_Sale_Price = inventoryHoldingDataGridView.CurrentRow.Cells[5].Value.ToString();
 
-				if (e.ColumnIndex == 2 && e.RowIndex >= 0)
-				{
-					ProductNew.Product_Quantity = (int)inventoryHoldingDataGridView.CurrentRow.Cells[2].Value;
-					ProductOld.Product_Quantity = (int)inventoryHoldingDataGridView.CurrentRow.Cells[2].Value;
-				}
+				ProductNew.Product_Image = (byte[])inventoryHoldingDataGridView.CurrentRow.Cells[8].Value;
+				ProductOld.Product_Image = (byte[])inventoryHoldingDataGridView.CurrentRow.Cells[8].Value;				
 
-				if (e.ColumnIndex == 3 && e.RowIndex >= 0)
-				{
-					ProductNew.Product_Unit = inventoryHoldingDataGridView.CurrentRow.Cells[3].Value.ToString();
-					ProductOld.Product_Unit = inventoryHoldingDataGridView.CurrentRow.Cells[3].Value.ToString();
-				}
+				#region MyRegion
+				//if (e.ColumnIndex == 8 && e.RowIndex >= 0)
+				//{
+				//	ProductNew.Product_Image = (byte[])inventoryHoldingDataGridView.CurrentRow.Cells[8].Value;
+				//	ProductOld.Product_Image = (byte[])inventoryHoldingDataGridView.CurrentRow.Cells[8].Value;
 
-				if (e.ColumnIndex == 4 && e.RowIndex >= 0)
-				{
-					ProductNew.Product_Purchase_Price = inventoryHoldingDataGridView.CurrentRow.Cells[4].Value.ToString();
-					ProductOld.Product_Purchase_Price = inventoryHoldingDataGridView.CurrentRow.Cells[4].Value.ToString();
-				}
+				//	System.Windows.Forms.OpenFileDialog openFileDialog =
+				//		new System.Windows.Forms.OpenFileDialog
+				//		{
+				//			Filter = "JPG (*.jpg)|*.jpg|" +
+				//			"PNG (*.png)|*.png|" +
+				//			"BMP (*.bmp)|*.bmp",
+				//			Title = "Load product picture ",
+				//		};
 
-				if (e.ColumnIndex == 5 && e.RowIndex >= 0)
-				{
-					ProductNew.Product_Sale_Price = inventoryHoldingDataGridView.CurrentRow.Cells[5].Value.ToString();
-					ProductOld.Product_Sale_Price = inventoryHoldingDataGridView.CurrentRow.Cells[5].Value.ToString();
-				}
+				//	if (openFileDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+				//	{
+				//		inventoryHoldingDataGridView.CurrentRow.Cells[8].Value =
+				//			System.Drawing.Image.FromFile(openFileDialog.FileName);
+
+				//		ProductNew.Product_Image = System.IO.File.ReadAllBytes(openFileDialog.FileName);
+				//	}
+				//	else
+				//	{
+				//		return;
+				//	}
+				//}
+
+				//if (e.ColumnIndex == 1 && e.RowIndex >= 0)
+				//{
+				//	ProductNew.Product_Name = inventoryHoldingDataGridView.CurrentRow.Cells[1].Value.ToString();
+				//	ProductOld.Product_Name = inventoryHoldingDataGridView.CurrentRow.Cells[1].Value.ToString();
+				//}
+
+				//if (e.ColumnIndex == 2 && e.RowIndex >= 0)
+				//{
+				//	ProductNew.Product_Quantity = (int)inventoryHoldingDataGridView.CurrentRow.Cells[2].Value;
+				//	ProductOld.Product_Quantity = (int)inventoryHoldingDataGridView.CurrentRow.Cells[2].Value;
+				//}
+
+				//if (e.ColumnIndex == 3 && e.RowIndex >= 0)
+				//{
+				//	ProductNew.Product_Unit = inventoryHoldingDataGridView.CurrentRow.Cells[3].Value.ToString();
+				//	ProductOld.Product_Unit = inventoryHoldingDataGridView.CurrentRow.Cells[3].Value.ToString();
+				//}
+
+				//if (e.ColumnIndex == 4 && e.RowIndex >= 0)
+				//{
+				//	ProductNew.Product_Purchase_Price = inventoryHoldingDataGridView.CurrentRow.Cells[4].Value.ToString();
+				//	ProductOld.Product_Purchase_Price = inventoryHoldingDataGridView.CurrentRow.Cells[4].Value.ToString();
+				//}
+
+				//if (e.ColumnIndex == 5 && e.RowIndex >= 0)
+				//{
+				//	ProductNew.Product_Sale_Price = inventoryHoldingDataGridView.CurrentRow.Cells[5].Value.ToString();
+				//	ProductOld.Product_Sale_Price = inventoryHoldingDataGridView.CurrentRow.Cells[5].Value.ToString();
+				//} 
+				#endregion
 			}
 			catch (System.Exception ex)
 			{
@@ -232,16 +255,41 @@ namespace Inventory_Forms
 		#region InventoryHoldingDataGridView_CellDoubleClick
 		private void InventoryHoldingDataGridView_CellDoubleClick(object sender, System.Windows.Forms.DataGridViewCellEventArgs e)
 		{
-			if (((e.ColumnIndex >= 1 && e.ColumnIndex <= 5) && e.RowIndex >= 0) || (e.ColumnIndex == 8 && e.RowIndex >= 0))
+			if (((e.ColumnIndex >= 1 && e.ColumnIndex <= 5) && e.RowIndex >= 0))
 			{
 				inventoryHoldingDataGridView.CurrentCell.ReadOnly = false;
-				return;
 			}
 			else
 			{
 				inventoryHoldingDataGridView.CurrentCell.ReadOnly = true;
-				return;
 			}
+
+			if (e.ColumnIndex == 8 && e.RowIndex >= 0)
+			{
+				inventoryHoldingDataGridView.CurrentCell.ReadOnly = false;
+
+				System.Windows.Forms.OpenFileDialog openFileDialog =
+					new System.Windows.Forms.OpenFileDialog
+					{
+						Filter = "JPG (*.jpg)|*.jpg|" +
+						"PNG (*.png)|*.png|" +
+						"BMP (*.bmp)|*.bmp",
+						Title = "Load product picture ",
+					};
+
+				if (openFileDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+				{
+					inventoryHoldingDataGridView.CurrentRow.Cells[8].Value =
+						System.Drawing.Image.FromFile(openFileDialog.FileName);
+
+					ProductNew.Product_Image = System.IO.File.ReadAllBytes(openFileDialog.FileName);
+				}
+				else
+				{
+					return;
+				}
+			}
+
 		}
 		#endregion /InventoryHoldingDataGridView_CellDoubleClick
 
@@ -255,14 +303,17 @@ namespace Inventory_Forms
 				if (e.ColumnIndex == 1 && e.RowIndex >= 0)
 				{
 					ProductNew.Product_Name = inventoryHoldingDataGridView.CurrentRow.Cells[e.ColumnIndex].Value.ToString();
+					_performEditing = true;
 				}
 				else if (e.ColumnIndex == 2 && e.RowIndex >= 0)
 				{
 					ProductNew.Product_Quantity = (int)inventoryHoldingDataGridView.CurrentRow.Cells[e.ColumnIndex].Value;
+					_performEditing = true;
 				}
 				else if (e.ColumnIndex == 3 && e.RowIndex >= 0)
 				{
-					ProductNew.Product_Unit = inventoryHoldingDataGridView.CurrentRow.Cells[3].Value.ToString();
+					ProductNew.Product_Unit = inventoryHoldingDataGridView.CurrentRow.Cells[e.ColumnIndex].Value.ToString();
+					_performEditing = true;
 				}
 				else if (e.ColumnIndex == 4 && e.RowIndex >= 0)
 				{
@@ -272,6 +323,8 @@ namespace Inventory_Forms
 					inventoryHoldingDataGridView.CurrentRow.Cells[e.ColumnIndex].Value = $"{_productPurchasePrice:#,0} تومان";
 
 					ProductNew.Product_Purchase_Price = $"{_productPurchasePrice:#,0} تومان";
+
+					_performEditing = true;
 				}
 				else if (e.ColumnIndex == 5 && e.RowIndex >= 0)
 				{
@@ -280,10 +333,19 @@ namespace Inventory_Forms
 
 					inventoryHoldingDataGridView.CurrentRow.Cells[5].Value = $"{_productSalePrice:#,0} تومان";
 					ProductNew.Product_Sale_Price = $"{_productSalePrice:#,0} تومان";
+
+					_performEditing = true;
+				}
+				else if (e.ColumnIndex == 8 && e.RowIndex >= 0)
+				{
+					ProductNew.Product_Image = (byte[])inventoryHoldingDataGridView.CurrentRow.Cells[8].Value;
+					_performEditing = true;
 				}
 			}
 			else
 			{
+				_performEditing = false;
+
 				return;
 			}
 		}
@@ -317,14 +379,23 @@ namespace Inventory_Forms
 		#region ShowImageToolStripMenuItem_Click
 		private void ShowImageToolStripMenuItem_Click(object sender, System.EventArgs e)
 		{
-			byte[] product_Image = (byte[])inventoryHoldingDataGridView.CurrentRow.Cells[8].Value;
+			if (inventoryHoldingDataGridView.CurrentRow.Cells[8].Value == null)
+			{
+				ViewProducrImageForm viewProducrImageForm = new ViewProducrImageForm(null);
 
-			System.IO.MemoryStream ms = new System.IO.MemoryStream(product_Image);
+				viewProducrImageForm.ShowDialog();
+			}
+			else
+			{
+				byte[] product_Image = (byte[])inventoryHoldingDataGridView.CurrentRow.Cells[8].Value;
+				System.IO.MemoryStream ms = new System.IO.MemoryStream(product_Image);
 
-			//----برای بار گزاری تصویر
-			ViewProducrImageForm viewProducrImageForm = new ViewProducrImageForm(System.Drawing.Image.FromStream(ms));
+				//----برای بار گزاری تصویر
+				ViewProducrImageForm viewProducrImageForm = new ViewProducrImageForm(System.Drawing.Image.FromStream(ms));
 
-			viewProducrImageForm.ShowDialog();
+				viewProducrImageForm.ShowDialog();
+			}
+			
 		}
 		#endregion /ShowImageToolStripMenuItem_Click
 
@@ -346,100 +417,107 @@ namespace Inventory_Forms
 				dataBaseContext =
 					new Models.DataBaseContext();
 
-				#region -----------------------------------------------     Edit Inventory Holding
-				Models.InventoryHolding inventoryHolding =
-							dataBaseContext.InventoryHoldings
-							.Where(current => current.Id == _inventoryItemNew.Product_Id)
-							.FirstOrDefault();
-
-				if (inventoryHolding != null) //یعنی اگر رکورد در دیتابیس موجود بود
+				if (_performEditing)
 				{
-					if (!_inventoryItemNew.Product_Image.Equals(_inventoryItemOld.Product_Image)) // اگر تصویر محصول تغییر داشت، تصویر جدید جایگزین گردد.
-					{
-						inventoryHolding.Product_Image = _inventoryItemNew.Product_Image;
-					}
+					#region -----------------------------------------------     Edit Inventory Holding
+					Models.InventoryHolding inventoryHolding =
+								dataBaseContext.InventoryHoldings
+								.Where(current => current.Id == _inventoryItemNew.Product_Id)
+								.FirstOrDefault();
 
-					if (!_inventoryItemNew.Product_Name.Equals(_inventoryItemOld.Product_Name)) // اگر نام محصول تغییر داشت، نام جدید محصول جایگزین گردد.
+					if (inventoryHolding != null) //یعنی اگر رکورد در دیتابیس موجود بود
 					{
-						inventoryHolding.Product_Name = _inventoryItemNew.Product_Name;
-					}
+						if (!_inventoryItemNew.Product_Image.Equals(null)) // اگر تصویر محصول تغییر داشت، تصویر جدید جایگزین گردد.
+						{
+							inventoryHolding.Product_Image = _inventoryItemNew.Product_Image;
+						}
 
-					if (!_inventoryItemNew.Product_Purchase_Price.Equals(_inventoryItemOld.Product_Purchase_Price)) // اگر قیمت خرید محصول تغییر داشت، قیمت جایگزین گردد
-					{
-						inventoryHolding.Product_Purchase_Price = _inventoryItemNew.Product_Purchase_Price;
-					}
+						if (!_inventoryItemNew.Product_Name.Equals(_inventoryItemOld.Product_Name)) // اگر نام محصول تغییر داشت، نام جدید محصول جایگزین گردد.
+						{
+							inventoryHolding.Product_Name = _inventoryItemNew.Product_Name;
+						}
 
-					if (!_inventoryItemNew.Product_Quantity.Equals(_inventoryItemOld.Product_Quantity)) // اگر تعداد محصول تغییر داشت، تعداد جدید جایگزین گردد
-					{
-						inventoryHolding.Product_Quantity = _inventoryItemNew.Product_Quantity;
-					}
+						if (!_inventoryItemNew.Product_Purchase_Price.Equals(_inventoryItemOld.Product_Purchase_Price)) // اگر قیمت خرید محصول تغییر داشت، قیمت جایگزین گردد
+						{
+							inventoryHolding.Product_Purchase_Price = _inventoryItemNew.Product_Purchase_Price;
+						}
 
-					if (!_inventoryItemNew.Product_Sale_Price.Equals(_inventoryItemOld.Product_Sale_Price)) // اگر قیمت فروش کالا تغییر داشت، قمیت جدید جایگزین گردد.
-					{
-						inventoryHolding.Product_Sale_Price = _inventoryItemNew.Product_Sale_Price;
-					}
+						if (!_inventoryItemNew.Product_Quantity.Equals(_inventoryItemOld.Product_Quantity)) // اگر تعداد محصول تغییر داشت، تعداد جدید جایگزین گردد
+						{
+							inventoryHolding.Product_Quantity = _inventoryItemNew.Product_Quantity;
+						}
 
-					if (!_inventoryItemNew.Product_Unit.Equals(_inventoryItemOld.Product_Unit)) // اگر واحد کالا تغییر داشت، واحد جدید جایگزین گردد.
-					{
-						inventoryHolding.Product_Unit = _inventoryItemNew.Product_Unit;
+						if (!_inventoryItemNew.Product_Sale_Price.Equals(_inventoryItemOld.Product_Sale_Price)) // اگر قیمت فروش کالا تغییر داشت، قمیت جدید جایگزین گردد.
+						{
+							inventoryHolding.Product_Sale_Price = _inventoryItemNew.Product_Sale_Price;
+						}
+
+						if (!_inventoryItemNew.Product_Unit.Equals(_inventoryItemOld.Product_Unit)) // اگر واحد کالا تغییر داشت، واحد جدید جایگزین گردد.
+						{
+							inventoryHolding.Product_Unit = _inventoryItemNew.Product_Unit;
+						}
 					}
+					dataBaseContext.SaveChanges();
+					#endregion -----------------------------------------------     Edit Inventory Holding
+
+					#region -----------------------------------------------     Edit Product Recive
+
+					Models.ProductReceived productReceived =
+						dataBaseContext.ProductReceiveds
+						.Where(current => current.Id == _inventoryItemNew.Product_Id)
+						.FirstOrDefault();
+
+					if (productReceived != null)
+					{
+						if (!_inventoryItemNew.Product_Image.Equals(null)) // اگر تصویر محصول تغییر داشت، تصویر جدید جایگزین گردد.
+						{
+							productReceived.Product_Image = _inventoryItemNew.Product_Image;
+						}
+
+						if (!_inventoryItemNew.Product_Name.Equals(ProductOld.Product_Name)) // اگر نام محصول تغییر داشت، نام جدید محصول جایگزین گردد.
+						{
+							productReceived.Product_Name = _inventoryItemNew.Product_Name;
+						}
+
+						if (!_inventoryItemNew.Product_Purchase_Price.Equals(ProductOld.Product_Purchase_Price)) // اگر قیمت خرید محصول تغییر داشت، قیمت جایگزین گردد
+						{
+							productReceived.Product_Purchase_Price = _inventoryItemNew.Product_Purchase_Price;
+						}
+
+						if (!_inventoryItemNew.Product_Quantity.Equals(ProductOld.Product_Quantity)) // اگر تعداد محصول تغییر داشت، تعداد جدید جایگزین گردد
+						{
+							productReceived.Product_Quantity = _inventoryItemNew.Product_Quantity;
+						}
+
+						if (!_inventoryItemNew.Product_Sale_Price.Equals(ProductOld.Product_Sale_Price)) // اگر قیمت فروش کالا تغییر داشت، قمیت جدید جایگزین گردد.
+						{
+							productReceived.Product_Sale_Price = _inventoryItemNew.Product_Sale_Price;
+						}
+
+						if (!_inventoryItemNew.Product_Unit.Equals(ProductOld.Product_Unit)) // اگر واحد کالا تغییر داشت، واحد جدید جایگزین گردد.
+						{
+							productReceived.Product_Unit = _inventoryItemNew.Product_Unit;
+						}
+
+						productReceived.Number_Edit++;
+						productReceived.Last_Edited_Date = $"{Infrastructure.Utility.PersianCalendar(dateTime: System.DateTime.Now)}";
+						productReceived.Last_Edited_Time = $"{Infrastructure.Utility.ShowTime()}";
+					}
+					dataBaseContext.SaveChanges();
+					#endregion -----------------------------------------------     Edit Product Recive
+
+					Inventory.Program.MainForm.GetCapitalFund();
+					Inventory.Program.MainForm.GetNon_CashCapital();
+					Inventory.Program.MainForm.GetTotalCapital();
+
+					Infrastructure.Utility.WindowsNotification(message: $"رکورد شماره {ProductNew.Product_Id} به روز رسانی شد.", caption: Infrastructure.PopupNotificationForm.Caption.موفقیت);
+
+					VariableDischarge();
 				}
-				dataBaseContext.SaveChanges();
-				#endregion -----------------------------------------------     Edit Inventory Holding
-
-				#region -----------------------------------------------     Edit Product Recive
-
-				Models.ProductReceived productReceived =
-					dataBaseContext.ProductReceiveds
-					.Where(current => current.Id == _inventoryItemNew.Product_Id)
-					.FirstOrDefault();
-
-				if (productReceived != null)
+				else
 				{
-					if (!_inventoryItemNew.Product_Image.Equals(ProductOld.Product_Image)) // اگر تصویر محصول تغییر داشت، تصویر جدید جایگزین گردد.
-					{
-						productReceived.Product_Image = _inventoryItemNew.Product_Image;
-					}
-
-					if (!_inventoryItemNew.Product_Name.Equals(ProductOld.Product_Name)) // اگر نام محصول تغییر داشت، نام جدید محصول جایگزین گردد.
-					{
-						productReceived.Product_Name = _inventoryItemNew.Product_Name;
-					}
-
-					if (!_inventoryItemNew.Product_Purchase_Price.Equals(ProductOld.Product_Purchase_Price)) // اگر قیمت خرید محصول تغییر داشت، قیمت جایگزین گردد
-					{
-						productReceived.Product_Purchase_Price = _inventoryItemNew.Product_Purchase_Price;
-					}
-
-					if (!_inventoryItemNew.Product_Quantity.Equals(ProductOld.Product_Quantity)) // اگر تعداد محصول تغییر داشت، تعداد جدید جایگزین گردد
-					{
-						productReceived.Product_Quantity = _inventoryItemNew.Product_Quantity;
-					}
-
-					if (!_inventoryItemNew.Product_Sale_Price.Equals(ProductOld.Product_Sale_Price)) // اگر قیمت فروش کالا تغییر داشت، قمیت جدید جایگزین گردد.
-					{
-						productReceived.Product_Sale_Price = _inventoryItemNew.Product_Sale_Price;
-					}
-
-					if (!_inventoryItemNew.Product_Unit.Equals(ProductOld.Product_Unit)) // اگر واحد کالا تغییر داشت، واحد جدید جایگزین گردد.
-					{
-						productReceived.Product_Unit = _inventoryItemNew.Product_Unit;
-					}
-
-					productReceived.Number_Edit++;
-					productReceived.Last_Edited_Date = $"{Infrastructure.Utility.PersianCalendar(dateTime: System.DateTime.Now)}";
-					productReceived.Last_Edited_Time = $"{Infrastructure.Utility.ShowTime()}";
+					return;
 				}
-				dataBaseContext.SaveChanges();
-				#endregion -----------------------------------------------     Edit Product Recive
-
-				Inventory.Program.MainForm.GetCapitalFund();
-				Inventory.Program.MainForm.GetNon_CashCapital();
-				Inventory.Program.MainForm.GetTotalCapital();
-
-
-				Infrastructure.Utility.WindowsNotification(message: $"رکورد شماره {ProductNew.Product_Id} به روز رسانی شد.", caption: Infrastructure.PopupNotificationForm.Caption.موفقیت);
-
 			}
 			catch (System.Exception ex)
 			{
@@ -495,6 +573,7 @@ namespace Inventory_Forms
 						}
 						else if (!_inventoryItemNew.Product_Name.Equals(_inventoryItemOld.Product_Name))
 						{
+
 							return true;
 						}
 						else if (!_inventoryItemNew.Product_Purchase_Price.Equals(_inventoryItemOld.Product_Purchase_Price))
@@ -538,23 +617,30 @@ namespace Inventory_Forms
 			Capital_Fund = Inventory.Program.MainForm.GetCapitalFund();
 			LoadedProduction();
 
-			ProductNew.Product_Name = inventoryHoldingDataGridView.CurrentRow.Cells[1].Value.ToString();
-			ProductOld.Product_Name = inventoryHoldingDataGridView.CurrentRow.Cells[1].Value.ToString();
+			if (inventoryHoldingDataGridView.Rows.Count >=1)
+			{
+				ProductNew.Product_Name = inventoryHoldingDataGridView.CurrentRow.Cells[1].Value.ToString();
+				ProductOld.Product_Name = inventoryHoldingDataGridView.CurrentRow.Cells[1].Value.ToString();
 
-			ProductNew.Product_Quantity = (int)inventoryHoldingDataGridView.CurrentRow.Cells[2].Value;
-			ProductOld.Product_Quantity = (int)inventoryHoldingDataGridView.CurrentRow.Cells[2].Value;
+				ProductNew.Product_Quantity = (int)inventoryHoldingDataGridView.CurrentRow.Cells[2].Value;
+				ProductOld.Product_Quantity = (int)inventoryHoldingDataGridView.CurrentRow.Cells[2].Value;
 
-			ProductNew.Product_Unit = inventoryHoldingDataGridView.CurrentRow.Cells[3].Value.ToString();
-			ProductOld.Product_Unit = inventoryHoldingDataGridView.CurrentRow.Cells[3].Value.ToString();
+				ProductNew.Product_Unit = inventoryHoldingDataGridView.CurrentRow.Cells[3].Value.ToString();
+				ProductOld.Product_Unit = inventoryHoldingDataGridView.CurrentRow.Cells[3].Value.ToString();
 
-			ProductNew.Product_Purchase_Price = inventoryHoldingDataGridView.CurrentRow.Cells[4].Value.ToString();
-			ProductOld.Product_Purchase_Price = inventoryHoldingDataGridView.CurrentRow.Cells[4].Value.ToString();
+				ProductNew.Product_Purchase_Price = inventoryHoldingDataGridView.CurrentRow.Cells[4].Value.ToString();
+				ProductOld.Product_Purchase_Price = inventoryHoldingDataGridView.CurrentRow.Cells[4].Value.ToString();
 
-			ProductNew.Product_Sale_Price = inventoryHoldingDataGridView.CurrentRow.Cells[5].Value.ToString();
-			ProductOld.Product_Sale_Price = inventoryHoldingDataGridView.CurrentRow.Cells[5].Value.ToString();
+				ProductNew.Product_Sale_Price = inventoryHoldingDataGridView.CurrentRow.Cells[5].Value.ToString();
+				ProductOld.Product_Sale_Price = inventoryHoldingDataGridView.CurrentRow.Cells[5].Value.ToString();
 
-			ProductNew.Product_Image = (byte[])inventoryHoldingDataGridView.CurrentRow.Cells[8].Value;
-			ProductOld.Product_Image = (byte[])inventoryHoldingDataGridView.CurrentRow.Cells[8].Value;
+				ProductNew.Product_Image = (byte[])inventoryHoldingDataGridView.CurrentRow.Cells[8].Value;
+				ProductOld.Product_Image = (byte[])inventoryHoldingDataGridView.CurrentRow.Cells[8].Value; 
+			}
+			else
+			{
+				return;
+			}
 		}
 		#endregion /Initialize
 
@@ -578,7 +664,14 @@ namespace Inventory_Forms
 					.OrderBy(currnet => currnet.Id)
 					.ToList();
 
-				inventoryHoldingDataGridView.DataSource = inventoryHoldings;
+				if (inventoryHoldings.Count == 0)
+				{
+					inventoryHoldingDataGridView.DataSource = null;
+				}
+				else
+				{
+					inventoryHoldingDataGridView.DataSource = inventoryHoldings;
+				}
 			}
 			catch (System.Exception ex)
 			{
@@ -640,6 +733,28 @@ namespace Inventory_Forms
 
 
 		#endregion /ProductNameSearch
+
+		#region VariableDischarge
+		/// <summary>
+		/// تخلیه کامل اطلاعات داخل متغییرها
+		/// </summary>
+		private void VariableDischarge()
+		{
+			ProductNew.Product_Image = null;
+			ProductNew.Product_Name = null;
+			ProductNew.Product_Purchase_Price = null;
+			ProductNew.Product_Quantity = null;
+			ProductNew.Product_Sale_Price = null;
+			ProductNew.Product_Unit = null;
+
+			ProductOld.Product_Image = null;
+			ProductOld.Product_Name = null;
+			ProductOld.Product_Purchase_Price = null;
+			ProductOld.Product_Quantity = null;
+			ProductOld.Product_Sale_Price = null;
+			ProductOld.Product_Unit = null;
+		}
+		#endregion /VariableDischarge
 
 		#endregion /Methods
 
